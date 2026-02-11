@@ -214,7 +214,7 @@ export default async function NewsletterPage({
               <p className="mt-2 text-xs text-zinc-500">No spam. Unsubscribe anytime.</p>
 
               {(feed.xProfileUrl || feed.instagramProfileUrl) && (
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-center">
                   {feed.xProfileUrl && (
                     <a
                       href={feed.xProfileUrl}
