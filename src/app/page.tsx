@@ -56,7 +56,7 @@ export default async function Home() {
                 />
                 <div className="text-base font-semibold tracking-tight md:text-lg">{feed.name}</div>
 
-                <div className="flex w-full max-w-xs flex-col items-center gap-2">
+                <div className="flex w-full max-w-xs flex-wrap items-center justify-center gap-2 sm:flex-nowrap">
                   <Link
                     href={`/${feed.slug}#subscribe`}
                     className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
@@ -69,7 +69,7 @@ export default async function Home() {
                       href={feed.xProfileUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
+                      className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
                     >
                       X
                     </Link>
@@ -79,7 +79,7 @@ export default async function Home() {
                       href={feed.instagramProfileUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
+                      className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
                     >
                       Instagram
                     </Link>
