@@ -208,7 +208,7 @@ export default async function NewsletterPage({
 
         <div id="subscribe" className="mt-14 rounded-3xl border border-zinc-200 bg-white p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-xl">
+            <div className="mx-auto max-w-xl text-center">
               <div className="text-sm font-semibold text-zinc-900">Subscribe</div>
               <p className="mt-2 text-sm text-zinc-600">Get {feed.name} in your inbox. Free.</p>
               <p className="mt-2 text-xs text-zinc-500">No spam. Unsubscribe anytime.</p>
