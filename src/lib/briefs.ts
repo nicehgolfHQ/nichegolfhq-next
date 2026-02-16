@@ -1,6 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+
+// Prefer build-time generated JSON (works reliably on Vercel).
+// Fallback to filesystem reads during local dev.
+import briefsData from "@/content/briefs.generated.json";
 
 export type BriefItem = {
   title: string;
@@ -16,12 +19,8 @@ export type DailyBrief = {
   items: BriefItem[];
 };
 
-// Use a path relative to this source file (stable across deploys/monorepos).
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// briefs.ts lives at: src/lib/briefs.ts
-// content lives at:  src/content/briefs
-const BRIEFS_DIR = path.join(__dirname, "..", "content", "briefs");
+// Filesystem fallback (local dev only).
+const BRIEFS_DIR = path.join(process.cwd(), "src", "content", "briefs");
 
 function safeReadDir(dir: string) {
   try {
@@ -95,6 +94,11 @@ function parseItems(body: string): BriefItem[] {
 }
 
 export function listBriefDates(): string[] {
+  const fromJson = (briefsData as any)?.briefs?.map((b: any) => b.date).filter(Boolean);
+  if (Array.isArray(fromJson) && fromJson.length > 0) {
+    return [...fromJson].sort((a, b) => (a < b ? 1 : -1));
+  }
+
   const files = safeReadDir(BRIEFS_DIR)
     .filter((f) => f.endsWith(".md"))
     .map((f) => f.replace(/\.md$/, ""))
@@ -106,6 +110,10 @@ export function listBriefDates(): string[] {
 
 export function loadBrief(date: string): DailyBrief | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+
+  const fromJson = (briefsData as any)?.briefs?.find((b: any) => b.date === date);
+  if (fromJson) return fromJson as DailyBrief;
+
   const filePath = path.join(BRIEFS_DIR, `${date}.md`);
   if (!fs.existsSync(filePath)) return null;
 

@@ -1,0 +1,52 @@
+{
+  "briefs": [
+    {
+      "date": "2026-02-16",
+      "title": "Daily Brief — Feb 16, 2026",
+      "items": [
+        {
+          "title": "Gasparilla Invitational week: Monday qualifier today; main event starts Thursday (Feb 19–21)",
+          "url": "https://gasparillainvitational.com/schedule/",
+          "source": "Gasparilla Invitational",
+          "why": "For mid-ams, the Monday qualifier is the cleanest access point—one round, earn it. And the official schedule/scoring hub is the reliable place to track pairings/results in-season without linking stale pages.",
+          "tags": [
+            "mid-am",
+            "qualifiers",
+            "invitationals"
+          ]
+        },
+        {
+          "title": "Gasparilla 2026 scoring hub (live scoring / pairings)",
+          "url": "https://pcgc-71stgasparillainvitational.golfgenius.com/pages/11889495109525324281",
+          "source": "GolfGenius",
+          "why": "This is the canonical live link for the week. We’ll use it for daily updates so readers aren’t bouncing through old “qualifier” pages from prior years.",
+          "tags": [
+            "mid-am",
+            "tournaments"
+          ]
+        },
+        {
+          "title": "AJGA Simplify Boys Championship at Carlton Woods: leaderboard live",
+          "url": "https://www.ajga.org/tournaments/2026004/leaderboard",
+          "source": "AJGA",
+          "why": "Carlton Woods is a legit “tell the truth” venue. Early-season juniors who handle this track tend to show up all spring.",
+          "tags": [
+            "juniors",
+            "AJGA",
+            "results"
+          ]
+        },
+        {
+          "title": "Senior competitive: Mallon leads Spring Classic winners at Aileron",
+          "url": "https://www.amateurgolf.com/golf-tournament-news/33901/Mallon-leads-Spring-Classic-winners-in-strong-week-at-Aileron",
+          "source": "AmateurGolf.com",
+          "why": "This is the senior version of early-season signal—steady scoring now usually means a strong run once the calendar fills up.",
+          "tags": [
+            "senior",
+            "results"
+          ]
+        }
+      ]
+    }
+  ]
+}
