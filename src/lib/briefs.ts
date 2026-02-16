@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 export type BriefItem = {
   title: string;
@@ -15,25 +16,12 @@ export type DailyBrief = {
   items: BriefItem[];
 };
 
-// In some deploy setups (monorepo / mis-detected root), process.cwd() may be the repo root
-// instead of the Next app root. So we search a small set of candidate locations.
-const BRIEFS_DIR_CANDIDATES = [
-  path.join(process.cwd(), "src", "content", "briefs"),
-  path.join(process.cwd(), "nichegolfhq-next", "src", "content", "briefs"),
-];
-
-function firstExistingDir(candidates: string[]) {
-  for (const dir of candidates) {
-    try {
-      if (fs.existsSync(dir)) return dir;
-    } catch {
-      // ignore
-    }
-  }
-  return candidates[0];
-}
-
-const BRIEFS_DIR = firstExistingDir(BRIEFS_DIR_CANDIDATES);
+// Use a path relative to this source file (stable across deploys/monorepos).
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// briefs.ts lives at: src/lib/briefs.ts
+// content lives at:  src/content/briefs
+const BRIEFS_DIR = path.join(__dirname, "..", "content", "briefs");
 
 function safeReadDir(dir: string) {
   try {
