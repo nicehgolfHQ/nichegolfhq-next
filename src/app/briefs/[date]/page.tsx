@@ -52,7 +52,6 @@ export default function BriefPage({ params }: { params: { date: string } }) {
                   </h1>
                   <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-zinc-600">
                     <span className="rounded-full border border-zinc-200 bg-white px-3 py-1">{brief.date}</span>
-                    <span className="rounded-full border border-zinc-200 bg-white px-3 py-1">{itemsCount} items</span>
                   </div>
                 </div>
 
