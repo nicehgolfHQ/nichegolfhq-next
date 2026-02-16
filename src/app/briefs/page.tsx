@@ -7,6 +7,24 @@ export const metadata = {
   description: "Daily brief: curated competitive amateur golf headlines across juniors, mid-am, and seniors.",
 };
 
+function ordinal(n: number) {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return "st";
+  if (mod10 === 2 && mod100 !== 12) return "nd";
+  if (mod10 === 3 && mod100 !== 13) return "rd";
+  return "th";
+}
+
+function formatBriefDate(date: string) {
+  // date: YYYY-MM-DD
+  const [y, m, d] = date.split("-").map((x) => Number(x));
+  if (!y || !m || !d) return date;
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  const month = dt.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+  return `${month} ${d}${ordinal(d)}, ${y}`;
+}
+
 export default function BriefsIndexPage() {
   const briefs = loadLatestBriefs(60);
 
@@ -27,9 +45,11 @@ export default function BriefsIndexPage() {
               <Link
                 key={b.date}
                 href={`/briefs/${b.date}`}
-                className="block rounded-2xl border border-zinc-200 bg-white p-5 hover:border-zinc-300"
+                className="block rounded-2xl border border-zinc-200 bg-white p-6 text-center hover:border-zinc-300"
               >
-                <div className="text-base font-medium text-zinc-950">{b.date}</div>
+                <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950 sm:text-2xl">
+                  {formatBriefDate(b.date)}
+                </div>
               </Link>
             ))
           )}
