@@ -33,10 +33,6 @@ export default async function Home() {
             <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
               Overlooked stories. Sharp opinions. Zero fluff.
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-600">
-              nichegolfHQ covers the corners of competitive amateur golf the mainstream ignores — with dedicated junior,
-              mid-am, and senior amateur coverage across our channels.
-            </p>
           </div>
         </div>
 
