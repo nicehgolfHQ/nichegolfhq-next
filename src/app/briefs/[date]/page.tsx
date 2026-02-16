@@ -40,13 +40,15 @@ export default function BriefPage({ params }: { params: { date: string } }) {
           <div className="relative px-6 py-6 sm:px-10">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
             <div className="relative text-center">
-              <Link
-                href="/briefs"
-                className="inline-flex items-center justify-center gap-2 text-sm text-zinc-600 hover:text-zinc-900"
-              >
-                <span aria-hidden>←</span>
-                <span>All briefs</span>
-              </Link>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-zinc-600">
+                <Link href="/briefs" className="inline-flex items-center justify-center gap-2 hover:text-zinc-900">
+                  <span aria-hidden>←</span>
+                  <span>All briefs</span>
+                </Link>
+                <Link href="/briefs/weeks" className="underline-offset-4 hover:underline hover:text-zinc-900">
+                  Weekly archive
+                </Link>
+              </div>
 
               {/* Single-line title */}
               <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
