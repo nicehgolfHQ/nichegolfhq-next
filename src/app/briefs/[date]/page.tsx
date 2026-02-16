@@ -45,9 +45,6 @@ export default function BriefPage({ params }: { params: { date: string } }) {
                   <span aria-hidden>←</span>
                   <span>All briefs</span>
                 </Link>
-                <Link href="/briefs/weeks" className="underline-offset-4 hover:underline hover:text-zinc-900">
-                  Weekly archive
-                </Link>
               </div>
 
               {/* Single-line title */}
