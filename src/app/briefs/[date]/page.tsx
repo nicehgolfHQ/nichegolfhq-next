@@ -2,11 +2,9 @@ import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
 import { listBriefDates, loadBrief } from "@/lib/briefs";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return listBriefDates().map((date) => ({ date }));
-}
+// Dynamic SSR so we don't keep serving a pre-rendered fallback when new briefs are added.
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const brief = loadBrief(params.date);
