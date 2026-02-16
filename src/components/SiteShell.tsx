@@ -66,26 +66,43 @@ export function SiteShell({
 
                   <div className="my-2 border-t border-zinc-200" />
 
-                  <Link href="/sponsors" className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50">
-                    sponsor
-                  </Link>
                   <Link
                     href="/briefs"
-                    className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
+                    className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
                   >
                     briefs
                   </Link>
-                  <Link
-                    href="https://midamgolfhq.myshopify.com/?utm_source=shop_app"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
-                  >
-                    shop
-                  </Link>
-                  <Link href="/contact" className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50">
-                    contact us
-                  </Link>
+
+                  <div className="my-2 border-t border-zinc-200" />
+
+                  <details className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50">
+                      <span>more</span>
+                      <span className="text-zinc-400">▾</span>
+                    </summary>
+                    <div className="mt-1 space-y-1 pl-2">
+                      <Link
+                        href="/sponsors"
+                        className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
+                      >
+                        sponsor
+                      </Link>
+                      <Link
+                        href="https://midamgolfhq.myshopify.com/?utm_source=shop_app"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
+                      >
+                        shop
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
+                      >
+                        contact us
+                      </Link>
+                    </div>
+                  </details>
                 </div>
               </div>
             </details>
