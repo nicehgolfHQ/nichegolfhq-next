@@ -5,6 +5,8 @@ import { SiteShell } from "@/components/SiteShell";
 import { IssueCard } from "@/components/IssueCard";
 import { FEEDS } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
+import { loadLatestBriefs } from "@/lib/briefs";
+import { formatLongDate } from "@/lib/briefsDates";
 
 export const metadata: Metadata = {
   alternates: {
@@ -17,10 +19,13 @@ export default async function Home() {
     FEEDS.map(async (f) => ({ feed: f, items: await fetchFeedItems(f.rssUrl, 1) }))
   );
 
+  const latestBrief = loadLatestBriefs(1)[0] ?? null;
+  const briefPreviewItems = latestBrief?.items?.slice(0, 3) ?? [];
+
   return (
     <SiteShell>
-      <section className="mx-auto w-full max-w-6xl px-5 py-16 text-center">
-        <div className="grid grid-cols-1 gap-10">
+      <section className="mx-auto w-full max-w-6xl px-5 py-16">
+        <div className="grid grid-cols-1 gap-10 text-center">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">
               Competitive golf beyond the mainstream
@@ -29,12 +34,54 @@ export default async function Home() {
               Overlooked stories. Sharp opinions. Zero fluff.
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-zinc-600">
-              nichegolfHQ covers the corners of competitive amateur golf the mainstream ignores - with dedicated junior,
+              nichegolfHQ covers the corners of competitive amateur golf the mainstream ignores — with dedicated junior,
               mid-am, and senior amateur coverage across our channels.
             </p>
-            {/* buttons removed */}
           </div>
         </div>
+
+        {/* Brief of the Day */}
+        {latestBrief ? (
+          <div className="mx-auto mt-10 w-full max-w-4xl">
+            <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+              <div className="relative px-6 py-8 sm:px-10">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
+                <div className="relative text-center">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Brief of the day</div>
+                  <div className="mt-3 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+                    {formatLongDate(latestBrief.date)}
+                  </div>
+
+                  {briefPreviewItems.length ? (
+                    <div className="mx-auto mt-6 max-w-2xl space-y-3 text-left">
+                      {briefPreviewItems.map((it) => (
+                        <div key={it.url} className="rounded-2xl border border-zinc-200 bg-white/70 p-4">
+                          <div className="text-xs font-medium text-zinc-500">{it.source}</div>
+                          <div className="mt-1 text-sm font-semibold text-zinc-950">{it.title}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+                    <Link
+                      href={`/briefs/${latestBrief.date}`}
+                      className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800"
+                    >
+                      Read today’s brief
+                    </Link>
+                    <Link
+                      href="/briefs/weeks"
+                      className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
+                    >
+                      Weekly archive
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </section>
 
       <section id="latest" className="mx-auto w-full max-w-6xl px-5 pb-20">
