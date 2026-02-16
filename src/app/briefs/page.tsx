@@ -15,9 +15,6 @@ export default function BriefsIndexPage() {
       <div className="mx-auto w-full max-w-3xl px-5 py-10">
         <div className="mb-6">
           <h1 className="text-3xl font-semibold tracking-tight text-zinc-950">Daily Briefs</h1>
-          <p className="mt-2 text-zinc-700">
-            A short daily feed of the most relevant competitive amateur golf headlines (with our take).
-          </p>
         </div>
 
         <div className="space-y-3">
