@@ -93,8 +93,15 @@ function parseItems(body: string): BriefItem[] {
   return items;
 }
 
+function getGeneratedBriefs(): any[] | null {
+  const raw: any = briefsData as any;
+  const briefs = raw?.briefs ?? raw?.default?.briefs;
+  return Array.isArray(briefs) ? briefs : null;
+}
+
 export function listBriefDates(): string[] {
-  const fromJson = (briefsData as any)?.briefs?.map((b: any) => b.date).filter(Boolean);
+  const briefs = getGeneratedBriefs();
+  const fromJson = briefs?.map((b: any) => b.date).filter(Boolean);
   if (Array.isArray(fromJson) && fromJson.length > 0) {
     return [...fromJson].sort((a, b) => (a < b ? 1 : -1));
   }
@@ -111,7 +118,8 @@ export function listBriefDates(): string[] {
 export function loadBrief(date: string): DailyBrief | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
 
-  const fromJson = (briefsData as any)?.briefs?.find((b: any) => b.date === date);
+  const briefs = getGeneratedBriefs();
+  const fromJson = briefs?.find((b: any) => b.date === date);
   if (fromJson) return fromJson as DailyBrief;
 
   const filePath = path.join(BRIEFS_DIR, `${date}.md`);
