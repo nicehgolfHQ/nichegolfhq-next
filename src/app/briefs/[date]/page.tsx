@@ -32,8 +32,28 @@ export default function BriefPage({ params }: { params: { date: string } }) {
 
   const displayDate = brief.title.replace(/^Daily Brief\s+—\s+/i, "");
 
+  // Minimal structured data for LLM / crawler friendliness (no visual impact)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: brief.title,
+    datePublished: `${brief.date}T09:00:00-05:00`,
+    dateModified: `${brief.date}T09:00:00-05:00`,
+    mainEntityOfPage: `https://www.nichegolfhq.com/briefs/${brief.date}`,
+    author: { "@type": "Organization", name: "nichegolfHQ" },
+    publisher: {
+      "@type": "Organization",
+      name: "nichegolfHQ",
+      logo: { "@type": "ImageObject", url: "https://www.nichegolfhq.com/brand/nichegolfhq/icon.png" },
+    },
+    description: `Daily Brief: ${brief.items.length} items`,
+  };
+
   return (
     <SiteShell>
+      {/* JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="mx-auto w-full max-w-4xl px-5 py-10">
         {/* Header */}
         <div className="mb-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
