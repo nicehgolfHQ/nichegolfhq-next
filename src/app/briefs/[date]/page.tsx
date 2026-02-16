@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
-import { loadBrief } from "@/lib/briefs";
+import { loadBrief, listBriefDates } from "@/lib/briefs";
 
-// Force server rendering so new briefs go live immediately after deploy
-// (and so we don't depend on build-time static param generation).
-export const dynamic = "force-dynamic";
+export function generateStaticParams() {
+  return listBriefDates().map((date) => ({ date }));
+}
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const brief = loadBrief(params.date);
