@@ -43,7 +43,10 @@ export default async function Home() {
         {/* Brief of the Day */}
         {latestBrief ? (
           <div className="mx-auto mt-10 w-full max-w-4xl">
-            <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+            <Link
+              href={`/briefs/${latestBrief.date}`}
+              className="block overflow-hidden rounded-3xl border border-zinc-200 bg-white transition hover:border-zinc-300"
+            >
               <div className="relative px-6 py-8 sm:px-10">
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
                 <div className="relative text-center">
@@ -51,34 +54,17 @@ export default async function Home() {
                   <div className="mt-3 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
                     {formatLongDate(latestBrief.date)}
                   </div>
-
-                  {briefPreviewItems.length ? (
-                    <div className="mx-auto mt-6 max-w-2xl space-y-3 text-center">
-                      {briefPreviewItems.map((it) => (
-                        <div key={it.url} className="rounded-2xl border border-zinc-200 bg-white/70 p-4">
-                          <div className="text-xs font-medium text-zinc-500">{it.source}</div>
-                          <div className="mx-auto mt-1 max-w-xl text-sm font-semibold text-zinc-950">{it.title}</div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
-
-                  <div className="mt-7 flex flex-wrap items-center justify-center gap-3 text-center">
-                    <Link
-                      href={`/briefs/${latestBrief.date}`}
-                      className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800"
-                    >
-                      Read today’s brief
-                    </Link>
-                    <Link
-                      href="/briefs/weeks"
-                      className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
-                    >
-                      Weekly archive
-                    </Link>
+                  <div className="mt-4 text-sm font-medium text-zinc-700">
+                    Open today’s brief →
                   </div>
                 </div>
               </div>
+            </Link>
+
+            <div className="mt-4 text-center">
+              <Link href="/briefs/weeks" className="text-sm text-zinc-700 underline-offset-4 hover:underline">
+                Weekly archive
+              </Link>
             </div>
           </div>
         ) : null}
