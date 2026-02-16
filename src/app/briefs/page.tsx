@@ -13,7 +13,7 @@ export default function BriefsIndexPage() {
   return (
     <SiteShell>
       <div className="mx-auto w-full max-w-3xl px-5 py-10">
-        <div className="mb-6">
+        <div className="mb-8 text-center">
           <h1 className="text-3xl font-semibold tracking-tight text-zinc-950">Daily Briefs</h1>
         </div>
 

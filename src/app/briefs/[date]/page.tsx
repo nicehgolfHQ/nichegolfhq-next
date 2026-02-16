@@ -37,22 +37,23 @@ export default function BriefPage({ params }: { params: { date: string } }) {
         <div className="mb-8 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
           <div className="relative px-6 py-10 sm:px-10">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
-            <div className="relative">
-              <Link href="/briefs" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900">
+            <div className="relative text-center">
+              <Link
+                href="/briefs"
+                className="inline-flex items-center justify-center gap-2 text-sm text-zinc-600 hover:text-zinc-900"
+              >
                 <span aria-hidden>←</span>
                 <span>All briefs</span>
               </Link>
 
-              <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
-                <div>
-                  <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-                    {brief.title}
-                  </h1>
-                </div>
+              <div className="mt-4 flex flex-col items-center justify-center gap-4">
+                <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
+                  {brief.title}
+                </h1>
 
                 {/* Tasteful “image” (no external fetch): subtle golfy art tile */}
-                <div className="hidden h-24 w-24 shrink-0 rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-900 to-zinc-700 shadow-sm sm:block">
-                  <div className="flex h-full w-full items-center justify-center text-xs font-semibold uppercase tracking-widest text-white/80">
+                <div className="h-20 w-20 rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-900 to-zinc-700 shadow-sm">
+                  <div className="flex h-full w-full items-center justify-center text-[10px] font-semibold uppercase tracking-widest text-white/80">
                     brief
                   </div>
                 </div>
