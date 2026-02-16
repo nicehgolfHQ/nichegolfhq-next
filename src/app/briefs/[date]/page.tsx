@@ -30,12 +30,14 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     );
   }
 
+  const displayDate = brief.title.replace(/^Daily Brief\s+—\s+/i, "");
+
   return (
     <SiteShell>
       <div className="mx-auto w-full max-w-4xl px-5 py-10">
         {/* Header */}
-        <div className="mb-8 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
-          <div className="relative px-6 py-10 sm:px-10">
+        <div className="mb-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+          <div className="relative px-6 py-6 sm:px-10">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
             <div className="relative text-center">
               <Link
@@ -46,18 +48,14 @@ export default function BriefPage({ params }: { params: { date: string } }) {
                 <span>All briefs</span>
               </Link>
 
-              <div className="mt-4 flex flex-col items-center justify-center gap-4">
-                <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-                  {brief.title}
-                </h1>
-
-                {/* Tasteful “image” (no external fetch): subtle golfy art tile */}
-                <div className="h-20 w-20 rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-900 to-zinc-700 shadow-sm">
-                  <div className="flex h-full w-full items-center justify-center text-[10px] font-semibold uppercase tracking-widest text-white/80">
-                    brief
-                  </div>
-                </div>
-              </div>
+              {/* Single-line title */}
+              <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+                <span className="whitespace-nowrap">Daily Brief</span>
+                <span className="mx-2 text-zinc-300" aria-hidden>
+                  ·
+                </span>
+                <span className="whitespace-nowrap text-zinc-700">{displayDate}</span>
+              </h1>
             </div>
           </div>
         </div>
