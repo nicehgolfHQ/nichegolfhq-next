@@ -30,8 +30,6 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     );
   }
 
-  const itemsCount = brief.items.length;
-
   return (
     <SiteShell>
       <div className="mx-auto w-full max-w-4xl px-5 py-10">
@@ -50,9 +48,6 @@ export default function BriefPage({ params }: { params: { date: string } }) {
                   <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
                     {brief.title}
                   </h1>
-                  <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-zinc-600">
-                    <span className="rounded-full border border-zinc-200 bg-white px-3 py-1">{brief.date}</span>
-                  </div>
                 </div>
 
                 {/* Tasteful “image” (no external fetch): subtle golfy art tile */}
@@ -92,7 +87,13 @@ export default function BriefPage({ params }: { params: { date: string } }) {
                       {/* Channel pill (single) */}
                       {primaryTag ? (
                         <span className="rounded-full border border-zinc-200 bg-white px-2.5 py-1 font-medium text-zinc-700">
-                          {primaryTag === "mid-am" ? "Mid-Am" : primaryTag === "juniors" ? "Juniors" : primaryTag === "senior" ? "Seniors" : primaryTag}
+                          {primaryTag === "mid-am"
+                            ? "Mid-Am"
+                            : primaryTag === "juniors"
+                              ? "Juniors"
+                              : primaryTag === "senior"
+                                ? "Seniors"
+                                : primaryTag}
                         </span>
                       ) : null}
 
@@ -133,5 +134,3 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     </SiteShell>
   );
 }
-
-
