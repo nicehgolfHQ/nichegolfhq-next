@@ -41,27 +41,23 @@ export default async function Home() {
           <div className="mx-auto mt-10 w-full max-w-4xl">
             <Link
               href={`/briefs/${latestBrief.date}`}
-              className="block overflow-hidden rounded-3xl border border-zinc-200 bg-white transition hover:border-zinc-300"
+              className="group relative block overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
-              <div className="relative px-6 py-8 sm:px-10">
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
-                <div className="relative text-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-400" />
+
+              <div className="relative px-6 py-10 sm:px-12">
+                <div className="text-center">
                   <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Daily Brief</div>
-                  <div className="mt-3 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+                  <div className="mt-3 font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
                     {formatLongDate(latestBrief.date)}
                   </div>
-                  <div className="mt-4 text-sm font-medium text-zinc-700">
+                  <div className="mt-5 inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2 text-sm font-medium text-white transition group-hover:bg-zinc-800">
                     Open today’s brief →
                   </div>
                 </div>
               </div>
             </Link>
-
-            <div className="mt-4 text-center">
-              <Link href="/briefs/weeks" className="text-sm text-zinc-700 underline-offset-4 hover:underline">
-                Weekly archive
-              </Link>
-            </div>
           </div>
         ) : null}
       </section>
