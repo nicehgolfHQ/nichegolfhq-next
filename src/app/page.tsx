@@ -47,23 +47,23 @@ export default async function Home() {
               <div className="relative px-6 py-8 sm:px-10">
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
                 <div className="relative text-center">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Brief of the day</div>
+                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Daily Brief</div>
                   <div className="mt-3 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
                     {formatLongDate(latestBrief.date)}
                   </div>
 
                   {briefPreviewItems.length ? (
-                    <div className="mx-auto mt-6 max-w-2xl space-y-3 text-left">
+                    <div className="mx-auto mt-6 max-w-2xl space-y-3 text-center">
                       {briefPreviewItems.map((it) => (
                         <div key={it.url} className="rounded-2xl border border-zinc-200 bg-white/70 p-4">
                           <div className="text-xs font-medium text-zinc-500">{it.source}</div>
-                          <div className="mt-1 text-sm font-semibold text-zinc-950">{it.title}</div>
+                          <div className="mx-auto mt-1 max-w-xl text-sm font-semibold text-zinc-950">{it.title}</div>
                         </div>
                       ))}
                     </div>
                   ) : null}
 
-                  <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+                  <div className="mt-7 flex flex-wrap items-center justify-center gap-3 text-center">
                     <Link
                       href={`/briefs/${latestBrief.date}`}
                       className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800"
