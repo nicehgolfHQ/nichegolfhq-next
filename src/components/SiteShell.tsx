@@ -100,7 +100,7 @@ export function SiteShell({
                 width={420}
                 height={120}
                 priority
-                className="h-16 w-auto md:h-20"
+                className="h-[72px] w-auto md:h-[92px]"
               />
             </Link>
           </div>
