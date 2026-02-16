@@ -8,6 +8,13 @@ const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nichegolfhq.com"),
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/brand/nichegolfhq/icon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/brand/nichegolfhq/icon.png" }],
+  },
   title: {
     default: "nichegolfHQ",
     template: "%s | nichegolfHQ",
