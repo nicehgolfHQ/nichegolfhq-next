@@ -29,11 +29,7 @@ export default function BriefsIndexPage() {
                 href={`/briefs/${b.date}`}
                 className="block rounded-2xl border border-zinc-200 bg-white p-5 hover:border-zinc-300"
               >
-                <div className="flex items-baseline justify-between gap-4">
-                  <div className="text-base font-medium text-zinc-950">{b.title}</div>
-                  <div className="text-sm text-zinc-500">{b.date}</div>
-                </div>
-                <div className="mt-2 text-sm text-zinc-600">{b.items.length} items</div>
+                <div className="text-base font-medium text-zinc-950">{b.date}</div>
               </Link>
             ))
           )}
