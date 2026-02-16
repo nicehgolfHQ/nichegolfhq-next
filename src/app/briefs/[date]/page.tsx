@@ -7,30 +7,24 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export default function BriefPage({ params }: { params: { date: string } }) {
-  const brief = loadBrief(params.date);
+  const raw = params?.date ?? "";
+  const normalized = raw.match(/^\d{4}-\d{2}-\d{2}$/)
+    ? raw
+    : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
+
+  // Use normalized date first; if that fails, fall back to the latest known date.
+  const dates = listBriefDates();
+  const brief = loadBrief(normalized) ?? (dates[0] ? loadBrief(dates[0]) : null);
 
   if (!brief) {
-    const dates = listBriefDates();
     return (
       <SiteShell>
         <div className="mx-auto w-full max-w-3xl px-5 py-10">
           <Link href="/briefs" className="text-sm text-zinc-600 hover:text-zinc-900">
             ← All briefs
           </Link>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">Brief not found</h1>
-          <p className="mt-3 text-zinc-700">
-            This date isn’t available yet. Try the briefs index or the latest available brief.
-          </p>
-          {dates.length > 0 ? (
-            <div className="mt-6">
-              <Link
-                className="inline-flex rounded-xl bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
-                href={`/briefs/${dates[0]}`}
-              >
-                Go to latest ({dates[0]})
-              </Link>
-            </div>
-          ) : null}
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">No briefs yet</h1>
+          <p className="mt-3 text-zinc-700">There aren’t any daily briefs published yet.</p>
         </div>
       </SiteShell>
     );
