@@ -15,7 +15,25 @@ export type DailyBrief = {
   items: BriefItem[];
 };
 
-const BRIEFS_DIR = path.join(process.cwd(), "src", "content", "briefs");
+// In some deploy setups (monorepo / mis-detected root), process.cwd() may be the repo root
+// instead of the Next app root. So we search a small set of candidate locations.
+const BRIEFS_DIR_CANDIDATES = [
+  path.join(process.cwd(), "src", "content", "briefs"),
+  path.join(process.cwd(), "nichegolfhq-next", "src", "content", "briefs"),
+];
+
+function firstExistingDir(candidates: string[]) {
+  for (const dir of candidates) {
+    try {
+      if (fs.existsSync(dir)) return dir;
+    } catch {
+      // ignore
+    }
+  }
+  return candidates[0];
+}
+
+const BRIEFS_DIR = firstExistingDir(BRIEFS_DIR_CANDIDATES);
 
 function safeReadDir(dir: string) {
   try {
