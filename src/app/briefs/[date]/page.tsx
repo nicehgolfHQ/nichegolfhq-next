@@ -89,12 +89,14 @@ export default function BriefPage({ params }: { params: { date: string } }) {
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2 text-xs">
-                      <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-medium text-zinc-700">{it.source}</span>
-                      {it.tags?.slice(0, 3).map((t) => (
-                        <span key={t} className="rounded-full border border-zinc-200 bg-white px-2.5 py-1 text-zinc-600">
-                          {t}
+                      {/* Channel pill (single) */}
+                      {primaryTag ? (
+                        <span className="rounded-full border border-zinc-200 bg-white px-2.5 py-1 font-medium text-zinc-700">
+                          {primaryTag === "mid-am" ? "Mid-Am" : primaryTag === "juniors" ? "Juniors" : primaryTag === "senior" ? "Seniors" : primaryTag}
                         </span>
-                      ))}
+                      ) : null}
+
+                      <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-medium text-zinc-700">{it.source}</span>
                     </div>
 
                     <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950">
