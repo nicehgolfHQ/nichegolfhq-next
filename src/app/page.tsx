@@ -52,7 +52,7 @@ export default async function Home() {
                   <div className="mt-3 font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
                     {formatLongDate(latestBrief.date)}
                   </div>
-                  <div className="mt-5 inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2 text-sm font-medium text-white transition group-hover:bg-zinc-800">
+                  <div className="mt-5 inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-5 py-2 text-sm font-medium text-zinc-900 shadow-sm transition group-hover:border-zinc-400 group-hover:bg-zinc-50">
                     Open today’s brief →
                   </div>
                 </div>
