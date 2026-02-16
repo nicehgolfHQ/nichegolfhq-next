@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
-import { loadBrief } from "@/lib/briefs";
+import { listBriefDates, loadBrief } from "@/lib/briefs";
 
-// Serve dynamically to avoid Vercel/Next caching a prerendered 404 for newly added dates.
-export const dynamic = "force-dynamic";
-export const runtime = "nodejs";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return listBriefDates().map((date) => ({ date }));
+}
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const brief = loadBrief(params.date);
