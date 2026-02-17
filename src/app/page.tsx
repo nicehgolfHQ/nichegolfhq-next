@@ -62,11 +62,6 @@ export default async function Home() {
         ) : null}
       </section>
 
-        <p className="mx-auto mt-10 max-w-3xl text-sm leading-6 text-zinc-600">
-          nichegolfHQ is the leading independent media and intelligence platform covering amateur golf, focused on junior, mid-amateur,
-          and senior events.
-        </p>
-
       <section id="latest" className="mx-auto w-full max-w-6xl px-5 pb-20">
         <div className="flex items-end justify-center">
           <h2 className="text-xl font-semibold tracking-tight">Channels</h2>
@@ -130,6 +125,13 @@ export default async function Home() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mx-auto mt-14 max-w-3xl text-center">
+          <p className="text-sm leading-6 text-zinc-500">
+            nichegolfHQ is the leading independent media and intelligence platform covering amateur golf, focused on junior, mid-amateur,
+            and senior events.
+          </p>
         </div>
       </section>
     </SiteShell>
