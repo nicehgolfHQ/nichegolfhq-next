@@ -43,18 +43,33 @@ function parseItems(body) {
 
     let why = "";
     let tags;
+    const bodyLines = [];
 
     i++;
     while (i < lines.length) {
       const l = lines[i];
-      if (l.trim().startsWith("- [")) break;
-      const w = l.trim().match(/^Why:\s*(.+)$/i);
-      if (w) why = w[1].trim();
-      const t = l.trim().match(/^Tags:\s*(.+)$/i);
-      if (t) tags = t[1].split(",").map((s) => s.trim()).filter(Boolean);
+      const trimmed = l.trim();
+      if (trimmed.startsWith("- [")) break;
+
+      const t = trimmed.match(/^Tags:\s*(.+)$/i);
+      if (t) {
+        tags = t[1].split(",").map((s) => s.trim()).filter(Boolean);
+        i++;
+        continue;
+      }
+
+      const w = trimmed.match(/^Why:\s*(.+)$/i);
+      if (w) {
+        why = w[1].trim();
+        i++;
+        continue;
+      }
+
+      if (trimmed) bodyLines.push(trimmed);
       i++;
     }
 
+    if (!why) why = bodyLines.join(" ").trim();
     if (!why) why = "(brief pending)";
     items.push({ title, url, source, why, tags });
   }
