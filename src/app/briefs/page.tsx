@@ -33,12 +33,18 @@ export default function BriefsIndexPage() {
       <div className="mx-auto w-full max-w-3xl px-5 py-10">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-semibold tracking-tight text-zinc-950">Daily Briefs</h1>
-          <div className="mt-5">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/briefs/weeks"
               className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50"
             >
               Weekly archive
+            </Link>
+            <Link
+              href="/briefs/months"
+              className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50"
+            >
+              Monthly archive
             </Link>
           </div>
         </div>

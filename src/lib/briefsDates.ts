@@ -53,6 +53,25 @@ export function isoWeekKeyFromYmd(date: unknown): string {
   return `${isoYear}-W${String(week).padStart(2, "0")}`;
 }
 
+export function monthKeyFromYmd(date: unknown): string {
+  if (typeof date !== "string") return "";
+  const m = date.match(/^(\d{4})-(\d{2})-\d{2}$/);
+  if (!m) return "";
+  return `${m[1]}-${m[2]}`;
+}
+
+export function formatMonthLong(monthKey: unknown): string {
+  if (typeof monthKey !== "string") return "";
+  const m = monthKey.match(/^(\d{4})-(\d{2})$/);
+  if (!m) return monthKey;
+  const y = Number(m[1]);
+  const mo = Number(m[2]);
+  if (!y || !mo) return monthKey;
+  const dt = new Date(Date.UTC(y, mo - 1, 1));
+  const month = dt.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+  return `${month} ${y}`;
+}
+
 export function isoWeekStartEndFromKey(weekKey: unknown): { start: string; end: string } | null {
   if (typeof weekKey !== "string") return null;
   const m = weekKey.match(/^(\d{4})-W(\d{2})$/);
