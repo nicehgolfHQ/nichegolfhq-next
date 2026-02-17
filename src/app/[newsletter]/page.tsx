@@ -207,14 +207,13 @@ export default async function NewsletterPage({
         ) : null}
 
         <div id="subscribe" className="mt-14 rounded-3xl border border-zinc-200 bg-white p-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="mx-auto max-w-xl text-center">
-              <div className="text-sm font-semibold text-zinc-900">Subscribe</div>
-              <p className="mt-2 text-sm text-zinc-600">Get {feed.name} in your inbox. Free.</p>
-              <p className="mt-2 text-xs text-zinc-500">No spam. Unsubscribe anytime.</p>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+              <div className="text-sm font-semibold text-zinc-900">Follow</div>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">Follow our socials below for updates between newsletter sends.</p>
 
-              {(feed.xProfileUrl || feed.instagramProfileUrl) && (
-                <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-center">
+              {(feed.xProfileUrl || feed.instagramProfileUrl) ? (
+                <div className="mt-4 flex items-center justify-center gap-2">
                   {feed.xProfileUrl && (
                     <a
                       href={feed.xProfileUrl}
@@ -236,11 +235,19 @@ export default async function NewsletterPage({
                     </a>
                   )}
                 </div>
+              ) : (
+                <div className="mt-4 text-sm text-zinc-600">Social links coming soon.</div>
               )}
             </div>
 
-            <div className="w-full md:max-w-lg">
-              <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} title={`${feed.name} subscribe`} />
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+              <div className="text-sm font-semibold text-zinc-900">Subscribe</div>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">Get {feed.name} in your inbox. Free.</p>
+              <p className="mt-2 text-xs text-zinc-500">No spam. Unsubscribe anytime.</p>
+
+              <div className="mt-4">
+                <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} title={`${feed.name} subscribe`} />
+              </div>
             </div>
           </div>
         </div>
