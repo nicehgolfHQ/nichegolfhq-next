@@ -12,8 +12,11 @@ export default function AboutPage() {
         <div className="text-center">
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">About</h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-700">
-            nichegolfHQ covers the corners of competitive amateur golf the mainstream ignores — with dedicated junior,
-            mid-am, and senior amateur coverage across our channels.
+            nichegolfHQ is the leading independent media and intelligence platform covering amateur golf, focused on junior,
+            mid-amateur, and senior events.
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-zinc-700">
+            We cover the corners of competitive amateur golf the mainstream ignores — with dedicated coverage across our channels.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-zinc-700">
             Started in 2019 with <span className="font-semibold">midamgolfHQ</span>, and expanding into junior and senior coverage.
