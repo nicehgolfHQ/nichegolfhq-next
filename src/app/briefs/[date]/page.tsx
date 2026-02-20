@@ -1,12 +1,21 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { loadBrief } from "@/lib/briefs";
+
+// Direct import as a production-safe fallback (Vercel bundles this reliably).
+import briefsData from "@/content/briefs.generated.json";
 
 // Dynamic SSR so we don’t serve a pre-rendered fallback when navigating between dates.
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 export const revalidate = 0;
+
+function getBriefFromGenerated(date: string) {
+  const raw: any = briefsData as any;
+  const briefs = raw?.briefs ?? raw?.default?.briefs;
+  if (!Array.isArray(briefs)) return null;
+  return briefs.find((b: any) => b?.date === date) ?? null;
+}
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const raw = params?.date ?? "";
@@ -14,12 +23,24 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     ? raw
     : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
 
-  const brief = loadBrief(normalized);
+  // Try library loader first, then a direct JSON fallback.
+  const brief = loadBrief(normalized) ?? getBriefFromGenerated(normalized);
 
-  // IMPORTANT: do NOT fall back to “latest” here.
-  // If a date is missing/mis-parsed we’d silently show today’s brief, which looks like a broken archive.
   if (!brief) {
-    notFound();
+    // Don’t show “today” silently. Render a friendly not-found state with a backlink.
+    return (
+      <SiteShell>
+        <div className="mx-auto w-full max-w-3xl px-5 py-10">
+          <Link href="/briefs" className="text-sm text-zinc-600 hover:text-zinc-900">
+            ← All briefs
+          </Link>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">Brief not found</h1>
+          <p className="mt-3 text-zinc-700">
+            We couldn’t find a Daily Brief for <span className="font-medium">{normalized}</span>.
+          </p>
+        </div>
+      </SiteShell>
+    );
   }
 
   const displayDate = brief.title.replace(/^Daily Brief\s+—\s+/i, "");
