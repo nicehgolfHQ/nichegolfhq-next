@@ -2,10 +2,12 @@ import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
 import { listBriefDates, loadBrief } from "@/lib/briefs";
 
-// Dynamic SSR so we don’t serve a pre-rendered fallback when navigating between dates.
-export const dynamic = "force-dynamic";
-export const runtime = "nodejs";
-export const revalidate = 0;
+// Pre-render known brief dates at build time (most reliable on Vercel).
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return listBriefDates().map((date) => ({ date }));
+}
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const raw = params?.date ?? "";
@@ -13,11 +15,7 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     ? raw
     : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
 
-  const dates = listBriefDates();
-  const latestDate = dates?.[0];
-
-  const brief = loadBrief(normalized) ?? (latestDate ? loadBrief(latestDate) : null);
-  const showingFallback = !loadBrief(normalized) && !!brief && latestDate !== normalized;
+  const brief = loadBrief(normalized);
 
   if (!brief) {
     return (
@@ -58,12 +56,6 @@ export default function BriefPage({ params }: { params: { date: string } }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="mx-auto w-full max-w-4xl px-5 py-10">
-        {showingFallback ? (
-          <div className="mb-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-            Showing the latest brief because <span className="font-medium">{normalized}</span> wasn’t found.
-          </div>
-        ) : null}
-
         {/* Header */}
         <div className="mb-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
           <div className="relative px-6 py-6 sm:px-10">
