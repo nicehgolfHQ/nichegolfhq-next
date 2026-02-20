@@ -1,21 +1,11 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
-import { loadBrief } from "@/lib/briefs";
-
-// Direct import as a production-safe fallback (Vercel bundles this reliably).
-import briefsData from "@/content/briefs.generated.json";
+import { listBriefDates, loadBrief } from "@/lib/briefs";
 
 // Dynamic SSR so we don’t serve a pre-rendered fallback when navigating between dates.
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 export const revalidate = 0;
-
-function getBriefFromGenerated(date: string) {
-  const raw: any = briefsData as any;
-  const briefs = raw?.briefs ?? raw?.default?.briefs;
-  if (!Array.isArray(briefs)) return null;
-  return briefs.find((b: any) => b?.date === date) ?? null;
-}
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const raw = params?.date ?? "";
@@ -23,21 +13,21 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     ? raw
     : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
 
-  // Try library loader first, then a direct JSON fallback.
-  const brief = loadBrief(normalized) ?? getBriefFromGenerated(normalized);
+  const dates = listBriefDates();
+  const latestDate = dates?.[0];
+
+  const brief = loadBrief(normalized) ?? (latestDate ? loadBrief(latestDate) : null);
+  const showingFallback = !loadBrief(normalized) && !!brief && latestDate !== normalized;
 
   if (!brief) {
-    // Don’t show “today” silently. Render a friendly not-found state with a backlink.
     return (
       <SiteShell>
         <div className="mx-auto w-full max-w-3xl px-5 py-10">
           <Link href="/briefs" className="text-sm text-zinc-600 hover:text-zinc-900">
             ← All briefs
           </Link>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">Brief not found</h1>
-          <p className="mt-3 text-zinc-700">
-            We couldn’t find a Daily Brief for <span className="font-medium">{normalized}</span>.
-          </p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">No briefs yet</h1>
+          <p className="mt-3 text-zinc-700">There aren’t any daily briefs published yet.</p>
         </div>
       </SiteShell>
     );
@@ -68,6 +58,12 @@ export default function BriefPage({ params }: { params: { date: string } }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="mx-auto w-full max-w-4xl px-5 py-10">
+        {showingFallback ? (
+          <div className="mb-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            Showing the latest brief because <span className="font-medium">{normalized}</span> wasn’t found.
+          </div>
+        ) : null}
+
         {/* Header */}
         <div className="mb-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
           <div className="relative px-6 py-6 sm:px-10">
