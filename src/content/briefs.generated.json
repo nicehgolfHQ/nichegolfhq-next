@@ -1,6 +1,33 @@
 {
   "briefs": [
     {
+      "date": "2026-02-20",
+      "title": "Daily Brief — Feb 20, 2026",
+      "items": [
+        {
+          "title": "Gasparilla Invitational: Round 2 live leaderboard",
+          "url": "https://pcgc-71stgasparillainvitational.golfgenius.com/leagues/11889494894172979619/widgets/tournament_results?shared=false",
+          "source": "Golf Genius",
+          "why": "On Feb 20, 2026: Round 2 is in progress at the 71st Gasparilla Invitational (Palma Ceia). After Round 1, Logan Blondell and Hayes Brown shared the lead at 67 (-3), with Christian Cavaliere 69 (-1) close behind.",
+          "tags": [
+            "mid-am",
+            "invitationals",
+            "live"
+          ]
+        },
+        {
+          "title": "Gasparilla Invitational: event hub",
+          "url": "https://gasparillainvitational.com/",
+          "source": "Gasparilla Invitational",
+          "why": "On Feb 20, 2026: the event continues today (pairings, updates, and links out to scoring/coverage).",
+          "tags": [
+            "mid-am",
+            "invitationals"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-02-19",
       "title": "Daily Brief — Feb 19, 2026",
       "items": [
