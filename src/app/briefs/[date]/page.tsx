@@ -24,8 +24,13 @@ export function generateStaticParams() {
   return getBriefs().map((b) => ({ date: b.date }));
 }
 
-export default function BriefPage({ params }: { params: { date: string } }) {
-  const raw = params?.date ?? "";
+export default async function BriefPage({
+  params,
+}: {
+  params: { date?: string } | Promise<{ date?: string }>;
+}) {
+  const p: any = await Promise.resolve(params as any);
+  const raw = p?.date ?? "";
   const normalized = raw.match(/^\d{4}-\d{2}-\d{2}$/)
     ? raw
     : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
