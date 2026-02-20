@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
-import { listBriefDates, loadBrief } from "@/lib/briefs";
+import { loadBrief } from "@/lib/briefs";
 
-// Dynamic SSR so we don't keep serving a pre-rendered fallback when new briefs are added.
+// Dynamic SSR so we don’t serve a pre-rendered fallback when navigating between dates.
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+export const revalidate = 0;
 
 export default function BriefPage({ params }: { params: { date: string } }) {
   const raw = params?.date ?? "";
@@ -12,22 +14,12 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     ? raw
     : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
 
-  // Use normalized date first; if that fails, fall back to the latest known date.
-  const dates = listBriefDates();
-  const brief = loadBrief(normalized) ?? (dates[0] ? loadBrief(dates[0]) : null);
+  const brief = loadBrief(normalized);
 
+  // IMPORTANT: do NOT fall back to “latest” here.
+  // If a date is missing/mis-parsed we’d silently show today’s brief, which looks like a broken archive.
   if (!brief) {
-    return (
-      <SiteShell>
-        <div className="mx-auto w-full max-w-3xl px-5 py-10">
-          <Link href="/briefs" className="text-sm text-zinc-600 hover:text-zinc-900">
-            ← All briefs
-          </Link>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">No briefs yet</h1>
-          <p className="mt-3 text-zinc-700">There aren’t any daily briefs published yet.</p>
-        </div>
-      </SiteShell>
-    );
+    notFound();
   }
 
   const displayDate = brief.title.replace(/^Daily Brief\s+—\s+/i, "");
