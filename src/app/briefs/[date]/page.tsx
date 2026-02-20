@@ -1,12 +1,27 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
-import { listBriefDates, loadBrief } from "@/lib/briefs";
+
+// IMPORTANT: read directly from the build-generated JSON.
+// This avoids any runtime filesystem reads / dynamic bundling quirks on Vercel.
+import briefsData from "@/content/briefs.generated.json";
+
+type DailyBrief = {
+  date: string;
+  title: string;
+  items: Array<{ title: string; url: string; source: string; why: string; tags?: string[] }>;
+};
+
+function getBriefs(): DailyBrief[] {
+  const raw: any = briefsData as any;
+  const briefs = raw?.briefs ?? raw?.default?.briefs;
+  return Array.isArray(briefs) ? (briefs as DailyBrief[]) : [];
+}
 
 // Pre-render known brief dates at build time (most reliable on Vercel).
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return listBriefDates().map((date) => ({ date }));
+  return getBriefs().map((b) => ({ date: b.date }));
 }
 
 export default function BriefPage({ params }: { params: { date: string } }) {
@@ -15,7 +30,7 @@ export default function BriefPage({ params }: { params: { date: string } }) {
     ? raw
     : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
 
-  const brief = loadBrief(normalized);
+  const brief = getBriefs().find((b) => b.date === normalized) ?? null;
 
   if (!brief) {
     return (
@@ -24,8 +39,10 @@ export default function BriefPage({ params }: { params: { date: string } }) {
           <Link href="/briefs" className="text-sm text-zinc-600 hover:text-zinc-900">
             ← All briefs
           </Link>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">No briefs yet</h1>
-          <p className="mt-3 text-zinc-700">There aren’t any daily briefs published yet.</p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">Brief not found</h1>
+          <p className="mt-3 text-zinc-700">
+            We couldn’t find a Daily Brief for <span className="font-medium">{normalized}</span>.
+          </p>
         </div>
       </SiteShell>
     );
