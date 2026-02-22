@@ -110,18 +110,6 @@ export default function MidAmMajorsIndexPage() {
         <div className="mb-6">
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Majors — {YEAR}</h1>
           <p className="mt-3 text-sm leading-relaxed text-zinc-600">All events on one scrollable page, grouped by month.</p>
-
-          <div className="mt-4 flex flex-wrap gap-2">
-            {jump.map((j) => (
-              <a
-                key={j.key}
-                href={`#${j.key}`}
-                className="rounded-2xl border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 hover:border-zinc-300"
-              >
-                {j.label}
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Mock B → month module cards */}
@@ -158,10 +146,7 @@ export default function MidAmMajorsIndexPage() {
                   ) : (
                     <div key={e.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3">
                       {Row}
-                      <div className="mt-1 flex items-center justify-between gap-4">
-                        {e.note ? <div className="text-xs text-zinc-600">{e.note}</div> : <div />}
-                        <div className="text-[11px] font-medium text-zinc-400">Hub coming soon</div>
-                      </div>
+                      {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
                     </div>
                   );
                 })}
