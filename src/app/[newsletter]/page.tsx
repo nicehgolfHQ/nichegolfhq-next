@@ -109,17 +109,13 @@ export default async function NewsletterPage({
           <div className="mt-8 rounded-3xl border border-zinc-200 bg-white p-6">
             <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
               <div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Mid-Am Majors</div>
-                <div className="mt-1 font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 schedule + results hubs</div>
-                <p className="mt-2 text-sm text-zinc-600">
-                  Standalone event pages built to rank for searches like “2026 Gasparilla Invitational results.”
-                </p>
+                <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Major Schedule</div>
               </div>
               <Link
                 href="/midamgolfhq/majors"
                 className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800"
               >
-                View Mid-Am Majors →
+                View →
               </Link>
             </div>
           </div>
