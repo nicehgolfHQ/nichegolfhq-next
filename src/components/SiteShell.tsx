@@ -52,6 +52,12 @@ export function SiteShell({
                     midamgolfHQ
                   </Link>
                   <Link
+                    href="/midamgolfhq/majors"
+                    className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
+                  >
+                    midam majors (2026)
+                  </Link>
+                  <Link
                     href="/juniorgolfhq"
                     className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
                   >
