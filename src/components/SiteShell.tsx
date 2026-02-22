@@ -52,12 +52,6 @@ export function SiteShell({
                     midamgolfHQ
                   </Link>
                   <Link
-                    href="/midamgolfhq/majors"
-                    className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
-                  >
-                    midam majors (2026)
-                  </Link>
-                  <Link
                     href="/juniorgolfhq"
                     className="mt-1 block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
                   >
@@ -72,10 +66,7 @@ export function SiteShell({
 
                   <div className="my-2 border-t border-zinc-200" />
 
-                  <Link
-                    href="/briefs"
-                    className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
-                  >
+                  <Link href="/briefs" className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50">
                     briefs
                   </Link>
 
@@ -88,9 +79,12 @@ export function SiteShell({
                     </summary>
                     <div className="mt-1 space-y-1 pl-2">
                       <Link
-                        href="/about"
+                        href="/midamgolfhq/majors"
                         className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
                       >
+                        majors
+                      </Link>
+                      <Link href="/about" className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50">
                         about
                       </Link>
                       <Link
