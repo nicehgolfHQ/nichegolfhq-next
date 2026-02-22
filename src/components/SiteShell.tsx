@@ -79,7 +79,7 @@ export function SiteShell({
                     </summary>
                     <div className="mt-1 space-y-1 pl-2">
                       <Link
-                        href="/midamgolfhq/majors"
+                        href="/majors"
                         className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
                       >
                         majors
