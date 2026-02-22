@@ -107,13 +107,12 @@ export default function MidAmMajorsIndexPage() {
   return (
     <SiteShell>
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
-        <div className="mb-6">
+        <div className="mb-8 text-center">
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Majors — {YEAR}</h1>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-600">All events on one scrollable page, grouped by month.</p>
         </div>
 
         {/* Mock B → month module cards */}
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl gap-4 lg:grid-cols-2">
           {MONTHS.map((m) => (
             <section key={m.monthKey} id={m.monthKey} className="scroll-mt-24 rounded-3xl border border-zinc-200 bg-white p-6">
               <div className="flex items-baseline justify-between">
