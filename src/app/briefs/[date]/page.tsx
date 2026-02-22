@@ -17,11 +17,63 @@ function getBriefs(): DailyBrief[] {
   return Array.isArray(briefs) ? (briefs as DailyBrief[]) : [];
 }
 
+function topicsFromBrief(brief: DailyBrief): string[] {
+  const topics: string[] = [];
+  const titles = brief.items.map((it) => it.title.toLowerCase());
+  const sources = brief.items.map((it) => it.source.toLowerCase());
+
+  if (titles.some((t) => t.includes("gasparilla"))) topics.push("Gasparilla Results");
+  if (sources.some((s) => s.includes("ajga")) || titles.some((t) => t.includes("ajga"))) topics.push("AJGA News");
+
+  // Fallback: map high-level tags into readable topics.
+  const tags = new Set((brief.items.flatMap((it) => it.tags ?? []) as string[]).map((t) => t.toLowerCase()));
+  if (topics.length === 0) {
+    if (tags.has("mid-am")) topics.push("Mid-Am Golf");
+    if (tags.has("juniors")) topics.push("Junior Golf");
+    if (tags.has("seniors") || tags.has("senior")) topics.push("Senior Golf");
+  }
+
+  return topics.slice(0, 2);
+}
+
 // Pre-render known brief dates at build time (most reliable on Vercel).
 export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getBriefs().map((b) => ({ date: b.date }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { date?: string } | Promise<{ date?: string }>;
+}) {
+  const p: any = await Promise.resolve(params as any);
+  const raw = p?.date ?? "";
+  const normalized = raw.match(/^\d{4}-\d{2}-\d{2}$/)
+    ? raw
+    : raw.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? raw;
+
+  const brief = getBriefs().find((b) => b.date === normalized) ?? null;
+  if (!brief) {
+    return {
+      title: "Daily Brief | nichegolfHQ",
+    };
+  }
+
+  const topics = topicsFromBrief(brief);
+  const middle = topics.length ? ` | ${topics.join(", ")}` : "";
+
+  return {
+    title: `${brief.title}${middle} | nichegolfHQ`,
+    description: `Daily Brief for ${brief.date}: ${brief.items.length} items across competitive amateur golf.`,
+    alternates: { canonical: `/briefs/${brief.date}` },
+    openGraph: {
+      title: `${brief.title}${middle} | nichegolfHQ`,
+      url: `https://www.nichegolfhq.com/briefs/${brief.date}`,
+      type: "article",
+    },
+  };
 }
 
 export default async function BriefPage({
