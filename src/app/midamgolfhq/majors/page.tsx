@@ -112,24 +112,23 @@ export default function MidAmMajorsIndexPage() {
         </div>
 
         {/* Mock B → month module cards */}
-        <div className="mx-auto grid max-w-4xl gap-4 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-3xl gap-4">
           {MONTHS.map((m) => (
             <section key={m.monthKey} id={m.monthKey} className="scroll-mt-24 rounded-3xl border border-zinc-200 bg-white p-6">
               <div className="flex items-baseline justify-between">
                 <h2 className="text-sm font-semibold tracking-tight text-zinc-950">{m.month}</h2>
-                <div className="text-xs text-zinc-500">{m.events.length} events</div>
               </div>
 
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 divide-y divide-zinc-200/70">
                 {m.events.map((e) => {
                   const slug = slugify(e.name);
                   const hasHub = Boolean(getMajorBySlug(slug));
                   const href = `/midamgolfhq/majors/${slug}`;
 
                   const Row = (
-                    <div className="flex items-baseline justify-between gap-4">
+                    <div className="py-3">
                       <div className="font-serif text-lg font-semibold tracking-tight text-zinc-950">{e.name}</div>
-                      <div className="text-[11px] font-medium text-zinc-500">{e.month}</div>
+                      {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
                     </div>
                   );
 
@@ -137,15 +136,13 @@ export default function MidAmMajorsIndexPage() {
                     <Link
                       key={e.name}
                       href={href}
-                      className="block rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 transition hover:border-zinc-300 hover:bg-white"
+                      className="block px-1 transition hover:bg-zinc-50"
                     >
                       {Row}
-                      {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
                     </Link>
                   ) : (
-                    <div key={e.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3">
+                    <div key={e.name} className="px-1">
                       {Row}
-                      {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
                     </div>
                   );
                 })}
