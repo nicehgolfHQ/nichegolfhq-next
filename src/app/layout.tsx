@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nichegolfhq.com"),
@@ -52,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <style>{`:root{--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;}`}</style>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -65,7 +65,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${sans.variable} ${serif.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${sans.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
