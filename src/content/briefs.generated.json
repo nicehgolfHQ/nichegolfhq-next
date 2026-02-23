@@ -3,7 +3,32 @@
     {
       "date": "2026-02-23",
       "title": "\"Daily Brief — Feb 23, 2026\"",
-      "items": []
+      "items": [
+        {
+          "title": "Pacific Grove City Championship: Jerry Ledzinski closes with 64 to win",
+          "url": "https://www.amateurgolf.com/",
+          "source": "AmateurGolf.com",
+          "why": "On Feb 23, 2026: AmateurGolf.com reported Ledzinski turned a tight Sunday into a runaway with a closing 6-under 64 to take the 2026 Pacific Grove City Championship."
+        },
+        {
+          "title": "Jones Cup Senior Invitational: preview ahead of Sea Island (Seaside Course)",
+          "url": "https://www.amateurgolf.com/",
+          "source": "AmateurGolf.com",
+          "why": "On Feb 23, 2026: AmateurGolf.com published a preview for the Jones Cup Senior Invitational at Sea Island’s Seaside Course.",
+          "tags": [
+            "senior"
+          ]
+        },
+        {
+          "title": "AJGA: new Junior All-Star event set for June 15–18, 2026",
+          "url": "https://www.ajga.org/",
+          "source": "AJGA",
+          "why": "On Feb 23, 2026: AJGA announced a new Junior All-Star event debuting June 15–18, 2026 at Phillips Park Golf Course.",
+          "tags": [
+            "juniors"
+          ]
+        }
+      ]
     },
     {
       "date": "2026-02-22",
