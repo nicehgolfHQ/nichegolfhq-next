@@ -15,8 +15,13 @@ export const metadata = {
   description: "Browse Daily Briefs by month and week.",
 };
 
-export default function BriefMonthPage({ params }: { params: { month: string } }) {
-  const month = params?.month;
+export default async function BriefMonthPage({
+  params,
+}: {
+  params: { month?: string } | Promise<{ month?: string }>;
+}) {
+  const p: any = await Promise.resolve(params as any);
+  const month = p?.month;
   if (!/^[0-9]{4}-[0-9]{2}$/.test(month || "")) return notFound();
 
   const dates = listBriefDates().filter((d) => monthKeyFromYmd(d) === month);
