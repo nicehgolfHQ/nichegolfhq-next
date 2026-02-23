@@ -45,7 +45,13 @@ function parseFrontmatter(md: string): { data: Record<string, string>; body: str
     const idx = line.indexOf(":");
     if (idx === -1) continue;
     const k = line.slice(0, idx).trim();
-    const v = line.slice(idx + 1).trim();
+    let v = line.slice(idx + 1).trim();
+
+    // Strip simple wrapping quotes (Beehiiv/LLM sometimes adds these).
+    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
+      v = v.slice(1, -1).trim();
+    }
+
     if (k) data[k] = v;
   }
   return { data, body };
