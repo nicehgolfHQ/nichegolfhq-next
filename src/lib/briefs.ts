@@ -58,21 +58,22 @@ function parseFrontmatter(md: string): { data: Record<string, string>; body: str
 }
 
 function parseItems(body: string): BriefItem[] {
-  // Very simple format:
+  // Preferred format:
   // - [Title](URL) — Source
   //   Why: ...
   //   Tags: a, b
+  //
+  // Fallback format (more forgiving):
+  // - Title sentence...
+  //   Source: https://...
+  //   (rest of indented lines become why)
   const lines = body.split("\n");
   const items: BriefItem[] = [];
 
-  let i = 0;
-  while (i < lines.length) {
-    const line = lines[i].trim();
+  const parsePreferred = (startIdx: number) => {
+    const line = lines[startIdx]?.trim() ?? "";
     const m = line.match(/^\-\s+\[(.+?)\]\((https?:\/\/[^)]+)\)\s+—\s+(.+)$/);
-    if (!m) {
-      i++;
-      continue;
-    }
+    if (!m) return null;
 
     const title = m[1].trim();
     const url = m[2].trim();
@@ -82,10 +83,9 @@ function parseItems(body: string): BriefItem[] {
     let tags: string[] | undefined;
     const bodyLines: string[] = [];
 
-    i++;
+    let i = startIdx + 1;
     while (i < lines.length) {
-      const l = lines[i];
-      const trimmed = l.trim();
+      const trimmed = lines[i].trim();
       if (trimmed.startsWith("- [")) break;
 
       const t = trimmed.match(/^Tags:\s*(.+)$/i);
@@ -102,16 +102,83 @@ function parseItems(body: string): BriefItem[] {
         continue;
       }
 
-      // Support no-"Why:" format: treat any indented continuation text as the body.
       if (trimmed) bodyLines.push(trimmed);
       i++;
     }
 
-    // Prefer explicit Why:, else use joined body lines.
     if (!why) why = bodyLines.join(" ").trim();
     if (!why) why = "(brief pending)";
 
-    items.push({ title, url, source, why, tags });
+    return { item: { title, url, source, why, tags } satisfies BriefItem, nextIdx: i };
+  };
+
+  const parseFallback = (startIdx: number) => {
+    const first = lines[startIdx]?.trim() ?? "";
+    if (!first.startsWith("- ")) return null;
+    // Avoid double-parsing preferred items.
+    if (first.startsWith("- [")) return null;
+
+    const title = first.replace(/^\-\s+/, "").trim();
+
+    let url = "";
+    let source = "";
+    let tags: string[] | undefined;
+    const bodyLines: string[] = [];
+
+    let i = startIdx + 1;
+    while (i < lines.length) {
+      const trimmed = lines[i].trim();
+      if (trimmed.startsWith("- ")) break;
+
+      const src = trimmed.match(/^Source:\s*(https?:\/\/\S+)/i);
+      if (src) {
+        url = src[1].trim();
+        try {
+          const host = new URL(url).hostname.replace(/^www\./, "");
+          source = host;
+        } catch {
+          source = "Source";
+        }
+        i++;
+        continue;
+      }
+
+      const t = trimmed.match(/^Tags:\s*(.+)$/i);
+      if (t) {
+        tags = t[1].split(",").map((s) => s.trim()).filter(Boolean);
+        i++;
+        continue;
+      }
+
+      if (trimmed) bodyLines.push(trimmed);
+      i++;
+    }
+
+    const why = bodyLines.join(" ").trim() || "(brief pending)";
+
+    // If the fallback bullet didn't include a usable URL, skip it.
+    if (!url) return { item: null, nextIdx: i };
+
+    return { item: { title, url, source: source || "Source", why, tags } satisfies BriefItem, nextIdx: i };
+  };
+
+  let i = 0;
+  while (i < lines.length) {
+    const preferred = parsePreferred(i);
+    if (preferred) {
+      items.push(preferred.item);
+      i = preferred.nextIdx;
+      continue;
+    }
+
+    const fallback = parseFallback(i);
+    if (fallback) {
+      if (fallback.item) items.push(fallback.item);
+      i = fallback.nextIdx;
+      continue;
+    }
+
+    i++;
   }
 
   return items;

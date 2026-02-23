@@ -7,7 +7,8 @@
     "prebuild": "node ./scripts/build-briefs.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "brief:preflight": "node ./scripts/preflight-brief.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.1",
