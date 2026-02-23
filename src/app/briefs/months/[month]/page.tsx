@@ -29,7 +29,8 @@ export default function BriefMonthPage({ params }: { params: { month: string } }
     weekCounts.set(wk, (weekCounts.get(wk) ?? 0) + 1);
   }
 
-  const weeks = Array.from(weekCounts.keys()).sort((a, b) => (a < b ? 1 : -1));
+  // Chronological order (oldest → newest) so Week 1 is the first week in the month.
+  const weeks = Array.from(weekCounts.keys()).sort((a, b) => (a < b ? -1 : 1));
 
   return (
     <SiteShell>
@@ -50,21 +51,20 @@ export default function BriefMonthPage({ params }: { params: { month: string } }
           <div className="mt-2 text-sm text-zinc-600">Browse by week</div>
         </div>
 
-        <div className="space-y-3">
-          {weeks.map((wk) => {
+        <div className="grid gap-3 sm:grid-cols-2">
+          {weeks.map((wk, idx) => {
             const range = isoWeekStartEndFromKey(wk);
-            const title = range ? `Week of ${formatLongDate(range.start)}` : wk;
-            const count = weekCounts.get(wk) ?? 0;
+            const title = `Week ${idx + 1}`;
+            const sub = range ? `${formatLongDate(range.start)} → ${formatLongDate(range.end)}` : wk;
+
             return (
               <Link
                 key={wk}
                 href={`/briefs/weeks/${wk}`}
                 className="block rounded-2xl border border-zinc-200 bg-white p-6 text-center hover:border-zinc-300"
               >
-                <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950 sm:text-2xl">
-                  {title}
-                </div>
-                <div className="mt-2 text-sm text-zinc-600">{count} brief(s)</div>
+                <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">{title}</div>
+                <div className="mt-2 text-sm text-zinc-600">{sub}</div>
               </Link>
             );
           })}
