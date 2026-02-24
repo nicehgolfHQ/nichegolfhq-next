@@ -273,11 +273,12 @@ const DynamicDailyBrief = ({ goBriefs }) => {
   const items = (latest?.items || []).slice(0,3);
 
   const laneFor = (it) => {
-    const tags = (it.tags || []).map(String);
-    if (tags.includes('mid-am') || tags.includes('midam')) return { label: 'MID-AM', color: '#1a1a2e' };
-    if (tags.includes('senior')) return { label: 'SENIOR', color: '#2d6a4f' };
-    if (tags.includes('juniors') || tags.includes('junior')) return { label: 'JUNIOR', color: '#8b4513' };
-    return { label: 'NETWORK', color: '#111' };
+    const tags = (it.tags || []).map((t) => String(t).toLowerCase());
+    if (tags.includes("mid-am") || tags.includes("midam")) return { label: "MID-AM", color: "#1a1a2e" };
+    if (tags.includes("senior") || tags.includes("seniors")) return { label: "SENIOR", color: "#2d6a4f" };
+    if (tags.includes("junior") || tags.includes("juniors")) return { label: "JUNIOR", color: "#8b4513" };
+    // Default to MID-AM to avoid showing an unknown lane in the Daily Brief module.
+    return { label: "MID-AM", color: "#1a1a2e" };
   };
 
   return (
