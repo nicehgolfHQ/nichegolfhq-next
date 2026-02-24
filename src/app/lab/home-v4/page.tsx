@@ -18,6 +18,8 @@ const LOGO_JUNIOR = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAA
 
 const CHANNELS = {
   midam: {
+    key: "midam",
+    slug: "midamgolfhq",
     name: "midamgolfHQ",
     logo: LOGO_MIDAM,
     tagline: "The Competitive Edge for Mid-Amateurs",
@@ -39,6 +41,8 @@ const CHANNELS = {
     ],
   },
   senior: {
+    key: "senior",
+    slug: "seniorgolfhq",
     name: "seniorgolfHQ",
     logo: LOGO_SENIOR,
     tagline: "Legends Never Lay Up",
@@ -57,6 +61,8 @@ const CHANNELS = {
     ],
   },
   junior: {
+    key: "junior",
+    slug: "juniorgolfhq",
     name: "juniorgolfHQ",
     logo: LOGO_JUNIOR,
     tagline: "Where Champions Start",
@@ -82,12 +88,43 @@ const App = () => {
   const [activeIssue, setActiveIssue] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [feedIssues, setFeedIssues] = useState({});
 
   useEffect(() => { setLoaded(true); }, []);
 
+  useEffect(() => {
+    // Pull real Beehiiv RSS issues via a small server proxy route.
+    (async () => {
+      try {
+        const entries = Object.entries(CHANNELS);
+        const results = await Promise.all(entries.map(async ([k, ch]) => {
+          const res = await fetch(`/api/rss/${ch.slug}`);
+          if (!res.ok) return [k, null];
+          const json = await res.json();
+          return [k, json?.items || null];
+        }));
+        const next = {};
+        for (const [k, items] of results) if (items) next[k] = items;
+        setFeedIssues(next);
+      } catch (e) {
+        // best-effort; keep placeholders
+      }
+    })();
+  }, []);
+
   const goHome = () => { setActiveView("home"); setActiveChannel(null); setActiveIssue(null); };
   const goChannel = (key) => { setActiveView("channel"); setActiveChannel(key); setActiveIssue(null); };
-  const goIssue = (channelKey, idx) => { setActiveView("issue"); setActiveChannel(channelKey); setActiveIssue(idx); };
+  const goIssue = (channelKey, idx) => {
+    // Open the native, indexable issue page (existing site architecture).
+    const ch = CHANNELS[channelKey];
+    if (ch?.slug) {
+      window.location.href = `/${ch.slug}/issue/${idx}`;
+      return;
+    }
+    setActiveView("issue");
+    setActiveChannel(channelKey);
+    setActiveIssue(idx);
+  };
   const goBriefs = () => { setActiveView("briefs"); setActiveChannel(null); setActiveIssue(null); };
 
   return (
@@ -125,7 +162,7 @@ const App = () => {
           </div>
           <button style={{ background: "#111", color: "#fff", border: "none", fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, padding: "10px 22px", borderRadius: "3px", cursor: "pointer" }}>subscribe</button>
         </div>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 0", display: "flex", gap: "24px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 0", display: "flex", gap: "28px", justifyContent: "center" }}>
           <button className={`nav-btn ${activeView === "home" ? "active" : ""}`} onClick={goHome}>Home</button>
           <button className={`nav-btn ${activeView === "briefs" ? "active" : ""}`} onClick={goBriefs}>Daily Briefs</button>
           <button className={`nav-btn ${activeChannel === "midam" ? "active" : ""}`} onClick={() => goChannel("midam")}>Mid-Am</button>
@@ -160,8 +197,8 @@ const App = () => {
       </header>
 
       <main style={{ animation: "fadeIn 0.3s ease" }}>
-        {activeView === "home" && <HomePage goChannel={goChannel} goIssue={goIssue} goBriefs={goBriefs} />}
-        {activeView === "channel" && activeChannel && <ChannelPage channelKey={activeChannel} goIssue={goIssue} />}
+        {activeView === "home" && <HomePage goChannel={goChannel} goIssue={goIssue} goBriefs={goBriefs} issuesByChannel={feedIssues} />}
+        {activeView === "channel" && activeChannel && <ChannelPage channelKey={activeChannel} goIssue={goIssue} issuesByChannel={feedIssues} />}
         {activeView === "issue" && activeChannel && activeIssue !== null && <IssuePage channelKey={activeChannel} issueIndex={activeIssue} goChannel={goChannel} />}
         {activeView === "briefs" && <BriefsPage />}
       </main>
@@ -199,7 +236,8 @@ const DynamicDailyBrief = ({ goBriefs }) => {
   const latest = useMemo(() => {
     const arr = briefsData?.briefs || [];
     const sorted = [...arr].sort((a,b)=> (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
-    return sorted[0] || null;
+    // Skip any brief that parsed to 0 items.
+    return sorted.find((b) => (b.items || []).length > 0) || sorted[0] || null;
   }, []);
 
   const prettyDate = useMemo(() => {
@@ -241,7 +279,15 @@ const DynamicDailyBrief = ({ goBriefs }) => {
             return (
               <div key={i} style={{ padding: "16px", background: "#fafaf8", borderLeft: "3px solid " + lane.color, borderRadius: "2px" }}>
                 <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "1.5px", color: lane.color, textTransform: "uppercase" }}>{lane.label}</span>
-                <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "15px", fontWeight: 600, lineHeight: 1.35, marginTop: "6px" }}>{it.title}</p>
+                <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "15px", fontWeight: 700, lineHeight: 1.35, marginTop: "6px" }}>{it.title}</p>
+                <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "14px", color: "#666", lineHeight: 1.6, marginTop: "8px" }}>
+                  {(it.why || "").split("\n")[0]}
+                </p>
+                {it.url ? (
+                  <a href={it.url} target="_blank" rel="noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 600, color: lane.color, display: "inline-block", marginTop: "10px", textDecoration: "none" }}>
+                    Source →
+                  </a>
+                ) : null}
               </div>
             );
           })}
@@ -256,7 +302,7 @@ const DynamicDailyBrief = ({ goBriefs }) => {
 };
 
 // ===== HOME PAGE =====
-const HomePage = ({ goChannel, goIssue, goBriefs }) => (
+const HomePage = ({ goChannel, goIssue, goBriefs, issuesByChannel }) => (
   <div>
     {/* DAILY BRIEF — first thing you see */}
     <DynamicDailyBrief goBriefs={goBriefs} />
@@ -270,7 +316,7 @@ const HomePage = ({ goChannel, goIssue, goBriefs }) => (
 
       <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
         {Object.entries(CHANNELS).map(([key, ch], idx) => (
-          <ChannelBox key={key} channelKey={key} ch={ch} goChannel={goChannel} goIssue={goIssue} delay={idx * 0.1} />
+          <ChannelBox key={key} channelKey={key} ch={ch} goChannel={goChannel} goIssue={goIssue} delay={idx * 0.1} issues={(issuesByChannel && issuesByChannel[key]) || null} />
         ))}
       </div>
     </section>
@@ -291,7 +337,7 @@ const HomePage = ({ goChannel, goIssue, goBriefs }) => (
 );
 
 // ===== CHANNEL BOX — Beautiful expandable brand card with sub-tabs =====
-const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay }) => {
+const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
   const [activeTab, setActiveTab] = useState("Newsletter");
 
   return (
@@ -302,36 +348,38 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay }) => {
       overflow: "hidden",
       animation: `fadeUp 0.5s ease ${delay}s both`,
     }}>
-      {/* Brand header bar */}
+      {/* Brand header bar (light, crisp logos) */}
       <div style={{
-        background: ch.color,
-        padding: "24px 28px",
+        background: "#fff",
+        padding: "20px 28px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        borderBottom: "1px solid #f0f0eb",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          <div style={{ background: "rgba(255,255,255,0.15)", borderRadius: "8px", padding: "6px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img src={ch.logo} alt={ch.name} style={{ height: "44px", filter: "brightness(10)" }} />
+          <div style={{ width: "8px", height: "44px", borderRadius: "6px", background: ch.color }} />
+          <div style={{ background: "#fff", borderRadius: "10px", padding: "8px 10px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #eee" }}>
+            <img src={ch.logo} alt={ch.name} style={{ height: "38px" }} />
           </div>
           <div>
-            <h3 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "22px", fontWeight: 700, color: "#fff" }}>{ch.name}</h3>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", marginTop: "2px" }}>{ch.tagline}</p>
+            <h3 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "22px", fontWeight: 800, color: "#111" }}>{ch.name}</h3>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#666", marginTop: "2px" }}>{ch.tagline}</p>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {["X", "Instagram"].map(s => (
             <span key={s} style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500,
-              color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.2)",
-              padding: "5px 12px", borderRadius: "3px", cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600,
+              color: "#555", border: "1px solid #ddd",
+              padding: "6px 12px", borderRadius: "3px", cursor: "pointer",
               transition: "all 0.2s",
             }}>{s}</span>
           ))}
           <button onClick={() => goChannel(channelKey)} style={{
-            background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)",
-            color: "#fff", fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 600,
-            padding: "7px 16px", borderRadius: "3px", cursor: "pointer", transition: "all 0.2s",
+            background: ch.color, border: "1px solid " + ch.color,
+            color: "#fff", fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700,
+            padding: "8px 16px", borderRadius: "3px", cursor: "pointer", transition: "all 0.2s",
           }}>
             View All →
           </button>
@@ -354,8 +402,16 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay }) => {
       {/* Tab content */}
       <div style={{ padding: "24px 28px" }}>
         {activeTab === "Newsletter" && (
-          <div style={{ display: "grid", gridTemplateColumns: ch.issues.length > 1 ? "1fr 1fr" : "1fr", gap: "20px" }}>
-            {ch.issues.slice(0, 2).map((issue, i) => (
+          <div style={{ display: "grid", gridTemplateColumns: ((issues || ch.issues) && (issues || ch.issues).length > 1) ? "1fr 1fr" : "1fr", gap: "20px" }}>
+            {((issues || ch.issues) || []).slice(0, 2).map((it, i) => {
+              const issue = {
+                title: it.title,
+                date: it.isoDate ? new Date(it.isoDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : it.date,
+                image: it.imageUrl || it.image,
+                excerpt: it.contentSnippet || it.excerpt || "",
+                link: it.link,
+              };
+              return (
               <div key={i} className="card-hover" onClick={() => goIssue(channelKey, i)} style={{
                 background: "#fafaf8", borderRadius: "6px", overflow: "hidden", border: "1px solid #f0f0eb",
               }}>
@@ -368,14 +424,15 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay }) => {
                 </div>
                 <div style={{ padding: "16px" }}>
                   <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#aaa", marginBottom: "4px" }}>{issue.date}</p>
-                  <h4 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "17px", fontWeight: 600, lineHeight: 1.3, color: "#111", marginBottom: "8px" }}>{issue.title}</h4>
-                  <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "14px", color: "#888", lineHeight: 1.5 }}>
-                    {issue.excerpt.substring(0, 100)}...
+                  <h4 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "17px", fontWeight: 700, lineHeight: 1.3, color: "#111", marginBottom: "8px" }}>{issue.title}</h4>
+                  <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "14px", color: "#666", lineHeight: 1.5 }}>
+                    {(issue.excerpt || "").substring(0, 110)}{(issue.excerpt || "").length > 110 ? "…" : ""}
                   </p>
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 600, color: ch.color, display: "inline-block", marginTop: "8px" }}>Read →</span>
+                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700, color: ch.color, display: "inline-block", marginTop: "8px" }}>Read →</span>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         )}
 
@@ -423,8 +480,15 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay }) => {
 };
 
 // ===== CHANNEL PAGE — full view with native newsletter content =====
-const ChannelPage = ({ channelKey, goIssue }) => {
+const ChannelPage = ({ channelKey, goIssue, issuesByChannel }) => {
   const ch = CHANNELS[channelKey];
+  const issues = ((issuesByChannel && issuesByChannel[channelKey]) || ch.issues || []).map((it) => ({
+    title: it.title,
+    date: it.isoDate ? new Date(it.isoDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : it.date,
+    image: it.imageUrl || it.image,
+    excerpt: it.contentSnippet || it.excerpt || "",
+    link: it.link,
+  }));
   return (
     <div style={{ animation: "fadeIn 0.3s ease" }}>
       <div style={{ background: ch.color, padding: "32px 24px" }}>
