@@ -114,16 +114,39 @@ const App = () => {
 
   const goHome = () => { setActiveView("home"); setActiveChannel(null); setActiveIssue(null); };
   const goChannel = (key) => { setActiveView("channel"); setActiveChannel(key); setActiveIssue(null); };
-  const goIssue = (channelKey, idx) => {
+  const goIssue = (channelKey, issueRef) => {
     // Open the native, indexable issue page (existing site architecture).
+    // The real issue route expects the Beehiiv "issue slug" (last segment of the Beehiiv URL), not an index.
     const ch = CHANNELS[channelKey];
-    if (ch?.slug) {
-      window.location.href = `/${ch.slug}/issue/${idx}`;
+
+    const slugFromUrl = (urlStr) => {
+      try {
+        const u = new URL(urlStr);
+        const parts = u.pathname.split("/").filter(Boolean);
+        return parts[parts.length - 1] || null;
+      } catch {
+        return null;
+      }
+    };
+
+    const issueSlug =
+      typeof issueRef === "string"
+        ? issueRef
+        : typeof issueRef === "number"
+          ? String(issueRef)
+          : issueRef?.link
+            ? slugFromUrl(issueRef.link)
+            : null;
+
+    if (ch?.slug && issueSlug) {
+      window.location.href = `/${ch.slug}/issue/${issueSlug}`;
       return;
     }
+
+    // Fallback to internal mock view.
     setActiveView("issue");
     setActiveChannel(channelKey);
-    setActiveIssue(idx);
+    setActiveIssue(issueRef);
   };
   const goBriefs = () => { setActiveView("briefs"); setActiveChannel(null); setActiveIssue(null); };
 
@@ -412,7 +435,7 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
                 link: it.link,
               };
               return (
-              <div key={i} className="card-hover" onClick={() => goIssue(channelKey, i)} style={{
+              <div key={i} className="card-hover" onClick={() => goIssue(channelKey, issue)} style={{
                 background: "#fafaf8", borderRadius: "6px", overflow: "hidden", border: "1px solid #f0f0eb",
               }}>
                 <div style={{ overflow: "hidden", height: "180px" }}>
@@ -512,7 +535,7 @@ const ChannelPage = ({ channelKey, goIssue, issuesByChannel }) => {
         <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", paddingBottom: "12px", borderBottom: "2px solid #111", marginBottom: "24px" }}>Latest Issues</h2>
         <div style={{ display: "grid", gridTemplateColumns: issues.length > 1 ? "1fr 1fr" : "1fr", gap: "24px" }}>
           {issues.map((issue, i) => (
-            <div key={i} className="card-hover" onClick={() => goIssue(channelKey, i)} style={{ background: "#fff", border: "1px solid #e8e8e3", borderRadius: "6px", overflow: "hidden" }}>
+            <div key={i} className="card-hover" onClick={() => goIssue(channelKey, issue)} style={{ background: "#fff", border: "1px solid #e8e8e3", borderRadius: "6px", overflow: "hidden" }}>
               <div style={{ overflow: "hidden", height: "240px" }}>
                 <div className="card-img" style={{ width: "100%", height: "100%", backgroundImage: `url(${issue.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
               </div>
