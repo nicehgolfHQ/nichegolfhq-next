@@ -9,114 +9,121 @@ import { loadLatestBriefs } from "@/lib/briefs";
 import { formatLongDate } from "@/lib/briefsDates";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
 };
+
+function laneFor(tags?: string[]) {
+  const t = (tags || []).map((x) => String(x).toLowerCase());
+  if (t.includes("junior") || t.includes("juniors")) return { label: "JUNIOR", color: "#8b4513" };
+  if (t.includes("senior") || t.includes("seniors")) return { label: "SENIOR", color: "#2d6a4f" };
+  return { label: "MID-AM", color: "#1a1a2e" };
+}
 
 export default async function Home() {
   const results = await Promise.all(
-    FEEDS.map(async (f) => ({ feed: f, items: await fetchFeedItems(f.rssUrl, 1) }))
+    FEEDS.map(async (f) => ({ feed: f, items: await fetchFeedItems(f.rssUrl, 2) }))
   );
 
-  const latestBrief = loadLatestBriefs(1)[0] ?? null;
+  const latestBrief = (loadLatestBriefs(10) || []).find((b) => (b.items || []).length > 0) ?? null;
   const briefPreviewItems = latestBrief?.items?.slice(0, 3) ?? [];
 
   return (
     <SiteShell>
-      <section className="mx-auto w-full max-w-6xl px-5 py-16">
-        <div className="grid grid-cols-1 gap-10 text-center">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">
-              Competitive golf beyond the mainstream
+      {/* Daily Brief first */}
+      {latestBrief ? (
+        <section className="border-b border-zinc-200 bg-white">
+          <div className="mx-auto w-full max-w-6xl px-5 py-12">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
+                Daily Brief
+              </span>
+              <span className="text-sm text-zinc-600">{formatLongDate(latestBrief.date)}</span>
             </div>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-              Overlooked stories. Sharp opinions. Zero fluff.
+
+            <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+              {latestBrief.title?.replace(/^\"|\"$/g, "")}
             </h1>
-          </div>
-        </div>
+            <p className="mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
+              Your morning briefing across amateur golf.
+            </p>
 
-        {/* Brief of the Day */}
-        {latestBrief ? (
-          <div className="mx-auto mt-10 w-full max-w-4xl">
-            <Link
-              href={`/briefs/${latestBrief.date}`}
-              className="group relative block overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-400" />
-
-              <div className="relative px-6 py-10 sm:px-12">
-                <div className="text-center">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Daily Brief</div>
-                  <div className="mt-3 font-serif text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-                    {formatLongDate(latestBrief.date)}
-                  </div>
-                  <div className="mt-5 inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-5 py-2 text-sm font-medium text-zinc-900 shadow-sm transition group-hover:border-zinc-400 group-hover:bg-zinc-50">
-                    Open today’s brief →
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        ) : null}
-      </section>
-
-      <section id="latest" className="mx-auto w-full max-w-6xl px-5 pb-20">
-        <div className="flex items-end justify-center">
-          <h2 className="text-xl font-semibold tracking-tight">Channels</h2>
-        </div>
-
-        <div className="mt-6 grid grid-cols-1 gap-10">
-          {results.map(({ feed, items }) => (
-            <div key={feed.slug} className="rounded-3xl border border-zinc-200 bg-white p-6">
-              <div className="flex flex-col items-center gap-3 text-center">
-                <Image
-                  src={`/brand/${feed.slug}/logo.png`}
-                  alt={`${feed.name} logo`}
-                  width={275}
-                  height={100}
-                  className="h-[60px] w-auto"
-                  priority={false}
-                />
-                <div className="text-base font-semibold tracking-tight md:text-lg">{feed.name}</div>
-
-                <div className="flex w-full max-w-xs flex-wrap items-center justify-center gap-2 sm:flex-nowrap">
-                  <Link
-                    href={`/${feed.slug}#subscribe`}
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-200"
+            <div className="brief-grid mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
+              {briefPreviewItems.map((it) => {
+                const lane = laneFor(it.tags);
+                const why = (it.why || "").split("\n")[0];
+                return (
+                  <div
+                    key={it.url + it.title}
+                    className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+                    style={{ borderLeft: `3px solid ${lane.color}` }}
                   >
-                    Newsletter
-                  </Link>
+                    <div className="text-[10px] font-bold uppercase tracking-widest" style={{ color: lane.color }}>
+                      {lane.label}
+                    </div>
+                    <div className="mt-2 font-serif text-[16px] font-semibold leading-snug text-zinc-950">{it.title}</div>
+                    {why ? <p className="mt-3 text-sm leading-6 text-zinc-600">{why}</p> : null}
+                    <a
+                      href={it.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex text-xs font-semibold"
+                      style={{ color: lane.color }}
+                    >
+                      Source →
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
 
-                  {feed.xProfileUrl && (
-                    <Link
-                      href={feed.xProfileUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-200"
-                    >
-                      X
-                    </Link>
-                  )}
-                  {feed.instagramProfileUrl && (
-                    <Link
-                      href={feed.instagramProfileUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-200"
-                    >
-                      Instagram
-                    </Link>
-                  )}
+            <div className="mt-6">
+              <Link
+                href={`/briefs/${latestBrief.date}`}
+                className="inline-flex items-center rounded-full border border-zinc-300 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+              >
+                Read full brief →
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Channels */}
+      <section className="mx-auto w-full max-w-6xl px-5 py-14">
+        <div className="flex items-end justify-between">
+          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Channels</h2>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-7">
+          {results.map(({ feed, items }) => (
+            <div key={feed.slug} className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+              <div className="flex flex-col gap-4 border-b border-zinc-200 px-6 py-6 md:flex-row md:items-center md:justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-2xl border border-zinc-200 bg-white px-4 py-3">
+                    <Image
+                      src={`/brand/${feed.slug}/logo.png`}
+                      alt={`${feed.name} logo`}
+                      width={260}
+                      height={96}
+                      className="h-[44px] w-auto"
+                      priority={false}
+                    />
+                  </div>
+                  <div className="text-xl font-semibold tracking-tight text-zinc-950">{feed.name}</div>
                 </div>
+
+                <Link
+                  href={`/${feed.slug}`}
+                  className="inline-flex w-fit items-center justify-center rounded-md px-4 py-2 text-sm font-bold text-white"
+                  style={{ background: feed.slug === "midamgolfhq" ? "#1a1a2e" : feed.slug === "seniorgolfhq" ? "#2d6a4f" : "#8b4513" }}
+                >
+                  View All →
+                </Link>
               </div>
 
-              <div className="mx-auto mt-5 grid w-full max-w-xl grid-cols-1 gap-4">
+              <div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-4 px-6 py-6 md:grid-cols-2">
                 {items.length ? (
-                  items.map((it) => (
-                    <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
-                  ))
+                  items.map((it) => <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />)
                 ) : (
                   <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-600">
                     No posts yet (or RSS URL not configured).
@@ -127,10 +134,10 @@ export default async function Home() {
           ))}
         </div>
 
-        <div className="mx-auto mt-14 max-w-3xl text-center">
+        <div className="mx-auto mt-10 max-w-3xl text-center">
           <p className="text-sm leading-6 text-zinc-500">
-            nichegolfHQ is the leading independent media and intelligence platform covering amateur golf, focused on junior, mid-amateur,
-            and senior events.
+            nichegolfHQ is an independent media and intelligence platform covering amateur golf across junior, mid-amateur, and senior
+            competitive play.
           </p>
         </div>
       </section>

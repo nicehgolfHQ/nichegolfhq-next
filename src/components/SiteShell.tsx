@@ -138,6 +138,17 @@ export function SiteShell({
             </Link>
           </div>
         </div>
+
+        {/* top nav */}
+        <nav className="mx-auto w-full max-w-6xl px-5 pb-3">
+          <div className="flex items-center justify-center gap-6 overflow-x-auto border-t border-zinc-200/60 pt-3 text-sm text-zinc-700 [scrollbar-width:none]">
+            <Link href="/" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Home</Link>
+            <Link href="/juniorgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Junior</Link>
+            <Link href="/midamgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Mid-Am</Link>
+            <Link href="/seniorgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Senior</Link>
+            <Link href="/briefs" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Daily Briefs</Link>
+          </div>
+        </nav>
       </header>
 
       <main>{children}</main>
