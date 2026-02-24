@@ -398,7 +398,7 @@ const HomePage = ({ goChannel, goIssue, goBriefs, issuesByChannel }) => (
 
 // ===== CHANNEL BOX — Beautiful expandable brand card with sub-tabs =====
 const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
-  const [activeTab, setActiveTab] = useState("Newsletter");
+  // tabs removed
 
   return (
     <div style={{
@@ -436,32 +436,18 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
         </div>
       </div>
 
-      {/* Sub-tabs */}
-      <div style={{ padding: "12px 28px 0", borderBottom: "1px solid #f0f0eb", display: "flex", gap: "6px" }}>
-        {ch.tabs.map(tab => (
-          <button
-            key={tab}
-            className={`channel-tab ${activeTab === tab ? "active" : ""}`}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      {/* Tab content */}
+      {/* Issues preview */}
       <div style={{ padding: "24px 28px" }}>
-        {activeTab === "Newsletter" && (
-          <div className="issue-grid" style={{ display: "grid", gridTemplateColumns: ((issues || ch.issues) && (issues || ch.issues).length > 1) ? "1fr 1fr" : "1fr", gap: "20px" }}>
-            {((issues || ch.issues) || []).slice(0, 2).map((it, i) => {
-              const issue = {
-                title: it.title,
-                date: it.isoDate ? new Date(it.isoDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : it.date,
-                image: it.imageUrl || it.image,
-                excerpt: it.contentSnippet || it.excerpt || "",
-                link: it.link,
-              };
-              return (
+        <div className="issue-grid" style={{ display: "grid", gridTemplateColumns: ((issues || ch.issues) && (issues || ch.issues).length > 1) ? "1fr 1fr" : "1fr", gap: "20px" }}>
+          {((issues || ch.issues) || []).slice(0, 2).map((it, i) => {
+            const issue = {
+              title: it.title,
+              date: it.isoDate ? new Date(it.isoDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : it.date,
+              image: it.imageUrl || it.image,
+              excerpt: it.contentSnippet || it.excerpt || "",
+              link: it.link,
+            };
+            return (
               <div key={i} className="card-hover" onClick={() => goIssue(channelKey, issue)} style={{
                 background: "#fafaf8", borderRadius: "6px", overflow: "hidden", border: "1px solid #f0f0eb",
               }}>
@@ -483,47 +469,7 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
               </div>
             );
           })}
-          </div>
-        )}
-
-        {activeTab === "Schedule" && (
-          <div>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: "1.5px", textTransform: "uppercase", color: "#aaa", marginBottom: "16px" }}>
-              2026 Key Events
-            </p>
-            {ch.schedule.map((ev, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 0", borderBottom: i < ch.schedule.length - 1 ? "1px solid #f0f0eb" : "none" }}>
-                <div>
-                  <h4 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "16px", fontWeight: 600, color: "#111" }}>{ev.event}</h4>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#999", marginTop: "2px" }}>{ev.location}</p>
-                </div>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", fontWeight: 500, color: ch.color, whiteSpace: "nowrap" }}>{ev.dates}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {activeTab === "About" && (
-          <div>
-            <div style={{ display: "flex", gap: "20px", alignItems: "flex-start" }}>
-              <img src={ch.logo} alt="" style={{ height: "64px" }} />
-              <div>
-                <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "16px", lineHeight: 1.7, color: "#555" }}>
-                  {ch.name} is a nichegolfHQ channel dedicated to {channelKey === "midam" ? "mid-amateur" : channelKey === "senior" ? "senior amateur" : "junior amateur"} competitive golf. 
-                  Through our newsletter <em>{ch.newsletter}</em>, social media coverage, and in-depth reporting, we deliver the stories, analysis, and tournament coverage the mainstream misses.
-                </p>
-                <div style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
-                  {["Newsletter", "X", "Instagram"].map(s => (
-                    <span key={s} style={{
-                      fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500,
-                      border: "1px solid #ddd", padding: "6px 14px", borderRadius: "3px", cursor: "pointer", color: "#555",
-                    }}>{s}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
