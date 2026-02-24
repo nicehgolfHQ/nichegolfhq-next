@@ -80,6 +80,38 @@ export default async function NewsletterPage({
               </div>
             </div>
           ) : null}
+
+          {feed.slug === "juniorgolfhq" ? (
+            <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6">
+              <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+                <div>
+                  <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Junior Major Schedule</div>
+                </div>
+                <Link
+                  href="/juniorgolfhq/majors"
+                  className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-zinc-800"
+                >
+                  View →
+                </Link>
+              </div>
+            </div>
+          ) : null}
+
+          {feed.slug === "seniorgolfhq" ? (
+            <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6">
+              <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+                <div>
+                  <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Senior Major Schedule</div>
+                </div>
+                <Link
+                  href="/seniorgolfhq/majors"
+                  className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-zinc-800"
+                >
+                  View →
+                </Link>
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
