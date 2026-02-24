@@ -418,24 +418,14 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
         borderBottom: "1px solid #f0f0eb",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          <div style={{ width: "8px", height: "44px", borderRadius: "6px", background: ch.color }} />
           <div style={{ background: "#fff", borderRadius: "10px", padding: "8px 10px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #eee" }}>
             <img src={ch.logo} alt={ch.name} style={{ height: "38px" }} />
           </div>
           <div>
             <h3 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "22px", fontWeight: 800, color: "#111" }}>{ch.name}</h3>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#666", marginTop: "2px" }}>{ch.tagline}</p>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          {["X", "Instagram"].map(s => (
-            <span key={s} style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600,
-              color: "#555", border: "1px solid #ddd",
-              padding: "6px 12px", borderRadius: "3px", cursor: "pointer",
-              transition: "all 0.2s",
-            }}>{s}</span>
-          ))}
           <button onClick={() => goChannel(channelKey)} style={{
             background: ch.color, border: "1px solid " + ch.color,
             color: "#fff", fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700,
