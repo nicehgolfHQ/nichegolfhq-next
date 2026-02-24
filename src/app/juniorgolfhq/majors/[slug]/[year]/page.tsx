@@ -1,0 +1,85 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { SiteShell } from "@/components/SiteShell";
+import { getJuniorMajorBySlug, listJuniorMajorSlugs } from "@/lib/juniorMajors";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  // Start with 2026 only.
+  return listJuniorMajorSlugs().map((slug) => ({ slug, year: "2026" }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug?: string; year?: string } | Promise<{ slug?: string; year?: string }>;
+}) {
+  const p: any = await Promise.resolve(params as any);
+  const slug = p?.slug ?? "";
+  const year = p?.year ?? "";
+  const event = getJuniorMajorBySlug(slug);
+  if (!event) return { title: "Junior Majors | juniorgolfHQ" };
+  return {
+    title: `${event.name} ${year} Results | juniorgolfHQ`,
+    description: `${event.name} ${year} results, winners, and recap.`,
+    alternates: { canonical: `/juniorgolfhq/majors/${event.slug}/${year}` },
+  };
+}
+
+export default async function JuniorMajorYearPage({
+  params,
+}: {
+  params: { slug?: string; year?: string } | Promise<{ slug?: string; year?: string }>;
+}) {
+  const p: any = await Promise.resolve(params as any);
+  const slug = p?.slug ?? "";
+  const year = String(p?.year ?? "");
+  const event = getJuniorMajorBySlug(slug);
+  if (!event || year !== "2026") notFound();
+
+  return (
+    <SiteShell brandSlug="juniorgolfhq">
+      <div className="mx-auto w-full max-w-4xl px-5 py-10">
+        <div className="mb-8">
+          <Link href={`/juniorgolfhq/majors/${event.slug}`} className="text-sm text-zinc-700 underline-offset-4 hover:underline">
+            ← {event.name}
+          </Link>
+          <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-zinc-950">
+            {event.name} <span className="text-zinc-500">{year}</span>
+          </h1>
+          <div className="mt-3 text-sm text-zinc-600">{event.month}</div>
+        </div>
+
+        <div className="space-y-4">
+          <div className="rounded-3xl border border-zinc-200 bg-white p-6">
+            <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Winners</h2>
+            {event.winners2026 ? (
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {event.winners2026.boys ? (
+                  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                    <div className="text-xs font-medium text-zinc-500">Boys</div>
+                    <div className="mt-1 text-xl font-semibold text-zinc-950">{event.winners2026.boys}</div>
+                  </div>
+                ) : null}
+                {event.winners2026.girls ? (
+                  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                    <div className="text-xs font-medium text-zinc-500">Girls</div>
+                    <div className="mt-1 text-xl font-semibold text-zinc-950">{event.winners2026.girls}</div>
+                  </div>
+                ) : null}
+              </div>
+            ) : (
+              <p className="mt-3 text-sm text-zinc-700">Winner data TBD.</p>
+            )}
+          </div>
+
+          <div className="rounded-3xl border border-zinc-200 bg-white p-6">
+            <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Sources</h2>
+            <p className="mt-3 text-sm text-zinc-700">Official links + recap sources coming next.</p>
+          </div>
+        </div>
+      </div>
+    </SiteShell>
+  );
+}
