@@ -200,6 +200,17 @@ const App = () => {
           .channel-header-row {
             flex-wrap: wrap;
           }
+
+          .footer-row {
+            justify-content: center !important;
+          }
+
+          .footer-columns {
+            width: 100%;
+            justify-content: center;
+            gap: 24px !important;
+            text-align: center;
+          }
         }
       `}</style>
 
@@ -258,8 +269,8 @@ const App = () => {
 
       {/* FOOTER */}
       <footer style={{ background: "#111", padding: "28px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "24px" }}>
-          <div style={{ display: "flex", gap: "40px" }}>
+        <div className="footer-row" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "24px" }}>
+          <div className="footer-columns" style={{ display: "flex", gap: "40px" }}>
             {[
               { t: "Channels", items: ["midamgolfHQ", "seniorgolfHQ", "juniorgolfHQ"] },
               { t: "Follow", items: ["Newsletter", "X / Twitter", "Instagram"] },
@@ -372,8 +383,7 @@ const HomePage = ({ goChannel, goIssue, goBriefs, issuesByChannel }) => (
     </section>
 
     {/* Subscribe CTA */}
-    <section style={{ background: "#111", padding: "56px 24px", textAlign: "center" }}>
-      <img src={LOGO_NICHE} alt="" style={{ height: "48px", filter: "brightness(10)", marginBottom: "16px" }} />
+    <section style={{ background: "#111", padding: "48px 24px", textAlign: "center" }}>
       <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "28px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>Never Miss a Story</h2>
       <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#888", marginBottom: "24px", maxWidth: "420px", margin: "0 auto 24px" }}>
         Get the Daily Brief and newsletter content from all three channels delivered to your inbox.
