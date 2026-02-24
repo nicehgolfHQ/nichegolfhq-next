@@ -257,26 +257,25 @@ const App = () => {
       </main>
 
       {/* FOOTER */}
-      <footer style={{ background: "#111", padding: "48px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <img src={LOGO_NICHE} alt="" style={{ height: "32px", filter: "brightness(10)" }} />
+      <footer style={{ background: "#111", padding: "28px 24px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "24px" }}>
+          <div>
             <span style={{ fontFamily: "'Source Serif 4', serif", fontSize: "16px", fontWeight: 700, color: "#fff" }}>nichegolfHQ</span>
           </div>
-          <div style={{ display: "flex", gap: "48px" }}>
+          <div style={{ display: "flex", gap: "40px" }}>
             {[
               { t: "Channels", items: ["midamgolfHQ", "seniorgolfHQ", "juniorgolfHQ"] },
               { t: "Follow", items: ["Newsletter", "X / Twitter", "Instagram"] },
               { t: "More", items: ["Majors", "About", "Sponsor", "Shop", "Contact"] },
             ].map(col => (
               <div key={col.t}>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#555", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "10px" }}>{col.t}</p>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#555", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>{col.t}</p>
                 {col.items.map(item => <p key={item} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#777", marginBottom: "6px", cursor: "pointer" }}>{item}</p>)}
               </div>
             ))}
           </div>
         </div>
-        <div style={{ maxWidth: "1200px", margin: "28px auto 0", borderTop: "1px solid #333", paddingTop: "16px" }}>
+        <div style={{ maxWidth: "1200px", margin: "18px auto 0", borderTop: "1px solid #333", paddingTop: "12px" }}>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#555" }}>© 2026 nichegolfHQ. All rights reserved.</p>
         </div>
       </footer>
