@@ -171,6 +171,36 @@ const App = () => {
         .channel-tab.active { background: #111; color: #fff; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+        /* Responsive: mobile-first tweaks */
+        @media (max-width: 768px) {
+          .top-nav {
+            justify-content: flex-start !important;
+            overflow-x: auto;
+            gap: 16px !important;
+            padding-bottom: 6px !important;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .brief-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          .issue-grid,
+          .channel-issue-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          .channelbox-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+
+          .channel-header-row {
+            flex-wrap: wrap;
+          }
+        }
       `}</style>
 
       {/* HEADER */}
@@ -185,7 +215,7 @@ const App = () => {
           </div>
           <button style={{ background: "#111", color: "#fff", border: "none", fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, padding: "10px 22px", borderRadius: "3px", cursor: "pointer" }}>subscribe</button>
         </div>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 0", display: "flex", gap: "28px", justifyContent: "center" }}>
+        <div className="top-nav" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 0", display: "flex", gap: "28px", justifyContent: "center" }}>
           <button className={`nav-btn ${activeView === "home" ? "active" : ""}`} onClick={goHome}>Home</button>
           <button className={`nav-btn ${activeView === "briefs" ? "active" : ""}`} onClick={goBriefs}>Daily Briefs</button>
           <button className={`nav-btn ${activeChannel === "midam" ? "active" : ""}`} onClick={() => goChannel("midam")}>Mid-Am</button>
@@ -297,7 +327,7 @@ const DynamicDailyBrief = ({ goBriefs }) => {
           Your morning briefing across amateur golf.
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "16px" }}>
+        <div className="brief-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "16px" }}>
           {items.map((it, i) => {
             const lane = laneFor(it);
             return (
@@ -373,7 +403,7 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
       animation: `fadeUp 0.5s ease ${delay}s both`,
     }}>
       {/* Brand header bar (light, crisp logos) */}
-      <div style={{
+      <div className="channelbox-header" style={{
         background: "#fff",
         padding: "20px 28px",
         display: "flex",
@@ -426,7 +456,7 @@ const ChannelBox = ({ channelKey, ch, goChannel, goIssue, delay, issues }) => {
       {/* Tab content */}
       <div style={{ padding: "24px 28px" }}>
         {activeTab === "Newsletter" && (
-          <div style={{ display: "grid", gridTemplateColumns: ((issues || ch.issues) && (issues || ch.issues).length > 1) ? "1fr 1fr" : "1fr", gap: "20px" }}>
+          <div className="issue-grid" style={{ display: "grid", gridTemplateColumns: ((issues || ch.issues) && (issues || ch.issues).length > 1) ? "1fr 1fr" : "1fr", gap: "20px" }}>
             {((issues || ch.issues) || []).slice(0, 2).map((it, i) => {
               const issue = {
                 title: it.title,
@@ -516,7 +546,7 @@ const ChannelPage = ({ channelKey, goIssue, issuesByChannel }) => {
   return (
     <div style={{ animation: "fadeIn 0.3s ease" }}>
       <div style={{ background: "#fff", padding: "28px 24px", borderBottom: "1px solid #e8e8e3" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", gap: "16px" }}>
+        <div className="channel-header-row" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", gap: "16px" }}>
           <div style={{ width: "8px", height: "52px", borderRadius: "6px", background: ch.color }} />
           <div style={{ background: "#fff", borderRadius: "10px", padding: "8px 10px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #eee" }}>
             <img src={ch.logo} alt="" style={{ height: "44px" }} />
@@ -534,7 +564,7 @@ const ChannelPage = ({ channelKey, goIssue, issuesByChannel }) => {
       </div>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "36px 24px" }}>
         <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", paddingBottom: "12px", borderBottom: "2px solid #111", marginBottom: "24px" }}>Latest Issues</h2>
-        <div style={{ display: "grid", gridTemplateColumns: issues.length > 1 ? "1fr 1fr" : "1fr", gap: "24px" }}>
+        <div className="channel-issue-grid" style={{ display: "grid", gridTemplateColumns: issues.length > 1 ? "1fr 1fr" : "1fr", gap: "24px" }}>
           {issues.map((issue, i) => (
             <div key={i} className="card-hover" onClick={() => goIssue(channelKey, issue)} style={{ background: "#fff", border: "1px solid #e8e8e3", borderRadius: "6px", overflow: "hidden" }}>
               <div style={{ overflow: "hidden", height: "240px" }}>
