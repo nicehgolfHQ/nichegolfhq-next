@@ -491,35 +491,36 @@ const ChannelPage = ({ channelKey, goIssue, issuesByChannel }) => {
   }));
   return (
     <div style={{ animation: "fadeIn 0.3s ease" }}>
-      <div style={{ background: ch.color, padding: "32px 24px" }}>
+      <div style={{ background: "#fff", padding: "28px 24px", borderBottom: "1px solid #e8e8e3" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ background: "rgba(255,255,255,0.12)", borderRadius: "8px", padding: "6px" }}>
-            <img src={ch.logo} alt="" style={{ height: "52px", filter: "brightness(10)" }} />
+          <div style={{ width: "8px", height: "52px", borderRadius: "6px", background: ch.color }} />
+          <div style={{ background: "#fff", borderRadius: "10px", padding: "8px 10px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #eee" }}>
+            <img src={ch.logo} alt="" style={{ height: "44px" }} />
           </div>
           <div>
-            <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "28px", fontWeight: 700, color: "#fff" }}>{ch.name}</h1>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.65)" }}>{ch.tagline} · Newsletter: {ch.newsletter}</p>
+            <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "28px", fontWeight: 800, color: "#111" }}>{ch.name}</h1>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#666" }}>{ch.tagline} · Newsletter: {ch.newsletter}</p>
           </div>
           <div style={{ marginLeft: "auto", display: "flex", gap: "8px" }}>
             {["Newsletter", "X", "Instagram"].map(p => (
-              <span key={p} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 500, border: "1px solid rgba(255,255,255,0.25)", padding: "6px 14px", borderRadius: "3px", cursor: "pointer", color: "rgba(255,255,255,0.7)" }}>{p}</span>
+              <span key={p} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, border: "1px solid #ddd", padding: "6px 14px", borderRadius: "3px", cursor: "pointer", color: "#555" }}>{p}</span>
             ))}
           </div>
         </div>
       </div>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "36px 24px" }}>
         <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", paddingBottom: "12px", borderBottom: "2px solid #111", marginBottom: "24px" }}>Latest Issues</h2>
-        <div style={{ display: "grid", gridTemplateColumns: ch.issues.length > 1 ? "1fr 1fr" : "1fr", gap: "24px" }}>
-          {ch.issues.map((issue, i) => (
+        <div style={{ display: "grid", gridTemplateColumns: issues.length > 1 ? "1fr 1fr" : "1fr", gap: "24px" }}>
+          {issues.map((issue, i) => (
             <div key={i} className="card-hover" onClick={() => goIssue(channelKey, i)} style={{ background: "#fff", border: "1px solid #e8e8e3", borderRadius: "6px", overflow: "hidden" }}>
               <div style={{ overflow: "hidden", height: "240px" }}>
                 <div className="card-img" style={{ width: "100%", height: "100%", backgroundImage: `url(${issue.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
               </div>
               <div style={{ padding: "20px" }}>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#aaa", marginBottom: "6px" }}>{issue.date}</p>
-                <h3 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "20px", fontWeight: 600, lineHeight: 1.3, marginBottom: "10px" }}>{issue.title}</h3>
-                <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "15px", color: "#666", lineHeight: 1.6 }}>{issue.excerpt}</p>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, color: ch.color, display: "inline-block", marginTop: "12px" }}>Read full issue →</span>
+                <h3 style={{ fontFamily: "'Source Serif 4', serif", fontSize: "20px", fontWeight: 700, lineHeight: 1.3, marginBottom: "10px" }}>{issue.title}</h3>
+                <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "15px", color: "#666", lineHeight: 1.6 }}>{(issue.excerpt || "").substring(0, 220)}{(issue.excerpt || "").length > 220 ? "…" : ""}</p>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 700, color: ch.color, display: "inline-block", marginTop: "12px" }}>Read full issue →</span>
               </div>
             </div>
           ))}
