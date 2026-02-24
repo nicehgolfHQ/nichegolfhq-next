@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nichegolfHQ — Lab (Dark-nav / Cream)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      :root{
+        --black:#0a0a08;--cream:#f5f0e8;--green:#1a3d2b;--gold:#c9a84c;--gold-hover:#e0bb5a;--text-muted:#6b6b5e;--border:rgba(10,10,8,.1);
+        --mid:#4a7c5e;--junior:#1b4f8a;--senior:#7a3b1e;
+        --font-display:"Playfair Display",Georgia,serif;--font-body:"DM Sans",system-ui,sans-serif;--font-mono:"DM Mono","Courier New",monospace;
+      }
+      body{background:var(--cream);color:var(--black);font-family:var(--font-body);line-height:1.6}
+      a{text-decoration:none;color:inherit}
+      .nav{position:sticky;top:0;z-index:50;height:56px;background:var(--black);border-bottom:1px solid rgba(201,168,76,.25);display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+      .nav__logo{font-family:var(--font-display);font-weight:900;color:var(--cream)}
+      .nav__logo span{color:var(--gold)}
+      .nav__links{display:flex;gap:18px;list-style:none}
+      .nav__links a{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.55)}
+      .nav__links a:hover{color:var(--gold)}
+      .nav__cta{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:.45rem 1.1rem}
+      .nav__cta:hover{background:var(--gold-hover)}
+      .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+      .h1{font-family:var(--font-display);font-weight:900;letter-spacing:-.02em;font-size:44px;line-height:1.05}
+      .sub{margin-top:10px;color:var(--text-muted);max-width:60ch}
+      .grid{margin-top:22px;display:grid;gap:14px}
+      .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px}
+      .eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+      .moduleTitle{margin-top:8px;font-family:var(--font-display);font-weight:900;font-size:22px;letter-spacing:-.01em}
+      .pillRow{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+      .pill{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);padding:.35rem .6rem;border-radius:999px;color:var(--text-muted);background:transparent}
+      .pill.mid{border-color:rgba(74,124,94,.35);color:var(--mid)}
+      .pill.junior{border-color:rgba(27,79,138,.35);color:var(--junior)}
+      .pill.senior{border-color:rgba(122,59,30,.35);color:var(--senior)}
+      .list{margin-top:10px;border-top:1px solid var(--border)}
+      .row{display:flex;justify-content:space-between;gap:14px;padding:12px 4px;border-bottom:1px solid var(--border)}
+      .rowTitle{font-family:var(--font-display);font-weight:700}
+      .rowMeta{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+      @media (min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
+      @media (max-width:820px){.nav__links{display:none}}
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__logo">niche<span>golf</span>HQ</div>
+      <ul class="nav__links">
+        <li><a href="#">midam</a></li>
+        <li><a href="#">junior</a></li>
+        <li><a href="#">senior</a></li>
+        <li><a href="#">briefs</a></li>
+        <li><a href="#">majors</a></li>
+      </ul>
+      <a class="nav__cta" href="#">subscribe</a>
+    </nav>
+
+    <div class="wrap">
+      <div class="eyebrow">Lab · Option A</div>
+      <div class="h1">Dark nav + cream paper</div>
+      <div class="sub">Goal: premium newsroom feel. Tokens + modules only (not full page templates).</div>
+
+      <div class="grid">
+        <section class="card">
+          <div class="eyebrow">Daily Briefs</div>
+          <div class="moduleTitle">Latest</div>
+          <div class="list">
+            <div class="row"><div class="rowTitle">Gasparilla final · Brown wins</div><div class="rowMeta">Feb 22, 2026</div></div>
+            <div class="row"><div class="rowTitle">Gasparilla R2 recap</div><div class="rowMeta">Feb 20, 2026</div></div>
+            <div class="row"><div class="rowTitle">AJGA Rapid City announced</div><div class="rowMeta">Feb 22, 2026</div></div>
+          </div>
+        </section>
+
+        <aside class="card">
+          <div class="eyebrow">Majors</div>
+          <div class="moduleTitle">Upcoming</div>
+          <div class="pillRow">
+            <span class="pill mid">Mid-Am</span>
+            <span class="pill junior">Junior</span>
+            <span class="pill senior">Senior</span>
+          </div>
+          <div class="list">
+            <div class="row"><div class="rowTitle">Snedeker Memorial</div><div class="rowMeta">Mar 2026</div></div>
+            <div class="row"><div class="rowTitle">Walter J. Travis Invitational</div><div class="rowMeta">May 2026</div></div>
+            <div class="row"><div class="rowTitle">USGA Men’s Mid-Am</div><div class="rowMeta">Oct 2026</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

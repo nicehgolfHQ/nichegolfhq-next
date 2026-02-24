@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nichegolfHQ — Design System & Page Templates (Preview)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+         NICHEGOLFHQ — MASTER DESIGN SYSTEM
+         Use this as the single source of truth for all pages.
+         ============================================================ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ── DESIGN TOKENS ─────────────────────────────────────────── */
+      :root {
+        /* Core palette */
+        --black: #0a0a08;
+        --cream: #f5f0e8;
+        --green: #1a3d2b;
+        --green-light: #2d6648;
+        --gold: #c9a84c;
+        --gold-hover: #e0bb5a;
+        --red: #c23b22;
+        --text-muted: #6b6b5e;
+        --border: rgba(10, 10, 8, 0.1);
+        --border-dark: rgba(245, 240, 232, 0.08);
+
+        /* Sub-brand colors */
+        --mid: #4a7c5e;
+        --mid-light: #5fa882;
+        --mid-dark: #1a3d2b;
+        --junior: #1b4f8a;
+        --junior-light: #6b9cd4;
+        --senior: #7a3b1e;
+        --senior-light: #c97d50;
+
+        /* Typography */
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "DM Sans", system-ui, sans-serif;
+        --font-mono: "DM Mono", "Courier New", monospace;
+
+        /* Spacing scale */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 2rem;
+        --space-lg: 4rem;
+        --space-xl: 6rem;
+
+        /* Nav height */
+        --nav-h: 56px;
+      }
+
+      /* ── GLOBAL RESETS & BASE ───────────────────────────────────── */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--cream);
+        color: var(--black);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* ── UTILITY CLASSES ────────────────────────────────────────── */
+      .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+      }
+      .section {
+        padding: var(--space-xl) 0;
+      }
+      .section--dark {
+        background: var(--black);
+      }
+      .section--green {
+        background: var(--green);
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      .eyebrow::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+      .label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: var(--space-md) 0;
+      }
+      .divider--dark {
+        border-color: var(--border-dark);
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── NAV (shared across all pages) ─────────────────────────── */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: var(--nav-h);
+        background: var(--black);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2.5rem;
+      }
+      .nav__logo {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: var(--cream);
+        letter-spacing: 0.01em;
+      }
+      .nav__logo span {
+        color: var(--gold);
+      }
+      .nav__links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav__links a {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.55);
+        transition: color 0.2s;
+      }
+      .nav__links a:hover,
+      .nav__links a.active {
+        color: var(--gold);
+      }
+      .nav__cta {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: var(--gold);
+        color: var(--black);
+        padding: 0.45rem 1.2rem;
+        font-weight: 500;
+        transition: background 0.2s;
+      }
+      .nav__cta:hover {
+        background: var(--gold-hover);
+      }
+
+      /* ── BUTTONS ────────────────────────────────────────────────── */
+      .btn {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.85rem 2rem;
+        font-weight: 500;
+        transition: all 0.18s;
+        cursor: pointer;
+        border: none;
+      }
+      .btn--primary {
+        background: var(--gold);
+        color: var(--black);
+      }
+      .btn--primary:hover {
+        background: var(--gold-hover);
+        transform: translateY(-1px);
+      }
+      .btn--ghost-dark {
+        border: 1px solid rgba(245, 240, 232, 0.25);
+        color: rgba(245, 240, 232, 0.7);
+      }
+      .btn--ghost-dark:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .btn--ghost-light {
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+      }
+      .btn--ghost-light:hover {
+        border-color: var(--black);
+        color: var(--black);
+      }
+
+      /* ── TICKER ─────────────────────────────────────────────────── */
+      .ticker {
+        background: var(--gold);
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 0.55rem 0;
+      }
+      .ticker__inner {
+        display: inline-block;
+        animation: ticker-scroll 35s linear infinite;
+      }
+      @keyframes ticker-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .ticker__item {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--black);
+        padding: 0 2rem;
+      }
+      .ticker__sep {
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(10, 10, 8, 0.35);
+        vertical-align: middle;
+        margin: 0 0.5rem;
+      }
+
+      /* ── PAGE HEADER (interior pages) ───────────────────────────── */
+      .page-header {
+        margin-top: var(--nav-h);
+        background: var(--green);
+        padding: 4rem 2.5rem 3.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-header::after {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .page-header--mid {
+        background: var(--mid-dark);
+      }
+      .page-header--junior {
+        background: var(--junior);
+      }
+      .page-header--senior {
+        background: var(--senior);
+      }
+      .page-header__inner {
+        max-width: 1320px;
+        margin: 0 auto;
+      }
+      .page-header__title {
+        font-family: var(--font-display);
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        font-weight: 900;
+        color: var(--cream);
+        line-height: 1;
+        letter-spacing: -0.025em;
+        margin-bottom: 1rem;
+      }
+      .page-header__title em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .page-header__sub {
+        font-size: 1rem;
+        color: rgba(245, 240, 232, 0.6);
+        font-weight: 300;
+        max-width: 500px;
+        line-height: 1.7;
+      }
+
+      /* ── SECTION HEADER ─────────────────────────────────────────── */
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 2.5rem;
+      }
+      .section-header__title {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+      .section-header__title--light {
+        color: var(--cream);
+      }
+      .section-header__link {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: color 0.2s, gap 0.2s;
+      }
+      .section-header__link::after {
+        content: "→";
+      }
+      .section-header__link:hover {
+        color: var(--black);
+        gap: 0.8rem;
+      }
+      .section-header__link--light {
+        color: rgba(245, 240, 232, 0.4);
+      }
+      .section-header__link--light:hover {
+        color: var(--gold);
+      }
+
+      /* ── CARD GRID ───────────────────────────────────────────────── */
+      .card-grid {
+        display: grid;
+        gap: 1.5px;
+        background: var(--border);
+      }
+      .card-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .card-grid--2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card-grid--1 {
+        grid-template-columns: 1fr;
+      }
+
+      /* ── ISSUE CARD ─────────────────────────────────────────────── */
+      .issue-card {
+        background: var(--cream);
+        padding: 2.25rem;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.15s, transform 0.2s;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+      }
+      .issue-card:hover {
+        background: #ede8e0;
+        transform: translateY(-2px);
+      }
+      .issue-card__accent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+      .issue-card--mid .issue-card__accent {
+        background: var(--mid);
+      }
+      .issue-card--junior .issue-card__accent {
+        background: var(--junior);
+      }
+      .issue-card--senior .issue-card__accent {
+        background: var(--senior);
+      }
+      .issue-card__tag {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .issue-card--mid .issue-card__tag {
+        color: var(--mid);
+      }
+      .issue-card--junior .issue-card__tag {
+        color: var(--junior-light);
+      }
+      .issue-card--senior .issue-card__tag {
+        color: var(--senior-light);
+      }
+      .issue-card__title {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 0.6rem;
+        flex: 1;
+      }
+      .issue-card__date {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        margin-top: 1rem;
+      }
+      .issue-card__arrow {
+        position: absolute;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        opacity: 0;
+        transform: translate(-4px, 4px);
+        transition: all 0.2s;
+      }
+      .issue-card:hover .issue-card__arrow {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
+      /* =============================================================
+         PAGE TEMPLATES — PREVIEW BELOW
+         ============================================================= */
+      .page-wrap {
+        margin-top: var(--nav-h);
+      }
+
+      /* Demo tabs */
+      .demo-tabs {
+        position: sticky;
+        top: var(--nav-h);
+        z-index: 100;
+        background: var(--black);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        overflow-x: auto;
+      }
+      .demo-tab {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.4);
+        padding: 0.85rem 1.5rem;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+        transition: color 0.2s, border-color 0.2s;
+        background: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+      .demo-tab:hover {
+        color: var(--cream);
+      }
+      .demo-tab.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+      }
+      .demo-page {
+        display: none;
+      }
+      .demo-page.active {
+        display: block;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .nav__links {
+          display: none;
+        }
+        .container {
+          padding: 0 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SHARED NAV -->
+    <nav class="nav">
+      <a href="#" class="nav__logo">niche<span>golf</span>HQ</a>
+      <ul class="nav__links">
+        <li><a href="#" class="active">Mid-Am</a></li>
+        <li><a href="#">Junior</a></li>
+        <li><a href="#">Senior</a></li>
+        <li><a href="#">Briefs</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <a href="#" class="nav__cta">Subscribe</a>
+    </nav>
+
+    <!-- PAGE SWITCHER -->
+    <div class="demo-tabs">
+      <button class="demo-tab active" data-page="home">Home</button>
+      <button class="demo-tab" data-page="midamgolfhq">midamgolfHQ</button>
+      <button class="demo-tab" data-page="juniorgolfhq">juniorgolfHQ</button>
+      <button class="demo-tab" data-page="seniorgolfhq">seniorgolfHQ</button>
+      <button class="demo-tab" data-page="briefs">Briefs</button>
+      <button class="demo-tab" data-page="issue">Issue Page</button>
+      <button class="demo-tab" data-page="about">About</button>
+    </div>
+
+    <!-- NOTE: This is a preview sandbox. Content below is truncated on purpose; we only need enough
+         to validate tokens + spacing + components. We'll port full templates into Next.js components later. -->
+
+    <div id="page-home" class="demo-page active">
+      <section
+        style="display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - var(--nav-h) - 40px);margin-top:40px;"
+      >
+        <div
+          style="background:var(--green);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;"
+        >
+          <div
+            style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 70%);pointer-events:none;"
+          ></div>
+          <div>
+            <div class="eyebrow">Independent Golf Media</div>
+            <h1
+              style="font-family:var(--font-display);font-size:clamp(3rem,5vw,5.5rem);font-weight:900;color:var(--cream);line-height:1.0;letter-spacing:-0.025em;margin-bottom:1.75rem;"
+            >
+              The Golf<br />Stories No<br />One <em style="color:var(--gold)">Else</em><br />Tells.
+            </h1>
+            <p
+              style="font-size:1rem;color:rgba(245,240,232,0.6);max-width:380px;line-height:1.75;font-weight:300;margin-bottom:2.5rem;"
+            >
+              Covering mid-amateur, junior, and senior competitive golf with the depth it deserves. Sharp opinions, real
+              results, zero fluff.
+            </p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <a href="#" class="btn btn--primary">Today's Brief</a>
+              <a href="#" class="btn btn--ghost-dark">Explore Channels</a>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--black);padding:5rem 3.5rem;display:flex;flex-direction:column;">
+          <span
+            style="font-family:var(--font-mono);font-size:0.63rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:0.3rem 0.7rem;display:inline-block;align-self:flex-start;margin-bottom:1.75rem;"
+            >Today's Brief</span
+          >
+          <div
+            style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.3);margin-bottom:2.5rem;"
+          >
+            February 22, 2026
+          </div>
+          <div style="flex:1;">
+            <div style="padding:1.5rem 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+              <div
+                style="font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid-light);margin-bottom:0.5rem;"
+              >
+                ● Mid-Am
+              </div>
+              <div
+                style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:0.5rem;"
+              >
+                Hayes Brown Wins 71st Gasparilla Invitational
+              </div>
+              <div style="font-size:0.83rem;color:rgba(245,240,232,0.45);line-height:1.6;font-weight:300;">
+                Brown closes with 68 at Palma Ceia (67–73–68, −2) to claim the title.
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:2rem;display:flex;justify-content:space-between;align-items:center;">
+            <a
+              href="#"
+              style="font-family:var(--font-mono);font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.5rem;"
+              >View full brief →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker">
+        <div class="ticker__inner">
+          <span class="ticker__item">Gasparilla Invitational — Final Results<span class="ticker__sep"></span></span>
+          <span class="ticker__item">Tree Farm Invitational Rescheduled<span class="ticker__sep"></span></span>
+          <span class="ticker__item">midamgolfHQ Vol. 27 Now Live<span class="ticker__sep"></span></span>
+          <span class="ticker__item">Gasparilla Invitational — Final Results<span class="ticker__sep"></span></span>
+          <span class="ticker__item">Tree Farm Invitational Rescheduled<span class="ticker__sep"></span></span>
+          <span class="ticker__item">midamgolfHQ Vol. 27 Now Live<span class="ticker__sep"></span></span>
+        </div>
+      </div>
+
+      <section class="section container">
+        <div class="section-header">
+          <h2 class="section-header__title">Our Channels</h2>
+          <a href="#" class="section-header__link">All issues</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <div class="issue-card issue-card--mid">
+            <div class="issue-card__accent"></div>
+            <div class="issue-card__tag">● Mid-Amateur</div>
+            <div class="issue-card__title" style="font-size:1.5rem;">midamgolfHQ</div>
+            <p style="font-size:0.88rem;color:var(--text-muted);font-weight:300;line-height:1.65;margin-top:0.5rem;">
+              Tournament previews, results, and courses worth the detour.
+            </p>
+            <div class="issue-card__arrow">↗</div>
+          </div>
+          <div class="issue-card issue-card--junior">
+            <div class="issue-card__accent"></div>
+            <div class="issue-card__tag">● Junior Golf</div>
+            <div class="issue-card__title" style="font-size:1.5rem;">juniorgolfHQ</div>
+            <p style="font-size:0.88rem;color:var(--text-muted);font-weight:300;line-height:1.65;margin-top:0.5rem;">
+              AJGA events, recruiting intel, and everything junior golf families need.
+            </p>
+            <div class="issue-card__arrow">↗</div>
+          </div>
+          <div class="issue-card issue-card--senior">
+            <div class="issue-card__accent"></div>
+            <div class="issue-card__tag">● Senior Golf</div>
+            <div class="issue-card__title" style="font-size:1.5rem;">seniorgolfHQ</div>
+            <p style="font-size:0.88rem;color:var(--text-muted);font-weight:300;line-height:1.65;margin-top:0.5rem;">
+              Senior division coverage with the depth it deserves.
+            </p>
+            <div class="issue-card__arrow">↗</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="page-midamgolfhq" class="demo-page">
+      <div style="margin-top:40px;">
+        <div class="page-header page-header--mid">
+          <div class="page-header__inner">
+            <div class="eyebrow">Mid-Amateur Golf</div>
+            <h1 class="page-header__title">midam<em>golf</em>HQ</h1>
+            <p class="page-header__sub">The definitive source for competitive mid-amateur golf.</p>
+          </div>
+        </div>
+        <section class="section container">
+          <div class="section-header">
+            <h2 class="section-header__title">Issues</h2>
+            <a href="#" class="section-header__link">All issues</a>
+          </div>
+          <div class="card-grid card-grid--3">
+            <div class="issue-card issue-card--mid"><div class="issue-card__accent"></div><div class="issue-card__tag">● Vol. 27</div><div class="issue-card__title">The Steam Room — February 2026</div><div class="issue-card__date">Feb 1, 2026</div><div class="issue-card__arrow">↗</div></div>
+            <div class="issue-card issue-card--mid"><div class="issue-card__accent"></div><div class="issue-card__tag">● Vol. 26</div><div class="issue-card__title">The Steam Room — January 2026</div><div class="issue-card__date">Jan 1, 2026</div><div class="issue-card__arrow">↗</div></div>
+            <div class="issue-card issue-card--mid"><div class="issue-card__accent"></div><div class="issue-card__tag">● Vol. 25</div><div class="issue-card__title">The Steam Room — December 2025</div><div class="issue-card__date">Dec 1, 2025</div><div class="issue-card__arrow">↗</div></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div id="page-juniorgolfhq" class="demo-page">
+      <div style="margin-top:40px;">
+        <div class="page-header page-header--junior">
+          <div class="page-header__inner">
+            <div class="eyebrow">Junior Golf</div>
+            <h1 class="page-header__title">junior<em>golf</em>HQ</h1>
+            <p class="page-header__sub">AJGA events, recruiting intel, and everything families need.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-seniorgolfhq" class="demo-page">
+      <div style="margin-top:40px;">
+        <div class="page-header page-header--senior">
+          <div class="page-header__inner">
+            <div class="eyebrow">Senior Golf</div>
+            <h1 class="page-header__title">senior<em>golf</em>HQ</h1>
+            <p class="page-header__sub">Senior coverage with respect it deserves.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-briefs" class="demo-page">
+      <div style="margin-top:40px;">
+        <div class="page-header">
+          <div class="page-header__inner">
+            <div class="eyebrow">Daily Coverage</div>
+            <h1 class="page-header__title">Daily <em>Briefs</em></h1>
+            <p class="page-header__sub">Every day of the season, covered.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-issue" class="demo-page">
+      <div style="margin-top:40px;">
+        <div class="page-header page-header--mid">
+          <div class="page-header__inner">
+            <div class="eyebrow">The Steam Room · Vol. 27</div>
+            <h1 class="page-header__title" style="font-size:clamp(2rem,4vw,4rem);">February <em>2026</em></h1>
+            <p class="page-header__sub">Issue page template (preview stub)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-about" class="demo-page">
+      <div style="margin-top:40px;">
+        <div class="page-header">
+          <div class="page-header__inner">
+            <div class="eyebrow">Who We Are</div>
+            <h1 class="page-header__title">About<br /><em>nichegolfHQ</em></h1>
+            <p class="page-header__sub">About page template (preview stub)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showPage(pageId) {
+        document.querySelectorAll(".demo-page").forEach((el) => el.classList.remove("active"));
+        document.getElementById("page-" + pageId)?.classList.add("active");
+        document.querySelectorAll(".demo-tab").forEach((el) => el.classList.remove("active"));
+        document.querySelector('.demo-tab[data-page="' + pageId + '"]')?.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+
+      document.querySelectorAll(".demo-tab").forEach((btn) => {
+        btn.addEventListener("click", () => showPage(btn.getAttribute("data-page")));
+      });
+
+      // quick reveal (optional)
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) if (e.isIntersecting) e.target.classList.add("visible");
+        },
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
