@@ -228,10 +228,10 @@ const App = () => {
         </div>
         <div className="top-nav" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 0", display: "flex", gap: "28px", justifyContent: "center" }}>
           <button className={`nav-btn ${activeView === "home" ? "active" : ""}`} onClick={goHome}>Home</button>
-          <button className={`nav-btn ${activeView === "briefs" ? "active" : ""}`} onClick={goBriefs}>Daily Briefs</button>
+          <button className={`nav-btn ${activeChannel === "junior" ? "active" : ""}`} onClick={() => goChannel("junior")}>Junior</button>
           <button className={`nav-btn ${activeChannel === "midam" ? "active" : ""}`} onClick={() => goChannel("midam")}>Mid-Am</button>
           <button className={`nav-btn ${activeChannel === "senior" ? "active" : ""}`} onClick={() => goChannel("senior")}>Senior</button>
-          <button className={`nav-btn ${activeChannel === "junior" ? "active" : ""}`} onClick={() => goChannel("junior")}>Junior</button>
+          <button className={`nav-btn ${activeView === "briefs" ? "active" : ""}`} onClick={goBriefs}>Daily Briefs</button>
         </div>
 
         {menuOpen && (
