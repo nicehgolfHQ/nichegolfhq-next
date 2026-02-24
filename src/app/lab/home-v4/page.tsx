@@ -258,10 +258,7 @@ const App = () => {
 
       {/* FOOTER */}
       <footer style={{ background: "#111", padding: "28px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "24px" }}>
-          <div>
-            <span style={{ fontFamily: "'Source Serif 4', serif", fontSize: "16px", fontWeight: 700, color: "#fff" }}>nichegolfHQ</span>
-          </div>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "24px" }}>
           <div style={{ display: "flex", gap: "40px" }}>
             {[
               { t: "Channels", items: ["midamgolfHQ", "seniorgolfHQ", "juniorgolfHQ"] },
