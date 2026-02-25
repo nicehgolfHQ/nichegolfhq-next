@@ -65,19 +65,28 @@ export default async function NewsletterPage({
             {feed.tagline ? <p className="max-w-2xl text-base leading-7 text-zinc-600">{feed.tagline}</p> : null}
 
             {feed.slug === "midamgolfhq" ? (
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold text-zinc-900">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
                 {feed.youtubeProfileUrl ? (
-                  <Link href={feed.youtubeProfileUrl} className="underline underline-offset-4">
+                  <Link
+                    href={feed.youtubeProfileUrl}
+                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-50"
+                  >
                     YouTube
                   </Link>
                 ) : null}
                 {feed.xProfileUrl ? (
-                  <Link href={feed.xProfileUrl} className="underline underline-offset-4">
+                  <Link
+                    href={feed.xProfileUrl}
+                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-50"
+                  >
                     X
                   </Link>
                 ) : null}
                 {feed.instagramProfileUrl ? (
-                  <Link href={feed.instagramProfileUrl} className="underline underline-offset-4">
+                  <Link
+                    href={feed.instagramProfileUrl}
+                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-50"
+                  >
                     Instagram
                   </Link>
                 ) : null}
