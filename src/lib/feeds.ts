@@ -48,7 +48,7 @@ export const FEEDS: FeedConfig[] = [
     key: "junior",
     name: "juniorgolfHQ",
     slug: "juniorgolfhq",
-    tagline: "Junior golf stories, recruiting, and competitive prep — beyond the mainstream.",
+    tagline: "",
     rssUrl: "https://rss.beehiiv.com/feeds/ug2svosKWc.xml",
     subscribeEmbedUrl: "https://subscribe-forms.beehiiv.com/91af4bc6-784d-4631-b50e-9e3e1fa9615f",
     subscribeEmbedHeight: 567,
