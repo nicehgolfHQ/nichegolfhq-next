@@ -13,6 +13,7 @@ export type FeedConfig = {
   // Social
   xProfileUrl?: string;
   instagramProfileUrl?: string;
+  youtubeProfileUrl?: string;
   instagramBusinessAccountId?: string;
 };
 
@@ -21,12 +22,13 @@ export const FEEDS: FeedConfig[] = [
     key: "midam",
     name: "midamgolfHQ",
     slug: "midamgolfhq",
-    tagline: "Mid-am life: tournaments, gear, travel, and the stuff nobody covers.",
+    tagline: "",
     rssUrl: "https://rss.beehiiv.com/feeds/cUc6JEAOIK.xml",
     subscribeEmbedUrl: "https://subscribe-forms.beehiiv.com/6cf3e924-a8fd-4097-95ac-3ce085407e52",
     subscribeEmbedHeight: 627,
     xProfileUrl: "https://x.com/midamgolfhq",
     instagramProfileUrl: "https://www.instagram.com/midamgolfhq/",
+    youtubeProfileUrl: "https://youtube.com/@midamgolfhq",
     // Provided once Meta is wired up (IG Graph API)
     instagramBusinessAccountId: process.env.IG_BUSINESS_ID_MIDAMGOLFHQ,
   },

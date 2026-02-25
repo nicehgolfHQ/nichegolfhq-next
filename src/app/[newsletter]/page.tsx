@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!feed) return { title: "nichegolfHQ" };
   return {
     title: `${feed.name} — nichegolfHQ`,
-    description: feed.tagline,
+    description: feed.tagline || undefined,
     alternates: { canonical: `/${feed.slug}` },
   };
 }
@@ -62,7 +62,27 @@ export default async function NewsletterPage({
               />
             </div>
             <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">{feed.name}</h1>
-            <p className="max-w-2xl text-base leading-7 text-zinc-600">{feed.tagline}</p>
+            {feed.tagline ? <p className="max-w-2xl text-base leading-7 text-zinc-600">{feed.tagline}</p> : null}
+
+            {feed.slug === "midamgolfhq" ? (
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold text-zinc-900">
+                {feed.youtubeProfileUrl ? (
+                  <Link href={feed.youtubeProfileUrl} className="underline underline-offset-4">
+                    YouTube
+                  </Link>
+                ) : null}
+                {feed.xProfileUrl ? (
+                  <Link href={feed.xProfileUrl} className="underline underline-offset-4">
+                    X
+                  </Link>
+                ) : null}
+                {feed.instagramProfileUrl ? (
+                  <Link href={feed.instagramProfileUrl} className="underline underline-offset-4">
+                    Instagram
+                  </Link>
+                ) : null}
+              </div>
+            ) : null}
           </div>
 
           {feed.slug === "midamgolfhq" ? (
