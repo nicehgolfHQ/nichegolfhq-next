@@ -64,7 +64,7 @@ export default async function NewsletterPage({
             <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">{feed.name}</h1>
             {feed.tagline ? <p className="max-w-2xl text-base leading-7 text-zinc-600">{feed.tagline}</p> : null}
 
-            {feed.slug === "midamgolfhq" || feed.slug === "juniorgolfhq" ? (
+            {feed.slug === "midamgolfhq" || feed.slug === "juniorgolfhq" || feed.slug === "seniorgolfhq" ? (
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
                 {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
                   <Link

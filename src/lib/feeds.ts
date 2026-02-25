@@ -36,7 +36,7 @@ export const FEEDS: FeedConfig[] = [
     key: "senior",
     name: "seniorgolfHQ",
     slug: "seniorgolfhq",
-    tagline: "Senior competitive golf — sharp coverage, smart prep, zero fluff.",
+    tagline: "",
     rssUrl: "https://rss.beehiiv.com/feeds/JcpdwP5K1m.xml",
     subscribeEmbedUrl: "https://subscribe-forms.beehiiv.com/3c2071dc-19ed-44c1-8990-7db48d82c043",
     subscribeEmbedHeight: 375,
