@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nichegolfhq.com"),
@@ -65,7 +66,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${sans.variable} font-sans antialiased`}>
+      <body className={`${sans.variable} ${mono.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

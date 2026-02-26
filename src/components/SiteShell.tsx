@@ -24,8 +24,8 @@ export function SiteShell({
   const logoSrc = headerBrand === "nichegolfhq" ? "/brand/nichegolfhq/logo-v2.png" : `/brand/${headerBrand}/logo.png`;
 
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-950 antialiased">
-      <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/70 backdrop-blur">
+    <div className="site-shell min-h-screen text-zinc-950 antialiased">
+      <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/65 backdrop-blur">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-3 items-center px-5 py-5">
           {/* left: menu */}
           <div className="flex items-center justify-start">

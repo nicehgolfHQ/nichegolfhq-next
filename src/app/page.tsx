@@ -34,10 +34,10 @@ export default async function Home() {
         <section className="border-b border-zinc-200 bg-white">
           <div className="mx-auto w-full max-w-6xl px-5 py-12">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
+              <span className="inline-flex items-center rounded-sm bg-gradient-to-r from-indigo-600 to-sky-500 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-sm">
                 Daily Brief
               </span>
-              <span className="text-sm text-zinc-600">{formatLongDate(latestBrief.date)}</span>
+              <span className="mono-label text-[11px] font-semibold text-zinc-600">{formatLongDate(latestBrief.date)}</span>
             </div>
 
             <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
@@ -54,10 +54,10 @@ export default async function Home() {
                 return (
                   <div
                     key={it.url + it.title}
-                    className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+                    className="rounded-2xl border border-zinc-200 bg-white/70 p-5 shadow-sm backdrop-blur"
                     style={{ borderLeft: `3px solid ${lane.color}` }}
                   >
-                    <div className="text-[10px] font-bold uppercase tracking-widest" style={{ color: lane.color }}>
+                    <div className="mono-label text-[10px] font-bold uppercase" style={{ color: lane.color }}>
                       {lane.label}
                     </div>
                     <div className="mt-2 font-serif text-[16px] font-semibold leading-snug text-zinc-950">{it.title}</div>
