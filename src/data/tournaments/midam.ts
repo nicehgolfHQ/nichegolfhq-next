@@ -76,7 +76,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     month: 5,
     dates2026: "May 2026",
     course: "The Honors Club",
-    location: "Tennessee",
+    location: "Ooltewah, TN",
   },
   {
     slug: "the-huddleston-cup",
@@ -169,7 +169,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     month: 9,
     dates2026: "September 2026",
     course: "Pine Valley Golf Club",
-    location: "TBD",
+    location: "Clementon, NJ",
   },
 
   {
