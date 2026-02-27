@@ -388,7 +388,16 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "National Golf Links of America",
     location: "Southampton, NY",
     format: "Match play",
-    pastResults: [{ year: 2025, champion: "Stew Hagestad" }],
+    pastResults: [
+      { year: 2025, champion: "Stewart Hagestad" },
+      { year: 2024, champion: "Jimmy Chestnut" },
+      { year: 2023, champion: "Matthew Devito" },
+      { year: 2022, champion: "Mark Costanza" },
+      { year: 2021, champion: "Kris Mikkelsen" },
+      { year: 2020, champion: "No tournament", notes: "Not listed — likely cancelled" },
+      { year: 2019, champion: "Xavier Dailly" },
+      { year: 2018, champion: "Jamie Miller" },
+    ],
   },
   {
     slug: "anderson-memorial-four-ball",
