@@ -17,7 +17,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 75.1,
     courseSlope: 138,
     courseTeeName: "Tree Monster",
-    courseDesigner: "Tom Doak / Kye Goalby",
+    courseDesigner: "Tom Doak",
     courseNotes: "Back tees (6,980 yds) rated 73.7/136",
 
     format: "Stableford",
@@ -36,7 +36,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 71,
     courseSlope: 132,
     courseTeeName: "Blue",
-    courseDesigner: "Donald Ross / Bobby Weed",
+    courseDesigner: "Donald Ross",
     courseNotes: "Short course; Donald Ross design (1923)",
 
     format: "54 holes stroke play",
@@ -125,7 +125,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 72.5,
     courseSlope: 128,
     courseTeeName: "Back",
-    courseDesigner: "Perry Maxwell / Bobby Vaughan",
+    courseDesigner: "Perry Maxwell",
     courseNotes: "RTJ Golf Trail; verify which course used",
 
     format: "54 holes stroke play",
@@ -144,7 +144,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 75.8,
     courseSlope: 134,
     courseTeeName: "Black",
-    courseDesigner: "Ralph Plummer / Chet Williams",
+    courseDesigner: "Ralph Plummer",
     courseNotes: "Site of 1969 U.S. Open, 2020 U.S. Women's Open",
 
     format: "72 holes better ball",
@@ -223,7 +223,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 75,
     courseSlope: 138,
     courseTeeName: "Back",
-    courseDesigner: "Lester George / Vinny Giles",
+    courseDesigner: "Lester George",
     courseNotes: "Site of 2024 U.S. Mid-Amateur",
 
     format: "54 holes stroke play",
@@ -242,7 +242,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 74.2,
     courseSlope: 135,
     courseTeeName: "Tee I",
-    courseDesigner: "Tom Fazio / Kipp Schulties",
+    courseDesigner: "Tom Fazio",
     courseNotes: "3 courses on property; Medal most likely venue",
 
     format: "54 holes stroke play",
@@ -260,7 +260,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 74,
     courseSlope: 141,
     courseTeeName: "Back",
-    courseDesigner: "Devereux Emmet / Walter Travis / Tom Doak",
+    courseDesigner: "Devereux Emmet",
     courseNotes: "Men-only club; est. 1899",
 
     format: "Match play",
@@ -404,7 +404,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 78.3,
     courseSlope: 155,
     courseTeeName: "Silver",
-    courseDesigner: "Pete Dye / Gil Hanse (restoration)",
+    courseDesigner: "Pete Dye",
     courseNotes: "Black tees: 75.9/155 (7,274 yds)",
 
     format: "54 holes stroke play",
@@ -540,7 +540,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 76.4,
     courseSlope: 140,
     courseTeeName: "Blue",
-    courseDesigner: "A.W. Tillinghast / Gil Hanse",
+    courseDesigner: "A.W. Tillinghast",
     courseNotes: "Site of 6 U.S. Opens; East also 140 slope",
 
     format: "Match play better ball",
@@ -649,7 +649,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 74,
     courseSlope: 135,
     courseTeeName: "Back",
-    courseDesigner: "George C. Thomas Jr. / Gil Hanse",
+    courseDesigner: "George C. Thomas Jr.",
     courseNotes: "U.S. Open setup: 76.9/148; site of 2023 U.S. Open",
 
     format: "54 holes stroke play",
@@ -703,7 +703,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 74.6,
     courseSlope: 140,
     courseTeeName: "Championship",
-    courseDesigner: "Herbert Strong / Andrew Green",
+    courseDesigner: "Herbert Strong",
     courseNotes: "GolfLink shows 73.9/138 from different tees",
 
     format: "4-ball",
@@ -807,7 +807,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 73.1,
     courseSlope: 133,
     courseTeeName: "Black",
-    courseDesigner: "Ed Ault / Keith Foster",
+    courseDesigner: "Ed Ault",
     courseNotes: "Sabot course also on property: 73.3/127",
 
     format: "54 holes stroke play",
@@ -923,7 +923,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 72.2,
     courseSlope: 131,
     courseTeeName: "Back",
-    courseDesigner: "Charles Banks / A.W. Tillinghast",
+    courseDesigner: "Charles Banks",
     courseNotes: "36-hole club (four 9s); 18H combo varies",
 
     format: "Match play",
@@ -1009,7 +1009,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 76,
     courseSlope: 144,
     courseTeeName: "Back",
-    courseDesigner: "William Gordon / Tom Fazio",
+    courseDesigner: "William Gordon",
     courseNotes: "Tom Fazio renovation ongoing",
 
     format: "54 holes stroke play",
@@ -1033,7 +1033,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 76.6,
     courseSlope: 155,
     courseTeeName: "Back",
-    courseDesigner: "George Crump / H.S. Colt",
+    courseDesigner: "George Crump",
     courseNotes: "Regular tees: 73.6/153; #1 course in America",
 
     format: "Match play",
@@ -1275,7 +1275,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 77.3,
     courseSlope: 153,
     courseTeeName: "Championship",
-    courseDesigner: "Donald Ross / Andrew Green",
+    courseDesigner: "Donald Ross",
     courseNotes: "Black tees: 75.5/146; site of 2023 PGA Championship",
 
     format: "54 holes better ball",
