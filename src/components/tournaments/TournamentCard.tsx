@@ -17,25 +17,25 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
   return (
     <Link
       href={`/midamgolfhq/schedule/${tournament.slug}`}
-      className="group rounded-3xl border border-emerald-200/60 bg-emerald-50/50 p-6 transition hover:border-emerald-200 hover:bg-emerald-50"
+      className="group rounded-3xl border border-zinc-200 bg-zinc-50/70 p-6 transition hover:border-zinc-300 hover:bg-zinc-50"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="font-serif text-xl font-semibold tracking-tight text-emerald-950">{tournament.name}</div>
+          <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950">{tournament.name}</div>
           {tournament.course || tournament.location ? (
-            <div className="mt-1 text-sm text-emerald-900/80">{[tournament.course, tournament.location].filter(Boolean).join(" • ")}</div>
+            <div className="mt-1 text-sm text-zinc-700">{[tournament.course, tournament.location].filter(Boolean).join(" • ")}</div>
           ) : null}
           {tournament.note ? <div className="mt-2 text-xs text-zinc-500">{tournament.note}</div> : null}
           {dates ? <div className="mt-2 text-xs text-zinc-500">{dates}</div> : null}
         </div>
         {badge ? (
-          <div className="shrink-0 rounded-full border border-emerald-200/70 bg-white/70 px-3 py-1 text-[11px] font-medium text-emerald-950/80">
+          <div className="shrink-0 rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-[11px] font-medium text-zinc-700">
             {badge}
           </div>
         ) : null}
       </div>
 
-      <div className="mt-4 text-sm font-medium text-emerald-950">
+      <div className="mt-4 text-sm font-medium text-zinc-900">
         View event <span aria-hidden className="inline-block transition group-hover:translate-x-0.5">→</span>
       </div>
     </Link>
