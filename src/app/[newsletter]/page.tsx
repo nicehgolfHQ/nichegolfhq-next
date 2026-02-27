@@ -68,7 +68,7 @@ export default async function NewsletterPage({
           </div>
 
           {feed.slug === "midamgolfhq" ? (
-            <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+            <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 shadow-sm shadow-zinc-900/5">
               <div className="flex flex-col items-center gap-5 p-8 text-center">
                 <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Major Schedule</div>
 
