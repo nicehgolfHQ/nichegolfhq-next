@@ -44,10 +44,7 @@ export default function MidAmScheduleIndexPage() {
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
         <div className="mb-8">
           <div className="text-sm text-zinc-600">midamgolfHQ</div>
-          <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Schedule — {YEAR}</h1>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-700">
-            A clean, editable schedule hub — built to rank, and built to click. Each tournament page is its own canonical reference.
-          </p>
+          <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule — {YEAR}</h1>
         </div>
 
         <div className="flex items-center justify-between">
