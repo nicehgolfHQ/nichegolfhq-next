@@ -114,9 +114,6 @@ export default async function NewsletterPage({
                 </Link>
               </div>
               <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
-              <div className="px-6 py-4 text-xs text-zinc-500">
-                Tip: Bookmark individual tournaments — each hub page is designed to rank for results + history.
-              </div>
             </div>
           ) : null}
 
