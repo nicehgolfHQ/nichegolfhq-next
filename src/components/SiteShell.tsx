@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { KetchPreferencesLink } from "@/components/KetchPreferencesLink";
 
 const SOCIAL = {
   midamgolfhq: { x: "https://www.x.com/midamgolfhq", instagram: "https://www.instagram.com/midamgolfhq" },
@@ -155,7 +156,12 @@ export function SiteShell({
 
       <footer className="border-t border-zinc-200 bg-white">
         <div className="mx-auto w-full max-w-6xl px-5 py-8">
-          <div className="text-center text-sm text-zinc-600">2026 nichegolfHQ all rights reserved</div>
+          <div className="flex flex-col items-center justify-center gap-3 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              <KetchPreferencesLink label="Privacy Settings" />
+            </div>
+            <div className="text-sm text-zinc-600">2026 nichegolfHQ all rights reserved</div>
+          </div>
         </div>
       </footer>
     </div>
