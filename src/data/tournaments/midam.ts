@@ -224,6 +224,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 11,
     dates2026: "November 2026",
+    course: "The Country Club of Birmingham",
+    location: "Birmingham, AL",
   },
   {
     slug: "ewing-cup-four-ball",
