@@ -8,7 +8,7 @@ type TabKey = "overview" | "results";
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: "overview", label: "Overview" },
-  { key: "results", label: "Results" },
+  { key: "results", label: "Past winners" },
 ];
 
 export function TournamentTabs({ tournament }: { tournament: Tournament }) {
