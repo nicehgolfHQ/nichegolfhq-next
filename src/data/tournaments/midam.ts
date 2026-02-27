@@ -132,6 +132,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     month: 6,
     dates2026: "June 2026",
     note: "Every 3rd year",
+    course: "Fishers Island Club",
+    location: "Fishers Island, NY",
     pastResults: [{ year: 2025, champion: "Will Davenport" }],
   },
 
