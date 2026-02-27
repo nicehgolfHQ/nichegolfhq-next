@@ -96,15 +96,14 @@ export default async function NewsletterPage({
 
           {feed.slug === "midamgolfhq" ? (
             <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
-              <div className="flex flex-col items-center gap-4 p-6 text-center">
+              <div className="flex flex-col items-center gap-5 p-8 text-center">
                 <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Major Schedule</div>
 
                 <Link
                   href="/midamgolfhq/schedule"
                   className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
                 >
-                  <span className="mr-2">Open schedule</span>
-                  <span aria-hidden className="inline-block transition group-hover:translate-x-0.5">→</span>
+                  <span>Open schedule</span>
                 </Link>
               </div>
               <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
