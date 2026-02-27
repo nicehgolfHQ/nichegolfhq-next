@@ -648,7 +648,16 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "The Country Club of Birmingham",
     location: "Birmingham, AL",
     format: "54 holes stroke play",
-    pastResults: [{ year: 2025, champion: "Ryan Terry" }],
+    pastResults: [
+      { year: 2025, champion: "Stewart Hagestad" },
+      { year: 2024, champion: "Jimmy Chestnut" },
+      { year: 2023, champion: "Matthew Devito" },
+      { year: 2022, champion: "Mark Costanza" },
+      { year: 2021, champion: "Kris Mikkelsen" },
+      { year: 2020, champion: "No tournament", notes: "Not listed — likely cancelled" },
+      { year: 2019, champion: "Xavier Dailly" },
+      { year: 2018, champion: "Jamie Miller" },
+    ],
   },
   {
     slug: "ewing-cup-four-ball",
