@@ -4,10 +4,22 @@ import type { Tournament } from "@/lib/tournaments/types";
 function formatBadge(format?: string) {
   if (!format) return null;
   const s = format.toLowerCase();
-  if (s.includes("match")) return "Match Play";
-  if (s.includes("4-ball") || s.includes("four-ball") || s.includes("best ball")) return "4-Ball";
-  if (s.includes("stroke")) return "Stroke Play";
-  return "Format";
+
+  // Normalize a few common phrases we use in our dataset.
+  const hasMatch = s.includes("match");
+  const hasStroke = s.includes("stroke");
+  const hasFourBall = s.includes("4-ball") || s.includes("four-ball") || s.includes("best ball") || s.includes("better ball");
+  const hasAltShot = s.includes("alternate") || s.includes("foursomes") || s.includes("alt shot");
+
+  if (hasMatch) return "Match Play";
+  if (hasStroke) return "Stroke Play";
+
+  // If we can’t classify, show a compacted version of the actual format text instead of the useless "Format" label.
+  if (hasFourBall && hasAltShot) return "4-Ball / Alt";
+  if (hasFourBall) return "4-Ball";
+  if (hasAltShot) return "Alt Shot";
+
+  return format;
 }
 
 export function TournamentCard({ tournament }: { tournament: Tournament }) {
