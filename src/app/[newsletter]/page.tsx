@@ -134,9 +134,10 @@ export default async function NewsletterPage({
       {(feed.slug === "midamgolfhq" || feed.slug === "juniorgolfhq" || feed.slug === "seniorgolfhq") &&
       (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
         <section className="mx-auto w-full max-w-6xl px-5 pb-6">
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6">
+          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
             <div className="text-center">
-              <div className="text-sm font-semibold text-zinc-900">Follow</div>
+              <div className="text-sm font-semibold text-zinc-900">Follow us on socials</div>
+              <p className="mt-1 text-xs leading-5 text-zinc-600">Stay in the loop across the three channels.</p>
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
                 {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
                   <Link
