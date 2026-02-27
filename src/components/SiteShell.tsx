@@ -26,7 +26,7 @@ export function SiteShell({
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-950 antialiased">
-      <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/70 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-zinc-50/80 backdrop-blur">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-3 items-center px-5 py-5">
           {/* left: menu */}
           <div className="flex items-center justify-start">
