@@ -12,7 +12,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "January 2026",
     course: "The Tree Farm Golf Club",
     location: "Batesburg, SC",
-    format: "36 holes Stableford",
+    format: "Stableford",
     note: "Rescheduled (TBD)",
   },
   {
@@ -546,7 +546,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "August 2026",
     course: "Canterbury Golf Club",
     location: "Beachwood, OH",
-    format: "Four ball & alternate shot",
+    format: "4-ball",
     pastResults: [
       { year: 2025, champion: "Nicholas Fiore & Brian Joseph" },
       { year: 2024, champion: "Kevin O'Brien & Matt Vogt" },
