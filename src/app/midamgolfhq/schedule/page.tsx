@@ -44,14 +44,10 @@ export default function MidAmScheduleIndexPage() {
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
         <div className="mb-8">
           <div className="text-sm text-zinc-600">midamgolfHQ</div>
-          <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule — {YEAR}</h1>
+          <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule</h1>
         </div>
 
-        <div className="flex items-center justify-end">
-          <Link href="/midamgolfhq" className="text-sm text-zinc-700 underline-offset-4 hover:underline">
-            Back to Mid-Am →
-          </Link>
-        </div>
+        {/* back link removed */}
 
         <div className="mt-6 space-y-10">
           {months.map((month) => (
