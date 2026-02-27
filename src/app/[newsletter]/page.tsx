@@ -95,17 +95,27 @@ export default async function NewsletterPage({
           </div>
 
           {feed.slug === "midamgolfhq" ? (
-            <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-6">
-              <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+            <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
+              <div className="flex flex-col items-center justify-between gap-5 p-6 text-center md:flex-row md:text-left">
                 <div>
-                  <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Major Schedule</div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-700">
+                    Schedule hub
+                  </div>
+                  <div className="mt-3 font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Schedule</div>
+                  <div className="mt-1 text-sm text-zinc-600">Courses, locations, and defending champions — all in one place.</div>
                 </div>
+
                 <Link
-                  href="/midamgolfhq/majors"
-                  className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-zinc-800"
+                  href="/midamgolfhq/schedule"
+                  className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
                 >
-                  View →
+                  <span className="mr-2">Open schedule</span>
+                  <span aria-hidden className="inline-block transition group-hover:translate-x-0.5">→</span>
                 </Link>
+              </div>
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
+              <div className="px-6 py-4 text-xs text-zinc-500">
+                Tip: Bookmark individual tournaments — each hub page is designed to rank for results + history.
               </div>
             </div>
           ) : null}
