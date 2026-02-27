@@ -29,7 +29,7 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
   return (
     <Link
       href={`/midamgolfhq/schedule/${tournament.slug}`}
-      className="group rounded-3xl border border-zinc-200 bg-zinc-50/70 p-6 transition hover:border-zinc-300 hover:bg-zinc-50"
+      className="group rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5 transition hover:border-zinc-300 hover:shadow"
     >
       <div className="flex items-start justify-between gap-4">
         <div>

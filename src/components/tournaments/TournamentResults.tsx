@@ -4,7 +4,7 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
   const rows = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year);
 
   return (
-    <div className="rounded-3xl border border-zinc-200 bg-zinc-50/70 p-6">
+    <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Past winners</h2>
         {tournament.golfGeniusUrl ? (
@@ -36,7 +36,7 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
               </tr>
             ) : (
               rows.map((r, idx) => (
-                <tr key={r.year} className={idx % 2 === 0 ? "bg-white/70" : "bg-zinc-100/40"}>
+                <tr key={r.year} className={idx % 2 === 0 ? "bg-zinc-50" : "bg-white"}>
                   <td className="px-3 py-3 font-medium text-zinc-900">{r.year}</td>
                   <td className="px-3 py-3 font-semibold text-zinc-950">{r.champion}</td>
                 </tr>
