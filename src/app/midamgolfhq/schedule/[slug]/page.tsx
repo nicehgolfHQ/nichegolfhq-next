@@ -46,9 +46,15 @@ export default async function MidAmTournamentPage({
   return (
     <SiteShell>
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
-        <Link href="/midamgolfhq/schedule" className="text-sm text-zinc-700 underline-offset-4 hover:underline">
-          ← Mid-Am Schedule
-        </Link>
+        <div className="flex items-center justify-start">
+          <Link
+            href="/midamgolfhq/schedule"
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm shadow-zinc-900/5 backdrop-blur transition hover:bg-white"
+          >
+            <span aria-hidden>←</span>
+            <span>Schedule</span>
+          </Link>
+        </div>
 
         <div className="mt-4">
           <TournamentHero tournament={tournament} />
