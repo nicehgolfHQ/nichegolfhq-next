@@ -711,7 +711,12 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Stanwich Club",
     location: "Greenwich, CT",
     format: "54 holes stroke play",
-    pastResults: [{ year: 2025, champion: "Johnny Spellerberg & Lauren Greenlief" }],
+    pastResults: [
+      { year: 2025, champion: "Johnny Spellerberg (M), Lauren Greenlief (W)" },
+      { year: 2024, champion: "Tim Hegarty (M), Jackie Rogowicz (W)" },
+      { year: 2023, champion: "Cody Paladino (M), Alexandra Villatte Farret (W)" },
+      { year: 2022, champion: "Bradford Tilley (M), Catherine McEvoy (W)" },
+    ],
   },
   {
     slug: "the-crump-cup",
