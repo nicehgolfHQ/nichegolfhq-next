@@ -31,7 +31,7 @@ export default async function Home() {
     <SiteShell>
       {/* Daily Brief first */}
       {latestBrief ? (
-        <section className="border-b border-zinc-200 bg-white">
+        <section className="hero-beam border-b border-zinc-200 bg-white/60">
           <div className="mx-auto w-full max-w-6xl px-5 py-12">
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center rounded-sm bg-gradient-to-r from-indigo-600 to-sky-500 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-sm">
@@ -40,12 +40,32 @@ export default async function Home() {
               <span className="mono-label text-[11px] font-semibold text-zinc-600">{formatLongDate(latestBrief.date)}</span>
             </div>
 
-            <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+            <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-6xl">
               {latestBrief.title?.replace(/^\"|\"$/g, "")}
             </h1>
             <p className="mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
               Your morning briefing across amateur golf.
             </p>
+
+            {/* Ticker */}
+            <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white/70 shadow-sm backdrop-blur">
+              <div className="flex items-center gap-3 border-b border-zinc-200 px-4 py-2">
+                <span className="mono-label text-[10px] font-bold text-zinc-600">TOPICS</span>
+                <span className="text-xs text-zinc-500">quick hits from today’s brief</span>
+              </div>
+              <div className="grid grid-cols-1 gap-2 px-4 py-3 sm:grid-cols-3">
+                {briefPreviewItems.map((it) => (
+                  <Link
+                    key={`tick-${it.url}-${it.title}`}
+                    href={`/briefs/${latestBrief.date}`}
+                    className="group flex items-start gap-2 text-sm text-zinc-700 hover:text-zinc-950"
+                  >
+                    <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-300 group-hover:bg-indigo-500" />
+                    <span className="line-clamp-2">{it.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <div className="brief-grid mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
               {briefPreviewItems.map((it) => {

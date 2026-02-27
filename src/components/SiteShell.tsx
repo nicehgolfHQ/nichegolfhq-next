@@ -25,14 +25,14 @@ export function SiteShell({
 
   return (
     <div className="site-shell min-h-screen text-zinc-950 antialiased">
-      <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/65 backdrop-blur">
+      <header className="site-header sticky top-0 z-50">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-3 items-center px-5 py-5">
           {/* left: menu */}
           <div className="flex items-center justify-start">
             <details className="group relative">
-              <summary className="inline-flex cursor-pointer list-none items-center justify-center rounded-xl p-3 hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400/60">
+              <summary className="inline-flex cursor-pointer list-none items-center justify-center rounded-xl p-3 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20">
                 <span className="sr-only">Open menu</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 text-zinc-700">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="icon-muted h-6 w-6">
                   <path
                     fill="currentColor"
                     d="M4 6.75A.75.75 0 0 1 4.75 6h14.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 6.75Zm0 5.25A.75.75 0 0 1 4.75 11.25h14.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 12Zm.75 4.5a.75.75 0 0 0 0 1.5h14.5a.75.75 0 0 0 0-1.5H4.75Z"
@@ -132,7 +132,7 @@ export function SiteShell({
           <div className="flex items-center justify-end">
             <Link
               href="/subscribe"
-              className="rounded-full bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
+              className="site-cta rounded-full px-4 py-2 text-sm font-bold text-white shadow-sm"
             >
               subscribe
             </Link>
@@ -141,12 +141,12 @@ export function SiteShell({
 
         {/* top nav */}
         <nav className="mx-auto w-full max-w-6xl px-5 pb-3">
-          <div className="flex items-center justify-center gap-6 overflow-x-auto border-t border-zinc-200/60 pt-3 text-sm text-zinc-700 [scrollbar-width:none]">
-            <Link href="/" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Home</Link>
-            <Link href="/juniorgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Junior</Link>
-            <Link href="/midamgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Mid-Am</Link>
-            <Link href="/seniorgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Senior</Link>
-            <Link href="/briefs" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-zinc-900 hover:text-zinc-900">Daily Briefs</Link>
+          <div className="flex items-center justify-center gap-6 overflow-x-auto border-t border-white/10 pt-3 text-sm [scrollbar-width:none]">
+            <Link href="/" className="navlink whitespace-nowrap border-b-2 border-transparent pb-1">Home</Link>
+            <Link href="/juniorgolfhq" className="navlink whitespace-nowrap border-b-2 border-transparent pb-1">Junior</Link>
+            <Link href="/midamgolfhq" className="navlink whitespace-nowrap border-b-2 border-transparent pb-1">Mid-Am</Link>
+            <Link href="/seniorgolfhq" className="navlink whitespace-nowrap border-b-2 border-transparent pb-1">Senior</Link>
+            <Link href="/briefs" className="navlink whitespace-nowrap border-b-2 border-transparent pb-1">Daily Briefs</Link>
           </div>
         </nav>
       </header>

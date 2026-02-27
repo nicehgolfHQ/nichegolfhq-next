@@ -29,14 +29,61 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Media/tech shell backdrop (subtle, no readability hit) */
+/* Media/tech shell backdrop (noticeable depth, cards stay clean) */
 .site-shell {
   min-height: 100%;
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(99, 102, 241, 0.10), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(16, 185, 129, 0.08), transparent 55%),
-    radial-gradient(1000px 700px at 50% 120%, rgba(245, 158, 11, 0.08), transparent 60%),
-    linear-gradient(180deg, #fbfbfd 0%, #f6f7fb 40%, #fbfbfd 100%);
+    radial-gradient(1200px 600px at 20% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(16, 185, 129, 0.12), transparent 55%),
+    radial-gradient(1000px 700px at 50% 120%, rgba(245, 158, 11, 0.12), transparent 60%),
+    linear-gradient(180deg, #f7f7fb 0%, #f3f5fb 35%, #fafafe 100%);
+}
+
+/* Dark-ish top chrome (hybrid) */
+.site-header {
+  background: rgba(10, 10, 15, 0.72);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(14px);
+}
+
+.site-header a {
+  color: inherit;
+}
+
+.site-header .navlink {
+  color: rgba(255, 255, 255, 0.72);
+}
+.site-header .navlink:hover {
+  color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.site-header .icon-muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-cta {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.95) 0%, rgba(56, 189, 248, 0.95) 35%, rgba(16, 185, 129, 0.9) 100%);
+}
+
+/* Hero beam */
+.hero-beam {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-beam::before {
+  content: "";
+  position: absolute;
+  inset: -200px -200px auto -200px;
+  height: 520px;
+  background:
+    radial-gradient(closest-side at 35% 40%, rgba(99, 102, 241, 0.40), transparent 70%),
+    radial-gradient(closest-side at 65% 45%, rgba(56, 189, 248, 0.24), transparent 70%),
+    radial-gradient(closest-side at 55% 70%, rgba(16, 185, 129, 0.20), transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
 }
 
 /* Fine grid + noise (very subtle) */
