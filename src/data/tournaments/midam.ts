@@ -479,6 +479,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { year: 2018, champion: "Jamie Miller" },
     ],
   },
+
+  {
+    slug: "european-mens-mid-amateur",
+    name: "European Mid-Amateur Men’s Championship",
+    channel: "midam",
+    month: 6,
+    dates2026: "June 2026",
+    format: "72 holes stroke play",
+    courseWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
+    note: "Europe",
+  },
   {
     slug: "anderson-memorial-four-ball",
     name: "Anderson Memorial Four-Ball",
@@ -692,6 +703,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { year: 1996, champion: "Eric Kirsh & Michael Swiger" },
       { year: 1995, champion: "Bob Fairchild & Alan Fadel" },
     ],
+  },
+
+  {
+    slug: "canadian-mens-mid-amateur",
+    name: "Canadian Men’s Mid-Amateur Championship",
+    channel: "midam",
+    month: 8,
+    dates2026: "Aug 18–21, 2026",
+    course: "Brantford Golf & Country Club",
+    location: "Brantford, ON",
+    format: "72 holes stroke play",
+    courseWebsite: "https://www.golfcanada.ca/competition/2026-canadian-mens-mid-amateur-championship/",
   },
   {
     slug: "the-valentine-invitational",
