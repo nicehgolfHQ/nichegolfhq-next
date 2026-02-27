@@ -27,13 +27,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 3,
     dates2026: "March 2026",
-  },
-  {
-    slug: "the-tabby-four-ball",
-    name: "The Tabby Four-Ball",
-    channel: "midam",
-    month: 3,
-    dates2026: "March 2026",
+    course: "The Lakewood Club",
+    location: "Fairhope, AL",
   },
   {
     slug: "champions-cup-four-ball",
@@ -41,6 +36,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 3,
     dates2026: "March 2026",
+    course: "Champions Golf Club",
+    location: "Houston, TX",
   },
 
   {
