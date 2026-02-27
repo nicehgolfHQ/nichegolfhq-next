@@ -77,8 +77,16 @@ export default function MidAmScheduleIndexPage() {
 
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
         <div className="mb-8">
-          <div className="text-sm text-zinc-600">midamgolfHQ</div>
-          <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule</h1>
+          <div className="mb-3 flex items-center justify-start">
+            <Link
+              href="/midamgolfhq"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm shadow-zinc-900/5 backdrop-blur transition hover:bg-white"
+            >
+              <span aria-hidden>←</span>
+              <span>Mid-Am</span>
+            </Link>
+          </div>
+          <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule</h1>
         </div>
 
         {/* back link removed */}
