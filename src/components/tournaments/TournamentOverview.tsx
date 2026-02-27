@@ -14,9 +14,9 @@ export function TournamentOverview({ tournament }: { tournament: Tournament }) {
     <div className="grid gap-4 lg:grid-cols-3">
       <div className="lg:col-span-2 rounded-3xl border border-zinc-200 bg-white p-6">
         <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Overview</h2>
-        <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-700">
-          {overview && overview.length > 0 ? overview : "Details coming soon."}
-        </p>
+        {overview && overview.length > 0 ? (
+          <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-700">{overview}</p>
+        ) : null}
 
         {defending ? (
           <div className="mt-5 rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
