@@ -818,10 +818,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Montclair Golf Club",
     location: "West Orange, NJ",
     coursePar: 70,
-    courseYardage: 6582,
-    courseRating: 35.4,
-    courseSlope: 126,
-    courseTeeName: "Back (18H combo)",
+    courseYardage: 6504,
+    courseRating: 72.2,
+    courseSlope: 131,
+    courseTeeName: "Back",
     courseDesigner: "Charles Banks / A.W. Tillinghast",
     courseNotes: "36-hole club (four 9s); 18H combo varies",
 
@@ -877,8 +877,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Lakewood Country Club",
     location: "Lakewood, CO",
     coursePar: 72,
+    courseYardage: 6894,
+    courseRating: 71.8,
+    courseSlope: 139,
     courseTeeName: "Back",
-    courseNotes: "Data not confirmed; verify with club",
+    courseDesigner: "Donald Ross",
 
     format: "54 holes stroke play",
     pastResults: [
@@ -1250,8 +1253,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Berkeley Hills Country Club",
     location: "Berkeley, CA",
     coursePar: 72,
+    courseYardage: 6694,
+    courseRating: 73.2,
+    courseSlope: 138,
     courseTeeName: "Back",
-    courseNotes: "Not the Duluth, GA club; data not confirmed",
 
     format: "54 holes stroke play",
     pastResults: [
@@ -1272,9 +1277,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Carlton Woods",
     location: "The Woodlands, TX",
     coursePar: 72,
-    courseTeeName: "Back",
+    courseYardage: 7407,
+    courseRating: 76.8,
+    courseSlope: 144,
+    courseTeeName: "Nicklaus Course (Back)",
     courseDesigner: "Jack Nicklaus",
-    courseNotes: "Nicklaus Course; data not confirmed online",
 
     format: "54 holes stroke play",
     pastResults: [
@@ -1310,8 +1317,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "The Country Club of Birmingham",
     location: "Birmingham, AL",
     coursePar: 72,
-    courseTeeName: "Back",
-    courseNotes: "Data not confirmed; verify with club",
+    courseYardage: 7226,
+    courseRating: 75.4,
+    courseSlope: 146,
+    courseTeeName: "West Course (Back)",
 
     format: "54 holes stroke play",
     pastResults: [
@@ -1344,8 +1353,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Dallas Athletic Club",
     location: "Dallas, TX",
     coursePar: 72,
-    courseTeeName: "Back",
-    courseNotes: "Multiple courses; Gold course most likely",
+    courseYardage: 7169,
+    courseRating: 75.1,
+    courseSlope: 142,
+    courseTeeName: "Gold Course (Back)",
 
     format: "54 holes better ball",
     pastResults: [
