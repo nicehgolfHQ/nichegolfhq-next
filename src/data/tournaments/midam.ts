@@ -22,7 +22,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "February 2026",
     course: "Palma Ceia Golf & Country Club",
     location: "Tampa, FL",
-    pastResults: [{ year: 2025, champion: "Hayes Brown" }],
+    pastResults: [{ year: 2026, champion: "Hayes Brown" }],
   },
   {
     slug: "snedeker-memorial",
