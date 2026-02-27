@@ -4,9 +4,9 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
   const dates = tournament.dates2026 ?? tournament.typicalDates;
 
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white px-6 py-8">
-      <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">{tournament.name}</h1>
-      <div className="mt-3 text-sm text-zinc-600">
+    <section className="rounded-3xl border border-emerald-200/60 bg-emerald-50/60 px-6 py-8">
+      <h1 className="font-serif text-4xl font-semibold tracking-tight text-emerald-950">{tournament.name}</h1>
+      <div className="mt-3 text-sm text-emerald-950/70">
         {[tournament.course, tournament.location, dates].filter(Boolean).join(" • ")}
       </div>
       {tournament.prestige ? (
