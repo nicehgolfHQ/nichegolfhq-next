@@ -1,7 +1,7 @@
 import type { Tournament } from "@/lib/tournaments/types";
 
 export function TournamentResults({ tournament }: { tournament: Tournament }) {
-  const rows = [...tournament.pastResults].sort((a, b) => b.year - a.year);
+  const rows = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year);
 
   return (
     <div className="rounded-3xl border border-zinc-200 bg-white p-6">

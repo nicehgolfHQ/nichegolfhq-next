@@ -11,6 +11,14 @@ function Fact({ label, value }: { label: string; value?: string | number }) {
 }
 
 export function TournamentQuickFacts({ tournament }: { tournament: Tournament }) {
+  const hasAny =
+    Boolean(tournament.format) ||
+    Boolean(tournament.fieldSize) ||
+    Boolean(tournament.eligibility) ||
+    Boolean(tournament.founded);
+
+  if (!hasAny) return null;
+
   return (
     <section className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <Fact label="Format" value={tournament.format} />

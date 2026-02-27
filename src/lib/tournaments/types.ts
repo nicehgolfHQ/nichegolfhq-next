@@ -15,6 +15,9 @@ export interface Tournament {
   shortName?: string;
   channel: TournamentChannel;
 
+  // Optional note for schedule/index display (e.g., rescheduled)
+  note?: string;
+
   // === SCHEDULE ===
   month: number; // 1-12
   dates2026?: string;
@@ -22,24 +25,24 @@ export interface Tournament {
   typicalDates?: string;
 
   // === VENUE ===
-  course: string;
-  location: string;
+  course?: string;
+  location?: string;
   courseDesigner?: string;
   courseYear?: number;
 
   // === FORMAT ===
-  format: string;
+  format?: string;
   fieldSize?: string;
-  eligibility: string;
+  eligibility?: string;
   daysOfPlay?: number;
 
   // === HISTORY & EDITORIAL ===
   founded?: number;
-  overview: string;
+  overview?: string;
   prestige?: string;
 
   // === RESULTS ===
-  pastResults: PastResult[];
+  pastResults?: PastResult[];
 
   // === LINKS ===
   golfGeniusUrl?: string;
