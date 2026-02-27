@@ -22,6 +22,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "February 2026",
     course: "Palma Ceia Golf & Country Club",
     location: "Tampa, FL",
+    pastResults: [{ year: 2025, champion: "Hayes Brown" }],
   },
   {
     slug: "snedeker-memorial",
@@ -31,6 +32,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "March 2026",
     course: "The Lakewood Club",
     location: "Fairhope, AL",
+    pastResults: [{ year: 2025, champion: "Nate Smith" }],
   },
   {
     slug: "champions-cup-four-ball",
@@ -40,6 +42,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "March 2026",
     course: "Champions Golf Club",
     location: "Houston, TX",
+    pastResults: [{ year: 2025, champion: "Will Davenport & Nick Maccario" }],
   },
 
   {
@@ -50,6 +53,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Kinloch Golf Club",
     location: "Manakin-Sabot, VA",
+    pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
   },
   {
     slug: "the-jupiter-invitational",
@@ -68,6 +72,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Garden City Golf Club",
     location: "Garden City, NY",
+    pastResults: [{ year: 2025, champion: "Chris DeJohn" }],
   },
   {
     slug: "john-t-lupton-memorial",
@@ -77,6 +82,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "The Honors Club",
     location: "Ooltewah, TN",
+    pastResults: [{ year: 2025, champion: "Ben Reeves" }],
   },
   {
     slug: "the-huddleston-cup",
@@ -86,6 +92,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Maridoe Golf Club",
     location: "Dallas, TX",
+    pastResults: [{ year: 2025, champion: "Bobby Massa" }],
   },
 
   {
@@ -96,6 +103,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "June 2026",
     course: "National Golf Links of America",
     location: "Southampton, NY",
+    pastResults: [{ year: 2025, champion: "Stew Hagestad" }],
   },
   {
     slug: "anderson-memorial-four-ball",
@@ -105,6 +113,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "June 2026",
     course: "Winged Foot Golf Club",
     location: "Mamaroneck, NY",
+    pastResults: [{ year: 2025, champion: "Jim Chestnut & Scott Strickland" }],
   },
   {
     slug: "george-c-thomas-invitational",
@@ -114,6 +123,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "June 2026",
     course: "Los Angeles Country Club",
     location: "Los Angeles, CA",
+    pastResults: [{ year: 2025, champion: "Drew Kittleson" }],
   },
 
   {
@@ -124,6 +134,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "August 2026",
     course: "Canterbury Golf Club",
     location: "Beachwood, OH",
+    pastResults: [{ year: 2025, champion: "Nicholas Fiore & Brian Joseph" }],
   },
   {
     slug: "the-valentine-invitational",
@@ -133,6 +144,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "August 2026",
     course: "Hermitage Country Club",
     location: "Richmond, VA",
+    pastResults: [{ year: 2025, champion: "John Hunter" }],
   },
 
   {
@@ -143,6 +155,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Montclair Golf Club",
     location: "West Orange, NJ",
+    pastResults: [{ year: 2025, champion: "Ina Kim-Schaad" }],
   },
   {
     slug: "trans-miss-mid-master-championship",
@@ -152,6 +165,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Lakewood Country Club",
     location: "Lakewood, CO",
+    pastResults: [{ year: 2025, champion: "Ryan Burgess" }],
   },
   {
     slug: "the-farrell",
@@ -161,6 +175,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Stanwich Club",
     location: "Greenwich, CT",
+    pastResults: [{ year: 2025, champion: "Johnny Spellerberg & Lauren Greenlief" }],
   },
   {
     slug: "the-crump-cup",
@@ -170,6 +185,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Pine Valley Golf Club",
     location: "Clementon, NJ",
+    pastResults: [{ year: 2025, champion: "Bobby Wyatt" }],
   },
 
   {
@@ -180,6 +196,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Sand Valley Resort",
     location: "Nekoosa, WI",
+    pastResults: [{ year: 2025, champion: "Brandon Holtz" }],
   },
   {
     slug: "the-stocker-cup",
@@ -189,6 +206,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "The Preserve Golf Club",
     location: "Carmel Valley, CA",
+    pastResults: [{ year: 2025, champion: "Parker Sisk" }],
   },
   {
     slug: "john-r-williams-four-ball",
@@ -198,6 +216,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Oak Hill Country Club",
     location: "Rochester, NY",
+    pastResults: [{ year: 2025, champion: "Matt Parziale & Nick Maccario" }],
   },
   {
     slug: "the-berkeley-cup",
@@ -207,6 +226,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Berkeley Hills Country Club",
     location: "Berkeley, CA",
+    pastResults: [{ year: 2025, champion: "Elliott Grayson" }],
   },
   {
     slug: "carlton-woods-invitational",
@@ -216,6 +236,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Carlton Woods",
     location: "The Woodlands, TX",
+    pastResults: [{ year: 2025, champion: "Robert Gwin" }],
   },
 
   {
@@ -226,6 +247,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "November 2026",
     course: "The Country Club of Birmingham",
     location: "Birmingham, AL",
+    pastResults: [{ year: 2025, champion: "Ryan Terry" }],
   },
   {
     slug: "ewing-cup-four-ball",
@@ -235,5 +257,6 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "November 2026",
     course: "Dallas Athletic Club",
     location: "Dallas, TX",
+    pastResults: [{ year: 2025, champion: "Charlie Holland & James Minahan" }],
   },
 ];
