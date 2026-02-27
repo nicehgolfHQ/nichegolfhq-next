@@ -45,7 +45,7 @@ export default function BriefMonthsIndexPage() {
                 <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950 sm:text-2xl">
                   {formatMonthLong(m)}
                 </div>
-                <div className="mt-2 text-sm text-zinc-600">{monthCounts.get(m) ?? 0} brief(s)</div>
+                {/* count hidden */}
               </Link>
             ))
           )}
