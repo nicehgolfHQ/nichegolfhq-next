@@ -25,7 +25,7 @@ export const FEEDS: FeedConfig[] = [
     tagline: "",
     rssUrl: "https://rss.beehiiv.com/feeds/cUc6JEAOIK.xml",
     subscribeEmbedUrl: "https://subscribe-forms.beehiiv.com/6cf3e924-a8fd-4097-95ac-3ce085407e52",
-    subscribeEmbedHeight: 627,
+    subscribeEmbedHeight: 760,
     xProfileUrl: "https://x.com/midamgolfhq",
     instagramProfileUrl: "https://www.instagram.com/midamgolfhq/",
     youtubeProfileUrl: "https://youtube.com/@midamgolfhq",
