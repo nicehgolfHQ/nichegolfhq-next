@@ -102,7 +102,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "March 2026",
     course: "The Lakewood Club",
     location: "Fairhope, AL",
-    pastResults: [{ year: 2025, champion: "Nate Smith" }],
+    pastResults: [{ year: 2025, champion: "Nate Smith" }, { year: 2024, champion: "Jordan Russell" }],
   },
   {
     slug: "champions-cup-four-ball",
