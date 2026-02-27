@@ -221,7 +221,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Maridoe Golf Club",
     location: "Dallas, TX",
-    pastResults: [{ year: 2025, champion: "Bobby Massa" }],
+    pastResults: [
+      { year: 2025, champion: "Bobby Massa" },
+      { year: 2024, champion: "Scott Harvey" },
+      { year: 2023, champion: "Scott Harvey" },
+    ],
   },
 
   {
