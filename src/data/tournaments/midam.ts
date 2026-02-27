@@ -486,7 +486,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 6,
     dates2026: "June 2026",
-    format: "72 holes stroke play",
+    format: "54 holes stroke play",
     courseWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
     note: "Europe",
     pastResults: [
