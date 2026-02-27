@@ -4,14 +4,11 @@ import { useMemo, useState } from "react";
 import type { Tournament } from "@/lib/tournaments/types";
 import { TournamentOverview } from "@/components/tournaments/TournamentOverview";
 import { TournamentResults } from "@/components/tournaments/TournamentResults";
-import { TournamentFieldPlaceholder } from "@/components/tournaments/TournamentFieldPlaceholder";
-
-type TabKey = "overview" | "results" | "field";
+type TabKey = "overview" | "results";
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: "overview", label: "Overview" },
   { key: "results", label: "Results" },
-  { key: "field", label: "Field & Rankings" },
 ];
 
 export function TournamentTabs({ tournament }: { tournament: Tournament }) {
@@ -19,7 +16,6 @@ export function TournamentTabs({ tournament }: { tournament: Tournament }) {
 
   const content = useMemo(() => {
     if (active === "results") return <TournamentResults tournament={tournament} />;
-    if (active === "field") return <TournamentFieldPlaceholder />;
     return <TournamentOverview tournament={tournament} />;
   }, [active, tournament]);
 

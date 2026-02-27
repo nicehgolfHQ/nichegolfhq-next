@@ -2,7 +2,13 @@ import type { Tournament } from "@/lib/tournaments/types";
 
 export function TournamentOverview({ tournament }: { tournament: Tournament }) {
   const overview = tournament.overview?.trim();
-  const hasCourseNotes = Boolean(tournament.courseDesigner) || Boolean(tournament.courseYear) || Boolean(tournament.course) || Boolean(tournament.location);
+  const hasCourseNotes =
+    Boolean(tournament.courseDesigner) ||
+    Boolean(tournament.courseYear) ||
+    Boolean(tournament.course) ||
+    Boolean(tournament.location);
+
+  const defending = (tournament.pastResults ?? []).slice().sort((a, b) => b.year - a.year)[0];
 
   return (
     <div className="grid gap-4 lg:grid-cols-3">
@@ -11,6 +17,14 @@ export function TournamentOverview({ tournament }: { tournament: Tournament }) {
         <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-700">
           {overview && overview.length > 0 ? overview : "Details coming soon."}
         </p>
+
+        {defending ? (
+          <div className="mt-5 rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
+            <div className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">Defending champion</div>
+            <div className="mt-1 text-sm font-semibold text-zinc-950">{defending.champion}</div>
+            <div className="mt-1 text-xs text-zinc-600">{defending.year}</div>
+          </div>
+        ) : null}
       </div>
 
       {hasCourseNotes ? (
