@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono, DM_Serif_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+const display = DM_Serif_Display({ weight: "400", subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nichegolfhq.com"),
@@ -49,7 +51,7 @@ export default function RootLayout({
   const GA_MEASUREMENT_ID = "G-BW8QC5W1CH";
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${sans.variable} ${mono.variable} ${display.variable} dark`}>
       <head>
         <style>{`:root{--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;}`}</style>
         <Script
@@ -65,7 +67,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${sans.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased bg-[#080811] text-zinc-100">
         {children}
       </body>
     </html>

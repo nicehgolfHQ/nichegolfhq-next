@@ -131,9 +131,8 @@ export default async function BriefPage({
 
       <div className="mx-auto w-full max-w-4xl px-5 py-10">
         {/* Header */}
-        <div className="mb-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
-          <div className="relative px-6 py-6 sm:px-10">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100" />
+        <div className="hero-beam mb-6 overflow-hidden rounded-3xl border border-zinc-200 bg-white/70 shadow-sm backdrop-blur">
+          <div className="relative px-6 py-7 sm:px-10">
             <div className="relative text-center">
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-zinc-600">
                 <Link href="/briefs" className="inline-flex items-center justify-center gap-2 hover:text-zinc-900">
@@ -142,14 +141,19 @@ export default async function BriefPage({
                 </Link>
               </div>
 
-              {/* Single-line title */}
-              <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
-                <span className="whitespace-nowrap">Daily Brief</span>
-                <span className="mx-2 text-zinc-300" aria-hidden>
-                  ·
+              <div className="mt-5 flex items-center justify-center gap-3">
+                <span className="inline-flex items-center rounded-sm bg-gradient-to-r from-indigo-600 to-sky-500 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-sm">
+                  Daily Brief
                 </span>
-                <span className="whitespace-nowrap text-zinc-700">{displayDate}</span>
+                <span className="mono-label text-[11px] font-semibold text-zinc-600">{brief.date}</span>
+              </div>
+
+              {/* Single-line title */}
+              <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
+                <span className="whitespace-nowrap">{displayDate}</span>
               </h1>
+
+              <p className="mt-3 text-sm text-zinc-600">Competitive amateur golf — juniors, mid-am, seniors.</p>
             </div>
           </div>
         </div>
