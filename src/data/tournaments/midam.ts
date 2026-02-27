@@ -125,6 +125,15 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     location: "Los Angeles, CA",
     pastResults: [{ year: 2025, champion: "Drew Kittleson" }],
   },
+  {
+    slug: "sanger-invitational",
+    name: "The Sanger Invitational",
+    channel: "midam",
+    month: 6,
+    dates2026: "June 2026",
+    note: "Every 3rd year",
+    pastResults: [{ year: 2025, champion: "Will Davenport" }],
+  },
 
   {
     slug: "the-picard-cup",
