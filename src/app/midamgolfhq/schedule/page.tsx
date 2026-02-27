@@ -47,8 +47,7 @@ export default function MidAmScheduleIndexPage() {
           <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule — {YEAR}</h1>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="text-xs text-zinc-500">Grouped by month</div>
+        <div className="flex items-center justify-end">
           <Link href="/midamgolfhq" className="text-sm text-zinc-700 underline-offset-4 hover:underline">
             Back to Mid-Am →
           </Link>
@@ -57,8 +56,8 @@ export default function MidAmScheduleIndexPage() {
         <div className="mt-6 space-y-10">
           {months.map((month) => (
             <section key={month} className="scroll-mt-24">
-              <div className="mb-4 flex items-baseline justify-between">
-                <h2 className="text-sm font-semibold tracking-tight text-zinc-950">
+              <div className="mb-4">
+                <h2 className="text-center text-sm font-semibold tracking-tight text-zinc-950">
                   {MONTH_NAMES[month - 1]?.toUpperCase()}
                 </h2>
               </div>
