@@ -740,7 +740,16 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     course: "Lakewood Country Club",
     location: "Lakewood, CO",
     format: "54 holes stroke play",
-    pastResults: [{ year: 2025, champion: "Ryan Burgess" }],
+    pastResults: [
+      { year: 2025, champion: "Ben Briscoe" },
+      { year: 2024, champion: "Christopher Devlin" },
+      { year: 2023, champion: "Chris Kamin" },
+      { year: 2022, champion: "Jason Enloe" },
+      { year: 2021, champion: "Jay Livsey" },
+      { year: 2020, champion: "Cancelled" },
+      { year: 2019, champion: "John Bearrie" },
+      { year: 2018, champion: "Chris Kamin" },
+    ],
   },
   {
     slug: "the-farrell",
