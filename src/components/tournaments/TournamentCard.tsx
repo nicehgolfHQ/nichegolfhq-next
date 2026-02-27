@@ -36,7 +36,7 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
       </div>
 
       <div className="mt-4 text-sm font-medium text-zinc-900">
-        View hub <span aria-hidden className="inline-block transition group-hover:translate-x-0.5">→</span>
+        View event <span aria-hidden className="inline-block transition group-hover:translate-x-0.5">→</span>
       </div>
     </Link>
   );

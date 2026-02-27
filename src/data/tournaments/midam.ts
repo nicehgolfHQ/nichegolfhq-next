@@ -127,7 +127,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
   },
   {
     slug: "sanger-invitational",
-    name: "The Sanger Invitational (Every 3rd year)",
+    name: "The Sanger Invitational (Every 3rd Year)",
     channel: "midam",
     month: 6,
     dates2026: "June 2026",
