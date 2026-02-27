@@ -97,11 +97,7 @@ export function TournamentOverview({ tournament }: { tournament: Tournament }) {
               </div>
             ) : null}
 
-            {tournament.courseNotes ? (
-              <div className="pt-2 text-xs text-zinc-600">
-                {tournament.courseNotes}
-              </div>
-            ) : null}
+            {/* courseNotes hidden */}
           </div>
         </aside>
       ) : null}
