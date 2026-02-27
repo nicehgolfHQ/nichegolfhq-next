@@ -171,7 +171,7 @@ export default async function NewsletterPage({
       <section id="subscribe" className="mx-auto w-full max-w-6xl px-5 pb-16">
         <div className="rounded-3xl border border-zinc-200 bg-white p-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 text-center md:text-left">
               <div className="text-sm font-semibold text-zinc-900">Subscribe</div>
               <p className="mt-2 text-sm leading-6 text-zinc-600">Get {feed.name} in your inbox.</p>
               <div className="mt-4">
