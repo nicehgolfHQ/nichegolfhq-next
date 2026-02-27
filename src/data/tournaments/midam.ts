@@ -10,6 +10,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 1,
     dates2026: "January 2026",
+    course: "The Tree Farm Golf Club",
+    location: "Batesburg, SC",
     note: "Rescheduled (TBD)",
   },
   {
@@ -46,6 +48,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 5,
     dates2026: "May 2026",
+    course: "Kinloch Golf Club",
+    location: "Manakin-Sabot, VA",
   },
   {
     slug: "the-jupiter-invitational",
@@ -53,6 +57,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 5,
     dates2026: "May 2026",
+    course: "Jonathan’s Landing",
+    location: "Jupiter, FL",
   },
   {
     slug: "walter-j-travis-invitational",
@@ -60,6 +66,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 5,
     dates2026: "May 2026",
+    course: "Garden City Golf Club",
+    location: "Garden City, NY",
   },
   {
     slug: "john-t-lupton-memorial",
@@ -67,6 +75,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 5,
     dates2026: "May 2026",
+    course: "The Honors Club",
+    location: "Tennessee",
   },
   {
     slug: "the-huddleston-cup",
@@ -74,6 +84,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 5,
     dates2026: "May 2026",
+    course: "Maridoe Golf Club",
+    location: "Dallas, TX",
   },
 
   {
@@ -82,6 +94,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 6,
     dates2026: "June 2026",
+    course: "National Golf Links of America",
+    location: "Southampton, NY",
   },
   {
     slug: "anderson-memorial-four-ball",
@@ -89,6 +103,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 6,
     dates2026: "June 2026",
+    course: "Winged Foot Golf Club",
+    location: "Mamaroneck, NY",
   },
   {
     slug: "george-c-thomas-invitational",
@@ -96,6 +112,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 6,
     dates2026: "June 2026",
+    course: "Los Angeles Country Club",
+    location: "Los Angeles, CA",
   },
 
   {
@@ -104,6 +122,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 8,
     dates2026: "August 2026",
+    course: "Canterbury Golf Club",
+    location: "Beachwood, OH",
   },
   {
     slug: "the-valentine-invitational",
@@ -111,6 +131,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 8,
     dates2026: "August 2026",
+    course: "Hermitage Country Club",
+    location: "Richmond, VA",
   },
 
   {
@@ -119,6 +141,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 9,
     dates2026: "September 2026",
+    course: "Montclair Golf Club",
+    location: "West Orange, NJ",
   },
   {
     slug: "trans-miss-mid-master-championship",
@@ -126,6 +150,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 9,
     dates2026: "September 2026",
+    course: "Lakewood Country Club",
+    location: "Lakewood, CO",
   },
   {
     slug: "the-farrell",
@@ -133,6 +159,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 9,
     dates2026: "September 2026",
+    course: "Stanwich Club",
+    location: "Greenwich, CT",
   },
   {
     slug: "the-crump-cup",
@@ -140,6 +168,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 9,
     dates2026: "September 2026",
+    course: "Pine Valley Golf Club",
+    location: "TBD",
   },
 
   {
@@ -148,6 +178,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 10,
     dates2026: "October 2026",
+    course: "Sand Valley Resort",
+    location: "Nekoosa, WI",
   },
   {
     slug: "the-stocker-cup",
@@ -155,6 +187,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 10,
     dates2026: "October 2026",
+    course: "The Preserve Golf Club",
+    location: "Carmel Valley, CA",
   },
   {
     slug: "john-r-williams-four-ball",
@@ -162,6 +196,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 10,
     dates2026: "October 2026",
+    course: "Oak Hill Country Club",
+    location: "Rochester, NY",
   },
   {
     slug: "the-berkeley-cup",
@@ -169,6 +205,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 10,
     dates2026: "October 2026",
+    course: "Berkeley Hills Country Club",
+    location: "Berkeley, CA",
   },
   {
     slug: "carlton-woods-invitational",
@@ -176,6 +214,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 10,
     dates2026: "October 2026",
+    course: "Carlton Woods",
+    location: "The Woodlands, TX",
   },
 
   {
@@ -191,5 +231,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     channel: "midam",
     month: 11,
     dates2026: "November 2026",
+    course: "Dallas Athletic Club",
+    location: "Dallas, TX",
   },
 ];
