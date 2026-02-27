@@ -6,7 +6,13 @@ export function TournamentOverview({ tournament }: { tournament: Tournament }) {
     Boolean(tournament.courseDesigner) ||
     Boolean(tournament.courseYear) ||
     Boolean(tournament.course) ||
-    Boolean(tournament.location);
+    Boolean(tournament.location) ||
+    Boolean(tournament.coursePar) ||
+    Boolean(tournament.courseYardage) ||
+    Boolean(tournament.courseRating) ||
+    Boolean(tournament.courseSlope) ||
+    Boolean(tournament.courseTeeName) ||
+    Boolean(tournament.courseNotes);
 
   const defending = (tournament.pastResults ?? []).slice().sort((a, b) => b.year - a.year)[0];
 
@@ -58,6 +64,42 @@ export function TournamentOverview({ tournament }: { tournament: Tournament }) {
             {tournament.location ? (
               <div>
                 <span className="text-zinc-500">Location:</span> {tournament.location}
+              </div>
+            ) : null}
+
+            {tournament.courseTeeName ? (
+              <div>
+                <span className="text-zinc-500">Tee:</span> {tournament.courseTeeName}
+              </div>
+            ) : null}
+
+            {tournament.coursePar ? (
+              <div>
+                <span className="text-zinc-500">Par:</span> {tournament.coursePar}
+              </div>
+            ) : null}
+
+            {tournament.courseYardage ? (
+              <div>
+                <span className="text-zinc-500">Yardage:</span> {tournament.courseYardage.toLocaleString()} yds
+              </div>
+            ) : null}
+
+            {tournament.courseRating ? (
+              <div>
+                <span className="text-zinc-500">Rating:</span> {tournament.courseRating}
+              </div>
+            ) : null}
+
+            {tournament.courseSlope ? (
+              <div>
+                <span className="text-zinc-500">Slope:</span> {tournament.courseSlope}
+              </div>
+            ) : null}
+
+            {tournament.courseNotes ? (
+              <div className="pt-2 text-xs text-zinc-600">
+                {tournament.courseNotes}
               </div>
             ) : null}
           </div>

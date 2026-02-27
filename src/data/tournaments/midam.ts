@@ -12,6 +12,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "January 2026",
     course: "The Tree Farm Golf Club",
     location: "Batesburg, SC",
+    coursePar: 71,
+    courseYardage: 7293,
+    courseRating: 75.1,
+    courseSlope: 138,
+    courseTeeName: "Tree Monster",
+    courseDesigner: "Tom Doak / Kye Goalby",
+    courseNotes: "Back tees (6,980 yds) rated 73.7/136",
+
     format: "Stableford",
     note: "Rescheduled (TBD)",
   },
@@ -23,6 +31,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "February 2026",
     course: "Palma Ceia Golf & Country Club",
     location: "Tampa, FL",
+    coursePar: 70,
+    courseYardage: 6241,
+    courseRating: 71,
+    courseSlope: 132,
+    courseTeeName: "Blue",
+    courseDesigner: "Donald Ross / Bobby Weed",
+    courseNotes: "Short course; Donald Ross design (1923)",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2026, champion: "Hayes Brown" },
@@ -104,6 +120,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "March 2026",
     course: "The Lakewood Club",
     location: "Fairhope, AL",
+    coursePar: 72,
+    courseYardage: 7202,
+    courseRating: 72.5,
+    courseSlope: 128,
+    courseTeeName: "Back",
+    courseDesigner: "Perry Maxwell / Bobby Vaughan",
+    courseNotes: "RTJ Golf Trail; verify which course used",
+
     format: "54 holes stroke play",
     pastResults: [{ year: 2025, champion: "Nate Smith" }, { year: 2024, champion: "Jordan Russell" }],
   },
@@ -115,6 +139,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "March 2026",
     course: "Champions Golf Club",
     location: "Houston, TX",
+    coursePar: 71,
+    courseYardage: 7410,
+    courseRating: 75.8,
+    courseSlope: 134,
+    courseTeeName: "Black",
+    courseDesigner: "Ralph Plummer / Chet Williams",
+    courseNotes: "Site of 1969 U.S. Open, 2020 U.S. Women's Open",
+
     format: "72 holes better ball",
     pastResults: [
       { year: 2025, champion: "Will Davenport / Nick Maccario" },
@@ -186,6 +218,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Kinloch Golf Club",
     location: "Manakin-Sabot, VA",
+    coursePar: 72,
+    courseYardage: 7373,
+    courseRating: 75,
+    courseSlope: 138,
+    courseTeeName: "Back",
+    courseDesigner: "Lester George / Vinny Giles",
+    courseNotes: "Site of 2024 U.S. Mid-Amateur",
+
     format: "54 holes stroke play",
     pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
   },
@@ -197,6 +237,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Jonathan’s Landing",
     location: "Jupiter, FL",
+    coursePar: 72,
+    courseYardage: 7030,
+    courseRating: 74.2,
+    courseSlope: 135,
+    courseTeeName: "Tee I",
+    courseDesigner: "Tom Fazio / Kipp Schulties",
+    courseNotes: "3 courses on property; Medal most likely venue",
+
     format: "54 holes stroke play",
   },
   {
@@ -207,6 +255,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Garden City Golf Club",
     location: "Garden City, NY",
+    coursePar: 73,
+    courseYardage: 6926,
+    courseRating: 74,
+    courseSlope: 141,
+    courseTeeName: "Back",
+    courseDesigner: "Devereux Emmet / Walter Travis / Tom Doak",
+    courseNotes: "Men-only club; est. 1899",
+
     format: "Match play",
     pastResults: [
       { year: 2025, champion: "Chris DeJohn" },
@@ -343,6 +399,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "The Honors Club",
     location: "Ooltewah, TN",
+    coursePar: 72,
+    courseYardage: 7694,
+    courseRating: 78.3,
+    courseSlope: 155,
+    courseTeeName: "Silver",
+    courseDesigner: "Pete Dye / Gil Hanse (restoration)",
+    courseNotes: "Black tees: 75.9/155 (7,274 yds)",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Ben Reeves & Brett Patterson", notes: "T1" },
@@ -371,6 +435,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Maridoe Golf Club",
     location: "Dallas, TX",
+    coursePar: 72,
+    courseYardage: 7854,
+    courseRating: 79.6,
+    courseSlope: 155,
+    courseTeeName: "Plates",
+    courseDesigner: "Steve Smyers",
+    courseNotes: "Red tees: 77.5/153 (7,311 yds); 155 is max slope",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Bobby Massa" },
@@ -387,6 +459,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "June 2026",
     course: "National Golf Links of America",
     location: "Southampton, NY",
+    coursePar: 73,
+    courseYardage: 6779,
+    courseRating: 74.3,
+    courseSlope: 141,
+    courseTeeName: "Back",
+    courseDesigner: "Charles B. Macdonald",
+    courseNotes: "Host of first Walker Cup (1922)",
+
     format: "Match play",
     pastResults: [
       { year: 2025, champion: "Stewart Hagestad" },
@@ -407,6 +487,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "June 2026",
     course: "Winged Foot Golf Club",
     location: "Mamaroneck, NY",
+    coursePar: 72,
+    courseYardage: 7426,
+    courseRating: 76.4,
+    courseSlope: 140,
+    courseTeeName: "Blue",
+    courseDesigner: "A.W. Tillinghast / Gil Hanse",
+    courseNotes: "Site of 6 U.S. Opens; East also 140 slope",
+
     format: "Match play better ball",
     pastResults: [
       { year: 2025, champion: "Scott Strickland / Jimmy Chestnut" },
@@ -508,6 +596,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "June 2026",
     course: "Los Angeles Country Club",
     location: "Los Angeles, CA",
+    coursePar: 71,
+    courseYardage: 7530,
+    courseRating: 74,
+    courseSlope: 135,
+    courseTeeName: "Back",
+    courseDesigner: "George C. Thomas Jr. / Gil Hanse",
+    courseNotes: "U.S. Open setup: 76.9/148; site of 2023 U.S. Open",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Drew Kittleson" },
@@ -534,6 +630,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     note: "Every 3rd year",
     course: "Fishers Island Club",
     location: "Fishers Island, NY",
+    coursePar: 70,
+    courseYardage: 6597,
+    courseRating: 72.8,
+    courseSlope: 144,
+    courseTeeName: "Black",
+    courseDesigner: "Seth Raynor",
+    courseNotes: "Blue tees: 72.4/142 (6,503 yds)",
+
     format: "54 holes stroke play",
     pastResults: [{ year: 2025, champion: "Will Davenport" }],
   },
@@ -546,6 +650,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "August 2026",
     course: "Canterbury Golf Club",
     location: "Beachwood, OH",
+    coursePar: 72,
+    courseYardage: 7066,
+    courseRating: 74.6,
+    courseSlope: 140,
+    courseTeeName: "Championship",
+    courseDesigner: "Herbert Strong / Andrew Green",
+    courseNotes: "GolfLink shows 73.9/138 from different tees",
+
     format: "4-ball",
     pastResults: [
       { year: 2025, champion: "Nicholas Fiore & Brian Joseph" },
@@ -589,6 +701,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "August 2026",
     course: "Hermitage Country Club",
     location: "Richmond, VA",
+    coursePar: 72,
+    courseYardage: 6965,
+    courseRating: 73.1,
+    courseSlope: 133,
+    courseTeeName: "Black",
+    courseDesigner: "Ed Ault / Keith Foster",
+    courseNotes: "Sabot course also on property: 73.3/127",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "John Hunter" },
@@ -697,6 +817,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Montclair Golf Club",
     location: "West Orange, NJ",
+    coursePar: 70,
+    courseYardage: 6582,
+    courseRating: 35.4,
+    courseSlope: 126,
+    courseTeeName: "Back (18H combo)",
+    courseDesigner: "Charles Banks / A.W. Tillinghast",
+    courseNotes: "36-hole club (four 9s); 18H combo varies",
+
     format: "Match play",
     pastResults: [
       { year: 2025, champion: "Ina Kim-Schaad" },
@@ -748,6 +876,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Lakewood Country Club",
     location: "Lakewood, CO",
+    coursePar: 72,
+    courseTeeName: "Back",
+    courseNotes: "Data not confirmed; verify with club",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Ben Briscoe" },
@@ -768,6 +900,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Stanwich Club",
     location: "Greenwich, CT",
+    coursePar: 72,
+    courseYardage: 7450,
+    courseRating: 76,
+    courseSlope: 144,
+    courseTeeName: "Back",
+    courseDesigner: "William Gordon / Tom Fazio",
+    courseNotes: "Tom Fazio renovation ongoing",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Johnny Spellerberg (M), Lauren Greenlief (W)" },
@@ -784,6 +924,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "September 2026",
     course: "Pine Valley Golf Club",
     location: "Clementon, NJ",
+    coursePar: 70,
+    courseYardage: 7197,
+    courseRating: 76.6,
+    courseSlope: 155,
+    courseTeeName: "Back",
+    courseDesigner: "George Crump / H.S. Colt",
+    courseNotes: "Regular tees: 73.6/153; #1 course in America",
+
     format: "Match play",
     pastResults: [
       { year: 2025, champion: "Bobby Wyatt" },
@@ -898,6 +1046,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Sand Valley Resort",
     location: "Nekoosa, WI",
+    coursePar: 73,
+    courseYardage: 6988,
+    courseRating: 73.8,
+    courseSlope: 132,
+    courseTeeName: "Back",
+    courseDesigner: "David McLay Kidd",
+    courseNotes: "Sand Valley course also on property",
+
     format: "Match play",
     pastResults: [
       { year: 2025, champion: "Brandon Holtz" },
@@ -955,6 +1111,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "The Preserve Golf Club",
     location: "Carmel Valley, CA",
+    coursePar: 72,
+    courseYardage: 7067,
+    courseRating: 74.3,
+    courseSlope: 142,
+    courseTeeName: "Back",
+    courseDesigner: "Tom Fazio",
+    courseNotes: "300-member cap; Santa Lucia Preserve",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Parker Sisk" },
@@ -1002,6 +1166,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Oak Hill Country Club",
     location: "Rochester, NY",
+    coursePar: 70,
+    courseYardage: 7364,
+    courseRating: 77.3,
+    courseSlope: 153,
+    courseTeeName: "Championship",
+    courseDesigner: "Donald Ross / Andrew Green",
+    courseNotes: "Black tees: 75.5/146; site of 2023 PGA Championship",
+
     format: "54 holes better ball",
     pastResults: [
       { year: 2025, champion: "Matt Parziale & Nick Maccario" },
@@ -1077,6 +1249,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Berkeley Hills Country Club",
     location: "Berkeley, CA",
+    coursePar: 72,
+    courseTeeName: "Back",
+    courseNotes: "Not the Duluth, GA club; data not confirmed",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Elliott Grayson" },
@@ -1095,6 +1271,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "October 2026",
     course: "Carlton Woods",
     location: "The Woodlands, TX",
+    coursePar: 72,
+    courseTeeName: "Back",
+    courseDesigner: "Jack Nicklaus",
+    courseNotes: "Nicklaus Course; data not confirmed online",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Robert Gwin" },
@@ -1128,6 +1309,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "November 2026",
     course: "The Country Club of Birmingham",
     location: "Birmingham, AL",
+    coursePar: 72,
+    courseTeeName: "Back",
+    courseNotes: "Data not confirmed; verify with club",
+
     format: "54 holes stroke play",
     pastResults: [
       { year: 2025, champion: "Ryan Terry" },
@@ -1158,6 +1343,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "November 2026",
     course: "Dallas Athletic Club",
     location: "Dallas, TX",
+    coursePar: 72,
+    courseTeeName: "Back",
+    courseNotes: "Multiple courses; Gold course most likely",
+
     format: "54 holes better ball",
     pastResults: [
       { year: 2022, champion: "Michael Randle & Martin Board" },

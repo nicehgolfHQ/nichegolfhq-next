@@ -30,6 +30,14 @@ export interface Tournament {
   courseDesigner?: string;
   courseYear?: number;
 
+  // Course rating/slope (prefer furthest/back/championship tee)
+  coursePar?: number;
+  courseYardage?: number;
+  courseRating?: number;
+  courseSlope?: number;
+  courseTeeName?: string;
+  courseNotes?: string;
+
   // === FORMAT ===
   format?: string;
   fieldSize?: string;
