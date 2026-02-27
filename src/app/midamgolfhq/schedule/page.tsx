@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import { SiteShell } from "@/components/SiteShell";
 import { listMidAmTournaments } from "@/lib/tournaments/midam";
 import { TournamentCard } from "@/components/tournaments/TournamentCard";
@@ -39,8 +40,41 @@ export default function MidAmScheduleIndexPage() {
     .map((m) => Number(m))
     .sort((a, b) => a - b);
 
+  const baseUrl = "https://www.nichegolfhq.com";
+  const pageUrl = `${baseUrl}/midamgolfhq/schedule`;
+
+  const breadcrumbsLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: "midamgolfHQ", item: `${baseUrl}/midamgolfhq` },
+      { "@type": "ListItem", position: 3, name: "Mid-Am Major Schedule", item: pageUrl },
+    ],
+  };
+
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Mid-Am Major Schedule",
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: tournaments.map((t, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      name: t.name,
+      url: `${baseUrl}/midamgolfhq/schedule/${t.slug}`,
+    })),
+  };
+
   return (
     <SiteShell>
+      <Script id="ld-breadcrumbs-midam-schedule" type="application/ld+json">
+        {JSON.stringify(breadcrumbsLd)}
+      </Script>
+      <Script id="ld-itemlist-midam-schedule" type="application/ld+json">
+        {JSON.stringify(itemListLd)}
+      </Script>
+
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
         <div className="mb-8">
           <div className="text-sm text-zinc-600">midamgolfHQ</div>

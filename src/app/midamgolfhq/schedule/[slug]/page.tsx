@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { getMidAmTournamentBySlug, listMidAmTournamentSlugs } from "@/lib/tournaments/midam";
@@ -43,8 +44,74 @@ export default async function MidAmTournamentPage({
   const tournament = getMidAmTournamentBySlug(slug);
   if (!tournament) notFound();
 
+  const baseUrl = "https://www.nichegolfhq.com";
+  const pageUrl = `${baseUrl}/midamgolfhq/schedule/${tournament.slug}`;
+
+  const breadcrumbsLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "midamgolfHQ",
+        item: `${baseUrl}/midamgolfhq`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Mid-Am Major Schedule",
+        item: `${baseUrl}/midamgolfhq/schedule`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: tournament.name,
+        item: pageUrl,
+      },
+    ],
+  };
+
+  const eventLd: any = {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: tournament.name,
+    url: pageUrl,
+    sport: "Golf",
+    eventStatus: "https://schema.org/EventScheduled",
+    organizer: {
+      "@type": "Organization",
+      name: "midamgolfHQ",
+      url: `${baseUrl}/midamgolfhq`,
+    },
+    location: {
+      "@type": "Place",
+      name: [tournament.course, tournament.location].filter(Boolean).join(" — ") || tournament.location || tournament.course || tournament.name,
+      address: tournament.location,
+    },
+    description: `Dates, venue, format, and past winners for ${tournament.name}.`,
+  };
+
+  // Use a simple ISO date when we have a concrete date range; otherwise omit.
+  if (tournament.dates2026) {
+    eventLd.startDate = tournament.dates2026;
+  }
+
   return (
     <SiteShell>
+      <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
+        {JSON.stringify(breadcrumbsLd)}
+      </Script>
+      <Script id={`ld-event-${tournament.slug}`} type="application/ld+json">
+        {JSON.stringify(eventLd)}
+      </Script>
+
       <div className="mx-auto w-full max-w-5xl px-5 py-8">
         <div className="flex items-center justify-start">
           <Link
