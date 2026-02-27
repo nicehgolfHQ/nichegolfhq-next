@@ -102,7 +102,7 @@ export default async function NewsletterPage({
                     Schedule hub
                   </div>
                   <div className="mt-3 font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Schedule</div>
-                  <div className="mt-1 text-sm text-zinc-600">Courses, locations, and defending champions — all in one place.</div>
+                  {/* subcopy removed */}
                 </div>
 
                 <Link
