@@ -89,7 +89,7 @@ export default async function NewsletterPage({
                 <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Junior Major Schedule</div>
 
                 <Link
-                  href="/juniorgolfhq/majors"
+                  href="/juniorgolfhq/schedule"
                   className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
                 >
                   <span>Open schedule</span>
@@ -105,7 +105,7 @@ export default async function NewsletterPage({
                 <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Senior Major Schedule</div>
 
                 <Link
-                  href="/seniorgolfhq/majors"
+                  href="/seniorgolfhq/schedule"
                   className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
                 >
                   <span>Open schedule</span>
