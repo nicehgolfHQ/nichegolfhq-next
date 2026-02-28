@@ -40,6 +40,7 @@ export function MajorEventTabs({
         officialUrl={officialUrl}
         note={note}
         resultsHref={resultsHref}
+        winners={winners}
       />
     );
   }, [active, brand, month, name, note, officialUrl, resultsHref, winners]);
