@@ -70,6 +70,15 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
+
+        {/* Simpli.fi retargeting tag (Ketch should gate this under Marketing consent where required) */}
+        <Script
+          id="simplifi"
+          async
+          referrerPolicy="no-referrer-when-downgrade"
+          src="https://tag.simpli.fi/sifitag/ed67e2ba-f353-49ca-9d4b-e76237917756"
+          strategy="afterInteractive"
+        />
       </head>
       <body className={`${sans.variable} font-sans antialiased`}>
         {children}
