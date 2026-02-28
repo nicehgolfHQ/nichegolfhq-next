@@ -93,6 +93,15 @@ export function normalizeBeehiivHtml(rawHtml?: string): string {
   const html = root.html() || "";
   const $$ = cheerio.load(html);
 
+  // Demote any Beehiiv-provided <h1> inside the issue body.
+  // We render the page title as the single canonical <h1>, so body headings should be <h2+>.
+  $$("h1").each((_, h) => {
+    const $h = $$(h);
+    const h2 = $$("<h2></h2>");
+    h2.html($h.html() || "");
+    $h.replaceWith(h2);
+  });
+
   // Remove empty paragraphs
   $$("p").each((_, p) => {
     const txt = $$(p).text().replace(/\s+/g, " ").trim();
