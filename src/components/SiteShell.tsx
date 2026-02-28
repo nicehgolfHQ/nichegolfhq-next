@@ -162,6 +162,9 @@ export function SiteShell({
               <Link href="/privacy" className="text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-700">
                 Privacy Policy
               </Link>
+              <Link href="/terms" className="text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-700">
+                Terms of Use
+              </Link>
             </div>
             <div className="text-sm text-zinc-600">2026 nichegolfHQ all rights reserved</div>
           </div>

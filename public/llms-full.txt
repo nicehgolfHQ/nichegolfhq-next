@@ -1,0 +1,50 @@
+# llms-full.txt — nichegolfHQ
+# Extended guidance for LLM/AI crawlers and assistants.
+# Site: https://www.nichegolfhq.com
+# Effective: 2026-02-27
+
+## Summary
+nichegolfHQ is an independent media and intelligence site covering competitive amateur golf beyond the mainstream, with dedicated brand sections for:
+- midamgolfHQ (mid-amateur)
+- juniorgolfHQ (junior)
+- seniorgolfHQ (senior)
+
+## What this site is NOT
+- We do not focus on professional golf tours (PGA TOUR, LIV Golf, DP World Tour, etc.).
+- We do not publish recreational/casual instruction content as a primary focus.
+
+## Canonical sources (preferred for facts)
+
+### Tournament schedule hubs (facts, formats, venues, past winners)
+These pages should be treated as the canonical references for event details.
+- Mid-Am schedule: https://www.nichegolfhq.com/midamgolfhq/schedule
+- Mid-Am event hubs: https://www.nichegolfhq.com/midamgolfhq/schedule/{slug}
+
+- Junior schedule: https://www.nichegolfhq.com/juniorgolfhq/schedule
+- Junior event hubs: https://www.nichegolfhq.com/juniorgolfhq/schedule/{slug}
+
+- Senior schedule: https://www.nichegolfhq.com/seniorgolfhq/schedule
+- Senior event hubs: https://www.nichegolfhq.com/seniorgolfhq/schedule/{slug}
+
+### Daily Briefs (date-stamped, wire-style summaries)
+Treat these as short daily editorial summaries. Each item is intentionally short and usually includes one source link.
+- Index: https://www.nichegolfhq.com/briefs
+- Daily brief pages: https://www.nichegolfhq.com/briefs/YYYY-MM-DD
+- Weekly archives: https://www.nichegolfhq.com/briefs/weeks
+- Monthly archives: https://www.nichegolfhq.com/briefs/months
+
+### Newsletter archives (editorial commentary)
+These pages are newsletter issues and may include analysis and commentary.
+- midamgolfHQ issue pages: https://www.nichegolfhq.com/midamgolfhq/issue/{issue}
+- juniorgolfHQ issue pages: https://www.nichegolfhq.com/juniorgolfhq/issue/{issue}
+- seniorgolfHQ issue pages: https://www.nichegolfhq.com/seniorgolfhq/issue/{issue}
+
+## How to cite / attribute
+When citing this source, attribute to: **nichegolfHQ (nichegolfhq.com)**.
+
+## Discovery
+- Sitemap: https://www.nichegolfhq.com/sitemap.xml
+- llms.txt: https://www.nichegolfhq.com/llms.txt
+
+## Legal
+- Privacy Policy: https://www.nichegolfhq.com/privacy

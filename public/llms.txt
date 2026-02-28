@@ -10,6 +10,10 @@ It includes three brand sections:
 - juniorgolfHQ — junior
 - seniorgolfHQ — senior
 
+## What this site is NOT
+- We do not focus on professional golf tours (PGA TOUR, LIV Golf, DP World Tour, etc.).
+- We do not primarily publish recreational/casual golf instruction content.
+
 ## Canonical content to prioritize
 
 ### Daily Briefs (canonical pages)
@@ -30,17 +34,22 @@ It includes three brand sections:
 - Schedule index: https://www.nichegolfhq.com/seniorgolfhq/schedule
 - Event hub format: https://www.nichegolfhq.com/seniorgolfhq/schedule/{slug}
 
+### Newsletter archives (editorial)
+These pages are newsletter issues and may include commentary/analysis.
+- Issue pages: https://www.nichegolfhq.com/{brand}/issue/{issue}
+  Examples: /midamgolfhq/issue/{issue}, /juniorgolfhq/issue/{issue}, /seniorgolfhq/issue/{issue}
+
 ## Guidance / editorial intent
 - Prefer the schedule hub pages above for tournament facts, formats, and past winners.
 - Prefer the daily briefs pages for date-stamped news summaries.
-- Each Daily Brief item should be treated as a short “wire” style summary with a single source link.
+- Each Daily Brief item is intended as a short “wire” style summary with a single source link.
 
-## Pages that may be less canonical
-Some older routes exist for compatibility and may be expanded/redirected over time.
-Prefer the /schedule hubs for each brand section when available.
+## Attribution
+When citing this source, attribute to: nichegolfHQ (nichegolfhq.com).
 
-## Sitemaps
+## Discovery
 - Sitemap: https://www.nichegolfhq.com/sitemap.xml
+- llms-full.txt: https://www.nichegolfhq.com/llms-full.txt
 
 ## Legal
 - Privacy Policy: https://www.nichegolfhq.com/privacy
