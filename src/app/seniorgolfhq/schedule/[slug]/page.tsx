@@ -2,6 +2,8 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
+import { MajorEventHero } from "@/components/majors/MajorEventHero";
+import { MajorEventTabs } from "@/components/majors/MajorEventTabs";
 import { getSeniorMajorBySlug, listSeniorMajorSlugs } from "@/lib/seniorMajors";
 
 export const dynamicParams = false;
@@ -86,68 +88,17 @@ export default async function SeniorScheduleEventPage({
         </div>
 
         <div className="mt-4">
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-            <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">{event.name}</h1>
-            <div className="mt-2 text-sm text-zinc-600">{event.month}</div>
-            {event.note ? <div className="mt-2 text-sm text-zinc-600">{event.note}</div> : null}
-          </div>
+          <MajorEventHero name={event.name} subtitle={event.month} />
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-3">
-            <div className="space-y-4 lg:col-span-2">
-              <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-                <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Overview</h2>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-700">
-                  This page is the canonical schedule hub for {event.name}. We’ll keep adding official links and past winners.
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <Link
-                    href={`/seniorgolfhq/majors/${event.slug}/2026`}
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm shadow-zinc-900/5 hover:bg-zinc-50"
-                  >
-                    2026 results →
-                  </Link>
-                  {event.officialUrl ? (
-                    <a
-                      href={event.officialUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm shadow-zinc-900/5 hover:bg-zinc-50"
-                    >
-                      Official site
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-
-            <aside className="space-y-4">
-              <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-                <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Quick facts</h2>
-                <div className="mt-3 space-y-2 text-sm text-zinc-700">
-                  <div>
-                    <span className="text-zinc-500">Month:</span> {event.month}
-                  </div>
-                  <div>
-                    <span className="text-zinc-500">Official:</span> {event.officialUrl ? (
-                      <a href={event.officialUrl} target="_blank" rel="noreferrer" className="underline underline-offset-2">
-                        link
-                      </a>
-                    ) : (
-                      "TBD"
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-                <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Past winners</h2>
-                <div className="mt-3 text-sm text-zinc-700">
-                  We’ll expand this with a year-by-year table.
-                </div>
-              </div>
-            </aside>
-          </div>
+          <MajorEventTabs
+            brand="seniorgolfHQ"
+            name={event.name}
+            month={event.month}
+            officialUrl={event.officialUrl}
+            note={event.note}
+            resultsHref={`/seniorgolfhq/majors/${event.slug}/2026`}
+            winners={[]}
+          />
         </div>
       </div>
     </SiteShell>
