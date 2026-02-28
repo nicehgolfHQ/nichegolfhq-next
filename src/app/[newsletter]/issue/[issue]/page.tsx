@@ -48,18 +48,28 @@ export async function generateMetadata({
   const items = await fetchFeedItems(feed.rssUrl, 25);
   const found = items.find((it) => issueSlugFromUrl(it.link) === resolved.issue) || items[0];
 
-  const description = cleanSnippet(found?.contentSnippet) || feed.tagline;
+  const description = cleanSnippet(found?.contentSnippet) || feed.tagline || `Newsletter issue from ${feed.name}.`;
+  const title = found?.title ? `${found.title} | ${feed.name}` : `${feed.name}`;
+
   return {
-    title: found?.title ? `${found.title}` : `${feed.name}`,
+    title,
     description,
     alternates: {
       canonical: `/${feed.slug}/issue/${resolved.issue}`,
     },
     openGraph: {
-      title: found?.title || feed.name,
+      title,
       description,
       type: "article",
+      url: `https://www.nichegolfhq.com/${feed.slug}/issue/${resolved.issue}`,
+      siteName: "nichegolfHQ",
       images: found?.imageUrl ? [{ url: found.imageUrl }] : undefined,
+    },
+    twitter: {
+      card: found?.imageUrl ? "summary_large_image" : "summary",
+      title,
+      description,
+      images: found?.imageUrl ? [found.imageUrl] : undefined,
     },
   };
 }

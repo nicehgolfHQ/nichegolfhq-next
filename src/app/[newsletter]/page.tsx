@@ -20,7 +20,7 @@ export async function generateMetadata({
   const feed = getFeedBySlug(resolved.newsletter);
   if (!feed) return { title: "nichegolfHQ" };
   return {
-    title: `${feed.name} — nichegolfHQ`,
+    title: feed.name,
     description: feed.tagline || undefined,
     alternates: { canonical: `/${feed.slug}` },
   };
