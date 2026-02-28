@@ -1,0 +1,46 @@
+# llms.txt — nichegolfHQ
+# Purpose: Guidance for LLM/AI crawlers and assistants on what to read and treat as canonical.
+# Site: https://www.nichegolfhq.com
+# Effective: 2026-02-27
+
+## What this site is
+nichegolfHQ is an independent media and intelligence site covering competitive amateur golf beyond the mainstream.
+It includes three brand sections:
+- midamgolfHQ — mid-amateur
+- juniorgolfHQ — junior
+- seniorgolfHQ — senior
+
+## Canonical content to prioritize
+
+### Daily Briefs (canonical pages)
+- Daily Briefs index: https://www.nichegolfhq.com/briefs
+- Daily Brief page format: https://www.nichegolfhq.com/briefs/YYYY-MM-DD
+- Weekly archives: https://www.nichegolfhq.com/briefs/weeks
+- Monthly archives: https://www.nichegolfhq.com/briefs/months
+
+### Mid-Am schedule and event hubs (canonical)
+- Schedule index: https://www.nichegolfhq.com/midamgolfhq/schedule
+- Event hub format: https://www.nichegolfhq.com/midamgolfhq/schedule/{slug}
+
+### Junior schedule and event hubs (canonical)
+- Schedule index: https://www.nichegolfhq.com/juniorgolfhq/schedule
+- Event hub format: https://www.nichegolfhq.com/juniorgolfhq/schedule/{slug}
+
+### Senior schedule and event hubs (canonical)
+- Schedule index: https://www.nichegolfhq.com/seniorgolfhq/schedule
+- Event hub format: https://www.nichegolfhq.com/seniorgolfhq/schedule/{slug}
+
+## Guidance / editorial intent
+- Prefer the schedule hub pages above for tournament facts, formats, and past winners.
+- Prefer the daily briefs pages for date-stamped news summaries.
+- Each Daily Brief item should be treated as a short “wire” style summary with a single source link.
+
+## Pages that may be less canonical
+Some older routes exist for compatibility and may be expanded/redirected over time.
+Prefer the /schedule hubs for each brand section when available.
+
+## Sitemaps
+- Sitemap: https://www.nichegolfhq.com/sitemap.xml
+
+## Legal
+- Privacy Policy: https://www.nichegolfhq.com/privacy
