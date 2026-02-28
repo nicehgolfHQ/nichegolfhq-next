@@ -159,6 +159,9 @@ export function SiteShell({
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
               <KetchPreferencesLink label="Privacy Settings" />
+              <Link href="/privacy" className="text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-700">
+                Privacy Policy
+              </Link>
             </div>
             <div className="text-sm text-zinc-600">2026 nichegolfHQ all rights reserved</div>
           </div>
