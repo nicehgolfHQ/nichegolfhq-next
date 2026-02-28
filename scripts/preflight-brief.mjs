@@ -106,6 +106,15 @@ if (items.length < 2 || items.length > 4) {
   process.exit(1);
 }
 
+function formatLongDate(ymd) {
+  const [y, m, d] = ymd.split("-").map((n) => Number(n));
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const mm = months[(m || 1) - 1] || "";
+  return `${mm} ${d}, ${y}`;
+}
+
+const longDate = formatLongDate(date);
+
 for (const [idx, it] of items.entries()) {
   if (!it.title || !it.url || !it.source) {
     console.error(`preflight: item ${idx + 1} missing title/url/source`);
@@ -115,10 +124,14 @@ for (const [idx, it] of items.entries()) {
     console.error(`preflight: item ${idx + 1} url not http(s): ${it.url}`);
     process.exit(1);
   }
-  if (!it.why || !it.why.toLowerCase().includes(date)) {
+
+  const whyLower = (it.why || "").toLowerCase();
+  const hasDateStamp = whyLower.includes(date) || whyLower.includes(longDate.toLowerCase());
+  if (!it.why || !hasDateStamp) {
     console.error(`preflight: item ${idx + 1} missing explicit in-body date stamp (${date})`);
     process.exit(1);
   }
+
   // one clickable link: prevent URLs inside why
   if (/https?:\/\//i.test(it.why)) {
     console.error(`preflight: item ${idx + 1} why contains an extra URL (only 1 clickable link allowed)`);
