@@ -1,6 +1,30 @@
 {
   "briefs": [
     {
+      "date": "2026-03-01",
+      "title": "Daily Brief — 2026-03-01",
+      "items": [
+        {
+          "title": "Newsletters go live this morning",
+          "url": "https://www.nichegolfhq.com/",
+          "source": "nichegolfHQ.",
+          "why": "On Mar 1, 2026: today’s newsletters go live between 9am–10am ET — the easiest place to follow everything is the site homepage."
+        },
+        {
+          "title": "Women’s Mid-Am top 3 (Amateur Golf Info)",
+          "url": "https://www.amateurgolfinfo.com/rankings/womens",
+          "source": "Amateur Golf Info.",
+          "why": "On Mar 1, 2026: the top 3 women’s mid-amateurs listed are (1) Lauren Greenlief (354th overall), (2) Jessica Ross (425th overall), and (3) Pauline Stein (460th overall)."
+        },
+        {
+          "title": "Jones Cup Senior Invitational: McCoy wins at Sea Island",
+          "url": "https://www.amateurgolf.com/golf-tournament-news/33936/Michael-McCoy-Wins-2026-Jones-Cup-Senior-Invitational-at-Sea-Island",
+          "source": "AmateurGolf.com.",
+          "why": "On Mar 1, 2026: Mike McCoy won the 2026 Jones Cup Senior Invitational (event played Feb 23–26, 2026), finishing 4-under 206 with rounds 68–71–67."
+        }
+      ]
+    },
+    {
       "date": "2026-02-28",
       "title": "Daily Brief — 2026-02-28",
       "items": [
