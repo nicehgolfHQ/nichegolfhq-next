@@ -44,7 +44,31 @@ export default async function NewsletterPage({
     );
   }
 
-  const items = await fetchFeedItems(feed.rssUrl, 12);
+  const items = await fetchFeedItems(feed.rssUrl, 24);
+
+  const monthKey = (iso?: string) => {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+  };
+
+  const monthLabel = (key: string) => {
+    const [y, m] = key.split("-").map((n) => Number(n));
+    const d = new Date(y, (m || 1) - 1, 1);
+    return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  };
+
+  const groups = items.reduce<Record<string, typeof items>>((acc, it) => {
+    const k = monthKey(it.isoDate);
+    if (!k) return acc;
+    acc[k] = acc[k] ?? [];
+    acc[k].push(it);
+    return acc;
+  }, {});
+
+  const monthKeys = Object.keys(groups).sort((a, b) => (a < b ? 1 : -1));
+  const mostRecentMonth = monthKeys[0] || "";
 
   return (
     <SiteShell brandSlug={feed.slug}>
@@ -120,9 +144,33 @@ export default async function NewsletterPage({
       <section className="mx-auto w-full max-w-6xl px-5 py-12">
         <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Latest issues</h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {items.length ? (
-            items.map((it) => <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />)
+        <div className="mt-6 space-y-4">
+          {monthKeys.length ? (
+            monthKeys.map((mk) => (
+              <details
+                key={mk}
+                className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm shadow-zinc-900/5"
+                open={mk === mostRecentMonth}
+              >
+                <summary className="cursor-pointer list-none px-6 py-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950">
+                      {monthLabel(mk)}
+                    </div>
+                    <div className="text-sm font-semibold text-zinc-700">{mk === mostRecentMonth ? "Current" : "View"}</div>
+                  </div>
+                </summary>
+
+                <div className="h-px w-full bg-zinc-200" />
+                <div className="p-6">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {groups[mk]!.map((it) => (
+                      <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
+                    ))}
+                  </div>
+                </div>
+              </details>
+            ))
           ) : (
             <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm text-zinc-600">
               No posts yet (or RSS URL not configured).
