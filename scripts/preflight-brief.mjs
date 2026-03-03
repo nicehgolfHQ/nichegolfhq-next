@@ -131,12 +131,12 @@ for (const [idx, it] of items.entries()) {
     process.exit(1);
   }
 
-  // Require the explicit combined date stamp format used by existing briefs:
-  // "On Feb 28, 2026 (2026-02-28):"
-  const stamp = `on ${longDate.toLowerCase()} (${date}):`;
+  // Require explicit in-body date stamp (ISO only):
+  // "On 2026-02-28:"
+  const stamp = `on ${date.toLowerCase()}:`;
   const whyLower = (it.why || "").toLowerCase();
   if (!it.why || !whyLower.includes(stamp)) {
-    console.error(`preflight: item ${idx + 1} missing explicit in-body date stamp (${longDate} (${date}))`);
+    console.error(`preflight: item ${idx + 1} missing explicit in-body date stamp (${date})`);
     process.exit(1);
   }
 
