@@ -47,30 +47,32 @@ export default async function Home() {
               Your morning briefing across amateur golf.
             </p>
 
-            <div className="brief-grid mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div className="brief-grid mt-7 grid grid-cols-1 gap-4 text-left md:grid-cols-3 md:text-left">
               {briefPreviewItems.map((it) => {
                 const lane = laneFor(it.tags);
                 const why = (it.why || "").split("\n")[0];
                 return (
                   <div
                     key={it.url + it.title}
-                    className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
-                    style={{ borderLeft: `3px solid ${lane.color}` }}
+                    className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-center"
+                    style={{ borderTop: `3px solid ${lane.color}` }}
                   >
                     <div className="text-[10px] font-bold uppercase tracking-widest" style={{ color: lane.color }}>
                       {lane.label}
                     </div>
                     <div className="mt-2 font-serif text-[16px] font-semibold leading-snug text-zinc-950">{it.title}</div>
                     {why ? <p className="mt-3 text-sm leading-6 text-zinc-600">{why}</p> : null}
-                    <a
-                      href={it.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-3 inline-flex text-xs font-semibold"
-                      style={{ color: lane.color }}
-                    >
-                      Source →
-                    </a>
+                    <div className="mt-3 flex justify-center">
+                      <a
+                        href={it.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex text-xs font-semibold"
+                        style={{ color: lane.color }}
+                      >
+                        Read →
+                      </a>
+                    </div>
                   </div>
                 );
               })}
@@ -114,7 +116,7 @@ export default async function Home() {
 
                 <Link
                   href={`/${feed.slug}`}
-                  className="inline-flex w-fit items-center justify-center self-start rounded-md px-4 py-2 text-sm font-bold text-white md:self-auto"
+                  className="inline-flex w-fit items-center justify-center self-center rounded-md px-4 py-2 text-sm font-bold text-white md:self-auto"
                   style={{ background: feed.slug === "midamgolfhq" ? "#1a1a2e" : feed.slug === "seniorgolfhq" ? "#2d6a4f" : "#8b4513" }}
                 >
                   View All →

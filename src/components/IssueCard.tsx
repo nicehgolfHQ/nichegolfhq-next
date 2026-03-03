@@ -53,7 +53,7 @@ export function IssueCard({ item, newsletterSlug }: { item: RssItem; newsletterS
         </div>
       ) : null}
 
-      <div className="p-5">
+      <div className="p-5 text-center">
         <div className="text-sm text-zinc-500 dark:text-zinc-400">
           {item.isoDate ? new Date(item.isoDate).toLocaleDateString() : ""}
         </div>
