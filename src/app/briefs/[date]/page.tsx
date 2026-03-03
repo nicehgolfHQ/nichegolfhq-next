@@ -205,7 +205,7 @@ export default async function BriefPage({
 
                     <p className="mt-3 text-base leading-relaxed text-zinc-700">{it.why}</p>
 
-                    {it.url ? (
+                    {it.url && it.source !== "Results" ? (
                       <div className="mt-4">
                         <a
                           href={it.url}
