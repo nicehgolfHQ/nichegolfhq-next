@@ -190,9 +190,7 @@ export default async function BriefPage({
                         </span>
                       ) : null}
 
-                      {it.url && it.source ? (
-                        <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-medium text-zinc-700">{it.source}</span>
-                      ) : null}
+                      {/* Source pill removed: keep briefs focused on category tag + headline only */}
                     </div>
 
                     <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950">
