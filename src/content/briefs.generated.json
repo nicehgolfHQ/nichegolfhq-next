@@ -17,13 +17,19 @@
           "title": "2026 Society of Seniors schedule",
           "url": "https://www.societyofseniors.com/wp-content/uploads/2025/06/2026_Society_of_Seniors_Schedule.v3.pdf",
           "source": "Society of Seniors",
-          "why": "On Mar 3, 2026 (2026-03-03): next up in March is the 41st Ed Tutwiler Two-Man, scheduled Mar 15–18 at The Reserve Golf Club in Pawleys Island, South Carolina."
+          "why": "On Mar 3, 2026 (2026-03-03): next up in March is the 41st Ed Tutwiler Two-Man, scheduled Mar 15–18 at The Reserve Golf Club in Pawleys Island, South Carolina.",
+          "tags": [
+            "senior"
+          ]
         },
         {
           "title": "AJGA Qualifier schedule (March 17 at Mansfield National)",
           "url": "https://www.ajga.org/tournaments/2026013/schedule-of-events",
           "source": "AJGA",
-          "why": "On Mar 3, 2026 (2026-03-03): AJGA’s posted schedule lists an AJGA Qualifier on Tuesday, March 17 at Mansfield National Golf Club."
+          "why": "On Mar 3, 2026 (2026-03-03): AJGA’s posted schedule lists an AJGA Qualifier on Tuesday, March 17 at Mansfield National Golf Club.",
+          "tags": [
+            "juniors"
+          ]
         }
       ]
     },
