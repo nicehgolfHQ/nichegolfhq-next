@@ -7,7 +7,7 @@ import briefsData from "@/content/briefs.generated.json";
 
 export type BriefItem = {
   title: string;
-  url: string;
+  url?: string; // optional for rare no-link items
   source: string;
   why: string;
   tags?: string[];
@@ -72,12 +72,55 @@ function parseItems(body: string): BriefItem[] {
 
   const parsePreferred = (startIdx: number) => {
     const line = lines[startIdx]?.trim() ?? "";
-    const m = line.match(/^\-\s+\[(.+?)\]\((https?:\/\/[^)]+)\)\s+—\s+(.+)$/);
-    if (!m) return null;
 
-    const title = m[1].trim();
-    const url = m[2].trim();
-    const source = m[3].trim();
+    // Preferred: linked item
+    const m = line.match(/^\-\s+\[(.+?)\]\((https?:\/\/[^)]+)\)\s+—\s+(.+)$/);
+    if (m) {
+      const title = m[1].trim();
+      const url = m[2].trim();
+      const source = m[3].trim();
+
+      let why = "";
+      let tags: string[] | undefined;
+      const bodyLines: string[] = [];
+
+      let i = startIdx + 1;
+      while (i < lines.length) {
+        const trimmed = lines[i].trim();
+        if (trimmed.startsWith("- [") || /^\-\s+[^\[]/.test(trimmed)) break;
+
+        const t = trimmed.match(/^Tags:\s*(.+)$/i);
+        if (t) {
+          tags = t[1].split(",").map((s) => s.trim()).filter(Boolean);
+          i++;
+          continue;
+        }
+
+        const w = trimmed.match(/^Why:\s*(.+)$/i);
+        if (w) {
+          why = w[1].trim();
+          i++;
+          continue;
+        }
+
+        if (trimmed) bodyLines.push(trimmed);
+        i++;
+      }
+
+      if (!why) why = bodyLines.join(" ").trim();
+      if (!why) why = "(brief pending)";
+
+      return { item: { title, url, source, why, tags } satisfies BriefItem, nextIdx: i };
+    }
+
+    // Allowed no-link item:
+    // - Title — SourceLabel
+    const n = line.match(/^\-\s+(.+?)\s+—\s+(.+)$/);
+    if (!n) return null;
+
+    const title = n[1].trim();
+    const source = n[2].trim();
+    const url = "";
 
     let why = "";
     let tags: string[] | undefined;
@@ -86,7 +129,7 @@ function parseItems(body: string): BriefItem[] {
     let i = startIdx + 1;
     while (i < lines.length) {
       const trimmed = lines[i].trim();
-      if (trimmed.startsWith("- [")) break;
+      if (trimmed.startsWith("- [") || /^\-\s+[^\[]/.test(trimmed)) break;
 
       const t = trimmed.match(/^Tags:\s*(.+)$/i);
       if (t) {

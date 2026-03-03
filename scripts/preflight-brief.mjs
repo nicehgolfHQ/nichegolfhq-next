@@ -47,15 +47,20 @@ function parseItems(body) {
   let i = 0;
   while (i < lines.length) {
     const line = lines[i].trim();
+
+    // Linked item
     const m = line.match(/^\-\s+\[(.+?)\]\((https?:\/\/[^)]+)\)\s+—\s+(.+)$/);
-    if (!m) {
+    // No-link item (rare)
+    const n = !m ? line.match(/^\-\s+(.+?)\s+—\s+(.+)$/) : null;
+
+    if (!m && !n) {
       i++;
       continue;
     }
 
-    const title = m[1].trim();
-    const url = m[2].trim();
-    const source = m[3].trim();
+    const title = (m ? m[1] : n[1]).trim();
+    const url = m ? m[2].trim() : "";
+    const source = (m ? m[3] : n[2]).trim();
 
     let why = "";
     let tags;
@@ -64,7 +69,7 @@ function parseItems(body) {
     i++;
     while (i < lines.length) {
       const trimmed = lines[i].trim();
-      if (trimmed.startsWith("- [")) break;
+      if (trimmed.startsWith("- [") || /^\-\s+[^\[]/.test(trimmed)) break;
 
       const t = trimmed.match(/^Tags:\s*(.+)$/i);
       if (t) {
@@ -116,11 +121,12 @@ function formatLongDate(ymd) {
 const longDate = formatLongDate(date);
 
 for (const [idx, it] of items.entries()) {
-  if (!it.title || !it.url || !it.source) {
-    console.error(`preflight: item ${idx + 1} missing title/url/source`);
+  if (!it.title || !it.source) {
+    console.error(`preflight: item ${idx + 1} missing title/source`);
     process.exit(1);
   }
-  if (!/^https?:\/\//.test(it.url)) {
+  // Allow rare no-link items (url empty). Otherwise enforce http(s).
+  if (it.url && !/^https?:\/\//.test(it.url)) {
     console.error(`preflight: item ${idx + 1} url not http(s): ${it.url}`);
     process.exit(1);
   }

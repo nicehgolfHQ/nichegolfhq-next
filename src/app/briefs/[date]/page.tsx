@@ -8,7 +8,7 @@ import briefsData from "@/content/briefs.generated.json";
 type DailyBrief = {
   date: string;
   title: string;
-  items: Array<{ title: string; url: string; source: string; why: string; tags?: string[] }>;
+  items: Array<{ title: string; url?: string; source: string; why: string; tags?: string[] }>;
 };
 
 function getBriefs(): DailyBrief[] {
@@ -190,30 +190,38 @@ export default async function BriefPage({
                         </span>
                       ) : null}
 
-                      <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-medium text-zinc-700">{it.source}</span>
+                      {it.source ? (
+                        <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-medium text-zinc-700">{it.source}</span>
+                      ) : null}
                     </div>
 
                     <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950">
-                      <a href={it.url} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
-                        {it.title}
-                      </a>
+                      {it.url ? (
+                        <a href={it.url} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
+                          {it.title}
+                        </a>
+                      ) : (
+                        <span>{it.title}</span>
+                      )}
                     </h2>
 
                     <p className="mt-3 text-base leading-relaxed text-zinc-700">{it.why}</p>
 
-                    <div className="mt-4">
-                      <a
-                        href={it.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-zinc-900 hover:text-zinc-700"
-                      >
-                        <span>Read source</span>
-                        <span aria-hidden className="transition group-hover:translate-x-0.5">
-                          →
-                        </span>
-                      </a>
-                    </div>
+                    {it.url ? (
+                      <div className="mt-4">
+                        <a
+                          href={it.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-zinc-900 hover:text-zinc-700"
+                        >
+                          <span>Read source</span>
+                          <span aria-hidden className="transition group-hover:translate-x-0.5">
+                            →
+                          </span>
+                        </a>
+                      </div>
+                    ) : null}
                   </div>
 
                   {/* optional small art tile */}
