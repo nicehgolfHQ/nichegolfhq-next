@@ -32,18 +32,18 @@ export default async function Home() {
       {/* Daily Brief first */}
       {latestBrief ? (
         <section className="border-b border-zinc-200 bg-white">
-          <div className="mx-auto w-full max-w-6xl px-5 py-12">
-            <div className="flex items-center gap-3">
+          <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
                 Daily Brief
               </span>
               <span className="text-sm text-zinc-600">{formatLongDate(latestBrief.date)}</span>
             </div>
 
-            <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+            <h1 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
               {latestBrief.title?.replace(/^\"|\"$/g, "")}
             </h1>
-            <p className="mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
               Your morning briefing across amateur golf.
             </p>
 
@@ -76,7 +76,7 @@ export default async function Home() {
               })}
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 flex justify-center">
               <Link
                 href={`/briefs/${latestBrief.date}`}
                 className="inline-flex items-center rounded-full border border-zinc-300 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
@@ -90,7 +90,7 @@ export default async function Home() {
 
       {/* Channels */}
       <section className="mx-auto w-full max-w-6xl px-5 py-14">
-        <div className="flex items-end justify-between">
+        <div className="text-center">
           <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Channels</h2>
         </div>
 
@@ -98,7 +98,7 @@ export default async function Home() {
           {results.map(({ feed, items }) => (
             <div key={feed.slug} className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
               <div className="flex flex-col gap-4 border-b border-zinc-200 px-6 py-6 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
                   <div className="rounded-2xl border border-zinc-200 bg-white px-4 py-3">
                     <Image
                       src={`/brand/${feed.slug}/logo.png`}
@@ -114,7 +114,7 @@ export default async function Home() {
 
                 <Link
                   href={`/${feed.slug}`}
-                  className="inline-flex w-fit items-center justify-center rounded-md px-4 py-2 text-sm font-bold text-white"
+                  className="inline-flex w-fit items-center justify-center self-start rounded-md px-4 py-2 text-sm font-bold text-white md:self-auto"
                   style={{ background: feed.slug === "midamgolfhq" ? "#1a1a2e" : feed.slug === "seniorgolfhq" ? "#2d6a4f" : "#8b4513" }}
                 >
                   View All →
