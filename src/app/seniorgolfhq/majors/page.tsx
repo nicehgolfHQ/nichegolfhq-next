@@ -28,7 +28,14 @@ export default function SeniorMajorsIndexPage() {
                 {m.events.map((e) => (
                   <Link key={e.slug} href={`/seniorgolfhq/majors/${e.slug}`} className="block px-1 transition hover:bg-zinc-50">
                     <div className="py-3">
-                      <div className="font-serif text-lg font-semibold tracking-tight text-zinc-950">{e.name}</div>
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div className="font-serif text-lg font-semibold tracking-tight text-zinc-950">{e.name}</div>
+                        {e.format ? (
+                          <div className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-[11px] font-medium text-zinc-700">
+                            {e.format}
+                          </div>
+                        ) : null}
+                      </div>
                       {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
                     </div>
                   </Link>

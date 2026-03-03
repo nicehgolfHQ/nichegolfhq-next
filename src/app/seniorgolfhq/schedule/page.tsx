@@ -77,6 +77,7 @@ export default function SeniorScheduleIndexPage() {
                     name={e.name}
                     subtitle={e.month}
                     note={e.note}
+                    badge={e.format}
                   />
                 ))}
               </div>

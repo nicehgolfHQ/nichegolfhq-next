@@ -95,9 +95,9 @@ export default async function SeniorScheduleEventPage({
             name={event.name}
             month={event.month}
             officialUrl={event.officialUrl}
-            note={event.note}
+            note={event.note || (event.format ? `Format: ${event.format}` : undefined)}
             resultsHref={`/seniorgolfhq/majors/${event.slug}/2026`}
-            winners={[]}
+            winners={event.winners ?? []}
           />
         </div>
       </div>

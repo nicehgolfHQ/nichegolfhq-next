@@ -50,10 +50,14 @@ export default async function SeniorMajorHubPage({
           <div className="space-y-4 lg:col-span-2">
             <div className="rounded-3xl border border-zinc-200 bg-white p-6">
               <h2 className="text-sm font-semibold tracking-tight text-zinc-950">2026</h2>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-700">
-                This hub will hold the canonical links + results for {event.name}. We’ll add official site links and year-by-year pages
-                next.
-              </p>
+
+              {event.winners?.length ? (
+                <p className="mt-3 text-sm leading-relaxed text-zinc-700">
+                  Winner: <span className="font-semibold text-zinc-950">{event.winners[0].champion}</span>
+                </p>
+              ) : (
+                <p className="mt-3 text-sm leading-relaxed text-zinc-700">Winner data TBD.</p>
+              )}
 
               <Link
                 href={`/seniorgolfhq/majors/${event.slug}/2026`}
@@ -70,6 +74,9 @@ export default async function SeniorMajorHubPage({
               <div className="mt-3 space-y-2 text-sm text-zinc-700">
                 <div>
                   <span className="text-zinc-500">Month:</span> {event.month}
+                </div>
+                <div>
+                  <span className="text-zinc-500">Format:</span> {event.format ?? "TBD"}
                 </div>
                 <div>
                   <span className="text-zinc-500">Official:</span> {event.officialUrl ? (
