@@ -77,7 +77,6 @@ export default function JuniorScheduleIndexPage() {
                     name={e.name}
                     subtitle={e.month}
                     note={e.note}
-                    badge={e.winners2026 ? "Winner posted" : undefined}
                   />
                 ))}
               </div>
