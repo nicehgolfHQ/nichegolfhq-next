@@ -190,7 +190,7 @@ export default async function BriefPage({
                         </span>
                       ) : null}
 
-                      {it.source ? (
+                      {it.url && it.source ? (
                         <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-medium text-zinc-700">{it.source}</span>
                       ) : null}
                     </div>
