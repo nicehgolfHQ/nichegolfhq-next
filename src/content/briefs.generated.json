@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-03-04",
+      "title": "Daily Brief — Mar 4, 2026",
+      "items": [
+        {
+          "title": "The Tabby Invitational — final results",
+          "url": "https://www.fredericagolfclub.com/",
+          "source": "Frederica Golf Club",
+          "why": "On 2026-03-04: The Tabby concluded yesterday with Jack and A.R. Rhea taking the victory! Final leaderboard: (1) Jack Rhea + A.R. Rhea -21, (2) Lee Knox + Jeff Knox -19, (T3) Jason Lina + Spencer Papciak -16, Bobby Wyatt + Peter Persons -16. GGID: TABBY26",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Golfweek Senior Nation: Golfweek Pirates Classic (Feb 15–17, 2026)",
+          "url": "https://golfweekseniornation.com/events/view/109",
+          "source": "Golfweek Senior Nation",
+          "why": "On 2026-03-04: Golfweek Senior Nation’s event page highlights the Golfweek Pirates Classic at TPC Tampa Bay (Feb 15–17, 2026), worth 1200 National Ranking Points",
+          "tags": [
+            "senior"
+          ]
+        },
+        {
+          "title": "Reigning champions headline 2026 Junior Invitational field at Sage Valley (March 11–14)",
+          "url": "https://thegolfwire.com/junior-invitational-at-sage-valley-golf-club/",
+          "source": "The Golf Wire",
+          "why": "On 2026-03-04: the Junior Invitational at Sage Valley confirmed its 2026 field for March 11–14, led by defending champions Miles Russell and Aphrodite Deng (both No. 1 in the Rolex AJGA Rankings)",
+          "tags": [
+            "juniors"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-03-03",
       "title": "Daily Brief — Mar 3, 2026",
       "items": [
