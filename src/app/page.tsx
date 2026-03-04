@@ -41,7 +41,9 @@ export default async function Home() {
             </div>
 
             <h1 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
-              {latestBrief.title?.replace(/^\"|\"$/g, "")}
+              {latestBrief.title
+                ?.replace(/^\"|\"$/g, "")
+                .replace(/^Daily Brief\s+—\s+.+$/i, "Daily Brief")}
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
               Your morning briefing across amateur golf.
