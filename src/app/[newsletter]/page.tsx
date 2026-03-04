@@ -164,7 +164,7 @@ export default async function NewsletterPage({
               <details
                 key={mk}
                 className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm shadow-zinc-900/5"
-                open={mk === mostRecentMonth}
+                open={false}
               >
                 <summary className="cursor-pointer list-none px-6 py-4">
                   <div className="flex items-center justify-between gap-4">
