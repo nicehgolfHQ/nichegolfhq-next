@@ -136,12 +136,7 @@ export default async function Home() {
           ))}
         </div>
 
-        <div className="mx-auto mt-10 max-w-3xl text-center">
-          <p className="text-sm leading-6 text-zinc-500">
-            nichegolfHQ is an independent media and intelligence platform covering amateur golf across junior, mid-amateur, and senior
-            competitive play.
-          </p>
-        </div>
+        {/* moved to footer */}
       </section>
     </SiteShell>
   );
