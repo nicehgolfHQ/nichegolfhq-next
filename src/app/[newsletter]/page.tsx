@@ -177,10 +177,14 @@ export default async function NewsletterPage({
 
                 <div className="h-px w-full bg-zinc-200" />
                 <div className="p-6">
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    {groups[mk]!.map((it) => (
-                      <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
-                    ))}
+                  <div className="mx-auto max-w-5xl">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
+                      {groups[mk]!.map((it) => (
+                        <div key={it.link + it.title} className="w-full md:max-w-xl">
+                          <IssueCard item={it} newsletterSlug={feed.slug} />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </details>
