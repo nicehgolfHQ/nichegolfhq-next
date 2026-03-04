@@ -144,6 +144,20 @@ export default async function NewsletterPage({
       <section className="mx-auto w-full max-w-6xl px-5 py-12">
         <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Latest issues</h2>
 
+        {items.length ? (
+          <div className="mt-6">
+            <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
+              <div className={items.slice(0, 2).length === 1 ? "grid grid-cols-1 gap-4" : "grid grid-cols-1 gap-4 md:grid-cols-2"}>
+                {items.slice(0, 2).map((it) => (
+                  <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
+          </div>
+        ) : null}
+
         <div className="mt-6 space-y-4">
           {monthKeys.length ? (
             monthKeys.map((mk) => (
