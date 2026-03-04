@@ -33,11 +33,11 @@ export default async function Home() {
       {latestBrief ? (
         <section className="border-b border-zinc-200 bg-white">
           <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="flex flex-col items-center justify-center gap-2">
               <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
                 Daily Brief
               </span>
-              <span className="text-sm text-zinc-600">{formatLongDate(latestBrief.date)}</span>
+              <span className="text-sm font-bold text-zinc-600">{formatLongDate(latestBrief.date)}</span>
             </div>
 
             <h1 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
