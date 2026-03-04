@@ -142,7 +142,7 @@ export default async function NewsletterPage({
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-5 py-12">
-        <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Latest issues</h2>
+        <h2 className="text-center text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Latest issues</h2>
 
         {items.length ? (
           <div className="mt-6">
