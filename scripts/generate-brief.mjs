@@ -25,24 +25,25 @@ const PROMPT = `You are a content writer for nichegolfHQ.com, a site covering co
 Today is ${today}. Generate a daily brief markdown file with EXACTLY this format:
 
 ---
-title: Daily Brief â ${prettyDate}
+title: Daily Brief \u2014 ${prettyDate}
 ---
 
-- [Headline title here](https://source-url.com) â Source Name
+- [Headline title here](https://source-url.com) \u2014 Source Name
   On ${today}: one or two sentence summary of why this matters
   Tags: category
 
-- [Second headline](https://source-url.com) â Source Name
+- [Second headline](https://source-url.com) \u2014 Source Name
   On ${today}: summary text here
   Tags: category
 
-- [Third headline](https://source-url.com) â Source Name
+- [Third headline](https://source-url.com) \u2014 Source Name
   On ${today}: summary text here
   Tags: category
 
 RULES:
 - Produce EXACTLY 3 items: 1 juniors, 1 mid-am, 1 senior
 - Each item MUST link to a REAL, currently live web page (verify the URL exists via search)
+- CRITICAL: Each list item MUST start with a regular hyphen-minus character (-), NOT an en-dash or em-dash
 - The "On" line MUST start with exactly "On ${today}:" (ISO date format)
 - Tags MUST be exactly one of: juniors, mid-am, senior
 - The "why" summary must NOT contain any URLs
@@ -145,6 +146,10 @@ markdown = markdown
   .replace(/^```(?:markdown)?\n?/m, "")
   .replace(/\n?```$/m, "")
   .trim();
+
+// Normalize dashes: Claude sometimes uses en-dash or em-dash for list items
+// The preflight validator expects regular hyphen-minus (-)
+markdown = markdown.replace(/^[\u2013\u2014]\s/gm, "- ");
 
 // Final check
 if (!markdown.startsWith("---")) {
