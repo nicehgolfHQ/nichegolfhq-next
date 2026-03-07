@@ -30,9 +30,9 @@ export default async function Home() {
   return (
     <SiteShell>
       {/* ======= HERO VIDEO ======= */}
-      <section className="relative w-full h-screen -mt-[73px] flex items-center justify-center overflow-hidden">
+      <section className="fixed inset-0 z-0 overflow-hidden">
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-full object-cover"
           autoPlay
           muted
           loop
@@ -47,7 +47,10 @@ export default async function Home() {
               "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%)",
           }}
         />
-        <div className="relative z-10 text-center text-white px-6 max-w-3xl">
+      </section>
+
+      <section className="relative z-10 w-full h-screen flex items-center justify-center">
+        <div className="text-center text-white px-6 max-w-3xl">
           <h1
             className="font-serif text-5xl md:text-7xl font-bold tracking-tight mb-2"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}
@@ -63,6 +66,9 @@ export default async function Home() {
           <div className="w-px h-10 bg-white/30 mx-auto mt-2" />
         </div>
       </section>
+
+      {/* Page content with solid background */}
+      <div className="relative z-10 bg-zinc-50">
 
       {/* Daily Brief first */}
       {latestBrief ? (
@@ -175,6 +181,7 @@ export default async function Home() {
 
         {/* moved to footer */}
       </section>
+      </div>
     </SiteShell>
   );
 }
