@@ -49,30 +49,14 @@ export default async function Home() {
         />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
           <h1
-            className="font-serif text-5xl md:text-7xl font-bold tracking-wide mb-2"
+            className="font-serif text-5xl md:text-7xl font-bold tracking-tight mb-2"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}
           >
-            niche<span className="font-normal italic opacity-85">golf</span>HQ
+            nichegolfHQ
           </h1>
-          <p className="text-base md:text-lg font-light tracking-[0.15em] uppercase text-white/80 mb-10">
+          <p className="text-base md:text-lg font-light tracking-[0.15em] uppercase text-white/80 mb-4">
             The home of competitive amateur golf
           </p>
-          <nav className="flex gap-4 md:gap-8 justify-center flex-wrap">
-            {[
-              { label: "Junior", href: "/juniorgolfhq" },
-              { label: "Mid-Am", href: "/midamgolfhq" },
-              { label: "Senior", href: "/seniorgolfhq" },
-              { label: "Daily Briefs", href: "/briefs" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white text-xs md:text-sm font-medium tracking-[0.1em] uppercase px-4 py-3 md:px-6 md:py-3 border border-white/30 rounded-sm backdrop-blur-sm bg-white/5 hover:bg-white/15 hover:border-white/60 transition-all"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/60 text-xs tracking-[0.15em] uppercase text-center animate-pulse">
           Scroll
