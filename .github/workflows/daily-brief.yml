@@ -1,0 +1,49 @@
+name: Daily Brief
+
+on:
+  schedule:
+    # 11:00 UTC = 6am ET (EST) / 7am ET (EDT)
+    - cron: "0 11 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Anthropic SDK
+        run: npm install @anthropic-ai/sdk
+
+      - name: Generate daily brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-brief.mjs
+
+      - name: Validate brief
+        run: node scripts/preflight-brief.mjs $(date -u +%Y-%m-%d)
+
+      - name: Create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          BRANCH="brief/${DATE}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add "src/content/briefs/${DATE}.md"
+          git commit -m "Daily Brief: ${DATE}"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Daily Brief â ${DATE}" \
+            --body "Auto-generated daily brief for ${DATE}. Review the content and merge to publish on nichegolfHQ."
