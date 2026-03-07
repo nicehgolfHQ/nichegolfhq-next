@@ -104,18 +104,55 @@ const textBlocks = finalResponse.content
   .filter((b) => b.type === "text")
   .map((b) => b.text);
 
-let markdown = textBlocks.join("").trim();
+// The response may contain reasoning text before the actual brief.
+// We need to find the markdown that starts with "---" frontmatter.
+let markdown = "";
 
-// Clean up: remove code fences if Claude wrapped it
+// Strategy 1: Check each text block for one that starts with ---
+for (const block of textBlocks) {
+  const trimmed = block.trim();
+  if (trimmed.startsWith("---")) {
+    markdown = trimmed;
+    break;
+  }
+}
+
+// Strategy 2: If no block starts with ---, search within the joined text
+if (!markdown) {
+  const joined = textBlocks.join("\n").trim();
+  const fmStart = joined.indexOf("\n---\n");
+  if (fmStart !== -1) {
+    markdown = joined.slice(fmStart + 1).trim();
+  } else {
+    const fmStart2 = joined.indexOf("---\n");
+    if (fmStart2 !== -1) {
+      markdown = joined.slice(fmStart2).trim();
+    }
+  }
+}
+
+// Strategy 3: If still nothing, try to extract from code fences
+if (!markdown) {
+  const joined = textBlocks.join("\n");
+  const fenceMatch = joined.match(/```(?:markdown)?\s*\n(---[\s\S]+?)```/);
+  if (fenceMatch) {
+    markdown = fenceMatch[1].trim();
+  }
+}
+
+// Clean up: remove code fences if still present
 markdown = markdown
   .replace(/^```(?:markdown)?\n?/m, "")
   .replace(/\n?```$/m, "")
   .trim();
 
-// Ensure it starts with frontmatter
+// Final check
 if (!markdown.startsWith("---")) {
   console.error("Generated content does not start with frontmatter ---");
-  console.error("Content:", markdown.slice(0, 500));
+  console.error(
+    "All text blocks:",
+    textBlocks.map((b) => b.slice(0, 100))
+  );
   process.exit(1);
 }
 
