@@ -38,7 +38,7 @@ export default async function Home() {
           loop
           playsInline
         >
-          <source src="/video/hero.mp4" type="video/mp4" />
+          <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0"
