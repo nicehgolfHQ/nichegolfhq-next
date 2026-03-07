@@ -331,7 +331,7 @@ const DynamicDailyBrief = ({ goBriefs }) => {
         </h2>
 
         <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: "18px", color: "#555", lineHeight: 1.6, marginBottom: "20px", maxWidth: "680px" }}>
-          Your morning briefing across amateur golf.
+          Your daily news source across amateur golf.
         </p>
 
         <div className="brief-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "16px" }}>

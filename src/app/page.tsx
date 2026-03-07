@@ -46,7 +46,7 @@ export default async function Home() {
                 .replace(/^Daily Brief\s+—\s+.+$/i, "Daily Brief")}
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
-              Your morning briefing across amateur golf.
+              Your daily news source across amateur golf.
             </p>
 
             <div className="brief-grid mt-7 grid grid-cols-1 gap-4 text-left md:grid-cols-3 md:text-left">
