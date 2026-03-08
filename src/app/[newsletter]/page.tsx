@@ -139,6 +139,7 @@ export default async function NewsletterPage({
             Subscribe to newsletter
           </Link>
         </div>
+
         {items.length ? (
           <div className="mx-auto max-w-4xl">
             <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
@@ -205,10 +206,19 @@ export default async function NewsletterPage({
         </div>
       </section>
 
+      <section id="subscribe" className="bg-white px-5 pb-16 pt-4">
+        <div className="mx-auto max-w-2xl rounded-3xl border border-zinc-200 bg-white p-6 text-center shadow-sm shadow-zinc-900/5">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">Subscribe</div>
+          <div className="mt-2 font-serif text-2xl font-semibold tracking-tight text-zinc-950">{feed.name}</div>
+          {feed.tagline ? <div className="mt-2 text-sm leading-6 text-zinc-600">{feed.tagline}</div> : null}
+          <div className="mt-6">
+            <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} title={`${feed.name} subscribe`} />
+          </div>
+        </div>
+      </section>
+
       {/* -- Socials -- */}
-      {(feed.slug === "midamgolfhq" ||
-        feed.slug === "juniorgolfhq" ||
-        feed.slug === "seniorgolfhq") &&
+      {(feed.slug === "midamgolfhq" || feed.slug === "juniorgolfhq" || feed.slug === "seniorgolfhq") &&
       (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
         <section className="border-t border-zinc-200 bg-white px-5 py-12">
           <div className="text-center">
