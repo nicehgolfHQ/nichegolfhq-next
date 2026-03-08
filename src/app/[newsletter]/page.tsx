@@ -112,8 +112,8 @@ export default async function NewsletterPage({
               {feed.tagline}
             </p>
           ) : null}
-          {scheduleLabel && scheduleHref ? (
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            {scheduleLabel && scheduleHref ? (
               <Link
                 href={scheduleHref}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
@@ -121,27 +121,24 @@ export default async function NewsletterPage({
                 <span>{scheduleLabel}</span>
                 <span aria-hidden>&rarr;</span>
               </Link>
-            </div>
-          ) : null}
+            ) : null}
+            <Link
+              href="#subscribe"
+              className="inline-flex items-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/70 transition hover:border-white/40 hover:text-white"
+            >
+              Subscribe
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* -- Latest Issues (white) -- */}
-      <section className="bg-white px-5 py-16">
-        <div className="mx-auto mb-12 max-w-md text-center">
-          <h2 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
+      {/* -- Latest Issues (dark) -- */}
+      <section className="bg-zinc-950 px-5 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
             Latest issues
           </h2>
-          <Link
-            href="#subscribe"
-            className="inline-flex items-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900"
-          >
-            Subscribe to newsletter
-          </Link>
-        </div>
-
-        {items.length ? (
-          <div className="mx-auto max-w-4xl">
+          {items.length ? (
             <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
               <div
                 className={
@@ -155,14 +152,14 @@ export default async function NewsletterPage({
                 ))}
               </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </section>
 
-      {/* -- Monthly Archive (light gray) -- */}
-      <section className="bg-zinc-50 px-5 pb-16 pt-10">
+      {/* -- Monthly Archive (slightly lighter dark) -- */}
+      <section className="bg-zinc-900 px-5 pb-16 pt-10">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
+          <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
             Archive
           </h2>
           <div className="space-y-0">
@@ -170,15 +167,15 @@ export default async function NewsletterPage({
               monthKeys.map((mk) => (
                 <details
                   key={mk}
-                  className="group border-b border-zinc-200 first:border-t"
+                  className="group border-b border-white/10 first:border-t"
                 >
-                  <summary className="cursor-pointer list-none px-2 py-5 transition hover:bg-zinc-100">
+                  <summary className="cursor-pointer list-none px-2 py-5 transition hover:bg-white/5">
                     <div className="flex items-center justify-between gap-4">
-                      <div className="font-serif text-lg font-semibold tracking-tight text-zinc-900">
+                      <div className="font-serif text-lg font-semibold tracking-tight text-white">
                         {monthLabel(mk)}
                       </div>
                       <div
-                        className={`text-xs font-semibold uppercase tracking-wider ${mk === mostRecentMonth ? "text-zinc-600" : "text-zinc-400"}`}
+                        className={`text-xs font-semibold uppercase tracking-wider ${mk === mostRecentMonth ? "text-white/60" : "text-white/30"}`}
                       >
                         {mk === mostRecentMonth ? "Current" : "View"}
                       </div>
@@ -198,7 +195,7 @@ export default async function NewsletterPage({
                 </details>
               ))
             ) : (
-              <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm text-zinc-500">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/40">
                 No posts yet (or RSS URL not configured).
               </div>
             )}
@@ -206,30 +203,34 @@ export default async function NewsletterPage({
         </div>
       </section>
 
-      <section id="subscribe" className="bg-white px-5 pb-16 pt-4">
-        <div className="mx-auto max-w-2xl rounded-3xl border border-zinc-200 bg-white p-6 text-center shadow-sm shadow-zinc-900/5">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">Subscribe</div>
-          <div className="mt-2 font-serif text-2xl font-semibold tracking-tight text-zinc-950">{feed.name}</div>
-          {feed.tagline ? <div className="mt-2 text-sm leading-6 text-zinc-600">{feed.tagline}</div> : null}
-          <div className="mt-6">
-            <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} title={`${feed.name} subscribe`} />
-          </div>
+      {/* -- Subscribe -- */}
+      <section id="subscribe" className="scroll-mt-16 bg-zinc-950 px-5 py-16">
+        <div className="mx-auto max-w-xl">
+          <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+            Subscribe
+          </h2>
+          <BeehiivEmbed
+            src={feed.subscribeEmbedUrl}
+            height={feed.subscribeEmbedHeight}
+          />
         </div>
       </section>
 
       {/* -- Socials -- */}
-      {(feed.slug === "midamgolfhq" || feed.slug === "juniorgolfhq" || feed.slug === "seniorgolfhq") &&
+      {(feed.slug === "midamgolfhq" ||
+        feed.slug === "juniorgolfhq" ||
+        feed.slug === "seniorgolfhq") &&
       (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
-        <section className="border-t border-zinc-200 bg-white px-5 py-12">
+        <section className="border-t border-white/10 bg-zinc-950 px-5 py-12">
           <div className="text-center">
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
               Follow
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2">
               {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
                 <Link
                   href={feed.youtubeProfileUrl}
-                  className="inline-flex items-center rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-600 transition hover:border-zinc-300 hover:text-zinc-900"
+                  className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
                 >
                   YouTube
                 </Link>
@@ -237,7 +238,7 @@ export default async function NewsletterPage({
               {feed.xProfileUrl ? (
                 <Link
                   href={feed.xProfileUrl}
-                  className="inline-flex items-center rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-600 transition hover:border-zinc-300 hover:text-zinc-900"
+                  className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
                 >
                   X
                 </Link>
@@ -245,7 +246,7 @@ export default async function NewsletterPage({
               {feed.instagramProfileUrl ? (
                 <Link
                   href={feed.instagramProfileUrl}
-                  className="inline-flex items-center rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-600 transition hover:border-zinc-300 hover:text-zinc-900"
+                  className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
                 >
                   Instagram
                 </Link>
