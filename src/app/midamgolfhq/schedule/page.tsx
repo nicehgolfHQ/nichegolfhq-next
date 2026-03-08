@@ -7,18 +7,8 @@ import { TournamentCard } from "@/components/tournaments/TournamentCard";
 const YEAR = 2026;
 
 const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
 
 export const metadata = {
@@ -95,18 +85,18 @@ export default function MidAmScheduleIndexPage() {
         </div>
       </section>
 
-      {/* -- Tournament List (white) -- */}
-      <div className="bg-white">
+      {/* -- Tournament List (dark) -- */}
+      <div className="bg-zinc-950">
         <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-10">
           <div className="space-y-12">
             {months.map((month) => (
               <section key={month} className="scroll-mt-24">
                 <div className="mb-5 flex items-center gap-4 px-1">
-                  <div className="h-px flex-1 bg-zinc-200" />
-                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-zinc-400">
+                  <div className="h-px flex-1 bg-white/10" />
+                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/30">
                     {MONTH_NAMES[month - 1]}
                   </h2>
-                  <div className="h-px flex-1 bg-zinc-200" />
+                  <div className="h-px flex-1 bg-white/10" />
                 </div>
                 <div className="grid gap-3">
                   {byMonth[month]!.map((t) => (
