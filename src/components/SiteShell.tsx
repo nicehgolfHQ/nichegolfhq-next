@@ -27,7 +27,7 @@ export function SiteShell({
   return (
     <div className="min-h-screen text-zinc-950 antialiased">
       <header className="sticky top-0 z-50 bg-black/40">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-3 items-center px-5 py-3 text-white">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-3 items-center px-5 py-1 text-white">
           {/* left: menu */}
           <div className="flex items-center justify-start">
             <details className="group relative">
@@ -79,12 +79,6 @@ export function SiteShell({
                       <span className="text-zinc-400">▾</span>
                     </summary>
                     <div className="mt-1 space-y-1 pl-2">
-                      <Link
-                        href="/majors"
-                        className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
-                      >
-                        majors
-                      </Link>
                       <Link href="/about" className="block rounded-xl px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50">
                         about
                       </Link>
@@ -142,7 +136,7 @@ export function SiteShell({
 
         {/* top nav */}
         <nav className="mx-auto w-full max-w-6xl px-5 pb-3">
-          <div className="flex items-center justify-center gap-6 overflow-x-auto border-t border-white/20 pt-3 text-sm text-white/80 [scrollbar-width:none]">
+          <div className="flex items-center justify-center gap-6 overflow-x-auto border-t border-white/20 pt-1 text-sm text-white/80 [scrollbar-width:none]">
             <Link href="/" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-white hover:text-white">Home</Link>
             <Link href="/juniorgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-white hover:text-white">Junior</Link>
             <Link href="/midamgolfhq" className="whitespace-nowrap border-b-2 border-transparent pb-1 hover:border-white hover:text-white">Mid-Am</Link>
