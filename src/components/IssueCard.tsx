@@ -39,10 +39,10 @@ export function IssueCard({ item, newsletterSlug }: { item: RssItem; newsletterS
   return (
     <Link
       href={`/${newsletterSlug}/issue/${issueSlug}`}
-      className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-sm"
+      className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] transition hover:border-white/[0.12] hover:-translate-y-0.5"
     >
       {item.imageUrl ? (
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
           <Image
             src={item.imageUrl}
             alt=""
@@ -54,14 +54,14 @@ export function IssueCard({ item, newsletterSlug }: { item: RssItem; newsletterS
       ) : null}
 
       <div className="p-5 text-center">
-        <div className="text-sm text-zinc-500 dark:text-zinc-400">
+        <div className="text-sm text-white/35">
           {item.isoDate ? new Date(item.isoDate).toLocaleDateString() : ""}
         </div>
-        <div className="mt-2 font-semibold tracking-tight group-hover:underline">
+        <div className="mt-2 font-semibold tracking-tight text-white/90 group-hover:underline">
           {item.title}
         </div>
         {snippet ? (
-          <p className="mt-2 line-clamp-3 text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="mt-2 line-clamp-3 text-sm text-white/40">
             {snippet}
           </p>
         ) : null}
