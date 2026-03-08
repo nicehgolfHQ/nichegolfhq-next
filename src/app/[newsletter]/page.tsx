@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SiteShell } from "@/components/SiteShell";
 import { IssueCard } from "@/components/IssueCard";
 import { BeehiivEmbed } from "@/components/BeehiivEmbed";
+import { MidAmRankings } from "@/components/MidAmRankings";
 import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
 import type { Metadata } from "next";
@@ -40,6 +41,7 @@ export default async function NewsletterPage({
 }) {
   const resolved = await Promise.resolve(params);
   const feed = getFeedBySlug(resolved.newsletter);
+
   if (!feed) {
     return (
       <SiteShell>
@@ -186,7 +188,11 @@ export default async function NewsletterPage({
                   }
                 >
                   {items.slice(0, 2).map((it) => (
-                    <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
+                    <IssueCard
+                      key={it.link + it.title}
+                      item={it}
+                      newsletterSlug={feed.slug}
+                    />
                   ))}
                 </div>
               </div>
@@ -194,52 +200,70 @@ export default async function NewsletterPage({
           </div>
         </section>
 
-        {/* -- Monthly Archive -- */}
-        <section className="px-5 pb-16 pt-10">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
-              Archive
-            </h2>
-            <div className="space-y-0 rounded-2xl bg-black/60 backdrop-blur-md p-1">
-              {monthKeys.length ? (
-                monthKeys.map((mk) => (
-                  <details
-                    key={mk}
-                    className="group border-b border-white/10 first:border-t first:rounded-t-2xl last:border-b-0 last:rounded-b-2xl"
-                  >
-                    <summary className="cursor-pointer list-none px-4 py-5 transition hover:bg-white/5">
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="font-serif text-lg font-semibold tracking-tight text-white">
-                          {monthLabel(mk)}
-                        </div>
-                        <div
-                          className={`text-xs font-semibold uppercase tracking-wider ${mk === mostRecentMonth ? "text-white/60" : "text-white/30"}`}
-                        >
-                          {mk === mostRecentMonth ? "Current" : "View"}
-                        </div>
-                      </div>
-                    </summary>
-                    <div className="px-2 pb-6 pt-2">
-                      <div className="mx-auto max-w-5xl">
-                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
-                          {groups[mk].map((it) => (
-                            <div key={it.link + it.title} className="w-full md:max-w-xl">
-                              <IssueCard item={it} newsletterSlug={feed.slug} />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </details>
-                ))
-              ) : (
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/40">
-                  No posts yet (or RSS URL not configured).
-                </div>
-              )}
+        {/* -- Mid-Am Rankings (only for midamgolfhq) -- */}
+        {feed.slug === "midamgolfhq" ? (
+          <section className="px-5 pb-16">
+            <div className="mx-auto max-w-4xl">
+              <MidAmRankings />
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
+
+        {/* -- Past Issues (collapsed) -- */}
+        {monthKeys.length > 0 ? (
+          <section className="px-5 pb-16 pt-2">
+            <div className="mx-auto max-w-4xl">
+              <details className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3 mx-auto w-fit text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
+                  <span>Past Issues</span>
+                  <svg
+                    className="h-4 w-4 transition-transform group-open:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="mt-6 space-y-0 rounded-2xl bg-black/60 backdrop-blur-md p-1">
+                  {monthKeys.map((mk) => (
+                    <details
+                      key={mk}
+                      className="group/month border-b border-white/10 first:border-t first:rounded-t-2xl last:border-b-0 last:rounded-b-2xl"
+                    >
+                      <summary className="cursor-pointer list-none px-4 py-5 transition hover:bg-white/5">
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="font-serif text-lg font-semibold tracking-tight text-white">
+                            {monthLabel(mk)}
+                          </div>
+                          <div
+                            className={`text-xs font-semibold uppercase tracking-wider ${
+                              mk === mostRecentMonth ? "text-white/60" : "text-white/30"
+                            }`}
+                          >
+                            {mk === mostRecentMonth ? "Current" : "View"}
+                          </div>
+                        </div>
+                      </summary>
+                      <div className="px-2 pb-6 pt-2">
+                        <div className="mx-auto max-w-5xl">
+                          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
+                            {groups[mk].map((it) => (
+                              <div key={it.link + it.title} className="w-full md:max-w-xl">
+                                <IssueCard item={it} newsletterSlug={feed.slug} />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </details>
+            </div>
+          </section>
+        ) : null}
 
         {/* -- Subscribe -- */}
         <section id="subscribe" className="scroll-mt-16 px-5 py-16">
@@ -247,7 +271,10 @@ export default async function NewsletterPage({
             <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
               Subscribe
             </h2>
-            <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} />
+            <BeehiivEmbed
+              src={feed.subscribeEmbedUrl}
+              height={feed.subscribeEmbedHeight}
+            />
           </div>
         </section>
 
@@ -255,7 +282,9 @@ export default async function NewsletterPage({
         {(feed.slug === "midamgolfhq" ||
           feed.slug === "juniorgolfhq" ||
           feed.slug === "seniorgolfhq") &&
-        (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
+        (feed.xProfileUrl ||
+          feed.instagramProfileUrl ||
+          feed.youtubeProfileUrl) ? (
           <section className="px-5 py-12">
             <div className="text-center">
               <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
