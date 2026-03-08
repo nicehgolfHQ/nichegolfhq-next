@@ -123,15 +123,8 @@ export function SiteShell({
             </Link>
           </div>
 
-          {/* right: subscribe */}
-          <div className="flex items-center justify-end">
-            <Link
-              href="/subscribe"
-              className="rounded-full border border-white/50 bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20"
-            >
-              subscribe
-            </Link>
-          </div>
+          {/* right: spacer */}
+          <div />
         </div>
 
         {/* top nav */}
