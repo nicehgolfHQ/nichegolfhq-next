@@ -128,12 +128,7 @@ export default async function NewsletterPage({
             }}
           />
         </div>
-,0,0.3) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.55) 100%)",
-            }}
-          />
-        </div>
-      ) : (
-        <div className="fixed inset-0 z-0">
+      ) : (        <div className="fixed inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-zinc-950" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         </div>
