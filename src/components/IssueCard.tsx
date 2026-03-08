@@ -33,16 +33,15 @@ function issueSlugFromUrl(urlStr: string): string {
 
 export function IssueCard({ item, newsletterSlug }: { item: RssItem; newsletterSlug: string }) {
   const snippet = cleanSnippet(item.contentSnippet);
-
   const issueSlug = issueSlugFromUrl(item.link);
 
   return (
     <Link
       href={`/${newsletterSlug}/issue/${issueSlug}`}
-      className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] transition hover:border-white/[0.12] hover:-translate-y-0.5"
+      className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-sm hover:-translate-y-0.5"
     >
       {item.imageUrl ? (
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100">
           <Image
             src={item.imageUrl}
             alt=""
@@ -54,14 +53,14 @@ export function IssueCard({ item, newsletterSlug }: { item: RssItem; newsletterS
       ) : null}
 
       <div className="p-5 text-center">
-        <div className="text-sm text-white/35">
+        <div className="text-sm text-zinc-500">
           {item.isoDate ? new Date(item.isoDate).toLocaleDateString() : ""}
         </div>
-        <div className="mt-2 font-semibold tracking-tight text-white/90 group-hover:underline">
+        <div className="mt-2 font-semibold tracking-tight text-zinc-900 group-hover:underline">
           {item.title}
         </div>
         {snippet ? (
-          <p className="mt-2 line-clamp-3 text-sm text-white/40">
+          <p className="mt-2 line-clamp-3 text-sm text-zinc-600">
             {snippet}
           </p>
         ) : null}
