@@ -151,63 +151,35 @@ export default async function NewsletterPage({
             </p>
           ) : null}
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            {scheduleLabel && scheduleHref ? (
+          {scheduleLabel && scheduleHref ? (
+            <div className="mt-10">
               <Link
                 href={scheduleHref}
                 className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
               >
                 {scheduleLabel}
               </Link>
-            ) : null}
-            <Link
-              href="#subscribe"
-              className="inline-flex items-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/70 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
-            >
-              Subscribe
-            </Link>
-          </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
       {/* -- All content scrolls over the fixed hero -- */}
       <div className="relative z-10">
-        {/* -- Latest Issues -- */}
+        {/* -- Latest Issue (single) -- */}
         <section className="px-5 py-16">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-2xl">
             <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
-              Latest issues
+              Latest issue
             </h2>
             {items.length ? (
-              <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
-                <div
-                  className={
-                    items.slice(0, 2).length === 1
-                      ? "grid grid-cols-1 gap-5"
-                      : "grid grid-cols-1 gap-5 md:grid-cols-2"
-                  }
-                >
-                  {items.slice(0, 2).map((it) => (
-                    <IssueCard
-                      key={it.link + it.title}
-                      item={it}
-                      newsletterSlug={feed.slug}
-                    />
-                  ))}
-                </div>
-              </div>
+              <IssueCard
+                item={items[0]}
+                newsletterSlug={feed.slug}
+              />
             ) : null}
           </div>
         </section>
-
-        {/* -- Mid-Am Rankings (only for midamgolfhq) -- */}
-        {feed.slug === "midamgolfhq" ? (
-          <section className="px-5 pb-16">
-            <div className="mx-auto max-w-4xl">
-              <MidAmRankings />
-            </div>
-          </section>
-        ) : null}
 
         {/* -- Past Issues (collapsed) -- */}
         {monthKeys.length > 0 ? (
@@ -261,6 +233,15 @@ export default async function NewsletterPage({
                   ))}
                 </div>
               </details>
+            </div>
+          </section>
+        ) : null}
+
+        {/* -- Mid-Am Rankings (only for midamgolfhq) -- */}
+        {feed.slug === "midamgolfhq" ? (
+          <section className="px-5 pb-16">
+            <div className="mx-auto max-w-4xl">
+              <MidAmRankings />
             </div>
           </section>
         ) : null}
