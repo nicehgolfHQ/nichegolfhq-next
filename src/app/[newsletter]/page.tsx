@@ -70,165 +70,167 @@ export default async function NewsletterPage({
   const monthKeys = Object.keys(groups).sort((a, b) => (a < b ? 1 : -1));
   const mostRecentMonth = monthKeys[0] || "";
 
+  const scheduleLabel =
+    feed.slug === "midamgolfhq"
+      ? "2026 Mid-Am Major Schedule"
+      : feed.slug === "juniorgolfhq"
+        ? "2026 Junior Major Schedule"
+        : feed.slug === "seniorgolfhq"
+          ? "2026 Senior Major Schedule"
+          : null;
+
+  const scheduleHref =
+    feed.slug === "midamgolfhq"
+      ? "/midamgolfhq/schedule"
+      : feed.slug === "juniorgolfhq"
+        ? "/juniorgolfhq/schedule"
+        : feed.slug === "seniorgolfhq"
+          ? "/seniorgolfhq/schedule"
+          : null;
+
   return (
     <SiteShell brandSlug={feed.slug}>
-      <section className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto w-full max-w-6xl px-5 py-12">
-          <div className="flex flex-col items-center gap-4 text-center">
-            <div className="rounded-2xl border border-zinc-200 bg-white px-5 py-4">
-              <Image
-                src={`/brand/${feed.slug}/logo.png`}
-                alt={`${feed.name} logo`}
-                width={320}
-                height={120}
-                className="h-[54px] w-auto"
-                priority={false}
-              />
-            </div>
-            <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">{feed.name}</h1>
-            {feed.tagline ? <p className="max-w-2xl text-base leading-7 text-zinc-600">{feed.tagline}</p> : null}
-
-            {/* socials moved to bottom */}
+      {/* ── Dark Hero ── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-black">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-20 text-center">
+          <div className="mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+            <Image
+              src={`/brand/${feed.slug}/logo.png`}
+              alt={`${feed.name} logo`}
+              width={320}
+              height={120}
+              className="h-[40px] w-auto brightness-0 invert"
+              priority={false}
+            />
           </div>
-
-          {feed.slug === "midamgolfhq" ? (
-            <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 shadow-sm shadow-zinc-900/5">
-              <div className="flex flex-col items-center gap-5 p-8 text-center">
-                <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Mid-Am Major Schedule</div>
-
-                <Link
-                  href="/midamgolfhq/schedule"
-                  className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
-                >
-                  <span>Open schedule</span>
-                </Link>
-              </div>
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
-            </div>
+          <h1 className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
+            {feed.name}
+          </h1>
+          {feed.tagline ? (
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/50">
+              {feed.tagline}
+            </p>
           ) : null}
 
-          {feed.slug === "juniorgolfhq" ? (
-            <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
-              <div className="flex flex-col items-center gap-5 p-8 text-center">
-                <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Junior Major Schedule</div>
-
-                <Link
-                  href="/juniorgolfhq/schedule"
-                  className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
-                >
-                  <span>Open schedule</span>
-                </Link>
-              </div>
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
-            </div>
-          ) : null}
-
-          {feed.slug === "seniorgolfhq" ? (
-            <div className="mt-10 overflow-hidden rounded-3xl border border-zinc-200 bg-white">
-              <div className="flex flex-col items-center gap-5 p-8 text-center">
-                <div className="font-serif text-2xl font-semibold tracking-tight text-zinc-950">2026 Senior Major Schedule</div>
-
-                <Link
-                  href="/seniorgolfhq/schedule"
-                  className="group relative inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-zinc-800"
-                >
-                  <span>Open schedule</span>
-                </Link>
-              </div>
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
+          {scheduleLabel && scheduleHref ? (
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={scheduleHref}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
+              >
+                <span>{scheduleLabel}</span>
+                <span aria-hidden>\u2192</span>
+              </Link>
+              <Link
+                href="#subscribe"
+                className="inline-flex items-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/70 transition hover:border-white/40 hover:text-white"
+              >
+                Subscribe
+              </Link>
             </div>
           ) : null}
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-12">
-        <h2 className="text-center text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Latest issues</h2>
+      {/* ── Latest Issues ── */}
+      <section className="bg-black px-5 py-16">
+        <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+          Latest issues
+        </h2>
 
         {items.length ? (
-          <div className="mt-6">
+          <div className="mx-auto max-w-4xl">
             <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
-              <div className={items.slice(0, 2).length === 1 ? "grid grid-cols-1 gap-4" : "grid grid-cols-1 gap-4 md:grid-cols-2"}>
+              <div className={items.slice(0, 2).length === 1 ? "grid grid-cols-1 gap-5" : "grid grid-cols-1 gap-5 md:grid-cols-2"}>
                 {items.slice(0, 2).map((it) => (
                   <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
                 ))}
               </div>
             </div>
-
-            <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
           </div>
         ) : null}
+      </section>
 
-        <div className="mt-6 space-y-4">
-          {monthKeys.length ? (
-            monthKeys.map((mk) => (
-              <details
-                key={mk}
-                className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm shadow-zinc-900/5"
-                open={false}
-              >
-                <summary className="cursor-pointer list-none px-6 py-4">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950">
-                      {monthLabel(mk)}
-                    </div>
-                    <div className="text-sm font-semibold text-zinc-700">{mk === mostRecentMonth ? "Current" : "View"}</div>
-                  </div>
-                </summary>
+      {/* ── Monthly Archive ── */}
+      <section className="bg-black px-5 pb-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+            Archive
+          </h2>
 
-                <div className="h-px w-full bg-zinc-200" />
-                <div className="p-6">
-                  <div className="mx-auto max-w-5xl">
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
-                      {groups[mk]!.map((it) => (
-                        <div key={it.link + it.title} className="w-full md:max-w-xl">
-                          <IssueCard item={it} newsletterSlug={feed.slug} />
-                        </div>
-                      ))}
+          <div className="space-y-0">
+            {monthKeys.length ? (
+              monthKeys.map((mk) => (
+                <details
+                  key={mk}
+                  className="group border-b border-white/[0.06] first:border-t"
+                >
+                  <summary className="cursor-pointer list-none px-2 py-5 transition hover:bg-white/[0.02]">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="font-serif text-lg font-semibold tracking-tight text-white/80">
+                        {monthLabel(mk)}
+                      </div>
+                      <div className={`text-xs font-semibold uppercase tracking-wider ${mk === mostRecentMonth ? "text-white/60" : "text-white/25"}`}>
+                        {mk === mostRecentMonth ? "Current" : "View"}
+                      </div>
+                    </div>
+                  </summary>
+
+                  <div className="px-2 pb-6 pt-2">
+                    <div className="mx-auto max-w-5xl">
+                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
+                        {groups[mk]!.map((it) => (
+                          <div key={it.link + it.title} className="w-full md:max-w-xl">
+                            <IssueCard item={it} newsletterSlug={feed.slug} />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </details>
-            ))
-          ) : (
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-sm text-zinc-600">
-              No posts yet (or RSS URL not configured).
-            </div>
-          )}
+                </details>
+              ))
+            ) : (
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/40">
+                No posts yet (or RSS URL not configured).
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
+      {/* ── Socials ── */}
       {(feed.slug === "midamgolfhq" || feed.slug === "juniorgolfhq" || feed.slug === "seniorgolfhq") &&
       (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
-        <section className="mx-auto w-full max-w-6xl px-5 pb-6">
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-            <div className="text-center">
-              <div className="text-sm font-semibold text-zinc-900">Follow us on socials</div>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
-                {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
-                  <Link
-                    href={feed.youtubeProfileUrl}
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-50"
-                  >
-                    YouTube
-                  </Link>
-                ) : null}
-                {feed.xProfileUrl ? (
-                  <Link
-                    href={feed.xProfileUrl}
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-50"
-                  >
-                    X
-                  </Link>
-                ) : null}
-                {feed.instagramProfileUrl ? (
-                  <Link
-                    href={feed.instagramProfileUrl}
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-900 hover:bg-zinc-50"
-                  >
-                    Instagram
-                  </Link>
-                ) : null}
-              </div>
+        <section className="border-t border-white/[0.06] bg-black px-5 py-12">
+          <div className="text-center">
+            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">Follow</div>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
+                <Link
+                  href={feed.youtubeProfileUrl}
+                  className="inline-flex items-center rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/50 transition hover:border-white/25 hover:text-white"
+                >
+                  YouTube
+                </Link>
+              ) : null}
+              {feed.xProfileUrl ? (
+                <Link
+                  href={feed.xProfileUrl}
+                  className="inline-flex items-center rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/50 transition hover:border-white/25 hover:text-white"
+                >
+                  X
+                </Link>
+              ) : null}
+              {feed.instagramProfileUrl ? (
+                <Link
+                  href={feed.instagramProfileUrl}
+                  className="inline-flex items-center rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/50 transition hover:border-white/25 hover:text-white"
+                >
+                  Instagram
+                </Link>
+              ) : null}
             </div>
           </div>
         </section>
