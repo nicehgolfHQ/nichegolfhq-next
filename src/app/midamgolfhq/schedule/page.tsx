@@ -66,7 +66,7 @@ export default function MidAmScheduleIndexPage() {
   };
 
   return (
-    <SiteShell>
+    <SiteShell brandSlug="midamgolfhq">
       <Script id="ld-breadcrumbs-midam-schedule" type="application/ld+json">
         {JSON.stringify(breadcrumbsLd)}
       </Script>
