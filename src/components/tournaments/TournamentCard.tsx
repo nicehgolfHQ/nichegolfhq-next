@@ -27,25 +27,25 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
   return (
     <Link
       href={`/midamgolfhq/schedule/${tournament.slug}`}
-      className="group flex items-start justify-between gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6 transition hover:-translate-y-0.5 hover:border-white/[0.12] hover:bg-white/[0.07]"
+      className="group flex items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5 transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
     >
       <div className="min-w-0 flex-1">
-        <div className="font-serif text-xl font-semibold tracking-tight text-white">{tournament.name}</div>
+        <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950">{tournament.name}</div>
         {tournament.course || tournament.location ? (
-          <div className="mt-1.5 text-sm text-white/45">{[tournament.course, tournament.location].filter(Boolean).join(" • ")}</div>
+          <div className="mt-1.5 text-sm text-zinc-500">{[tournament.course, tournament.location].filter(Boolean).join(" \u2022 ")}</div>
         ) : null}
-        {tournament.note ? <div className="mt-2 text-xs text-white/30">{tournament.note}</div> : null}
-        {dates ? <div className="mt-2 text-xs text-white/30">{dates}</div> : null}
+        {tournament.note ? <div className="mt-2 text-xs text-zinc-400">{tournament.note}</div> : null}
+        {dates ? <div className="mt-2 text-xs text-zinc-400">{dates}</div> : null}
       </div>
 
       <div className="flex shrink-0 flex-col items-end gap-3">
         {badge ? (
-          <div className="rounded-full border border-white/10 px-3.5 py-1.5 text-[11px] font-semibold text-white/50">
+          <div className="rounded-full border border-zinc-200 px-3.5 py-1.5 text-[11px] font-semibold text-zinc-500">
             {badge}
           </div>
         ) : null}
-        <div className="text-sm text-white/30 transition group-hover:translate-x-0.5 group-hover:text-white/60" aria-hidden>
-          →
+        <div className="text-sm text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-zinc-700" aria-hidden>
+          &rarr;
         </div>
       </div>
     </Link>
