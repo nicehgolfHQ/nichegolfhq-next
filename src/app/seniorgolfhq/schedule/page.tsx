@@ -72,17 +72,17 @@ export default function SeniorScheduleIndexPage() {
       </section>
 
       {/* -- Event List (white) -- */}
-      <div className="bg-white">
+      <div className="bg-zinc-950">
         <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-10">
           <div className="space-y-12">
             {groups.map((g) => (
               <section key={g.month} className="scroll-mt-24">
                 <div className="mb-5 flex items-center gap-4 px-1">
-                  <div className="h-px flex-1 bg-zinc-200" />
-                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-zinc-400">
+                  <div className="h-px flex-1 bg-white/10" />
+                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/30">
                     {g.month.split(" ")[0].toUpperCase()}
                   </h2>
-                  <div className="h-px flex-1 bg-zinc-200" />
+                  <div className="h-px flex-1 bg-white/10" />
                 </div>
                 <div className="grid gap-3">
                   {g.events.map((e) => (
