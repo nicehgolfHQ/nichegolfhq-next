@@ -90,6 +90,7 @@ export default async function NewsletterPage({
 
   return (
     <SiteShell brandSlug={feed.slug}>
+      <div className="bg-black">
       {/* ── Dark Hero ── */}
       <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
@@ -120,14 +121,9 @@ export default async function NewsletterPage({
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
               >
                 <span>{scheduleLabel}</span>
-                <span aria-hidden>\u2192</span>
+                <span aria-hidden>→</span>
               </Link>
-              <Link
-                href="#subscribe"
-                className="inline-flex items-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/70 transition hover:border-white/40 hover:text-white"
-              >
-                Subscribe
-              </Link>
+
             </div>
           ) : null}
         </div>
@@ -136,9 +132,17 @@ export default async function NewsletterPage({
 
       {/* ── Latest Issues ── */}
       <section className="bg-black px-5 py-16">
-        <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
-          Latest issues
-        </h2>
+        <div className="mx-auto mb-12 max-w-md text-center">
+          <h2 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+            Latest issues
+          </h2>
+          <Link
+            href="#subscribe"
+            className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/60 transition hover:border-white/40 hover:text-white"
+          >
+            Subscribe to newsletter
+          </Link>
+        </div>
 
         {items.length ? (
           <div className="mx-auto max-w-4xl">
@@ -235,6 +239,7 @@ export default async function NewsletterPage({
           </div>
         </section>
       ) : null}
+      </div>
     </SiteShell>
   );
 }
