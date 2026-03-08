@@ -68,11 +68,11 @@ export default async function Home() {
       </section>
 
       {/* Page content with solid background */}
-      <div className="relative z-10 bg-zinc-50">
+      <div className="relative z-10">
 
       {/* Daily Brief first */}
       {latestBrief ? (
-        <section className="border-b border-zinc-200 bg-white">
+        <section className="mx-5 mt-6 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm shadow-lg">
           <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
             <div className="flex flex-col items-center justify-center gap-2">
               <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
@@ -134,7 +134,7 @@ export default async function Home() {
       ) : null}
 
       {/* Channels */}
-      <section className="mx-auto w-full max-w-6xl px-5 py-14">
+      <section className="mx-5 mt-6 mb-6 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm shadow-lg py-14 px-5">
         <div className="text-center">
           <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Channels</h2>
         </div>
