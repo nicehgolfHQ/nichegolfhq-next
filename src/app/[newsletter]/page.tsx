@@ -95,36 +95,36 @@ export default async function NewsletterPage({
 
   return (
     <SiteShell brandSlug={feed.slug}>
-      {/* -- Hero with optional background image -- */}
-      <section className="relative overflow-hidden">
-        {/* Background: image or gradient fallback */}
-        {heroImage ? (
-          <>
-            <Image
-              src={heroImage}
-              alt=""
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="100vw"
-              quality={85}
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%)",
-              }}
-            />
-          </>
-        ) : (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-zinc-950" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
-          </>
-        )}
+      {/* -- Fixed hero background (parallax effect) -- */}
+      {heroImage ? (
+        <div className="fixed inset-0 z-0">
+          <Image
+            src={heroImage}
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+            quality={85}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%)",
+            }}
+          />
+        </div>
+      ) : (
+        <div className="fixed inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-zinc-950" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
+        </div>
+      )}
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-20 pt-24 text-center">
+      {/* -- Hero content overlay -- */}
+      <section className="relative z-10 flex min-h-[70vh] items-center justify-center px-5">
+        <div className="mx-auto w-full max-w-6xl pb-20 pt-24 text-center">
           <div className="mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
             <Image
               src={`/brand/${feed.slug}/logo.png`}
@@ -169,126 +169,129 @@ export default async function NewsletterPage({
         </div>
       </section>
 
-      {/* -- Latest Issues (dark) -- */}
-      <section className="bg-zinc-950 px-5 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
-            Latest issues
-          </h2>
-          {items.length ? (
-            <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
-              <div
-                className={
-                  items.slice(0, 2).length === 1
-                    ? "grid grid-cols-1 gap-5"
-                    : "grid grid-cols-1 gap-5 md:grid-cols-2"
-                }
-              >
-                {items.slice(0, 2).map((it) => (
-                  <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
-                ))}
-              </div>
-            </div>
-          ) : null}
-        </div>
-      </section>
-
-      {/* -- Monthly Archive (slightly lighter dark) -- */}
-      <section className="bg-zinc-900 px-5 pb-16 pt-10">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
-            Archive
-          </h2>
-          <div className="space-y-0">
-            {monthKeys.length ? (
-              monthKeys.map((mk) => (
-                <details
-                  key={mk}
-                  className="group border-b border-white/10 first:border-t"
+      {/* -- All content scrolls over the fixed hero -- */}
+      <div className="relative z-10">
+        {/* -- Latest Issues (dark) -- */}
+        <section className="bg-zinc-950 px-5 py-16">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+              Latest issues
+            </h2>
+            {items.length ? (
+              <div className={items.slice(0, 2).length === 1 ? "mx-auto max-w-2xl" : ""}>
+                <div
+                  className={
+                    items.slice(0, 2).length === 1
+                      ? "grid grid-cols-1 gap-5"
+                      : "grid grid-cols-1 gap-5 md:grid-cols-2"
+                  }
                 >
-                  <summary className="cursor-pointer list-none px-2 py-5 transition hover:bg-white/5">
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="font-serif text-lg font-semibold tracking-tight text-white">
-                        {monthLabel(mk)}
-                      </div>
-                      <div
-                        className={`text-xs font-semibold uppercase tracking-wider ${mk === mostRecentMonth ? "text-white/60" : "text-white/30"}`}
-                      >
-                        {mk === mostRecentMonth ? "Current" : "View"}
-                      </div>
-                    </div>
-                  </summary>
-                  <div className="px-2 pb-6 pt-2">
-                    <div className="mx-auto max-w-5xl">
-                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
-                        {groups[mk]!.map((it) => (
-                          <div key={it.link + it.title} className="w-full md:max-w-xl">
-                            <IssueCard item={it} newsletterSlug={feed.slug} />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </details>
-              ))
-            ) : (
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/40">
-                No posts yet (or RSS URL not configured).
+                  {items.slice(0, 2).map((it) => (
+                    <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />
+                  ))}
+                </div>
               </div>
-            )}
+            ) : null}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* -- Subscribe -- */}
-      <section id="subscribe" className="scroll-mt-16 bg-zinc-950 px-5 py-16">
-        <div className="mx-auto max-w-xl">
-          <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
-            Subscribe
-          </h2>
-          <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} />
-        </div>
-      </section>
-
-      {/* -- Socials -- */}
-      {(feed.slug === "midamgolfhq" ||
-        feed.slug === "juniorgolfhq" ||
-        feed.slug === "seniorgolfhq") &&
-      (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
-        <section className="border-t border-white/10 bg-zinc-950 px-5 py-12">
-          <div className="text-center">
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
-              Follow
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
-                <Link
-                  href={feed.youtubeProfileUrl}
-                  className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
-                >
-                  YouTube
-                </Link>
-              ) : null}
-              {feed.xProfileUrl ? (
-                <Link
-                  href={feed.xProfileUrl}
-                  className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
-                >
-                  X
-                </Link>
-              ) : null}
-              {feed.instagramProfileUrl ? (
-                <Link
-                  href={feed.instagramProfileUrl}
-                  className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
-                >
-                  Instagram
-                </Link>
-              ) : null}
+        {/* -- Monthly Archive (slightly lighter dark) -- */}
+        <section className="bg-zinc-900 px-5 pb-16 pt-10">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+              Archive
+            </h2>
+            <div className="space-y-0">
+              {monthKeys.length ? (
+                monthKeys.map((mk) => (
+                  <details
+                    key={mk}
+                    className="group border-b border-white/10 first:border-t"
+                  >
+                    <summary className="cursor-pointer list-none px-2 py-5 transition hover:bg-white/5">
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="font-serif text-lg font-semibold tracking-tight text-white">
+                          {monthLabel(mk)}
+                        </div>
+                        <div
+                          className={`text-xs font-semibold uppercase tracking-wider ${mk === mostRecentMonth ? "text-white/60" : "text-white/30"}`}
+                        >
+                          {mk === mostRecentMonth ? "Current" : "View"}
+                        </div>
+                      </div>
+                    </summary>
+                    <div className="px-2 pb-6 pt-2">
+                      <div className="mx-auto max-w-5xl">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
+                          {groups[mk].map((it) => (
+                            <div key={it.link + it.title} className="w-full md:max-w-xl">
+                              <IssueCard item={it} newsletterSlug={feed.slug} />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                ))
+              ) : (
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/40">
+                  No posts yet (or RSS URL not configured).
+                </div>
+              )}
             </div>
           </div>
         </section>
-      ) : null}
+
+        {/* -- Subscribe -- */}
+        <section id="subscribe" className="scroll-mt-16 bg-zinc-950 px-5 py-16">
+          <div className="mx-auto max-w-xl">
+            <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+              Subscribe
+            </h2>
+            <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} />
+          </div>
+        </section>
+
+        {/* -- Socials -- */}
+        {(feed.slug === "midamgolfhq" ||
+          feed.slug === "juniorgolfhq" ||
+          feed.slug === "seniorgolfhq") &&
+        (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
+          <section className="border-t border-white/10 bg-zinc-950 px-5 py-12">
+            <div className="text-center">
+              <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
+                Follow
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {feed.slug === "midamgolfhq" && feed.youtubeProfileUrl ? (
+                  <Link
+                    href={feed.youtubeProfileUrl}
+                    className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
+                  >
+                    YouTube
+                  </Link>
+                ) : null}
+                {feed.xProfileUrl ? (
+                  <Link
+                    href={feed.xProfileUrl}
+                    className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
+                  >
+                    X
+                  </Link>
+                ) : null}
+                {feed.instagramProfileUrl ? (
+                  <Link
+                    href={feed.instagramProfileUrl}
+                    className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white"
+                  >
+                    Instagram
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+          </section>
+        ) : null}
+      </div>
     </SiteShell>
   );
 }
