@@ -37,6 +37,7 @@ export default async function Home() {
           muted
           loop
           playsInline
+          webkit-playsinline="true"
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
@@ -72,21 +73,21 @@ export default async function Home() {
 
       {/* Daily Brief first */}
       {latestBrief ? (
-        <section className="mx-5 mt-6 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm shadow-lg">
+        <section className="mx-auto w-full max-w-6xl px-5 pt-10">
           <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
             <div className="flex flex-col items-center justify-center gap-2">
               <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
                 Daily Brief
               </span>
-              <span className="text-sm font-bold text-zinc-600">{formatLongDate(latestBrief.date)}</span>
+              <span className="text-sm font-bold text-white/70">{formatLongDate(latestBrief.date)}</span>
             </div>
 
-            <h1 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+            <h1 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
               {latestBrief.title
                 ?.replace(/^\"|\"$/g, "")
                 .replace(/^Daily Brief\s+—\s+.+$/i, "Daily Brief")}
             </h1>
-            <p className="mx-auto mt-4 max-w-3xl text-lg leading-7 text-zinc-600">
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-7 text-white/70">
               Your daily news source across amateur golf
             </p>
 
@@ -124,7 +125,7 @@ export default async function Home() {
             <div className="mt-6 flex justify-center">
               <Link
                 href={`/briefs/${latestBrief.date}`}
-                className="inline-flex items-center rounded-full border border-zinc-300 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+                className="inline-flex items-center rounded-full border border-white/30 bg-white/90 px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
               >
                 Read full brief →
               </Link>
@@ -134,9 +135,9 @@ export default async function Home() {
       ) : null}
 
       {/* Channels */}
-      <section className="mx-5 mt-6 mb-6 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm shadow-lg py-14 px-5">
+      <section className="mx-auto w-full max-w-6xl px-5 py-14">
         <div className="text-center">
-          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-zinc-900">Channels</h2>
+          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-white/80">Channels</h2>
         </div>
 
         <div className="mt-6 flex flex-col gap-7">
