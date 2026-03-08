@@ -109,7 +109,7 @@ export default async function MidAmTournamentPage({
   }
 
   return (
-    <SiteShell>
+    <SiteShell brandSlug="midamgolfhq">
       <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbsLd)}
       </Script>
