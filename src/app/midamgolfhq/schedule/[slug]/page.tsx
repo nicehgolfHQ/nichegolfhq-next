@@ -2,7 +2,10 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
-import { getMidAmTournamentBySlug, listMidAmTournamentSlugs } from "@/lib/tournaments/midam";
+import {
+  getMidAmTournamentBySlug,
+  listMidAmTournamentSlugs,
+} from "@/lib/tournaments/midam";
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
@@ -23,10 +26,8 @@ export async function generateMetadata({
   const slug = p?.slug ?? "";
   const t = getMidAmTournamentBySlug(slug);
   if (!t) return { title: "Mid-Am Schedule | midamgolfHQ" };
-
   const dates = t.dates2026 ?? t.typicalDates;
-  const subtitle = `${t.course} • ${t.location}${dates ? ` • ${dates}` : ""}`;
-
+  const subtitle = `${t.course} \u2022 ${t.location}${dates ? ` \u2022 ${dates}` : ""}`;
   return {
     title: `${t.name} | Mid-Am Schedule | midamgolfHQ`,
     description: `Dates, venue, format, and past winners for ${t.name}. ${subtitle}`,
@@ -92,7 +93,11 @@ export default async function MidAmTournamentPage({
     },
     location: {
       "@type": "Place",
-      name: [tournament.course, tournament.location].filter(Boolean).join(" — ") || tournament.location || tournament.course || tournament.name,
+      name:
+        [tournament.course, tournament.location].filter(Boolean).join(" \u2014 ") ||
+        tournament.location ||
+        tournament.course ||
+        tournament.name,
       address: tournament.location,
     },
     description: `Dates, venue, format, and past winners for ${tournament.name}.`,
@@ -112,19 +117,24 @@ export default async function MidAmTournamentPage({
         {JSON.stringify(eventLd)}
       </Script>
 
-      <div className="mx-auto w-full max-w-5xl px-5 py-8">
-        <div className="flex items-center justify-start">
+      {/* -- Dark Hero -- */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-10">
           <Link
             href="/midamgolfhq/schedule"
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm shadow-zinc-900/5 backdrop-blur transition hover:bg-white"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
           >
-            <span aria-hidden>←</span>
+            <span aria-hidden>&larr;</span>
             <span>Schedule</span>
           </Link>
-        </div>
-
-        <div className="mt-4">
           <TournamentHero tournament={tournament} />
+        </div>
+      </section>
+
+      {/* -- White Content -- */}
+      <div className="bg-white">
+        <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
           <TournamentLinks tournament={tournament} />
