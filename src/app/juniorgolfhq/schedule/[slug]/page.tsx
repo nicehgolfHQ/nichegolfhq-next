@@ -95,7 +95,7 @@ export default async function JuniorScheduleEventPage({
       </section>
 
       {/* -- White Content -- */}
-      <div className="bg-white">
+      <div className="bg-zinc-950">
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <MajorEventTabs
             brand="juniorgolfHQ"
