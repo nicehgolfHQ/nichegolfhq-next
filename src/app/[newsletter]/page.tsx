@@ -111,7 +111,7 @@ export default async function NewsletterPage({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%)",
+                "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.55) 100%)",
             }}
           />
         </div>
@@ -171,10 +171,10 @@ export default async function NewsletterPage({
 
       {/* -- All content scrolls over the fixed hero -- */}
       <div className="relative z-10">
-        {/* -- Latest Issues (dark) -- */}
-        <section className="bg-zinc-950 px-5 py-16">
+        {/* -- Latest Issues -- */}
+        <section className="px-5 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+            <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
               Latest issues
             </h2>
             {items.length ? (
@@ -195,20 +195,20 @@ export default async function NewsletterPage({
           </div>
         </section>
 
-        {/* -- Monthly Archive (slightly lighter dark) -- */}
-        <section className="bg-zinc-900 px-5 pb-16 pt-10">
+        {/* -- Monthly Archive -- */}
+        <section className="px-5 pb-16 pt-10">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+            <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
               Archive
             </h2>
-            <div className="space-y-0">
+            <div className="space-y-0 rounded-2xl bg-black/60 backdrop-blur-md p-1">
               {monthKeys.length ? (
                 monthKeys.map((mk) => (
                   <details
                     key={mk}
-                    className="group border-b border-white/10 first:border-t"
+                    className="group border-b border-white/10 first:border-t first:rounded-t-2xl last:border-b-0 last:rounded-b-2xl"
                   >
-                    <summary className="cursor-pointer list-none px-2 py-5 transition hover:bg-white/5">
+                    <summary className="cursor-pointer list-none px-4 py-5 transition hover:bg-white/5">
                       <div className="flex items-center justify-between gap-4">
                         <div className="font-serif text-lg font-semibold tracking-tight text-white">
                           {monthLabel(mk)}
@@ -243,9 +243,9 @@ export default async function NewsletterPage({
         </section>
 
         {/* -- Subscribe -- */}
-        <section id="subscribe" className="scroll-mt-16 bg-zinc-950 px-5 py-16">
-          <div className="mx-auto max-w-xl">
-            <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+        <section id="subscribe" className="scroll-mt-16 px-5 py-16">
+          <div className="mx-auto max-w-xl rounded-2xl bg-black/60 backdrop-blur-md p-8">
+            <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
               Subscribe
             </h2>
             <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} />
@@ -257,7 +257,7 @@ export default async function NewsletterPage({
           feed.slug === "juniorgolfhq" ||
           feed.slug === "seniorgolfhq") &&
         (feed.xProfileUrl || feed.instagramProfileUrl || feed.youtubeProfileUrl) ? (
-          <section className="border-t border-white/10 bg-zinc-950 px-5 py-12">
+          <section className="px-5 py-12">
             <div className="text-center">
               <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
                 Follow
