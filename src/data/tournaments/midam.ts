@@ -38,6 +38,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Blue",
     courseDesigner: "Donald Ross",
     courseNotes: "Short course; Donald Ross design (1923)",
+    golfGeniusUrl: "https://pcgc-71stgasparillainvitational.golfgenius.com/pages/11889495109525324281",
 
     format: "54 holes stroke play",
     pastResults: [
