@@ -127,17 +127,6 @@ export default async function NewsletterPage({
       {/* -- Hero content overlay -- */}
       <section className="relative z-10 flex min-h-[70vh] items-center justify-center px-5">
         <div className="mx-auto w-full max-w-6xl pb-20 pt-24 text-center">
-          <div className="mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
-            <Image
-              src={`/brand/${feed.slug}/logo.png`}
-              alt={`${feed.name} logo`}
-              width={320}
-              height={120}
-              className="h-[40px] w-auto brightness-0 invert"
-              priority={false}
-            />
-          </div>
-
           <h1
             className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}
@@ -181,13 +170,67 @@ export default async function NewsletterPage({
           </div>
         </section>
 
-        {/* -- Past Issues (collapsed) -- */}
-        {monthKeys.length > 0 ? (
-          <section className="px-5 pb-16 pt-2">
-            <div className="mx-auto max-w-4xl">
-              <details className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3 mx-auto w-fit text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
-                  <span>Past Issues</span>
+        {/* -- Past Newsletter Issues + Subscribe (side by side collapsible buttons) -- */}
+        <section className="px-5 pb-16 pt-2">
+          <div className="mx-auto max-w-4xl space-y-4">
+            {/* Button row */}
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {/* Past Newsletter Issues toggle */}
+              {monthKeys.length > 0 ? (
+                <details className="group" id="past-issues">
+                  <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
+                    <span>Past Newsletter Issues</span>
+                    <svg
+                      className="h-4 w-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="mt-6 space-y-0 rounded-2xl bg-black/60 backdrop-blur-md p-1">
+                    {monthKeys.map((mk) => (
+                      <details
+                        key={mk}
+                        className="group/month border-b border-white/10 first:border-t first:rounded-t-2xl last:border-b-0 last:rounded-b-2xl"
+                      >
+                        <summary className="cursor-pointer list-none px-4 py-5 transition hover:bg-white/5">
+                          <div className="flex items-center justify-between gap-4">
+                            <div className="font-serif text-lg font-semibold tracking-tight text-white">
+                              {monthLabel(mk)}
+                            </div>
+                            <div
+                              className={`text-xs font-semibold uppercase tracking-wider ${
+                                mk === mostRecentMonth ? "text-white/60" : "text-white/30"
+                              }`}
+                            >
+                              {mk === mostRecentMonth ? "Current" : "View"}
+                            </div>
+                          </div>
+                        </summary>
+                        <div className="px-2 pb-6 pt-2">
+                          <div className="mx-auto max-w-5xl">
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
+                              {groups[mk].map((it) => (
+                                <div key={it.link + it.title} className="w-full md:max-w-xl">
+                                  <IssueCard item={it} newsletterSlug={feed.slug} />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </details>
+              ) : null}
+
+              {/* Subscribe toggle */}
+              <details className="group" id="subscribe">
+                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
+                  <span>Subscribe</span>
                   <svg
                     className="h-4 w-4 transition-transform group-open:rotate-180"
                     fill="none"
@@ -198,44 +241,16 @@ export default async function NewsletterPage({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div className="mt-6 space-y-0 rounded-2xl bg-black/60 backdrop-blur-md p-1">
-                  {monthKeys.map((mk) => (
-                    <details
-                      key={mk}
-                      className="group/month border-b border-white/10 first:border-t first:rounded-t-2xl last:border-b-0 last:rounded-b-2xl"
-                    >
-                      <summary className="cursor-pointer list-none px-4 py-5 transition hover:bg-white/5">
-                        <div className="flex items-center justify-between gap-4">
-                          <div className="font-serif text-lg font-semibold tracking-tight text-white">
-                            {monthLabel(mk)}
-                          </div>
-                          <div
-                            className={`text-xs font-semibold uppercase tracking-wider ${
-                              mk === mostRecentMonth ? "text-white/60" : "text-white/30"
-                            }`}
-                          >
-                            {mk === mostRecentMonth ? "Current" : "View"}
-                          </div>
-                        </div>
-                      </summary>
-                      <div className="px-2 pb-6 pt-2">
-                        <div className="mx-auto max-w-5xl">
-                          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
-                            {groups[mk].map((it) => (
-                              <div key={it.link + it.title} className="w-full md:max-w-xl">
-                                <IssueCard item={it} newsletterSlug={feed.slug} />
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </details>
-                  ))}
+                <div className="mt-6 rounded-2xl bg-black/60 backdrop-blur-md p-8">
+                  <BeehiivEmbed
+                    src={feed.subscribeEmbedUrl}
+                    height={feed.subscribeEmbedHeight}
+                  />
                 </div>
               </details>
             </div>
-          </section>
-        ) : null}
+          </div>
+        </section>
 
         {/* -- Mid-Am Rankings (only for midamgolfhq) -- */}
         {feed.slug === "midamgolfhq" ? (
@@ -245,19 +260,6 @@ export default async function NewsletterPage({
             </div>
           </section>
         ) : null}
-
-        {/* -- Subscribe -- */}
-        <section id="subscribe" className="scroll-mt-16 px-5 py-16">
-          <div className="mx-auto max-w-xl rounded-2xl bg-black/60 backdrop-blur-md p-8">
-            <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
-              Subscribe
-            </h2>
-            <BeehiivEmbed
-              src={feed.subscribeEmbedUrl}
-              height={feed.subscribeEmbedHeight}
-            />
-          </div>
-        </section>
 
         {/* -- Socials -- */}
         {(feed.slug === "midamgolfhq" ||
