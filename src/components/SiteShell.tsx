@@ -154,22 +154,22 @@ export function SiteShell({
 
       <main>{children}</main>
 
-      <footer className="relative z-10 mx-5 mt-6 mb-6 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm shadow-lg">
+      <footer className="relative z-10 border-t border-white/20 mt-8">
         <div className="mx-auto w-full max-w-6xl px-5 py-8">
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
               <KetchPreferencesLink label="Privacy Settings" />
-              <Link href="/privacy" className="text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-700">
+              <Link href="/privacy" className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-700">
+              <Link href="/terms" className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70">
                 Terms of Use
               </Link>
             </div>
-            <div className="max-w-3xl text-sm leading-6 text-zinc-500">
+            <div className="max-w-3xl text-sm leading-6 text-white/60">
               nichegolfHQ is an independent media and intelligence platform covering amateur golf across junior, mid-amateur, and senior competitive play.
             </div>
-            <div className="text-sm text-zinc-600">2026 nichegolfHQ all rights reserved</div>
+            <div className="text-sm text-white/50">2026 nichegolfHQ all rights reserved</div>
           </div>
         </div>
       </footer>
