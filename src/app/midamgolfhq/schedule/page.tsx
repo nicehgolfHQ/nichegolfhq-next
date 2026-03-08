@@ -22,7 +22,7 @@ const MONTH_NAMES = [
 ];
 
 export const metadata = {
-  title: `Mid-Am Schedule — ${YEAR} | midamgolfHQ`,
+  title: `Mid-Am Schedule \u2014 ${YEAR} | midamgolfHQ`,
   description: `Mid-amateur tournament schedule for ${YEAR}: event hubs, formats, venues, and quick links.`,
   alternates: { canonical: "/midamgolfhq/schedule" },
 };
@@ -75,37 +75,48 @@ export default function MidAmScheduleIndexPage() {
         {JSON.stringify(itemListLd)}
       </Script>
 
-      <div className="mx-auto w-full max-w-5xl px-5 py-8">
-        <div className="mb-8">
-          <div className="mb-3 flex items-center justify-start">
-            <Link
-              href="/midamgolfhq"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm shadow-zinc-900/5 backdrop-blur transition hover:bg-white"
-            >
-              <span aria-hidden>←</span>
-              <span>Mid-Am</span>
-            </Link>
-          </div>
-          <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">Mid-Am Major Schedule</h1>
+      {/* \u2500\u2500 Dark Hero \u2500\u2500 */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-black">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-16 text-center">
+          <Link
+            href="/midamgolfhq"
+            className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
+          >
+            <span aria-hidden>\u2190</span>
+            <span>midamgolfHQ</span>
+          </Link>
+          <h1 className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
+            Mid-Am Major Schedule
+          </h1>
+          <p className="mt-3 text-sm text-white/40">
+            Every major mid-amateur tournament this season
+          </p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
+      </section>
 
-        {/* back link removed */}
-
-        <div className="mt-6 space-y-10">
-          {months.map((month) => (
-            <section key={month} className="scroll-mt-24">
-              <div className="mb-4">
-                <h2 className="text-center text-sm font-semibold tracking-tight text-zinc-950">
-                  {MONTH_NAMES[month - 1]?.toUpperCase()}
-                </h2>
-              </div>
-              <div className="grid gap-4">
-                {byMonth[month]!.map((t) => (
-                  <TournamentCard key={t.slug} tournament={t} />
-                ))}
-              </div>
-            </section>
-          ))}
+      {/* \u2500\u2500 Tournament List \u2500\u2500 */}
+      <div className="bg-black">
+        <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-8">
+          <div className="space-y-12">
+            {months.map((month) => (
+              <section key={month} className="scroll-mt-24">
+                <div className="mb-5 flex items-center gap-4 px-1">
+                  <div className="h-px flex-1 bg-white/[0.08]" />
+                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/30">
+                    {MONTH_NAMES[month - 1]}
+                  </h2>
+                  <div className="h-px flex-1 bg-white/[0.08]" />
+                </div>
+                <div className="grid gap-3">
+                  {byMonth[month]!.map((t) => (
+                    <TournamentCard key={t.slug} tournament={t} />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
       </div>
     </SiteShell>
