@@ -153,10 +153,9 @@ export default async function NewsletterPage({
             {scheduleLabel && scheduleHref ? (
               <Link
                 href={scheduleHref}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
+                className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
               >
-                <span>{scheduleLabel}</span>
-                <span aria-hidden>&rarr;</span>
+                {scheduleLabel}
               </Link>
             ) : null}
             <Link
