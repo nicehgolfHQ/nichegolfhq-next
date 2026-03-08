@@ -8,7 +8,7 @@ export function KetchPreferencesLink({
   return (
     <a
       href="#"
-      className="text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-700"
+      className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70"
       onClick={(e) => {
         e.preventDefault();
         // Ketch loads globally; guard for early clicks.
