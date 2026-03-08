@@ -22,7 +22,7 @@ const MONTH_NAMES = [
 ];
 
 export const metadata = {
-  title: `Mid-Am Schedule \u2014 ${YEAR} | midamgolfHQ`,
+  title: `Mid-Am Schedule — ${YEAR} | midamgolfHQ`,
   description: `Mid-amateur tournament schedule for ${YEAR}: event hubs, formats, venues, and quick links.`,
   alternates: { canonical: "/midamgolfhq/schedule" },
 };
@@ -75,7 +75,8 @@ export default function MidAmScheduleIndexPage() {
         {JSON.stringify(itemListLd)}
       </Script>
 
-      {/* \u2500\u2500 Dark Hero \u2500\u2500 */}
+      <div className="bg-black min-h-screen">
+      {/* ── Dark Hero ── */}
       <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-16 text-center">
@@ -83,7 +84,7 @@ export default function MidAmScheduleIndexPage() {
             href="/midamgolfhq"
             className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
           >
-            <span aria-hidden>\u2190</span>
+            <span aria-hidden>←</span>
             <span>midamgolfHQ</span>
           </Link>
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
@@ -96,7 +97,7 @@ export default function MidAmScheduleIndexPage() {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* \u2500\u2500 Tournament List \u2500\u2500 */}
+      {/* ── Tournament List ── */}
       <div className="bg-black">
         <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-8">
           <div className="space-y-12">
@@ -118,6 +119,7 @@ export default function MidAmScheduleIndexPage() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </SiteShell>
   );
