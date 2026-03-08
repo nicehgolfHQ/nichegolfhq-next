@@ -24,13 +24,25 @@ const API_URL =
 export function MidAmRankings() {
   const [players, setPlayers] = useState<RankedPlayer[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshedAt, setRefreshedAt] = useState<string>("");
 
   useEffect(() => {
     let cancelled = false;
     fetch(API_URL)
       .then((r) => r.json())
       .then((d) => {
-        if (!cancelled) setPlayers(d.items ?? []);
+        if (!cancelled) {
+          setPlayers(d.items ?? []);
+          setRefreshedAt(
+            new Date().toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+            })
+          );
+        }
       })
       .catch(() => {})
       .finally(() => {
@@ -46,7 +58,7 @@ export function MidAmRankings() {
           Mid-Am Rankings
         </h2>
         <div className="flex items-center justify-center py-8 text-sm text-white/30">
-          Loading rankings…
+          Loading rankings\u2026
         </div>
       </div>
     );
@@ -56,9 +68,14 @@ export function MidAmRankings() {
 
   return (
     <div className="rounded-2xl bg-black/60 p-6 backdrop-blur-md">
-      <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
+      <h2 className="mb-1 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
         Mid-Am Rankings
       </h2>
+      {refreshedAt ? (
+        <p className="mb-5 text-center text-[10px] text-white/25">
+          Updated {refreshedAt}
+        </p>
+      ) : null}
 
       {/* table */}
       <div className="overflow-x-auto">
