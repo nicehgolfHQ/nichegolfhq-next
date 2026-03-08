@@ -22,7 +22,7 @@ const MONTH_NAMES = [
 ];
 
 export const metadata = {
-  title: `Mid-Am Schedule — ${YEAR} | midamgolfHQ`,
+  title: `Mid-Am Schedule \u2014 ${YEAR} | midamgolfHQ`,
   description: `Mid-amateur tournament schedule for ${YEAR}: event hubs, formats, venues, and quick links.`,
   alternates: { canonical: "/midamgolfhq/schedule" },
 };
@@ -75,16 +75,15 @@ export default function MidAmScheduleIndexPage() {
         {JSON.stringify(itemListLd)}
       </Script>
 
-      <div className="bg-black min-h-screen">
-      {/* ── Dark Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-black">
+      {/* -- Dark Hero -- */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-16 text-center">
           <Link
             href="/midamgolfhq"
             className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
           >
-            <span aria-hidden>←</span>
+            <span aria-hidden>&larr;</span>
             <span>midamgolfHQ</span>
           </Link>
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
@@ -94,21 +93,20 @@ export default function MidAmScheduleIndexPage() {
             Every major mid-amateur tournament this season
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* ── Tournament List ── */}
-      <div className="bg-black">
-        <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-8">
+      {/* -- Tournament List (white) -- */}
+      <div className="bg-white">
+        <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-10">
           <div className="space-y-12">
             {months.map((month) => (
               <section key={month} className="scroll-mt-24">
                 <div className="mb-5 flex items-center gap-4 px-1">
-                  <div className="h-px flex-1 bg-white/[0.08]" />
-                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/30">
+                  <div className="h-px flex-1 bg-zinc-200" />
+                  <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-zinc-400">
                     {MONTH_NAMES[month - 1]}
                   </h2>
-                  <div className="h-px flex-1 bg-white/[0.08]" />
+                  <div className="h-px flex-1 bg-zinc-200" />
                 </div>
                 <div className="grid gap-3">
                   {byMonth[month]!.map((t) => (
@@ -119,7 +117,6 @@ export default function MidAmScheduleIndexPage() {
             ))}
           </div>
         </div>
-      </div>
       </div>
     </SiteShell>
   );
