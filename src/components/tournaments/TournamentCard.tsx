@@ -32,7 +32,7 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
       <div className="min-w-0 flex-1">
         <div className="font-serif text-xl font-semibold tracking-tight text-white">{tournament.name}</div>
         {tournament.course || tournament.location ? (
-          <div className="mt-1.5 text-sm text-white/45">{[tournament.course, tournament.location].filter(Boolean).join(" \u2022 ")}</div>
+          <div className="mt-1.5 text-sm text-white/45">{[tournament.course, tournament.location].filter(Boolean).join(" • ")}</div>
         ) : null}
         {tournament.note ? <div className="mt-2 text-xs text-white/30">{tournament.note}</div> : null}
         {dates ? <div className="mt-2 text-xs text-white/30">{dates}</div> : null}
@@ -45,7 +45,7 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
           </div>
         ) : null}
         <div className="text-sm text-white/30 transition group-hover:translate-x-0.5 group-hover:text-white/60" aria-hidden>
-          \u2192
+          →
         </div>
       </div>
     </Link>
