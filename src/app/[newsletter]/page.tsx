@@ -6,6 +6,7 @@ import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { MidAmRankings } from "@/components/MidAmRankings";
 import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
+import { listMidAmTournaments } from "@/lib/tournaments/midam";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -34,6 +35,11 @@ const HERO_IMAGES: Record<string, string | null> = {
   seniorgolfhq: null,
 };
 
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
 export default async function NewsletterPage({
   params,
 }: {
@@ -41,7 +47,6 @@ export default async function NewsletterPage({
 }) {
   const resolved = await Promise.resolve(params);
   const feed = getFeedBySlug(resolved.newsletter);
-
   if (!feed) {
     return (
       <SiteShell>
@@ -84,14 +89,20 @@ export default async function NewsletterPage({
         : feed.slug === "seniorgolfhq"
           ? "2026 Senior Major Schedule"
           : null;
-  const scheduleHref =
-    feed.slug === "midamgolfhq"
-      ? "/midamgolfhq/schedule"
-      : feed.slug === "juniorgolfhq"
-        ? "/juniorgolfhq/schedule"
-        : feed.slug === "seniorgolfhq"
-          ? "/seniorgolfhq/schedule"
-          : null;
+
+  /* ---------- Schedule data (inline dropdown) ---------- */
+  const tournaments =
+    feed.slug === "midamgolfhq" ? listMidAmTournaments() : [];
+  const tournamentsByMonth = tournaments.reduce<
+    Record<number, typeof tournaments>
+  >((acc, t) => {
+    acc[t.month] = acc[t.month] ?? [];
+    acc[t.month].push(t);
+    return acc;
+  }, {});
+  const scheduleMonths = Object.keys(tournamentsByMonth)
+    .map((m) => Number(m))
+    .sort((a, b) => a - b);
 
   const heroImage = HERO_IMAGES[feed.slug] ?? null;
 
@@ -117,6 +128,10 @@ export default async function NewsletterPage({
             }}
           />
         </div>
+,0,0.3) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.55) 100%)",
+            }}
+          />
+        </div>
       ) : (
         <div className="fixed inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-zinc-950" />
@@ -126,7 +141,7 @@ export default async function NewsletterPage({
 
       {/* -- Hero content overlay -- */}
       <section className="relative z-10 flex min-h-[70vh] items-center justify-center px-5">
-        <div className="mx-auto w-full max-w-6xl pb-20 pt-24 text-center">
+        <div className="mx-auto w-full max-w-6xl pb-14 pt-24 text-center">
           <h1
             className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}
@@ -140,10 +155,69 @@ export default async function NewsletterPage({
             </p>
           ) : null}
 
-          {scheduleLabel && scheduleHref ? (
+          {scheduleLabel && scheduleMonths.length > 0 ? (
+            <div className="mt-10">
+              <details className="group inline-block text-left" id="schedule-dropdown">
+                <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10">
+                  <span>{scheduleLabel}</span>
+                  <svg
+                    className="h-4 w-4 transition-transform group-open:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+
+                <div className="mt-6 w-[90vw] max-w-2xl -translate-x-1/2 left-1/2 relative rounded-2xl bg-black/70 backdrop-blur-xl p-4 shadow-2xl">
+                  <div className="space-y-6">
+                    {scheduleMonths.map((month) => (
+                      <div key={month}>
+                        <div className="mb-3 flex items-center gap-3 px-1">
+                          <div className="h-px flex-1 bg-white/10" />
+                          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30">
+                            {MONTH_NAMES[month - 1]}
+                          </span>
+                          <div className="h-px flex-1 bg-white/10" />
+                        </div>
+                        <div className="space-y-2">
+                          {tournamentsByMonth[month]!.map((t) => (
+                            <Link
+                              key={t.slug}
+                              href={`/midamgolfhq/schedule/${t.slug}`}
+                              className="group/evt flex items-center justify-between gap-3 rounded-xl border border-white/10 px-4 py-3.5 transition hover:border-white/20 hover:bg-white/5"
+                            >
+                              <div className="min-w-0 flex-1">
+                                <div className="font-serif text-base font-semibold tracking-tight text-white">
+                                  {t.name}
+                                </div>
+                                {(t.course || t.location) ? (
+                                  <div className="mt-0.5 text-xs text-white/40">
+                                    {[t.course, t.location].filter(Boolean).join(" \u2022 ")}
+                                  </div>
+                                ) : null}
+                                {t.dates2026 ? (
+                                  <div className="mt-1 text-xs text-white/30">{t.dates2026}</div>
+                                ) : null}
+                              </div>
+                              <div className="shrink-0 text-sm text-white/30 transition group-hover/evt:translate-x-0.5 group-hover/evt:text-white/60" aria-hidden>
+                                &rarr;
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </details>
+            </div>
+          ) : scheduleLabel ? (
             <div className="mt-10">
               <Link
-                href={scheduleHref}
+                href={feed.slug === "midamgolfhq" ? "/midamgolfhq/schedule" : feed.slug === "juniorgolfhq" ? "/juniorgolfhq/schedule" : "/seniorgolfhq/schedule"}
                 className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
               >
                 {scheduleLabel}
@@ -156,29 +230,25 @@ export default async function NewsletterPage({
       {/* -- All content scrolls over the fixed hero -- */}
       <div className="relative z-10">
         {/* -- Latest Issue (single) -- */}
-        <section className="px-5 py-16">
+        <section className="px-5 py-12">
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
               Latest issue
             </h2>
             {items.length ? (
-              <IssueCard
-                item={items[0]}
-                newsletterSlug={feed.slug}
-              />
+              <IssueCard item={items[0]} newsletterSlug={feed.slug} />
             ) : null}
           </div>
         </section>
 
-        {/* -- Past Newsletter Issues + Subscribe (side by side collapsible buttons) -- */}
+        {/* -- Past Newsletter Issues + Subscribe (stacked collapsible buttons) -- */}
         <section className="px-5 pb-16 pt-2">
           <div className="mx-auto max-w-4xl space-y-4">
-            {/* Button row */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="flex flex-col items-center gap-3 w-full max-w-md mx-auto">
               {/* Past Newsletter Issues toggle */}
               {monthKeys.length > 0 ? (
-                <details className="group" id="past-issues">
-                  <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
+                <details className="group w-full" id="past-issues">
+                  <summary className="flex w-full cursor-pointer list-none items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
                     <span>Past Newsletter Issues</span>
                     <svg
                       className="h-4 w-4 transition-transform group-open:rotate-180"
@@ -190,6 +260,7 @@ export default async function NewsletterPage({
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
+
                   <div className="mt-6 space-y-0 rounded-2xl bg-black/60 backdrop-blur-md p-1">
                     {monthKeys.map((mk) => (
                       <details
@@ -203,7 +274,9 @@ export default async function NewsletterPage({
                             </div>
                             <div
                               className={`text-xs font-semibold uppercase tracking-wider ${
-                                mk === mostRecentMonth ? "text-white/60" : "text-white/30"
+                                mk === mostRecentMonth
+                                  ? "text-white/60"
+                                  : "text-white/30"
                               }`}
                             >
                               {mk === mostRecentMonth ? "Current" : "View"}
@@ -214,8 +287,14 @@ export default async function NewsletterPage({
                           <div className="mx-auto max-w-5xl">
                             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:justify-items-center">
                               {groups[mk].map((it) => (
-                                <div key={it.link + it.title} className="w-full md:max-w-xl">
-                                  <IssueCard item={it} newsletterSlug={feed.slug} />
+                                <div
+                                  key={it.link + it.title}
+                                  className="w-full md:max-w-xl"
+                                >
+                                  <IssueCard
+                                    item={it}
+                                    newsletterSlug={feed.slug}
+                                  />
                                 </div>
                               ))}
                             </div>
@@ -228,8 +307,8 @@ export default async function NewsletterPage({
               ) : null}
 
               {/* Subscribe toggle */}
-              <details className="group" id="subscribe">
-                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
+              <details className="group w-full" id="subscribe">
+                <summary className="flex w-full cursor-pointer list-none items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-medium text-white/60 transition hover:border-white/30 hover:text-white">
                   <span>Subscribe</span>
                   <svg
                     className="h-4 w-4 transition-transform group-open:rotate-180"
