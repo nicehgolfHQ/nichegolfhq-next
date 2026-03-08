@@ -154,7 +154,7 @@ export function SiteShell({
 
       <main>{children}</main>
 
-      <footer className="relative z-10 border-t border-zinc-200 bg-white">
+      <footer className="relative z-10 mx-5 mt-6 mb-6 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm shadow-lg">
         <div className="mx-auto w-full max-w-6xl px-5 py-8">
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
