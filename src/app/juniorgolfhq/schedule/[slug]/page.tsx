@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { MajorEventHero } from "@/components/majors/MajorEventHero";
 import { MajorEventTabs } from "@/components/majors/MajorEventTabs";
-import { getJuniorMajorBySlug, listJuniorMajorSlugs } from "@/lib/juniorMajors";
+import {
+  getJuniorMajorBySlug,
+  listJuniorMajorSlugs,
+} from "@/lib/juniorMajors";
 
 export const dynamicParams = false;
 
@@ -22,7 +25,7 @@ export async function generateMetadata({
   const event = getJuniorMajorBySlug(slug);
   if (!event) return { title: "Junior Major Schedule | juniorgolfHQ" };
   return {
-    title: `${event.name} — Junior Major Schedule | juniorgolfHQ`,
+    title: `${event.name} \u2014 Junior Major Schedule | juniorgolfHQ`,
     description: `Dates, quick links, and results pointers for ${event.name}.`,
     alternates: { canonical: `/juniorgolfhq/schedule/${event.slug}` },
   };
@@ -76,20 +79,24 @@ export default async function JuniorScheduleEventPage({
         {JSON.stringify(eventLd)}
       </Script>
 
-      <div className="mx-auto w-full max-w-5xl px-5 py-8">
-        <div className="flex items-center justify-start">
+      {/* -- Dark Hero -- */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-10">
           <Link
             href="/juniorgolfhq/schedule"
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm shadow-zinc-900/5 backdrop-blur transition hover:bg-white"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
           >
-            <span aria-hidden>←</span>
+            <span aria-hidden>&larr;</span>
             <span>Schedule</span>
           </Link>
-        </div>
-
-        <div className="mt-4">
           <MajorEventHero name={event.name} subtitle={event.month} />
+        </div>
+      </section>
 
+      {/* -- White Content -- */}
+      <div className="bg-white">
+        <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <MajorEventTabs
             brand="juniorgolfHQ"
             name={event.name}
@@ -107,7 +114,7 @@ export default async function JuniorScheduleEventPage({
                         event.winners2026.girls ? `Girls: ${event.winners2026.girls}` : null,
                       ]
                         .filter(Boolean)
-                        .join(" • "),
+                        .join(" \u2022 "),
                     },
                   ]
                 : []
