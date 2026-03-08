@@ -5,7 +5,6 @@ function formatBadge(format?: string) {
   if (!format) return null;
   const s = format.toLowerCase();
 
-  // Normalize a few common phrases we use in our dataset.
   const hasMatch = s.includes("match");
   const hasStroke = s.includes("stroke");
   const hasFourBall = s.includes("4-ball") || s.includes("four-ball") || s.includes("best ball") || s.includes("better ball");
@@ -14,7 +13,6 @@ function formatBadge(format?: string) {
   if (hasMatch) return "Match Play";
   if (hasStroke) return "Stroke Play";
 
-  // If we can’t classify, show a compacted version of the actual format text instead of the useless "Format" label.
   if (hasFourBall && hasAltShot) return "4-Ball / Alt";
   if (hasFourBall) return "4-Ball";
   if (hasAltShot) return "Alt Shot";
@@ -29,26 +27,26 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
   return (
     <Link
       href={`/midamgolfhq/schedule/${tournament.slug}`}
-      className="group rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5 transition hover:border-zinc-300 hover:shadow"
+      className="group flex items-start justify-between gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6 transition hover:-translate-y-0.5 hover:border-white/[0.12] hover:bg-white/[0.07]"
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="font-serif text-xl font-semibold tracking-tight text-zinc-950">{tournament.name}</div>
-          {tournament.course || tournament.location ? (
-            <div className="mt-1 text-sm text-zinc-700">{[tournament.course, tournament.location].filter(Boolean).join(" • ")}</div>
-          ) : null}
-          {tournament.note ? <div className="mt-2 text-xs text-zinc-500">{tournament.note}</div> : null}
-          {dates ? <div className="mt-2 text-xs text-zinc-500">{dates}</div> : null}
-        </div>
+      <div className="min-w-0 flex-1">
+        <div className="font-serif text-xl font-semibold tracking-tight text-white">{tournament.name}</div>
+        {tournament.course || tournament.location ? (
+          <div className="mt-1.5 text-sm text-white/45">{[tournament.course, tournament.location].filter(Boolean).join(" \u2022 ")}</div>
+        ) : null}
+        {tournament.note ? <div className="mt-2 text-xs text-white/30">{tournament.note}</div> : null}
+        {dates ? <div className="mt-2 text-xs text-white/30">{dates}</div> : null}
+      </div>
+
+      <div className="flex shrink-0 flex-col items-end gap-3">
         {badge ? (
-          <div className="shrink-0 rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-[11px] font-medium text-zinc-700">
+          <div className="rounded-full border border-white/10 px-3.5 py-1.5 text-[11px] font-semibold text-white/50">
             {badge}
           </div>
         ) : null}
-      </div>
-
-      <div className="mt-4 text-sm font-medium text-zinc-900">
-        View event <span aria-hidden className="inline-block transition group-hover:translate-x-0.5">→</span>
+        <div className="text-sm text-white/30 transition group-hover:translate-x-0.5 group-hover:text-white/60" aria-hidden>
+          \u2192
+        </div>
       </div>
     </Link>
   );
