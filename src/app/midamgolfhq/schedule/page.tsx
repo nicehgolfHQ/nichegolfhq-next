@@ -1,14 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import { SiteShell } from "@/components/SiteShell";
 import { listMidAmTournaments } from "@/lib/tournaments/midam";
 import { TournamentCard } from "@/components/tournaments/TournamentCard";
 
 const YEAR = 2026;
-
 const MONTH_NAMES = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 export const metadata = {
@@ -25,7 +35,6 @@ export default function MidAmScheduleIndexPage() {
     acc[t.month].push(t);
     return acc;
   }, {});
-
   const months = Object.keys(byMonth)
     .map((m) => Number(m))
     .sort((a, b) => a - b);
@@ -65,10 +74,29 @@ export default function MidAmScheduleIndexPage() {
         {JSON.stringify(itemListLd)}
       </Script>
 
-      {/* -- Dark Hero -- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-16 text-center">
+      {/* -- Fixed B&W clock backdrop -- */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/brand/midamgolfhq/IMG_8556.JPG"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center grayscale"
+          sizes="100vw"
+          quality={80}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.6) 100%)",
+          }}
+        />
+      </div>
+
+      {/* -- Hero -- */}
+      <section className="relative z-10 overflow-hidden">
+        <div className="mx-auto w-full max-w-5xl px-5 pb-12 pt-16 text-center">
           <Link
             href="/midamgolfhq"
             className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
@@ -76,6 +104,7 @@ export default function MidAmScheduleIndexPage() {
             <span aria-hidden>&larr;</span>
             <span>midamgolfHQ</span>
           </Link>
+
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
             Mid-Am Major Schedule
           </h1>
@@ -85,8 +114,8 @@ export default function MidAmScheduleIndexPage() {
         </div>
       </section>
 
-      {/* -- Tournament List (dark) -- */}
-      <div className="bg-zinc-950">
+      {/* -- Tournament List -- */}
+      <div className="relative z-10">
         <div className="mx-auto w-full max-w-3xl px-5 pb-20 pt-10">
           <div className="space-y-12">
             {months.map((month) => (
@@ -98,6 +127,7 @@ export default function MidAmScheduleIndexPage() {
                   </h2>
                   <div className="h-px flex-1 bg-white/10" />
                 </div>
+
                 <div className="grid gap-3">
                   {byMonth[month]!.map((t) => (
                     <TournamentCard key={t.slug} tournament={t} />
