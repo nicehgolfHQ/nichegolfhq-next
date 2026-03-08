@@ -26,6 +26,13 @@ export async function generateMetadata({
   };
 }
 
+/* hero images per brand (null = gradient-only fallback) */
+const HERO_IMAGES: Record<string, string | null> = {
+  midamgolfhq: "/brand/midamgolfhq/DJI_20260221154348_0766_D.jpeg",
+  juniorgolfhq: null,
+  seniorgolfhq: null,
+};
+
 export default async function NewsletterPage({
   params,
 }: {
@@ -33,7 +40,6 @@ export default async function NewsletterPage({
 }) {
   const resolved = await Promise.resolve(params);
   const feed = getFeedBySlug(resolved.newsletter);
-
   if (!feed) {
     return (
       <SiteShell>
@@ -52,7 +58,6 @@ export default async function NewsletterPage({
     if (Number.isNaN(d.getTime())) return "";
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
   };
-
   const monthLabel = (key: string) => {
     const [y, m] = key.split("-").map((n) => Number(n));
     const d = new Date(y, (m || 1) - 1, 1);
@@ -66,7 +71,6 @@ export default async function NewsletterPage({
     acc[k].push(it);
     return acc;
   }, {});
-
   const monthKeys = Object.keys(groups).sort((a, b) => (a < b ? 1 : -1));
   const mostRecentMonth = monthKeys[0] || "";
 
@@ -78,7 +82,6 @@ export default async function NewsletterPage({
         : feed.slug === "seniorgolfhq"
           ? "2026 Senior Major Schedule"
           : null;
-
   const scheduleHref =
     feed.slug === "midamgolfhq"
       ? "/midamgolfhq/schedule"
@@ -88,13 +91,41 @@ export default async function NewsletterPage({
           ? "/seniorgolfhq/schedule"
           : null;
 
+  const heroImage = HERO_IMAGES[feed.slug] ?? null;
+
   return (
     <SiteShell brandSlug={feed.slug}>
-      {/* -- Dark Hero -- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-20 text-center">
-          <div className="mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+      {/* -- Hero with optional background image -- */}
+      <section className="relative overflow-hidden">
+        {/* Background: image or gradient fallback */}
+        {heroImage ? (
+          <>
+            <Image
+              src={heroImage}
+              alt=""
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={85}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%)",
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-zinc-950" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
+          </>
+        )}
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-20 pt-24 text-center">
+          <div className="mx-auto mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
             <Image
               src={`/brand/${feed.slug}/logo.png`}
               alt={`${feed.name} logo`}
@@ -104,14 +135,20 @@ export default async function NewsletterPage({
               priority={false}
             />
           </div>
-          <h1 className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
+
+          <h1
+            className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl"
+            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}
+          >
             {feed.name}
           </h1>
+
           {feed.tagline ? (
-            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/50">
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/60">
               {feed.tagline}
             </p>
           ) : null}
+
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             {scheduleLabel && scheduleHref ? (
               <Link
@@ -124,7 +161,7 @@ export default async function NewsletterPage({
             ) : null}
             <Link
               href="#subscribe"
-              className="inline-flex items-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/70 transition hover:border-white/40 hover:text-white"
+              className="inline-flex items-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/70 backdrop-blur-sm transition hover:border-white/40 hover:text-white"
             >
               Subscribe
             </Link>
@@ -209,10 +246,7 @@ export default async function NewsletterPage({
           <h2 className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
             Subscribe
           </h2>
-          <BeehiivEmbed
-            src={feed.subscribeEmbedUrl}
-            height={feed.subscribeEmbedHeight}
-          />
+          <BeehiivEmbed src={feed.subscribeEmbedUrl} height={feed.subscribeEmbedHeight} />
         </div>
       </section>
 
