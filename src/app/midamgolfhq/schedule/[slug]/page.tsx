@@ -133,7 +133,7 @@ export default async function MidAmTournamentPage({
       </section>
 
       {/* -- White Content -- */}
-      <div className="bg-zinc-950">
+      <div className="bg-white">
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
