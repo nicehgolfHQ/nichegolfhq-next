@@ -22,6 +22,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "Stableford",
     note: "Rescheduled (TBD)",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
   },
   {
     slug: "gasparilla-invitational",
@@ -488,6 +491,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { year: 2020, champion: "No tournament", notes: "Not listed — likely cancelled" },
       { year: 2019, champion: "Xavier Dailly" },
       { year: 2018, champion: "Jamie Miller" },
+    ],
+    howToPlay: [
+      { label: "Invite only — no application" },
     ],
   },
 
