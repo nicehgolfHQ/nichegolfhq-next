@@ -264,7 +264,7 @@ export default async function NewsletterPage({
 
       {/* -- All content scrolls over the fixed hero -- */}
       <div className="relative z-10">
-        {/* -- Latest Issue (single) -- */}
+        {/* -- Latest Newsletter Issue (single) -- */}
         <section className="px-5 py-12">
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
