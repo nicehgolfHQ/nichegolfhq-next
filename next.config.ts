@@ -1,4 +1,14 @@
-import type { NextConfig } from "next";
+import ty
+        {
+          source: "/juniorgolfhq/schedule",
+          destination: "/juniorgolfhq",
+          permanent: true,
+        },
+        {
+          source: "/seniorgolfhq/schedule",
+          destination: "/seniorgolfhq",
+          permanent: true,
+        },pe { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
