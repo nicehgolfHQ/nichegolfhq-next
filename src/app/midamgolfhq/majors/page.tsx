@@ -5,9 +5,9 @@ export const dynamic = "force-static";
 export const metadata = {
   title: "Mid-Am Schedule | midamgolfHQ",
   description: "Mid-amateur tournament schedule and event hubs.",
-  alternates: { canonical: "/midamgolfhq/schedule" },
+  alternates: { canonical: "/midamgolfhq" },
 };
 
 export default function MidAmMajorsRedirectPage() {
-  redirect("/midamgolfhq/schedule");
+  redirect("/midamgolfhq");
 }
