@@ -12,25 +12,23 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn-images-1.medium.com" },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/favicon.ico",
-        destination: "/favicon.png",
-        permanent: true,
-      },
-      {
-        source: "/juniorgolfhq/schedule",
-        destination: "/juniorgolfhq",
-        permanent: true,
-      },
-      {
-        source: "/seniorgolfhq/schedule",
-        destination: "/seniorgolfhq",
-        permanent: true,
-      },
-    ];
-  },
+  redirects: async () => [
+    {
+      source: "/midamgolfhq/schedule/:slug",
+      destination: "/midamgolfhq/:slug",
+      permanent: true,
+    },
+    {
+      source: "/juniorgolfhq/schedule/:slug",
+      destination: "/juniorgolfhq/:slug",
+      permanent: true,
+    },
+    {
+      source: "/seniorgolfhq/schedule/:slug",
+      destination: "/seniorgolfhq/:slug",
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;
