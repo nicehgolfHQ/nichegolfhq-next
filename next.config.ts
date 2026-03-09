@@ -1,14 +1,4 @@
-import ty
-        {
-          source: "/juniorgolfhq/schedule",
-          destination: "/juniorgolfhq",
-          permanent: true,
-        },
-        {
-          source: "/seniorgolfhq/schedule",
-          destination: "/seniorgolfhq",
-          permanent: true,
-        },pe { NextConfig } from "next";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
@@ -27,6 +17,16 @@ const nextConfig: NextConfig = {
       {
         source: "/favicon.ico",
         destination: "/favicon.png",
+        permanent: true,
+      },
+      {
+        source: "/juniorgolfhq/schedule",
+        destination: "/juniorgolfhq",
+        permanent: true,
+      },
+      {
+        source: "/seniorgolfhq/schedule",
+        destination: "/seniorgolfhq",
         permanent: true,
       },
     ];
