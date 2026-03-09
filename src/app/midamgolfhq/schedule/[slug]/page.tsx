@@ -9,7 +9,6 @@ import {
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
-import { TournamentLinks } from "@/components/tournaments/TournamentLinks";
 
 export const dynamicParams = false;
 
@@ -136,7 +135,6 @@ export default async function MidAmTournamentPage({
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
-          <TournamentLinks tournament={tournament} />
         </div>
       </div>
     </SiteShell>
