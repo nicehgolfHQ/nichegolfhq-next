@@ -32,7 +32,7 @@ export async function generateMetadata({
 const HERO_IMAGES: Record<string, string | null> = {
   midamgolfhq: "/brand/midamgolfhq/DJI_20260221154348_0766_D.jpeg",
   juniorgolfhq: null,
-  seniorgolfhq: null,
+  seniorgolfhq: "/brand/midamgolfhq/IMG_8556.JPG",
 };
 
 const MONTH_NAMES = [
