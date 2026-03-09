@@ -160,9 +160,6 @@ export function SiteShell({
                 Terms of Use
               </Link>
             </div>
-            <div className="max-w-3xl text-sm leading-6 text-white/60">
-              nichegolfHQ is an independent media and intelligence platform covering amateur golf across junior, mid-amateur, and senior competitive play.
-            </div>
             <div className="text-sm text-white/50">2026 nichegolfHQ all rights reserved</div>
           </div>
         </div>
