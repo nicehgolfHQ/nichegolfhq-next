@@ -135,53 +135,69 @@ export default async function Home() {
       ) : null}
 
       {/* Channels */}
-      <section className="mx-auto w-full max-w-6xl px-5 py-14">
-        <div className="text-center">
-          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-white/80">Channels</h2>
-        </div>
+        <section className="mx-auto w-full max-w-6xl px-5 py-14">
+          <div className="text-center">
+            <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-white/80">Channels</h2>
+          </div>
 
-        <div className="mt-6 flex flex-col gap-7">
-          {results.map(({ feed, items }) => (
-            <div key={feed.slug} className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
-              <div className="flex flex-col gap-4 border-b border-zinc-200 px-6 py-6 md:flex-row md:items-center md:justify-between">
-                <div className="flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
-                  <div className="rounded-2xl border border-zinc-200 bg-white px-4 py-3">
-                    <Image
-                      src={`/brand/${feed.slug}/logo.png`}
-                      alt={`${feed.name} logo`}
-                      width={260}
-                      height={96}
-                      className="h-[44px] w-auto"
-                      priority={false}
-                    />
+          <div className="mx-auto mt-6 flex max-w-md flex-col items-center gap-3">
+            {results.map(({ feed, items }) => (
+              <details
+                key={feed.slug}
+                className="group w-full"
+              >
+                <summary className="flex w-full cursor-pointer list-none items-center justify-center gap-3 rounded-full border border-white/15 px-6 py-3 transition hover:border-white/30">
+                  <Image
+                    src={`/brand/${feed.slug}/logo.png`}
+                    alt={`${feed.name} logo`}
+                    width={130}
+                    height={48}
+                    className="h-[28px] w-auto"
+                    priority={false}
+                  />
+                  <span className="text-sm font-medium text-white/60 transition group-hover:text-white">
+                    {feed.name}
+                  </span>
+                  <svg
+                    className="h-4 w-4 text-white/40 transition-transform group-open:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+
+                <div className="mt-4 rounded-2xl bg-black/60 p-4 backdrop-blur-md">
+                  <div className="grid grid-cols-1 gap-4">
+                    {items.length ? (
+                      items.map((it) => (
+                        <IssueCard
+                          key={it.link + it.title}
+                          item={it}
+                          newsletterSlug={feed.slug}
+                        />
+                      ))
+                    ) : (
+                      <div className="rounded-xl border border-white/10 p-4 text-center text-sm text-white/40">
+                        No posts yet.
+                      </div>
+                    )}
                   </div>
-                  <div className="text-xl font-semibold tracking-tight text-zinc-950">{feed.name}</div>
+                  <div className="mt-4 text-center">
+                    <Link
+                      href={`/${feed.slug}`}
+                      className="text-xs text-white/30 underline underline-offset-2 transition hover:text-white/50"
+                    >
+                      View all {feed.name} &rarr;
+                    </Link>
+                  </div>
                 </div>
-
-                <Link
-                  href={`/${feed.slug}`}
-                  className="inline-flex w-fit items-center justify-center self-center rounded-md px-4 py-2 text-sm font-bold text-white md:self-auto"
-                  style={{ background: feed.slug === "midamgolfhq" ? "#1a1a2e" : feed.slug === "seniorgolfhq" ? "#2d6a4f" : "#8b4513" }}
-                >
-                  View All →
-                </Link>
-              </div>
-
-              <div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-4 px-6 py-6 md:grid-cols-2">
-                {items.length ? (
-                  items.map((it) => <IssueCard key={it.link + it.title} item={it} newsletterSlug={feed.slug} />)
-                ) : (
-                  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-600">
-                    No posts yet (or RSS URL not configured).
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* moved to footer */}
-      </section>
+              </details>
+            ))}
+          </div>
+        </section>
       </div>
     </SiteShell>
   );
