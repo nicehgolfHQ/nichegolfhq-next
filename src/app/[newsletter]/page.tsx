@@ -48,6 +48,18 @@ function parseMonthNum(monthStr: string): number {
   return idx >= 0 ? idx + 1 : 1;
 }
 
+type ScheduleItem = {
+  slug: string;
+  name: string;
+  month: number;
+  dates2026?: string;
+  course?: string;
+  location?: string;
+  format?: string;
+  note?: string;
+  channel?: string;
+};
+
 export default async function NewsletterPage({
   params,
 }: {
@@ -99,7 +111,7 @@ export default async function NewsletterPage({
           : null;
 
   /* ---------- Schedule data (inline dropdown) ---------- */
-  const tournaments =
+  const tournaments: ScheduleItem[] =
     feed.slug === "midamgolfhq"
       ? listMidAmTournaments()
       : feed.slug === "juniorgolfhq"
@@ -121,7 +133,7 @@ export default async function NewsletterPage({
             }))
           : [];
   const tournamentsByMonth = tournaments.reduce<
-    Record<number, typeof tournaments>
+    Record<number, ScheduleItem[]>
   >((acc, t) => {
     acc[t.month] = acc[t.month] ?? [];
     acc[t.month].push(t);
