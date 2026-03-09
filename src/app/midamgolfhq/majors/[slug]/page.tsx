@@ -9,6 +9,6 @@ export default async function MajorHubRedirectPage({
 }) {
   const p: any = await Promise.resolve(params as any);
   const slug = p?.slug ?? "";
-  if (!slug) redirect("/midamgolfhq/schedule");
-  redirect(`/midamgolfhq/schedule/${slug}`);
+  if (!slug) redirect("/midamgolfhq");
+  redirect(`/midamgolfhq/${slug}`);
 }
