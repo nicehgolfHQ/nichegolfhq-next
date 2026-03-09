@@ -1,4 +1,4 @@
-import type { Tournament } from "@/lib/tournaments/types";
+import type { Tournament, HowToPlayEntry } from "@/lib/tournaments/types";
 
 // Mid-Am schedule dataset (as provided by Jonathan)
 // Note: Do not invent missing data. Fill in course/location/details only when confirmed.
@@ -39,6 +39,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Donald Ross",
     courseNotes: "Short course; Donald Ross design (1923)",
     golfGeniusUrl: "https://pcgc-71stgasparillainvitational.golfgenius.com/pages/11889495109525324281",
+
+    howToPlay: [
+      { label: "Apply for invite", href: "https://gasparillainvitational.com/" },
+      { label: "Monday qualifier", note: "Open qualifying held the Monday before the event" },
+    ],
 
     format: "54 holes stroke play",
     pastResults: [
