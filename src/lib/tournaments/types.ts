@@ -8,6 +8,12 @@ export interface PastResult {
   notes?: string;
 }
 
+export interface HowToPlayEntry {
+  label: string;
+  href?: string;
+  note?: string;
+}
+
 export interface Tournament {
   // === IDENTITY ===
   slug: string;
@@ -57,6 +63,9 @@ export interface Tournament {
   courseWebsite?: string;
   amateurgolfUrl?: string;
   socialHashtag?: string;
+
+  // === HOW TO PLAY ===
+  howToPlay?: HowToPlayEntry[];
 
   // === MEDIA ===
   heroImage?: string;
