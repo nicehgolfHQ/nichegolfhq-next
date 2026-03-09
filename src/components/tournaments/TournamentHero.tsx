@@ -8,7 +8,7 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
     <section className="text-center">
       <div className="flex items-center justify-center gap-4">
         <Image
-          src="/brand/event-logo.png"
+          src="/brand/gasparilla.png"
           alt="Event logo"
           width={60}
           height={60}
