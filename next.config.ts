@@ -12,11 +12,12 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn-images-1.medium.com" },
     ],
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: "/favicon.ico",
         destination: "/favicon.png",
+        permanent: true,
       },
     ];
   },
