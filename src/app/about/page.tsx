@@ -18,11 +18,11 @@ export default function AboutPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/50" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1
             className="font-serif text-5xl font-bold tracking-tight text-white md:text-6xl"
-            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+            style={{ textShadow: "0 2px 24px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3)" }}
           >
             About
           </h1>
