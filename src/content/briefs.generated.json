@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-03-09",
+      "title": "Daily Brief — Mar 9, 2026",
+      "items": [
+        {
+          "title": "The Snedeker Memorial",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/schedule/snedeker-memorial",
+          "source": "midamgolfHQ",
+          "why": "On 2026-03-09: the Snedeker Memorial Mid-Am invitational is scheduled for Mar 12–15 at The Lakewood Club (Dogwood Course) in Point Clear/Fairhope, Alabama, a new March stop built around 54-hole stroke play (with a parallel team component).",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "seniorgolfHQ",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq",
+          "source": "nichegolfHQ",
+          "why": "On 2026-03-09: U.S. Senior Amateur rankings are now live on-site under the Senior tab on seniorgolfHQ.",
+          "tags": [
+            "senior"
+          ]
+        },
+        {
+          "title": "Lisle, Jia Capture Titles at Dustin Johnson World Junior",
+          "url": "https://worldjuniorgolfchampionship.com/news_post/lisle-jia-capture-titles-at-dustin-johnson-world-junior/",
+          "source": "Dustin Johnson World Junior",
+          "why": "On 2026-03-09: William Lisle won the boys title at 4-under 212 (one-shot margin) and Fay Jia won the girls title at even-par 216 (four-shot margin) at TPC Myrtle Beach.",
+          "tags": [
+            "juniors"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-03-08",
       "title": "Daily Brief — Mar 8, 2026",
       "items": [
