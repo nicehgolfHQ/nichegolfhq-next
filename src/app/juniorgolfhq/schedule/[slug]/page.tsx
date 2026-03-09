@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { MajorEventHero } from "@/components/majors/MajorEventHero";
 import { MajorEventTabs } from "@/components/majors/MajorEventTabs";
+import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import {
   getJuniorMajorBySlug,
   listJuniorMajorSlugs,
@@ -120,6 +121,7 @@ export default async function JuniorScheduleEventPage({
                 : []
             }
           />
+            <TournamentHowToPlay howToPlay={event.howToPlay} />
         </div>
       </div>
     </SiteShell>
