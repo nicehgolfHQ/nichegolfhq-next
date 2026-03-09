@@ -23,7 +23,7 @@ export function TournamentHowToPlay({ tournament }: { tournament: Tournament }) 
                 rel="noreferrer"
                 className="text-sm font-semibold text-emerald-700 underline-offset-4 hover:underline"
               >
-                {entry.label} &rarr;
+                {entry.label}
               </a>
             ) : (
               <div className="text-sm font-semibold text-zinc-950">
