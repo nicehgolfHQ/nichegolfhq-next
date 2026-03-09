@@ -404,6 +404,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { year: 1903, champion: "Frank O. Reinhart" },
       { year: 1902, champion: "Walter J. Travis" },
     ],
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
   },
   {
     slug: "john-t-lupton-memorial",
