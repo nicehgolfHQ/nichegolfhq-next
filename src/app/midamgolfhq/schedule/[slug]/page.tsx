@@ -136,7 +136,7 @@ export default async function MidAmTournamentPage({
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
-              <TournamentHowToPlay tournament={tournament} />
+              <TournamentHowToPlay howToPlay={tournament.howToPlay} />
         </div>
       </div>
     </SiteShell>
