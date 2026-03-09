@@ -6,18 +6,24 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
 
   return (
     <section className="text-center">
-      <div className="flex items-center justify-center gap-4">
-        <Image
-          src="/brand/gasparilla.png"
-          alt="Event logo"
-          width={60}
-          height={60}
-          className="h-[60px] w-auto"
-        />
+      {tournament.logo ? (
+        <div className="flex items-center justify-center gap-4">
+          <Image
+            src={tournament.logo}
+            alt="Event logo"
+            width={60}
+            height={60}
+            className="h-[60px] w-auto"
+          />
+          <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
+            {tournament.name}
+          </h1>
+        </div>
+      ) : (
         <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
           {tournament.name}
         </h1>
-      </div>
+      )}
 
       <div className="mt-4 text-sm text-zinc-500">
         {[tournament.course, tournament.location, dates]
