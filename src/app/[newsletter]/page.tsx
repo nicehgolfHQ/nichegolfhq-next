@@ -128,7 +128,8 @@ export default async function NewsletterPage({
             }}
           />
         </div>
-      ) : (        <div className="fixed inset-0 z-0">
+      ) : (
+        <div className="fixed inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-zinc-950" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         </div>
@@ -152,7 +153,7 @@ export default async function NewsletterPage({
 
           {scheduleLabel && scheduleMonths.length > 0 ? (
             <div className="mt-10">
-              <details className="group inline-block text-left" id="schedule-dropdown">
+              <details className="group flex flex-col items-center text-left" id="schedule-dropdown">
                 <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10">
                   <span>{scheduleLabel}</span>
                   <svg
@@ -166,7 +167,7 @@ export default async function NewsletterPage({
                   </svg>
                 </summary>
 
-                <div className="mt-6 w-[90vw] max-w-2xl -translate-x-1/2 left-1/2 relative rounded-2xl bg-black/70 backdrop-blur-xl p-4 shadow-2xl">
+                <div className="mt-6 w-[90vw] max-w-2xl rounded-2xl bg-black/70 backdrop-blur-xl p-4 shadow-2xl">
                   <div className="space-y-6">
                     {scheduleMonths.map((month) => (
                       <div key={month}>
