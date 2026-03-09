@@ -18,7 +18,7 @@ export default function AboutPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1
             className="font-serif text-5xl font-bold tracking-tight text-white md:text-6xl"
