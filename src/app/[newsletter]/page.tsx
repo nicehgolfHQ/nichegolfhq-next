@@ -32,8 +32,8 @@ export async function generateMetadata({
 
 /* hero images per brand (null = gradient-only fallback) */
 const HERO_IMAGES: Record<string, string | null> = {
-  midamgolfhq: "/brand/midamgolfhq/DJI_20260221154348_0766_D.jpeg",
-  juniorgolfhq: null,
+  midamgolfhq: "/brand/midamgolfhq/IMG_8556.JPG",
+  juniorgolfhq: "/brand/midamgolfhq/IMG_8556.JPG",
   seniorgolfhq: "/brand/midamgolfhq/IMG_8556.JPG",
 };
 
