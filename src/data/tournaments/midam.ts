@@ -42,7 +42,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     howToPlay: [
       { label: "Apply for invite", href: "https://gasparillainvitational.com/" },
-      { label: "Monday qualifier", note: "Open qualifying held the Monday before the event" },
+      { label: "Monday qualifier", note: "Qualifying held the Monday before the event" },
     ],
 
     format: "54 holes stroke play",
