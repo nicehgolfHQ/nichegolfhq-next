@@ -126,7 +126,7 @@ export function SiteShell({
           {/* right: subscribe */}
           <div className="flex items-center justify-end">
             <Link
-              href="#subscribe"
+              href="/subscribe"
               className="rounded-full border border-white/20 px-4 py-1.5 text-xs font-medium text-white/70 transition hover:border-white/40 hover:text-white"
             >
               Subscribe
