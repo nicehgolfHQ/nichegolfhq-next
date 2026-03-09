@@ -26,7 +26,7 @@ export function TournamentCard({ tournament }: { tournament: Tournament }) {
 
   return (
     <Link
-      href={`/midamgolfhq/schedule/${tournament.slug}`}
+      href={`/midamgolfhq/${tournament.slug}`}
       className="group flex items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5 transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
     >
       <div className="min-w-0 flex-1">
