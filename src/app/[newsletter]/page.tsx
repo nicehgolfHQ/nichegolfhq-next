@@ -7,6 +7,8 @@ import { MidAmRankings } from "@/components/MidAmRankings";
 import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
 import { listMidAmTournaments } from "@/lib/tournaments/midam";
+import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
+import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -39,6 +41,12 @@ const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
 ];
+
+function parseMonthNum(monthStr: string): number {
+  const m = monthStr.split(/[\/\s]/)[0].toLowerCase();
+  const idx = MONTH_NAMES.findIndex((n) => n.toLowerCase().startsWith(m));
+  return idx >= 0 ? idx + 1 : 1;
+}
 
 export default async function NewsletterPage({
   params,
@@ -92,7 +100,26 @@ export default async function NewsletterPage({
 
   /* ---------- Schedule data (inline dropdown) ---------- */
   const tournaments =
-    feed.slug === "midamgolfhq" ? listMidAmTournaments() : [];
+    feed.slug === "midamgolfhq"
+      ? listMidAmTournaments()
+      : feed.slug === "juniorgolfhq"
+        ? JUNIOR_MAJOR_EVENTS_2026.map((e) => ({
+            slug: e.slug,
+            name: e.name,
+            channel: "junior" as const,
+            month: parseMonthNum(e.month),
+            dates2026: e.month,
+          }))
+        : feed.slug === "seniorgolfhq"
+          ? SENIOR_MAJOR_EVENTS_2026.map((e) => ({
+              slug: e.slug,
+              name: e.name,
+              channel: "senior" as const,
+              month: parseMonthNum(e.month),
+              dates2026: e.month,
+              format: e.format,
+            }))
+          : [];
   const tournamentsByMonth = tournaments.reduce<
     Record<number, typeof tournaments>
   >((acc, t) => {
@@ -182,7 +209,7 @@ export default async function NewsletterPage({
                           {tournamentsByMonth[month]!.map((t) => (
                             <Link
                               key={t.slug}
-                              href={`/midamgolfhq/schedule/${t.slug}`}
+                              href={`/${feed.slug}/schedule/${t.slug}`}
                               className="group/evt flex items-center justify-between gap-3 rounded-xl border border-white/10 px-4 py-3.5 transition hover:border-white/20 hover:bg-white/5"
                             >
                               <div className="min-w-0 flex-1">
