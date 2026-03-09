@@ -2,10 +2,7 @@ import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
 import type { Tournament } from "@/lib/tournaments/types";
 
 export function listMidAmTournaments(): Tournament[] {
-  return [...MIDAM_TOURNAMENTS].sort((a, b) => {
-    if (a.month !== b.month) return a.month - b.month;
-    return a.name.localeCompare(b.name);
-  });
+  return [...MIDAM_TOURNAMENTS].sort((a, b) => a.month - b.month);
 }
 
 export function listMidAmTournamentSlugs(): string[] {
