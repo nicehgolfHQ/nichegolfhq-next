@@ -41,7 +41,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     golfGeniusUrl: "https://pcgc-71stgasparillainvitational.golfgenius.com/pages/11889495109525324281",
 
     howToPlay: [
-      { label: "Apply for invite", href: "https://gasparillainvitational.com/" },
+      { label: "Apply for invite here", href: "https://gasparillainvitational.com/" },
       { label: "Monday qualifier", note: "Qualifying held the Monday before the event" },
     ],
 
