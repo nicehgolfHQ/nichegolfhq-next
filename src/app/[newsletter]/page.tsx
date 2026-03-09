@@ -4,6 +4,7 @@ import { SiteShell } from "@/components/SiteShell";
 import { IssueCard } from "@/components/IssueCard";
 import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { MidAmRankings } from "@/components/MidAmRankings";
+import { AmateurRankings } from "@/components/AmateurRankings";
 import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
 import { listMidAmTournaments } from "@/lib/tournaments/midam";
@@ -366,11 +367,17 @@ export default async function NewsletterPage({
           </div>
         </section>
 
-        {/* -- Mid-Am Rankings (only for midamgolfhq) -- */}
+        {/* -- Rankings -- */}
         {feed.slug === "midamgolfhq" ? (
           <section className="px-5 pb-16">
             <div className="mx-auto max-w-4xl">
               <MidAmRankings />
+            </div>
+          </section>
+        ) : feed.slug === "juniorgolfhq" || feed.slug === "seniorgolfhq" ? (
+          <section className="px-5 pb-16">
+            <div className="mx-auto max-w-4xl">
+              <AmateurRankings brand={feed.slug} />
             </div>
           </section>
         ) : null}
