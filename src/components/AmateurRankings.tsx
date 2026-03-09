@@ -91,7 +91,7 @@ function RankingsTable({ title, players, loading }: RankingsTableProps) {
 const BASE_URL =
   "https://www.amateurgolfinfo.com/apiv1/players?page=1&limit=10";
 
-type BrandSlug = "juniorgolfhq" | "seniorgolfhq";
+type BrandSlug = "midamgolfhq" | "juniorgolfhq" | "seniorgolfhq";
 
 const BRAND_CONFIG: Record<
   BrandSlug,
@@ -102,6 +102,15 @@ const BRAND_CONFIG: Record<
     linkLabel: string;
   }
 > = {
+  midamgolfhq: {
+    heading: "Mid-Am Rankings",
+    tables: [
+      { title: "Men’s Top 10", mensDivision: true, level: "Mid-Am" },
+      { title: "Women’s Top 10", mensDivision: false, level: "Mid-Am" },
+    ],
+    linkUrl: "https://www.amateurgolfinfo.com/rankings/mens",
+    linkLabel: "Full rankings at Amateur Golf Info",
+  },
   juniorgolfhq: {
     heading: "Junior Rankings",
     tables: [
