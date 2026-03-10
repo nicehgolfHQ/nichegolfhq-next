@@ -116,13 +116,13 @@ export default async function MidAmTournamentPage({
       </Script>
 
       {/* -- Dark Hero -- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
+      <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-10">
           <div className="mb-6">
             <Link
               href="/midamgolfhq"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white/40 transition hover:text-white/70"
+              className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition hover:text-zinc-700"
             >
               <span aria-hidden>&larr;</span>
               <span>midamgolfHQ</span>
