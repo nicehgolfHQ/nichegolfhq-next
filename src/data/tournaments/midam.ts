@@ -532,10 +532,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "european-mens-mid-amateur",
     name: "European Mid-Amateur Men’s Championship",
     channel: "midam",
+    logo: "/brand/European Mid Amateur.png",
     month: 6,
     dates2026: "June 2026",
     format: "54 holes stroke play",
     courseWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
+    howToPlay: [
+      { label: "Open entry via national federation", href: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9" },
+    ],
     note: "Europe",
     pastResults: [
       { year: 2025, champion: "Christoph Kogl" },
