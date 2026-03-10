@@ -77,7 +77,7 @@ export default async function JuniorScheduleEventPage({
       </Script>
 
       {/* -- Dark Hero -- */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-zinc-50">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-10">
           <div className="mb-6">
