@@ -468,6 +468,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-huddleston-cup",
     name: "The Huddleston Cup",
     channel: "midam",
+    logo: "/brand/Huddleston.png",
     month: 5,
     dates2026: "May 2026",
     course: "Maridoe Golf Club",
@@ -481,6 +482,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Red tees: 77.5/153 (7,311 yds); 155 is max slope",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Bobby Massa" },
       { year: 2024, champion: "Scott Harvey" },
