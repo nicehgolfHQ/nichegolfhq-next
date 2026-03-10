@@ -107,7 +107,7 @@ export default async function MidAmTournamentPage({
   }
 
   return (
-    <SiteShell hideHeader>
+    <SiteShell>
       <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbsLd)}
       </Script>
