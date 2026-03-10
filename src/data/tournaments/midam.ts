@@ -8,6 +8,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "tree-farm-invitational",
     name: "The Tree Farm Invitational",
     channel: "midam",
+    logo: "/brand/tree-farm.png",
     month: 1,
     dates2026: "January 2026",
     course: "The Tree Farm Golf Club",
@@ -126,6 +127,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "snedeker-memorial",
     name: "The Snedeker Memorial",
     channel: "midam",
+    logo: "/brand/snedeker.png",
     month: 3,
     dates2026: "March 2026",
     course: "The Lakewood Club",
@@ -150,6 +152,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "champions-cup-four-ball",
     name: "Champions Cup Four-Ball",
     channel: "midam",
+    logo: "/brand/champions-cup.png",
     month: 3,
     dates2026: "March 2026",
     course: "Champions Golf Club",
@@ -163,6 +166,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Site of 1969 U.S. Open, 2020 U.S. Women's Open",
 
     format: "72 holes better ball",
+    howToPlay: [
+      { label: "Apply for invite here", href: "https://www.championsgolfclub.com/default.aspx?p=.NETDynamicForm&f=ddc32a0e-c1bc-4f2d-a2a3-f18eaa0d6091" },
+    ],
     pastResults: [
       { year: 2025, champion: "Will Davenport / Nick Maccario" },
       { year: 2024, champion: "Robby Ormand / Jordan Woolf" },
@@ -228,6 +234,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "giles-invitational",
     name: "The Giles Invitational",
     channel: "midam",
+    logo: "/brand/giles.png",
     month: 5,
     dates2026: "May 2026",
     course: "Kinloch Golf Club",
@@ -241,6 +248,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Site of 2024 U.S. Mid-Amateur",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only" },
+    ],
     pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
   },
   {
@@ -934,6 +944,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "usga-womens-mid-am",
     name: "USGA Women’s Mid-Am",
     channel: "midam",
+    logo: "/brand/usga.png",
     month: 9,
     dates2026: "September 2026",
     course: "Montclair Golf Club",
@@ -945,6 +956,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "Charles Banks",
     courseNotes: "36-hole club (four 9s); 18H combo varies",
+    howToPlay: [
+      { label: "Open qualifying + exemptions", href: "https://champ-admin.usga.org/player" },
+    ],
 
     format: "Match play",
     pastResults: [
@@ -1166,6 +1180,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "usga-mens-mid-am",
     name: "USGA Men’s Mid-Am",
     channel: "midam",
+    logo: "/brand/usga.png",
     month: 10,
     dates2026: "October 2026",
     course: "Sand Valley Resort",
@@ -1177,6 +1192,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "David McLay Kidd",
     courseNotes: "Sand Valley course also on property",
+    howToPlay: [
+      { label: "Open qualifying + exemptions", href: "https://champ-admin.usga.org/player" },
+    ],
 
     format: "Match play",
     pastResults: [
