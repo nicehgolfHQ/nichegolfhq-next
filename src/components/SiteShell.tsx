@@ -13,9 +13,11 @@ type BrandKey = keyof typeof SOCIAL;
 export function SiteShell({
   children,
   brandSlug,
+  hideHeader,
 }: {
   children: React.ReactNode;
   brandSlug?: string;
+  hideHeader?: boolean;
 }) {
   const headerBrand =
     brandSlug === "midamgolfhq" || brandSlug === "juniorgolfhq" || brandSlug === "seniorgolfhq"
@@ -26,6 +28,7 @@ export function SiteShell({
 
   return (
     <div className="min-h-screen text-zinc-950 antialiased">
+      {!hideHeader && (
       <header className="sticky top-0 z-50 bg-black/40">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-3 items-center px-5 py-1 text-white">
           {/* left: menu */}
@@ -145,6 +148,7 @@ export function SiteShell({
           </div>
         </nav>
       </header>
+      )}
 
       <main>{children}</main>
 

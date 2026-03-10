@@ -9,7 +9,7 @@ import {
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
-import { TournamentLinks } from "@/components/tournaments/TournamentLinks";
+import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 
 export const dynamicParams = false;
 
@@ -107,7 +107,7 @@ export default async function MidAmTournamentPage({
   }
 
   return (
-    <SiteShell>
+    <SiteShell hideHeader>
       <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbsLd)}
       </Script>
@@ -137,7 +137,7 @@ export default async function MidAmTournamentPage({
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
-          <TournamentLinks tournament={tournament} />
+          <TournamentHowToPlay howToPlay={tournament.howToPlay} />
         </div>
       </div>
     </SiteShell>
