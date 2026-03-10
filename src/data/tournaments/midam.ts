@@ -580,6 +580,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "anderson-memorial-four-ball",
     name: "Anderson Memorial Four-Ball",
     channel: "midam",
+    logo: "/brand/Anderson Memorial.jpeg",
     month: 6,
     dates2026: "June 2026",
     course: "Winged Foot Golf Club",
@@ -593,6 +594,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Site of 6 U.S. Opens; East also 140 slope",
 
     format: "Match play better ball",
+    howToPlay: [
+      { label: "Invite only — submit application", href: "https://andersonmemorial.org/" },
+    ],
+    liveScoring: "https://andersonmemorial.org/",
     pastResults: [
       { year: 2025, champion: "Scott Strickland / Jimmy Chestnut" },
       { year: 2024, champion: "Scott Strickland / Jimmy Chestnut" },
