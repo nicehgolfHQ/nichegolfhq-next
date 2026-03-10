@@ -496,6 +496,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "cb-macdonald-invitational-tournament",
     name: "C.B Macdonald Invitational Tournament",
     channel: "midam",
+    logo: "/brand/CB Macdonald.jpeg",
     month: 6,
     dates2026: "June 2026",
     course: "National Golf Links of America",
@@ -509,6 +510,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Host of first Walker Cup (1922)",
 
     format: "Match play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Stewart Hagestad" },
       { year: 2024, champion: "Jimmy Chestnut" },
