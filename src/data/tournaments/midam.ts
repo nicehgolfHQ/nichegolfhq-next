@@ -523,9 +523,6 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { year: 2019, champion: "Xavier Dailly" },
       { year: 2018, champion: "Jamie Miller" },
     ],
-    howToPlay: [
-      { label: "Invite only — no application" },
-    ],
   },
 
   {
