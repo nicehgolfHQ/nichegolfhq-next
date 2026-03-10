@@ -8,7 +8,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "tree-farm-invitational",
     name: "The Tree Farm Invitational",
     channel: "midam",
-    logo: "/brand/TF.png",
+    logo: "/brand/Tree Farm 2.jpeg",
     month: 1,
     dates2026: "January 2026",
     course: "The Tree Farm Golf Club",
