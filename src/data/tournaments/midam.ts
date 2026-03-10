@@ -280,6 +280,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "walter-j-travis-invitational",
     name: "The Walter J. Travis Invitational",
     channel: "midam",
+    logo: "/brand/Walter Travis.jpeg",
     month: 5,
     dates2026: "May 2026",
     course: "Garden City Golf Club",
@@ -293,6 +294,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Men-only club; est. 1899",
 
     format: "Match play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Chris DeJohn" },
       { year: 2024, champion: "Ben Greve" },
