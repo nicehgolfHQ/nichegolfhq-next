@@ -257,6 +257,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-jupiter-invitational",
     name: "The Jupiter Invitational (New)",
     channel: "midam",
+    logo: "/brand/Jupiter.jpg",
     month: 5,
     dates2026: "May 2026",
     course: "Jonathan’s Landing",
@@ -269,7 +270,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Tom Fazio",
     courseNotes: "3 courses on property; Medal most likely venue",
 
+    golfGeniusUrl: "https://www.golfgenius.com/pages/11637199273677834597",
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://www.golfgenius.com/register?league_id=11637199223413295215" },
+    ],
   },
   {
     slug: "walter-j-travis-invitational",
