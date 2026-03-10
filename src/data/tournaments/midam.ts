@@ -597,7 +597,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — submit application", href: "https://andersonmemorial.org/" },
     ],
-    liveScoring: "https://andersonmemorial.org/",
+    golfGeniusUrl: "https://andersonmemorial.org/",
     pastResults: [
       { year: 2025, champion: "Scott Strickland / Jimmy Chestnut" },
       { year: 2024, champion: "Scott Strickland / Jimmy Chestnut" },
