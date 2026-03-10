@@ -423,14 +423,12 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { year: 1903, champion: "Frank O. Reinhart" },
       { year: 1902, champion: "Walter J. Travis" },
     ],
-    howToPlay: [
-      { label: "Invite only — no application" },
-    ],
   },
   {
     slug: "john-t-lupton-memorial",
     name: "John T. Lupton Memorial",
     channel: "midam",
+    logo: "/brand/Lupton.jpeg",
     month: 5,
     dates2026: "May 2026",
     course: "The Honors Club",
@@ -444,6 +442,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Black tees: 75.9/155 (7,274 yds)",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Ben Reeves & Brett Patterson", notes: "T1" },
       { year: 2024, champion: "Joseph Deraney" },
