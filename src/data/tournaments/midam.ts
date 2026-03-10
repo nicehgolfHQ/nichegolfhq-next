@@ -249,7 +249,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "54 holes stroke play",
     howToPlay: [
-      { label: "Invite only" },
+      { label: "Invite only — no application" },
     ],
     pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
   },
