@@ -68,7 +68,7 @@ export default async function JuniorScheduleEventPage({
   };
 
   return (
-    <SiteShell brandSlug="juniorgolfhq" hideHeader>
+    <SiteShell brandSlug="juniorgolfhq">
       <Script id={`ld-breadcrumbs-junior-${event.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbsLd)}
       </Script>
