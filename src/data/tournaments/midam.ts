@@ -446,7 +446,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — no application" },
     ],
     pastResults: [
-      { year: 2025, champion: "Ben Reeves & Brett Patterson", notes: "T1" },
+      { year: 2025, champion: "Ben Reeves" },
       { year: 2024, champion: "Joseph Deraney" },
       { year: 2023, champion: "Hayes Brown" },
       { year: 2021, champion: "Joseph Deraney" },
