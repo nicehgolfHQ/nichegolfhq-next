@@ -1298,6 +1298,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "300-member cap; Santa Lucia Preserve",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://stockercup.com/" },
+    ],
+    golfGeniusUrl: "https://stockercup.com/",
     pastResults: [
       { year: 2025, champion: "Parker Sisk" },
       { year: 2024, champion: "Jack Schultz" },
@@ -1434,6 +1438,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://www.theberkeleycup.com/" },
+    ],
+    golfGeniusUrl: "https://www.theberkeleycup.com/",
     pastResults: [
       { year: 2025, champion: "Elliott Grayson" },
       { year: 2024, champion: "Canceled" },
