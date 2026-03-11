@@ -82,7 +82,13 @@ export default function RootLayout({
       </head>
       <body className={`${sans.variable} font-sans antialiased`}>
         {children}
-      </body>
+      
+            {/* nichegolfHQ AI Chat Widget */}
+            <Script
+              src="https://nichegolfhq-agent-production.up.railway.app/widget.js"
+              strategy="afterInteractive"
+            />
+</body>
     </html>
   );
 }
