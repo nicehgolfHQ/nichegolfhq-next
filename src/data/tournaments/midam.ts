@@ -707,6 +707,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "U.S. Open setup: 76.9/148; site of 2023 U.S. Open",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Drew Kittleson" },
       { year: 2024, champion: "Evan Beck" },
@@ -741,6 +744,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Blue tees: 72.4/142 (6,503 yds)",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [{ year: 2025, champion: "Will Davenport" }],
   },
 
@@ -1071,6 +1077,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Tom Fazio renovation ongoing",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Johnny Spellerberg (M), Lauren Greenlief (W)" },
       { year: 2024, champion: "Tim Hegarty (M), Jackie Rogowicz (W)" },
@@ -1095,6 +1104,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Regular tees: 73.6/153; #1 course in America",
 
     format: "Match play",
+    howToPlay: [
+      { label: "Invite only — no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Bobby Wyatt" },
       { year: 2024, champion: "Andrew Price" },
