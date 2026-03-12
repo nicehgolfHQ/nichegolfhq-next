@@ -1552,6 +1552,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "ewing-cup-four-ball",
     name: "Ewing Cup Four-Ball",
     channel: "midam",
+    logo: "/brand/midamgolfhq/Ewing Cup.jpeg",
     month: 11,
     dates2026: "November 2026",
     course: "Dallas Athletic Club",
