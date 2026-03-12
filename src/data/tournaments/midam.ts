@@ -140,7 +140,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Perry Maxwell",
     courseNotes: "RTJ Golf Trail; verify which course used",
 
-    golfGeniusUrl: "https://bgtmb.bluegolf.com/bluegolf/bgtmbs24/event/bgtmbs241/contest/1/leaderboard.htm",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12487009941032300329",
     format: "54 holes stroke play",
     howToPlay: [
       { label: "Apply for invite here", href: "https://thesnedeker.com/" },
