@@ -767,6 +767,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "GolfLink shows 73.9/138 from different tees",
 
     format: "4-ball",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://picardcup.com/apply/" },
+    ],
     pastResults: [
       { year: 2025, champion: "Nicholas Fiore & Brian Joseph" },
       { year: 2024, champion: "Kevin O'Brien & Matt Vogt" },
@@ -812,6 +815,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     location: "Brantford, ON",
     format: "72 holes stroke play",
     courseWebsite: "https://www.golfcanada.ca/competition/2026-canadian-mens-mid-amateur-championship/",
+    howToPlay: [
+      { label: "Apply for entry", href: "https://www.golfgenius.com/register?league_id=12156388054461892844" },
+    ],
     pastResults: [
       { year: 2025, champion: "Charles Fitzsimmons" },
       { year: 2024, champion: "Cam Burke" },
@@ -871,6 +877,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Sabot course also on property: 73.3/127",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://www.golfgenius.com/pages/12338736308309471417" },
+    ],
     pastResults: [
       { year: 2025, champion: "John Hunter" },
       { year: 2024, champion: "Christian Brand" },
@@ -1049,6 +1058,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Donald Ross",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Apply to play", href: "https://trans-miss.org/" },
+    ],
     pastResults: [
       { year: 2025, champion: "Ben Briscoe" },
       { year: 2024, champion: "Christopher Devlin" },
@@ -1299,7 +1311,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "54 holes stroke play",
     howToPlay: [
-      { label: "Apply for invite", href: "https://stockercup.com/" },
+      { label: "Apply for invite", href: "https://stockercup.com/#application-anchor" },
     ],
     golfGeniusUrl: "https://stockercup.com/",
     pastResults: [
@@ -1357,6 +1369,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Black tees: 75.5/146; site of 2023 PGA Championship",
 
     format: "54 holes better ball",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://form.jotform.com/61607679696979" },
+    ],
     pastResults: [
       { year: 2025, champion: "Matt Parziale & Nick Maccario" },
       { year: 2024, champion: "Matt Parziale & Nick Maccario" },
@@ -1467,6 +1482,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Jack Nicklaus",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Apply for invite", href: "https://carltonwoodsinvitational.us12.list-manage.com/subscribe?u=9ccde6d7ac1ab1ea7760b7d65&id=d6e6fdffe5" },
+    ],
     pastResults: [
       { year: 2025, champion: "Robert Gwin" },
       { year: 2024, champion: "Shane Heise" },
@@ -1506,6 +1524,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "West Course (Back)",
 
     format: "54 holes stroke play",
+    howToPlay: [
+      { label: "Invite only \u2014 no application" },
+    ],
     pastResults: [
       { year: 2025, champion: "Ryan Terry" },
       { year: 2024, champion: "Hunter Hamrick" },
@@ -1542,6 +1563,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Gold Course (Back)",
 
     format: "54 holes better ball",
+    howToPlay: [
+      { label: "Apply to play", href: "https://www.instagram.com/ewingcupinvitational/" },
+    ],
     pastResults: [
       { year: 2022, champion: "Michael Randle & Martin Board" },
       { year: 2021, champion: "Torey Edwards & Ryder Epson" },
