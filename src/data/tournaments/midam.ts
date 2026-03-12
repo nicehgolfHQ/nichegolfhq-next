@@ -1297,6 +1297,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-stocker-cup",
     name: "The Stocker Cup",
     channel: "midam",
+    logo: "/brand/midamgolfhq/Stocker Cup.png",
     month: 10,
     dates2026: "October 2026",
     course: "The Preserve Golf Club",
