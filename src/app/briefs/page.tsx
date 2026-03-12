@@ -5,9 +5,10 @@ import { monthKeyFromYmd, formatMonthLong } from "@/lib/briefsDates";
 import type { DailyBrief } from "@/lib/briefs";
 
 export const metadata = {
-  title: "Daily Briefs",
+  title: "Daily Amateur Golf Briefs (Juniors, Mid-Am, Seniors)",
   description:
-    "Daily brief: curated competitive amateur golf headlines across juniors, mid-am, and seniors.",
+    "Daily brief: curated amateur golf headlines across juniors, mid-amateurs, and seniors — tight, wire-style updates with source links.",
+  alternates: { canonical: "/briefs" },
 };
 
 /* ── helpers ───────────────────────────────────────────────────── */
