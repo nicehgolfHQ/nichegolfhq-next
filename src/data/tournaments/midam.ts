@@ -1567,6 +1567,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Apply to play", href: "https://www.instagram.com/ewingcupinvitational/" },
     ],
     pastResults: [
+      { year: 2025, champion: "Charlie Holland & James Minahan" },
+      { year: 2024, champion: "Travis Woolf & Jordan Woolf" },
       { year: 2022, champion: "Michael Randle & Martin Board" },
       { year: 2021, champion: "Torey Edwards & Ryder Epson" },
       { year: 2020, champion: "Blanton Farmer & Ryan Terry" },
