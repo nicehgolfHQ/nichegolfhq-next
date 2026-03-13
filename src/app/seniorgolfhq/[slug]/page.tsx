@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { MajorEventHero } from "@/components/majors/MajorEventHero";
 import { MajorEventTabs } from "@/components/majors/MajorEventTabs";
+import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { getSeniorMajorBySlug, listSeniorMajorSlugs } from "@/lib/seniorMajors";
 
 export const dynamicParams = false;
@@ -105,6 +106,7 @@ export default async function SeniorScheduleEventPage({
             resultsHref={`/seniorgolfhq/majors/${event.slug}/2026`}
             winners={event.winners ?? []}
           />
+          <TournamentHowToPlay howToPlay={event.howToPlay} />
         </div>
       </div>
     </SiteShell>
