@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-03-13",
+      "title": "Daily Brief — Mar 13, 2026",
+      "items": [
+        {
+          "title": "The Snedeker Memorial begins today at The Lakewood Club (live scoring)",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/snedeker-memorial",
+          "source": "nichegolfHQ",
+          "why": "On 2026-03-13: The 54-hole stroke-play Snedeker Memorial tees off today in Fairhope, Alabama, with live scoring posted on the event hub.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "How Charlie Woods fared in second round of the Junior Invitational",
+          "url": "https://www.palmbeachpost.com/story/sports/high-school/golf/2026/03/12/charlie-woods-golf-score-today-tiger-junior-invitational-sage-valley/89121405007/",
+          "source": "The Palm Beach Post",
+          "why": "On 2026-03-13: Round 2 at Sage Valley featured a bounce-back card from Woods after early mistakes as the Junior Invitational tightened heading into the final rounds.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Florida Azalea Senior Amateur returns to Palatka Golf Club (March 13–15)",
+          "url": "https://www.amateurgolf.com/golf-tournament-news/33981/Florida-Azalea-Senior-Amateur-Returns-to-Palatka-Golf-Club",
+          "source": "AmateurGolf.com",
+          "why": "On 2026-03-13: The 54-hole Florida Azalea Senior Amateur gets underway today at Palatka Golf Club, with multiple senior age divisions contested alongside the championship flight.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-03-11",
       "title": "Daily Brief — Mar 11, 2026",
       "items": [
