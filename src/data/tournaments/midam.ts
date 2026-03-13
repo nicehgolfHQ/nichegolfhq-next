@@ -1566,7 +1566,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "54 holes better ball",
     howToPlay: [
-      { label: "Apply to play", href: "https://www.instagram.com/ewingcupinvitational/" },
+      { label: "Apply to play", href: "https://www.ewingcup.com/" },
     ],
     pastResults: [
       { year: 2025, champion: "Charlie Holland & James Minahan" },
