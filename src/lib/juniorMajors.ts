@@ -7,6 +7,7 @@ export type JuniorMajorEvent = {
   winners2026?: { boys?: string; girls?: string };
   note?: string;
   officialUrl?: string;
+  winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
 };
 
@@ -15,7 +16,23 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   { slug: "ajga-simplify-boys-championship", name: "AJGA Simplify Boys Championship", month: "February 2026" },
   { slug: "fortinet-stanford-invitational", name: "The Fortinet Stanford Invitational hosted by Rose Zhang", month: "February 2026" },
   { slug: "dustin-johnson-world-junior", name: "Dustin Johnson World Junior Golf Championship", month: "March 2026" },
-  { slug: "junior-invitational-sage-valley", name: "Junior Invitational at Sage Valley", month: "March 2026" },
+  { slug: "junior-invitational-sage-valley", name: "Junior Invitational at Sage Valley", month: "March 2026", winners2026: { boys: "Miles Russell", girls: "Asterisk Talley" }, officialUrl: "https://juniorinvitational.com/", winners: [
+      { year: 2026, champion: "Boys: Miles Russell / Girls: Asterisk Talley" },
+      { year: 2025, champion: "Boys: Miles Russell / Girls: Aphrodite Deng" },
+      { year: 2024, champion: "Boys: Giovanni Daniele Binaghi / Girls: Asterisk Talley" },
+      { year: 2023, champion: "Boys: Aldrich Potgieter / Girls: Anna Davis" },
+      { year: 2022, champion: "Boys: Caleb Surratt / Girls: Amalie Leth-Nissen" },
+      { year: 2020, champion: "Jackson Van Paris" },
+      { year: 2019, champion: "Tom McKibbin" },
+      { year: 2018, champion: "Akshay Bhatia" },
+      { year: 2017, champion: "Joaquin Niemann" },
+      { year: 2016, champion: "Austin Eckroat" },
+      { year: 2015, champion: "Marcus Kinhult" },
+      { year: 2014, champion: "Scottie Scheffler" },
+      { year: 2013, champion: "Carson Young" },
+      { year: 2012, champion: "Zachary Olsen" },
+      { year: 2011, champion: "Nicholas Reach" },
+    ] },
   { slug: "ajga-team-taylormade-invitational", name: "AJGA Team TaylorMade Invitational", month: "May 2026" },
   { slug: "nelly-invitational", name: "The Nelly Invitational presented by Chevron", month: "May 2026" },
   { slug: "southern-junior-championship", name: "Southern Junior Championship", month: "June 2026" },
