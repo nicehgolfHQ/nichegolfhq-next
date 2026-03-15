@@ -103,8 +103,8 @@ export default async function JuniorScheduleEventPage({
             officialUrl={event.officialUrl}
             note={event.note}
             resultsHref={`/juniorgolfhq/majors/${event.slug}/2026`}
-            winners={
-              event.winners2026
+            winners={[
+              ...(event.winners2026
                 ? [
                     {
                       year: 2026,
@@ -116,8 +116,9 @@ export default async function JuniorScheduleEventPage({
                         .join(" \u2022 "),
                     },
                   ]
-                : []
-            }
+                : []),
+              ...(event.winners ?? []),
+            ]}
           />
         </div>
       </div>
