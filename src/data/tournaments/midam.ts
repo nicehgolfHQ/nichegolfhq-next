@@ -142,10 +142,12 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     golfGeniusUrl: "https://www.golfgenius.com/pages/12487009941032300329",
     format: "54 holes stroke play",
+      note: "2026 Defending Champion: Brett Patterson",
     howToPlay: [
       { label: "Apply for invite here", href: "https://thesnedeker.com/" },
     ],
-    pastResults: [{ year: 2025, champion: "Nate Smith" }, { year: 2024, champion: "Jordan Russell" }],
+    pastResults: [{ year: 2026, champion: "Brett Patterson" },
+        { year: 2025, champion: "Nate Smith" }, { year: 2024, champion: "Jordan Russell" }],
   },
 
   {
