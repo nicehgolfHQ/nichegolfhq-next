@@ -41,7 +41,7 @@ export async function generateMetadata({
   const p: any = await Promise.resolve(params as any);
   const slug = p?.slug ?? "";
   const event = getJuniorMajorBySlug(slug);
-  if (!event) return { title: "Junior Major Schedule | juniorgolfHQ" };
+  if (!event) return { title: "juniorgolfHQ" };
 
   return {
     title: `${event.name} \u2014 Junior Major Schedule | juniorgolfHQ`,
