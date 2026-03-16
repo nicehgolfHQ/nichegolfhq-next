@@ -12,7 +12,7 @@ export function TournamentLinks({ tournament }: { tournament: Tournament }) {
 
   return (
     <aside className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6">
-      <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Links</h2>
+      <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Links</h2>
       <div className="mt-3 space-y-2 text-sm">
         {links.map((l) => (
           <div key={l.href}>
