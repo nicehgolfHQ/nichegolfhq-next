@@ -65,6 +65,13 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "Behind Brown and White, Michael Buttacavoli turned in a remarkably steady week with three consecutive rounds of 70 to finish even-par at 210, tying Logan Blondell for third. From the Monday qualifier hopefuls grinding for a spot to Brown's clutch birdie on the 72nd hole, the 2026 Gasparilla once again proved why it's considered the unofficial kickoff to the mid-amateur season and why Palma Ceia never gives anything away.",
           "The event was covered by everyone from us here at midamgolfHQ to other media outlets like The Back of The Range and No Laying Up. It was really cool to see all the media coverage and how the event gets bigger and better every year. Congrats to everyone involved and we look forward to an even bigger 2027.",
         ],
+        photos: [
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/DJI_20260221154236_0761_D.jpeg",
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/DJI_20260221161258_0781_D%20%281%29.jpeg",
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/IMG_8550.JPG",
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/IMG_8556%20%281%29.JPG",
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/IMG_8575.JPG",
+        ],
       },
     ],
     pastResults: [
