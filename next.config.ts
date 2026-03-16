@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.beehiiv.com" },
       { protocol: "https", hostname: "storage.googleapis.com" },
       { protocol: "https", hostname: "cdn-images-1.medium.com" },
+      { protocol: "https", hostname: "mh6ne4zbebpsk1ph.public.blob.vercel-storage.com" },
     ],
   },
 
