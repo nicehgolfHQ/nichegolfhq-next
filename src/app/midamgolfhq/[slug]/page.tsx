@@ -17,6 +17,44 @@ export function generateStaticParams() {
   return listMidAmTournamentSlugs().map((slug) => ({ slug }));
 }
 
+/* ------------------------------------------------------------------ */
+/*  Helper: convert human-readable date string to ISO 8601            */
+/* ------------------------------------------------------------------ */
+const MONTH_MAP: Record<string, string> = {
+  january: "01", february: "02", march: "03", april: "04",
+  may: "05", june: "06", july: "07", august: "08", aug: "08",
+  september: "09", october: "10", november: "11", december: "12",
+  jan: "01", feb: "02", mar: "03", apr: "04", jun: "06",
+  jul: "07", sep: "09", oct: "10", nov: "11", dec: "12",
+};
+
+function parseDateToISO(raw: string): { start: string; end?: string } | null {
+  if (!raw) return null;
+
+  // "Aug 18–21, 2026" or "June 15-18, 2026"
+  const rangeMatch = raw.match(
+    /^(\w+)\s+(\d{1,2})[–\-](\d{1,2}),?\s+(\d{4})$/
+  );
+  if (rangeMatch) {
+    const mm = MONTH_MAP[rangeMatch[1].toLowerCase()];
+    if (mm) {
+      const yyyy = rangeMatch[4];
+      const d1 = rangeMatch[2].padStart(2, "0");
+      const d2 = rangeMatch[3].padStart(2, "0");
+      return { start: `${yyyy}-${mm}-${d1}`, end: `${yyyy}-${mm}-${d2}` };
+    }
+  }
+
+  // "January 2026"
+  const monthYear = raw.match(/^(\w+)\s+(\d{4})$/);
+  if (monthYear) {
+    const mm = MONTH_MAP[monthYear[1].toLowerCase()];
+    if (mm) return { start: `${monthYear[2]}-${mm}` };
+  }
+
+  return null;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -95,20 +133,46 @@ export default async function MidAmTournamentPage({
     },
     location: {
       "@type": "Place",
-      name: [tournament.course, tournament.location].filter(Boolean).join(" \u2014 ") || tournament.location || tournament.course || tournament.name,
+      name:
+        [tournament.course, tournament.location].filter(Boolean).join(" \u2014 ") ||
+        tournament.location ||
+        tournament.course ||
+        tournament.name,
       address: tournament.location,
     },
     description: `Dates, venue, format, and past winners for ${tournament.name}.`,
+    image: `${baseUrl}/og-midam.png`,
+    performer: {
+      "@type": "Organization",
+      name: tournament.name,
+    },
+    offers: {
+      "@type": "Offer",
+      url: pageUrl,
+      availability: "https://schema.org/InStock",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Amateur golf tournament",
+    },
   };
 
-  // Use a simple ISO date when we have a concrete date range; otherwise omit.
+  // Use ISO 8601 dates for structured data
   if (tournament.dates2026) {
-    eventLd.startDate = tournament.dates2026;
+    const parsed = parseDateToISO(tournament.dates2026);
+    if (parsed) {
+      eventLd.startDate = parsed.start;
+      if (parsed.end) {
+        eventLd.endDate = parsed.end;
+      }
+    }
   }
 
   return (
     <SiteShell>
-      <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
+      <Script
+        id={`ld-breadcrumbs-${tournament.slug}`}
+        type="application/ld+json"
+      >
         {JSON.stringify(breadcrumbsLd)}
       </Script>
       <Script id={`ld-event-${tournament.slug}`} type="application/ld+json">
