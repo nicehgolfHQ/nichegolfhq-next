@@ -14,13 +14,21 @@ export interface HowToPlayEntry {
   note?: string;
 }
 
+export interface NewsArticle {
+  slug: string;
+  title: string;
+  date: string; // ISO date e.g. "2026-03-15"
+  author?: string;
+  summary?: string; // Short blurb for cards / SEO
+  content: string[]; // Array of paragraphs (rendered as <p> tags)
+}
+
 export interface Tournament {
   // === IDENTITY ===
   slug: string;
   name: string;
   shortName?: string;
   channel: TournamentChannel;
-
   // Optional note for schedule/index display (e.g., rescheduled)
   note?: string;
 
@@ -35,7 +43,6 @@ export interface Tournament {
   location?: string;
   courseDesigner?: string;
   courseYear?: number;
-
   // Course rating/slope (prefer furthest/back/championship tee)
   coursePar?: number;
   courseYardage?: number;
@@ -66,6 +73,9 @@ export interface Tournament {
 
   // === HOW TO PLAY ===
   howToPlay?: HowToPlayEntry[];
+
+  // === NEWS / ARTICLES ===
+  news?: NewsArticle[];
 
   // === MEDIA ===
   heroImage?: string;
