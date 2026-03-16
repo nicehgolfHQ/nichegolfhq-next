@@ -204,6 +204,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite here", href: "https://www.championsgolfclub.com/default.aspx?p=.NETDynamicForm&f=ddc32a0e-c1bc-4f2d-a2a3-f18eaa0d6091" },
     ],
+    news: [
+      {
+        slug: "2026-champions-cup-preview",
+        title: "58th Champions Cup Invitational Preview: 54 Teams Set to Battle at Champions Golf Club",
+        date: "2026-03-16",
+        author: "midamgolfHQ",
+        summary: "The 58th Champions Cup Invitational tees off March 26 at Champions Golf Club in Houston with 54 teams and no defending champion in the field.",
+        content: [
+          "The 58th Champions Cup Invitational returns to Champions Golf Club in Houston, Texas, March 26\u201329, with 54 teams set to compete over 72 holes of best-ball stroke play on the historic Cypress Creek Course. Founded in 1961 by golf legends Jack Burke Jr. and Jimmy Demaret, the Champions Cup remains one of the most prestigious four-ball events on the mid-amateur calendar.",
+          "Notably absent from the 2026 field are defending champions Will Davenport and Nick Maccario, who ran away with last year\u2019s title at 20-under par, winning by eight shots. Their absence opens the door for a new champion \u2014 and there is no shortage of contenders ready to step through it.",
+          "Four teams from last year\u2019s top five are back and hungry. Phil Arci and Simon McInnis, who shared the runner-up spot at 12-under in 2025, return from Ontario looking to go one better. Liam Logan and Blake Vinson, who matched Arci and McInnis at 12-under, are also in the field. Rounding out the returning contenders are Josh Gibbons and Kade Stewart and the Arizona duo of Jake Byrum and Kristoffer Marshall, both of whom finished tied for fifth at 11-under a year ago. Also keep an eye on Jordan Woolf and Robby Ormand, the 2024 Champions Cup winners, who return to Houston looking to reclaim the title they last held two years ago.",
+          "The Cypress Creek Course, designed by Ralph Plummer and opened in 1959, has hosted some of golf\u2019s biggest stages, including the 1967 Ryder Cup and the 1969 U.S. Open. With no defending champion in the field and a loaded cast of contenders, the 58th Champions Cup is shaping up to be one of the most wide-open editions in recent memory. midamgolfHQ will be following the action all week.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Will Davenport / Nick Maccario" },
       { year: 2024, champion: "Robby Ormand / Jordan Woolf" },
@@ -286,6 +301,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
   },
   {
@@ -332,6 +348,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Chris DeJohn" },
       { year: 2024, champion: "Ben Greve" },
@@ -480,6 +497,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Ben Reeves" },
       { year: 2024, champion: "Joseph Deraney" },
@@ -520,6 +538,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Bobby Massa" },
       { year: 2024, champion: "Scott Harvey" },
@@ -548,6 +567,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Stewart Hagestad" },
       { year: 2024, champion: "Jimmy Chestnut" },
@@ -573,6 +593,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Open entry via national federation", href: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9" },
     ],
     note: "Europe",
+    news: [],
     pastResults: [
       { year: 2025, champion: "Christoph Kogl" },
       { year: 2024, champion: "Markus Habeler" },
@@ -633,6 +654,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — submit application", href: "https://andersonmemorial.org/" },
     ],
     golfGeniusUrl: "https://andersonmemorial.org/",
+    news: [],
     pastResults: [
       { year: 2025, champion: "Scott Strickland / Jimmy Chestnut" },
       { year: 2024, champion: "Scott Strickland / Jimmy Chestnut" },
@@ -745,6 +767,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Drew Kittleson" },
       { year: 2024, champion: "Evan Beck" },
@@ -782,6 +805,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [{ year: 2025, champion: "Will Davenport" }],
   },
 
@@ -805,6 +829,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://picardcup.com/apply/" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Nicholas Fiore & Brian Joseph" },
       { year: 2024, champion: "Kevin O'Brien & Matt Vogt" },
@@ -853,6 +878,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for entry", href: "https://www.golfgenius.com/register?league_id=12156388054461892844" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Charles Fitzsimmons" },
       { year: 2024, champion: "Cam Burke" },
@@ -915,6 +941,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://www.golfgenius.com/pages/12338736308309471417" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "John Hunter" },
       { year: 2024, champion: "Christian Brand" },
@@ -1035,6 +1062,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
 
     format: "Match play",
+    news: [],
     pastResults: [
       { year: 2025, champion: "Ina Kim-Schaad" },
       { year: 2024, champion: "Hana Ryskova" },
@@ -1096,6 +1124,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply to play", href: "https://trans-miss.org/" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Ben Briscoe" },
       { year: 2024, champion: "Christopher Devlin" },
@@ -1127,6 +1156,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Johnny Spellerberg (M), Lauren Greenlief (W)" },
       { year: 2024, champion: "Tim Hegarty (M), Jackie Rogowicz (W)" },
@@ -1154,6 +1184,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Bobby Wyatt" },
       { year: 2024, champion: "Andrew Price" },
@@ -1280,6 +1311,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
 
     format: "Match play",
+    news: [],
     pastResults: [
       { year: 2025, champion: "Brandon Holtz" },
       { year: 2024, champion: "Evan Beck" },
@@ -1350,6 +1382,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Apply for invite", href: "https://stockercup.com/#application-anchor" },
     ],
     golfGeniusUrl: "https://stockercup.com/",
+    news: [],
     pastResults: [
       { year: 2025, champion: "Parker Sisk" },
       { year: 2024, champion: "Jack Schultz" },
@@ -1408,6 +1441,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://form.jotform.com/61607679696979" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Matt Parziale & Nick Maccario" },
       { year: 2024, champion: "Matt Parziale & Nick Maccario" },
@@ -1493,6 +1527,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Apply for invite", href: "https://www.theberkeleycup.com/" },
     ],
     golfGeniusUrl: "https://www.theberkeleycup.com/",
+    news: [],
     pastResults: [
       { year: 2025, champion: "Elliott Grayson" },
       { year: 2024, champion: "Canceled" },
@@ -1521,6 +1556,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://carltonwoodsinvitational.us12.list-manage.com/subscribe?u=9ccde6d7ac1ab1ea7760b7d65&id=d6e6fdffe5" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Robert Gwin" },
       { year: 2024, champion: "Shane Heise" },
@@ -1563,6 +1599,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only \u2014 no application" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Ryan Terry" },
       { year: 2024, champion: "Hunter Hamrick" },
@@ -1603,6 +1640,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply to play", href: "https://www.ewingcup.com/" },
     ],
+    news: [],
     pastResults: [
       { year: 2025, champion: "Charlie Holland & James Minahan" },
       { year: 2024, champion: "Travis Woolf & Jordan Woolf" },
