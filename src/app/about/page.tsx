@@ -4,6 +4,11 @@ import { SiteShell } from "@/components/SiteShell";
 
 export const metadata = {
   title: "About",
+  description:
+    "Learn about nichegolfHQ, the leading independent media and intelligence platform covering junior, mid-amateur, and senior amateur golf.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -27,7 +32,10 @@ export default function AboutPage() {
         <section className="flex h-[60vh] min-h-[400px] items-center justify-center">
           <h1
             className="font-serif text-5xl font-bold tracking-tight text-white md:text-7xl"
-            style={{ textShadow: "0 2px 24px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3)" }}
+            style={{
+              textShadow:
+                "0 2px 24px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3)",
+            }}
           >
             About
           </h1>
@@ -41,15 +49,18 @@ export default function AboutPage() {
               platform covering amateur golf, focused on junior, mid-amateur,
               and senior events.
             </p>
+
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/70">
               We cover the corners of competitive amateur golf the mainstream
               ignores — with dedicated coverage across our channels.
             </p>
+
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/70">
               Started in 2019 with{" "}
-              <span className="font-semibold text-white">midamgolfHQ</span>,
-              and expanding into junior and senior coverage.
+              <span className="font-semibold text-white">midamgolfHQ</span>, and
+              expanding into junior and senior coverage.
             </p>
+
             <div className="mt-8">
               <Link
                 href="/"
