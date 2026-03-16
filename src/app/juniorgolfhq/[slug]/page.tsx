@@ -12,6 +12,27 @@ export function generateStaticParams() {
   return listJuniorMajorSlugs().map((slug) => ({ slug }));
 }
 
+/* ------------------------------------------------------------------ */
+/*  Helper: convert human-readable month string to ISO 8601           */
+/* ------------------------------------------------------------------ */
+const MONTH_MAP: Record<string, string> = {
+  january: "01", february: "02", march: "03", april: "04",
+  may: "05", june: "06", july: "07", august: "08", aug: "08",
+  september: "09", october: "10", november: "11", december: "12",
+  jan: "01", feb: "02", mar: "03", apr: "04", jun: "06",
+  jul: "07", sep: "09", oct: "10", nov: "11", dec: "12",
+};
+
+function monthToISO(raw: string): string | null {
+  if (!raw) return null;
+  const m = raw.match(/^(\w+)\s+(\d{4})$/);
+  if (m) {
+    const mm = MONTH_MAP[m[1].toLowerCase()];
+    if (mm) return `${m[2]}-${mm}`;
+  }
+  return null;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -21,6 +42,7 @@ export async function generateMetadata({
   const slug = p?.slug ?? "";
   const event = getJuniorMajorBySlug(slug);
   if (!event) return { title: "Junior Major Schedule | juniorgolfHQ" };
+
   return {
     title: `${event.name} \u2014 Junior Major Schedule | juniorgolfHQ`,
     description: `Dates, quick links, and results pointers for ${event.name}.`,
@@ -46,11 +68,23 @@ export default async function JuniorScheduleEventPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "juniorgolfHQ", item: `${baseUrl}/juniorgolfhq` },
-      { "@type": "ListItem", position: 3, name: "Junior Major Schedule", item: `${baseUrl}/juniorgolfhq` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "juniorgolfHQ",
+        item: `${baseUrl}/juniorgolfhq`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Junior Major Schedule",
+        item: `${baseUrl}/juniorgolfhq`,
+      },
       { "@type": "ListItem", position: 4, name: event.name, item: pageUrl },
     ],
   };
+
+  const isoDate = monthToISO(event.month);
 
   const eventLd: any = {
     "@context": "https://schema.org",
@@ -65,14 +99,37 @@ export default async function JuniorScheduleEventPage({
       url: `${baseUrl}/juniorgolfhq`,
     },
     description: `Schedule hub for ${event.name} (junior majors).`,
+    image: `${baseUrl}/og-junior.png`,
+    performer: {
+      "@type": "Organization",
+      name: event.name,
+    },
+    offers: {
+      "@type": "Offer",
+      url: pageUrl,
+      availability: "https://schema.org/InStock",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Amateur junior golf tournament",
+    },
   };
+
+  if (isoDate) {
+    eventLd.startDate = isoDate;
+  }
 
   return (
     <SiteShell brandSlug="juniorgolfhq">
-      <Script id={`ld-breadcrumbs-junior-${event.slug}`} type="application/ld+json">
+      <Script
+        id={`ld-breadcrumbs-junior-${event.slug}`}
+        type="application/ld+json"
+      >
         {JSON.stringify(breadcrumbsLd)}
       </Script>
-      <Script id={`ld-event-junior-${event.slug}`} type="application/ld+json">
+      <Script
+        id={`ld-event-junior-${event.slug}`}
+        type="application/ld+json"
+      >
         {JSON.stringify(eventLd)}
       </Script>
 
@@ -109,8 +166,12 @@ export default async function JuniorScheduleEventPage({
                     {
                       year: 2026,
                       champion: [
-                        event.winners2026.boys ? `Boys: ${event.winners2026.boys}` : null,
-                        event.winners2026.girls ? `Girls: ${event.winners2026.girls}` : null,
+                        event.winners2026.boys
+                          ? `Boys: ${event.winners2026.boys}`
+                          : null,
+                        event.winners2026.girls
+                          ? `Girls: ${event.winners2026.girls}`
+                          : null,
                       ]
                         .filter(Boolean)
                         .join(" \u2022 "),
