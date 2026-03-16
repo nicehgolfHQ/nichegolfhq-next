@@ -44,7 +44,7 @@ export function IssueCard({ item, newsletterSlug }: { item: RssItem; newsletterS
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100">
           <Image
             src={item.imageUrl}
-            alt=""
+            alt={item.title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition duration-300 group-hover:scale-[1.02]"
