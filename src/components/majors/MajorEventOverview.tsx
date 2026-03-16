@@ -22,7 +22,7 @@ export function MajorEventOverview({
   return (
     <div className="grid gap-4 lg:grid-cols-3">
       <div className="lg:col-span-2 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-        <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Overview</h2>
+        <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Overview</h2>
         {note ? <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-700">{note}</p> : null}
 
         {defending ? (
@@ -58,7 +58,7 @@ export function MajorEventOverview({
       </div>
 
       <aside className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-        <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Quick facts</h2>
+        <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Quick facts</h2>
         <div className="mt-3 space-y-2 text-sm text-zinc-700">
           <div>
             <span className="text-zinc-500">Brand:</span> {brand}
