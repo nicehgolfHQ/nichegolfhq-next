@@ -21,7 +21,7 @@ export function TournamentTabs({ tournament }: { tournament: Tournament }) {
 
   return (
     <section className="mt-6">
-      <div className="flex gap-4 border-b border-zinc-200 px-6">
+      <div className="flex justify-center gap-4 border-b border-zinc-200 px-6">
         {TABS.map((t) => (
           <button
             key={t.key}
