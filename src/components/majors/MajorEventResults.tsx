@@ -9,7 +9,7 @@ export function MajorEventResults({
 
   return (
     <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-      <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Past winners</h2>
+      <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Past winners</h2>
 
       <div className="mt-4 overflow-x-auto">
         <table className="w-full border-separate border-spacing-0">
