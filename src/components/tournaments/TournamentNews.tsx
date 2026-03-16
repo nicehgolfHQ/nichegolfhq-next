@@ -5,7 +5,7 @@ export function TournamentNews({ news }: { news?: NewsArticle[] }) {
 
   return (
     <section className="mt-10 border-t border-zinc-200 pt-10">
-      <h2 className="text-xl font-bold tracking-tight text-zinc-900">
+      <h2 className="text-xl font-bold tracking-tight text-zinc-900 text-center">
         News
       </h2>
 
@@ -20,7 +20,7 @@ export function TournamentNews({ news }: { news?: NewsArticle[] }) {
               key={article.slug}
               className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 md:p-8"
             >
-              <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+              <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-500">
                 <time dateTime={article.date}>
                   {new Date(article.date + "T12:00:00").toLocaleDateString(
                     "en-US",
@@ -39,12 +39,12 @@ export function TournamentNews({ news }: { news?: NewsArticle[] }) {
                 )}
               </div>
 
-              <h3 className="mt-3 font-serif text-2xl font-semibold leading-tight text-zinc-900 md:text-3xl">
+              <h3 className="mt-3 font-serif text-2xl font-semibold leading-tight text-zinc-900 md:text-3xl text-center">
                 {article.title}
               </h3>
 
               {article.summary && (
-                <p className="mt-2 text-sm font-medium italic text-zinc-600">
+                <p className="mt-2 text-sm font-medium italic text-zinc-600 text-center">
                   {article.summary}
                 </p>
               )}
