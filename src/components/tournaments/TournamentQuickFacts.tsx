@@ -20,7 +20,7 @@ export function TournamentQuickFacts({ tournament }: { tournament: Tournament })
   if (!hasAny) return null;
 
   return (
-    <section className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="mt-4 flex flex-wrap justify-center gap-3">
       <Fact label="Format" value={tournament.format} />
       <Fact label="Field" value={tournament.fieldSize} />
       <Fact label="Eligibility" value={tournament.eligibility} />
