@@ -95,6 +95,18 @@ const nextConfig: NextConfig = {
       destination: "/subscribe",
       permanent: true,
     },
+
+    /* ── Old forms page → contact ────────────────────────────────── */
+    {
+      source: "/forms/:path*",
+      destination: "/contact",
+      permanent: true,
+    },
+    {
+      source: "/forms",
+      destination: "/contact",
+      permanent: true,
+    },
   ],
 };
 
