@@ -12,7 +12,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn-images-1.medium.com" },
     ],
   },
+
   redirects: async () => [
+    /* ── Existing schedule-slug redirects ────────────────────────── */
     {
       source: "/midamgolfhq/schedule/:slug",
       destination: "/midamgolfhq/:slug",
@@ -26,6 +28,71 @@ const nextConfig: NextConfig = {
     {
       source: "/seniorgolfhq/schedule/:slug",
       destination: "/seniorgolfhq/:slug",
+      permanent: true,
+    },
+
+    /* ── Old WordPress blog post URLs (/YYYY/MM/DD/slug/) ───────── */
+    {
+      source: "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug*",
+      destination: "/briefs",
+      permanent: true,
+    },
+
+    /* ── Old Substack / Ghost newsletter URLs (/p/slug) ─────────── */
+    {
+      source: "/p/:slug*",
+      destination: "/briefs",
+      permanent: true,
+    },
+
+    /* ── Old WordPress category pages ────────────────────────────── */
+    {
+      source: "/category/midamgolfhq/:path*",
+      destination: "/midamgolfhq",
+      permanent: true,
+    },
+    {
+      source: "/category/juniorgolfhq/:path*",
+      destination: "/juniorgolfhq",
+      permanent: true,
+    },
+    {
+      source: "/category/seniorgolfhq/:path*",
+      destination: "/seniorgolfhq",
+      permanent: true,
+    },
+    {
+      source: "/category/:path*",
+      destination: "/",
+      permanent: true,
+    },
+
+    /* ── Old archive pages → briefs ──────────────────────────────── */
+    {
+      source: "/archive",
+      destination: "/briefs",
+      permanent: true,
+    },
+
+    /* ── Old platform pages ──────────────────────────────────────── */
+    {
+      source: "/authors/:path*",
+      destination: "/about",
+      permanent: true,
+    },
+    {
+      source: "/authors",
+      destination: "/about",
+      permanent: true,
+    },
+    {
+      source: "/publications",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/upgrade",
+      destination: "/subscribe",
       permanent: true,
     },
   ],
