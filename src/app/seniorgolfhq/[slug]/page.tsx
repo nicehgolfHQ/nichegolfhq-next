@@ -42,7 +42,7 @@ export async function generateMetadata({
   const p: any = await Promise.resolve(params as any);
   const slug = p?.slug ?? "";
   const event = getSeniorMajorBySlug(slug);
-  if (!event) return { title: "Senior Major Schedule | seniorgolfHQ" };
+  if (!event) return { title: "seniorgolfHQ" };
 
   return {
     title: `${event.name} \u2014 Senior Major Schedule | seniorgolfHQ`,
