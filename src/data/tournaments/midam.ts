@@ -51,6 +51,22 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
 
     format: "54 holes stroke play",
+    news: [
+      {
+        slug: "2026-gasparilla-invitational-recap",
+        title: "Brown Birdies 18 to Edge White by One at the 71st Gasparilla Invitational",
+        date: "2026-03-15",
+        author: "midamgolfHQ",
+        summary: "Hayes Brown posts rounds of 67-73-68 to finish 2-under and claim the 71st Gasparilla Invitational title by a single shot over Peyton White at Palma Ceia Golf & Country Club.",
+        content: [
+          "The 71st Gasparilla Invitational at Palma Ceia Golf & Country Club in Tampa once again delivered a finish worthy of the tournament's storied history. Hayes Brown of Charlotte, North Carolina, posted rounds of 67-73-68 to finish at 2-under 208 and claim the title by a single shot over Peyton White. Only two players in the entire field broke par for the week, a classic Palma Ceia separation that reminded everyone why this event, played on just 90 acres of tight corridors and slick greens, remains one of the most demanding tests in mid-amateur golf.",
+          "One of the unique features of the Gasparilla is the Monday qualifier, which gives players who didn't earn a direct invite a chance to play their way into the field. The qualifier has produced some remarkable stories over the years. Most famously, 2022 champion Logan Blondell shot a 73 in the Monday qualifier the week he won, and it turned out to be the highest score he posted all week en route to breaking the tournament scoring record. That tradition of giving hungry competitors one last shot at the field adds a layer of excitement before the championship rounds even begin, and it's a model other mid-am invitationals would be wise to adopt. This year we saw a 63 from Andrew Morris take medalist honors.",
+          "Fast forward to the main event and Brown's week was a masterclass in resilience. He fired a 3-under 67 in round one to put himself near the top, then absorbed a second-round 73 that could have derailed his momentum. But he responded exactly the way champions do, posting a closing 68 on Saturday that featured the shot of the tournament on the 18th hole: a 30-yard wedge shot from long of the 18th green to 5 feet. He went on to make the birdie putt on a hole that regularly becomes a pressure point and has been the stage for some of the most iconic moments in Gasparilla history. With White firing a final-round 67 and charging hard from behind, Brown needed every bit of that closing birdie to secure the one-shot margin. It was the kind of gut-check finish that Palma Ceia's 18th was built for.",
+          "Behind Brown and White, Michael Buttacavoli turned in a remarkably steady week with three consecutive rounds of 70 to finish even-par at 210, tying Logan Blondell for third. From the Monday qualifier hopefuls grinding for a spot to Brown's clutch birdie on the 72nd hole, the 2026 Gasparilla once again proved why it's considered the unofficial kickoff to the mid-amateur season and why Palma Ceia never gives anything away.",
+          "The event was covered by everyone from us here at midamgolfHQ to other media outlets like The Back of The Range and No Laying Up. It was really cool to see all the media coverage and how the event gets bigger and better every year. Congrats to everyone involved and we look forward to an even bigger 2027.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2026, champion: "Hayes Brown" },
       { year: 2025, champion: "Scott Turner" },
