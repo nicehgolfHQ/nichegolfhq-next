@@ -13,7 +13,7 @@ export function TournamentHowToPlay({ howToPlay }: { howToPlay?: HowToPlayEntry[
           howToPlay.map((entry, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4"
+              className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-center"
             >
               {entry.href ? (
                 <a
@@ -37,7 +37,7 @@ export function TournamentHowToPlay({ howToPlay }: { howToPlay?: HowToPlayEntry[
             </div>
           ))
         ) : (
-          <div className="rounded-2xl border border-dashed border-zinc-300 bg-zinc-50 p-4">
+          <div className="rounded-2xl border border-dashed border-zinc-300 bg-zinc-50 p-4 text-center">
             <p className="text-sm text-zinc-400">
               Details coming soon.
             </p>
