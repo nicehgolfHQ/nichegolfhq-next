@@ -21,6 +21,7 @@ export interface NewsArticle {
   author?: string;
   summary?: string; // Short blurb for cards / SEO
   content: string[]; // Array of paragraphs (rendered as <p> tags)
+  photos?: string[]; // Array of image URLs for photo gallery
 }
 
 export interface Tournament {
