@@ -44,7 +44,7 @@ export function TournamentOverview({ tournament }: { tournament: Tournament }) {
 
       {hasCourseNotes ? (
         <aside className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-          <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Course notes</h2>
+          <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Course notes</h2>
           <div className="mt-3 space-y-2 text-sm text-zinc-700">
             {tournament.courseDesigner ? (
               <div>
