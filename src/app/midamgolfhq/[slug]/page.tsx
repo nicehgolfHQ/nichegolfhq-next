@@ -61,11 +61,11 @@ export async function generateMetadata({
   const p: any = await Promise.resolve(params as any);
   const slug = p?.slug ?? "";
   const t = getMidAmTournamentBySlug(slug);
-  if (!t) return { title: "Mid-Am Schedule | midamgolfHQ" };
+  if (!t) return { title: "midamgolfHQ" };
   const dates = t.dates2026 ?? t.typicalDates;
   const subtitle = `${t.course} \u2022 ${t.location}${dates ? ` \u2022 ${dates}` : ""}`;
   return {
-    title: `${t.name} | Mid-Am Schedule | midamgolfHQ`,
+    title: `${t.name} | midamgolfHQ`,
     description: `Dates, venue, format, and past winners for ${t.name}. ${subtitle}`,
     alternates: { canonical: `/midamgolfhq/${t.slug}` },
   };
