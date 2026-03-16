@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import type { NewsArticle } from "@/lib/tournaments/types";
+import { PhotoCarousel } from "./PhotoCarousel";
 
 function ArticleBody({ article }: { article: NewsArticle }) {
   return (
     <>
+      {article.photos && article.photos.length > 0 && (
+        <PhotoCarousel photos={article.photos} />
+      )}
       <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-500">
         <time dateTime={article.date}>
           {new Date(article.date + "T12:00:00").toLocaleDateString(
