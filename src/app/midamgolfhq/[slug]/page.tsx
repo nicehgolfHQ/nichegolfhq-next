@@ -10,6 +10,7 @@ import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
+import { TournamentNews } from "@/components/tournaments/TournamentNews";
 
 export const dynamicParams = false;
 
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Helper: convert human-readable date string to ISO 8601            */
+/* Helper: convert human-readable date string to ISO 8601             */
 /* ------------------------------------------------------------------ */
 const MONTH_MAP: Record<string, string> = {
   january: "01", february: "02", march: "03", april: "04",
@@ -30,7 +31,6 @@ const MONTH_MAP: Record<string, string> = {
 
 function parseDateToISO(raw: string): { start: string; end?: string } | null {
   if (!raw) return null;
-
   // "Aug 18–21, 2026" or "June 15-18, 2026"
   const rangeMatch = raw.match(
     /^(\w+)\s+(\d{1,2})[–\-](\d{1,2}),?\s+(\d{4})$/
@@ -44,14 +44,12 @@ function parseDateToISO(raw: string): { start: string; end?: string } | null {
       return { start: `${yyyy}-${mm}-${d1}`, end: `${yyyy}-${mm}-${d2}` };
     }
   }
-
   // "January 2026"
   const monthYear = raw.match(/^(\w+)\s+(\d{4})$/);
   if (monthYear) {
     const mm = MONTH_MAP[monthYear[1].toLowerCase()];
     if (mm) return { start: `${monthYear[2]}-${mm}` };
   }
-
   return null;
 }
 
@@ -64,10 +62,8 @@ export async function generateMetadata({
   const slug = p?.slug ?? "";
   const t = getMidAmTournamentBySlug(slug);
   if (!t) return { title: "Mid-Am Schedule | midamgolfHQ" };
-
   const dates = t.dates2026 ?? t.typicalDates;
   const subtitle = `${t.course} \u2022 ${t.location}${dates ? ` \u2022 ${dates}` : ""}`;
-
   return {
     title: `${t.name} | Mid-Am Schedule | midamgolfHQ`,
     description: `Dates, venue, format, and past winners for ${t.name}. ${subtitle}`,
@@ -92,30 +88,10 @@ export default async function MidAmTournamentPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: baseUrl,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "midamgolfHQ",
-        item: `${baseUrl}/midamgolfhq`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Mid-Am Major Schedule",
-        item: `${baseUrl}/midamgolfhq`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tournament.name,
-        item: pageUrl,
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: "midamgolfHQ", item: `${baseUrl}/midamgolfhq` },
+      { "@type": "ListItem", position: 3, name: "Mid-Am Major Schedule", item: `${baseUrl}/midamgolfhq` },
+      { "@type": "ListItem", position: 4, name: tournament.name, item: pageUrl },
     ],
   };
 
@@ -133,19 +109,12 @@ export default async function MidAmTournamentPage({
     },
     location: {
       "@type": "Place",
-      name:
-        [tournament.course, tournament.location].filter(Boolean).join(" \u2014 ") ||
-        tournament.location ||
-        tournament.course ||
-        tournament.name,
+      name: [tournament.course, tournament.location].filter(Boolean).join(" \u2014 ") || tournament.location || tournament.course || tournament.name,
       address: tournament.location,
     },
     description: `Dates, venue, format, and past winners for ${tournament.name}.`,
     image: `${baseUrl}/og-midam.png`,
-    performer: {
-      "@type": "Organization",
-      name: tournament.name,
-    },
+    performer: { "@type": "Organization", name: tournament.name },
     offers: {
       "@type": "Offer",
       url: pageUrl,
@@ -161,18 +130,13 @@ export default async function MidAmTournamentPage({
     const parsed = parseDateToISO(tournament.dates2026);
     if (parsed) {
       eventLd.startDate = parsed.start;
-      if (parsed.end) {
-        eventLd.endDate = parsed.end;
-      }
+      if (parsed.end) { eventLd.endDate = parsed.end; }
     }
   }
 
   return (
     <SiteShell>
-      <Script
-        id={`ld-breadcrumbs-${tournament.slug}`}
-        type="application/ld+json"
-      >
+      <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbsLd)}
       </Script>
       <Script id={`ld-event-${tournament.slug}`} type="application/ld+json">
@@ -202,6 +166,7 @@ export default async function MidAmTournamentPage({
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
+          <TournamentNews news={tournament.news} />
         </div>
       </div>
     </SiteShell>
