@@ -146,6 +146,23 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite here", href: "https://thesnedeker.com/" },
     ],
+    news: [
+      {
+        slug: "2026-snedeker-memorial-recap",
+        title: "Patterson Prevails in Playoff to Defend Snedeker Memorial Title",
+        date: "2026-03-15",
+        author: "midamgolfHQ",
+        summary: "Brett Patterson wins in a dramatic playoff to successfully defend his Snedeker Memorial title at The Lakewood Club.",
+        content: [
+          "Brett Patterson came to Point Clear, Alabama with one goal: defend his Snedeker Memorial title. Mission accomplished \u2014 though it took a playoff to get it done.",
+          "Patterson, who captured the 2025 title in convincing fashion, found himself locked in a tight battle throughout the final round at The Lakewood Club. The Perry Maxwell design, with its subtle green complexes and corridors framed by towering pines, demanded precision off the tee and patience on the greens. Patterson delivered both when it mattered most, draining a clutch putt on the playoff hole to secure back-to-back victories.",
+          "The team competition was equally compelling. The camaraderie that defines The Snedeker Memorial was on full display as groups battled it out across 54 holes of stroke play. In the end, it was a tight finish on the team leaderboard as well, with the winning squad grinding out a steady final round to hold off a hard-charging pack.",
+          "Off the course, The Grand Hotel continued to set the standard for mid-am hospitality. Competitors and their families were treated to the kind of first-class experience that has made this event one of the most anticipated on the calendar \u2014 from the dining to the accommodations to the warm Southern welcome that Point Clear is known for. The Grand Hotel at Marriott\u2019s Resort & Spa remains one of the premier destinations in Gulf Coast golf, and the Snedeker Memorial takes full advantage of it.",
+          "The Lakewood Club itself was in outstanding shape. The greens were firm and fast, rewarding those who could control their approach shots and punishing anyone who got careless with their lines. The course played tough but fair \u2014 exactly what you want for a premier mid-am event.",
+          "Patterson\u2019s repeat victory cements his place in the tournament\u2019s growing history. The Snedeker Memorial continues to attract one of the strongest fields in mid-amateur golf, and the 2026 edition delivered the kind of drama that keeps players coming back year after year. Start making your plans for 2027.",
+        ],
+      },
+    ],
     pastResults: [{ year: 2026, champion: "Brett Patterson" },
         { year: 2025, champion: "Nate Smith" }, { year: 2024, champion: "Jordan Russell" }],
   },
