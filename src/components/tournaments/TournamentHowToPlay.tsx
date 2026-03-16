@@ -5,7 +5,7 @@ export function TournamentHowToPlay({ howToPlay }: { howToPlay?: HowToPlayEntry[
 
   return (
     <section className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
-      <h2 className="text-sm font-semibold tracking-tight text-zinc-950">
+      <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">
         How to play
       </h2>
       <div className="mt-4 space-y-3">
