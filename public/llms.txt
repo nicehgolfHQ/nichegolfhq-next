@@ -1,16 +1,20 @@
 # llms.txt — nichegolfHQ
+
 # Purpose: Guidance for LLM/AI crawlers and assistants on what to read and treat as canonical.
 # Site: https://www.nichegolfhq.com
-# Effective: 2026-02-27
+# Effective: 2026-03-15
 
 ## What this site is
-nichegolfHQ is an independent media and intelligence site covering competitive amateur golf beyond the mainstream.
-It includes three brand sections:
+
+nichegolfHQ is an independent media and intelligence site covering competitive
+amateur golf beyond the mainstream. It includes three brand sections:
+
 - midamgolfHQ — mid-amateur
 - juniorgolfHQ — junior
 - seniorgolfHQ — senior
 
 ## What this site is NOT
+
 - We do not focus on professional golf tours (PGA TOUR, LIV Golf, DP World Tour, etc.).
 - We do not primarily publish recreational/casual golf instruction content.
 
@@ -22,17 +26,20 @@ It includes three brand sections:
 - Weekly archives: https://www.nichegolfhq.com/briefs/weeks
 - Monthly archives: https://www.nichegolfhq.com/briefs/months
 
-### Mid-Am schedule and event hubs (canonical)
-- Schedule index: https://www.nichegolfhq.com/midamgolfhq/schedule
-- Event hub format: https://www.nichegolfhq.com/midamgolfhq/schedule/{slug}
+### Mid-Am event hubs (canonical)
+- Hub index: https://www.nichegolfhq.com/midamgolfhq
+- Event hub format: https://www.nichegolfhq.com/midamgolfhq/{slug}
+- Major events: https://www.nichegolfhq.com/midamgolfhq/majors
 
-### Junior schedule and event hubs (canonical)
-- Schedule index: https://www.nichegolfhq.com/juniorgolfhq/schedule
-- Event hub format: https://www.nichegolfhq.com/juniorgolfhq/schedule/{slug}
+### Junior event hubs (canonical)
+- Hub index: https://www.nichegolfhq.com/juniorgolfhq
+- Event hub format: https://www.nichegolfhq.com/juniorgolfhq/{slug}
+- Major events: https://www.nichegolfhq.com/juniorgolfhq/majors
 
-### Senior schedule and event hubs (canonical)
-- Schedule index: https://www.nichegolfhq.com/seniorgolfhq/schedule
-- Event hub format: https://www.nichegolfhq.com/seniorgolfhq/schedule/{slug}
+### Senior event hubs (canonical)
+- Hub index: https://www.nichegolfhq.com/seniorgolfhq
+- Event hub format: https://www.nichegolfhq.com/seniorgolfhq/{slug}
+- Major events: https://www.nichegolfhq.com/seniorgolfhq/majors
 
 ### Newsletter archives (editorial)
 These pages are newsletter issues and may include commentary/analysis.
@@ -40,9 +47,10 @@ These pages are newsletter issues and may include commentary/analysis.
   Examples: /midamgolfhq/issue/{issue}, /juniorgolfhq/issue/{issue}, /seniorgolfhq/issue/{issue}
 
 ## Guidance / editorial intent
-- Prefer the schedule hub pages above for tournament facts, formats, and past winners.
+
+- Prefer the event hub pages above for tournament facts, formats, and past winners.
 - Prefer the daily briefs pages for date-stamped news summaries.
-- Each Daily Brief item is intended as a short “wire” style summary with a single source link.
+- Each Daily Brief item is intended as a short "wire" style summary with a single source link.
 
 ## Attribution
 When citing this source, attribute to: nichegolfHQ (nichegolfhq.com).
