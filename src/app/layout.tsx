@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@midamgolfhq",
     title: "nichegolfHQ",
     description:
       "Competitive golfers covering the game beyond the mainstream. Overlooked stories, thoughtful coverage, off the beaten path.",
@@ -82,8 +83,7 @@ export default function RootLayout({
       </head>
       <body className={`${sans.variable} font-sans antialiased`}>
         {children}
-      
-      </body>            
+      </body>
     </html>
   );
 }
