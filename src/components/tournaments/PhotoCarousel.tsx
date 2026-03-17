@@ -18,12 +18,12 @@ export function PhotoCarousel({ photos }: PhotoCarouselProps) {
   return (
     <div className="mb-6">
       {/* Main image */}
-      <div className="relative w-full overflow-hidden rounded-2xl bg-zinc-100" style={{ aspectRatio: "16/9" }}>
+      <div className="relative w-full overflow-hidden rounded-2xl bg-zinc-900" style={{ aspectRatio: "16/9" }}>
         <Image
           src={photos[current]}
           alt={`Event photo ${current + 1} of ${photos.length}`}
           fill
-          className="object-cover"
+          className="object-contain"
           sizes="(max-width: 768px) 100vw, 800px"
           priority={current === 0}
         />
