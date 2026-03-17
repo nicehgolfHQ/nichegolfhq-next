@@ -66,6 +66,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "The event was covered by everyone from us here at midamgolfHQ to other media outlets like The Back of The Range and No Laying Up. It was really cool to see all the media coverage and how the event gets bigger and better every year. Congrats to everyone involved and we look forward to an even bigger 2027.",
         ],
         photos: [
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/Screenshot%202026-03-17%20at%209.37.06%20AM.png",
           "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/DJI_20260221154236_0761_D.jpeg",
           "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/DJI_20260221161258_0781_D%20%281%29.jpeg",
           "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Gasparilla%202026/IMG_8550.JPG",
@@ -183,6 +184,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "Off the course, The Grand Hotel continued to set the standard for mid-am hospitality. Competitors and their families were treated to the kind of first-class experience that has made this event one of the most anticipated on the calendar \u2014 from the dining to the accommodations to the warm Southern welcome that Point Clear is known for. The Grand Hotel at Marriott\u2019s Resort & Spa remains one of the premier destinations in Gulf Coast golf, and the Snedeker Memorial takes full advantage of it.",
           "The Lakewood Club itself was in outstanding shape. The greens were firm and fast, rewarding those who could control their approach shots and punishing anyone who got careless with their lines. The course played tough but fair \u2014 exactly what you want for a premier mid-am event.",
           "Patterson\u2019s victory cements his place in the tournament\u2019s growing history. The Snedeker Memorial continues to attract one of the strongest fields in mid-amateur golf, and the 2026 edition delivered the kind of drama that keeps players coming back year after year. Start making your plans for 2027.",
+        ],
+        photos: [
+          "https://mh6ne4zbebpsk1ph.public.blob.vercel-storage.com/Snedeker%202026/Snedker.jpg",
         ],
       },
     ],
