@@ -29,28 +29,35 @@ const MONTH_MAP: Record<string, string> = {
   jul: "07", sep: "09", oct: "10", nov: "11", dec: "12",
 };
 
-function parseDateToISO(raw: string): { start: string; end?: string } | null {
-  if (!raw) return null;
-  // "Aug 18–21, 2026" or "June 15-18, 2026"
-  const rangeMatch = raw.match(
-    /^(\w+)\s+(\d{1,2})[–\-](\d{1,2}),?\s+(\d{4})$/
-  );
+function parseDateToISO(dateStr?: string, month?: number): { start: string; end?: string } | null {
+  if (!dateStr) return month ? { start: `2026-${String(month).padStart(2, "0")}-01` } : null;
+
+  const MONTHS: Record<string, string> = {
+    jan: "01", january: "01", feb: "02", february: "02", mar: "03", march: "03",
+    apr: "04", april: "04", may: "05", jun: "06", june: "06", jul: "07", july: "07",
+    aug: "08", august: "08", sep: "09", september: "09", oct: "10", october: "10",
+    nov: "11", november: "11", dec: "12", december: "12",
+  };
+
+  // Pattern: "Aug 18–21, 2026" or "Mar 26–29, 2026"
+  const rangeMatch = dateStr.match(/(\w+)\s+(\d{1,2})[\u2013\-](\d{1,2}),?\s*(\d{4})/);
   if (rangeMatch) {
-    const mm = MONTH_MAP[rangeMatch[1].toLowerCase()];
-    if (mm) {
-      const yyyy = rangeMatch[4];
-      const d1 = rangeMatch[2].padStart(2, "0");
-      const d2 = rangeMatch[3].padStart(2, "0");
-      return { start: `${yyyy}-${mm}-${d1}`, end: `${yyyy}-${mm}-${d2}` };
-    }
+    const mm = MONTHS[rangeMatch[1].toLowerCase().slice(0, 3)] || "01";
+    const startDay = rangeMatch[2].padStart(2, "0");
+    const endDay = rangeMatch[3].padStart(2, "0");
+    const year = rangeMatch[4];
+    return { start: `${year}-${mm}-${startDay}`, end: `${year}-${mm}-${endDay}` };
   }
-  // "January 2026"
-  const monthYear = raw.match(/^(\w+)\s+(\d{4})$/);
-  if (monthYear) {
-    const mm = MONTH_MAP[monthYear[1].toLowerCase()];
-    if (mm) return { start: `${monthYear[2]}-${mm}` };
+
+  // Pattern: "January 2026" or "Feb 2026"
+  const monthMatch = dateStr.match(/(\w+)\s+(\d{4})/);
+  if (monthMatch) {
+    const mm = MONTHS[monthMatch[1].toLowerCase().slice(0, 3)];
+    if (mm) return { start: `${monthMatch[2]}-${mm}-01` };
   }
-  return null;
+
+  // Fallback to month number
+  return month ? { start: `2026-${String(month).padStart(2, "0")}-01` } : null;
 }
 
 export async function generateMetadata({
@@ -127,7 +134,7 @@ export default async function MidAmTournamentPage({
 
   // Use ISO 8601 dates for structured data
   if (tournament.dates2026) {
-    const parsed = parseDateToISO(tournament.dates2026);
+    const parsed = parseDateToISO(tournament.dates2026, tournament.month);
     if (parsed) {
       eventLd.startDate = parsed.start;
       if (parsed.end) { eventLd.endDate = parsed.end; }
