@@ -9,11 +9,41 @@ export type JuniorMajorEvent = {
   officialUrl?: string;
   winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
+  // Venue
+  course?: string;
+  location?: string;
+  coursePar?: number;
+  courseYardage?: number;
+  courseDesigner?: string;
+  // Format
+  format?: string;
+  fieldSize?: string;
+  eligibility?: string;
+  // Editorial
+  overview?: string;
+  // History
+  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string }[];
 };
 
 export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   { slug: "junior-orange-bowl", name: "Junior Orange Bowl", month: "January 2026", winners2026: { boys: "Tomas Restrepo", girls: "Charlotte Naughton" } },
-  { slug: "ajga-simplify-boys-championship", name: "AJGA Simplify Boys Championship", month: "February 2026" },
+  {
+    slug: "ajga-simplify-boys-championship",
+    name: "AJGA Simplify Boys Championship",
+    month: "February 2026",
+    officialUrl: "https://www.ajga.org/tournaments/ajga-simplify-boys-championship-at-carlton-woods",
+    course: "The Club at Carlton Woods – Fazio Championship Course",
+    location: "The Woodlands, TX",
+    coursePar: 72,
+    courseDesigner: "Tom Fazio",
+    format: "54-hole stroke play",
+    fieldSize: "72 players",
+    eligibility: "AJGA Invitational – boys ages 12–19",
+    overview: "One of the premier AJGA Invitational events, the Simplify Boys Championship is held annually at the exclusive Club at Carlton Woods in The Woodlands, Texas. The Tom Fazio-designed Championship Course provides an elite test for the nation’s top junior golfers across three rounds of stroke play. The 2025 edition featured future stars including Miles Russell, who ran away with the title at 11 under par.",
+    pastResults: [
+      { year: 2025, champion: "Miles Russell", score: "-11 (64-70-71—205)", runnerUp: "T2: Michael Riebe / Giuseppe Puebla (-8)" },
+    ],
+  },
   { slug: "fortinet-stanford-invitational", name: "The Fortinet Stanford Invitational hosted by Rose Zhang", month: "February 2026" },
   { slug: "dustin-johnson-world-junior", name: "Dustin Johnson World Junior Golf Championship", month: "March 2026" },
   { slug: "junior-invitational-sage-valley", name: "Junior Invitational at Sage Valley", month: "March 2026", winners2026: { boys: "Miles Russell", girls: "Asterisk Talley" }, officialUrl: "https://juniorinvitational.com/", note: "72-hole stroke play \u2022 Sage Valley Golf Club, Graniteville, SC \u2022 Designed by Tom Fazio \u2022 Par 72, 7,437 yards \u2022 Field: 36 boys, 24 girls", winners: [
