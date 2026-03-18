@@ -8,6 +8,13 @@ export function MajorEventOverview({
   note,
   resultsHref,
   winners,
+  course,
+  location,
+  coursePar,
+  format,
+  fieldSize,
+  eligibility,
+  overview,
 }: {
   brand: "juniorgolfHQ" | "seniorgolfHQ";
   name: string;
@@ -16,6 +23,13 @@ export function MajorEventOverview({
   note?: string;
   resultsHref?: string;
   winners: { year: number; champion: string }[];
+  course?: string;
+  location?: string;
+  coursePar?: number;
+  format?: string;
+  fieldSize?: string;
+  eligibility?: string;
+  overview?: string;
 }) {
   const defending = [...winners].sort((a, b) => b.year - a.year)[0];
 
@@ -23,6 +37,7 @@ export function MajorEventOverview({
     <div className="grid gap-4 lg:grid-cols-3">
       <div className="lg:col-span-2 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
         <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Overview</h2>
+        {overview ? <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-700">{overview}</p> : null}
         {note ? <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-700">{note}</p> : null}
 
         {defending ? (
@@ -66,6 +81,36 @@ export function MajorEventOverview({
           <div>
             <span className="text-zinc-500">Month:</span> {month}
           </div>
+          {course ? (
+            <div>
+              <span className="text-zinc-500">Course:</span> {course}
+            </div>
+          ) : null}
+          {location ? (
+            <div>
+              <span className="text-zinc-500">Location:</span> {location}
+            </div>
+          ) : null}
+          {coursePar ? (
+            <div>
+              <span className="text-zinc-500">Par:</span> {coursePar}
+            </div>
+          ) : null}
+          {format ? (
+            <div>
+              <span className="text-zinc-500">Format:</span> {format}
+            </div>
+          ) : null}
+          {fieldSize ? (
+            <div>
+              <span className="text-zinc-500">Field:</span> {fieldSize}
+            </div>
+          ) : null}
+          {eligibility ? (
+            <div>
+              <span className="text-zinc-500">Eligibility:</span> {eligibility}
+            </div>
+          ) : null}
           <div>
             <span className="text-zinc-500">Official:</span> {officialUrl ? (
               <a href={officialUrl} target="_blank" rel="noreferrer" className="underline underline-offset-2">
