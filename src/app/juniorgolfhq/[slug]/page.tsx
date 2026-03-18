@@ -146,7 +146,7 @@ export default async function JuniorScheduleEventPage({
               <span>juniorgolfHQ</span>
             </Link>
           </div>
-          <MajorEventHero name={event.name} subtitle={event.month} />
+          <MajorEventHero name={event.name} subtitle={[event.course, event.location, event.month].filter(Boolean).join(" \u2022 ")} />
         </div>
       </section>
 
@@ -160,6 +160,14 @@ export default async function JuniorScheduleEventPage({
             officialUrl={event.officialUrl}
             note={event.note}
             resultsHref={`/juniorgolfhq/majors/${event.slug}/2026`}
+            course={event.course}
+            location={event.location}
+            coursePar={event.coursePar}
+            format={event.format}
+            fieldSize={event.fieldSize}
+            eligibility={event.eligibility}
+            overview={event.overview}
+            pastResults={event.pastResults}
             winners={[
               ...(event.winners2026
                 ? [
