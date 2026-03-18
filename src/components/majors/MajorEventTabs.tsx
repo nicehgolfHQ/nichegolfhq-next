@@ -19,6 +19,14 @@ export function MajorEventTabs({
   note,
   resultsHref,
   winners,
+  course,
+  location,
+  coursePar,
+  format,
+  fieldSize,
+  eligibility,
+  overview,
+  pastResults,
 }: {
   brand: "juniorgolfHQ" | "seniorgolfHQ";
   name: string;
@@ -27,11 +35,23 @@ export function MajorEventTabs({
   note?: string;
   resultsHref?: string;
   winners: { year: number; champion: string }[];
+  course?: string;
+  location?: string;
+  coursePar?: number;
+  format?: string;
+  fieldSize?: string;
+  eligibility?: string;
+  overview?: string;
+  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string }[];
 }) {
   const [active, setActive] = useState<TabKey>("overview");
 
   const content = useMemo(() => {
-    if (active === "results") return <MajorEventResults rows={winners} />;
+    if (active === "results") {
+      const pastRows = (pastResults || []).map(r => ({ year: r.year, champion: r.champion + (r.score ? " (" + r.score + ")" : "") }));
+      const allWinners = [...winners, ...pastRows].sort((a, b) => b.year - a.year);
+      return <MajorEventResults rows={allWinners} />;
+    }
     return (
       <MajorEventOverview
         brand={brand}
@@ -41,9 +61,16 @@ export function MajorEventTabs({
         note={note}
         resultsHref={resultsHref}
         winners={winners}
+        course={course}
+        location={location}
+        coursePar={coursePar}
+        format={format}
+        fieldSize={fieldSize}
+        eligibility={eligibility}
+        overview={overview}
       />
     );
-  }, [active, brand, month, name, note, officialUrl, resultsHref, winners]);
+  }, [active, brand, month, name, note, officialUrl, resultsHref, winners, course, location, coursePar, format, fieldSize, eligibility, overview, pastResults]);
 
   return (
     <section className="mt-6">
