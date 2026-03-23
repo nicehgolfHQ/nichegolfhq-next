@@ -1,4 +1,4 @@
-import type { HowToPlayEntry } from "@/lib/tournaments/types";
+import type { HowToPlayEntry, NewsArticle } from "@/lib/tournaments/types";
 
 export type SeniorMajorEvent = {
   slug: string;
@@ -9,6 +9,21 @@ export type SeniorMajorEvent = {
   officialUrl?: string;
   winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
+  // Venue
+  course?: string;
+  location?: string;
+  coursePar?: number;
+  courseYardage?: number;
+  courseDesigner?: string;
+  // Format
+  fieldSize?: string;
+  eligibility?: string;
+  // Editorial
+  overview?: string;
+  // History (richer than winners[])
+  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string }[];
+  // News
+  news?: NewsArticle[];
 };
 
 export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
