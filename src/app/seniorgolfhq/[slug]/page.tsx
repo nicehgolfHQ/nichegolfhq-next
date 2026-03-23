@@ -2,15 +2,56 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
-import { MajorEventHero } from "@/components/majors/MajorEventHero";
-import { MajorEventTabs } from "@/components/majors/MajorEventTabs";
+import { TournamentHero } from "@/components/tournaments/TournamentHero";
+import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
+import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
-import { getSeniorMajorBySlug, listSeniorMajorSlugs } from "@/lib/seniorMajors";
+import { TournamentNews } from "@/components/tournaments/TournamentNews";
+import {
+  getSeniorMajorBySlug,
+  listSeniorMajorSlugs,
+} from "@/lib/seniorMajors";
+import type { Tournament } from "@/lib/tournaments/types";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
   return listSeniorMajorSlugs().map((slug) => ({ slug }));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Helper: convert SeniorMajorEvent → Tournament for shared components */
+/* ------------------------------------------------------------------ */
+function toTournament(
+  event: NonNullable<ReturnType<typeof getSeniorMajorBySlug>>
+): Tournament {
+  return {
+    slug: event.slug,
+    name: event.name,
+    channel: "senior",
+    month: 1, // placeholder
+    dates2026: event.month, // e.g. "February 2026"
+    course: event.course,
+    location: event.location,
+    coursePar: event.coursePar,
+    courseYardage: event.courseYardage,
+    courseDesigner: event.courseDesigner,
+    format: event.format,
+    fieldSize: event.fieldSize,
+    eligibility: event.eligibility,
+    overview: event.overview,
+    pastResults: event.pastResults?.map((r) => ({
+      year: r.year,
+      champion: r.champion,
+      score: r.score,
+      runnerUp: r.runnerUp,
+    })) ?? (event.winners ?? []).map((w) => ({
+      year: w.year,
+      champion: w.champion,
+    })),
+    howToPlay: event.howToPlay,
+    news: event.news,
+  } as Tournament;
 }
 
 /* ------------------------------------------------------------------ */
@@ -26,7 +67,7 @@ const MONTH_MAP: Record<string, string> = {
 
 function monthToISO(raw: string): string | null {
   if (!raw) return null;
-  const m = raw.match(/^(\w+)\s+(\d{4})$/);
+  const m = raw.match(/^(\\w+)\\s+(\\d{4})$/);
   if (m) {
     const mm = MONTH_MAP[m[1].toLowerCase()];
     if (mm) return `${m[2]}-${mm}`;
@@ -44,9 +85,13 @@ export async function generateMetadata({
   const event = getSeniorMajorBySlug(slug);
   if (!event) return { title: "seniorgolfHQ" };
 
+  const subtitle = [event.course, event.location, event.month]
+    .filter(Boolean)
+    .join(" \u2022 ");
+
   return {
-    title: `${event.name} \u2014 Senior Major Schedule | seniorgolfHQ`,
-    description: `Dates and quick links for ${event.name}.`,
+    title: `${event.name} | seniorgolfHQ`,
+    description: `Dates, venue, format, and past winners for ${event.name}. ${subtitle}`,
     alternates: { canonical: `/seniorgolfhq/${event.slug}` },
   };
 }
@@ -60,6 +105,8 @@ export default async function SeniorScheduleEventPage({
   const slug = p?.slug ?? "";
   const event = getSeniorMajorBySlug(slug);
   if (!event) notFound();
+
+  const tournament = toTournament(event);
 
   const baseUrl = "https://www.nichegolfhq.com";
   const pageUrl = `${baseUrl}/seniorgolfhq/${event.slug}`;
@@ -99,7 +146,7 @@ export default async function SeniorScheduleEventPage({
       name: "seniorgolfHQ",
       url: `${baseUrl}/seniorgolfhq`,
     },
-    description: `Schedule hub for ${event.name} (senior majors).`,
+    description: `Dates, venue, format, and past winners for ${event.name}.`,
     image: `${baseUrl}/og-senior.png`,
     performer: {
       "@type": "Organization",
@@ -114,6 +161,14 @@ export default async function SeniorScheduleEventPage({
       description: "Amateur senior golf tournament",
     },
   };
+
+  if (event.location) {
+    eventLd.location = {
+      "@type": "Place",
+      name: [event.course, event.location].filter(Boolean).join(" \u2014 "),
+      address: event.location,
+    };
+  }
 
   if (isoDate) {
     eventLd.startDate = isoDate;
@@ -134,7 +189,7 @@ export default async function SeniorScheduleEventPage({
         {JSON.stringify(eventLd)}
       </Script>
 
-      {/* -- Dark Hero -- */}
+      {/* -- Hero -- */}
       <section className="relative overflow-hidden bg-zinc-50">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.04),transparent_70%)]" />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-12 pt-10">
@@ -147,25 +202,17 @@ export default async function SeniorScheduleEventPage({
               <span>seniorgolfHQ</span>
             </Link>
           </div>
-          <MajorEventHero name={event.name} subtitle={event.month} />
+          <TournamentHero tournament={tournament} />
         </div>
       </section>
 
       {/* -- White Content -- */}
       <div className="bg-white">
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
-          <MajorEventTabs
-            brand="seniorgolfHQ"
-            name={event.name}
-            month={event.month}
-            officialUrl={event.officialUrl}
-            note={
-              event.note || (event.format ? `Format: ${event.format}` : undefined)
-            }
-            resultsHref={`/seniorgolfhq/majors/${event.slug}/2026`}
-            winners={event.winners ?? []}
-          />
-          <TournamentHowToPlay howToPlay={event.howToPlay} />
+          <TournamentQuickFacts tournament={tournament} />
+          <TournamentTabs tournament={tournament} />
+          <TournamentHowToPlay howToPlay={tournament.howToPlay} />
+          <TournamentNews news={tournament.news} />
         </div>
       </div>
     </SiteShell>
