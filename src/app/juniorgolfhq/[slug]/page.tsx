@@ -2,17 +2,77 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
+import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
-import { getJuniorMajorBySlug, listJuniorMajorSlugs } from "@/lib/juniorMajors";
+import {
+  getJuniorMajorBySlug,
+  listJuniorMajorSlugs,
+} from "@/lib/juniorMajors";
 import type { Tournament } from "@/lib/tournaments/types";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
   return listJuniorMajorSlugs().map((slug) => ({ slug }));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Helper: convert JuniorMajorEvent → Tournament for shared components */
+/* ------------------------------------------------------------------ */
+function toTournament(
+  event: NonNullable<ReturnType<typeof getJuniorMajorBySlug>>
+): Tournament {
+  return {
+    slug: event.slug,
+    name: event.name,
+    channel: "junior",
+    month: 1, // placeholder — hero uses dates2026/typicalDates which we set below
+    dates2026: event.month, // e.g. "February 2026"
+    course: event.course,
+    location: event.location,
+    coursePar: event.coursePar,
+    courseYardage: event.courseYardage,
+    courseDesigner: event.courseDesigner,
+    format: event.format,
+    fieldSize: event.fieldSize,
+    eligibility: event.eligibility,
+    overview: event.overview,
+    pastResults: event.pastResults?.map((r) => ({
+      year: r.year,
+      champion: r.champion,
+      score: r.score,
+      runnerUp: r.runnerUp,
+    })) ?? (event.winners ?? []).map((w) => ({
+      year: w.year,
+      champion: w.champion,
+    })),
+    howToPlay: event.howToPlay,
+    news: event.news,
+  } as Tournament;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Helper: convert human-readable month string to ISO 8601           */
+/* ------------------------------------------------------------------ */
+const MONTH_MAP: Record<string, string> = {
+  january: "01", february: "02", march: "03", april: "04",
+  may: "05", june: "06", july: "07", august: "08", aug: "08",
+  september: "09", october: "10", november: "11", december: "12",
+  jan: "01", feb: "02", mar: "03", apr: "04", jun: "06",
+  jul: "07", sep: "09", oct: "10", nov: "11", dec: "12",
+};
+
+function monthToISO(raw: string): string | null {
+  if (!raw) return null;
+  const m = raw.match(/^(\\w+)\\s+(\\d{4})$/);
+  if (m) {
+    const mm = MONTH_MAP[m[1].toLowerCase()];
+    if (mm) return `${m[2]}-${mm}`;
+  }
+  return null;
 }
 
 export async function generateMetadata({
@@ -23,39 +83,17 @@ export async function generateMetadata({
   const p: any = await Promise.resolve(params as any);
   const slug = p?.slug ?? "";
   const event = getJuniorMajorBySlug(slug);
-  if (!event) return { title: "Junior Major Schedule | juniorgolfHQ" };
+  if (!event) return { title: "juniorgolfHQ" };
+
+  const subtitle = [event.course, event.location, event.month]
+    .filter(Boolean)
+    .join(" \u2022 ");
+
   return {
-    title: `${event.name} — Junior Major Schedule | juniorgolfHQ`,
-    description: `Dates, venue, format, and past winners for ${event.name}.`,
+    title: `${event.name} | juniorgolfHQ`,
+    description: `Dates, venue, format, and past winners for ${event.name}. ${subtitle}`,
     alternates: { canonical: `/juniorgolfhq/${event.slug}` },
   };
-}
-
-/** Map JuniorMajorEvent fields into a Tournament-shaped object so we can
- *  reuse the same mid-am components (QuickFacts, Tabs, HowToPlay, News). */
-function toTournament(event: ReturnType<typeof getJuniorMajorBySlug>): Tournament {
-  if (!event) throw new Error("missing event");
-  return {
-    slug: event.slug,
-    name: event.name,
-    channel: "junior",
-    month: 1,
-    course: event.course,
-    location: event.location,
-    coursePar: event.coursePar,
-    courseDesigner: event.courseDesigner,
-    format: event.format,
-    fieldSize: event.fieldSize,
-    eligibility: event.eligibility,
-    overview: event.overview,
-    pastResults: event.pastResults?.map((r) => ({
-      year: r.year,
-      champion: r.champion,
-      score: r.score,
-    })),
-    howToPlay: event.howToPlay,
-    news: event.news,
-  } as Tournament;
 }
 
 export default async function JuniorScheduleEventPage({
@@ -69,6 +107,7 @@ export default async function JuniorScheduleEventPage({
   if (!event) notFound();
 
   const tournament = toTournament(event);
+
   const baseUrl = "https://www.nichegolfhq.com";
   const pageUrl = `${baseUrl}/juniorgolfhq/${event.slug}`;
 
@@ -77,11 +116,23 @@ export default async function JuniorScheduleEventPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "juniorgolfHQ", item: `${baseUrl}/juniorgolfhq` },
-      { "@type": "ListItem", position: 3, name: "Junior Major Schedule", item: `${baseUrl}/juniorgolfhq` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "juniorgolfHQ",
+        item: `${baseUrl}/juniorgolfhq`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Junior Major Schedule",
+        item: `${baseUrl}/juniorgolfhq`,
+      },
       { "@type": "ListItem", position: 4, name: event.name, item: pageUrl },
     ],
   };
+
+  const isoDate = monthToISO(event.month);
 
   const eventLd: any = {
     "@context": "https://schema.org",
@@ -95,19 +146,46 @@ export default async function JuniorScheduleEventPage({
       name: "juniorgolfHQ",
       url: `${baseUrl}/juniorgolfhq`,
     },
-    description: `Schedule hub for ${event.name} (junior majors).`,
+    description: `Dates, venue, format, and past winners for ${event.name}.`,
+    image: `${baseUrl}/og-junior.png`,
+    performer: {
+      "@type": "Organization",
+      name: event.name,
+    },
+    offers: {
+      "@type": "Offer",
+      url: pageUrl,
+      availability: "https://schema.org/InStock",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Amateur junior golf tournament",
+    },
   };
 
-  const subtitle = [event.course, event.location, event.month]
-    .filter(Boolean)
-    .join(" \u2022 ");
+  if (event.location) {
+    eventLd.location = {
+      "@type": "Place",
+      name: [event.course, event.location].filter(Boolean).join(" \u2014 "),
+      address: event.location,
+    };
+  }
+
+  if (isoDate) {
+    eventLd.startDate = isoDate;
+  }
 
   return (
-    <SiteShell>
-      <Script id={`ld-breadcrumbs-junior-${event.slug}`} type="application/ld+json">
+    <SiteShell brandSlug="juniorgolfhq">
+      <Script
+        id={`ld-breadcrumbs-junior-${event.slug}`}
+        type="application/ld+json"
+      >
         {JSON.stringify(breadcrumbsLd)}
       </Script>
-      <Script id={`ld-event-junior-${event.slug}`} type="application/ld+json">
+      <Script
+        id={`ld-event-junior-${event.slug}`}
+        type="application/ld+json"
+      >
         {JSON.stringify(eventLd)}
       </Script>
 
@@ -124,14 +202,7 @@ export default async function JuniorScheduleEventPage({
               <span>juniorgolfHQ</span>
             </Link>
           </div>
-          <section className="text-center">
-            <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
-              {event.name}
-            </h1>
-            {subtitle && (
-              <div className="mt-4 text-sm text-zinc-500">{subtitle}</div>
-            )}
-          </section>
+          <TournamentHero tournament={tournament} />
         </div>
       </section>
 
@@ -140,8 +211,8 @@ export default async function JuniorScheduleEventPage({
         <div className="mx-auto w-full max-w-5xl px-5 py-10">
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
-          <TournamentHowToPlay howToPlay={event.howToPlay} />
-          <TournamentNews news={event.news} />
+          <TournamentHowToPlay howToPlay={tournament.howToPlay} />
+          <TournamentNews news={tournament.news} />
         </div>
       </div>
     </SiteShell>
