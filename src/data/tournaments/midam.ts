@@ -351,6 +351,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://www.golfgenius.com/register?league_id=11637199223413295215" },
     ],
+    news: [
+      {
+        slug: "2026-jupiter-invitational-preview",
+        title: "The Jupiter Invitational Arrives: A New Must-Watch Event on the Mid-Am Calendar",
+        date: "2026-03-24",
+        author: "midamgolfHQ",
+        summary: "The 2026 Jupiter Invitational debuts at Jonathan’s Landing in Jupiter, Florida, bringing a curated, high-end event to one of the game’s most talent-rich regions.",
+        content: [
+          "The 2026 Jupiter Invitational arrives as one of the most exciting new additions to the mid-amateur calendar, bringing a fresh, high-end event to one of the game’s most talent-rich regions. Set at Jonathan’s Landing in Jupiter, Florida, the tournament will feature a select field of elite mid-am and senior players competing on the Gil Hanse–designed Match Course — a layout known for its strategic design and emphasis on shot-making. Positioned in May, it lands right in the heart of the spring season and has the early feel of an event aiming to establish itself quickly among the top invitationals in the country.",
+          "The Match Course at Jonathan’s Landing is a worthy stage for a debut of this caliber. Opened in 2021, the Hanse and Jim Wagner redesign replaced the club’s original Arthur Hills layout and drew inspiration from Ohoopee Match Club, emphasizing risk-reward decision-making and a match-play mindset throughout. At roughly 6,500 yards from the back plates, the course rewards creativity and precision over raw length — exactly the kind of test that tends to separate the best mid-amateurs from the rest of the field. For a new event looking to make a statement, the venue alone sends a clear message about the level of golf expected.",
+          "What stands out immediately is the intentionality behind the event. This is not a large-field, open-style tournament — it’s curated, competitive, and built around quality of field and experience. With a limited roster and a venue that rewards shot-making over power, the Jupiter Invitational should produce a leaderboard filled with recognizable names and high-level play. Combine that with the South Florida setting and the buzz surrounding its debut, and this feels like a tournament that could rise quickly.",
+          "midamgolfHQ will be tracking the action as the Jupiter Invitational looks to carve out its place among the premier stops on the mid-amateur calendar. With a strong venue, a curated field, and a region packed with competitive amateur talent, all the ingredients are in place for an impressive debut — and a tournament players begin circling year after year.",
+        ],
+      },
+    ],
   },
   {
     slug: "walter-j-travis-invitational",
@@ -373,7 +388,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-travis-invitational-preview",
+        title: "Chris DeJohn Eyes a Third Title as the Walter J. Travis Invitational Returns to Garden City",
+        date: "2026-03-24",
+        author: "midamgolfHQ",
+        summary: "The Walter J. Travis Invitational returns in 2026 to Garden City Golf Club, where two-time champion Chris DeJohn looks to defend his title on one of amateur golf’s most revered stages.",
+        content: [
+          "The Walter J. Travis Invitational returns in 2026 as one of the most prestigious and unique tests in mid-amateur golf, once again hosted at the iconic Garden City Golf Club in Garden City, New York. Designed by Devereux Emmet in 1897 and later redesigned by its namesake Walter Travis — who made it his home course — Garden City is steeped in history, having hosted the 1902 U.S. Open and earned a reputation as one of the finest examples of golden-age golf architecture on Long Island. Known for its firm conditions, strategic bunkering, and emphasis on creativity, Garden City provides a classic match-play stage where patience and precision are paramount.",
+          "The format itself is what sets the Travis apart from most mid-amateur events. A blend of stroke-play qualifying followed by match play consistently delivers drama, rewarding players who can adapt quickly and elevate their game under pressure. It’s a test that demands versatility — qualifying requires steady, disciplined golf, while the match-play bracket rewards aggression, nerve, and the ability to handle momentum swings. At a course that plays to par 73 across nearly 6,900 yards with a slope of 141, there’s no room to coast through any round.",
+          "All eyes will be on Chris DeJohn, who captured the title in dominant fashion last year with a 4 & 3 victory over John Hunter in the final. A past champion in 2023 as well, DeJohn has firmly established himself as one of the most consistent and dangerous players in the field, particularly in match play where his steady, grinding style thrives. With a strong amateur résumé that includes elite-level victories and deep runs in major events, he enters 2026 as the player to beat — chasing a third Travis title that would further cement his standing in the event’s history.",
+          "But as history has shown at Garden City, no lead is ever safe and no match is routine. The past winners list is filled with one-time champions who caught fire at the right moment, and the match-play format always leaves room for an upset. midamgolfHQ will be tracking the action as one of golf’s most revered tournaments — amateur or pro — sets the stage for another compelling week on Long Island.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Chris DeJohn" },
       { year: 2024, champion: "Ben Greve" },
@@ -563,7 +592,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-huddleston-cup-preview",
+        title: "Bobby Massa Returns to Maridoe as the Huddleston Cup Raises the Bar Again",
+        date: "2026-03-24",
+        author: "midamgolfHQ",
+        summary: "The Huddleston Cup returns to Maridoe Golf Club in 2026, where defending champion Bobby Massa looks to repeat after a dominant nine-shot victory last year.",
+        content: [
+          "The Huddleston Cup returns in 2026 as one of the most demanding and exclusive tests in mid-amateur golf, once again hosted at Maridoe Golf Club just outside Dallas. Designed by Steve Smyers and reopened in 2017 after a complete transformation of the old Columbian Club, Maridoe stretches to nearly 7,900 yards with a course rating of 79.6 and a slope of 155 — the maximum possible — creating a true championship environment where only the most complete players can contend. The format — 54 holes of stroke play — keeps the pressure constant from the opening tee shot, with no room to ease into the tournament. As an invite-only event featuring a small, elite field, the Huddleston Cup has quickly built a reputation as one of the purest competitive tests on the mid-amateur calendar.",
+          "All eyes will be on defending champion Bobby Massa, who delivered one of the most dominant performances in recent memory last year, cruising to a nine-shot victory over Steele Dewald. That kind of margin at Maridoe is almost unheard of — this is a course where par is a genuinely good score — and speaks to just how dialed-in Massa was across all three rounds. He returns in 2026 as the clear player to beat, but with a stacked field of elite mid-amateurs and a course that punishes even the slightest mistake, nothing will come easy.",
+          "The Huddleston Cup’s short but impressive history adds to its allure. Scott Harvey, one of the most decorated mid-amateurs of his generation, claimed the first two editions in 2023 and 2024, establishing the event’s credibility from day one. Massa’s decisive win in 2025 showed that the tournament is already attracting the kind of depth that produces memorable finishes and new storylines year after year. With Smyers’ shaved-off areas around undulating green complexes and the sheer physical demands of a nearly 7,900-yard layout, the Huddleston Cup is a true test of elite ball-striking, mental toughness, and endurance.",
+          "midamgolfHQ will be tracking the action as the Huddleston Cup continues to cement itself as one of the premier stops on the mid-amateur calendar. With a venue that separates the best from the rest and a field stacked with proven winners, the 2026 edition has all the ingredients for another unforgettable week at Maridoe.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Bobby Massa" },
       { year: 2024, champion: "Scott Harvey" },
