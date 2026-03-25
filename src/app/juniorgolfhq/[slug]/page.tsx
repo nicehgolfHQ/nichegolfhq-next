@@ -7,9 +7,11 @@ import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFa
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
+import { RelatedEvents } from "@/components/tournaments/RelatedEvents";
 import {
   getJuniorMajorBySlug,
   listJuniorMajorSlugs,
+  JUNIOR_MAJOR_EVENTS_2026,
 } from "@/lib/juniorMajors";
 import type { Tournament } from "@/lib/tournaments/types";
 
@@ -20,7 +22,7 @@ export function generateStaticParams() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Helper: convert JuniorMajorEvent → Tournament for shared components */
+/* Helper: convert JuniorMajorEvent → Tournament for shared components */
 /* ------------------------------------------------------------------ */
 function toTournament(
   event: NonNullable<ReturnType<typeof getJuniorMajorBySlug>>
@@ -40,29 +42,49 @@ function toTournament(
     fieldSize: event.fieldSize,
     eligibility: event.eligibility,
     overview: event.overview,
-    pastResults: event.pastResults?.map((r) => ({
-      year: r.year,
-      champion: r.champion,
-      score: r.score,
-      runnerUp: r.runnerUp,
-    })) ?? (event.winners ?? []).map((w) => ({
-      year: w.year,
-      champion: w.champion,
-    })),
+    pastResults:
+      event.pastResults?.map((r) => ({
+        year: r.year,
+        champion: r.champion,
+        score: r.score,
+        runnerUp: r.runnerUp,
+      })) ??
+      (event.winners ?? []).map((w) => ({
+        year: w.year,
+        champion: w.champion,
+      })),
     howToPlay: event.howToPlay,
     news: event.news,
   } as Tournament;
 }
 
 /* ------------------------------------------------------------------ */
-/*  Helper: convert human-readable month string to ISO 8601           */
+/* Helper: convert human-readable month string to ISO 8601            */
 /* ------------------------------------------------------------------ */
 const MONTH_MAP: Record<string, string> = {
-  january: "01", february: "02", march: "03", april: "04",
-  may: "05", june: "06", july: "07", august: "08", aug: "08",
-  september: "09", october: "10", november: "11", december: "12",
-  jan: "01", feb: "02", mar: "03", apr: "04", jun: "06",
-  jul: "07", sep: "09", oct: "10", nov: "11", dec: "12",
+  january: "01",
+  february: "02",
+  march: "03",
+  april: "04",
+  may: "05",
+  june: "06",
+  july: "07",
+  august: "08",
+  aug: "08",
+  september: "09",
+  october: "10",
+  november: "11",
+  december: "12",
+  jan: "01",
+  feb: "02",
+  mar: "03",
+  apr: "04",
+  jun: "06",
+  jul: "07",
+  sep: "09",
+  oct: "10",
+  nov: "11",
+  dec: "12",
 };
 
 function monthToISO(raw: string): string | null {
@@ -107,7 +129,6 @@ export default async function JuniorScheduleEventPage({
   if (!event) notFound();
 
   const tournament = toTournament(event);
-
   const baseUrl = "https://www.nichegolfhq.com";
   const pageUrl = `${baseUrl}/juniorgolfhq/${event.slug}`;
 
@@ -174,6 +195,14 @@ export default async function JuniorScheduleEventPage({
     eventLd.startDate = isoDate;
   }
 
+  const relatedEvents = JUNIOR_MAJOR_EVENTS_2026
+    .filter((e) => e.slug !== event.slug)
+    .map((e) => ({
+      slug: e.slug,
+      name: e.name,
+      month: e.month.replace(" 2026", ""),
+    }));
+
   return (
     <SiteShell brandSlug="juniorgolfhq">
       <Script
@@ -213,6 +242,11 @@ export default async function JuniorScheduleEventPage({
           <TournamentTabs tournament={tournament} />
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
           <TournamentNews news={tournament.news} />
+          <RelatedEvents
+            events={relatedEvents}
+            brandSlug="juniorgolfhq"
+            brandLabel="juniorgolfHQ"
+          />
         </div>
       </div>
     </SiteShell>
