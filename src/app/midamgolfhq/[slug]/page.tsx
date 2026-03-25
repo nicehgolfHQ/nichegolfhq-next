@@ -5,12 +5,14 @@ import { SiteShell } from "@/components/SiteShell";
 import {
   getMidAmTournamentBySlug,
   listMidAmTournamentSlugs,
+  listMidAmTournaments,
 } from "@/lib/tournaments/midam";
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
+import { RelatedEvents } from "@/components/tournaments/RelatedEvents";
 
 export const dynamicParams = false;
 
@@ -22,24 +24,45 @@ export function generateStaticParams() {
 /* Helper: convert human-readable date string to ISO 8601             */
 /* ------------------------------------------------------------------ */
 const MONTH_MAP: Record<string, string> = {
-  january: "01", february: "02", march: "03", april: "04",
-  may: "05", june: "06", july: "07", august: "08", aug: "08",
-  september: "09", october: "10", november: "11", december: "12",
-  jan: "01", feb: "02", mar: "03", apr: "04", jun: "06",
-  jul: "07", sep: "09", oct: "10", nov: "11", dec: "12",
+  january: "01",
+  february: "02",
+  march: "03",
+  april: "04",
+  may: "05",
+  june: "06",
+  july: "07",
+  august: "08",
+  aug: "08",
+  september: "09",
+  october: "10",
+  november: "11",
+  december: "12",
+  jan: "01",
+  feb: "02",
+  mar: "03",
+  apr: "04",
+  jun: "06",
+  jul: "07",
+  sep: "09",
+  oct: "10",
+  nov: "11",
+  dec: "12",
 };
 
 function parseDateToISO(dateStr?: string, month?: number): { start: string; end?: string } | null {
-  if (!dateStr) return month ? { start: `2026-${String(month).padStart(2, "0")}-01` } : null;
+  if (!dateStr)
+    return month ? { start: `2026-${String(month).padStart(2, "0")}-01` } : null;
 
   const MONTHS: Record<string, string> = {
-    jan: "01", january: "01", feb: "02", february: "02", mar: "03", march: "03",
-    apr: "04", april: "04", may: "05", jun: "06", june: "06", jul: "07", july: "07",
-    aug: "08", august: "08", sep: "09", september: "09", oct: "10", october: "10",
-    nov: "11", november: "11", dec: "12", december: "12",
+    jan: "01", january: "01", feb: "02", february: "02",
+    mar: "03", march: "03", apr: "04", april: "04",
+    may: "05", jun: "06", june: "06", jul: "07", july: "07",
+    aug: "08", august: "08", sep: "09", september: "09",
+    oct: "10", october: "10", nov: "11", november: "11",
+    dec: "12", december: "12",
   };
 
-  // Pattern: "Aug 18–21, 2026" or "Mar 26–29, 2026"
+  // Pattern: "Aug 18\u201321, 2026" or "Mar 26\u201329, 2026"
   const rangeMatch = dateStr.match(/(\w+)\s+(\d{1,2})[\u2013\-](\d{1,2}),?\s*(\d{4})/);
   if (rangeMatch) {
     const mm = MONTHS[rangeMatch[1].toLowerCase().slice(0, 3)] || "01";
@@ -60,6 +83,11 @@ function parseDateToISO(dateStr?: string, month?: number): { start: string; end?
   return month ? { start: `2026-${String(month).padStart(2, "0")}-01` } : null;
 }
 
+const MONTH_NAMES = [
+  "", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
 export async function generateMetadata({
   params,
 }: {
@@ -69,8 +97,10 @@ export async function generateMetadata({
   const slug = p?.slug ?? "";
   const t = getMidAmTournamentBySlug(slug);
   if (!t) return { title: "midamgolfHQ" };
+
   const dates = t.dates2026 ?? t.typicalDates;
   const subtitle = `${t.course} \u2022 ${t.location}${dates ? ` \u2022 ${dates}` : ""}`;
+
   return {
     title: `${t.name} | midamgolfHQ`,
     description: `Dates, venue, format, and past winners for ${t.name}. ${subtitle}`,
@@ -137,9 +167,19 @@ export default async function MidAmTournamentPage({
     const parsed = parseDateToISO(tournament.dates2026, tournament.month);
     if (parsed) {
       eventLd.startDate = parsed.start;
-      if (parsed.end) { eventLd.endDate = parsed.end; }
+      if (parsed.end) {
+        eventLd.endDate = parsed.end;
+      }
     }
   }
+
+  const relatedEvents = listMidAmTournaments()
+    .filter((t) => t.slug !== tournament.slug)
+    .map((t) => ({
+      slug: t.slug,
+      name: t.name,
+      month: MONTH_NAMES[t.month] || "",
+    }));
 
   return (
     <SiteShell>
@@ -174,6 +214,11 @@ export default async function MidAmTournamentPage({
           <TournamentTabs tournament={tournament} />
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
           <TournamentNews news={tournament.news} />
+          <RelatedEvents
+            events={relatedEvents}
+            brandSlug="midamgolfhq"
+            brandLabel="midamgolfHQ"
+          />
         </div>
       </div>
     </SiteShell>
