@@ -90,7 +90,7 @@ export default function TermsPage() {
 
           <section className="space-y-3">
             <h2 className="text-sm font-semibold tracking-tight text-zinc-950">9) Contact</h2>
-            <p className="text-sm leading-7 text-zinc-700">Questions: privacy@nichegolfhq.com</p>
+            <p className="text-sm leading-7 text-zinc-700">Questions: visit our <Link href="/contact" className="underline underline-offset-4 hover:text-zinc-950">contact page</Link>.</p>
           </section>
         </div>
 
