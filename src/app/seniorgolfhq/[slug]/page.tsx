@@ -67,7 +67,7 @@ const MONTH_MAP: Record<string, string> = {
 
 function monthToISO(raw: string): string | null {
   if (!raw) return null;
-  const m = raw.match(/^(\\w+)\\s+(\\d{4})$/);
+  const m = raw.match(/^(\w+)\s+(\d{4})$/);
   if (m) {
     const mm = MONTH_MAP[m[1].toLowerCase()];
     if (mm) return `${m[2]}-${mm}-01`;
