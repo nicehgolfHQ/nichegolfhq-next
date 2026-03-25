@@ -7,9 +7,11 @@ import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFa
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
+import { RelatedEvents } from "@/components/tournaments/RelatedEvents";
 import {
   getSeniorMajorBySlug,
   listSeniorMajorSlugs,
+  SENIOR_MAJOR_EVENTS_2026,
 } from "@/lib/seniorMajors";
 import type { Tournament } from "@/lib/tournaments/types";
 
@@ -174,6 +176,14 @@ export default async function SeniorScheduleEventPage({
     eventLd.startDate = isoDate;
   }
 
+  const relatedEvents = SENIOR_MAJOR_EVENTS_2026
+    .filter((e) => e.slug !== event.slug)
+    .map((e) => ({
+      slug: e.slug,
+      name: e.name,
+      month: e.month.replace(" 2026", ""),
+    }));
+
   return (
     <SiteShell brandSlug="seniorgolfhq">
       <Script
@@ -213,6 +223,11 @@ export default async function SeniorScheduleEventPage({
           <TournamentTabs tournament={tournament} />
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
           <TournamentNews news={tournament.news} />
+          <RelatedEvents
+            events={relatedEvents}
+            brandSlug="seniorgolfhq"
+            brandLabel="seniorgolfHQ"
+          />
         </div>
       </div>
     </SiteShell>
