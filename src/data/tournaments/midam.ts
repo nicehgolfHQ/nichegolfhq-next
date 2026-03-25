@@ -312,7 +312,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-giles-invitational-preview",
+        title: "Year Two of the Giles Invitational: Can Andrew Bailey Go Back-to-Back at Kinloch?",
+        date: "2026-03-24",
+        author: "midamgolfHQ",
+        summary: "The Giles Invitational returns to Kinloch Golf Club in May with elevated expectations after a standout inaugural year that immediately put it on the mid-amateur map.",
+        content: [
+          "The Giles Invitational returns in 2026 with serious momentum after a standout inaugural year that immediately put it on the map in mid-amateur golf. Hosted at Kinloch Golf Club in Manakin-Sabot, Virginia, the event honors amateur legend Vinny Giles and is played on the course he co-designed with Lester George — a setting that blends championship pedigree with a deep respect for the game’s history. After earning rave reviews in year one, expectations are elevated across the board, with a stronger field and even more attention as the tournament continues its rapid rise toward must-play status.",
+          "The inaugural edition set a high bar. Andrew Bailey, a two-time Ohio Amateur champion, claimed the first Giles Invitational title at 9-under par, closing with a final-round 67 to pull away for a two-shot victory. The field itself was loaded with top mid-amateurs and proven winners, signaling right away that this wasn’t just another new event — it was built to attract elite talent. With Bailey returning as defending champion, the storyline writes itself: can he go back-to-back, or will an even deeper field produce a new champion?",
+          "Kinloch Golf Club is no stranger to high-stakes amateur golf. The club hosted the 2024 U.S. Mid-Amateur and the 2011 U.S. Senior Amateur, and its Lester George design stretches to 7,373 yards at par 72, with a course rating of 75 and a slope of 138 from the back tees. The layout demands accuracy and course management, rewarding players who can navigate its strategic bunkering and undulating greens. For mid-amateurs who competed here in the U.S. Mid-Amateur, the Giles Invitational offers a welcome return to one of Virginia’s finest private clubs.",
+          "The 2026 edition features both a mid-amateur division (60 players) and a senior division (30 players) across 54 holes of stroke play, preserving the intimate, elite feel that defined year one. With no application process — the field is assembled by invitation only — every player in the field has earned their spot. midamgolfHQ will be tracking the action as the Giles Invitational looks to cement itself as one of the premier stops on the mid-amateur calendar.",
+        ],
+      },
+    ],
     pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
   },
   {
