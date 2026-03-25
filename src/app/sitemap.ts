@@ -11,6 +11,9 @@ import { listMajorSlugs, listMajorYearParams } from "@/lib/majors";
 import { listJuniorMajorSlugs } from "@/lib/juniorMajors";
 import { listSeniorMajorSlugs } from "@/lib/seniorMajors";
 
+// Event pages (mid-am tournaments + junior/senior brand event pages)
+import { listMidAmTournamentSlugs } from "@/lib/tournaments/midam";
+
 const BASE = "https://www.nichegolfhq.com";
 
 type DailyBrief = {
@@ -173,6 +176,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
+  // Event detail pages (mid-am, junior, senior)
+  const eventUrls: MetadataRoute.Sitemap = [];
+
+  for (const slug of listMidAmTournamentSlugs()) {
+    eventUrls.push({
+      url: `${BASE}/midamgolfhq/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    });
+  }
+  for (const slug of listJuniorMajorSlugs()) {
+    eventUrls.push({
+      url: `${BASE}/juniorgolfhq/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    });
+  }
+  for (const slug of listSeniorMajorSlugs()) {
+    eventUrls.push({
+      url: `${BASE}/seniorgolfhq/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    });
+  }
+
   // Issue URLs: pulled from Supabase so Google can crawl the full archive.
   // Best-effort: if Supabase isn't configured, sitemap still returns other URLs.
   let issueUrls: MetadataRoute.Sitemap = [];
@@ -208,6 +239,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...briefArchiveUrls,
     ...briefDateUrls,
     ...majorsUrls,
+    ...eventUrls,
     ...issueUrls,
   ];
 }
