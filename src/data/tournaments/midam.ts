@@ -551,7 +551,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-lupton-memorial-postponed",
+        title: "Lupton Memorial Postponed to 2027 as The Honors Course Prepares to Host U.S. Women’s Amateur",
+        date: "2026-03-24",
+        author: "midamgolfHQ",
+        summary: "The John T. Lupton Memorial will not be held in 2026, with the event rescheduled to 2027 as The Honors Course turns its attention to hosting the U.S. Women’s Amateur Championship this August.",
+        content: [
+          "The John T. Lupton Memorial has been postponed to 2027 as The Honors Course in Ooltewah, Tennessee prepares to host the 2026 U.S. Women’s Amateur Championship this August. With the USGA championship requiring extensive course preparation, logistical coordination, and a window of exclusivity for one of amateur golf’s most prestigious events, the decision was made to pause the Lupton Memorial for one year rather than compromise either event. It’s a testament to the stature of The Honors Course — a Pete Dye masterpiece that has now hosted seven USGA championships — that it continues to attract the game’s biggest stages, and midamgolfHQ looks forward to the Lupton Memorial’s return in 2027 with the same elite, invite-only field and demanding 54-hole stroke-play format that has made it one of the top mid-amateur events in the Southeast.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Ben Reeves" },
       { year: 2024, champion: "Joseph Deraney" },
