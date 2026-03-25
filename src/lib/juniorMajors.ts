@@ -48,7 +48,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   },
   { slug: "fortinet-stanford-invitational", name: "The Fortinet Stanford Invitational hosted by Rose Zhang", month: "February 2026" },
   { slug: "dustin-johnson-world-junior", name: "Dustin Johnson World Junior Golf Championship", month: "March 2026" },
-  { slug: "junior-invitational-sage-valley", name: "Junior Invitational at Sage Valley", month: "March 2026", winners2026: { boys: "Miles Russell", girls: "Asterisk Talley" }, officialUrl: "https://juniorinvitational.com/", note: "72-hole stroke play \u2022 Sage Valley Golf Club, Graniteville, SC \u2022 Designed by Tom Fazio \u2022 Par 72, 7,437 yards \u2022 Field: 36 boys, 24 girls", winners: [
+  { slug: "junior-invitational-sage-valley", name: "Junior Invitational at Sage Valley", month: "March 2026", course: "Sage Valley Golf Club", location: "Graniteville, SC", winners2026: { boys: "Miles Russell", girls: "Asterisk Talley" }, officialUrl: "https://juniorinvitational.com/", note: "72-hole stroke play \u2022 Sage Valley Golf Club, Graniteville, SC \u2022 Designed by Tom Fazio \u2022 Par 72, 7,437 yards \u2022 Field: 36 boys, 24 girls", winners: [
       { year: 2025, champion: "Boys: Miles Russell / Girls: Aphrodite Deng" },
       { year: 2024, champion: "Boys: Giovanni Daniele Binaghi / Girls: Asterisk Talley" },
       { year: 2023, champion: "Boys: Aldrich Potgieter / Girls: Anna Davis" },
