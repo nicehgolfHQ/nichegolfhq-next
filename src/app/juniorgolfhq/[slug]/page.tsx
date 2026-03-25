@@ -13,7 +13,7 @@ import {
 } from "@/lib/juniorMajors";
 import type { Tournament } from "@/lib/tournaments/types";
 
-export const dynamicParams = false;
+export const dynamicParams = false
 
 export function generateStaticParams() {
   return listJuniorMajorSlugs().map((slug) => ({ slug }));
@@ -70,7 +70,7 @@ function monthToISO(raw: string): string | null {
   const m = raw.match(/^(\\w+)\\s+(\\d{4})$/);
   if (m) {
     const mm = MONTH_MAP[m[1].toLowerCase()];
-    if (mm) return `${m[2]}-${mm}`;
+    if (mm) return `${m[2]}-${mm}-01`;
   }
   return null;
 }
