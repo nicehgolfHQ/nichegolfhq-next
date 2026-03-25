@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
             <ul className="list-disc space-y-1 pl-5 text-sm text-zinc-700">
               <li>Publisher: nichegolfHQ</li>
               <li>Website: https://www.nichegolfhq.com</li>
-              <li>Contact: privacy@nichegolfhq.com</li>
+              <li>Contact: <Link href="/contact" className="underline underline-offset-4 hover:text-zinc-950">nichegolfhq.com/contact</Link></li>
             </ul>
           </section>
 
@@ -104,7 +104,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-sm font-semibold tracking-tight text-zinc-950">6) Your choices and rights</h2>
             <p className="text-sm leading-7 text-zinc-700">
               Depending on your location, you may have rights to access, correct, or delete certain personal information, and to
-              withdraw consent. To request help, contact privacy@nichegolfhq.com.
+              withdraw consent. To request help, visit our <Link href="/contact" className="underline underline-offset-4 hover:text-zinc-950">contact page</Link>.
             </p>
           </section>
 
