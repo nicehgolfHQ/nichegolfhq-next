@@ -211,6 +211,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Ralph Plummer",
     courseNotes: "Site of 1969 U.S. Open, 2020 U.S. Women's Open",
 
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12240361740285531547",
     format: "72 holes better ball",
     howToPlay: [
       { label: "Apply for invite here", href: "https://www.championsgolfclub.com/default.aspx?p=.NETDynamicForm&f=ddc32a0e-c1bc-4f2d-a2a3-f18eaa0d6091" },
