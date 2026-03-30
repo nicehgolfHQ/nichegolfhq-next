@@ -218,6 +218,20 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-champions-cup-recap",
+        title: "Gibbons & Stewart Dominate 58th Champions Cup Invitational with Record-Setting 21-Under Victory",
+        date: "2026-03-29",
+        author: "midamgolfHQ",
+        summary: "Josh Gibbons and Kade Stewart ran away with the 58th Champions Cup Invitational at Champions Golf Club, carding a 21-under 263 for a convincing three-shot win.",
+        content: [
+          "The 58th Champions Cup Invitational rounded out March at Champions Golf Club in Houston \u2014 one of the most hallowed grounds in American amateur golf. Founded in 1957 by major champions Jack Burke Jr. and Jimmy Demaret, the club has hosted the 1967 Ryder Cup, the 1969 U.S. Open, the 1993 U.S. Amateur, and the 2020 U.S. Women\u2019s Open, making it one of the most decorated venues in the country. The Champions Cup Invitational itself dates back to 1961 and has long been regarded as one of the premier two-man best-ball amateur events in the nation.",
+          "This year\u2019s champion squad left no doubt. Josh Gibbons and Kade Stewart put together one of the more dominant performances in recent memory, carding rounds of 68-63-67-65 for a 21-under par total of 263 \u2014 good enough for a convincing three-shot victory. Their second-round 63 was the low round of the tournament and the kind of number that rattles the rest of the field. From there, Gibbons and Stewart never looked back, maintaining their grip on the leaderboard through the weekend and closing with a 65 on Sunday to seal the deal.",
+          "Tied for second at 18-under (266) were the teams of Marcus Jones & Brad Mason and Will Griffin & Wesley McClain. Jones and Mason made a charge in the final round with a 67 that included a -4 afternoon, while Griffin and McClain were steady throughout with four rounds in the 60s. Rounding out the top five at 17-under (267) were Josh Lampley & Ben Snow, who fired the best final-round score of the week \u2014 a sizzling 64 \u2014 and Charlie Holland & Jordan Russell, who held the 36-hole lead before a final-round 72 dropped them into a share of fourth.",
+          "Further down the board, Brett Callas & Jacob Walsh finished solo sixth at 15-under, while Sam Elkington & Mike Perras and Billy Buchanan & Jordan Edgerton shared seventh at 14-under. Defending 2024 champions Robby Ormand & Jordan Woolf finished tied for 13th at 10-under.",
+          "For Gibbons and Stewart, it\u2019s a breakthrough title at one of the country\u2019s most historic venues. The duo had finished tied for fifth at 11-under a year ago and came back to Houston with unfinished business. Mission accomplished.",
+        ],
+      },
+      {
         slug: "2026-champions-cup-preview",
         title: "58th Champions Cup Invitational Preview: 54 Teams Set to Battle at Champions Golf Club",
         date: "2026-03-16",
@@ -232,6 +246,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Josh Gibbons / Kade Stewart" },
       { year: 2025, champion: "Will Davenport / Nick Maccario" },
       { year: 2024, champion: "Robby Ormand / Jordan Woolf" },
       { year: 2023, champion: "Russell Chabaud / Alan Ferries" },
