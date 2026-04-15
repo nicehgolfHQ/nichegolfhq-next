@@ -21,7 +21,9 @@ export function GET() {
       const url = `${site}/briefs/${b.date}`;
       const title = b.title;
       const pubDate = new Date(`${b.date}T09:00:00-05:00`).toUTCString(); // anchor ~9am ET
-      const desc = `${b.items.length} items`;
+      const desc = b.items
+        .map((it) => `• ${it.title}${it.url ? ` — ${it.url}` : ""}\n  ${it.why}`)
+        .join("\n\n");
 
       return [
         "<item>",

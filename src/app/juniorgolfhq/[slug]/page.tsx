@@ -115,6 +115,14 @@ export async function generateMetadata({
     title: `${event.name} | juniorgolfHQ`,
     description: `Dates, venue, format, and past winners for ${event.name}. ${subtitle}`,
     alternates: { canonical: `/juniorgolfhq/${event.slug}` },
+    openGraph: {
+      type: "article",
+      title: `${event.name} | juniorgolfHQ`,
+      description: `Dates, venue, format, and past winners for ${event.name}. ${subtitle}`,
+      url: `https://www.nichegolfhq.com/juniorgolfhq/${event.slug}`,
+      siteName: "nichegolfHQ",
+      images: [{ url: "/og/og-nichegolfhq.png", width: 1200, height: 630, alt: event.name }],
+    },
   };
 }
 
@@ -168,7 +176,7 @@ export default async function JuniorScheduleEventPage({
       url: `${baseUrl}/juniorgolfhq`,
     },
     description: `Dates, venue, format, and past winners for ${event.name}.`,
-    image: `${baseUrl}/og-junior.png`,
+    image: `${baseUrl}/og/og-nichegolfhq.png`,
     performer: {
       "@type": "Organization",
       name: event.name,

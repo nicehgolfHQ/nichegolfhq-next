@@ -18,7 +18,9 @@ export function GET() {
         url: `${site}/briefs/${b.date}`,
         title: b.title,
         date_published: `${b.date}T09:00:00-05:00`,
-        summary: `${b.items.length} items`,
+        summary: b.items
+        .map((it) => `${it.title}${it.url ? ` (${it.url})` : ""} — ${it.why}`)
+        .join("\n\n"),
       })),
     },
     {

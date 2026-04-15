@@ -53,6 +53,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <style>{`:root{--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;}`}</style>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="nichegolfHQ Daily Briefs"
+          href="https://www.nichegolfhq.com/briefs/feed.xml"
+        />
 
         {/* Ketch consent manager (tag as provided by Ketch; loads early so it can gate other tags) */}
         <Script id="ketch-smart-tag" strategy="beforeInteractive">

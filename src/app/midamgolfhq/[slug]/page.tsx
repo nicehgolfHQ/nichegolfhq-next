@@ -105,6 +105,14 @@ export async function generateMetadata({
     title: `${t.name} | midamgolfHQ`,
     description: `Dates, venue, format, and past winners for ${t.name}. ${subtitle}`,
     alternates: { canonical: `/midamgolfhq/${t.slug}` },
+    openGraph: {
+      type: "article",
+      title: `${t.name} | midamgolfHQ`,
+      description: `Dates, venue, format, and past winners for ${t.name}. ${subtitle}`,
+      url: `https://www.nichegolfhq.com/midamgolfhq/${t.slug}`,
+      siteName: "nichegolfHQ",
+      images: [{ url: "/og/og-nichegolfhq.png", width: 1200, height: 630, alt: t.name }],
+    },
   };
 }
 
@@ -150,7 +158,7 @@ export default async function MidAmTournamentPage({
       address: tournament.location,
     },
     description: `Dates, venue, format, and past winners for ${tournament.name}.`,
-    image: `${baseUrl}/og-midam.png`,
+    image: `${baseUrl}/og/og-nichegolfhq.png`,
     performer: { "@type": "Organization", name: tournament.name },
     offers: {
       "@type": "Offer",

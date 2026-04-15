@@ -95,6 +95,14 @@ export async function generateMetadata({
     title: `${event.name} | seniorgolfHQ`,
     description: `Dates, venue, format, and past winners for ${event.name}. ${subtitle}`,
     alternates: { canonical: `/seniorgolfhq/${event.slug}` },
+    openGraph: {
+      type: "article",
+      title: `${event.name} | seniorgolfHQ`,
+      description: `Dates, venue, format, and past winners for ${event.name}. ${subtitle}`,
+      url: `https://www.nichegolfhq.com/seniorgolfhq/${event.slug}`,
+      siteName: "nichegolfHQ",
+      images: [{ url: "/og/og-nichegolfhq.png", width: 1200, height: 630, alt: event.name }],
+    },
   };
 }
 
@@ -149,7 +157,7 @@ export default async function SeniorScheduleEventPage({
       url: `${baseUrl}/seniorgolfhq`,
     },
     description: `Dates, venue, format, and past winners for ${event.name}.`,
-    image: `${baseUrl}/og-senior.png`,
+    image: `${baseUrl}/og/og-nichegolfhq.png`,
     performer: {
       "@type": "Organization",
       name: event.name,

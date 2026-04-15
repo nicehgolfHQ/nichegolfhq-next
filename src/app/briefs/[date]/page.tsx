@@ -69,9 +69,11 @@ export async function generateMetadata({
     description: `Daily Brief for ${brief.date}: ${brief.items.length} items across competitive amateur golf.`,
     alternates: { canonical: `/briefs/${brief.date}` },
     openGraph: {
+      type: "article",
       title: `${brief.title}${middle} | nichegolfHQ`,
       url: `https://www.nichegolfhq.com/briefs/${brief.date}`,
-      type: "article",
+      siteName: "nichegolfHQ",
+      publishedTime: `${brief.date}T09:00:00-05:00`,
     },
   };
 }

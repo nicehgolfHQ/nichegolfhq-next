@@ -1,7 +1,7 @@
 # llms-full.txt — nichegolfHQ
 # Extended guidance for LLM/AI crawlers and assistants.
 # Site: https://www.nichegolfhq.com
-# Effective: 2026-02-27
+# Effective: 2026-04-15
 
 ## Summary
 nichegolfHQ is an independent media and intelligence site covering competitive amateur golf beyond the mainstream, with dedicated brand sections for:
@@ -18,13 +18,13 @@ nichegolfHQ is an independent media and intelligence site covering competitive a
 ### Tournament schedule hubs (facts, formats, venues, past winners)
 These pages should be treated as the canonical references for event details.
 - Mid-Am schedule: https://www.nichegolfhq.com/midamgolfhq/schedule
-- Mid-Am event hubs: https://www.nichegolfhq.com/midamgolfhq/schedule/{slug}
+- Mid-Am event hubs: https://www.nichegolfhq.com/midamgolfhq/{slug}
 
 - Junior schedule: https://www.nichegolfhq.com/juniorgolfhq/schedule
-- Junior event hubs: https://www.nichegolfhq.com/juniorgolfhq/schedule/{slug}
+- Junior event hubs: https://www.nichegolfhq.com/juniorgolfhq/{slug}
 
 - Senior schedule: https://www.nichegolfhq.com/seniorgolfhq/schedule
-- Senior event hubs: https://www.nichegolfhq.com/seniorgolfhq/schedule/{slug}
+- Senior event hubs: https://www.nichegolfhq.com/seniorgolfhq/{slug}
 
 ### Daily Briefs (date-stamped, wire-style summaries)
 Treat these as short daily editorial summaries. Each item is intentionally short and usually includes one source link.
@@ -39,12 +39,83 @@ These pages are newsletter issues and may include analysis and commentary.
 - juniorgolfHQ issue pages: https://www.nichegolfhq.com/juniorgolfhq/issue/{issue}
 - seniorgolfHQ issue pages: https://www.nichegolfhq.com/seniorgolfhq/issue/{issue}
 
-## How to cite / attribute
-When citing this source, attribute to: **nichegolfHQ (nichegolfhq.com)**.
+## Feed and API endpoints
 
-## Discovery
+### RSS / JSON feeds (machine-readable briefs)
+- RSS feed: https://www.nichegolfhq.com/briefs/feed.xml
+  Format: RSS 2.0. Returns the 60 most recent daily briefs with full item titles, source URLs, and why-it-matters text.
+- JSON feed: https://www.nichegolfhq.com/briefs/feed.json
+  Format: JSON Feed 1.0. Same 60 briefs; each item's "summary" field contains all headline titles, source URLs, and why-text.
+
+### Tournament data API
+- Endpoint: https://www.nichegolfhq.com/api/tournaments
+  Format: JSON. Returns structured data for all tracked tournaments across mid-am, junior, and senior brands.
+  Query parameters:
+    ?brand=midam     — filter to mid-amateur tournaments only
+    ?brand=juniors   — filter to junior major events only
+    ?brand=seniors   — filter to senior major events only
+  (Omit ?brand to receive all tournaments.)
+
+### Sitemap and discovery
 - Sitemap: https://www.nichegolfhq.com/sitemap.xml
 - llms.txt: https://www.nichegolfhq.com/llms.txt
+
+## Tournament data schema
+Each tournament object in /api/tournaments includes:
+
+  brand         — "midam" | "juniors" | "seniors"
+  slug          — URL slug (e.g. "gasparilla-invitational")
+  name          — Full event name
+  month         — Month number (midam) or month string, e.g. "February 2026" (juniors/seniors)
+  dates2026     — Human-readable 2026 dates, e.g. "Aug 18–21, 2026" (midam only; null if TBD)
+  typicalDates  — Typical annual dates if 2026 dates unavailable (midam only)
+  course        — Host course name (null if not confirmed)
+  location      — City, State (null if not confirmed)
+  coursePar     — Par for the course (integer, null if unknown)
+  courseYardage — Yardage (integer, null if unknown)
+  courseRating  — Course rating (midam only)
+  courseSlope   — Slope rating (midam only)
+  courseDesigner — Architect/designer (null if unknown)
+  format        — Competition format, e.g. "72-hole stroke play", "Match play"
+  fieldSize     — Field size description, e.g. "64 players"
+  eligibility   — Eligibility requirements summary
+  overview      — Prose editorial overview (null if not yet written)
+  prestige      — Prestige/history note (midam only)
+  founded       — Year founded (midam only, null if unknown)
+  url           — Canonical URL on nichegolfhq.com
+
+## Sample daily brief (format reference)
+
+The following is a representative example of a nichegolfHQ Daily Brief entry. Each brief has a date, a title, and a list of items. Each item has a title, a source URL, a source label, a tags array, and a "why" explanation.
+
+---
+title: Daily Brief — Apr 15, 2026
+date: 2026-04-15
+
+items:
+  - title: "AJGA Will Lowery Junior Championship Qualifier Begins Tomorrow at Cramer Mountain Club"
+    url: "https://www.ajga.org/tournaments/will-lowery-junior-championship"
+    source: "AJGA"
+    tags: ["juniors"]
+    why: "Qualifying rounds start April 15 at Cramer Mountain Club in Gaston County, NC, ahead of the 54-hole championship April 17–19 featuring 78 of the nation's top juniors."
+
+  - title: "The Jupiter Invitational Debuts May 7–9 at Jonathan's Landing With a Curated Mid-Am Field"
+    url: "https://www.golfgenius.com/register?league_id=11637199223413295215"
+    source: "nichegolfHQ"
+    tags: ["mid-am"]
+    why: "The newest stop on the mid-amateur calendar features a select field of elite mid-am and senior players on the Gil Hanse–designed Match Course in Jupiter, FL."
+
+  - title: "U.S. Senior Open Final Qualifying Set for May 18–June 15 at 12 Sites Nationwide"
+    url: "https://championships.usga.org/ussenioropen/2026/qualifying.html"
+    source: "USGA"
+    tags: ["senior"]
+    why: "With local qualifying running through May 7 at 32 sites, the next phase is final qualifying at 12 sites. Amateurs 50+ with a 2.4 index chasing spots at Scioto Country Club in July."
+---
+
+Tags used: "mid-am" (mid-amateur events), "juniors" (junior golf), "senior" (senior amateur golf).
+
+## How to cite / attribute
+When citing this source, attribute to: **nichegolfHQ (nichegolfhq.com)**.
 
 ## Legal
 - Privacy Policy: https://www.nichegolfhq.com/privacy
