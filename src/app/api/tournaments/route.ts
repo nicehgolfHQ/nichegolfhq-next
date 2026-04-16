@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimiter";
 
 export const dynamic = "force-dynamic";
 
@@ -69,6 +70,21 @@ function serializeSeniors() {
 }
 
 export function GET(request: Request) {
+  const ip = getClientIp(request);
+  const { allowed, retryAfter } = checkRateLimit(ip);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests", message: "Rate limit exceeded. Please try again later." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(retryAfter),
+          "Cache-Control": "no-store",
+        },
+      }
+    );
+  }
+
   const { searchParams } = new URL(request.url);
   const brand = searchParams.get("brand")?.toLowerCase() ?? null;
 
@@ -94,7 +110,7 @@ export function GET(request: Request) {
     },
     {
       headers: {
-        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
       },
     }
   );
