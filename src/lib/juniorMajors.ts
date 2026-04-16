@@ -66,6 +66,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     eligibility: "AJGA Invitational \u2013 boys ages 12\u201319",
     overview: "One of the premier AJGA Invitational events, the Simplify Boys Championship is held annually at the exclusive Club at Carlton Woods in The Woodlands, Texas. The Tom Fazio-designed Championship Course provides an elite test for the nation\u2019s top junior golfers across three rounds of stroke play. The 2025 edition featured future stars including Miles Russell, who ran away with the title at 11 under par.",
     pastResults: [
+      { year: 2026, champion: "Grayson Baucom", score: "-12 (70-67-67\u2014204)" },
       { year: 2025, champion: "Miles Russell", score: "-11 (64-70-71\u2014205)", runnerUp: "T2: Michael Riebe / Giuseppe Puebla (-8)" },
     ],
   },
@@ -84,6 +85,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     eligibility: "AJGA Invitational \u2013 girls ages 12\u201319; invitation based on Rolex AJGA Rankings; top 15-ranked girls are fully exempt; AJGA membership required",
     overview: "Originally the Mariah Stackhouse Girls Invitational at its 2021 debut, the tournament became the Fortinet Stanford Invitational hosted by Rose Zhang in 2024 when the LPGA star and Stanford alumna took on the hosting role. Played on the historic George C. Thomas\u2013designed Stanford Golf Course, the event is one of the AJGA\u2019s premier all-girls invitationals. Starting in 2025, the champion receives a sponsor exemption into the Chevron Championship (LPGA major).",
     pastResults: [
+      { year: 2026, champion: "Asterisk Talley", score: "-9 (204)", runnerUp: "Rina Kawasaki / Juliet Oh (T2, -4)" },
       { year: 2025, champion: "Asterisk Talley" },
       { year: 2024, champion: "Kristina Xu" },
       { year: 2023, champion: "Anna Song" },
@@ -106,6 +108,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     eligibility: "Junior amateurs ages 13\u201318 as of the first round; qualifiers through Rolex AJGA Rankings, TUGR standings, and sponsor exemptions; qualifier events held at Myrtle Beach area courses",
     overview: "Founded in 2016 by two-time major champion and South Carolina native Dustin Johnson, this tournament has quickly grown into one of the top junior events in the country. Held at the Tom Fazio-designed TPC Myrtle Beach, the co-ed field features separate boys\u2019 and girls\u2019 divisions competing simultaneously. Alumni include PGA Tour winners Akshay Bhatia and Nick Dunlap.",
     pastResults: [
+      { year: 2026, champion: "Boys: William Lisle / Girls: Fay Jia" },
       { year: 2025, champion: "Boys: Aarav Shah / Girls: Kayla Bryant" },
       { year: 2024, champion: "Boys: Ethan Paschal / Girls: Vanessa Borovilos" },
       { year: 2023, champion: "Boys: Jackson Koivun / Girls: Ryleigh Knaub" },
