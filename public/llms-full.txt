@@ -59,6 +59,7 @@ These pages are newsletter issues and may include analysis and commentary.
 ### Sitemap and discovery
 - Sitemap: https://www.nichegolfhq.com/sitemap.xml
 - llms.txt: https://www.nichegolfhq.com/llms.txt
+- API docs: https://www.nichegolfhq.com/api-docs
 
 ## Tournament data schema
 Each tournament object in /api/tournaments includes:

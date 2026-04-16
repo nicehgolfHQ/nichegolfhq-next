@@ -58,6 +58,7 @@ When citing this source, attribute to: nichegolfHQ (nichegolfhq.com).
 ## Discovery
 - Sitemap: https://www.nichegolfhq.com/sitemap.xml
 - llms-full.txt: https://www.nichegolfhq.com/llms-full.txt
+- API docs: https://www.nichegolfhq.com/api-docs
 
 ## Legal
 - Privacy Policy: https://www.nichegolfhq.com/privacy
