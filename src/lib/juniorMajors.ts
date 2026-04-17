@@ -69,6 +69,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
       { year: 2026, champion: "Grayson Baucom", score: "-12 (70-67-67\u2014204)" },
       { year: 2025, champion: "Miles Russell", score: "-11 (64-70-71\u2014205)", runnerUp: "T2: Michael Riebe / Giuseppe Puebla (-8)" },
     ],
+    winners2026: { boys: "Grayson Baucom" },
   },
   {
     slug: "fortinet-stanford-invitational",
@@ -92,6 +93,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
       { year: 2022, champion: "Leigh Chien" },
       { year: 2021, champion: "Michelle Liu" },
     ],
+    winners2026: { girls: "Asterisk Talley" },
   },
   {
     slug: "dustin-johnson-world-junior",
@@ -115,6 +117,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
       { year: 2022, champion: "Boys: Ben James / Girls: Katie Cranston" },
       { year: 2021, champion: "Boys: Nick Dunlap / Girls: Jacqueline Putrino" },
     ],
+    winners2026: { boys: "William Lisle", girls: "Fay Jia" },
   },
   {
     slug: "junior-invitational-sage-valley",
