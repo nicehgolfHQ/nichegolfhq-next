@@ -323,6 +323,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "Lester George",
     courseNotes: "Site of 2024 U.S. Mid-Amateur",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/11897323631677564724",
 
     format: "54 holes stroke play",
     howToPlay: [
