@@ -332,6 +332,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-giles-invitational-round-2-recap",
+        title: "Patterson Tops the Giles Through 36 as Saturday Reshuffles the Leaderboard",
+        date: "2026-05-02",
+        author: "midamgolfHQ",
+        summary: "Brett Patterson takes outright control at 6-under through 36 holes, with Stephen Behr surging into a tie for second and Ben Reeves answering an opening 83 with the round of the day.",
+        content: [
+          "Brett Patterson took outright control of the 2nd Annual Giles Invitational on Saturday, posting an even-par 72 to move to 6-under for the tournament and a two-shot lead through 36 holes at Kinloch. Behind him, the leaderboard rearranged itself in a hurry. Stephen Behr's 5-under 67 vaulted him from T16 into a tie for second at 4-under, joined there by overnight leader Matt Vogt, whose 75 backed up his opening 65 and sent him sliding from the top. Brad Nurski sits alone in fourth at 3-under after a steady 70, and former U.S. Mid-Amateur champion Scott Harvey shares fifth with Jordan Utley at 2-under.",
+          "The chase pack runs deep. Five players are tied for seventh at 1-under: Sam Beach, who carded a 69, plus Ryan Terry, Brinson Paolini, Evan Beck, and our pick to win, Christian Cavaliere, who shot a quiet 71 to stay in striking distance. Will Davenport and Connor Doyal share T12 at even par, also within range. The round of the day came from way back: Ben Reeves followed his opening 83 with a stunning 6-under 66, a 17-stroke turnaround that climbed him 36 spots to T30 at 5-over. Four-time U.S. Mid-Amateur champion Nate Smith made his own jump with a 69 (78 to T19), while Matthew Lowe (No. 22 Mid-Am) went the other way with a 77 to drop from T4 to T19. With Patterson out front, Behr and Vogt close behind, and a logjam of proven mid-amateurs between 1-under and 3-under, the final round at Kinloch sets up as a fight to the finish.",
+        ],
+      },
+      {
         slug: "2026-giles-invitational-round-1-recap",
         title: "Round 1 Recap: Matt Vogt's 7-Under 65 Stuns Kinloch as Patterson Stalks at -6",
         date: "2026-05-01",
