@@ -12,3 +12,9 @@ export function listMidAmTournamentSlugs(): string[] {
 export function getMidAmTournamentBySlug(slug: string): Tournament | undefined {
   return MIDAM_TOURNAMENTS.find((t) => t.slug === slug);
 }
+
+// Returns the first Mid-Am tournament currently flagged as live (or undefined).
+// Used by the active-tournament widget on the midamgolfHQ home page.
+export function getLiveMidAmTournament(): Tournament | undefined {
+  return MIDAM_TOURNAMENTS.find((t) => t.liveStatus === "live");
+}
