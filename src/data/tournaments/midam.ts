@@ -311,6 +311,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "giles-invitational",
     name: "The Giles Invitational",
     channel: "midam",
+    liveStatus: "live",
     logo: "/brand/Kinloch.jpeg",
     month: 5,
     dates2026: "May 2026",
