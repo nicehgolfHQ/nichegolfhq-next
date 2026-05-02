@@ -6,7 +6,8 @@ import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { AmateurRankings } from "@/components/AmateurRankings";
 import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
-import { listMidAmTournaments } from "@/lib/tournaments/midam";
+import { listMidAmTournaments, getLiveMidAmTournament } from "@/lib/tournaments/midam";
+import { ActiveTournamentWidget } from "@/components/ActiveTournamentWidget";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
 import type { Metadata } from "next";
@@ -145,6 +146,11 @@ export default async function NewsletterPage({
 
   const heroImage = HERO_IMAGES[feed.slug] ?? null;
 
+  // Active-tournament widget: only on midamgolfhq for now, only when a tournament is flagged live.
+  const liveTournament =
+    feed.slug === "midamgolfhq" ? getLiveMidAmTournament() : undefined;
+  const liveTournamentChannelPrefix = "/midamgolfhq";
+
   return (
     <SiteShell brandSlug={feed.slug}>
       {/* -- Fixed hero background (parallax effect) -- */}
@@ -264,6 +270,21 @@ export default async function NewsletterPage({
 
       {/* -- All content scrolls over the fixed hero -- */}
       <div className="relative z-10">
+        {/* -- Active Tournament Widget (renders only when a tournament is live) -- */}
+        {liveTournament ? (
+          <section className="px-5 pt-12 pb-2">
+            <div className="mx-auto max-w-2xl">
+              <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
+                Now playing
+              </h2>
+              <ActiveTournamentWidget
+                tournament={liveTournament}
+                channelPrefix={liveTournamentChannelPrefix}
+              />
+            </div>
+          </section>
+        ) : null}
+
         {/* -- Latest Newsletter Issue (single) -- */}
         <section className="px-5 py-12">
           <div className="mx-auto max-w-2xl">
