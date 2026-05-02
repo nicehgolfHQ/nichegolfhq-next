@@ -272,7 +272,7 @@ export default async function NewsletterPage({
       <div className="relative z-10">
         {/* -- Active Tournament Widget (renders only when a tournament is live) -- */}
         {liveTournament ? (
-          <section className="px-5 pt-12 pb-2">
+          <section className="px-5 pt-2 pb-2">
             <div className="mx-auto max-w-2xl">
               <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
                 Now playing
@@ -289,7 +289,7 @@ export default async function NewsletterPage({
         <section className="px-5 py-12">
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
-              Latest issue
+              Latest newsletter issue
             </h2>
             {items.length ? (
               <IssueCard item={items[0]} newsletterSlug={feed.slug} />
