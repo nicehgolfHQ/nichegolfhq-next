@@ -181,7 +181,7 @@ export default async function NewsletterPage({
       )}
 
       {/* -- Hero content overlay -- */}
-      <section className={`relative z-10 flex ${liveTournament ? "min-h-[55vh]" : "min-h-[70vh]"} items-center justify-center px-5`}>          <section className="px-5 pt-2 pb-2">              Latest newsletter issue
+      <section className={`relative z-10 flex ${liveTournament ? "min-h-[55vh]" : "min-h-[70vh]"} items-center justify-center px-5`}>
         <div className="mx-auto w-full max-w-6xl pb-14 pt-24 text-center">
           <h1
             className="font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl"
