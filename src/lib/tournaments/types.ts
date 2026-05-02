@@ -32,6 +32,11 @@ export interface Tournament {
   channel: TournamentChannel;
   // Optional note for schedule/index display (e.g., rescheduled)
   note?: string;
+  // Manual flag controlling the active-tournament widget on home pages.
+  // "live"      = event in progress, render widget
+  // "completed" = event finished
+  // "upcoming"  = scheduled (default if omitted)
+  liveStatus?: "live" | "completed" | "upcoming";
 
   // === SCHEDULE ===
   month: number; // 1-12
