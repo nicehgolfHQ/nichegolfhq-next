@@ -332,6 +332,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-giles-invitational-final-recap",
+        title: "Brett Patterson Holds On at Kinloch to Win the 2nd Giles Invitational",
+        date: "2026-05-03",
+        author: "midamgolfHQ",
+        summary: "Brett Patterson closes a 1-under 71 to win the 2nd Annual Giles Invitational by one shot at 7-under, holding off a furious final-round charge from Sam Beach (closing 67) and Stephen Behr.",
+        content: [
+          "Brett Patterson is the 2nd Annual Giles Invitational champion. Patterson, who entered the week ranked No. 20 in the AmateurGolfInfo Mid-Am rankings, posted a 1-under 71 on Sunday at Kinloch to finish at 7-under 209 and win by a single shot. The win marks his second of the young 2026 season after he took the Snedeker Memorial in a playoff earlier this spring, making him arguably the hottest mid-amateur in the country right now. The closing round at Kinloch was anything but quiet. Sam Beach fired the round of the day, a 5-under 67, to climb from T7 entering the day all the way to a tie for second at 6-under, finishing one stroke shy of the title. He shares that runner-up spot with Stephen Behr (73-67-70), whose Saturday 67 had vaulted him into contention and whose steady 70 on Sunday kept him within reach until the very end. Three back at 4-under is a tie between former U.S. Mid-Amateur champion Scott Harvey and 36-hole co-leader Matt Vogt, who recovered from his middle-round 75 with a closing 72.",
+          "Four players ended the week at 1-under 215 in a tie for sixth: Ryan Terry, Evan Beck, our pick Christian Cavaliere, who held steady all week with 72-71-72, and Christian Brand, who closed with a 3-under 69. Will Davenport, Brinson Paolini, Matt Lowe (also closing with a 69 to climb back from T19), and Brad Nurski all finished even-par at 216 in a tie for tenth. Four-time U.S. Mid-Amateur champion Nate Smith finished T18 at 4-over after recovering from his opening 78 with a 69-73 weekend. Patterson's win caps off a strong second edition of the Giles, which drew a deeper top-tier of mid-amateur talent than year one and produced a finish that came down to the back nine on Sunday.",
+        ],
+      },
+      {
         slug: "2026-giles-invitational-round-2-recap",
         title: "Patterson Tops the Giles Through 36 as Saturday Reshuffles the Leaderboard",
         date: "2026-05-02",
