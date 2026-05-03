@@ -18,3 +18,30 @@ export function getMidAmTournamentBySlug(slug: string): Tournament | undefined {
 export function getLiveMidAmTournament(): Tournament | undefined {
   return MIDAM_TOURNAMENTS.find((t) => t.liveStatus === "live") || MIDAM_TOURNAMENTS.find((t) => t.liveStatus === "next");
 }
+
+// Returns {tournament, article} for a given tournament slug + article slug, or undefined.
+export function getMidAmTournamentArticle(
+  tournamentSlug: string,
+  articleSlug: string
+) {
+  const tournament = getMidAmTournamentBySlug(tournamentSlug);
+  if (!tournament || !tournament.news) return undefined;
+  const article = tournament.news.find((a) => a.slug === articleSlug);
+  if (!article) return undefined;
+  return { tournament, article };
+}
+
+// Returns all (tournamentSlug, articleSlug) pairs for static generation + sitemap.
+export function listMidAmTournamentArticleParams(): {
+  slug: string;
+  article: string;
+}[] {
+  const out: { slug: string; article: string }[] = [];
+  for (const t of MIDAM_TOURNAMENTS) {
+    if (!t.news) continue;
+    for (const a of t.news) {
+      out.push({ slug: t.slug, article: a.slug });
+    }
+  }
+  return out;
+}
