@@ -36,7 +36,7 @@ export interface Tournament {
   // "live"      = event in progress, render widget
   // "completed" = event finished
   // "upcoming"  = scheduled (default if omitted)
-  liveStatus?: "live" | "completed" | "upcoming";
+  liveStatus?: "live" | "next" | "completed" | "upcoming";
 
   // === SCHEDULE ===
   month: number; // 1-12
