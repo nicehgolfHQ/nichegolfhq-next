@@ -223,7 +223,7 @@ export default async function MidAmTournamentPage({
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
           <TournamentNews news={tournament.news} articleHrefPrefix={`/midamgolfhq/${tournament.slug}`} />
           <RelatedEvents
-            vents={relatedEvents}
+            events={relatedEvents}
             brandSlug="midamgolfhq"
             brandLabel="midamgolfHQ"
           />
