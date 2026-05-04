@@ -230,7 +230,7 @@ export default async function SeniorScheduleEventPage({
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
-          <TournamentNews news={tournament.news} />
+          <TournamentNews news={tournament.news} articleHrefPrefix={`/seniorgolfhq/${tournament.slug}`} />
           <RelatedEvents
             events={relatedEvents}
             brandSlug="seniorgolfhq"
