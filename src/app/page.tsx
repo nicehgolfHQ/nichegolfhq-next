@@ -108,7 +108,7 @@ export default async function Home() {
         />
       </section>
 
-      <section className="relative z-10 w-full h-screen flex items-center justify-center">
+      <section className="relative z-10 w-full h-[65vh] flex items-center justify-center">
         <div className="text-center text-white px-6 max-w-3xl">
           <h1
             className="font-serif text-5xl md:text-7xl font-bold tracking-tight mb-2"
