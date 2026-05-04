@@ -8,11 +8,20 @@ import { isoWeekKeyFromYmd, monthKeyFromYmd, ymdToDateUtc } from "@/lib/briefsDa
 
 // Majors
 import { listMajorSlugs, listMajorYearParams } from "@/lib/majors";
-import { listJuniorMajorSlugs } from "@/lib/juniorMajors";
-import { listSeniorMajorSlugs } from "@/lib/seniorMajors";
+import {
+  listJuniorMajorSlugs,
+  listJuniorMajorArticleParams,
+} from "@/lib/juniorMajors";
+import {
+  listSeniorMajorSlugs,
+  listSeniorMajorArticleParams,
+} from "@/lib/seniorMajors";
 
 // Event pages (mid-am tournaments + junior/senior brand event pages)
-import { listMidAmTournamentSlugs } from "@/lib/tournaments/midam";
+import {
+  listMidAmTournamentSlugs,
+  listMidAmTournamentArticleParams,
+} from "@/lib/tournaments/midam";
 
 const BASE = "https://www.nichegolfhq.com";
 
@@ -203,6 +212,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     });
   }
+  // Article detail pages (NewsArticle entries on each tournament hub).
+  // SEO-targeted URLs for individual recap / preview articles.
+  const articleUrls: MetadataRoute.Sitemap = [];
+  for (const p of listMidAmTournamentArticleParams()) {
+    articleUrls.push({
+      url: `${BASE}/midamgolfhq/${p.slug}/${p.article}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    });
+  }
+  for (const p of listSeniorMajorArticleParams()) {
+    articleUrls.push({
+      url: `${BASE}/seniorgolfhq/${p.slug}/${p.article}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    });
+  }
+  for (const p of listJuniorMajorArticleParams()) {
+    articleUrls.push({
+      url: `${BASE}/juniorgolfhq/${p.slug}/${p.article}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    });
+  }
+
 
   // Issue URLs: pulled from Supabase so Google can crawl the full archive.
   // Best-effort: if Supabase isn't configured, sitemap still returns other URLs.
@@ -240,6 +277,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...briefDateUrls,
     ...majorsUrls,
     ...eventUrls,
+    ...articleUrls,
+    ...issueUrls,
     ...issueUrls,
   ];
 }
