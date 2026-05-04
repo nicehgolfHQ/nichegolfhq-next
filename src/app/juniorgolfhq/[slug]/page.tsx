@@ -249,7 +249,7 @@ export default async function JuniorScheduleEventPage({
           <TournamentQuickFacts tournament={tournament} />
           <TournamentTabs tournament={tournament} />
           <TournamentHowToPlay howToPlay={tournament.howToPlay} />
-          <TournamentNews news={tournament.news} />
+          <TournamentNews news={tournament.news} articleHrefPrefix={`/juniorgolfhq/${tournament.slug}`} />
           <RelatedEvents
             events={relatedEvents}
             brandSlug="juniorgolfhq"
