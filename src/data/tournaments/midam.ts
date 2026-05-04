@@ -391,7 +391,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         ],
       },
     ],
-    pastResults: [{ year: 2025, champion: "Andrew Bailey" }],
+    pastResults: [
+      { year: 2026, champion: "Brett Patterson" },
+      { year: 2025, champion: "Andrew Bailey" },
+    ],
   },
   {
     slug: "the-jupiter-invitational",
