@@ -76,6 +76,16 @@ export function TournamentNews({
       <div className="mt-6">
         <article className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 md:p-8">
           <ArticleBody article={latest} />
+          {articleHrefPrefix && (
+            <div className="mt-6 text-center">
+              <Link
+                href={`${articleHrefPrefix}/${latest.slug}`}
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+              >
+                View full article &rarr;
+              </Link>
+            </div>
+          )}
         </article>
       </div>
 
