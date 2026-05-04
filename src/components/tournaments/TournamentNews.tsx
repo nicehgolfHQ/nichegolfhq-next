@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import type { NewsArticle } from "@/lib/tournaments/types";
 import { PhotoCarousel } from "./PhotoCarousel";
@@ -48,7 +49,13 @@ function ArticleBody({ article }: { article: NewsArticle }) {
   );
 }
 
-export function TournamentNews({ news }: { news?: NewsArticle[] }) {
+export function TournamentNews({
+  news,
+  articleHrefPrefix,
+}: {
+  news?: NewsArticle[];
+  articleHrefPrefix?: string;
+}) {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
 
   if (!news || news.length === 0) return null;
@@ -77,12 +84,16 @@ export function TournamentNews({ news }: { news?: NewsArticle[] }) {
         <div className="mt-4 flex flex-col gap-3">
           {older.map((article) => {
             const isOpen = openSlug === article.slug;
-            const monthYear = new Date(
+            const shortDate = new Date(
               article.date + "T12:00:00"
             ).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
               year: "numeric",
-              month: "long",
             });
+            const fullArticleHref = articleHrefPrefix
+              ? `${articleHrefPrefix}/${article.slug}`
+              : null;
 
             return (
               <div
@@ -94,13 +105,19 @@ export function TournamentNews({ news }: { news?: NewsArticle[] }) {
                   onClick={() =>
                     setOpenSlug(isOpen ? null : article.slug)
                   }
-                  className="flex w-full items-center justify-between px-6 py-4 text-left"
+                  className="flex w-full items-center gap-3 px-6 py-4 text-left hover:bg-zinc-100 transition-colors"
                 >
-                  <span className="text-sm font-semibold text-zinc-900">
-                    {monthYear}
+                  <time
+                    dateTime={article.date}
+                    className="shrink-0 w-[88px] text-xs font-medium text-zinc-500 tabular-nums"
+                  >
+                    {shortDate}
+                  </time>
+                  <span className="flex-1 min-w-0 text-sm font-medium text-zinc-900 line-clamp-2">
+                    {article.title}
                   </span>
                   <svg
-                    className={`h-4 w-4 text-zinc-400 transition-transform ${
+                    className={`h-4 w-4 shrink-0 text-zinc-400 transition-transform ${
                       isOpen ? "rotate-180" : ""
                     }`}
                     fill="none"
@@ -119,6 +136,16 @@ export function TournamentNews({ news }: { news?: NewsArticle[] }) {
                 {isOpen && (
                   <div className="px-6 pb-6 md:px-8 md:pb-8">
                     <ArticleBody article={article} />
+                    {fullArticleHref && (
+                      <div className="mt-6 text-center">
+                        <Link
+                          href={fullArticleHref}
+                          className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                        >
+                          View full article &rarr;
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
