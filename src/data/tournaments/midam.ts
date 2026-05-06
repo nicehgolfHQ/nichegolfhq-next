@@ -421,6 +421,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-jupiter-invitational-field-preview",
+        title: "The Jupiter Invitational Tees Off: A Loaded Mid-Am Debut at Jonathan’s Landing",
+        date: "2026-05-06",
+        author: "midamgolfHQ Staff",
+        summary: "A loaded inaugural field heads to Jonathan’s Landing this week. We break down the headliners, dark horses, and storylines worth watching from Jupiter.",
+        content: [
+          "The inaugural Jupiter Invitational kicks off this week at Jonathan’s Landing in Jupiter, Florida, immediately stepping into the conversation as one of the most intriguing new additions to the mid-amateur calendar. The event is hosted on the Match Course, a strategic, shot-making layout that sits in the heart of South Florida’s competitive amateur scene. With a curated, high-end field assembled in just its first year, the Jupiter Invitational arrives with an immediate sense of legitimacy and a clear ambition to slot itself among the country’s top mid-am invitationals. Live scoring and full tournament coverage can be found on the [Jupiter Invitational tournament hub here](/midamgolfhq/the-jupiter-invitational).",
+          "Headlining the field is Daniel Faccini, who carries the strongest ranking credentials in the room. Faccini is currently ranked 12th among mid-amateurs in the world and 133rd overall on amateurgolfinfo.com, with a points-per-event number and resume that separate him from the rest of the field on paper. Right alongside him is Christopher Wheeler, the reigning Texas Golf Association 2025 Player of the Year, who arrives with one of the most impressive strokes-gained-vs-field marks in the entire field at +3.32 over 11 counting events on amateurgolfinfo. Richard Donegan, who is heading up the event itself, is also a strong competitor in his own right and brings an insider’s familiarity with South Florida competitive golf into the field. Haymes Snedeker, who hosts the Snedeker Memorial, another mid-am major that was just played earlier this season, adds another marquee storyline, and Christian Sease, Justin Goodhue, and Lance Lacombe round out the names with recent competitive results worth tracking.",
+          "A handful of darker horses are worth watching as well. TJ Shuart, a past Coleman Invitational champion who lives in South Florida and knows the region’s grasses and conditions as well as anyone in the field, is a sneaky play this week. Patrick McCormick and Jordan Edgerton have both been competitive in big-field Mid-Am events and could break through on a course that rewards positioning over raw distance. Kacy Clemens, the former University of Texas Baseball standout, also fits that profile and could surprise with the right week. midamgolfHQ will be tracking the action all week from Jupiter.",
+        ],
+      },
+      {
         slug: "2026-jupiter-invitational-preview",
         title: "The Jupiter Invitational Arrives: A New Must-Watch Event on the Mid-Am Calendar",
         date: "2026-03-24",
