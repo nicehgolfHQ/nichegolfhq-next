@@ -408,8 +408,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     location: "Jupiter, FL",
     coursePar: 70,
     courseYardage: 6500,
-    courseRating: 70.8,
-    courseSlope: 130,
+    courseRating: 72.1,
+    courseSlope: 132,
     courseTeeName: "Back plates",
     courseDesigner: "Gil Hanse & Jim Wagner (2021 redesign of Arthur Hills original)",
 
