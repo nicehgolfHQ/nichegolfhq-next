@@ -156,7 +156,7 @@ export default async function MidAmTournamentArticlePage({
 
         <div className="mt-7 space-y-5 text-[17px] leading-8 text-zinc-800">
           {article.content.map((para, i) => (
-            <p key={i}>{para}</p>
+          <p key={i}>{para.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, j) => { const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/); return m ? <Link key={j} href={m[2]} className="text-emerald-700 hover:text-emerald-800 underline">{m[1]}</Link> : part; })}</p>
           ))}
         </div>
 
