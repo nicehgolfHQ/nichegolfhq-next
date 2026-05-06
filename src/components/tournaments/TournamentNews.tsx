@@ -42,7 +42,7 @@ function ArticleBody({ article }: { article: NewsArticle }) {
 
       <div className="mt-5 space-y-4 text-[15px] leading-7 text-zinc-700">
         {article.content.map((para, i) => (
-          <p key={i}>{para}</p>
+          <p key={i}>{para.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, j) => { const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/); return m ? <Link key={j} href={m[2]} className="text-emerald-700 hover:text-emerald-800 underline">{m[1]}</Link> : part; })}</p>
         ))}
       </div>
     </>
