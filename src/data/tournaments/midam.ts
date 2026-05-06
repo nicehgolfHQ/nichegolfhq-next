@@ -406,7 +406,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     dates2026: "May 2026",
     course: "Jonathan’s Landing Golf Club (Match Course at Old Trail)",
     location: "Jupiter, FL",
-    coursePar: 71,
+    coursePar: 70,
     courseYardage: 6500,
     courseRating: 70.8,
     courseSlope: 130,
