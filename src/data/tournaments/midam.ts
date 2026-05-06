@@ -400,7 +400,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-jupiter-invitational",
     name: "The Jupiter Invitational (New)",
     channel: "midam",
-    liveStatus: "next",
+    liveStatus: "live",
     logo: "/brand/Jupiter.jpg",
     month: 5,
     dates2026: "May 2026",
