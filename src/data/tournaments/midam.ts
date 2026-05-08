@@ -421,6 +421,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     news: [
       {
         slug: "2026-jupiter-invitational-round-1-recap",
+      {
+        slug: "2026-jupiter-invitational-round-2-recap",
+        title: "Burgess Holds the Lead at Jupiter as Rhodes’ 64 and Hurst’s 65 Tighten the Chase",
+        date: "2026-05-08",
+        author: "midamgolfHQ Staff",
+        summary: "Ryan Burgess sits at seven-under 133 through 36 holes at the Jupiter Invitational, two clear of a packed group at five-under that includes Joshua Rhodes (64), Tommy Hurst (65), and Jon Weiss heading into the final round.",
+        content: [
+          "Ryan Burgess followed his opening 65 with a steady two-under 68 in Round 2 to stay atop the inaugural Jupiter Invitational at seven-under 133, holding a two-shot lead through 36 holes at Jonathan’s Landing. The story behind him was movement. Joshua Rhodes fired the round of the day, a six-under 64, vaulting from T16 into a share of second at five-under 135. Tommy Hurst followed close behind with a five-under 65, climbing all the way from T11 to join Jon Weiss and Rhodes in the three-way tie for second. Keith Guest sits alone in fifth at two-under, with a six-pack of players bunched at one-under, including Daniel Faccini, Joe Conzemius, John Quigley, Daniel Stringfellow, Jordan Elsen, and Jay Kirchdorfer. Live scoring and full coverage of the final round can be tracked on the [Jupiter Invitational tournament hub](/midamgolfhq/the-jupiter-invitational).",
+          "Saturday’s final round sets up as a wide-open chase behind Burgess. The leader has not had a round outside the 60s yet, but a two-shot cushion against three players tied at five-under leaves no margin for a slow start, and Rhodes’ 64 in particular shows what is possible at Jonathan’s Landing when a player gets the irons going. Among the names within four shots of the lead, Daniel Faccini, the highest-ranked mid-am in the field, will look to find the form that put him at T4 after Round 1. Christopher Wheeler bounced back from his opening 74 with a three-under 67, sitting T12 at one-over and effectively out of contention but back in the conversation for a strong weekend finish. midamgolfHQ will be tracking the action all afternoon from Jupiter.",
+        ],
+      },
         title: "Burgess Sets the Pace at Jupiter as Faccini and Donegan Stay Within Reach",
         date: "2026-05-07",
         author: "midamgolfHQ Staff",
