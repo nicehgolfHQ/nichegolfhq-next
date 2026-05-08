@@ -456,6 +456,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         ],
       },
     ],
+    pastResults: [
+      { year: 2026, champion: "TBD" },
+    ],
   },
   {
     slug: "walter-j-travis-invitational",
