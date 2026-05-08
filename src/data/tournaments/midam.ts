@@ -420,8 +420,6 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
-        slug: "2026-jupiter-invitational-round-1-recap",
-      {
         slug: "2026-jupiter-invitational-round-2-recap",
         title: "Burgess Holds the Lead at Jupiter as Rhodes’ 64 and Hurst’s 65 Tighten the Chase",
         date: "2026-05-08",
@@ -432,6 +430,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "Saturday’s final round sets up as a wide-open chase behind Burgess. The leader has not had a round outside the 60s yet, but a two-shot cushion against three players tied at five-under leaves no margin for a slow start, and Rhodes’ 64 in particular shows what is possible at Jonathan’s Landing when a player gets the irons going. Among the names within four shots of the lead, Daniel Faccini, the highest-ranked mid-am in the field, will look to find the form that put him at T4 after Round 1. Christopher Wheeler bounced back from his opening 74 with a three-under 67, sitting T12 at one-over and effectively out of contention but back in the conversation for a strong weekend finish. midamgolfHQ will be tracking the action all afternoon from Jupiter.",
         ],
       },
+      {
+        slug: "2026-jupiter-invitational-round-1-recap",
         title: "Burgess Sets the Pace at Jupiter as Faccini and Donegan Stay Within Reach",
         date: "2026-05-07",
         author: "midamgolfHQ Staff",
