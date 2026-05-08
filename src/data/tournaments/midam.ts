@@ -420,6 +420,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-jupiter-invitational-round-1-recap",
+        title: "Burgess Sets the Pace at Jupiter as Faccini and Donegan Stay Within Reach",
+        date: "2026-05-07",
+        author: "midamgolfHQ Staff",
+        summary: "Ryan Burgess opened with a five-under 65 to take a two-shot lead after Round 1 at the inaugural Jupiter Invitational. Faccini, Donegan, and a tightly bunched chase group sit within range with 36 holes to play.",
+        content: [
+          "Ryan Burgess fired the round of the day at the inaugural Jupiter Invitational, posting a five-under 65 at Jonathan’s Landing’s Match Course to grab a two-shot lead after Round 1. Joe Conzemius and Noah Firestone are tied for second at three-under, the only other players in the field to break 67 on the day. Richard Donegan, who is heading up the event, opened with a two-under 68 to share fourth, joined by Daniel Faccini, the highest-ranked mid-am in the field, who matched the host’s score. A second cluster sits one-under at T6, including Bradley Sutherland, John Quigley, Jordan Elsen, Jay Kirchdorfer, and Jon Weiss. Live scoring and round-by-round leaderboards can be tracked on the [Jupiter Invitational tournament hub](/midamgolfhq/the-jupiter-invitational).",
+          "The opening round produced a tightly bunched leaderboard behind the leader. Fifteen players sit at even par or better through 18 holes, putting them all within five shots of Burgess with 36 holes still to play. TJ Shuart, the Coleman Invitational champion who lives locally, posted a one-over 71 to sit T16 and remains in striking range with two rounds to play. With Burgess holding a two-shot edge over a deeply packed chase group, the door is wide open heading into Round 2 on Friday. midamgolfHQ will be tracking the action all weekend from Jupiter.",
+        ],
+      },
+      {
         slug: "2026-jupiter-invitational-field-preview",
         title: "The Jupiter Invitational Tees Off: A Loaded Mid-Am Debut at Jonathan’s Landing",
         date: "2026-05-06",
