@@ -420,6 +420,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-jupiter-invitational-final-recap",
+        title: "Weiss Wins the Inaugural Jupiter Invitational on the Fourth Playoff Hole with an Eagle",
+        date: "2026-05-09",
+        author: "midamgolfHQ Staff",
+        summary: "Jon Weiss won a three-man playoff at the inaugural Jupiter Invitational, holing an eagle on the fourth extra hole to defeat Jay Kirchdorfer and Ryan Burgess at Jonathan’s Landing.",
+        content: [
+          "Jon Weiss is the first champion of the Jupiter Invitational, defeating Jay Kirchdorfer and Ryan Burgess in a three-man playoff that ended on the fourth extra hole with an eagle at Jonathan’s Landing. Weiss closed in regulation with a one-under 70 to finish at five-under 205, joining 36-hole leader Ryan Burgess and Jay Kirchdorfer at the top of the board. Burgess led wire-to-wire through two rounds but stumbled to a two-over 72 on Saturday, exactly enough to be caught. Kirchdorfer made the late charge of the day with a four-under 66, the low round of the final round. Joe Conzemius, Jordan Elsen, Joshua Rhodes, and Tommy Hurst all finished alone at two-under 208 in a four-way tie for fourth. Live scoring and complete results from the tournament can be reviewed on the [Jupiter Invitational tournament hub](/midamgolfhq/the-jupiter-invitational).",
+          "The eagle to clinch it caps off a memorable debut for an event that immediately announced itself as one of the more compelling new additions to the mid-amateur calendar. The format produced exactly the kind of finish a first-year tournament hopes for, with three players matching scores at the wire and a champion crowned not by a routine par but by a legitimate piece of golf under pressure. Weiss enters the rest of the spring season with real momentum, and the Jupiter Invitational leaves Jonathan’s Landing with the kind of opening chapter that builds reputation. midamgolfHQ will be back next week with coverage from the Walter J. Travis Invitational at Garden City.",
+        ],
+      },
+      {
         slug: "2026-jupiter-invitational-round-2-recap",
         title: "Burgess Holds the Lead at Jupiter as Rhodes’ 64 and Hurst’s 65 Tighten the Chase",
         date: "2026-05-08",
