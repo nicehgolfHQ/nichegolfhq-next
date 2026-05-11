@@ -63,7 +63,7 @@ export default async function SeniorTournamentArticlePage({
   const { tournament, article } = result;
 
   const articleUrl = `${SITE}/seniorgolfhq/${tournament.slug}/${article.slug}`;
-  const ogImage = article.photos?.[0];
+  const ogImage = article.photos?.[0] || `${SITE}/og/og-nichegolfhq.png`;
 
   const newsArticleLd = {
     "@context": "https://schema.org",
@@ -74,17 +74,18 @@ export default async function SeniorTournamentArticlePage({
     dateModified: article.date,
     author: article.author
       ? { "@type": "Organization", name: article.author }
-      : undefined,
+      : { "@type": "Organization", name: "nichegolfHQ" },
     publisher: {
       "@type": "Organization",
-      name: "seniorgolfHQ",
+      name: "nichegolfHQ",
+      url: SITE,
       logo: {
         "@type": "ImageObject",
         url: `${SITE}/brand/seniorgolfhq/logo.png`,
       },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
-    image: ogImage ? [ogImage] : undefined,
+    image: [ogImage],
     articleSection: tournament.name,
     keywords: [tournament.name, "senior golf", "amateur golf"],
   };

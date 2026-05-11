@@ -63,7 +63,9 @@ export default async function MidAmTournamentArticlePage({
   const { tournament, article } = result;
 
   const articleUrl = `${SITE}/midamgolfhq/${tournament.slug}/${article.slug}`;
-  const ogImage = article.photos?.[0] || (tournament.logo ? `${SITE}${tournament.logo}` : undefined);
+  const ogImage =
+    article.photos?.[0] ||
+    (tournament.logo ? `${SITE}${tournament.logo}` : `${SITE}/og/og-nichegolfhq.png`);
 
   const newsArticleLd = {
     "@context": "https://schema.org",
@@ -74,17 +76,18 @@ export default async function MidAmTournamentArticlePage({
     dateModified: article.date,
     author: article.author
       ? { "@type": "Organization", name: article.author }
-      : undefined,
+      : { "@type": "Organization", name: "nichegolfHQ" },
     publisher: {
       "@type": "Organization",
-      name: "midamgolfHQ",
+      name: "nichegolfHQ",
+      url: SITE,
       logo: {
         "@type": "ImageObject",
         url: `${SITE}/brand/midamgolfhq/logo.png`,
       },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
-    image: ogImage ? [ogImage] : undefined,
+    image: [ogImage],
     articleSection: tournament.name,
     keywords: [tournament.name, "mid-amateur golf", "amateur golf"],
   };

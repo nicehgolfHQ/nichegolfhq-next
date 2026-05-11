@@ -36,6 +36,9 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Google-Extended", allow: "/", disallow: disallowJunk },
       { userAgent: "cohere-ai", allow: "/", disallow: disallowJunk },
     ],
-    sitemap: "https://www.nichegolfhq.com/sitemap.xml",
+    sitemap: [
+      "https://www.nichegolfhq.com/sitemap.xml",
+      "https://www.nichegolfhq.com/news-sitemap.xml",
+    ],
   };
 }
