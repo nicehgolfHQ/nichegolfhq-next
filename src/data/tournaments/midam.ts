@@ -479,7 +479,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
-      { year: 2026, champion: "TBD" },
+      { year: 2026, champion: "Jon Weiss" },
     ],
   },
   {
