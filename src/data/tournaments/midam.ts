@@ -499,6 +499,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "Devereux Emmet",
     courseNotes: "Men-only club; est. 1899",
+    golfGeniusUrl: "https://116thwalterjtravisinvitational.golfgenius.com/pages/12475288108469871110",
 
     format: "Match play",
     howToPlay: [
