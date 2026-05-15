@@ -29,12 +29,12 @@ export function ActiveTournamentWidget({ tournament, channelPrefix }: Props) {
           <div className="mt-1 text-xs text-zinc-400">{tournament.dates2026}</div>
         ) : null}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-          {tournament.liveStatus !== "next" && tournament.golfGeniusUrl ? (
+          {tournament.golfGeniusUrl ? (
             <Link
               href={tournament.golfGeniusUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-emerald-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-800"
+              className="inline-flex items-center rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-500 hover:shadow-lg"
             >
               Live Scoring
             </Link>
