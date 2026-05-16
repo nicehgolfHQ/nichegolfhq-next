@@ -507,6 +507,16 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-travis-invitational-qualifying-recap",
+        title: "116th Travis Invitational Qualifying Recap: Couture Earns Medalist, Brackets Set at Garden City",
+        date: "2026-05-15",
+        author: "midamgolfHQ Staff",
+        content: [
+          "Rob Couture of Maridoe Golf Club earned medalist honors in Friday's 18-hole qualifier at Garden City Golf Club, securing the No. 1 seed in the Championship Flight. John Hunter grabbed the 2 seed, with Christian Cavaliere at 3 and Kyle Downey at 4 rounding out the top seeds. The Championship Flight features a stacked 16-player bracket that includes two-time Travis champion Chris DeJohn (13 seed), Matt Parziale of Thorny Lea (15), Bradford Tilley (8), and Joe Saladino (16). Match play begins Saturday morning at 9:04am off the first tee, with the semifinals and final on Sunday.",
+          "The Devereux Emmet Cup (second flight of 16) drew equally compelling matchups, with Dan MacDonald earning the top seed and Trip Kuehne — one of the most decorated match play competitors in amateur golf history — slotted as the 13 seed, setting up a potential quarterfinal clash with No. 4 seed Matthew Naumec. Three additional flights round out the bracket: the Charles B. Macdonald Cup (8 players, led by Nico Donaldson), the Robert T. Jones Cup (8, led by Connor Casey), and the William H. Taft Cup (8, led by Ben Greve). The Dwight D. Eisenhower Cup runs a separate 16-player bracket. Live scoring and round-by-round leaderboards can be tracked on the Travis Invitational tournament hub.",
+        ],
+      },
+      {
         slug: "2026-travis-invitational-field-preview",
         title: "The Walter J. Travis Invitational Tees Off at Garden City: A Loaded Field for One of Mid-Am Golf’s Crown Jewels",
         date: "2026-05-15",
