@@ -486,7 +486,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "walter-j-travis-invitational",
     name: "The Walter J. Travis Invitational",
     channel: "midam",
-    liveStatus: "next",
+    liveStatus: "completed",
     logo: "/brand/Walter Travis.jpeg",
     month: 5,
     dates2026: "May 2026",
@@ -499,7 +499,6 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "Devereux Emmet",
     courseNotes: "Men-only club; est. 1899",
-    golfGeniusUrl: "https://116thwalterjtravisinvitational.golfgenius.com/pages/12475288108469871110",
 
     format: "Match play",
     howToPlay: [
@@ -754,6 +753,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-huddleston-cup",
     name: "The Huddleston Cup",
     channel: "midam",
+    liveStatus: "next",
     logo: "/brand/Huddleston.png",
     month: 5,
     dates2026: "May 2026",
