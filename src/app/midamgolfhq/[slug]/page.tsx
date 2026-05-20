@@ -7,6 +7,7 @@ import {
   listMidAmTournamentSlugs,
   listMidAmTournaments,
 } from "@/lib/tournaments/midam";
+import { buildFaqLd } from "@/lib/tournaments/faqLd";
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
@@ -181,6 +182,13 @@ export default async function MidAmTournamentPage({
     }
   }
 
+  const faqLd = buildFaqLd({
+    name: tournament.name,
+    howToPlay: tournament.howToPlay,
+    format: tournament.format,
+    eligibility: tournament.eligibility,
+  });
+
   const relatedEvents = listMidAmTournaments()
     .filter((t) => t.slug !== tournament.slug)
     .map((t) => ({
@@ -197,6 +205,11 @@ export default async function MidAmTournamentPage({
       <Script id={`ld-event-${tournament.slug}`} type="application/ld+json">
         {JSON.stringify(eventLd)}
       </Script>
+      {faqLd ? (
+        <Script id={`ld-faq-${tournament.slug}`} type="application/ld+json">
+          {JSON.stringify(faqLd)}
+        </Script>
+      ) : null}
 
       {/* -- Dark Hero -- */}
       <section className="relative overflow-hidden bg-zinc-50">

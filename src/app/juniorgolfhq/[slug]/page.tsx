@@ -14,6 +14,7 @@ import {
   JUNIOR_MAJOR_EVENTS_2026,
 } from "@/lib/juniorMajors";
 import type { Tournament } from "@/lib/tournaments/types";
+import { buildFaqLd } from "@/lib/tournaments/faqLd";
 
 export const dynamicParams = false
 
@@ -203,6 +204,13 @@ export default async function JuniorScheduleEventPage({
     eventLd.startDate = isoDate;
   }
 
+  const faqLd = buildFaqLd({
+    name: event.name,
+    howToPlay: event.howToPlay,
+    format: event.format,
+    eligibility: event.eligibility,
+  });
+
   const relatedEvents = JUNIOR_MAJOR_EVENTS_2026
     .filter((e) => e.slug !== event.slug)
     .map((e) => ({
@@ -225,6 +233,14 @@ export default async function JuniorScheduleEventPage({
       >
         {JSON.stringify(eventLd)}
       </Script>
+      {faqLd ? (
+        <Script
+          id={`ld-faq-junior-${event.slug}`}
+          type="application/ld+json"
+        >
+          {JSON.stringify(faqLd)}
+        </Script>
+      ) : null}
 
       {/* -- Hero -- */}
       <section className="relative overflow-hidden bg-zinc-50">
