@@ -768,6 +768,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Red tees: 77.5/153 (7,311 yds); 155 is max slope",
 
     format: "54 holes stroke play",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12245787651055057396",
     howToPlay: [
       { label: "Invite only — no application" },
     ],
