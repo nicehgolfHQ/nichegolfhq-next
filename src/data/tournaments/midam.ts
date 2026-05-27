@@ -753,7 +753,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-huddleston-cup",
     name: "The Huddleston Cup",
     channel: "midam",
-    liveStatus: "next",
+    liveStatus: "live",
     logo: "/brand/Huddleston.png",
     month: 5,
     dates2026: "May 2026",
