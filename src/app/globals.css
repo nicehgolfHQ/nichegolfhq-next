@@ -131,23 +131,3 @@ h3 {
   padding: 0.75rem;
   vertical-align: top;
 }
-
-/* Tournament ticker marquee (homepage) */
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.ticker-track {
-  animation: ticker-scroll 40s linear infinite;
-  width: max-content;
-}
-.ticker-track:hover {
-  animation-play-state: paused;
-}
-.ticker-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-}
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
-}
