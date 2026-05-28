@@ -10,8 +10,9 @@ export type SeniorMajorEvent = {
   dates2026?: string; // optional precise human-readable label
   format?: string; // short label used on schedule + hubs (match Mid-Am style)
   note?: string;
-    liveStatus?: "live" | "next" | "completed" | "upcoming";
+  liveStatus?: "live" | "next" | "completed" | "upcoming";
   officialUrl?: string;
+  golfGeniusUrl?: string;
   winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
   // Venue
@@ -219,7 +220,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     slug: "huddleston-cup-senior-division",
     name: "Huddleston Cup (Senior Division)",
     month: "May 2026",
-        liveStatus: "live",
+    liveStatus: "live",
     startDate: "2026-05-26",
     endDate: "2026-05-28",
     format: "54-hole stroke play",
@@ -228,6 +229,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     coursePar: 72,
     courseYardage: 7834,
     courseDesigner: "Steve Smyers (2017)",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12245787651055057396",
     overview: "The Huddleston Cup at Maridoe Golf Club near Dallas is one of the most demanding tests in senior amateur golf. Maridoe\u2019s par-72 layout stretches to 7,834 yards with a 155 slope rating \u2014 the maximum possible \u2014 and the inaugural 2023 event has quickly become one of the circuit\u2019s most coveted invitationals for elite 55+ amateurs.",
     winners: [
       { year: 2023, champion: "Doug Hanzel" },
