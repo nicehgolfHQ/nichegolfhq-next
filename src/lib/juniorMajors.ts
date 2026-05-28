@@ -6,6 +6,7 @@ export type JuniorMajorEvent = {
   month: string; // e.g. "January 2026"
   winners2026?: { boys?: string; girls?: string };
   note?: string;
+    liveStatus?: "live" | "next" | "completed" | "upcoming";
   officialUrl?: string;
   winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
@@ -749,4 +750,11 @@ export function listJuniorMajorArticleParams(): {
     }
   }
   return out;
+}
+
+
+// Returns the first junior tournament currently flagged as live or next.
+// Used by the active-tournament widget on the juniorgolfHQ home page.
+export function getLiveJuniorTournament(): JuniorMajorEvent | undefined {
+    return JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "live") || JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "next");
 }
