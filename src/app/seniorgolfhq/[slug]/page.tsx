@@ -56,6 +56,8 @@ function toTournament(
     })),
     howToPlay: event.howToPlay,
     news: event.news,
+    golfGeniusUrl: event.golfGeniusUrl,
+    liveStatus: event.liveStatus,
   } as Tournament;
 }
 
