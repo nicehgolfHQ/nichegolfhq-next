@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Tournament } from "@/lib/tournaments/types";
+import { resolveDatesLabel } from "@/lib/tournaments/dates";
 
 interface Props {
   tournament: Tournament;
@@ -12,6 +13,11 @@ export function ActiveTournamentWidget({ tournament, channelPrefix }: Props) {
   const venueLine = [tournament.course, tournament.location]
     .filter(Boolean)
     .join(" • ");
+  const datesLabel = resolveDatesLabel(
+    tournament.startDate,
+    tournament.endDate,
+    tournament.dates2026
+  );
 
   return (
     <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white">
@@ -25,8 +31,8 @@ export function ActiveTournamentWidget({ tournament, channelPrefix }: Props) {
         {venueLine ? (
           <div className="mt-1 text-sm text-zinc-500">{venueLine}</div>
         ) : null}
-        {tournament.dates2026 ? (
-          <div className="mt-1 text-xs text-zinc-400">{tournament.dates2026}</div>
+        {datesLabel ? (
+          <div className="mt-1 text-sm font-semibold text-zinc-700">{datesLabel}</div>
         ) : null}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
           {tournament.golfGeniusUrl ? (

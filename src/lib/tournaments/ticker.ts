@@ -2,6 +2,7 @@ import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026, type JuniorMajorEvent } from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026, type SeniorMajorEvent } from "@/lib/seniorMajors";
 import type { Tournament } from "@/lib/tournaments/types";
+import { resolveDatesLabel } from "@/lib/tournaments/dates";
 
 export type TickerChannel = "junior" | "midam" | "senior";
 
@@ -112,6 +113,25 @@ interface ResolverEvent<E> {
   event: E;
   liveStatus?: "live" | "next" | "completed" | "upcoming";
   dateString?: string;
+  startDate?: string;
+  endDate?: string;
+}
+
+// Parse "YYYY-MM-DD" to local Date at start-of-day. End date gets +1 day
+// minus 1 second so a same-day single round event is inclusive.
+function isoToRange(
+  startIso?: string,
+  endIso?: string
+): { start: Date; end: Date } | null {
+  if (!startIso) return null;
+  const sm = startIso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!sm) return null;
+  const start = new Date(Number(sm[1]), Number(sm[2]) - 1, Number(sm[3]));
+  const endStr = endIso ?? startIso;
+  const em = endStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!em) return null;
+  const end = new Date(Number(em[1]), Number(em[2]) - 1, Number(em[3]), 23, 59, 59);
+  return { start, end };
 }
 
 function resolveActiveEvent<E>(
@@ -126,7 +146,10 @@ function resolveActiveEvent<E>(
 
   const withDates = events
     .filter((e) => e.liveStatus !== "completed")
-    .map((e) => ({ ...e, range: parseDateRange(e.dateString) }))
+    .map((e) => ({
+      ...e,
+      range: isoToRange(e.startDate, e.endDate) ?? parseDateRange(e.dateString),
+    }))
     .filter((e): e is ResolverEvent<E> & { range: { start: Date; end: Date } } => e.range !== null);
 
   const inProgress = withDates.find(
@@ -154,6 +177,8 @@ function midamCard(today: Date): TickerCard | null {
     event: t,
     liveStatus: t.liveStatus,
     dateString: t.dates2026,
+    startDate: t.startDate,
+    endDate: t.endDate,
   }));
   const resolved = resolveActiveEvent(events, today);
   if (!resolved) return null;
@@ -164,7 +189,7 @@ function midamCard(today: Date): TickerCard | null {
     status: resolved.status,
     name: t.name,
     venueLine: venueLineFor(t.course, t.location),
-    datesLabel: t.dates2026,
+    datesLabel: resolveDatesLabel(t.startDate, t.endDate, t.dates2026),
     hubHref: `/midamgolfhq/${t.slug}`,
     golfGeniusUrl: t.golfGeniusUrl,
   };
@@ -177,6 +202,8 @@ function juniorCard(today: Date): TickerCard | null {
     // Drop the manual override once endsOn passes so the next event takes over automatically.
     liveStatus: e.endsOn && e.endsOn < todayIso ? undefined : e.liveStatus,
     dateString: e.dates2026 ?? e.month,
+    startDate: e.startDate,
+    endDate: e.endDate,
   }));
   const resolved = resolveActiveEvent(events, today);
   if (!resolved) return null;
@@ -187,7 +214,7 @@ function juniorCard(today: Date): TickerCard | null {
     status: resolved.status,
     name: e.name,
     venueLine: venueLineFor(e.course, e.location),
-    datesLabel: e.dates2026 ?? e.month,
+    datesLabel: resolveDatesLabel(e.startDate, e.endDate, e.dates2026 ?? e.month),
     hubHref: `/juniorgolfhq/${e.slug}`,
   };
 }
@@ -196,7 +223,9 @@ function seniorCard(today: Date): TickerCard | null {
   const events: ResolverEvent<SeniorMajorEvent>[] = SENIOR_MAJOR_EVENTS_2026.map((e) => ({
     event: e,
     liveStatus: e.liveStatus,
-    dateString: e.month,
+    dateString: e.dates2026 ?? e.month,
+    startDate: e.startDate,
+    endDate: e.endDate,
   }));
   const resolved = resolveActiveEvent(events, today);
   if (!resolved) return null;
@@ -207,7 +236,7 @@ function seniorCard(today: Date): TickerCard | null {
     status: resolved.status,
     name: e.name,
     venueLine: venueLineFor(e.course, e.location),
-    datesLabel: e.month,
+    datesLabel: resolveDatesLabel(e.startDate, e.endDate, e.dates2026 ?? e.month),
     hubHref: `/seniorgolfhq/${e.slug}`,
   };
 }

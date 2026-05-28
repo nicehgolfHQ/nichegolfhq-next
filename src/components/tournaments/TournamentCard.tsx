@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Tournament } from "@/lib/tournaments/types";
+import { resolveDatesLabel } from "@/lib/tournaments/dates";
 
 function formatBadge(format?: string) {
   if (!format) return null;
@@ -21,7 +22,9 @@ function formatBadge(format?: string) {
 }
 
 export function TournamentCard({ tournament }: { tournament: Tournament }) {
-  const dates = tournament.dates2026 ?? (tournament.typicalDates ? `Typically ${tournament.typicalDates}` : "");
+  const dates =
+    resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026) ??
+    (tournament.typicalDates ? `Typically ${tournament.typicalDates}` : "");
   const badge = formatBadge(tournament.format);
 
   return (

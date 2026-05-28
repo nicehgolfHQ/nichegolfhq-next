@@ -10,6 +10,7 @@ import { listMidAmTournaments, getLiveMidAmTournament } from "@/lib/tournaments/
 import { ActiveTournamentWidget } from "@/components/ActiveTournamentWidget";
 import { JUNIOR_MAJOR_EVENTS_2026 , getLiveJuniorTournament} from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 , getLiveSeniorTournament} from "@/lib/seniorMajors";
+import { resolveDatesLabel } from "@/lib/tournaments/dates";
 import type { Metadata } from "next";
 import type { Tournament } from "@/lib/tournaments/types";
 
@@ -55,6 +56,8 @@ type ScheduleItem = {
   name: string;
   month: number;
   dates2026?: string;
+  startDate?: string;
+  endDate?: string;
   course?: string;
   location?: string;
   format?: string;
@@ -115,14 +118,30 @@ export default async function NewsletterPage({
   /* ---------- Schedule data (inline dropdown) ---------- */
   const tournaments: ScheduleItem[] =
     feed.slug === "midamgolfhq"
-      ? listMidAmTournaments()
+      ? listMidAmTournaments().map((t) => ({
+          slug: t.slug,
+          name: t.name,
+          channel: "midam" as const,
+          month: t.month,
+          dates2026: t.dates2026,
+          startDate: t.startDate,
+          endDate: t.endDate,
+          course: t.course,
+          location: t.location,
+          format: t.format,
+          note: t.note,
+        }))
       : feed.slug === "juniorgolfhq"
         ? JUNIOR_MAJOR_EVENTS_2026.map((e) => ({
             slug: e.slug,
             name: e.name,
             channel: "junior" as const,
             month: parseMonthNum(e.month),
-            dates2026: e.month,
+            dates2026: e.dates2026 ?? e.month,
+            startDate: e.startDate,
+            endDate: e.endDate,
+            course: e.course,
+            location: e.location,
           }))
         : feed.slug === "seniorgolfhq"
           ? SENIOR_MAJOR_EVENTS_2026.map((e) => ({
@@ -130,7 +149,11 @@ export default async function NewsletterPage({
               name: e.name,
               channel: "senior" as const,
               month: parseMonthNum(e.month),
-              dates2026: e.month,
+              dates2026: e.dates2026 ?? e.month,
+              startDate: e.startDate,
+              endDate: e.endDate,
+              course: e.course,
+              location: e.location,
               format: e.format,
             }))
           : [];
@@ -228,30 +251,33 @@ export default async function NewsletterPage({
                           <div className="h-px flex-1 bg-white/10" />
                         </div>
                         <div className="space-y-2">
-                          {tournamentsByMonth[month]!.map((t) => (
-                            <Link
-                              key={t.slug}
-                              href={`/${feed.slug}/schedule/${t.slug}`}
-                              className="group/evt flex items-center justify-between gap-3 rounded-xl border border-white/10 px-4 py-3.5 transition hover:border-white/20 hover:bg-white/5"
-                            >
-                              <div className="min-w-0 flex-1">
-                                <div className="font-serif text-base font-semibold tracking-tight text-white">
-                                  {t.name}
-                                </div>
-                                {(t.course || t.location) ? (
-                                  <div className="mt-0.5 text-xs text-white/40">
-                                    {[t.course, t.location].filter(Boolean).join(" \u2022 ")}
+                          {tournamentsByMonth[month]!.map((t) => {
+                            const datesLabel = resolveDatesLabel(t.startDate, t.endDate, t.dates2026);
+                            return (
+                              <Link
+                                key={t.slug}
+                                href={`/${feed.slug}/schedule/${t.slug}`}
+                                className="group/evt flex items-center justify-between gap-3 rounded-xl border border-white/10 px-4 py-3.5 transition hover:border-white/20 hover:bg-white/5"
+                              >
+                                <div className="min-w-0 flex-1">
+                                  <div className="font-serif text-base font-semibold tracking-tight text-white">
+                                    {t.name}
                                   </div>
-                                ) : null}
-                                {t.dates2026 ? (
-                                  <div className="mt-1 text-xs text-white/30">{t.dates2026}</div>
-                                ) : null}
-                              </div>
-                              <div className="shrink-0 text-sm text-white/30 transition group-hover/evt:translate-x-0.5 group-hover/evt:text-white/60" aria-hidden>
-                                &rarr;
-                              </div>
-                            </Link>
-                          ))}
+                                  {datesLabel ? (
+                                    <div className="mt-0.5 text-xs font-semibold text-white/70">{datesLabel}</div>
+                                  ) : null}
+                                  {(t.course || t.location) ? (
+                                    <div className="mt-0.5 text-xs text-white/40">
+                                      {[t.course, t.location].filter(Boolean).join(" \u2022 ")}
+                                    </div>
+                                  ) : null}
+                                </div>
+                                <div className="shrink-0 text-sm text-white/30 transition group-hover/evt:translate-x-0.5 group-hover/evt:text-white/60" aria-hidden>
+                                  &rarr;
+                                </div>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     ))}

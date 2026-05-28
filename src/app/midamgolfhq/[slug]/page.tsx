@@ -171,8 +171,12 @@ export default async function MidAmTournamentPage({
     },
   };
 
-  // Use ISO 8601 dates for structured data
-  if (tournament.dates2026) {
+  // Use ISO 8601 dates for structured data. Prefer the explicit startDate/endDate
+  // fields when available, falling back to parsing the human-readable string.
+  if (tournament.startDate) {
+    eventLd.startDate = tournament.startDate;
+    if (tournament.endDate) eventLd.endDate = tournament.endDate;
+  } else if (tournament.dates2026) {
     const parsed = parseDateToISO(tournament.dates2026, tournament.month);
     if (parsed) {
       eventLd.startDate = parsed.start;

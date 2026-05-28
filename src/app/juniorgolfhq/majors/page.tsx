@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
 import { listJuniorMajorsByMonth } from "@/lib/juniorMajors";
+import { resolveDatesLabel } from "@/lib/tournaments/dates";
 
 export const metadata = {
   title: "Junior Majors — 2026 | juniorgolfHQ",
@@ -25,20 +26,26 @@ export default function JuniorMajorsIndexPage() {
               </div>
 
               <div className="mt-4 divide-y divide-zinc-200/70">
-                {m.events.map((e) => (
-                  <Link key={e.slug} href={`/juniorgolfhq/majors/${e.slug}`} className="block px-1 transition hover:bg-zinc-50">
-                    <div className="py-3">
-                      <div className="font-serif text-lg font-semibold tracking-tight text-zinc-950">{e.name}</div>
-                      {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
-                      {e.winners2026 ? (
-                        <div className="mt-1 text-xs text-zinc-600">
-                          2026 winners: {e.winners2026.boys ? `Boys — ${e.winners2026.boys}` : ""}
-                          {e.winners2026.girls ? ` • Girls — ${e.winners2026.girls}` : ""}
-                        </div>
-                      ) : null}
-                    </div>
-                  </Link>
-                ))}
+                {m.events.map((e) => {
+                  const datesLabel = resolveDatesLabel(e.startDate, e.endDate, e.dates2026);
+                  return (
+                    <Link key={e.slug} href={`/juniorgolfhq/majors/${e.slug}`} className="block px-1 transition hover:bg-zinc-50">
+                      <div className="py-3">
+                        <div className="font-serif text-lg font-semibold tracking-tight text-zinc-950">{e.name}</div>
+                        {datesLabel ? (
+                          <div className="mt-1 text-xs font-semibold text-zinc-700">{datesLabel}</div>
+                        ) : null}
+                        {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
+                        {e.winners2026 ? (
+                          <div className="mt-1 text-xs text-zinc-600">
+                            2026 winners: {e.winners2026.boys ? `Boys — ${e.winners2026.boys}` : ""}
+                            {e.winners2026.girls ? ` • Girls — ${e.winners2026.girls}` : ""}
+                          </div>
+                        ) : null}
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           ))}

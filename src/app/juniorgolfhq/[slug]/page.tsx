@@ -33,7 +33,9 @@ function toTournament(
     name: event.name,
     channel: "junior",
     month: 1, // placeholder — hero uses dates2026/typicalDates which we set below
-    dates2026: event.month, // e.g. "February 2026"
+    dates2026: event.dates2026 ?? event.month, // e.g. "February 2026"
+    startDate: event.startDate,
+    endDate: event.endDate,
     course: event.course,
     location: event.location,
     coursePar: event.coursePar,
@@ -200,7 +202,10 @@ export default async function JuniorScheduleEventPage({
     };
   }
 
-  if (isoDate) {
+  if (event.startDate) {
+    eventLd.startDate = event.startDate;
+    if (event.endDate) eventLd.endDate = event.endDate;
+  } else if (isoDate) {
     eventLd.startDate = isoDate;
   }
 

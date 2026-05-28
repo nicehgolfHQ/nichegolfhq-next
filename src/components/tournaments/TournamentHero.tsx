@@ -1,8 +1,13 @@
 import Image from "next/image";
 import type { Tournament } from "@/lib/tournaments/types";
+import { resolveDatesLabel } from "@/lib/tournaments/dates";
 
 export function TournamentHero({ tournament }: { tournament: Tournament }) {
-  const dates = tournament.dates2026 ?? tournament.typicalDates;
+  const dates = resolveDatesLabel(
+    tournament.startDate,
+    tournament.endDate,
+    tournament.dates2026 ?? tournament.typicalDates
+  );
 
   return (
     <section className="text-center">
@@ -26,10 +31,11 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
       )}
 
       <div className="mt-4 text-sm text-zinc-500">
-        {[tournament.course, tournament.location, dates]
-          .filter(Boolean)
-          .join(" \u2022 ")}
+        {[tournament.course, tournament.location].filter(Boolean).join(" \u2022 ")}
       </div>
+      {dates ? (
+        <div className="mt-2 text-base font-semibold text-zinc-900">{dates}</div>
+      ) : null}
 
       {tournament.prestige ? (
         <div className="mx-auto mt-6 max-w-2xl">

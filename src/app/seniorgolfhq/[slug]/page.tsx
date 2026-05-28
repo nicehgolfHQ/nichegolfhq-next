@@ -33,7 +33,9 @@ function toTournament(
     name: event.name,
     channel: "senior",
     month: 1, // placeholder
-    dates2026: event.month, // e.g. "February 2026"
+    dates2026: event.dates2026 ?? event.month, // e.g. "February 2026"
+    startDate: event.startDate,
+    endDate: event.endDate,
     course: event.course,
     location: event.location,
     coursePar: event.coursePar,
@@ -181,7 +183,10 @@ export default async function SeniorScheduleEventPage({
     };
   }
 
-  if (isoDate) {
+  if (event.startDate) {
+    eventLd.startDate = event.startDate;
+    if (event.endDate) eventLd.endDate = event.endDate;
+  } else if (isoDate) {
     eventLd.startDate = isoDate;
   }
 

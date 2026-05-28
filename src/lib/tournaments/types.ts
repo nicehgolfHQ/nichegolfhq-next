@@ -43,6 +43,10 @@ export interface Tournament {
   dates2026?: string;
   dates2025?: string;
   typicalDates?: string;
+  // Exact ISO dates for the event. Preferred over `dates2026` for
+  // ticker logic and consistent UI date formatting.
+  startDate?: string; // ISO "YYYY-MM-DD"
+  endDate?: string; // ISO "YYYY-MM-DD" (omit for single-day events)
 
   // === VENUE ===
   course?: string;
