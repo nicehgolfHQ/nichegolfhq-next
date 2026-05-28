@@ -199,6 +199,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     slug: "huddleston-cup-senior-division",
     name: "Huddleston Cup (Senior Division)",
     month: "May 2026",
+        liveStatus: "live",
     format: "54-hole stroke play",
     course: "Maridoe Golf Club",
     location: "Carrollton, TX",
