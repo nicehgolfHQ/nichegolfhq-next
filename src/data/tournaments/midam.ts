@@ -788,6 +788,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "huddleston-cup-2026-round-1-recap",
+        title: "Huddleston Cup Round 1 Recap: Vandolah Grabs One-Shot Lead at Maridoe",
+        date: "2026-05-28",
+        author: "midamgolfHQ Staff",
+        summary: "Zachary Vandolah fired a 4-under 68 to take the solo first-round lead at the Huddleston Cup, one shot clear of Zach Atkinson and defending champion Bobby Massa.",
+        content: [
+          "Kansas City's Zachary Vandolah fired a 4-under 68 Thursday to take the solo first-round lead at the Huddleston Cup, the premier mid-amateur invitational held at Steve Smyers-designed Maridoe Golf Club outside Dallas. Vandolah, a two-time U.S. Mid-Amateur competitor and reigning Kansas City Match Play champion, held a one-shot advantage over Zach Atkinson and defending champion Bobby Massa, who both posted 3-under 69s on a course that tested the 36-player field. Ryan Burgess sits alone in fourth at 1-under 71, while a logjam of eight players, including two-time U.S. Mid-Amateur champion Scott Harvey, Charlie Holland, and Johnny Spellerberg, are tied for fifth at even par.",
+          "Maridoe showed its teeth beyond the top of the leaderboard, with only four players breaking par on the day. Former U.S. Mid-Amateur champion Matt Parziale and TJ Shuart were among four players at 1-over 73, while the rest of the field battled to stay within striking distance heading into Friday's second round. Live scoring and full coverage are available on the [midamgolfHQ tournament hub](/midamgolfhq/the-huddleston-cup).",
+        ],
+      },
+      {
         slug: "2026-huddleston-cup-preview",
         title: "Huddleston Cup Preview: Massa Defends at Maridoe With a Loaded 36-Player Mid-Am Field",
         date: "2026-05-26",
