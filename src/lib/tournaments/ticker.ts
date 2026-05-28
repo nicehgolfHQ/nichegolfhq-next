@@ -171,9 +171,12 @@ function midamCard(today: Date): TickerCard | null {
 }
 
 function juniorCard(today: Date): TickerCard | null {
+  const todayIso = today.toISOString().slice(0, 10);
   const events: ResolverEvent<JuniorMajorEvent>[] = JUNIOR_MAJOR_EVENTS_2026.map((e) => ({
     event: e,
-    dateString: e.month,
+    // Drop the manual override once endsOn passes so the next event takes over automatically.
+    liveStatus: e.endsOn && e.endsOn < todayIso ? undefined : e.liveStatus,
+    dateString: e.dates2026 ?? e.month,
   }));
   const resolved = resolveActiveEvent(events, today);
   if (!resolved) return null;
@@ -184,7 +187,7 @@ function juniorCard(today: Date): TickerCard | null {
     status: resolved.status,
     name: e.name,
     venueLine: venueLineFor(e.course, e.location),
-    datesLabel: e.month,
+    datesLabel: e.dates2026 ?? e.month,
     hubHref: `/juniorgolfhq/${e.slug}`,
   };
 }
@@ -192,6 +195,7 @@ function juniorCard(today: Date): TickerCard | null {
 function seniorCard(today: Date): TickerCard | null {
   const events: ResolverEvent<SeniorMajorEvent>[] = SENIOR_MAJOR_EVENTS_2026.map((e) => ({
     event: e,
+    liveStatus: e.liveStatus,
     dateString: e.month,
   }));
   const resolved = resolveActiveEvent(events, today);

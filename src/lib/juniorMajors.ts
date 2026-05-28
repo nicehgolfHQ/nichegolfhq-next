@@ -4,6 +4,7 @@ export type JuniorMajorEvent = {
   slug: string;
   name: string;
   month: string; // e.g. "January 2026"
+  dates2026?: string; // optional precise date string, e.g. "June 20–22, 2026"
   winners2026?: { boys?: string; girls?: string };
   note?: string;
     liveStatus?: "live" | "next" | "completed" | "upcoming";
