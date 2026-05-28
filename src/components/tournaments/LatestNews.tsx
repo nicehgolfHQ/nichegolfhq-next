@@ -14,9 +14,9 @@ function FeaturedCard({ item }: { item: MidAmArticleWithTournament }) {
   return (
     <Link
       href={href}
-      className="group/news block rounded-2xl bg-black/70 p-6 shadow-2xl backdrop-blur-xl transition hover:bg-black/80"
+      className="group/news flex flex-col items-center rounded-2xl bg-black/70 p-6 text-center shadow-2xl backdrop-blur-xl transition hover:bg-black/80"
     >
-      <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
+      <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
         <time dateTime={article.date}>{formatDate(article.date)}</time>
         <span aria-hidden className="text-white/20">
           &bull;
@@ -31,7 +31,7 @@ function FeaturedCard({ item }: { item: MidAmArticleWithTournament }) {
           {article.summary}
         </p>
       ) : null}
-      <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-white/70 transition group-hover/news:text-white">
+      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-white/70 transition group-hover/news:text-white">
         Read article
         <span
           aria-hidden
@@ -39,7 +39,7 @@ function FeaturedCard({ item }: { item: MidAmArticleWithTournament }) {
         >
           &rarr;
         </span>
-      </div>
+      </span>
     </Link>
   );
 }
@@ -49,28 +49,20 @@ function MoreRow({ item }: { item: MidAmArticleWithTournament }) {
   return (
     <Link
       href={href}
-      className="group/row flex items-center gap-3 rounded-xl border border-white/10 px-4 py-3 transition hover:border-white/20 hover:bg-white/5"
+      className="group/row flex flex-col items-center gap-1 rounded-xl border border-white/10 px-4 py-3 text-center transition hover:border-white/20 hover:bg-white/5"
     >
-      <time
-        dateTime={article.date}
-        className="w-[78px] shrink-0 text-[11px] font-medium uppercase tracking-wider tabular-nums text-white/50"
-      >
-        {formatDate(article.date)}
-      </time>
-      <div className="min-w-0 flex-1">
-        <div className="line-clamp-1 text-sm font-medium text-white">
-          {article.title}
-        </div>
-        <div className="mt-0.5 line-clamp-1 text-[11px] text-white/40">
-          {tournamentName}
-        </div>
+      <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/50">
+        <time dateTime={article.date} className="tabular-nums">
+          {formatDate(article.date)}
+        </time>
+        <span aria-hidden className="text-white/20">
+          &bull;
+        </span>
+        <span className="truncate text-white/40">{tournamentName}</span>
       </div>
-      <span
-        aria-hidden
-        className="shrink-0 text-sm text-white/30 transition group-hover/row:translate-x-0.5 group-hover/row:text-white/60"
-      >
-        &rarr;
-      </span>
+      <div className="line-clamp-2 text-sm font-medium leading-snug text-white">
+        {article.title}
+      </div>
     </Link>
   );
 }
