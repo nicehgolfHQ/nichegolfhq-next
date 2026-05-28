@@ -8,9 +8,10 @@ import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
 import { listMidAmTournaments, getLiveMidAmTournament } from "@/lib/tournaments/midam";
 import { ActiveTournamentWidget } from "@/components/ActiveTournamentWidget";
-import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
-import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
+import { JUNIOR_MAJOR_EVENTS_2026 , getLiveJuniorTournament} from "@/lib/juniorMajors";
+import { SENIOR_MAJOR_EVENTS_2026 , getLiveSeniorTournament} from "@/lib/seniorMajors";
 import type { Metadata } from "next";
+import type { Tournament } from "@/lib/tournaments/types";
 
 export function generateStaticParams() {
   return FEEDS.map((f) => ({ newsletter: f.slug }));
@@ -146,10 +147,13 @@ export default async function NewsletterPage({
 
   const heroImage = HERO_IMAGES[feed.slug] ?? null;
 
-  // Active-tournament widget: only on midamgolfhq for now, only when a tournament is flagged live.
+  // Active-tournament widget: shown on midamgolfhq, juniorgolfhq, and seniorgolfhq when a tournament is flagged live.
   const liveTournament =
-    feed.slug === "midamgolfhq" ? getLiveMidAmTournament() : undefined;
-  const liveTournamentChannelPrefix = "/midamgolfhq";
+      feed.slug === "midamgolfhq" ? getLiveMidAmTournament() as Tournament :
+      feed.slug === "juniorgolfhq" ? getLiveJuniorTournament() as unknown as Tournament :
+      feed.slug === "seniorgolfhq" ? getLiveSeniorTournament() as unknown as Tournament :
+      undefined;
+  const liveTournamentChannelPrefix = `/${feed.slug}`;
 
   return (
     <SiteShell brandSlug={feed.slug}>
@@ -275,7 +279,7 @@ export default async function NewsletterPage({
           <section className="px-5 pt-2 pb-2">
             <div className="mx-auto max-w-2xl">
               <h2 className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 drop-shadow-sm">
-                Now playing
+                {liveTournament.liveStatus === "next" ? "Up next" : "Now playing"}
               </h2>
               <ActiveTournamentWidget
                 tournament={liveTournament}
