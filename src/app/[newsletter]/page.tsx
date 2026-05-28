@@ -6,8 +6,9 @@ import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { AmateurRankings } from "@/components/AmateurRankings";
 import { FEEDS, getFeedBySlug } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
-import { listMidAmTournaments, getLiveMidAmTournament } from "@/lib/tournaments/midam";
+import { listMidAmTournaments, listMidAmArticles, getLiveMidAmTournament } from "@/lib/tournaments/midam";
 import { ActiveTournamentWidget } from "@/components/ActiveTournamentWidget";
+import { LatestNewsSection } from "@/components/tournaments/LatestNews";
 import { JUNIOR_MAJOR_EVENTS_2026 , getLiveJuniorTournament} from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 , getLiveSeniorTournament} from "@/lib/seniorMajors";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
@@ -178,6 +179,11 @@ export default async function NewsletterPage({
       undefined;
   const liveTournamentChannelPrefix = `/${feed.slug}`;
 
+  // Mid-Am Latest News aggregates the 5 most-recent articles across every
+  // mid-am tournament's news[] array.
+  const midAmLatestNews =
+    feed.slug === "midamgolfhq" ? listMidAmArticles(5) : [];
+
   return (
     <SiteShell brandSlug={feed.slug}>
       {/* -- Fixed hero background (parallax effect) -- */}
@@ -313,6 +319,14 @@ export default async function NewsletterPage({
               />
             </div>
           </section>
+        ) : null}
+
+        {/* -- Latest News (midamgolfhq only): aggregates every tournament's news[] -- */}
+        {feed.slug === "midamgolfhq" && midAmLatestNews.length > 0 ? (
+          <LatestNewsSection
+            items={midAmLatestNews}
+            seeAllHref="/midamgolfhq/news"
+          />
         ) : null}
 
         {/* -- Latest Newsletter Issue (single) -- */}
