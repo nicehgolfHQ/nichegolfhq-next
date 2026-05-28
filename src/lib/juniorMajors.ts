@@ -7,6 +7,7 @@ export type JuniorMajorEvent = {
   winners2026?: { boys?: string; girls?: string };
   note?: string;
     liveStatus?: "live" | "next" | "completed" | "upcoming";
+    endsOn?: string; // ISO date "YYYY-MM-DD" — widget auto-hides after this date
   officialUrl?: string;
   winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
@@ -192,6 +193,9 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     slug: "southern-junior-championship",
     name: "Southern Junior Championship",
     month: "June 2026",
+        liveStatus: "next",
+        dates2026: "June 20–22, 2026",
+        endsOn: "2026-06-22",
     officialUrl: "https://www.southerngolf.org",
     course: "Dataw Island Club \u2013 Cotton Dike Course",
     location: "St. Helena Island, SC",
@@ -756,5 +760,10 @@ export function listJuniorMajorArticleParams(): {
 // Returns the first junior tournament currently flagged as live or next.
 // Used by the active-tournament widget on the juniorgolfHQ home page.
 export function getLiveJuniorTournament(): JuniorMajorEvent | undefined {
-    return JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "live") || JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "next");
+      const today = new Date().toISOString().slice(0, 10);
+    const active = (t: JuniorMajorEvent) =>
+          (t.liveStatus === "live" || t.liveStatus === "next") &&
+          (!t.endsOn || t.endsOn >= today);
+    return JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "live" && active(t)) ||
+          JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "next" && active(t));
 }
