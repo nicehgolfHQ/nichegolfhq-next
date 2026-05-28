@@ -55,15 +55,6 @@ const websiteLd = {
   publisher: { "@id": `${BASE}/#organization` },
 };
 
-function laneFor(tags?: string[]) {
-  const t = (tags || []).map((x) => String(x).toLowerCase());
-  if (t.includes("junior") || t.includes("juniors"))
-    return { label: "JUNIOR", color: "#8b4513" };
-  if (t.includes("senior") || t.includes("seniors"))
-    return { label: "SENIOR", color: "#2d6a4f" };
-  return { label: "MID-AM", color: "#1a1a2e" };
-}
-
 export default async function Home() {
   const results = await Promise.all(
     FEEDS.map(async (f) => ({
@@ -75,7 +66,28 @@ export default async function Home() {
   const latestBrief =
     (loadLatestBriefs(10) || []).find((b) => (b.items || []).length > 0) ??
     null;
-  const briefPreviewItems = latestBrief?.items?.slice(0, 3) ?? [];
+
+  const briefHeadlineCount = latestBrief?.items?.length ?? 0;
+  const briefLanes = (() => {
+    const lanes = new Set<"junior" | "midam" | "senior">();
+    for (const it of latestBrief?.items ?? []) {
+      const t = (it.tags || []).map((x) => String(x).toLowerCase());
+      if (t.includes("junior") || t.includes("juniors")) lanes.add("junior");
+      else if (t.includes("senior") || t.includes("seniors")) lanes.add("senior");
+      else lanes.add("midam");
+    }
+    const order: Array<"junior" | "midam" | "senior"> = ["junior", "midam", "senior"];
+    const labels: Record<"junior" | "midam" | "senior", string> = {
+      junior: "junior",
+      midam: "mid-am",
+      senior: "senior",
+    };
+    const present = order.filter((l) => lanes.has(l)).map((l) => labels[l]);
+    if (present.length === 0) return "amateur golf";
+    if (present.length === 1) return `${present[0]} amateur golf`;
+    const head = present.slice(0, -1).join(", ");
+    return `${head} & ${present[present.length - 1]} amateur golf`;
+  })();
 
   const tickerCards = getTickerCards();
 
@@ -135,74 +147,43 @@ export default async function Home() {
         {/* Cross-channel tournament tracker (Junior / Mid-Am / Senior) */}
         <TournamentTicker cards={tickerCards} />
 
-        {/* Daily Brief first */}
+        {/* Daily Brief — compact card */}
         {latestBrief ? (
-          <section className="mx-auto w-full max-w-6xl px-5 pt-10">
-            <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
-              <div className="flex flex-col items-center justify-center gap-2">
-                <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
-                  Daily Brief
+          <section
+            className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-6"
+            aria-label="Latest Daily Brief"
+          >
+            <div className="mb-3 text-center">
+              <h2 className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/70">
+                Daily Brief
+              </h2>
+            </div>
+
+            <Link
+              href={`/briefs/${latestBrief.date}`}
+              className="group/brief mx-auto flex w-full max-w-xs flex-col items-center rounded-2xl bg-white/95 px-4 py-3 text-center shadow-sm ring-1 ring-zinc-200 backdrop-blur transition hover:bg-white md:max-w-md"
+              style={{ borderTop: "3px solid #b91c1c" }}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">
+                  Today
                 </span>
-                <span className="text-sm font-bold text-white/70">
+                <span className="text-zinc-300">·</span>
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-700">
                   {formatLongDate(latestBrief.date)}
                 </span>
               </div>
-              <h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-white md:text-5xl">
-                {latestBrief.title
-                  ?.replace(/^\"|\"$/g, "")
-                  .replace(/^Daily Brief\s+—\s+.+$/i, "Daily Brief")}
-              </h2>
-              <p className="mx-auto mt-4 max-w-3xl text-lg leading-7 text-white/70">
-                Your daily news source across amateur golf
-              </p>
-              <div className="brief-grid mt-7 grid grid-cols-1 gap-4 text-left md:grid-cols-3 md:text-left">
-                {briefPreviewItems.map((it) => {
-                  const lane = laneFor(it.tags);
-                  const why = (it.why || "").split("\n")[0];
-                  return (
-                    <div
-                      key={it.url + it.title}
-                      className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-center"
-                      style={{ borderTop: `3px solid ${lane.color}` }}
-                    >
-                      <div
-                        className="text-[10px] font-bold uppercase tracking-widest"
-                        style={{ color: lane.color }}
-                      >
-                        {lane.label}
-                      </div>
-                      <div className="mt-2 font-serif text-[16px] font-semibold leading-snug text-zinc-950">
-                        {it.title}
-                      </div>
-                      {why ? (
-                        <p className="mt-3 text-sm leading-6 text-zinc-600">
-                          {why}
-                        </p>
-                      ) : null}
-                      <div className="mt-3 flex justify-center">
-                        <a
-                          href={it.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex text-xs font-semibold"
-                          style={{ color: lane.color }}
-                        >
-                          Read →
-                        </a>
-                      </div>
-                    </div>
-                  );
-                })}
+
+              <div className="mt-1.5 font-serif text-sm font-semibold leading-snug text-zinc-950">
+                {briefHeadlineCount > 0
+                  ? `${briefHeadlineCount} ${briefHeadlineCount === 1 ? "headline" : "headlines"} from ${briefLanes}`
+                  : "Your daily news source across amateur golf"}
               </div>
-              <div className="mt-6 flex justify-center">
-                <Link
-                  href={`/briefs/${latestBrief.date}`}
-                  className="inline-flex items-center rounded-full border border-white/30 bg-white/90 px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
-                >
-                  Read full brief →
-                </Link>
-              </div>
-            </div>
+
+              <span className="mt-2 inline-flex items-center rounded-full border border-zinc-300 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-800 transition group-hover/brief:border-zinc-400 group-hover/brief:bg-zinc-50">
+                Read full brief →
+              </span>
+            </Link>
           </section>
         ) : null}
 

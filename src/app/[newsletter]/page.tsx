@@ -179,10 +179,11 @@ export default async function NewsletterPage({
       undefined;
   const liveTournamentChannelPrefix = `/${feed.slug}`;
 
-  // Mid-Am Latest News aggregates the 5 most-recent articles across every
-  // mid-am tournament's news[] array.
+  // Mid-Am Latest News aggregates the most-recent articles across every
+  // mid-am tournament's news[] array. First is featured; the rest collapse
+  // behind a "More news" toggle.
   const midAmLatestNews =
-    feed.slug === "midamgolfhq" ? listMidAmArticles(5) : [];
+    feed.slug === "midamgolfhq" ? listMidAmArticles(6) : [];
 
   return (
     <SiteShell brandSlug={feed.slug}>
