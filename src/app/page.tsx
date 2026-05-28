@@ -124,7 +124,7 @@ export default async function Home() {
         />
       </section>
 
-      <section className="relative z-10 w-full h-[65vh] flex items-center justify-center">
+      <section className="relative z-10 w-full h-[38vh] flex items-center justify-center">
         <div className="text-center text-white px-6 max-w-3xl">
           <h1
             className="font-serif text-5xl md:text-7xl font-bold tracking-tight mb-2"
@@ -135,10 +135,6 @@ export default async function Home() {
           <p className="text-base md:text-lg font-light tracking-[0.15em] uppercase text-white/80 mb-4">
             The home of competitive amateur golf
           </p>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/60 text-xs tracking-[0.15em] uppercase text-center animate-pulse">
-          Scroll
-          <div className="w-px h-10 bg-white/30 mx-auto mt-2" />
         </div>
       </section>
 
