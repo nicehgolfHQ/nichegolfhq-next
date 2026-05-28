@@ -6,6 +6,7 @@ export type SeniorMajorEvent = {
   month: string; // e.g. "February 2026" or "Aug/Sep 2026"
   format?: string; // short label used on schedule + hubs (match Mid-Am style)
   note?: string;
+    liveStatus?: "live" | "next" | "completed" | "upcoming";
   officialUrl?: string;
   winners?: { year: number; champion: string }[];
   howToPlay?: HowToPlayEntry[];
@@ -484,4 +485,11 @@ export function listSeniorMajorsByMonth(): Array<{
     out.push({ month: m, monthKey, events });
   }
   return out;
+}
+
+
+// Returns the first senior tournament currently flagged as live or next.
+// Used by the active-tournament widget on the seniorgolfHQ home page.
+export function getLiveSeniorTournament(): SeniorMajorEvent | undefined {
+    return SENIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "live") || SENIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "next");
 }
