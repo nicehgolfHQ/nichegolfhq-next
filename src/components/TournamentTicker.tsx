@@ -31,7 +31,7 @@ function TickerCardView({ card }: { card: TickerCard }) {
   const accent = CHANNEL_ACCENT[card.channel];
   return (
     <div
-      className="flex w-[280px] shrink-0 flex-col items-center rounded-2xl bg-white/95 px-4 py-3 text-center shadow-sm ring-1 ring-zinc-200 backdrop-blur"
+      className="mx-auto flex w-full max-w-xs flex-col items-center rounded-2xl bg-white/95 px-4 py-3 text-center shadow-sm ring-1 ring-zinc-200 backdrop-blur md:max-w-none"
       style={{ borderTop: `3px solid ${accent}` }}
     >
       <div className="flex items-center justify-center gap-2">
@@ -69,9 +69,6 @@ function TickerCardView({ card }: { card: TickerCard }) {
 export function TournamentTicker({ cards }: Props) {
   if (!cards.length) return null;
 
-  // Duplicate the set so the CSS marquee can loop seamlessly (-50% translate).
-  const looped = [...cards, ...cards];
-
   return (
     <section
       className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-6"
@@ -83,12 +80,10 @@ export function TournamentTicker({ cards }: Props) {
         </h2>
       </div>
 
-      <div className="ticker-mask overflow-hidden">
-        <div className="ticker-track flex gap-4">
-          {looped.map((card, i) => (
-            <TickerCardView key={`${card.channel}-${i}`} card={card} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
+        {cards.map((card) => (
+          <TickerCardView key={card.channel} card={card} />
+        ))}
       </div>
     </section>
   );

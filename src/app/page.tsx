@@ -3,10 +3,12 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/SiteShell";
 import { IssueCard } from "@/components/IssueCard";
+import { TournamentTicker } from "@/components/TournamentTicker";
 import { FEEDS } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
 import { loadLatestBriefs } from "@/lib/briefs";
 import { formatLongDate } from "@/lib/briefsDates";
+import { getTickerCards } from "@/lib/tournaments/ticker";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -75,6 +77,8 @@ export default async function Home() {
     null;
   const briefPreviewItems = latestBrief?.items?.slice(0, 3) ?? [];
 
+  const tickerCards = getTickerCards();
+
   return (
     <SiteShell>
       {/* ── Structured data ─────────────────────────────────────────── */}
@@ -128,6 +132,9 @@ export default async function Home() {
 
       {/* Page content with solid background */}
       <div className="relative z-10">
+        {/* Cross-channel tournament tracker (Junior / Mid-Am / Senior) */}
+        <TournamentTicker cards={tickerCards} />
+
         {/* Daily Brief first */}
         {latestBrief ? (
           <section className="mx-auto w-full max-w-6xl px-5 pt-10">
