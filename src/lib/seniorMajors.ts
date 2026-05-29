@@ -218,7 +218,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
   },
   {
     slug: "huddleston-cup-senior-division",
-    name: "Huddleston Cup (Senior Division)",
+    name: "The Huddleston Cup",
     month: "May 2026",
     liveStatus: "live",
     startDate: "2026-05-26",
