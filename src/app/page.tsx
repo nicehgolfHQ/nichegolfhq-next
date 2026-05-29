@@ -67,28 +67,6 @@ export default async function Home() {
     (loadLatestBriefs(10) || []).find((b) => (b.items || []).length > 0) ??
     null;
 
-  const briefHeadlineCount = latestBrief?.items?.length ?? 0;
-  const briefLanes = (() => {
-    const lanes = new Set<"junior" | "midam" | "senior">();
-    for (const it of latestBrief?.items ?? []) {
-      const t = (it.tags || []).map((x) => String(x).toLowerCase());
-      if (t.includes("junior") || t.includes("juniors")) lanes.add("junior");
-      else if (t.includes("senior") || t.includes("seniors")) lanes.add("senior");
-      else lanes.add("midam");
-    }
-    const order: Array<"junior" | "midam" | "senior"> = ["junior", "midam", "senior"];
-    const labels: Record<"junior" | "midam" | "senior", string> = {
-      junior: "junior",
-      midam: "mid-am",
-      senior: "senior",
-    };
-    const present = order.filter((l) => lanes.has(l)).map((l) => labels[l]);
-    if (present.length === 0) return "amateur golf";
-    if (present.length === 1) return `${present[0]} amateur golf`;
-    const head = present.slice(0, -1).join(", ");
-    return `${head} & ${present[present.length - 1]} amateur golf`;
-  })();
-
   const tickerCards = getTickerCards();
 
   return (
@@ -171,9 +149,7 @@ export default async function Home() {
               </div>
 
               <div className="mt-1.5 font-serif text-sm font-semibold leading-snug text-zinc-950">
-                {briefHeadlineCount > 0
-                  ? `${briefHeadlineCount} ${briefHeadlineCount === 1 ? "headline" : "headlines"} from ${briefLanes}`
-                  : "Your daily news source across amateur golf"}
+                Today&rsquo;s headlines across junior, mid-am, and senior amateur golf
               </div>
 
               <span className="mt-2 inline-flex items-center rounded-full border border-zinc-300 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-800 transition group-hover/brief:border-zinc-400 group-hover/brief:bg-zinc-50">
