@@ -76,7 +76,7 @@ export function TournamentTicker({ cards }: Props) {
     >
       <div className="mb-3 text-center">
         <h2 className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/70">
-          Tournament Tracker
+          Major Tournament Tracker
         </h2>
       </div>
 
