@@ -56,12 +56,15 @@ const websiteLd = {
 };
 
 export default async function Home() {
-  const results = await Promise.all(
-    FEEDS.map(async (f) => ({
-      feed: f,
-      items: await fetchFeedItems(f.rssUrl, 2),
-    }))
-  );
+  const channelOrder: Record<string, number> = { junior: 0, midam: 1, senior: 2 };
+  const results = (
+    await Promise.all(
+      FEEDS.map(async (f) => ({
+        feed: f,
+        items: await fetchFeedItems(f.rssUrl, 2),
+      }))
+    )
+  ).sort((a, b) => (channelOrder[a.feed.key] ?? 99) - (channelOrder[b.feed.key] ?? 99));
 
   const latestBrief =
     (loadLatestBriefs(10) || []).find((b) => (b.items || []).length > 0) ??
