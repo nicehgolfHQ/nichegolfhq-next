@@ -772,7 +772,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     startDate: "2026-05-26",
     endDate: "2026-05-28",
     course: "Maridoe Golf Club",
-    location: "Dallas, TX",
+    location: "Carrollton, TX",
     coursePar: 72,
     courseYardage: 7854,
     courseRating: 79.6,
@@ -794,7 +794,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         author: "midamgolfHQ Staff",
         summary: "Zachary Vandolah fired a 4-under 68 to take the solo first-round lead at the Huddleston Cup, one shot clear of Zach Atkinson and defending champion Bobby Massa.",
         content: [
-          "Kansas City's Zachary Vandolah fired a 4-under 68 Thursday to take the solo first-round lead at the Huddleston Cup, the premier mid-amateur invitational held at Steve Smyers-designed Maridoe Golf Club outside Dallas. Vandolah, a two-time U.S. Mid-Amateur competitor and reigning Kansas City Match Play champion, held a one-shot advantage over Zach Atkinson and defending champion Bobby Massa, who both posted 3-under 69s on a course that tested the 36-player field. Ryan Burgess sits alone in fourth at 1-under 71, while a logjam of eight players, including two-time U.S. Mid-Amateur champion Scott Harvey, Charlie Holland, and Johnny Spellerberg, are tied for fifth at even par.",
+          "Kansas City's Zachary Vandolah fired a 4-under 68 Thursday to take the solo first-round lead at the Huddleston Cup, the premier mid-amateur invitational held at Steve Smyers-designed Maridoe Golf Club in Carrollton, Texas. Vandolah, a two-time U.S. Mid-Amateur competitor and reigning Kansas City Match Play champion, held a one-shot advantage over Zach Atkinson and defending champion Bobby Massa, who both posted 3-under 69s on a course that tested the 36-player field. Ryan Burgess sits alone in fourth at 1-under 71, while a logjam of eight players, including two-time U.S. Mid-Amateur champion Scott Harvey, Charlie Holland, and Johnny Spellerberg, are tied for fifth at even par.",
           "Maridoe showed its teeth beyond the top of the leaderboard, with only four players breaking par on the day. Former U.S. Mid-Amateur champion Matt Parziale and TJ Shuart were among four players at 1-over 73, while the rest of the field battled to stay within striking distance heading into Friday's second round. Live scoring and full coverage are available on the [midamgolfHQ tournament hub](/midamgolfhq/the-huddleston-cup).",
         ],
       },
@@ -806,7 +806,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         summary: "The Huddleston Cup returns to Maridoe Golf Club in 2026, where defending champion Bobby Massa looks to repeat after a dominant nine-shot victory last year.",
         content: [
           "Bobby Massa returns to Maridoe Golf Club as the defending Huddleston Cup champion and the No. 3-ranked mid-amateur in the midamgolfHQ/amateurgolfinfo rankings, looking to repeat after last year's dominant nine-shot victory. The invite-only field of 36 mid-amateurs features a who's who of competitive amateur golf headlined by two-time U.S. Mid-Amateur champion Scott Harvey, Travis Invitational medalist Rob Couture (who plays out of Maridoe and knows every inch of the course), and Matt Parziale, one of the most recognizable names in mid-am golf and a 2018 Masters participant. John Hunter, fresh off a Championship Flight semifinal run at the Travis, adds even more firepower to a field built on quality over quantity.",
-          "The 54-hole stroke play format at Maridoe's 7,900-yard, slope-155 layout is designed to separate. The Steve Smyers-designed course outside Dallas demands precision and creativity off the tee, and its length punishes anyone who can't sustain elite ball-striking over three rounds. Ryan Burgess, who led the inaugural Jupiter Invitational after Round 1, returns alongside TJ Shuart (Taft Cup champion at the Travis), Haymes Snedeker, Drew Evans, and Colby Harwell, players who've been competing at the highest level of mid-am golf this spring. The Blondell brothers (Brett and Logan) add a family dynamic to an already tight-knit field.",
+          "The 54-hole stroke play format at Maridoe's 7,900-yard, slope-155 layout is designed to separate. The Steve Smyers-designed course in Carrollton, Texas demands precision and creativity off the tee, and its length punishes anyone who can't sustain elite ball-striking over three rounds. Ryan Burgess, who led the inaugural Jupiter Invitational after Round 1, returns alongside TJ Shuart (Taft Cup champion at the Travis), Haymes Snedeker, Drew Evans, and Colby Harwell, players who've been competing at the highest level of mid-am golf this spring. The Blondell brothers (Brett and Logan) add a family dynamic to an already tight-knit field.",
           "With the U.S. Mid-Amateur at Sand Valley's The Lido in September and the Walker Cup at Lahinch later this year, the Huddleston Cup is a critical measuring stick. A strong performance here carries weight with USGA selectors, and for Massa, already in the Walker Cup conversation at No. 3 in the rankings, a repeat title at Maridoe would be a powerful statement. Live scoring is available on the [midamgolfHQ tournament hub](/midamgolfhq/the-huddleston-cup).",
         ],
       },

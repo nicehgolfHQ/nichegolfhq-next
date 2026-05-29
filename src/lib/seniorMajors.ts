@@ -230,7 +230,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     courseYardage: 7834,
     courseDesigner: "Steve Smyers (2017)",
     golfGeniusUrl: "https://www.golfgenius.com/pages/12245787651055057396",
-    overview: "The Huddleston Cup at Maridoe Golf Club near Dallas is one of the most demanding tests in senior amateur golf. Maridoe\u2019s par-72 layout stretches to 7,834 yards with a 155 slope rating \u2014 the maximum possible \u2014 and the inaugural 2023 event has quickly become one of the circuit\u2019s most coveted invitationals for elite 55+ amateurs.",
+    overview: "The Huddleston Cup at Maridoe Golf Club in Carrollton, Texas is one of the most demanding tests in senior amateur golf. Maridoe\u2019s par-72 layout stretches to 7,834 yards with a 155 slope rating \u2014 the maximum possible \u2014 and the inaugural 2023 event has quickly become one of the circuit\u2019s most coveted invitationals for elite 55+ amateurs.",
     winners: [
       { year: 2023, champion: "Doug Hanzel" },
     ],
@@ -455,7 +455,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     format: "team matches",
     course: "Maridoe Golf Club",
     location: "Carrollton, TX",
-    overview: "The East West Cup Matches pits an elite team from west of the Mississippi against a team from the east in a Ryder Cup-style team competition. Each side fields 18 players drawn from senior, mid-amateur, and young amateur ranks, and the event is primarily hosted at Maridoe Golf Club near Dallas \u2014 one of America\u2019s most demanding private courses.",
+    overview: "The East West Cup Matches pits an elite team from west of the Mississippi against a team from the east in a Ryder Cup-style team competition. Each side fields 18 players drawn from senior, mid-amateur, and young amateur ranks, and the event is primarily hosted at Maridoe Golf Club in Carrollton, Texas \u2014 one of America\u2019s most demanding private courses.",
     howToPlay: [{ label: "Invite only \u2014 no application" }],
   },
   {
