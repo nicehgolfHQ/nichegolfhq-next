@@ -250,7 +250,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     coursePar: 72,
     courseYardage: 7426,
     courseDesigner: "A.W. Tillinghast",
-    overview: "The Anderson Memorial Four-Ball returns to Winged Foot Golf Club in Mamaroneck, New York for its 89th edition in 2026, and the senior division gathers elite 55-and-over amateurs for one of the oldest and most prestigious team events in the game. Played over Tillinghast's championship course, site of six U.S. Opens, the senior division contests two-man better-ball match play across the same week as the storied open field. Quarterfinals are set for Saturday, June 6, with the semifinals and final played Sunday, June 7.",
+    overview: "The senior division of the Anderson Memorial Four-Ball gathers 55-and-over amateurs for two-man better-ball match play at Winged Foot Golf Club in Mamaroneck, New York. The 2026 event runs June 3-7.",
     howToPlay: [{ label: "Invite only — submit application", href: "https://andersonmemorial.org/" }],
   },
   {
