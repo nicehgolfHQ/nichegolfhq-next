@@ -232,6 +232,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrl: "https://www.golfgenius.com/pages/12245787651055057396",
     overview: "The Huddleston Cup at Maridoe Golf Club in Carrollton, Texas is one of the most demanding tests in senior amateur golf. Maridoe\u2019s par-72 layout stretches to 7,834 yards with a 155 slope rating \u2014 the maximum possible \u2014 and the inaugural 2023 event has quickly become one of the circuit\u2019s most coveted invitationals for elite 55+ amateurs.",
     winners: [
+      { year: 2026, champion: "Bob Royak" },
       { year: 2023, champion: "Doug Hanzel" },
     ],
     howToPlay: [{ label: "Invite only \u2014 no application" }],
