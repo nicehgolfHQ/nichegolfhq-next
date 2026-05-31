@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/SiteShell";
 import { IssueCard } from "@/components/IssueCard";
-import { TournamentTicker } from "@/components/TournamentTicker";
+import { UnifiedScoreboard } from "@/components/UnifiedScoreboard";
 import { FEEDS } from "@/lib/feeds";
 import { fetchFeedItems } from "@/lib/rss";
 import { loadLatestBriefs } from "@/lib/briefs";
@@ -72,6 +72,11 @@ export default async function Home() {
 
   const tickerCards = getTickerCards();
 
+  const now = new Date();
+  const todayIso = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  const todayLabel = formatLongDate(todayIso);
+  const briefHref = latestBrief ? `/briefs/${latestBrief.date}` : null;
+
   return (
     <SiteShell>
       {/* ── Structured data ─────────────────────────────────────────── */}
@@ -121,46 +126,12 @@ export default async function Home() {
 
       {/* Page content with solid background */}
       <div className="relative z-10">
-        {/* Cross-channel tournament tracker (Junior / Mid-Am / Senior) */}
-        <TournamentTicker cards={tickerCards} />
-
-        {/* Daily Brief — compact card */}
-        {latestBrief ? (
-          <section
-            className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-6"
-            aria-label="Latest Daily Brief"
-          >
-            <div className="mb-3 text-center">
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/70">
-                Daily Brief
-              </h2>
-            </div>
-
-            <Link
-              href={`/briefs/${latestBrief.date}`}
-              className="group/brief mx-auto flex w-full max-w-xs flex-col items-center rounded-2xl bg-white/95 px-4 py-3 text-center shadow-sm ring-1 ring-zinc-200 backdrop-blur transition hover:bg-white md:max-w-md"
-              style={{ borderTop: "3px solid #b91c1c" }}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <span className="inline-flex items-center rounded-sm bg-red-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">
-                  Today
-                </span>
-                <span className="text-zinc-300">·</span>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-700">
-                  {formatLongDate(latestBrief.date)}
-                </span>
-              </div>
-
-              <div className="mt-1.5 font-serif text-sm font-semibold leading-snug text-zinc-950">
-                Today&rsquo;s headlines across junior, mid-am, and senior amateur golf
-              </div>
-
-              <span className="mt-2 inline-flex items-center rounded-full border border-zinc-300 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-800 transition group-hover/brief:border-zinc-400 group-hover/brief:bg-zinc-50">
-                Read full brief →
-              </span>
-            </Link>
-          </section>
-        ) : null}
+        {/* Unified scoreboard: cross-channel tracker + today's brief */}
+        <UnifiedScoreboard
+          cards={tickerCards}
+          dateLabel={todayLabel}
+          briefHref={briefHref}
+        />
 
         {/* Channels */}
         <section className="mx-auto w-full max-w-6xl px-5 py-14">
