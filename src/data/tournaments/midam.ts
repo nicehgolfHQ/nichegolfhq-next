@@ -848,6 +848,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "cb-macdonald-invitational-tournament",
     name: "C.B Macdonald Invitational Tournament",
     channel: "midam",
+    liveStatus: "next",
     logo: "/brand/CB Macdonald.jpeg",
     month: 6,
     dates2026: "June 12-14, 2026",
