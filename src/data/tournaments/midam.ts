@@ -765,7 +765,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-huddleston-cup",
     name: "The Huddleston Cup",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     logo: "/brand/Huddleston.png",
     month: 5,
     dates2026: "May 2026",
@@ -787,6 +787,17 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — no application" },
     ],
     news: [
+      {
+        slug: "huddleston-cup-2026-final-recap",
+        title: "Huddleston Cup Final Recap: Massa Defends Title With Wire-to-Wire Victory at Maridoe",
+        date: "2026-05-30",
+        author: "midamgolfHQ Staff",
+        summary: "Bobby Massa closed with an even-par 72 to win The Huddleston Cup for the second straight year, finishing at 4-under 212 for a six-shot victory at Maridoe.",
+        content: [
+          "Bobby Massa closed with an even-par 72 Saturday to win The Huddleston Cup for the second straight year, finishing at 4-under 212 at Maridoe Golf Club in Carrollton, Texas. Massa, who took the lead after round two, was never seriously threatened on the final day, cruising to a six-shot victory over first-round leader Zachary Vandolah and former U.S. Mid-Amateur champion Matt Parziale, who both finished at 2-over 218. It marks back-to-back Huddleston Cup titles for Massa, matching the feat of two-time U.S. Mid-Amateur champion Scott Harvey, who won in 2023 and 2024.",
+          "Christopher Wheeler fired the low round of the day, a 3-under 69, to climb into solo fourth at 4-over 220. Johnny Spellerberg finished fifth at 5-over 221, while Tyler Thomas and Kendrick Vinar shared sixth at 6-over 222. Harvey, the two-time defending champion entering the week, closed with a 76 to finish T11 at 9-over. Live scoring and full results are available on the [midamgolfHQ tournament hub](/midamgolfhq/the-huddleston-cup).",
+        ],
+      },
       {
         slug: "huddleston-cup-2026-round-2-recap",
         title: "Huddleston Cup Round 2 Recap: Massa Rallies to Take Three-Shot Lead Into Final Round",
@@ -823,6 +834,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Bobby Massa" },
       { year: 2025, champion: "Bobby Massa" },
       { year: 2024, champion: "Scott Harvey" },
       { year: 2023, champion: "Scott Harvey" },
