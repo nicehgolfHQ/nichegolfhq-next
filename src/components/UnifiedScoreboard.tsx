@@ -37,9 +37,9 @@ function ScoreboardColumn({ card }: { card: TickerCard }) {
   return (
     <Link
       href={card.hubHref}
-      className="group flex flex-col gap-1.5 px-5 py-4 transition hover:bg-white/5"
+      className="group flex flex-col items-center gap-1.5 px-5 py-4 text-center transition hover:bg-white/5"
     >
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-center gap-2">
         <span
           className="text-[10px] font-bold uppercase tracking-[0.2em]"
           style={{ color: accent }}
@@ -90,17 +90,17 @@ export function UnifiedScoreboard({ cards, dateLabel, briefHref }: Props) {
         {briefHref ? (
           <Link
             href={briefHref}
-            className="group flex items-center justify-between gap-3 border-t border-white/10 bg-white/5 px-5 py-2.5 transition hover:bg-white/10"
+            className="group flex flex-col items-center gap-2.5 border-t border-white/10 bg-white/5 px-5 py-3.5 text-center transition hover:bg-white/10"
           >
-            <span className="flex min-w-0 items-baseline gap-2">
-              <span className="shrink-0 text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+            <span className="flex flex-col items-center gap-1">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
                 Today&rsquo;s brief
               </span>
-              <span className="hidden truncate text-[11px] text-white/45 sm:inline">
+              <span className="text-[11px] text-white/45">
                 Headlines across junior, mid-am, and senior amateur golf
               </span>
             </span>
-            <span className="shrink-0 text-[11px] font-semibold text-white/70 transition group-hover:text-white">
+            <span className="inline-flex items-center rounded-full border border-white/20 px-4 py-1.5 text-[12px] font-semibold text-white/80 transition group-hover:border-white/40 group-hover:bg-white/5 group-hover:text-white">
               Read &rarr;
             </span>
           </Link>
