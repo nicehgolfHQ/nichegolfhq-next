@@ -789,7 +789,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     news: [
       {
         slug: "huddleston-cup-2026-final-recap",
-        title: "Huddleston Cup Final Recap: Massa Defends Title With Wire-to-Wire Victory at Maridoe",
+        title: "Huddleston Cup Final Recap: Massa Defends Title With Dominant Victory at Maridoe",
         date: "2026-05-30",
         author: "midamgolfHQ Staff",
         summary: "Bobby Massa closed with an even-par 72 to win The Huddleston Cup for the second straight year, finishing at 4-under 212 for a six-shot victory at Maridoe.",
