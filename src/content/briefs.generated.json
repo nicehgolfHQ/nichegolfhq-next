@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-09",
+      "title": "Daily Brief - September 9, 2026",
+      "items": [
+        {
+          "title": "Chung Wins Ninja Invitational at Streamsong Black After Severe Weather Wipes Out Final Round",
+          "url": "https://www.ajga.org/tournaments/2026136/leaderboard",
+          "source": "AJGA",
+          "why": "Kylie Chung, a 2030 grad from Cumming, Ga., posted 66-67 for a 13-under 133 and a four-shot win when the AJGA cancelled Monday's final round at Streamsong Black. Defending champion Clairey Lin and Sahana Chokshi shared second at 9-under.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Austin Lemieux Closes With 66 to Win Second WPGA Mid-Amateur Title at Fox Chapel",
+          "url": "https://www.wpga.org/mid-amateur-championship/",
+          "source": "Western Pennsylvania Golf Association",
+          "why": "Lemieux won the 41st WPGA Mid-Amateur at 7-under in Tuesday's 36-hole, one-day stroke play event at Fox Chapel Golf Club. It's his second title in the championship, after his 2023 win at Nemacolin, from a 60-player field.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Senior Porter Cup Opens Today at Niagara Falls CC With Howard Clendenin Defending",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/senior-porter-cup",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole invitational runs Sept. 9-11 in Lewiston, N.Y., with four age divisions: Senior 55+, Super Senior 65+, Legends 70+ and Super Legends 75+.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-08",
       "title": "Daily Brief - September 8, 2026",
       "items": [
