@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-10",
+      "title": "Daily Brief - September 10, 2026",
+      "items": [
+        {
+          "title": "United States Holds Off Europe's Singles Charge to Retain PING Junior Solheim Cup 13-11 at Bernardus",
+          "url": "https://golftoday.co.uk/united-states-wins-ping-junior-solheim-cup-2026/",
+          "source": "Golf Today",
+          "why": "Morgan Pressel's U.S. team led 9.5-2.5 after Monday's foursomes and four-ball, then survived Europe taking 8.5 of 12 singles points. Kelly Zhang's 2-up win over Carolina Perez-Tasso clinched it, a second straight American win that pushes the series lead to 9-4-1.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Trans-Miss Mid-Master Championship Tees Off Sunday at Lakewood CC With Ben Briscoe Defending",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/trans-miss-mid-master-championship",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole stroke play championship runs Sept. 13-16 at Lakewood Country Club in Lakewood, Colo. Ben Briscoe returns as the 2025 champion.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Crump Cup Senior Division Returns to Pine Valley Sept. 17-20 as Bob Royak Defends",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/crump-cup-senior-division",
+          "source": "nichegolfHQ",
+          "why": "Contested at Pine Valley since 1922, the Crump Cup's senior division runs concurrently with the mid-amateur flight on the 7,197-yard par 70. Bob Royak defends the title he won in 2025.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-09",
       "title": "Daily Brief - September 9, 2026",
       "items": [
