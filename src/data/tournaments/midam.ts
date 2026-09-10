@@ -1878,6 +1878,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "Donald Ross",
 
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12362688281370965640",
     format: "54 holes stroke play",
     howToPlay: [
       { label: "Apply to play", href: "https://trans-miss.org/" },
