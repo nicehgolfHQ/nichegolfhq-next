@@ -47,7 +47,7 @@ const MONTHS: MonthBlock[] = [
     month: "September 2026",
     events: [
       { name: "USGA Women’s Mid-Am", month: "September 2026" },
-      { name: "Trans-Miss Mid-Master Championship", month: "September 2026" },
+      { name: "Trans-Miss Mid-Amateur Championship", month: "September 2026" },
       { name: "The Farrell", month: "September 2026" },
       { name: "The Crump Cup", month: "September 2026" },
     ],

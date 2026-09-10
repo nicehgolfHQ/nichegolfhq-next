@@ -1862,7 +1862,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
   },
   {
     slug: "trans-miss-mid-master-championship",
-    name: "Trans-Miss Mid-Master Championship",
+    name: "Trans-Miss Mid-Amateur Championship",
     channel: "midam",
     liveStatus: "next",
     month: 9,

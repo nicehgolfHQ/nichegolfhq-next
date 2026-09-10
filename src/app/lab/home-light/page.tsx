@@ -45,7 +45,7 @@ const MIDAM_2026_EVENTS: Array<{ month: string; name: string; note?: string; hre
   { month: "Aug 2026", name: "The Picard Cup" },
   { month: "Aug 2026", name: "The Valentine Invitational" },
   { month: "Sep 2026", name: "USGA Women’s Mid-Am" },
-  { month: "Sep 2026", name: "Trans-Miss Mid-Master Championship" },
+  { month: "Sep 2026", name: "Trans-Miss Mid-Amateur Championship" },
   { month: "Sep 2026", name: "The Farrell" },
   { month: "Sep 2026", name: "The Crump Cup" },
   { month: "Oct 2026", name: "USGA Men’s Mid-Am" },
