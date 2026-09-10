@@ -1883,7 +1883,22 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply to play", href: "https://trans-miss.org/" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-trans-miss-mid-amateur-preview",
+        title:
+          "Trans-Miss Mid-Amateur Championship Preview: Briscoe Returns to Defend at Lakewood CC",
+        date: "2026-09-10",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Ben Briscoe returns to defend his Mid-Master title at Lakewood Country Club as a 78-player field competes for two WAGR-ranked championships.",
+        content: [
+          "The Trans-Miss Mid-Amateur Championship brings 78 players to Lakewood Country Club in Lakewood, Colo., for 54 holes of stroke play Sept. 13-16. The field competes across two divisions: Mid-Master (40 and older, handicap index of 5.0 or less) and Mid-Amateur (25 and older, 4.0 or less), with each awarding a separate champion and WAGR points to top finishers. Live scoring and full tournament coverage can be found on the [Trans-Miss Mid-Amateur Championship tournament hub here](/midamgolfhq/trans-miss-mid-master-championship).",
+          "Ben Briscoe of Rancho Mission Viejo, Calif., returns to defend the Mid-Master title he won last year at Rancho Santa Fe, where he posted 67-68-74 to finish at 7-under and win by five shots over Haymes Snedeker of Daphne, Ala. Snedeker has had a strong 2026 campaign highlighted by a T36 finish at the U.S. Senior Open at Scioto, where he earned low-amateur honors, and a win at the Alabama State Senior Amateur. Ryan Terry of Brentwood, Tenn., the 2025 Tennessee Mid-Amateur Player of the Year and winner of the CC of Birmingham National Invitational, was the runner-up in last year's Mid-Amateur division and will look to go one better.",
+          "Coy Dobson of Austin, Texas, arrives in form after a dominant five-shot victory at the 2026 Texas South Mid-Amateur, while Cameron Crawford of Cedar Hills, Utah, reached the final of the 128th Utah State Amateur and won the Art City Amateur earlier this summer. A strong Colorado contingent plays on home soil, including locals Ryan Axlund, Kevin Baldwin, and Jon Lindstrom from the Denver area. midamgolfHQ will be tracking the action all week from Lakewood Country Club.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Ben Briscoe" },
       { year: 2024, champion: "Christopher Devlin" },
