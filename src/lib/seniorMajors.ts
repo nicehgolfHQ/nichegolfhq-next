@@ -837,8 +837,8 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     courseYardage: 6621,
     courseDesigner: "A.W. Tillinghast (1919)",
     tournamentWebsite: "https://www.portercup.com/project-1-1",
-    golfGeniusUrl: "https://www.golfgenius.com/pages/11106723660524697984",
-    golfGeniusUrlLabel: "2025 Results",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12486243992301746262",
+    golfGeniusUrlLabel: "Live Scoring",
     overview: "The Senior Porter Cup is a standalone spinoff of the prestigious Porter Cup Invitational, held at historic Niagara Falls Country Club \u2014 an A.W. Tillinghast design from 1919 set atop the bluffs above the Niagara River. The event features four age divisions (Senior 55+, Super Senior 65+, Legends 70+, Super Legends 75+) and draws elite older amateurs to western New York each September.",
     pastResults: [
       { year: 2025, champion: "Howard Clendenin", score: "209" },
