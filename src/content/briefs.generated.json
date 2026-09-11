@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-11",
+      "title": "Daily Brief - September 11, 2026",
+      "items": [
+        {
+          "title": "Junior Presidents Cup Teams Finalized as Brady Barnum Claims Final U.S. Spot for Medinah",
+          "url": "https://www.firstcallgolf.com/industry-news/release/2026-09-10/junior-presidents-cup-teams-finalized-for-2026-competition",
+          "source": "The First Call",
+          "why": "Barnum, a Georgia commit from Dublin, Ohio, locked the 12th and final U.S. spot as the highest-ranked unqualified player on the Rolex AJGA Rankings after his runner-up at the Junior PLAYERS. Matt Kuchar's side chases a fifth straight win Sept. 19 at Medinah, with C.T. Pan's International Team fielding a record 10 countries.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Trans-Miss Mid-Amateur Championship Tees Off Sunday at Lakewood CC With Ben Briscoe Defending",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/trans-miss-mid-master-championship/2026-trans-miss-mid-amateur-preview",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole stroke play championship brings 78 players to Lakewood Country Club in Lakewood, Colo., Sept. 13-16 with two WAGR-ranked divisions. Briscoe returns to defend the Mid-Master title, while Ryan Terry of Brentwood, Tenn., the 2025 Tennessee Mid-Amateur Player of the Year, looks to improve on last year's runner-up finish. Read the full preview on midamgolfHQ.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Senior Porter Cup Decides Four Division Titles Today in Final Round at Niagara Falls CC",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/senior-porter-cup",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole invitational in Lewiston, N.Y., closes Friday with Senior (55+), Super Senior (65+), Legends (70+) and Super Legends (75+) crowns on the line. Howard Clendenin defends the title he won at 209.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-10",
       "title": "Daily Brief - September 10, 2026",
       "items": [
