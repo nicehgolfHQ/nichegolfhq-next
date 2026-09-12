@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-12",
+      "title": "Daily Brief - September 12, 2026",
+      "items": [
+        {
+          "title": "Team Canada Rosters Set for World Junior Girls Championship as 23 Countries Head to Brampton",
+          "url": "https://www.worldjuniorgirls.com/2026/09/10/team-canada-roster-announced-ahead-of-2026-world-junior-girls-golf-championship/",
+          "source": "World Junior Girls Golf Championship",
+          "why": "Golf Canada named six Team Canada NextGen players Thursday for the 11th playing, Sept. 30 to Oct. 3 at Brampton Golf Club, led by U.S. Girls' Junior champion Clairey Lin and three-time Canadian Junior Girls winner Shauna Liu on Team Canada I. The 72-hole event draws 23 countries and 24 teams, with the individual winner earning a 2027 CPKC Women's Open exemption.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Trans-Miss Mid-Amateur Championship Tees Off Tomorrow at Lakewood CC With 78-Player Field",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/trans-miss-mid-master-championship/2026-trans-miss-mid-amateur-preview",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole stroke play championship begins Sunday at Lakewood Country Club in Lakewood, Colo., with two WAGR-ranked divisions. Ben Briscoe of Rancho Mission Viejo, Calif., returns to defend the Mid-Master title, while Ryan Terry of Brentwood, Tenn., the 2025 Tennessee Mid-Amateur Player of the Year, looks to improve on last year's runner-up finish in the Mid-Amateur division. Read the full preview on midamgolfHQ.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "NYS Men's Senior Amateur Field Locked In for Mahopac Golf Club Debut Sept. 23-24",
+          "url": "https://nysga.org/championships-schedule/menssr",
+          "source": "New York State Golf Association",
+          "why": "Entries closed Sept. 9 for the 36-hole state senior championship, which heads to Mahopac Golf Club in Putnam County. It's the fourth season the NYSGA has run the Senior Amateur separately from the Super Senior and Legends events.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-11",
       "title": "Daily Brief - September 11, 2026",
       "items": [
