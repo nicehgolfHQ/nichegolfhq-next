@@ -1864,7 +1864,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "trans-miss-mid-master-championship",
     name: "Trans-Miss Mid-Amateur Championship",
     channel: "midam",
-    liveStatus: "next",
+    liveStatus: "live",
     month: 9,
     dates2026: "September 13-16, 2026",
     startDate: "2026-09-13",
