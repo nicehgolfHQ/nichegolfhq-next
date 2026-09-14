@@ -1031,7 +1031,7 @@ export function getLiveJuniorTournament(): JuniorMajorEvent | undefined {
       const today = new Date().toISOString().slice(0, 10);
     const active = (t: JuniorMajorEvent) =>
           (t.liveStatus === "live" || t.liveStatus === "next") &&
-          (!t.endsOn || t.endsOn >= today);
+          (!t.endDate || t.endDate >= today);
     return JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "live" && active(t)) ||
           JUNIOR_MAJOR_EVENTS_2026.find((t) => t.liveStatus === "next" && active(t));
 }
