@@ -770,7 +770,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   {
     slug: "junior-solheim-cup",
     name: "Junior Solheim Cup",
-    liveStatus: "next",
+    liveStatus: "completed",
     month: "September 2026",
     startDate: "2026-09-07",
     endDate: "2026-09-08",
@@ -817,6 +817,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   {
     slug: "junior-presidents-cup",
     name: "Junior Presidents Cup",
+    liveStatus: "next",
     month: "September 2026",
     startDate: "2026-09-20",
     endDate: "2026-09-21",
