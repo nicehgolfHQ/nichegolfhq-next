@@ -1885,6 +1885,19 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-trans-miss-mid-amateur-r1-recap",
+        title:
+          "Mendoza, Terry, and Chavez Share Mid-Amateur Lead at 6-Under as Sams Paces Mid-Masters at Trans-Miss",
+        date: "2026-09-15",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Three players fire opening-round 65s to share the Mid-Amateur lead while Zach Sams grabs the solo Mid-Master lead at Lakewood CC.",
+        content: [
+          "Three players fired opening-round 65s to share the Mid-Amateur division lead at 6-under par after Monday's first round of the Trans-Miss Mid-Amateur Championship at Lakewood Country Club. Nahum Mendoza of Chula Vista, Calif., Ryan Terry of Brentwood, Tenn., and Cory Chavez of La Mirada, Calif., sit three clear of Zach Gomez of Broomfield, Colo., who posted a 68. Local players Kyle Colen and Thomas Balderston are tied for fifth at 2-under 69, while Cameron Crawford of Cedar Hills, Utah, and Alex Resurreccion of Rowland Heights, Calif., are even par. In the Mid-Master division, Zach Sams of Argyle, Texas, grabbed the solo lead at 4-under 67, two clear of Brian Birchell and Pat Grady at 69. Defending Mid-Master champion Ben Briscoe sits at 1-under 70, tied for fourth with Kevin Wolf, while Haymes Snedeker is even par in a tie for sixth. Live scoring and full tournament coverage can be found on the [Trans-Miss Mid-Amateur Championship tournament hub here](/midamgolfhq/trans-miss-mid-master-championship).",
+          "Terry, the 2025 Tennessee Mid-Amateur Player of the Year who finished runner-up in last year's Mid-Amateur division, put himself right back in contention with a 65. The three-way tie atop the Mid-Amateur leaderboard sets up a compelling second round, with Gomez the closest pursuer and several Colorado locals lurking within striking distance on their home course. In the Mid-Master race, Sams will look to build on his two-shot cushion while Briscoe, three back, will need to make a move to stay in the title defense. midamgolfHQ will be tracking all the action from Lakewood Country Club.",
+        ],
+      },
+      {
         slug: "2026-trans-miss-mid-amateur-preview",
         title:
           "Trans-Miss Mid-Amateur Championship Preview: Briscoe Returns to Defend at Lakewood CC",
