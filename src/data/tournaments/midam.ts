@@ -1871,7 +1871,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     endDate: "2026-09-16",
     course: "Lakewood Country Club",
     location: "Lakewood, CO",
-    coursePar: 72,
+    coursePar: 71,
     courseYardage: 6894,
     courseRating: 71.8,
     courseSlope: 139,
