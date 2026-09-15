@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-15",
+      "title": "Daily Brief - September 15, 2026",
+      "items": [
+        {
+          "title": "PING Invitational Moves to Seminole Legacy for Oct. 19-21 as Hage and Nobuta Ferry Defend",
+          "url": "https://www.nichegolfhq.com/juniorgolfhq/ajga-ping-invitational",
+          "source": "nichegolfHQ",
+          "why": "One of the AJGA's marquee invitationals relocates to Tallahassee after recent editions at The Saticoy Club, with a 72-player field split evenly between 36 boys and 36 girls over 54 holes. Preston Hage and Honorine Nobuta Ferry return to defend titles at an event whose alumni include two-time champions Jordan Spieth and Rose Zhang.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Trans-Miss Mid-Amateur Championship R2 Underway at Lakewood CC as Three Share Mid-Am Lead",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/trans-miss-mid-master-championship",
+          "source": "nichegolfHQ",
+          "why": "Nahum Mendoza, Ryan Terry, and Cory Chavez carry a three-way tie at 6-under into Tuesday's second round at Lakewood Country Club, with Zach Sams holding the solo Mid-Master lead at 4-under after a first-round 67. Follow live scoring on the tournament hub.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Crump Cup Senior Division Opens Thursday at Pine Valley With Bob Royak Defending",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/crump-cup-senior-division",
+          "source": "nichegolfHQ",
+          "why": "The invitation-only stroke-play event runs Sept. 17-20 alongside the mid-amateur flight at Pine Valley, contested there since 1922. Royak returns to defend one of the rarest tickets in senior amateur golf.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-14",
       "title": "Daily Brief - September 14, 2026",
       "items": [
