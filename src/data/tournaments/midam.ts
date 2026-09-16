@@ -1885,6 +1885,19 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-trans-miss-mid-amateur-r2-recap",
+        title:
+          "Chavez Takes Solo Mid-Amateur Lead at Trans-Miss as Grady Surges to Front of Mid-Master Race",
+        date: "2026-09-15",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Cory Chavez leads the Mid-Amateur division at 7-under while Pat Grady fires a 67 to grab the Mid-Master lead heading into Wednesday's final round.",
+        content: [
+          "Cory Chavez of La Mirada, Calif., backed up his opening 65 with a steady 70 to take the solo Mid-Amateur lead at 7-under 135 through two rounds of the Trans-Miss Mid-Amateur Championship at Lakewood Country Club. Ryan Terry of Brentwood, Tenn., slipped one back after a 71 to sit at 6-under 136 in second, while Zach Gomez of Broomfield, Colo., moved into third at 4-under 138 after a second-round 70. Alex Resurreccion of Rowland Heights, Calif., posted the low Mid-Amateur round of the day at 68 to climb into fourth at 3-under. Kyle Colen and Thomas Balderston, both from the Denver area, are tied for sixth at even par. In the Mid-Master division, Pat Grady of Westminster, Colo., fired a 67 to vault from a tie for second into the solo lead at 6-under 136, three clear of Kevin Wolf in second at 3-under. R1 leader Zach Sams dropped into a tie for third at 2-under with Haymes Snedeker, who moved up with a 69, while defending champion Ben Briscoe fell to seventh at 2-over after a 74. Live scoring and full tournament coverage can be found on the [Trans-Miss Mid-Amateur Championship tournament hub here](/midamgolfhq/trans-miss-mid-master-championship).",
+          "Wednesday's final round sets up a compelling finish in both divisions. Chavez carries a one-shot lead over Terry into the last 18 holes, with Gomez and Resurreccion still within striking distance. In the Mid-Master race, Grady has put himself in a commanding position with a three-shot cushion over Wolf, while Snedeker and Sams will need to make up ground from four back. midamgolfHQ will have the final recap from Lakewood Country Club.",
+        ],
+      },
+      {
         slug: "2026-trans-miss-mid-amateur-r1-recap",
         title:
           "Mendoza, Terry, and Chavez Share Mid-Amateur Lead at 6-Under as Sams Paces Mid-Masters at Trans-Miss",
