@@ -1926,8 +1926,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         ],
       },
     ],
-    pastResults: { year: 2026, champion: "Ryan Terry (Mid-Am) / Pat Grady (Mid-Master)" },
-
+    pastResults: [
+      { year: 2026, champion: "Ryan Terry" },
       { year: 2025, champion: "Ben Briscoe" },
       { year: 2024, champion: "Christopher Devlin" },
       { year: 2023, champion: "Chris Kamin" },
@@ -1942,7 +1942,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-crump-cup",
     name: "The Crump Cup",
     channel: "midam",
-liveStatus: "live"
+    liveStatus: "live",
     month: 9,
     dates2026: "September 17-20, 2026",
     startDate: "2026-09-17",
