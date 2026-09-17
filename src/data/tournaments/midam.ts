@@ -1925,7 +1925,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         ],
       },
     ],
-    pastResults: [
+    pastResults: { year: 2026, champion: "Ryan Terry (Mid-Am) / Pat Grady (Mid-Master)" },
+
       { year: 2025, champion: "Ben Briscoe" },
       { year: 2024, champion: "Christopher Devlin" },
       { year: 2023, champion: "Chris Kamin" },
