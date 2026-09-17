@@ -1941,6 +1941,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-crump-cup",
     name: "The Crump Cup",
     channel: "midam",
+liveStatus: "live"
     month: 9,
     dates2026: "September 17-20, 2026",
     startDate: "2026-09-17",
