@@ -1879,6 +1879,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Donald Ross",
 
     golfGeniusUrl: "https://www.golfgenius.com/pages/12362688281370965640",
+    golfGeniusUrlLabel: "2026 Results",
     format: "54 holes stroke play",
     howToPlay: [
       { label: "Apply to play", href: "https://trans-miss.org/" },
