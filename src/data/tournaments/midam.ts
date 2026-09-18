@@ -1961,7 +1961,20 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-crump-cup-r1-recap",
+        title: "Bale Grabs Solo Lead at Crump Cup as Hagestad Headlines Crowded Chase Pack at Pine Valley",
+        date: "2026-09-17",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Jonathan Bale posted a 1-over 71 at Pine Valley to take a two-shot lead after the first of two stroke-play qualifying rounds, with a seven-way tie for second headlined by Stewart Hagestad.",
+        content: [
+          "Jonathan Bale carded a 1-over 71 at Pine Valley Golf Club on Thursday to grab a two-stroke lead after the first of two 36-hole stroke-play qualifying rounds at the 2026 Crump Cup. Bale, a Wales native based in Jupiter, Fla., sits 701st in the amateurgolfinfo.com rankings, well down the list from the seven players bunched two shots back in a tie for second at 73: Chadd Slutzky, Drew Kittleson, Gregor Orlando, Andrew Bailey, Stewart Hagestad, Chris Wheeler, and Chad Wilfong. Hagestad, a U.S. Mid-Amateur champion, ranks 4th on amateurgolfinfo.com and 22nd in the Official World Amateur Golf Ranking. Live scoring and full tournament coverage can be found on the [Crump Cup tournament hub here](/midamgolfhq/the-crump-cup).",
+          "Friday's second qualifying round sets the Championship Flight: only the low 16 scores from the 78-man field advance to that top bracket, though 48 players overall move on to match play across three flights. Both recent champions have ground to make up for a Championship Flight spot: 2025 winner Bobby Wyatt is tied for 26th at 77, and 2024 champion Andrew Price is tied for 20th at 76. With seven players already sharing second and a deep group bunched at 76 and 77, Friday's round could see significant movement in and out of the projected cutline. midamgolfHQ will be back with Friday's qualifying results from Pine Valley.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Bobby Wyatt" },
       { year: 2024, champion: "Andrew Price" },
