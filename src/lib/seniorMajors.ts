@@ -875,6 +875,8 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     coursePar: 70,
     courseYardage: 7197,
     courseDesigner: "George Crump (1919)",
+    golfGeniusUrl: "/results/crump-cup-2026-day1-results.pdf",
+    golfGeniusUrlLabel: "Live Scoring",
     overview: "The Crump Cup has been contested at Pine Valley Golf Club since 1922 \u2014 the year of the course\u2019s formal opening \u2014 and is one of amateur golf\u2019s most exclusive invitations. Played on what is consistently ranked the world\u2019s finest golf course, the senior division runs concurrently with the mid-amateur flight, offering a rare chance to compete at this famously private New Jersey club.",
     winners: [
       { year: 2025, champion: "Bob Royak" },
