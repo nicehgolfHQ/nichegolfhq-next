@@ -1970,7 +1970,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "George Crump",
     courseNotes: "Regular tees: 73.6/153; #1 course in America",
 
-    golfGeniusUrl: "/results/crump-cup-2026-day1-results.pdf",
+    golfGeniusUrl: "/results/crump-cup-2026-day2-results.pdf",
     golfGeniusUrlLabel: "Live Scoring",
     format: "Match play",
     howToPlay: [
