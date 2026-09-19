@@ -1978,6 +1978,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-crump-cup-r2-recap",
+        title: "Orlando Claims Medal as Bale's Final-Round 80 Costs Him a Championship Flight Spot at Crump Cup",
+        date: "2026-09-18",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Gregor Orlando closed 36 holes of qualifying at 143 to claim medalist honors at Pine Valley, while Thursday's leader Jonathan Bale fell to 151 and missed the 16-man Championship Flight by a single stroke.",
+        content: [
+          "Gregor Orlando of Haverford, Pa., backed up an opening 73 with a 2-under 70 on Friday to finish 36 holes of stroke-play qualifying at 3-over 143, claiming medalist honors at the 2026 Crump Cup. The margin swung on a stunning reversal at the top: Thursday's leader Jonathan Bale followed his tournament-low 71 with an 80 in the second round to fall to 151, missing the 16-man Championship Flight by one stroke. Stewart Hagestad, a U.S. Mid-Amateur champion who ranks 4th on amateurgolfinfo.com and 22nd in the Official World Amateur Golf Ranking, advanced into the Championship Flight at 148, one of five players to qualify on that number. Live scoring and full tournament coverage can be found on the [Crump Cup tournament hub here](/midamgolfhq/the-crump-cup).",
+          "Defending champion Bobby Wyatt advanced to match play in the third and final flight after a second-round 78 left him at 155, five shots outside the Championship Flight cutoff of 150. The Championship Flight's round of 16 begins Saturday morning at Pine Valley, with Orlando entering as the top seed. midamgolfHQ will be back with Saturday's match-play results from Pine Valley.",
+        ],
+      },
+      {
         slug: "2026-crump-cup-r1-recap",
         title: "Bale Grabs Solo Lead at Crump Cup as Hagestad Headlines Crowded Chase Pack at Pine Valley",
         date: "2026-09-17",
