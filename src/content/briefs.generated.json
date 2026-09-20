@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-20",
+      "title": "Daily Brief - September 20, 2026",
+      "items": [
+        {
+          "title": "Junior Presidents Cup Begins Today at Medinah as U.S. Chases Sixth Straight Title",
+          "url": "https://www.nichegolfhq.com/juniorgolfhq/junior-presidents-cup",
+          "source": "nichegolfHQ",
+          "why": "On 2026-09-20: The biennial team match-play event tees off today at Medinah Country Club, with 12 elite American junior boys taking on 12 International (non-European) stars in four-ball and foursomes matches. The United States has won every edition since the event's 2017 debut.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Crump Cup Championship Flight Final Set for Today After Hagestad, Price Reach Semifinals",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/the-crump-cup",
+          "source": "nichegolfHQ",
+          "why": "On 2026-09-20: Saturday's semifinalists Stewart Hagestad, Chris Wheeler, Jeronimo Esteve, and 2024 champion Andrew Price play for a spot in this afternoon's championship match at Pine Valley, with a winner set to be crowned in the tournament's final round.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Crump Cup Senior Championship Final Nears as Royak Looks to Defend Title at Pine Valley",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/crump-cup-senior-division",
+          "source": "nichegolfHQ",
+          "why": "On 2026-09-20: Defending champion Bob Royak reached the Senior Championship Flight semifinals with a win over Steve Harwell and returns to Pine Valley today looking to close out the title, with Randy Haag, Michael McCoy, and Dan Sullivan also alive in the final four.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-19",
       "title": "Daily Brief - September 19, 2026",
       "items": [
