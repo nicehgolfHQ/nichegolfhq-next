@@ -1978,6 +1978,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-crump-cup-r3-recap",
+        title: "Medalist Orlando Falls in Round One as Hagestad, Price Reach Crump Cup Semifinals",
+        date: "2026-09-19",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Andrew Bailey knocked off 36-hole medalist Gregor Orlando in the Championship Flight's opening round, while Stewart Hagestad and 2024 champion Andrew Price both advanced to Saturday's semifinals at Pine Valley.",
+        content: [
+          "Medalist Gregor Orlando's run at the Crump Cup ended almost as soon as match play began, as Andrew Bailey ousted the 36-hole leader 2 and 1 in Saturday's opening round of the Championship Flight at Pine Valley. Stewart Hagestad, a U.S. Mid-Amateur champion, followed his round of 16 win over Chad Wilfong with a 2-and-1 quarterfinal victory over Bailey to reach the semifinals, where he'll face Chris Wheeler, a 2-and-1 winner over Drew Kittleson on the other side of that bracket. Jeronimo Esteve reached the semifinals with a 4-and-2 win over William F. Peel IV, setting up a meeting with 2024 champion Andrew Price, who survived a 19-hole opener before closing out Will Davenport 3 and 2 in the quarterfinals. Live scoring and full tournament coverage can be found on the [Crump Cup tournament hub here](/midamgolfhq/the-crump-cup).",
+          "Defending champion Bobby Wyatt kept his title defense alive in the third flight, following an 8-and-7 romp over Bobby Leopold with a 1-up quarterfinal win over Chadd Slutzky to reach the semifinals against Stephen C. Behr Jr. In the second flight, Thursday's 36-hole leader Jonathan Bale won his round of 16 match before falling 2 and 1 to Garrett Rank in the quarterfinals. The Championship Flight semifinals tee off Saturday afternoon at Pine Valley, with the two survivors returning Sunday for the championship match. midamgolfHQ will be back with Sunday's results from Pine Valley.",
+        ],
+      },
+      {
         slug: "2026-crump-cup-r2-recap",
         title: "Orlando Claims Medal as Bale's Final-Round 80 Costs Him a Championship Flight Spot at Crump Cup",
         date: "2026-09-18",
