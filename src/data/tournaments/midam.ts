@@ -1983,9 +1983,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         date: "2026-09-21",
         author: "midamgolfHQ Staff",
         summary:
-          "Stewart Hagestad captures the Championship Flight at Pine Valley while Randy Haag claims the Senior title.",
+          "Stewart Hagestad captures the Championship Flight at Pine Valley with a 3 and 2 win over Andrew Price in the final.",
         content: [
-          "Stewart Hagestad captured the Crump Cup Championship Flight with a 3 and 2 victory over Andrew Price in Sunday's final at Pine Valley Golf Club. Hagestad, who qualified with a 148, was dominant throughout match play, beating Chad Wilfong 5 and 4, Andrew Bailey 2 and 1, and Chris Wheeler 2 and 1 before closing out Price in the 18-hole final. Price earned his spot in the championship match the hard way, needing 19 holes to get past Jeronimo Esteve in the semifinals after beating Will Davenport 3 and 2 in the quarterfinals. In the Senior Championship Flight, Randy Haag defeated Michael McCoy 5 and 3 to claim the title, ending defending senior champion Bob Royak's bid in the semifinals with a 4 and 2 win. Full results can be found on the [Crump Cup tournament hub here](/midamgolfhq/the-crump-cup).",
+          "Stewart Hagestad captured the Crump Cup Championship Flight with a 3 and 2 victory over Andrew Price in Sunday's final at Pine Valley Golf Club. Hagestad, who qualified with a 148, was dominant throughout match play, beating Chad Wilfong 5 and 4, Andrew Bailey 2 and 1, and Chris Wheeler 2 and 1 before closing out Price in the 18-hole final. Price earned his spot in the championship match the hard way, needing 19 holes to get past Jeronimo Esteve in the semifinals after beating Will Davenport 3 and 2 in the quarterfinals. Full results can be found on the [Crump Cup tournament hub here](/midamgolfhq/the-crump-cup).",
           "Garrett Rank won the 2nd Flight 5 and 4 over Jason Anthony, while defending Crump Cup champion Bobby Wyatt, whose qualifying score placed him in the 3rd Flight, won that bracket 2 and 1 over Zach VanDolah. midamgolfHQ will be back next week with coverage from the U.S. Mid-Amateur at Sand Valley.",
         ],
       },
