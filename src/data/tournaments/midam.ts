@@ -1955,7 +1955,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-crump-cup",
     name: "The Crump Cup",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 9,
     dates2026: "September 17-20, 2026",
     startDate: "2026-09-17",
@@ -1977,6 +1977,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — no application" },
     ],
     news: [
+      {
+        slug: "2026-crump-cup-final-recap",
+        title: "Hagestad Wins Crump Cup Championship Flight 3 and 2 Over Price at Pine Valley",
+        date: "2026-09-21",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Stewart Hagestad captures the Championship Flight at Pine Valley while Randy Haag claims the Senior title.",
+        content: [
+          "Stewart Hagestad captured the Crump Cup Championship Flight with a 3 and 2 victory over Andrew Price in Sunday's final at Pine Valley Golf Club. Hagestad, who qualified with a 148, was dominant throughout match play, beating Chad Wilfong 5 and 4, Andrew Bailey 2 and 1, and Chris Wheeler 2 and 1 before closing out Price in the 18-hole final. Price earned his spot in the championship match the hard way, needing 19 holes to get past Jeronimo Esteve in the semifinals after beating Will Davenport 3 and 2 in the quarterfinals. In the Senior Championship Flight, Randy Haag defeated Michael McCoy 5 and 3 to claim the title, ending defending senior champion Bob Royak's bid in the semifinals with a 4 and 2 win. Full results can be found on the [Crump Cup tournament hub here](/midamgolfhq/the-crump-cup).",
+          "Garrett Rank won the 2nd Flight 5 and 4 over Jason Anthony, while defending Crump Cup champion Bobby Wyatt, whose qualifying score placed him in the 3rd Flight, won that bracket 2 and 1 over Zach VanDolah. midamgolfHQ will be back next week with coverage from the U.S. Mid-Amateur at Sand Valley.",
+        ],
+      },
       {
         slug: "2026-crump-cup-r3-recap",
         title: "Medalist Orlando Falls in Round One as Hagestad, Price Reach Crump Cup Semifinals",
@@ -2015,6 +2027,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Stewart Hagestad" },
       { year: 2025, champion: "Bobby Wyatt" },
       { year: 2024, champion: "Andrew Price" },
       { year: 2023, champion: "Stewart Hagestad" },
@@ -2123,6 +2136,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "usga-mens-mid-am",
     name: "USGA Men’s Mid-Am",
     channel: "midam",
+    liveStatus: "next",
     logo: "/brand/USGA 2.jpeg",
     month: 10,
     dates2026: "Sept 26 – Oct 1, 2026",
