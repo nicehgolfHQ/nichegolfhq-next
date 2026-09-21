@@ -2151,6 +2151,9 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "Back",
     courseDesigner: "David McLay Kidd",
     courseNotes: "Sand Valley course also on property",
+
+    golfGeniusUrl: "https://championships.usga.org/usmidamateur.html",
+    golfGeniusUrlLabel: "Live Scoring",
     howToPlay: [
       { label: "Open qualifying + exemptions", href: "https://champ-admin.usga.org/player" },
     ],
