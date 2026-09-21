@@ -1864,7 +1864,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "trans-miss-mid-master-championship",
     name: "Trans-Miss Mid-Amateur Championship",
     channel: "midam",
-    liveStatus:"completed",
+    liveStatus: "completed",
     month: 9,
     dates2026: "September 14-16, 2026",
     startDate: "2026-09-14",
@@ -1894,7 +1894,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         summary:
           "Ryan Terry closed with a final-round 67 to win the Mid-Amateur title by five, while Pat Grady held off a late charge from Haymes Snedeker to capture the Mid-Master crown at Lakewood Country Club.",
         content: [
-          "Ryan Terry of Brentwood, Tenn., closed with a 3-under 67, the low round of the day, to win the Mid-Amateur division at the Trans-Miss Mid-Amateur Championship, finishing 10-under 203 at Lakewood Country Club for a five-shot victory. Terry trailed 36-hole leader Cory Chavez by one entering the final round, but a closing 73 dropped Chavez to runner-up at 5-under 208. Alex Resurreccion finished third at even-par 213. Live scoring and full tournament coverage can be found on the [Trans-Miss Mid-Amateur Championship tournament hub here](/midamgolfhq/trans-miss-mid-master-championship).",
+          "Ryan Terry of Brentwood, Tenn., closed with a 4-under 67, the low round of the day, to win the Mid-Amateur division at the Trans-Miss Mid-Amateur Championship, finishing 10-under 203 at Lakewood Country Club for a five-shot victory. Terry trailed 36-hole leader Cory Chavez by one entering the final round, but a closing 73 dropped Chavez to runner-up at 5-under 208. Alex Resurreccion finished third at even-par 213. Live scoring and full tournament coverage can be found on the [Trans-Miss Mid-Amateur Championship tournament hub here](/midamgolfhq/trans-miss-mid-master-championship).",
           "In the Mid-Master division, Pat Grady of Westminster, Colo., built his lead over the first two rounds and closed with a 72 to finish 5-under 208, holding off a closing charge from Haymes Snedeker of Daphne, Ala., who shot 69 in the final round to finish one shot back at 4-under 209. Jay Livsey was third at 1-over 214. midamgolfHQ will be back with coverage from the Crump Cup at Pine Valley.",
         ],
       },
@@ -1940,7 +1940,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
-      { year: 2026, champion: "Ryan Terry" },
+      { year: 2026, champion: "Ryan Terry (Mid-Am) / Pat Grady (Mid-Master)" },
       { year: 2025, champion: "Ben Briscoe" },
       { year: 2024, champion: "Christopher Devlin" },
       { year: 2023, champion: "Chris Kamin" },
