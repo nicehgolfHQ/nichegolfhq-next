@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-22",
+      "title": "Daily Brief - September 22, 2026",
+      "items": [
+        {
+          "title": "Rodgers Closes With 65 to Win Russell Henley Junior Championship at Green Island CC",
+          "url": "https://www.ajga.org/tournaments/2026137/leaderboard",
+          "source": "AJGA",
+          "why": "Colton Rodgers of Great Falls, Va., fired a final-round 65 to win the Russell Henley Junior Championship at 7-under 203 at Green Island Country Club in Columbus, Ga. Hughes McCarthy of Fayetteville, N.C., finished one back at 6-under after a closing 68. On the girls' side, Addison Peeples of Gainesville, Ga., won by six shots at 5-under 208 with rounds of 69-67-72.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Record 6,124 Entries Set the Stage for U.S. Mid-Amateur at Sand Valley",
+          "url": "https://championships.usga.org/usmidamateur/2026/articles/fast-facts-for-2026-us-mid-amateur.html",
+          "source": "USGA",
+          "why": "The 45th U.S. Mid-Amateur drew a record 6,124 entries for 264 spots, and the championship gets underway Saturday at Sand Valley Resort in Nekoosa, Wis. Stroke play will rotate between The Lido and the Sand Valley course, with the low 64 advancing to match play on Monday. Brandon Holtz of Bloomington, Ill., returns as defending champion after his win at Troon Country Club last fall. The winner earns an exemption into the 2027 U.S. Open at Pebble Beach and a likely invitation to the 2027 Masters.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "U.S. Senior Women's Amateur Heads to Portland Golf Club Sept. 26-Oct. 1",
+          "url": "https://championships.usga.org/usseniorwomensamateur.html",
+          "source": "USGA",
+          "why": "The 64th U.S. Senior Women's Amateur opens Saturday at Portland Golf Club in Portland, Ore. A field of 132 qualifiers, all age 50 and older, will play two rounds of stroke play before the low 64 advance to match play. It is one of two USGA national championships teeing off Saturday alongside the U.S. Mid-Amateur at Sand Valley.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-20",
       "title": "Daily Brief - September 20, 2026",
       "items": [
