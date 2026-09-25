@@ -2154,6 +2154,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     golfGeniusUrl: "https://championships.usga.org/usmidamateur/2026/scoring.html",
     golfGeniusUrlLabel: "Live Scoring",
+    tournamentWebsite: "https://championships.usga.org/usmidamateur.html",
+    tournamentWebsiteLabel: "Data Source",
     howToPlay: [
       { label: "Open qualifying + exemptions", href: "https://champ-admin.usga.org/player" },
     ],
