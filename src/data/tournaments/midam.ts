@@ -2136,7 +2136,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "usga-mens-mid-am",
     name: "USGA Men’s Mid-Am",
     channel: "midam",
-    liveStatus: "next",
+    liveStatus: "live",
     logo: "/brand/USGA 2.jpeg",
     month: 10,
     dates2026: "Sept 26 – Oct 1, 2026",
