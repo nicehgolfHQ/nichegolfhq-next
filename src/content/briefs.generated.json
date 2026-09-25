@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-25",
+      "title": "Daily Brief - September 25, 2026",
+      "items": [
+        {
+          "title": "USA Rolls to Record Junior Presidents Cup Victory at Medinah",
+          "url": "https://www.ajga.org/tournaments/2026142/leaderboard",
+          "source": "AJGA",
+          "why": "The United States routed the International Team 17.5-6.5 at Medinah Country Club on Sept. 20-21, claiming a fifth consecutive Junior Presidents Cup title by the largest margin in the event's history. The 11-point gap shattered the previous record for the two-day, match-play event featuring 24 of the world's top boys 19 and under.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "U.S. Mid-Amateur Tees Off Tomorrow at Sand Valley With Record 264-Player Field",
+          "url": "https://championships.usga.org/usmidamateur.html",
+          "source": "USGA",
+          "why": "The 45th U.S. Mid-Amateur begins Saturday at Sand Valley Resort in Nekoosa, Wis., with a record 6,124 entries producing a 264-player field. Two rounds of stroke play across The Lido and the Sand Valley Course will cut the field to 64 for match play, with every match-play round and the 36-hole final held on The Lido. The championship runs through Oct. 1.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Vana Birdies 18 to Capture Third Massachusetts Senior Amateur at Belmont CC",
+          "url": "https://www.massgolf.org",
+          "source": "MassGolf",
+          "why": "Frank Vana closed with a birdie on the final hole at Belmont Country Club to win the Massachusetts Senior Amateur by one shot over Chris Congdon, finishing at 3-over 145 (73-72) on Sept. 22-23. It is Vana's third Mass. Senior Amateur title, with previous wins in 2018 and 2022.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-24",
       "title": "Daily Brief - September 24, 2026",
       "items": [
