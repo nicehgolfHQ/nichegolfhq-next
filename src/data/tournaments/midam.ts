@@ -2163,6 +2163,20 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-r1-recap",
+        title:
+          "Massa Fires 7-Under 64 to Lead U.S. Mid-Amateur After Windy Opening Round at The Lido",
+        date: "2026-09-26",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Bobby Massa grabs the first-round lead at 7-under as wind and firm greens test the 264-player field at Sand Valley Resort.",
+        content: [
+          "Bobby Massa of Dallas fired a 7-under 64 on The Lido to grab the first-round lead at the 45th U.S. Mid-Amateur Championship at Sand Valley Resort. Massa, the 2024 runner-up, built a two-shot cushion over Phillip Mollica of Charleston, S.C., who posted a 5-under 66 on the Sand Valley Course. Zach Wright of Prosper, Texas, sits third at 4-under after his round on The Lido, with Torey Edwards of Long Beach, Calif., still on the course at 3-under through 16 holes. A large group at 2-under includes Andrew Bailey, Matt Vogt, Grady Brame Jr., Brett Viboch, and Mikel Martinson. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "Conditions tested the 264-player field with persistent wind and firm greens, making scoring difficult across both courses. Brett Patterson of Oxford, Miss., and Ben Greve of Eden Prairie, Minn., are at 1-under, while Stephen Behr Jr. of Atlanta opened at 1-over. Three-time champion Stewart Hagestad sits at even par in a tie for 22nd alongside Drew Kittleson and Garrett Rank, well within striking distance heading into Sunday's second round on the opposite course.",
+          "Defending champion Brandon Holtz opened with a 1-over 72 on the Sand Valley Course, tied for 36th with past champions Kevin O'Connell, Lukas Michel, and 63-year-old Michael McCoy. Christian Cavaliere, who reached the Round of 16 at the U.S. Amateur in August, is also at 1-over. With the low 64 advancing to match play after Sunday's round, plenty of familiar names are well inside the projected cut line. midamgolfHQ will have full coverage from Sand Valley through the 36-hole final on Thursday.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-preview",
         title:
           "U.S. Mid-Amateur Preview: Hagestad Chases Record-Tying Fourth Title as Record Field Descends on Sand Valley",
