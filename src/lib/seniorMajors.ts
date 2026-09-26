@@ -904,6 +904,9 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "Live Scoring",
     tournamentWebsite: "https://championships.usga.org/usseniorwomensamateur.html",
     tournamentWebsiteLabel: "Data Source",
+    howToPlay: [
+      { label: "Open Qualifying & Exemptions", href: "https://championships.usga.org/usseniorwomensamateur.html" },
+    ],
     pastResults: [
       { year: 2025, champion: "Dawn Woodard" },
       { year: 2024, champion: "Nadene Gole" },
