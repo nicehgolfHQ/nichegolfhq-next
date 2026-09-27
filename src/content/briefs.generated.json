@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-09-27",
+      "title": "Daily Brief - September 27, 2026",
+      "items": [
+        {
+          "title": "Notah Begay III Junior Golf National Championship Underway at Koasati Pines",
+          "url": "https://www.jgnc.org/",
+          "source": "NB3 Junior Golf National Championship",
+          "why": "The Notah Begay III Junior Golf National Championship is underway this weekend at Koasati Pines at Coushatta in Kinder, La., featuring boys and girls divisions across multiple age groups. The event highlights junior golfers from diverse backgrounds and underserved communities, carrying NB3's mission of growing the game at the grassroots level.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "U.S. Mid-Amateur R2 Today as Massa Carries 7-Under Lead Into Cut Round at Sand Valley",
+          "url": "https://championships.usga.org/usmidamateur/2026/scoring.html",
+          "source": "USGA",
+          "why": "Bobby Massa of Dallas takes a two-shot lead at 7-under into Sunday's second round at Sand Valley Resort, where the 264-player field will be cut to the low 64 for match play beginning Monday. Phillip Mollica sits second at 5-under, with Zach Wright third at 4-under. Three-time champion Stewart Hagestad is at even par heading into his round on the Sand Valley Course.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "U.S. Senior Women's Amateur R2 Today at Portland Golf Club as Match Play Cut Looms",
+          "url": "https://championships.usga.org/usseniorwomensamateur.html",
+          "source": "USGA",
+          "why": "The 132-player field at the 64th U.S. Senior Women's Amateur plays its second round of stroke play Sunday at Portland Golf Club in Portland, Ore., with the low 64 advancing to match play. The championship runs through Oct. 1.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-26",
       "title": "Daily Brief - September 26, 2026",
       "items": [
