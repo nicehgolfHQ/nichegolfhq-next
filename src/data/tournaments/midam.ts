@@ -2163,6 +2163,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-stroke-play-recap",
+        title:
+          "Massa Cruises to Medalist Honors at 9-Under as 64 Advance to Match Play at U.S. Mid-Amateur",
+        date: "2026-09-27",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Bobby Massa earns medalist honors at 9-under 133 as the field is cut to 64 for match play at Sand Valley Resort.",
+        content: [
+          "Bobby Massa of Dallas ran away with medalist honors at the 45th U.S. Mid-Amateur Championship, posting a second-round 69 on the Sand Valley Course to finish stroke play at 9-under 133 at Sand Valley Resort. Massa, the 2024 runner-up, held a three-shot lead over Zach Foushee of Lake Oswego, Ore., who fired a 4-under 67 on The Lido to vault into second at 6-under. Andrew Bailey, Phillip Mollica, and Matthew Paradis share third at 5-under, with Grady Brame Jr. alone in sixth at 4-under. A morning playoff will determine the final qualifiers for the 64-player match play bracket, with the cut falling at 3-over. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "The Lido played nearly two shots easier in the second round, dropping from a 75.4 average to 73.4 as players adjusted to the firm, windy conditions. Scoring was available in the right spots, with 383 birdies and nine eagles on the course Sunday compared to 295 birdies and five eagles in the opening round. The Sand Valley Course softened as well, falling from 76.1 to 74.5. Across both rounds, The Lido yielded a 74.4 stroke average while the Sand Valley Course played tougher at 75.3.",
+          "Three-time champion Stewart Hagestad shot a 2-under 69 on the Sand Valley Course to move into a tie for 12th at 2-under, comfortably inside the match play cut alongside defending champion Brandon Holtz, who posted a 68 on The Lido to climb to 2-under. Parker Edens of Brookings, S.D., fired the day's low round at 5-under 66 on The Lido to jump to 2-under. Garrett Rank sits alongside them at 2-under after a 69 on The Lido. Ben Greve of Eden Prairie, Minn., and Brett Patterson of Oxford, Miss., are safely through at 1-under and even par respectively, while Christian Cavaliere of Katonah, N.Y., is on the bubble at 2-over in a tie for 47th alongside Jeg Coughlin III.",
+          "Among the notable names fighting for the final match play spots, 63-year-old Michael McCoy is one of 13 players at 3-over heading into a Monday morning playoff on the 10th hole for the last four places in the bracket. McCoy, the 2013 Mid-Amateur champion, tees off at 7:20 AM alongside Ryan Orr, Bo Hayes, and John Beringer. The international contingent is well represented in the playoff, with players from Ecuador, Argentina, Bolivia, and Canada among the 13 vying to extend their week. U.S. Senior Amateur runner-up Todd White missed the cut at 4-over. The Round of 64 begins Monday on The Lido, with all match play rounds through Thursday's 36-hole final contested on the same course. midamgolfHQ will be tracking every match from Sand Valley.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-r1-recap",
         title:
           "Massa Fires 7-Under 64 to Lead U.S. Mid-Amateur After Windy Opening Round at The Lido",
