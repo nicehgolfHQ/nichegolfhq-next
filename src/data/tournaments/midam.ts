@@ -2175,6 +2175,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-r64-recap",
+        title:
+          "Massa, Bailey, Hagestad Advance as Defending Champion Holtz Falls in R64 Upset at U.S. Mid-Amateur",
+        date: "2026-09-28",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Jonathan Fricke stuns defending champion Brandon Holtz 2 and 1 as match play opens at The Lido with upsets across the bracket.",
+        content: [
+          "Top seed Bobby Massa opened match play with a comfortable 4 and 3 win over Brett Viboch, while No. 3 seed Andrew Bailey dispatched Mariano Malmierca of Argentina 2 and 1 on The Lido. Three-time champion Stewart Hagestad beat Sam Grindle 2 and 1 to keep his pursuit of a record-tying fourth title alive, and Phillip Mollica, the No. 5 seed, cruised past Blake Morris 3 and 2. But the day's biggest story was 50th-seeded Jonathan Fricke, who stunned defending champion Brandon Holtz 2 and 1 to end Holtz's title defense in the opening round. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "The upset bug bit hard across the bracket. Christian Cavaliere, seeded 57th, knocked off 8th seed Ryan Schmitz 1 up, while 54th-seeded Ethan Hagood eliminated 11th seed Zach Wright 1 up and Brandon Pluchinsky (55) toppled 10th seed Wyatt Brook 1 up. Nate Smith (45) beat Christian Brand 2 and 1, Rhadames Pena of the Dominican Republic (44) routed Will Minton 6 and 5, and Peyton White (38) cruised past Josh Gliege 5 and 3. Local qualifier Adam Miller saw his run end at the hands of Tyler Stahle, who won 2 and 1.",
+          "Four matches went to extra holes. Ben Greve outlasted Jeg Coughlin III on the 19th to advance, while Matt Vogt and Grady Brame Jr. also needed 19 holes to get past Will McCurdy and Preston Dembowiak respectively. Sean O'Donnell beat Nicholas Dentino on the 19th as well. Second seed Zach Foushee won 3 and 2 over Jose Luis Montano, Parker Edens handled Mike Calef 3 and 1, and Garrett Rank squeaked past Michael Padilla 1 up.",
+          "The Round of 32 begins Tuesday morning on The Lido, with the day's marquee matchups including Massa vs. Jordan Russell, Hagestad vs. Nate Smith, Bailey vs. Matt Schall, and Foushee vs. Drew Kittleson. The Round of 16 follows in the afternoon, with quarterfinals and semifinals on Wednesday and the 36-hole final on Thursday. midamgolfHQ will have full coverage from Sand Valley.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-stroke-play-recap",
         title:
           "Massa Cruises to Medalist Honors at 9-Under as 64 Advance to Match Play at U.S. Mid-Amateur",
