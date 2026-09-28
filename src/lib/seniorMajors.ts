@@ -746,7 +746,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     courseDesigner: "A.W. Tillinghast (1926)",
     tournamentWebsite: "https://championships.usga.org/ussenioramateur.html",
     golfGeniusUrl: "https://championships.usga.org/ussenioramateur/2026/scoring.html",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     note: "Rotating venue; 2026 host: Baltimore Country Club (East Course), Lutherville, MD",
     overview: "The USGA Men\u2019s Senior Amateur is America\u2019s most prestigious senior amateur title, contested annually since 1955 at rotating private courses nationwide. Open to amateurs 55+ with a Handicap Index of 5.4 or lower, the championship combines 36 holes of qualifying stroke play with match play elimination \u2014 mirroring the historic format of the U.S. Amateur.",
     winners: [
@@ -876,9 +876,10 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     courseYardage: 7197,
     courseDesigner: "George Crump (1919)",
     golfGeniusUrl: "/results/crump-cup-2026-brackets.pdf",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     overview: "The Crump Cup has been contested at Pine Valley Golf Club since 1922 \u2014 the year of the course\u2019s formal opening \u2014 and is one of amateur golf\u2019s most exclusive invitations. Played on what is consistently ranked the world\u2019s finest golf course, the senior division runs concurrently with the mid-amateur flight, offering a rare chance to compete at this famously private New Jersey club.",
     winners: [
+      { year: 2026, champion: "Randy Haag" },
       { year: 2025, champion: "Bob Royak" },
       { year: 2024, champion: "Matthew Sughrue" },
       { year: 2022, champion: "Tommy Brennan" },
