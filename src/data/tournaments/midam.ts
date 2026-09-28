@@ -23,6 +23,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Donald Ross",
     courseNotes: "Short course; Donald Ross design (1923)",
     golfGeniusUrl: "https://pcgc-71stgasparillainvitational.golfgenius.com/pages/11889495109525324281",
+    golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://gasparillainvitational.com/",
 
     howToPlay: [
@@ -148,6 +149,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "RTJ Golf Trail; verify which course used",
 
     golfGeniusUrl: "https://www.golfgenius.com/pages/12487009941032300329",
+    golfGeniusUrlLabel: "2026 Results",
     format: "54 holes stroke play",
       note: "2026 Defending Champion: Brett Patterson",
     howToPlay: [
@@ -198,6 +200,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Site of 1969 U.S. Open, 2020 U.S. Women's Open",
 
     golfGeniusUrl: "https://www.golfgenius.com/pages/12240361740285531547",
+    golfGeniusUrlLabel: "2026 Results",
     format: "72 holes better ball",
     howToPlay: [
       { label: "Apply for invite here", href: "https://www.championsgolfclub.com/default.aspx?p=.NETDynamicForm&f=ddc32a0e-c1bc-4f2d-a2a3-f18eaa0d6091" },
@@ -315,6 +318,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Lester George",
     courseNotes: "Site of 2024 U.S. Mid-Amateur",
     golfGeniusUrl: "https://www.golfgenius.com/pages/11897323631677564724",
+    golfGeniusUrlLabel: "2026 Results",
 
     format: "54 holes stroke play",
     howToPlay: [
@@ -407,6 +411,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Gil Hanse & Jim Wagner (2021 redesign of Arthur Hills original)",
 
     golfGeniusUrl: "https://www.golfgenius.com/pages/11637199273677834597",
+    golfGeniusUrlLabel: "2026 Results",
     format: "54 holes stroke play",
     howToPlay: [
       { label: "Apply for invite", href: "https://www.golfgenius.com/register?league_id=11637199223413295215" },
@@ -766,6 +771,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "54 holes stroke play",
     golfGeniusUrl: "https://www.golfgenius.com/pages/12245787651055057396",
+    golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://www.golfgenius.com/pages/12245787651055057396",
     tournamentWebsiteLabel: "Data Source",
     howToPlay: [
@@ -854,6 +860,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — submit application", href: "https://andersonmemorial.org/" },
     ],
     golfGeniusUrl: "https://www.golfgenius.com/pages/12365089316366476022",
+    golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://andersonmemorial.org/",
     news: [
       {
@@ -1026,6 +1033,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
     tournamentWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
     golfGeniusUrl: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9#/competition/5530426/leaderboard",
+    golfGeniusUrlLabel: "2026 Results",
     howToPlay: [
       { label: "Open entry via national federation", href: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9" },
     ],
@@ -1103,6 +1111,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "Charles B. Macdonald",
     courseNotes: "Host of first Walker Cup (1922)",
     golfGeniusUrl: "https://www.golfgenius.com/pages/12787897523763194722",
+    golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://www.golfgenius.com/pages/12787897523763194722",
     tournamentWebsiteLabel: "Data Source",
 
@@ -1227,6 +1236,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "U.S. Open setup: 76.9/148; site of 2023 U.S. Open",
 
     golfGeniusUrl: "https://www.golfgenius.com/pages/5747293",
+    golfGeniusUrlLabel: "2026 Results",
     format: "54 holes stroke play",
     howToPlay: [
       { label: "Invite only — no application" },
@@ -1318,6 +1328,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "4-ball",
     golfGeniusUrl: "https://picardcup.com/portal/",
+    golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://picardcup.com/",
     howToPlay: [
       { label: "Apply for invite", href: "https://picardcup.com/apply/" },
@@ -1722,6 +1733,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Open qualifying + exemptions", href: "https://champ-admin.usga.org/player" },
     ],
     golfGeniusUrl: "https://championships.usga.org/uswomensmidamateur/2026/scoring.html",
+    golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://championships.usga.org/uswomensmidamateur.html",
     tournamentWebsiteLabel: "Data Source",
 
@@ -1971,7 +1983,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Regular tees: 73.6/153; #1 course in America",
 
     golfGeniusUrl: "/results/crump-cup-2026-final-results.pdf",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     format: "Match play",
     howToPlay: [
       { label: "Invite only — no application" },
