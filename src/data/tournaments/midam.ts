@@ -2175,6 +2175,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-r32-r16-recap",
+        title:
+          "Smith Surges, Cavaliere and Fricke Fall as U.S. Mid-Amateur Reaches Quarterfinals at The Lido",
+        date: "2026-09-29",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Medalist Massa, Hagestad, and Foushee all fall as the bracket is blown open at Sand Valley, with eight remaining for Wednesday's quarterfinals.",
+        content: [
+          "The U.S. Mid-Amateur field was carved to eight on a dramatic Tuesday at The Lido, with the Round of 32 and Round of 16 both producing marquee upsets. The morning's headline belonged to 33rd seed Jordan Russell, who stunned medalist Bobby Massa 4 and 2 to send the top seed home, while Nate Smith of Tetonia, Idaho, continued his remarkable run by dispatching fourth seed Matthew Paradis 3 and 1 in the afternoon, hours after eliminating three-time champion Stewart Hagestad 5 and 4 in the morning. Second seed Zach Foushee was eliminated in 23 holes by Drew Kittleson of Scottsdale, Ariz., a 2008 U.S. Amateur finalist who reached the Mid-Am semifinals in 2024. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "Christian Cavaliere's Cinderella run from the 57th seed ended in the Round of 16 as Mikel Martinson of Throckmorton, Texas, won 2 up after surviving a 19-hole battle with David Shambley in the morning. Jonathan Fricke, who had knocked off defending champion Brandon Holtz in the R64, saw his run end at the hands of Kittleson, 3 and 1 in the afternoon. Parker Edens, the South Dakota State head golf coach making his third straight Mid-Am appearance, needed 23 holes to outlast Sean O'Donnell and reach his first quarterfinal.",
+          "Andrew Bailey of Cleveland, the No. 3 seed and now the highest seed remaining, rolled past Matt Schall 4 and 3 in the morning and John Eades 4 and 3 in the afternoon. The two-time Ohio Amateur champion (2023-2024) has been the most consistent player in the bracket. Matt Vogt, a dentist from Indianapolis who set the 54-hole Indiana State Amateur scoring record at 17-under this summer, beat Brandon Pluchinsky 3 and 2 to reach the quarters. Matt Hutchins, who caddies at Sand Valley and knows The Lido as well as anyone in the field, knocked off Russell 1 up in the R16 after Russell's upset of Massa.",
+          "Wednesday's quarterfinals tee off at 7:30 AM with Hutchins vs. Martinson, followed by Smith vs. Edens at 7:45, Kittleson vs. Vogt at 8:00, and Bailey at 8:15. The semifinals follow in the afternoon, with the 36-hole final set for Thursday. midamgolfHQ will have full coverage from Sand Valley.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-r32-recap",
         title:
           "Massa, Hagestad, Foushee All Fall as R32 Upsets Blow U.S. Mid-Amateur Bracket Wide Open",
