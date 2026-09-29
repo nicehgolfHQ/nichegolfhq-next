@@ -2175,6 +2175,19 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-r32-recap",
+        title:
+          "Massa, Hagestad, Foushee All Fall as R32 Upsets Blow U.S. Mid-Amateur Bracket Wide Open",
+        date: "2026-09-29",
+        author: "midamgolfHQ Staff",
+        summary:
+          "The top two seeds and three-time champion Hagestad are all eliminated as the Round of 32 produces an upset-filled day at The Lido.",
+        content: [
+          "The U.S. Mid-Amateur bracket was torn apart Tuesday morning at The Lido as the top two seeds and the tournament's biggest storyline all went down in the Round of 32. Medalist Bobby Massa fell 4 and 2 to 33rd seed Jordan Russell, second seed Zach Foushee was eliminated by Drew Kittleson in a grueling 23-hole match, and three-time champion Stewart Hagestad's bid for a record-tying fourth title ended emphatically at the hands of Nate Smith, who dominated 5 and 4. Fifth seed Phillip Mollica was also upset, falling 3 and 2 to Sean O'Donnell. Andrew Bailey, the No. 3 seed, is now the highest seed left in the bracket after beating Matt Schall 4 and 3. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "Christian Cavaliere's stunning run from the 57th seed continued with a dominant 6 and 5 win over Aaron Hickman, and Jonathan Fricke, who knocked off defending champion Holtz in the R64, advanced again with a 3 and 2 win over Luke Wells. Ethan Hagood (54) survived a 20-hole thriller against Tyler Cline, while Garrett Rank was eliminated in 19 holes by John Eades. Paradis, Edens, Vogt, Brame, and Pluchinsky also advanced as the Round of 16 gets underway Tuesday afternoon with Bailey, Cavaliere, and Fricke all still standing. midamgolfHQ will have full coverage from Sand Valley.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-r64-recap",
         title:
           "Massa, Bailey, Hagestad Advance as Defending Champion Holtz Falls in R64 Upset at U.S. Mid-Amateur",
