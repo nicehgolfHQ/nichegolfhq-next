@@ -2175,6 +2175,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-sf-recap",
+        title:
+          "Smith and Bailey Set Up 36-Hole Final at U.S. Mid-Amateur After Semifinal Wins at The Lido",
+        date: "2026-09-30",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Nate Smith extends his dominant run with a 2 and 1 win over Martinson while Andrew Bailey dispatches Vogt 4 and 2 to set up Thursday's championship match.",
+        content: [
+          "Nate Smith of Tetonia, Idaho, continued his dominant march through the bracket with a 2 and 1 semifinal victory over Mikel Martinson to reach the 36-hole final of the 45th U.S. Mid-Amateur Championship. The 43-year-old, a former two-time Duke All-American and the 45th seed, has been the tournament's most imposing player since match play began, rattling off wins over three-time champion Stewart Hagestad (5 and 4), fourth seed Matthew Paradis (3 and 1), Parker Edens (6 and 5), and now Martinson without being taken past the 17th hole in any match. Smith won the 2024 Idaho Men's Amateur with an eagle putt on the final hole and captured the PNGA Men's Master-40 title. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "Andrew Bailey of Cleveland will be waiting for him after dispatching Matt Vogt 4 and 2 in the other semifinal. The No. 3 seed and Cleveland State Hall of Famer, who was a three-time Horizon League Player of the Year, has been the tournament's steadiest hand, winning every match by at least two holes. His path through the bracket reads: Malmierca 2 and 1, Schall 4 and 3, Eades 4 and 3, Brame 3 and 2, and now Vogt 4 and 2. Bailey won back-to-back Ohio Amateur titles in 2023 and 2024, firing 19-under par to claim the 2024 championship.",
+          "Vogt, the Indianapolis dentist who set the Indiana State Amateur 54-hole scoring record at 17-under this summer and won four straight Indianapolis Amateur titles from 2018 to 2021, saw his impressive run end in the semis. Martinson, who hails from Throckmorton, Texas, a town of about 700, posted wins over David Shambley (19 holes), Matt Hutchins (3 and 2 at Hutchins' home course), and reached the Final Four before falling to Smith. Both leave Sand Valley with deep runs to build on.",
+          "Thursday's 36-hole championship match between Smith and Bailey tees off in the morning on The Lido. The winner earns an exemption into the 2027 U.S. Open at Pebble Beach, a likely invitation to the 2027 Masters, and custody of the Robert T. Jones Jr. Memorial Trophy. midamgolfHQ will have full coverage of the final from Sand Valley.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-qf-recap",
         title:
           "Smith Dominates Again, Vogt and Bailey Advance as U.S. Mid-Amateur Semifinal Field Is Set at The Lido",
