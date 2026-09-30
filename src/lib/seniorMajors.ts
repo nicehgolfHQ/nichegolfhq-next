@@ -1402,7 +1402,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     logo: "/brand/society-of-seniors.jpg",
     tournamentWebsite: "https://www.societyofseniors.com/",
     golfGeniusUrl: "https://www.golfgenius.com/pages/5731725",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     month: "September 2026",
     startDate: "2026-09-28",
     endDate: "2026-09-30",
@@ -1410,6 +1410,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     location: "Savannah, GA",
     note: "Rotating venue; 2026 host: The Landings Golf & Athletic Club (Deer Creek Course), Savannah, GA",
     pastResults: [
+      { year: 2026, champion: "Jeff Frazier", venue: "The Landings Golf & Athletic Club (Deer Creek Course)" },
       { year: 2025, champion: "Timothy Cobb", venue: "Innisbrook Resort (Copperhead Course)" },
       { year: 2024, champion: "Stan Humphries", venue: "Treyburn Country Club" },
       { year: 2023, champion: "Jack Hall", venue: "Berkeley Hall Club" },
