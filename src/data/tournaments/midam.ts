@@ -2175,6 +2175,19 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "Match play",
     news: [
       {
+        slug: "2026-us-mid-amateur-qf-recap",
+        title:
+          "Smith Dominates Again, Vogt and Bailey Advance as U.S. Mid-Amateur Semifinal Field Is Set at The Lido",
+        date: "2026-09-30",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Nate Smith routs Parker Edens 6 and 5 as the Final Four is set at Sand Valley with Smith, Martinson, Vogt, and Bailey still standing.",
+        content: [
+          "Nate Smith of Tetonia, Idaho, delivered the most lopsided quarterfinal result of the day, dismantling Parker Edens 6 and 5 to reach the semifinals of the 45th U.S. Mid-Amateur Championship at The Lido. The 45th seed has been the tournament's most dominant player since match play began, having beaten three-time champion Stewart Hagestad 5 and 4 in the Round of 32 and fourth seed Matthew Paradis 3 and 1 in the Round of 16. Mikel Martinson of Throckmorton, Texas, ended Sand Valley caddie Matt Hutchins' dream run at his home course with a 3 and 2 win, setting up a Smith vs. Martinson semifinal at 1:30 PM ET. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "On the other side of the bracket, Matt Vogt, the Indianapolis dentist who set the Indiana State Amateur scoring record at 17-under this summer, knocked off 2008 U.S. Amateur finalist Drew Kittleson 4 and 3 to reach his first Mid-Am semifinal. Andrew Bailey of Cleveland, the No. 3 seed and two-time Ohio Amateur champion, beat Grady Brame Jr. 3 and 2 to stay alive as the highest remaining seed. Vogt and Bailey meet at 1:45 PM ET, with the winners advancing to Thursday's 36-hole final. midamgolfHQ will have full coverage from Sand Valley.",
+        ],
+      },
+      {
         slug: "2026-us-mid-amateur-r32-r16-recap",
         title:
           "Smith Surges, Cavaliere and Fricke Fall as U.S. Mid-Amateur Reaches Quarterfinals at The Lido",
