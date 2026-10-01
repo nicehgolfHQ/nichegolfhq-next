@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-10-01",
+      "title": "Daily Brief - October 1, 2026",
+      "items": [
+        {
+          "title": "AJGA Junior All-Star Invitational Returns to Le Triomphe Oct. 8-11 With 72 of the World's Best 12-to-15-Year-Olds",
+          "url": "https://www.ajga.org/tournaments/2026145",
+          "source": "AJGA",
+          "why": "The 54-hole stroke-play invitational heads back to Le Triomphe Golf and Country Club in Broussard, La., for its 27th year at the venue. The 72-player field is built from the 2026 AJGA Junior All-Star Team, champions of this year's Junior All-Star Series events, and the Rolex AJGA Rankings.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Nate Smith and Andrew Bailey Meet in 36-Hole U.S. Mid-Amateur Final Today at The Lido",
+          "url": "https://championships.usga.org/usmidamateur/2026/scoring.html",
+          "source": "USGA",
+          "why": "Nate Smith of Tetonia, Idaho, beat Mikel Martinson 2 and 1 to reach his first USGA final, while Andrew Bailey of Cleveland, the two-time Ohio Amateur champion, took out Matt Vogt 4 and 2. The 36-hole final tees off Thursday morning on The Lido, with a 2027 U.S. Open exemption at Pebble Beach and a likely Masters invitation awaiting the winner.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Frazier and Hanzel Capture Dale Morey Titles as Society of Seniors Wraps 44th Championship at The Landings",
+          "url": "https://www.societyofseniors.com/news/frazier-hanzel-winners-at-the-landings/",
+          "source": "Society of Seniors",
+          "why": "Jeff Frazier of Mechanicsburg, Pa., closed out a four-shot lead to win the Senior division at 6-under 210, capping a year in which he swept all four GAP Senior Majors. In the Super Senior division, 2013 U.S. Senior Amateur champion Doug Hanzel won by six at 11-under 205 on his home Deer Creek course, becoming a four-time Dale Morey champion.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-09-30",
       "title": "Daily Brief - September 30, 2026",
       "items": [
