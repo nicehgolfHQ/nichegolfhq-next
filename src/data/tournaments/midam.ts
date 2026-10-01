@@ -2449,6 +2449,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseDesigner: "William Gordon",
     courseNotes: "Tom Fazio renovation ongoing",
 
+    golfGeniusUrl: "https://www.golfgenius.com/pages/5893489",
     format: "54 holes stroke play",
     howToPlay: [
       { label: "Invite only — no application" },
