@@ -2148,7 +2148,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "usga-mens-mid-am",
     name: "USGA Men’s Mid-Am",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     logo: "/brand/USGA 2.jpeg",
     month: 10,
     dates2026: "Sept 26 – Oct 1, 2026",
@@ -2174,6 +2174,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "Match play",
     news: [
+      {
+        slug: "2026-us-mid-amateur-final-recap",
+        title:
+          "Bailey Wins U.S. Mid-Amateur Championship 5 and 4 Over Smith to Earn Masters Invite and Pebble Beach Exemption",
+        date: "2026-10-01",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Andrew Bailey of Cleveland dominates the 36-hole final at The Lido, winning every match all week by at least two holes to claim his first USGA title.",
+        content: [
+          "Andrew Bailey of Cleveland captured the 45th U.S. Mid-Amateur Championship with a dominant 5 and 4 victory over Nate Smith in Thursday's 36-hole final at The Lido, capping a flawless week at Sand Valley Resort. The No. 3 seed, a Cleveland State Hall of Famer and three-time Horizon League Player of the Year, won all six of his matches by at least two holes, the most consistent run through the bracket in recent championship memory. Bailey earns an exemption into the 2027 U.S. Open at Pebble Beach, a likely invitation to the 2027 Masters, and custody of the Robert T. Jones Jr. Memorial Trophy. Live scoring and full tournament results can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
+          "Bailey's path to the title reads like a clinic in match play composure: Malmierca 2 and 1, Schall 4 and 3, Eades 4 and 3, Brame 3 and 2, Vogt 4 and 2, and Smith 5 and 4 in the final. The two-time Ohio Amateur champion (2023-2024) never trailed late in any match and closed out the championship on the 32nd hole. It is Bailey's first USGA title and the crowning achievement of an amateur career that has included back-to-back state championships and a Round of 32 appearance at the 2025 U.S. Amateur.",
+          "Smith, the 45th seed from Tetonia, Idaho, made an extraordinary run to the final, eliminating three-time champion Stewart Hagestad 5 and 4, fourth seed Matthew Paradis 3 and 1, and Parker Edens 6 and 5 before falling to Bailey. The two-time Duke All-American and 2024 Idaho Amateur champion had not been taken past the 17th hole in any of his first four matches, but Bailey proved too steady in the 36-hole format, with Bailey in command for much of the day.",
+          "The championship featured one of the most upset-filled brackets in recent Mid-Am history, with medalist Bobby Massa, defending champion Brandon Holtz, second seed Zach Foushee, and Hagestad all falling before the quarterfinals. Christian Cavaliere's run from the 57th seed and Sand Valley caddie Matt Hutchins' charge on his home course were among the week's best storylines. midamgolfHQ congratulates Andrew Bailey on his U.S. Mid-Amateur title and will continue covering the mid-amateur season through the fall.",
+        ],
+      },
       {
         slug: "2026-us-mid-amateur-sf-recap",
         title:
@@ -2215,19 +2230,6 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "Christian Cavaliere's Cinderella run from the 57th seed ended in the Round of 16 as Mikel Martinson of Throckmorton, Texas, won 2 up after surviving a 19-hole battle with David Shambley in the morning. Jonathan Fricke, who had knocked off defending champion Brandon Holtz in the R64, saw his run end at the hands of Kittleson, 3 and 1 in the afternoon. Parker Edens, the South Dakota State head golf coach making his third straight Mid-Am appearance, needed 23 holes to outlast Sean O'Donnell and reach his first quarterfinal.",
           "Andrew Bailey of Cleveland, the No. 3 seed and now the highest seed remaining, rolled past Matt Schall 4 and 3 in the morning and John Eades 4 and 3 in the afternoon. The two-time Ohio Amateur champion (2023-2024) has been the most consistent player in the bracket. Matt Vogt, a dentist from Indianapolis who set the 54-hole Indiana State Amateur scoring record at 17-under this summer, beat Brandon Pluchinsky 3 and 2 to reach the quarters. Matt Hutchins, who caddies at Sand Valley and knows The Lido as well as anyone in the field, knocked off Russell 1 up in the R16 after Russell's upset of Massa.",
           "Wednesday's quarterfinals tee off at 7:30 AM with Hutchins vs. Martinson, followed by Smith vs. Edens at 7:45, Kittleson vs. Vogt at 8:00, and Bailey vs. Grady Brame Jr. at 8:15. The semifinals follow in the afternoon, with the 36-hole final set for Thursday. midamgolfHQ will have full coverage from Sand Valley.",
-        ],
-      },
-      {
-        slug: "2026-us-mid-amateur-r32-recap",
-        title:
-          "Massa, Hagestad, Foushee All Fall as R32 Upsets Blow U.S. Mid-Amateur Bracket Wide Open",
-        date: "2026-09-29",
-        author: "midamgolfHQ Staff",
-        summary:
-          "The top two seeds and three-time champion Hagestad are all eliminated as the Round of 32 produces an upset-filled day at The Lido.",
-        content: [
-          "The U.S. Mid-Amateur bracket was torn apart Tuesday morning at The Lido as the top two seeds and the tournament's biggest storyline all went down in the Round of 32. Medalist Bobby Massa fell 4 and 2 to 33rd seed Jordan Russell, second seed Zach Foushee was eliminated by Drew Kittleson in a grueling 23-hole match, and three-time champion Stewart Hagestad's bid for a record-tying fourth title ended emphatically at the hands of Nate Smith, who dominated 5 and 4. Fifth seed Phillip Mollica was also upset, falling 3 and 2 to Sean O'Donnell. Andrew Bailey, the No. 3 seed, is now the highest seed left in the bracket after beating Matt Schall 4 and 3. Live scoring and full tournament coverage can be found on the [U.S. Mid-Amateur Championship tournament hub here](/midamgolfhq/usga-mens-mid-am).",
-          "Christian Cavaliere's stunning run from the 57th seed continued with a dominant 6 and 5 win over Aaron Hickman, and Jonathan Fricke, who knocked off defending champion Holtz in the R64, advanced again with a 3 and 2 win over Luke Wells. Ethan Hagood (54) survived a 20-hole thriller against Tyler Cline, while Garrett Rank was eliminated in 19 holes by John Eades. Paradis, Edens, Vogt, Brame, and Pluchinsky also advanced as the Round of 16 gets underway Tuesday afternoon with Bailey, Cavaliere, and Fricke all still standing. midamgolfHQ will have full coverage from Sand Valley.",
         ],
       },
       {
@@ -2291,6 +2293,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Andrew Bailey" },
       { year: 2025, champion: "Brandon Holtz" },
       { year: 2024, champion: "Evan Beck" },
       { year: 2023, champion: "Stewart Hagestad" },

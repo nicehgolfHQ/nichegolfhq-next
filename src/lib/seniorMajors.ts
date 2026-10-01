@@ -898,7 +898,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     dates2026: "September 26 - October 1, 2026",
     startDate: "2026-09-26",
     endDate: "2026-10-01",
-    liveStatus: "live",
+    liveStatus: "completed",
     format: "Two rounds of stroke play, low 64 advance to match play",
     course: "Portland Golf Club",
     location: "Portland, Ore.",
