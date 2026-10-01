@@ -2434,6 +2434,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-farrell",
     name: "The Farrell",
     channel: "midam",
+    liveStatus: "live",
     month: 10,
     dates2026: "October 2-4, 2026",
     startDate: "2026-10-02",
