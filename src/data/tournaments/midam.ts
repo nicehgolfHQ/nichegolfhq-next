@@ -2454,7 +2454,22 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-the-farrell-preview",
+        title:
+          "The Farrell Returns to Stanwich Club With Spellerberg and Greenlief Defending",
+        date: "2026-10-01",
+        author: "midamgolfHQ Staff",
+        summary:
+          "The fifth playing of The Farrell brings an invitation-only mid-amateur field to The Stanwich Club with defending champions and U.S. Mid-Amateur veterans in the draw.",
+        content: [
+          "The fifth playing of The Farrell gets underway Friday at The Stanwich Club in Greenwich, Conn., with an invitation-only field competing across men's and women's mid-amateur divisions. Eighteen holes of stroke play qualifying on Friday will determine the top 16 in each division, with match play running Saturday through Sunday's 18-hole finals. The event, run by the Metropolitan Golf Association, honors the legacy of longtime Stanwich head professional Billy Farrell, who held the role from 1964 until his retirement in 2000. Live scoring and full tournament coverage can be found on the [Farrell tournament hub here](/midamgolfhq/the-farrell).",
+          "Defending men's champion Johnny Spellerberg of Omaha Country Club returns to a field loaded with players fresh off deep runs at the U.S. Mid-Amateur at Sand Valley. Christian Cavaliere of Hudson National, who rode a remarkable 57th-seed run to the Round of 16 at The Lido days ago, headlines the men's draw alongside Mariano Malmierca of Argentina and Rij Patel. Past Farrell champions Brad Tilley (2022) and Tim Hegarty (2024) are both back, while an international contingent featuring David Kitt, David Reddan, and Shaun Carter from Ireland and Hugo Rouillon of France adds depth to one of the fall's strongest mid-am fields.",
+          "The women's division is equally stacked, led by defending champion Lauren Greenlief of International Country Club. Catherine McEvoy of The Stanwich Club, the 2022 Farrell women's champion, returns after reaching the final of the U.S. Women's Mid-Amateur at Montclair earlier this season. Four-time U.S. Women's Mid-Amateur champion Meghan Stasi of Tavistock Country Club brings the most decorated resume in the field, while 2024 Farrell women's champion Jackie Rogowicz of Merion Golf Club is also back. midamgolfHQ will be tracking the action all weekend from Stanwich.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Johnny Spellerberg (M), Lauren Greenlief (W)" },
       { year: 2024, champion: "Tim Hegarty (M), Jackie Rogowicz (W)" },
