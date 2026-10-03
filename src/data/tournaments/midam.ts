@@ -2456,6 +2456,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-the-farrell-qualifying-recap",
+        title: "Costanza and Kim-Schaad Medal at 3-Under as Farrell Match Play Field Is Set at Stanwich",
+        date: "2026-10-02",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Mark Costanza and Ina Kim-Schaad each fired 3-under 69s to earn medalist honors at The Farrell's stroke play qualifying, with the men's and women's match play fields now set at The Stanwich Club.",
+        content: [
+          "Mark Costanza of Baltusrol and Ina Kim-Schaad of Deepdale each fired 3-under 69s to earn medalist honors in their respective divisions at The Farrell's stroke play qualifying Friday at The Stanwich Club. In the men's draw, 2022 champion Brad Tilley and Will Davenport share second at 2-under, with 2024 champion Tim Hegarty, David Kitt of Ireland, and Matt Lowe among five players at 1-under. Thomas McCarthy grabbed the 16th and final qualifying spot at 2-over, edging Shaun Carter of Royal Dublin Golf Club on a tiebreak. Christian Cavaliere, coming off his 57th-seed run to the U.S. Mid-Amateur Round of 16, and defending champion Johnny Spellerberg both missed the cut at 5-over. Live scoring and full results can be found on the [Farrell tournament hub here](/midamgolfhq/the-farrell).",
+          "Kim-Schaad's 69 matched Costanza as the day's best score across both divisions. Defending women's champion Lauren Greenlief and Katie Woodruff are tied for second at 2-under 70, while 2024 champion Jackie Rogowicz and 2022 champion Catherine McEvoy both qualified at 3-over. Four-time U.S. Women's Mid-Amateur champion Meghan Stasi narrowly missed the cut at 7-over. The Round of 16 and quarterfinals begin Saturday, with semifinals and the 18-hole finals on Sunday. midamgolfHQ will be tracking the action all weekend from Stanwich.",
+        ],
+      },
+      {
         slug: "2026-the-farrell-preview",
         title:
           "The Farrell Returns to Stanwich Club With Spellerberg and Greenlief Defending",
