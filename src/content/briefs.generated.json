@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-10-02",
+      "title": "Daily Brief - October 2, 2026",
+      "items": [
+        {
+          "title": "ANNIKA Invitational Returns to The Golf Club of Georgia Oct. 8-11 With 72 of the Top Junior Girls",
+          "url": "https://www.nichegolfhq.com/juniorgolfhq/annika-invitational",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole stroke-play event brings 72 girls ages 14 to 18 to Alpharetta, Ga., with the field drawn largely from the Rolex AJGA Rankings. The champion earns exemptions into the LPGA's Hilton Grand Vacations Tournament of Champions and an Epson Tour event, and Asterisk Talley won the 2025 title.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Costanza and Kim-Schaad Medal at 3-Under as Farrell Match Play Field Is Set at Stanwich",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/the-farrell",
+          "source": "nichegolfHQ",
+          "why": "Mark Costanza of Baltusrol and Ina Kim-Schaad of Deepdale each shot 69 to earn medalist honors in qualifying at The Stanwich Club. Defending men's champion Johnny Spellerberg and Christian Cavaliere, fresh off a Round of 16 run at the U.S. Mid-Amateur, both missed the cut at 5-over as the Round of 16 begins Saturday.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "International Senior Individual Championship Heads Back to Cartersville Country Club Oct. 7-10",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/international-senior-individual-championship",
+          "source": "nichegolfHQ",
+          "why": "The invitation-only, 54-hole stroke-play event draws top 55-and-over amateurs from multiple countries to Cartersville, Ga., to compete as individuals. Joe Lyons is the 2025 champion and Doug Hanzel won in 2024.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-10-01",
       "title": "Daily Brief - October 1, 2026",
       "items": [
