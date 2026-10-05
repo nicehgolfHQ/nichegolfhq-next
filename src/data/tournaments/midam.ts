@@ -2360,6 +2360,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Black tees: 75.5/146; site of 2023 PGA Championship",
 
     format: "54 holes better ball",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/5869554",
+    golfGeniusUrlLabel: "2026 Results",
+    tournamentWebsite: "https://www.jrwilliams.org/",
+    tournamentWebsiteLabel: "Data Source",
     howToPlay: [
       { label: "Apply for invite", href: "https://form.jotform.com/61607679696979" },
     ],
