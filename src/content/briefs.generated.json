@@ -1,6 +1,72 @@
 {
   "briefs": [
     {
+      "date": "2026-10-04",
+      "title": "Daily Brief - October 4, 2026",
+      "items": [
+        {
+          "title": "United States Wins World Junior Girls Championship at Brampton as England's Lauren Crump Takes Individual Title",
+          "url": "https://www.golfcanada.ca/articles/the-united-states-finish-strong-to-win-the-2026-world-junior-girls-golf-championship/",
+          "source": "Golf Canada",
+          "why": "Team USA closed with an even-par round to finish 15-under and win by five over defending champion Korea, with Team Canada I third at 7-under. England's Lauren Crump shot a final-round 70 to win the individual title at 11-under, one clear of 14-year-old Seoah Kim of Korea, earning an exemption into the 2027 CPKC Women's Open.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Durrance and Grant Win Four-Team Playoff for Mid-Am Title at 62nd John R. Williams Four-Ball at Oak Hill",
+          "url": "https://www.jrwilliams.org/",
+          "source": "John R. Williams Four-Ball",
+          "why": "Joel Durrance of Orlando and Justin Grant of Ocala, Fla., posted rounds of 65-72-68 for 205 (5-under) and won on the first playoff hole on Oak Hill's East Course. Michael Anderson and Dave Vaclav of Michigan took the Senior division at 200 (13-under), with Vaclav acing the par-3 15th in the final round.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Zhong Becomes First Player From China to Win U.S. Senior Women's Amateur at Portland Golf Club",
+          "url": "https://championships.usga.org/usseniorwomensamateur/2026/articles/Sherry-Zhong-wins-the-64th-us-senior-womens-amateur.html",
+          "source": "USGA",
+          "why": "Xiaolong \"Sherry\" Zhong holed a 15-foot birdie putt on the par-3 17th and matched par at the last to edge Amandine Vincent of France in the 18-hole final. Zhong was medalist in her championship debut and tied the lowest round in championship history with a 5-under 67.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "title": "Daily Brief - October 3, 2026",
+      "items": [
+        {
+          "title": "United States Carries Two-Shot Lead Into World Junior Girls Final Round at Brampton",
+          "url": "https://www.golfcanada.ca/articles/the-united-states-holds-slight-lead-atop-leaderboard-at-the-2026-world-junior-girls-golf-championship/",
+          "source": "Golf Canada",
+          "why": "The U.S. sits at 15-under, two clear of Team Canada I and three ahead of two-time defending champion Korea, with the final round Saturday at Brampton Golf Club. England's Lauren Crump fired a 6-under 65 to take a one-shot individual lead, with the individual champion earning an exemption into the 2027 CPKC Women's Open.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Durrance and Grant, Crawford and Jennings Share Mid-Am Lead at 62nd John R. Williams Four-Ball at Oak Hill",
+          "url": "https://www.jrwilliams.org/",
+          "source": "John R. Williams Four-Ball",
+          "why": "The 54-hole two-man best-ball invitational continues on Oak Hill's East Course, where four teams opened at 5-under 65 to share the Mid-Am lead. Matt Parziale and Nick Maccario are the two-time defending champions, with Bob Royak and Doug Hanzel defending in the Senior division.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Xiaolong Zhong Wins U.S. Senior Women's Amateur at Portland Golf Club",
+          "url": "https://championships.usga.org/usseniorwomensamateur/2026/articles/Sherry-Zhong-wins-the-64th-us-senior-womens-amateur.html",
+          "source": "USGA",
+          "why": "The 50-year-old NCGA member beat France's Amandine Vincent in the 64th championship final, becoming the first Chinese-born champion in event history. Zhong was medalist with a record-tying 5-under 67 and beat two past champions en route to the title.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-10-02",
       "title": "Daily Brief - October 2, 2026",
       "items": [
