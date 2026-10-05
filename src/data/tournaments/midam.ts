@@ -2378,6 +2378,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Joel Durrance & Justin Grant" },
       { year: 2025, champion: "Matt Parziale & Nick Maccario" },
       { year: 2024, champion: "Matt Parziale & Nick Maccario" },
       { year: 2023, champion: "Simon McInnis & Garrett Rank" },
