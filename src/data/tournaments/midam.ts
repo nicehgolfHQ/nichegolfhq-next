@@ -2363,7 +2363,20 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://form.jotform.com/61607679696979" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-jr-williams-four-ball-recap",
+        title: "Durrance and Grant Win Four-Team Playoff to Claim Mid-Am Title at 62nd John R. Williams Four-Ball at Oak Hill",
+        date: "2026-10-04",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Joel Durrance and Justin Grant win on the first playoff hole at 5-under 205 to claim the mid-amateur title on Oak Hill's East Course.",
+        content: [
+          "Joel Durrance of Orlando, Fla., and Justin Grant of Ocala, Fla., won the mid-amateur division at the 62nd John R. Williams Four-Ball Invitational, posting rounds of 65-72-68 for a 5-under 205 total and winning on the first playoff hole of a four-team playoff on Oak Hill's East Course. In the senior division, Michael Anderson and Dave Vaclav of Michigan claimed the title at 200, with Vaclav acing the par-3 15th in the final round. Live scoring and full tournament coverage can be found on the [John R. Williams Four-Ball tournament hub here](/midamgolfhq/john-r-williams-four-ball).",
+          "The four-team playoff capped an event that saw tight leaderboards throughout all three rounds. Durrance and Grant opened with a first-round 65 that was shared by three other teams, held steady through a tougher second round with a 72, and closed with a 68 to force the playoff. midamgolfHQ congratulates all the champions from Oak Hill.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Matt Parziale & Nick Maccario" },
       { year: 2024, champion: "Matt Parziale & Nick Maccario" },
@@ -2434,7 +2447,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-farrell",
     name: "The Farrell",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 10,
     dates2026: "October 2-4, 2026",
     startDate: "2026-10-02",
@@ -2455,6 +2468,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — no application" },
     ],
     news: [
+      {
+        slug: "2026-the-farrell-final-recap",
+        title: "Kitt and Kim-Schaad Win Farrell Championships on Rainy Sunday at Stanwich",
+        date: "2026-10-04",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Ireland's David Kitt wins the men's title 3 and 1 over John Lazor while medalist Ina Kim-Schaad completes a wire-to-wire women's championship at The Stanwich Club.",
+        content: [
+          "Ireland's David Kitt of Athery Golf Club captured the men's mid-amateur title at the 5th Farrell with a 3 and 1 victory over John Lazor of Oyster Harbors Club in Sunday's final at The Stanwich Club. Kitt, competing in his first Farrell, dominated all weekend after earning the 4 seed in qualifying with a 1-under 71. He defeated Thomas McCarthy 4 and 3 in the semifinal before closing out Lazor with a birdie on the par-4 15th. Ina Kim-Schaad of Deepdale, who earned medalist honors in qualifying with a 3-under 69, completed a wire-to-wire performance by defeating defending champion Lauren Greenlief 3 and 2 in the women's final. The two-time U.S. Women's Mid-Amateur champion (2019, 2025) built a 2-up lead at the turn and closed out the match on the par-3 16th. Live scoring and full results can be found on the [Farrell tournament hub here](/midamgolfhq/the-farrell).",
+          "Kim-Schaad reached the final after beating 2023 U.S. Women's Mid-Amateur champion Kimberly Dinh 4 and 3 in the semifinal, while Greenlief, the 2015 U.S. Women's Mid-Amateur champion, held off Corinna Limbocker 2 and 1. In the senior division, Ned Zachar of GlenArbor Golf Club edged Bob Beck of Lehigh Country Club 1 up in an 18-hole match that saw the lead change hands multiple times on the back nine. midamgolfHQ congratulates all three Farrell champions and will continue covering the mid-amateur season through the fall.",
+        ],
+      },
       {
         slug: "2026-the-farrell-qualifying-recap",
         title: "Costanza and Kim-Schaad Medal at 3-Under as Farrell Match Play Field Is Set at Stanwich",
@@ -2483,6 +2508,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "David Kitt (Men's) / Ina Kim-Schaad (Women's)" },
       { year: 2025, champion: "Johnny Spellerberg (M), Lauren Greenlief (W)" },
       { year: 2024, champion: "Tim Hegarty (M), Jackie Rogowicz (W)" },
       { year: 2023, champion: "Cody Paladino (M), Alexandra Villatte Farret (W)" },
