@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-10-07",
+      "title": "Daily Brief - October 7, 2026",
+      "items": [
+        {
+          "title": "ANNIKA Invitational Tees Off Thursday at The Golf Club of Georgia With LPGA and Epson Tour Exemptions on the Line",
+          "url": "https://www.nichegolfhq.com/juniorgolfhq/annika-invitational",
+          "source": "nichegolfHQ",
+          "why": "72 of the world's top junior girls start 54 holes of stroke play Oct. 8-11 in Alpharetta, with Asterisk Talley defending. The winner gets spots in the LPGA's Hilton Grand Vacations Tournament of Champions and an Epson Tour event.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Mid-Am Roundup: Dove and Robillard Win Nantucket Invitational, MGA and NYSGA Mid-Ams Wrap, Mass Mid-Am Opens at Thorny Lea",
+          "url": "https://www.nichegolfhq.com/midamgolfhq",
+          "source": "nichegolfHQ",
+          "why": "Hal Dove and Nick Robillard claimed the mid-amateur title at the Nantucket Invitational at Sankaty Head and Miacomet. The 20th MGA Mid-Amateur wraps today at Hudson National, while the 41st NYS Men's Mid-Amateur Championship concludes at Country Club of Buffalo. In Massachusetts, the Mass Mid-Amateur opens today at Thorny Lea Golf Club in Brockton for its first visit to the course.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Entries Close Oct. 19 for Society of Seniors' 7th National Super Senior and 25th John Kline Championships at Crown Colony",
+          "url": "https://www.societyofseniors.com/calendar/7th-national-super-senior-25th-john-kline-championships/",
+          "source": "Society of Seniors",
+          "why": "The 84-player, 54-hole stroke-play event is Nov. 2-4 at Crown Colony CC in Lufkin, Texas, for players 65 and older. It has Super Senior (65-69), Legend (70-74) and Super Legend (75+) divisions, and it awards WAGR, Golfweek and SOS points.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-10-06",
       "title": "Daily Brief - October 6, 2026",
       "items": [
