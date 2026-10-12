@@ -1039,6 +1039,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2025 Results",
     overview: "The International Senior Individual Championship is an elite 54-hole stroke-play event on the global senior amateur calendar, drawing invited players from multiple countries to compete as individuals. The format provides an international stage for the world\u2019s top 55+ amateurs and complements national team senior competitions.",
     winners: [
+      { year: 2026, champion: "Tony Wise" },
       { year: 2025, champion: "Joe Lyons" },
       { year: 2024, champion: "Doug Hanzel" },
     ],
