@@ -31,7 +31,7 @@ export type SeniorMajorEvent = {
   // Editorial
   overview?: string;
   // History (richer than winners[])
-  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string; venue?: string; divisions?: DivisionWinner[] }[];
+  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string; venue?: string; resultsUrl?: string; divisions?: DivisionWinner[] }[];
   pastResultsVenueLabel?: string; // defaults to "Venue"; e.g. "Club" for four-ball/club-based events
   // News
   news?: NewsArticle[];
@@ -218,17 +218,68 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
         year: 2026,
         champion: "Todd Doss",
         venue: "Desert Willow Golf Resort (Firecliff)",
+        resultsUrl: "https://www.golfgenius.com/leagues/12156704060203865310/rounds/12156704220828931295/v2tournaments",
         divisions: [
           { label: "Super Senior", ages: "65-69", champion: "Scott Masingill", score: "212" },
           { label: "Legend", ages: "70-74", champion: "Craig Calkins", score: "211" },
           { label: "Super Legend", ages: "75+", champion: "David Rasley", score: "213" },
         ],
       },
-      { year: 2025, champion: "Bryan Hoops", venue: "Desert Willow Golf Resort (Firecliff)" },
-      { year: 2024, champion: "Mark Strickland", venue: "Desert Willow Golf Resort (Firecliff)" },
-      { year: 2023, champion: "Vance Welch", venue: "Desert Willow Golf Resort (Firecliff)" },
-      { year: 2022, champion: "Robert Funk", venue: "PGA West (Pete Dye Dunes)" },
-      { year: 2021, champion: "Craig Davis", venue: "PGA West (Pete Dye Dunes)" },
+      {
+        year: 2025,
+        champion: "Bryan Hoops",
+        venue: "Desert Willow Golf Resort (Firecliff)",
+        resultsUrl: "https://www.golfgenius.com/pages/11103781504612832764",
+        divisions: [
+          { label: "Super Senior", ages: "65-69", champion: "Mark Morgan", score: "216" },
+          { label: "Legend", ages: "70-74", champion: "David Ujihara", score: "219" },
+          { label: "Super Legend", ages: "75+", champion: "Gaylord Davis", score: "149 (36 holes)" },
+        ],
+      },
+      {
+        year: 2024,
+        champion: "Mark Strickland",
+        venue: "Desert Willow Golf Resort (Firecliff)",
+        resultsUrl: "https://gol-2024golfweeksenioramateur.golfgenius.com/pages/9993431542468187225",
+        divisions: [
+          { label: "Super Senior", ages: "65-69", champion: "Pete Higgins", score: "213" },
+          { label: "Legend", ages: "70-74", champion: "Michael Jonson", score: "216" },
+          { label: "Super Legend", ages: "75+", champion: "James Saivar", score: "220" },
+        ],
+      },
+      {
+        year: 2023,
+        champion: "Vance Welch",
+        venue: "Desert Willow Golf Resort (Firecliff)",
+        resultsUrl: "https://www.golfgenius.com/pages/8938111622837179886",
+        divisions: [
+          { label: "Super Senior", ages: "65-69", champion: "Jeff Burda", score: "204" },
+          { label: "Legend", ages: "70-74", champion: "George Walker", score: "212" },
+          { label: "Super Legend", ages: "75+", champion: "John Seehausen", score: "223" },
+        ],
+      },
+      {
+        year: 2022,
+        champion: "Robert Funk",
+        venue: "PGA West (Pete Dye Dunes)",
+        resultsUrl: "https://www.golfgenius.com/pages/7959400924101743619",
+        divisions: [
+          { label: "Super Senior", ages: "65-69", champion: "Jeff Burda", score: "209" },
+          { label: "Legend", ages: "70-74", champion: "Evan Long", score: "222" },
+          { label: "Super Legend", ages: "75+", champion: "John Seehausen", score: "223" },
+        ],
+      },
+      {
+        year: 2021,
+        champion: "Gene Elliott",
+        venue: "PGA West (Pete Dye Dunes)",
+        resultsUrl: "https://www.golfgenius.com/pages/6851519701072221441",
+        divisions: [
+          { label: "Super Senior", ages: "65-69", champion: "Jeff Burda", score: "213" },
+          { label: "Legend", ages: "70-74", champion: "Gary Hardin", score: "222" },
+          { label: "Super Legend", ages: "75+", champion: "James Saivar", score: "223" },
+        ],
+      },
       { year: 2020, champion: "Jack Larkin", venue: "Mission Hills Country Club" },
       { year: 2019, champion: "Gregory Condon", venue: "Mission Hills Country Club" },
       { year: 2018, champion: "Gene Elliott", venue: "Desert Willow Golf Resort" },

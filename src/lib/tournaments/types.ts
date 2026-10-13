@@ -14,6 +14,8 @@ export interface PastResult {
   runnerUp?: string;
   notes?: string;
   venue?: string;
+  // Makes the year a link to that year's results page
+  resultsUrl?: string;
   // Winners of the other age divisions that year (shown in a hover/tap popover)
   divisions?: DivisionWinner[];
 }

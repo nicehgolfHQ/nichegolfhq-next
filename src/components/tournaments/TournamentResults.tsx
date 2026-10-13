@@ -44,7 +44,20 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
             ) : (
               rows.map((r, idx) => (
                 <tr key={r.year} className={idx % 2 === 0 ? "bg-zinc-50" : "bg-white"}>
-                  <td className="px-3 py-3 font-medium text-zinc-900">{r.year}</td>
+                  <td className="px-3 py-3 font-medium text-zinc-900">
+                    {r.resultsUrl ? (
+                      <a
+                        href={r.resultsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline decoration-zinc-300 underline-offset-4 transition hover:decoration-zinc-700"
+                      >
+                        {r.year}
+                      </a>
+                    ) : (
+                      r.year
+                    )}
+                  </td>
                   <td className="px-3 py-3 font-semibold text-zinc-950">{r.champion}</td>
                   {hasVenue ? <td className="px-3 py-3 text-zinc-700">{r.venue ?? ""}</td> : null}
                   {hasDivisions ? (

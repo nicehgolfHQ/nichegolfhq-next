@@ -52,6 +52,7 @@ function toTournament(
       score: r.score,
       runnerUp: r.runnerUp,
       venue: r.venue,
+      resultsUrl: r.resultsUrl,
       divisions: r.divisions,
     })) ?? (event.winners ?? []).map((w) => ({
       year: w.year,
