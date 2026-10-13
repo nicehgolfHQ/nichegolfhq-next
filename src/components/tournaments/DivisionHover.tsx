@@ -84,9 +84,6 @@ export function DivisionHover({ year, divisions }: { year: number; divisions: Di
               </li>
             ))}
           </ul>
-          <p className="mt-2 text-[11px] leading-snug text-zinc-500">
-            Age bands are set by each tournament and can differ between events.
-          </p>
         </div>
       ) : null}
     </>
