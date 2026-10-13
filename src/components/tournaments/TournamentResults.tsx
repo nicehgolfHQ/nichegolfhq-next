@@ -1,8 +1,11 @@
 import type { Tournament } from "@/lib/tournaments/types";
+import { DivisionHover } from "@/components/tournaments/DivisionHover";
 
 export function TournamentResults({ tournament }: { tournament: Tournament }) {
   const rows = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year);
   const hasVenue = rows.some((r) => r.venue);
+  const hasDivisions = rows.some((r) => r.divisions?.length);
+  const colCount = 2 + (hasVenue ? 1 : 0) + (hasDivisions ? 1 : 0);
   const venueLabel = tournament.pastResultsVenueLabel ?? "Venue";
 
   return (
@@ -28,12 +31,13 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
               <th className="px-3 py-2">Year</th>
               <th className="px-3 py-2">Champion</th>
               {hasVenue ? <th className="px-3 py-2">{venueLabel}</th> : null}
+              {hasDivisions ? <th className="px-3 py-2 text-right">Other divisions</th> : null}
             </tr>
           </thead>
           <tbody className="text-sm text-zinc-800">
             {rows.length === 0 ? (
               <tr>
-                <td className="px-3 py-3 text-zinc-600" colSpan={hasVenue ? 3 : 2}>
+                <td className="px-3 py-3 text-zinc-600" colSpan={colCount}>
                   No results added yet.
                 </td>
               </tr>
@@ -43,6 +47,11 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
                   <td className="px-3 py-3 font-medium text-zinc-900">{r.year}</td>
                   <td className="px-3 py-3 font-semibold text-zinc-950">{r.champion}</td>
                   {hasVenue ? <td className="px-3 py-3 text-zinc-700">{r.venue ?? ""}</td> : null}
+                  {hasDivisions ? (
+                    <td className="px-3 py-3 text-right">
+                      {r.divisions?.length ? <DivisionHover year={r.year} divisions={r.divisions} /> : null}
+                    </td>
+                  ) : null}
                 </tr>
               ))
             )}

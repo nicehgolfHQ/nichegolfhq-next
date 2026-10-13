@@ -1,4 +1,4 @@
-import type { HowToPlayEntry, NewsArticle } from "@/lib/tournaments/types";
+import type { DivisionWinner, HowToPlayEntry, NewsArticle } from "@/lib/tournaments/types";
 
 export type SeniorMajorEvent = {
   slug: string;
@@ -31,7 +31,7 @@ export type SeniorMajorEvent = {
   // Editorial
   overview?: string;
   // History (richer than winners[])
-  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string; venue?: string }[];
+  pastResults?: { year: number; champion: string; score?: string; runnerUp?: string; venue?: string; divisions?: DivisionWinner[] }[];
   pastResultsVenueLabel?: string; // defaults to "Venue"; e.g. "Club" for four-ball/club-based events
   // News
   news?: NewsArticle[];
@@ -214,7 +214,16 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     note: "Rotating venue; 2026 host: Desert Willow Golf Resort (The Firecliff Course), Palm Desert, CA",
     overview: "The Golfweek Senior Amateur Championship is an elite invitation-only stroke-play event on the national senior amateur calendar, contested over 54 holes at a top-ranked venue each year. It sets itself apart from most senior invitationals with a deep national field and a rotating slate of premier courses.",
     pastResults: [
-      { year: 2026, champion: "Todd Doss", venue: "Desert Willow Golf Resort (Firecliff)" },
+      {
+        year: 2026,
+        champion: "Todd Doss",
+        venue: "Desert Willow Golf Resort (Firecliff)",
+        divisions: [
+          { label: "Super Senior", ages: "65-69", champion: "Scott Masingill", score: "212" },
+          { label: "Legend", ages: "70-74", champion: "Craig Calkins", score: "211" },
+          { label: "Super Legend", ages: "75+", champion: "David Rasley", score: "213" },
+        ],
+      },
       { year: 2025, champion: "Bryan Hoops", venue: "Desert Willow Golf Resort (Firecliff)" },
       { year: 2024, champion: "Mark Strickland", venue: "Desert Willow Golf Resort (Firecliff)" },
       { year: 2023, champion: "Vance Welch", venue: "Desert Willow Golf Resort (Firecliff)" },

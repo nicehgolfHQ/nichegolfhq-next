@@ -1,5 +1,12 @@
 export type TournamentChannel = "midam" | "senior" | "junior";
 
+export interface DivisionWinner {
+  label: string; // e.g. "Super Senior"
+  ages?: string; // e.g. "65-69"
+  champion: string;
+  score?: string;
+}
+
 export interface PastResult {
   year: number;
   champion: string;
@@ -7,6 +14,8 @@ export interface PastResult {
   runnerUp?: string;
   notes?: string;
   venue?: string;
+  // Winners of the other age divisions that year (shown in a hover/tap popover)
+  divisions?: DivisionWinner[];
 }
 
 export interface HowToPlayEntry {
