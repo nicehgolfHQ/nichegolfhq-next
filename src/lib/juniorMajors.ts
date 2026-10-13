@@ -839,7 +839,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   {
     slug: "annika-invitational",
     name: "ANNIKA Invitational",
-    liveStatus: "next",
+    liveStatus: "completed",
     month: "October 2026",
     startDate: "2026-10-08",
     endDate: "2026-10-11",
@@ -866,6 +866,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   {
     slug: "ajga-ping-invitational",
     name: "AJGA Ping Invitational",
+    liveStatus: "next",
     month: "October 2026",
     startDate: "2026-10-19",
     endDate: "2026-10-21",
