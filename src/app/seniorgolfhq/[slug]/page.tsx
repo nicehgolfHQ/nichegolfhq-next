@@ -57,8 +57,6 @@ function toTournament(
       champion: w.champion,
     })),
     pastResultsVenueLabel: event.pastResultsVenueLabel,
-    divisions: event.divisions,
-    divisionsNote: event.divisionsNote,
     howToPlay: event.howToPlay,
     news: event.news,
     golfGeniusUrl: event.golfGeniusUrl,

@@ -9,14 +9,6 @@ export interface PastResult {
   venue?: string;
 }
 
-export interface DivisionResults {
-  label: string; // e.g. "Super Senior"
-  ages?: string; // e.g. "65-69"
-  info?: string; // short explainer shown in the (i) tooltip
-  primary?: boolean; // headline division, shown as the featured card
-  results: PastResult[];
-}
-
 export interface HowToPlayEntry {
   label: string;
   href?: string;
@@ -84,9 +76,6 @@ export interface Tournament {
   // === RESULTS ===
   pastResults?: PastResult[];
   pastResultsVenueLabel?: string; // defaults to "Venue"; e.g. "Club" for four-ball/club-based events
-  // Winners by age/skill division (e.g. Super Senior, Legend). Definitions vary by event.
-  divisions?: DivisionResults[];
-  divisionsNote?: string;
 
   // === LINKS ===
   golfGeniusUrl?: string;

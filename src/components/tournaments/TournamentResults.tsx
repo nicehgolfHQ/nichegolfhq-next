@@ -1,5 +1,4 @@
 import type { Tournament } from "@/lib/tournaments/types";
-import { DivisionWinners } from "@/components/tournaments/DivisionWinners";
 
 export function TournamentResults({ tournament }: { tournament: Tournament }) {
   const rows = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year);
@@ -7,7 +6,6 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
   const venueLabel = tournament.pastResultsVenueLabel ?? "Venue";
 
   return (
-    <>
     <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-zinc-900/5">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="text-sm font-semibold tracking-tight text-zinc-950 text-center">Past winners</h2>
@@ -52,9 +50,5 @@ export function TournamentResults({ tournament }: { tournament: Tournament }) {
         </table>
       </div>
     </div>
-    {tournament.divisions?.length ? (
-      <DivisionWinners divisions={tournament.divisions} note={tournament.divisionsNote} />
-    ) : null}
-    </>
   );
 }

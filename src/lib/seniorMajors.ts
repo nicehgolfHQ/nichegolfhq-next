@@ -1,4 +1,4 @@
-import type { DivisionResults, HowToPlayEntry, NewsArticle } from "@/lib/tournaments/types";
+import type { HowToPlayEntry, NewsArticle } from "@/lib/tournaments/types";
 
 export type SeniorMajorEvent = {
   slug: string;
@@ -33,9 +33,6 @@ export type SeniorMajorEvent = {
   // History (richer than winners[])
   pastResults?: { year: number; champion: string; score?: string; runnerUp?: string; venue?: string }[];
   pastResultsVenueLabel?: string; // defaults to "Venue"; e.g. "Club" for four-ball/club-based events
-  // Winners by age division; age bands are defined per event
-  divisions?: DivisionResults[];
-  divisionsNote?: string;
   // News
   news?: NewsArticle[];
 };
@@ -227,34 +224,6 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
       { year: 2019, champion: "Gregory Condon", venue: "Mission Hills Country Club" },
       { year: 2018, champion: "Gene Elliott", venue: "Desert Willow Golf Resort" },
       { year: 2017, champion: "Mitch Wilson", venue: "Desert Willow Golf Resort" },
-    ],
-    divisionsNote: "Age divisions at the Golfweek Senior Amateur. Age bands are set by each tournament and can differ between events.",
-    divisions: [
-      {
-        label: "Senior",
-        ages: "55-64",
-        primary: true,
-        info: "Players ages 55 to 64. This is the tournament's main championship division.",
-        results: [{ year: 2026, champion: "Todd Doss", score: "209" }],
-      },
-      {
-        label: "Super Senior",
-        ages: "65-69",
-        info: "Players ages 65 to 69, competing against others in their age group.",
-        results: [{ year: 2026, champion: "Scott Masingill", score: "212" }],
-      },
-      {
-        label: "Legend",
-        ages: "70-74",
-        info: "Players ages 70 to 74, competing against others in their age group.",
-        results: [{ year: 2026, champion: "Craig Calkins", score: "211" }],
-      },
-      {
-        label: "Super Legend",
-        ages: "75+",
-        info: "Players ages 75 and older, competing against others in their age group.",
-        results: [{ year: 2026, champion: "David Rasley", score: "213" }],
-      },
     ],
     howToPlay: [{ label: "Invite only \u2014 no application" }],
   },
