@@ -2545,7 +2545,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Apply for invite", href: "https://stockercup.com/#application-anchor" },
     ],
     golfGeniusUrl: "https://stockercup.com/",
-    news: [],
+    news: [
+      {
+        slug: "2026-stocker-cup-preview",
+        title: "Stocker Cup Preview: Sisk Defends as Terry, Snedeker, Dobson, and Crawford Headline Loaded Field at The Preserve",
+        date: "2026-10-14",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Defending champion Parker Sisk leads a deep field at The Preserve Golf Club featuring Trans-Miss winner Ryan Terry, U.S. Senior Open low amateur Haymes Snedeker, and more.",
+        content: [
+          "The Stocker Cup returns to The Preserve Golf Club in Carmel Valley, Calif., Oct. 15-17 with a 54-hole stroke play field featuring several of the country's top mid-amateurs. Defending champion Parker Sisk leads a draw that includes Ryan Terry of Brentwood, Tenn., who won the Trans-Miss Mid-Amateur Championship last month at Lakewood CC, and Haymes Snedeker of Point Clear, Ala., the low amateur at the 2026 U.S. Senior Open at Scioto. Cameron Crawford of Cedar Hills, Utah, a 2026 Utah State Amateur finalist, and Coy Dobson of Austin, Texas, who won the Texas South Mid-Amateur earlier this year, add depth to one of the fall's premier mid-am invitationals. Live scoring and full tournament coverage can be found on the [Stocker Cup tournament hub here](/midamgolfhq/the-stocker-cup).",
+          "The field also features Kevin Wolf of Lodi, Calif., who finished T4 at the Trans-Miss Mid-Master, Field Harrison of Dallas, Scotland Schmidt of San Diego, Bryan Hoops of Scottsdale, and Thad Hudgens of Longwood, Fla. Jason Anthony, who reached the 2nd Flight final at the Crump Cup, and Tyler Thomas round out a competitive draw.",
+          "The Preserve's par-72 layout provides a demanding test for a field that blends proven champions with rising mid-amateur talent from across the country. midamgolfHQ will be tracking the action all week from The Preserve.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Parker Sisk" },
       { year: 2024, champion: "Jack Schultz" },
