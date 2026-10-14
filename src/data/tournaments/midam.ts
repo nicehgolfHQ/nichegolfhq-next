@@ -2524,6 +2524,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-stocker-cup",
     name: "The Stocker Cup",
     channel: "midam",
+    liveStatus: "live",
     logo: "/brand/midamgolfhq/Stocker Cup.png",
     month: 10,
     dates2026: "October 15-17, 2026",
