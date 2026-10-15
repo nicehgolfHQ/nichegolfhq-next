@@ -9,6 +9,16 @@ interface Props {
   briefHref: string | null;
 }
 
+/* Desktop column count follows the number of cards (Mid-Am can contribute
+   more than one when several events are live). Literal class names so
+   Tailwind keeps them in the build. */
+const DESKTOP_COLS: Record<number, string> = {
+  1: "md:grid-cols-1",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4",
+};
+
 /* Brand-tinted accent colors, lightened for legibility on the dark glass panel. */
 const CHANNEL_ACCENT: Record<TickerCard["channel"], string> = {
   junior: "#d8a76a",
@@ -79,10 +89,12 @@ export function UnifiedScoreboard({ cards, dateLabel, briefHref }: Props) {
           </span>
         </div>
 
-        {/* Tournament columns: 3-across on desktop, stacked on mobile */}
-        <div className="grid grid-cols-1 divide-y divide-white/10 md:grid-cols-3 md:divide-x md:divide-y-0">
+        {/* Tournament columns: one row on desktop (up to 4 across), stacked on mobile */}
+        <div
+          className={`grid grid-cols-1 divide-y divide-white/10 ${DESKTOP_COLS[cards.length] ?? "md:grid-cols-3"} md:divide-x md:divide-y-0`}
+        >
           {cards.map((card) => (
-            <ScoreboardColumn key={card.channel} card={card} />
+            <ScoreboardColumn key={card.hubHref} card={card} />
           ))}
         </div>
 

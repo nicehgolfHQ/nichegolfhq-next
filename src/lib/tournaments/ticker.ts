@@ -172,7 +172,27 @@ function venueLineFor(course?: string, location?: string): string | undefined {
   return parts.length ? parts.join(" • ") : undefined;
 }
 
-function midamCard(today: Date): TickerCard | null {
+function midamTickerCard(t: Tournament, status: "live" | "next"): TickerCard {
+  return {
+    channel: "midam",
+    channelLabel: "MID-AM",
+    status,
+    name: t.name,
+    venueLine: venueLineFor(t.course, t.location),
+    datesLabel: resolveDatesLabel(t.startDate, t.endDate, t.dates2026),
+    hubHref: `/midamgolfhq/${t.slug}`,
+    golfGeniusUrl: t.golfGeniusUrl,
+  };
+}
+
+// Mid-Am can have several events flagged live at once (e.g. Stocker Cup and
+// Berkeley Cup overlapping), so every explicit "live" event gets its own card,
+// matching the /midamgolfhq channel page. Otherwise fall back to the shared
+// single-event resolver.
+function midamCards(today: Date): TickerCard[] {
+  const explicitLive = MIDAM_TOURNAMENTS.filter((t) => t.liveStatus === "live");
+  if (explicitLive.length > 0) return explicitLive.map((t) => midamTickerCard(t, "live"));
+
   const events: ResolverEvent<Tournament>[] = MIDAM_TOURNAMENTS.map((t) => ({
     event: t,
     liveStatus: t.liveStatus,
@@ -181,18 +201,7 @@ function midamCard(today: Date): TickerCard | null {
     endDate: t.endDate,
   }));
   const resolved = resolveActiveEvent(events, today);
-  if (!resolved) return null;
-  const t = resolved.event;
-  return {
-    channel: "midam",
-    channelLabel: "MID-AM",
-    status: resolved.status,
-    name: t.name,
-    venueLine: venueLineFor(t.course, t.location),
-    datesLabel: resolveDatesLabel(t.startDate, t.endDate, t.dates2026),
-    hubHref: `/midamgolfhq/${t.slug}`,
-    golfGeniusUrl: t.golfGeniusUrl,
-  };
+  return resolved ? [midamTickerCard(resolved.event, resolved.status)] : [];
 }
 
 function juniorCard(today: Date): TickerCard | null {
@@ -242,7 +251,7 @@ function seniorCard(today: Date): TickerCard | null {
 }
 
 export function getTickerCards(today: Date = new Date()): TickerCard[] {
-  return [juniorCard(today), midamCard(today), seniorCard(today)].filter(
+  return [juniorCard(today), ...midamCards(today), seniorCard(today)].filter(
     (c): c is TickerCard => c !== null
   );
 }
