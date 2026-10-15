@@ -2602,6 +2602,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-berkeley-cup",
     name: "The Berkeley Cup",
     channel: "midam",
+    liveStatus: "live",
     month: 10,
     dates2026: "October 16-18, 2026",
     startDate: "2026-10-16",
@@ -2618,7 +2619,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Apply for invite", href: "https://www.theberkeleycup.com/" },
     ],
-    golfGeniusUrl: "https://www.theberkeleycup.com/",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12877709581534375261",
     news: [],
     pastResults: [
       { year: 2025, champion: "Elliott Grayson" },
