@@ -2620,7 +2620,20 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Apply for invite", href: "https://www.theberkeleycup.com/" },
     ],
     golfGeniusUrl: "https://www.golfgenius.com/pages/12877709581534375261",
-    news: [],
+    news: [
+      {
+        slug: "2026-berkeley-cup-preview",
+        title: "Berkeley Cup Tees Off at Berkeley Hills Country Club With 49-Player Mid-Am Field",
+        date: "2026-10-15",
+        author: "midamgolfHQ Staff",
+        summary:
+          "The Berkeley Cup returns to Berkeley Hills Country Club in Duluth, Ga., with a 49-player mid-amateur field featuring U.S. Mid-Am competitor Ryan Wilkins.",
+        content: [
+          "The Berkeley Cup returns to Berkeley Hills Country Club in Duluth, Ga., Oct. 16-18 with a 49-player mid-amateur field at one of Georgia's premier private clubs. Founded in 1964, Berkeley Hills has hosted numerous GSGA and USGA events, and its par-72 layout provides a demanding test with greens renovated in 2022. Ryan Wilkins, who qualified for and competed in the U.S. Mid-Amateur at Sand Valley last month, headlines the draw alongside Christopher Walton and Keith Guest. Live scoring and full tournament coverage can be found on the [Berkeley Cup tournament hub here](/midamgolfhq/the-berkeley-cup).",
+          "The field features a competitive mix of mid-amateurs from across the Southeast, including Jordan Edgerton, Cole Kelly Jr., Nathan Frazier, Kyle Stiles, and Neill O'Reilly. midamgolfHQ will be tracking the action all week from Berkeley Hills.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Elliott Grayson" },
       { year: 2024, champion: "Canceled" },
