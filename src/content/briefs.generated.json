@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-10-15",
+      "title": "Daily Brief - October 15, 2026",
+      "items": [
+        {
+          "title": "All 50 States Join USGA's State Junior Team Program Five Years Ahead of Schedule",
+          "url": "https://blog.ncga.org/all-50-states-join-usndp-state-junior-team-program",
+          "source": "NCGA",
+          "why": "The USGA's U.S. National Development Program announced that all 50 states have joined the State Junior Team Program, well ahead of the original 2033 goal. Augusta National's $1.5M grant helps fund the expansion, with the last 20 states set to name teams by the end of 2027.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Stocker Cup R1 Underway at The Preserve as Sisk, Terry, Snedeker, and Dobson Tee Off",
+          "url": "https://www.nichegolfhq.com/midamgolfhq/the-stocker-cup",
+          "source": "nichegolfHQ",
+          "why": "The 54-hole Stocker Cup is underway at The Preserve Golf Club in Carmel Valley, Calif., with defending champion Parker Sisk, Trans-Miss winner Ryan Terry, U.S. Senior Open low amateur Haymes Snedeker, and Texas South Mid-Am winner Coy Dobson among the headliners. Follow live scoring on the tournament hub.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Samuel Wins WSGA Senior Amateur by Six Shots",
+          "url": "https://womens-southerngolfassociation.org/terrill-samuel-wins-2026-wsga-senior-amateur/",
+          "source": "Women's Southern Golf Association",
+          "why": "Terrill Samuel cruised to a six-shot victory at the WSGA Senior Amateur on Oct. 8, adding another title to her senior amateur resume.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-10-14",
       "title": "Daily Brief - October 14, 2026",
       "items": [
