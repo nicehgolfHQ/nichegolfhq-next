@@ -2646,6 +2646,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     golfGeniusUrl: "https://www.golfgenius.com/pages/12877709581534375261",
     news: [
       {
+        slug: "2026-berkeley-cup-r1-recap",
+        title: "Healy Grabs Berkeley Cup Lead at 4-Under as Guest Sits T4 After Opening Round at Berkeley Hills",
+        date: "2026-10-16",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Zach Healy fires a 4-under 68 to lead by one after the opening round at Berkeley Hills Country Club.",
+        content: [
+          "Zach Healy fired a 4-under 68 to take the solo lead after the opening round of the Berkeley Cup at Berkeley Hills Country Club. Jerell Fields and Kevin Rhoderick are tied for second at 3-under 69, one shot back. Keith Guest is among four players tied for fourth at even par 72, alongside Matty Watkins, Greg Hamilton, and Reid Rathburn. Matthew Hayes sits alone in eighth at 1-over. Live scoring and full tournament coverage can be found on the [Berkeley Cup tournament hub here](/midamgolfhq/the-berkeley-cup).",
+          "Preview headliner Ryan Wilkins opened at 2-over 74 in a tie for ninth, while Jordan Edgerton is at 3-over and Christopher Walton posted a 9-over 81. The par-72 layout at Berkeley Hills proved demanding, with only three players breaking par on the opening day. midamgolfHQ will have full coverage through Sunday's final round from Berkeley Hills.",
+        ],
+      },
+      {
         slug: "2026-berkeley-cup-preview",
         title: "Berkeley Cup Tees Off at Berkeley Hills Country Club With 49-Player Mid-Am Field",
         date: "2026-10-15",
