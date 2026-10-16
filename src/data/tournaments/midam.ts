@@ -2547,6 +2547,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     golfGeniusUrl: "https://stockercup.com/",
     news: [
       {
+        slug: "2026-stocker-cup-r2-recap",
+        title: "Vinar Takes Solo Lead at Stocker Cup as R1 Co-Leaders Fade at The Preserve",
+        date: "2026-10-16",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Kendrick Vinar grabs the solo lead at 5-under heading into the final round as all three first-round co-leaders shoot 76.",
+        content: [
+          "Kendrick Vinar posted a 3-under 69 in the second round to grab the solo lead at 5-under 139 heading into Saturday's final round of the Stocker Cup at The Preserve Golf Club. Five players are tied for second at 4-under 140: Jackson Suh, Kevin Wolf, Samuel Foust, Colby Harwell, and Matt Seramin, who fired the day's low round at 6-under 66 to vault from T25 into contention. Jason Anthony and David Easley share seventh at 2-under, with Coy Dobson alone in ninth at 1-under after a second-round 68. Live scoring and full tournament coverage can be found on the [Stocker Cup tournament hub here](/midamgolfhq/the-stocker-cup).",
+          "All three first-round co-leaders lost ground on day two. Haymes Snedeker, Jake Byrum, and Bryan Hoops each shot 76 to fall from 4-under into a tie for 10th at even par, five shots off the pace. Wolf was the biggest mover among the preview headliners, firing a 68 to climb from T15 into the tie for second. Cameron Crawford slipped to 4-over after a 76, while defending champion Parker Sisk and Trans-Miss winner Ryan Terry remain deep in the field at 13-over and 15-over respectively. midamgolfHQ will have full coverage of Saturday's final round from The Preserve.",
+        ],
+      },
+      {
         slug: "2026-stocker-cup-r1-recap",
         title: "Byrum, Hoops, and Snedeker Share Stocker Cup Lead at 4-Under After Opening Round at The Preserve",
         date: "2026-10-15",
