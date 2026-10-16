@@ -2547,6 +2547,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     golfGeniusUrl: "https://stockercup.com/",
     news: [
       {
+        slug: "2026-stocker-cup-r1-recap",
+        title: "Byrum, Hoops, and Snedeker Share Stocker Cup Lead at 4-Under After Opening Round at The Preserve",
+        date: "2026-10-15",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Jake Byrum, Bryan Hoops, and Haymes Snedeker fire matching 68s to share the lead after the opening round at The Preserve Golf Club.",
+        content: [
+          "Jake Byrum, Bryan Hoops, and Haymes Snedeker each fired 4-under 68s to share the first-round lead at the Stocker Cup at The Preserve Golf Club. Teddy Schrier, Jackson Suh, and Jimmy Castles sit one back at 3-under 69 in a tightly bunched leaderboard. Kendrick Vinar, Mike O'Donnell, and David Easley are tied for seventh at 2-under, with five more players at 1-under in a tie for 10th. Live scoring and full tournament coverage can be found on the [Stocker Cup tournament hub here](/midamgolfhq/the-stocker-cup).",
+          "Several of the preview headliners had tougher opening rounds on the par-72 layout. Cameron Crawford and Kevin Wolf are at even par in a tie for 15th, while Coy Dobson and Scotland Schmidt opened at 3-over 75. Trans-Miss winner Ryan Terry posted an 80 and defending champion Parker Sisk shot 82. With two rounds remaining, the leaders are within reach but will need to navigate what figures to be a demanding weekend at The Preserve. midamgolfHQ will have full coverage through Saturday's final round.",
+        ],
+      },
+      {
         slug: "2026-stocker-cup-preview",
         title: "Stocker Cup Preview: Sisk Defends as Terry, Snedeker, Dobson, and Crawford Headline Loaded Field at The Preserve",
         date: "2026-10-14",
