@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-10-17",
+      "title": "Daily Brief - October 17, 2026",
+      "items": [
+        {
+          "title": "Shrivastava Rallies to Win AJGA Imperial Hawaii Junior Classic; Paras Takes First AJGA Title",
+          "url": "https://www.ajga.org/tournaments/2026146/leaderboard",
+          "source": "AJGA",
+          "why": "Nakul Shrivastava, a UCLA commit, came back from two shots down and won by one at 3-under 213 at Pearl at Kalauao (Oct. 10-12). Madisyn Paras, a left-handed sophomore, won the girls' division by one shot for her first AJGA title.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Stocker Cup Final Round Today at The Preserve as Vinar Leads; Berkeley Cup R2 Underway at Berkeley Hills",
+          "url": "https://www.nichegolfhq.com/midamgolfhq",
+          "source": "nichegolfHQ",
+          "why": "Kendrick Vinar takes a one-shot lead at 5-under into Saturday's final round of the Stocker Cup at The Preserve Golf Club, with five players tied for second at 4-under including Matt Seramin after a day-best 66. At Berkeley Hills Country Club, the Berkeley Cup plays its second round with Zach Healy leading at 4-under after an opening 68. Follow live scoring on both tournament hubs.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Rhodes and Morris Win Australian Senior Amateur Titles by One Shot at Bribie Island",
+          "url": "https://www.australiangolfdigest.com.au/greg-rhodes-and-kim-morris-crowned-australian-senior-amateur-champions/",
+          "source": "Australian Golf Digest",
+          "why": "Greg Rhodes, 67, closed with an even-par 72 for his third Australian Senior Amateur title (after 2015 and 2017), one ahead of Michael Lucas. Kim Morris shot 71, the low round of the week, to come back from four shots down and beat Nadene Gole by one.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-10-16",
       "title": "Daily Brief - October 16, 2026",
       "items": [
