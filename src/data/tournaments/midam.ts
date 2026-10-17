@@ -2524,7 +2524,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-stocker-cup",
     name: "The Stocker Cup",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     logo: "/brand/midamgolfhq/Stocker Cup.png",
     month: 10,
     dates2026: "October 15-17, 2026",
@@ -2546,6 +2546,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     golfGeniusUrl: "https://stockercup.com/",
     news: [
+      {
+        slug: "2026-stocker-cup-final-recap",
+        title: "Foust Rallies to Win Stocker Cup at The Preserve as Overnight Leader Vinar Fades",
+        date: "2026-10-17",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Samuel Foust closes with a 70 to win the Stocker Cup at 6-under 210, overtaking overnight leader Kendrick Vinar who shot 76.",
+        content: [
+          "Samuel Foust captured the Stocker Cup with a final-round 70 to finish at 6-under 210 at The Preserve Golf Club, overtaking overnight leader Kendrick Vinar, who shot 76 to fall into a tie for seventh. Frank Alafoginis fired the day's low round at 5-under 67 to vault into a share of second at 5-under 211 with Coy Dobson, who closed with a 68. Jason Anthony and Colby Harwell share fourth at 3-under, with Brian Blanchard alone in sixth at 2-under. Live scoring and full results can be found on the [Stocker Cup tournament hub here](/midamgolfhq/the-stocker-cup).",
+          "Haymes Snedeker, who shared the first-round lead at 4-under, steadied with a 71 to finish T7 at 1-under alongside Vinar. Kevin Wolf, who was tied for second entering the final round, shot 79 to drop to T12 at 3-over. Defending champion Parker Sisk finished at 18-over after a difficult week, while Trans-Miss winner Ryan Terry closed with a 71 but finished at 14-over. midamgolfHQ congratulates Samuel Foust on his Stocker Cup title.",
+        ],
+      },
       {
         slug: "2026-stocker-cup-r2-recap",
         title: "Vinar Takes Solo Lead at Stocker Cup as R1 Co-Leaders Fade at The Preserve",
@@ -2585,6 +2597,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Samuel Foust" },
       { year: 2025, champion: "Parker Sisk" },
       { year: 2024, champion: "Jack Schultz" },
       { year: 2023, champion: "Colby Harwell" },
