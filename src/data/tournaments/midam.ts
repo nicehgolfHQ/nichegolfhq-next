@@ -2659,6 +2659,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     golfGeniusUrl: "https://www.golfgenius.com/pages/12877709581534375261",
     news: [
       {
+        slug: "2026-berkeley-cup-r2-recap",
+        title: "Guest and Rhoderick Share Berkeley Cup Lead at Even Par Heading Into Final Round at Berkeley Hills",
+        date: "2026-10-17",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Keith Guest and Kevin Rhoderick are tied at even-par 144 heading into Sunday's final round, with Jordan Edgerton one back after the day's only sub-par round.",
+        content: [
+          "Keith Guest posted a steady even-par 72 for the second straight day to move into a share of the lead at even-par 144 heading into Sunday's final round of the Berkeley Cup at Berkeley Hills Country Club. Kevin Rhoderick, who opened one back in a tie for second, shot 75 to fall back to even par alongside Guest. Jordan Edgerton made the biggest move of the day, firing a 2-under 70 to climb from T12 into third at 1-over 145. First-round leader Zach Healy had a tough day with a 79 and dropped to fourth at 3-over 147. Live scoring and full tournament coverage can be found on the [Berkeley Cup tournament hub here](/midamgolfhq/the-berkeley-cup).",
+          "The par-72 layout at Berkeley Hills continued to play tough, with Edgerton's 70 the only sub-par round of the day. Jerell Fields shot 83 to fall from T2 into a tie for seventh at 8-over. Ryan Wilkins slipped to T12 at 11-over after an 81, while Matty Watkins, who started the day tied for fourth at even par, shot 92 to drop to T26. Guest and Rhoderick are paired together for Sunday's final round at 10:27 AM, with Edgerton one back. midamgolfHQ will have full coverage of the final round from Berkeley Hills.",
+        ],
+      },
+      {
         slug: "2026-berkeley-cup-r1-recap",
         title: "Healy Grabs Berkeley Cup Lead at 4-Under as Guest Sits T4 After Opening Round at Berkeley Hills",
         date: "2026-10-16",
