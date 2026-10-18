@@ -2639,7 +2639,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "the-berkeley-cup",
     name: "The Berkeley Cup",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 10,
     dates2026: "October 16-18, 2026",
     startDate: "2026-10-16",
@@ -2658,6 +2658,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     golfGeniusUrl: "https://www.golfgenius.com/pages/12877709581534375261",
     news: [
+      {
+        slug: "2026-berkeley-cup-final-recap",
+        title: "Healy Wins Berkeley Cup at Berkeley Hills as Guest Finishes Runner-Up",
+        date: "2026-10-18",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Berkeley Hills member and former UGA golfer Zach Healy rallies from a second-round 79 to win the Berkeley Cup at 3-over 219 on his home course.",
+        content: [
+          "Zach Healy, a Berkeley Hills member and former University of Georgia golfer, won the Berkeley Cup with an even-par 72 in Sunday's final round to finish at 3-over 219 at Berkeley Hills Country Club. Healy, who has reached the USGA Four-Ball quarterfinals the past two years with partner Jack Larkin Jr., bounced back from a second-round 79 to reclaim the lead on his home course. 2021 Berkeley Cup champion Keith Guest posted a 76 to finish one shot back at 4-over 220 as the solo runner-up. Kevin Rhoderick, who co-led with Guest entering the final round, shot 79 to finish third at 7-over 223. Live scoring and full results can be found on the [Berkeley Cup tournament hub here](/midamgolfhq/the-berkeley-cup).",
+          "Jordan Edgerton, who entered the final round one shot off the lead after the day's only sub-par round on Saturday, shot 80 to fall into a tie for fourth at 9-over with Brad Burling. The par-72 layout at Berkeley Hills played tough all week, with Healy's opening-round 68 standing as the low round of the tournament. midamgolfHQ congratulates Zach Healy on his Berkeley Cup title.",
+        ],
+      },
       {
         slug: "2026-berkeley-cup-r2-recap",
         title: "Guest and Rhoderick Share Berkeley Cup Lead at Even Par Heading Into Final Round at Berkeley Hills",
@@ -2696,6 +2708,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Zach Healy" },
       { year: 2025, champion: "Elliott Grayson" },
       { year: 2024, champion: "Canceled" },
       { year: 2023, champion: "Taylor Smith" },
