@@ -1,6 +1,39 @@
 {
   "briefs": [
     {
+      "date": "2026-10-18",
+      "title": "Daily Brief - October 18, 2026",
+      "items": [
+        {
+          "title": "Rolex Junior All-America Selections Expected as Rankings Year Closes",
+          "url": "https://www.ajga.org/rankings",
+          "source": "AJGA",
+          "why": "The 2025-26 Rolex AJGA Rankings year ended Oct. 12, with Miles Russell and Asterisk Talley finishing at No. 1. The Rolex Junior All-America teams, drawn from the final rankings, are expected shortly. The AJGA waived one of the six required starts for players affected by the cancelled PING Invitational.",
+          "tags": [
+            "juniors"
+          ]
+        },
+        {
+          "title": "Foust Wins Stocker Cup at The Preserve; Berkeley Cup Final Round Today With Guest and Rhoderick Co-Leading at Berkeley Hills",
+          "url": "https://www.nichegolfhq.com/midamgolfhq",
+          "source": "nichegolfHQ",
+          "why": "Samuel Foust rallied with a final-round 70 to win the Stocker Cup at 6-under 210 at The Preserve Golf Club, overtaking overnight leader Kendrick Vinar. At Berkeley Hills Country Club, Keith Guest and Kevin Rhoderick share the lead at even-par 144 heading into Sunday's final round, with Jordan Edgerton one back. Follow live scoring on both tournament hubs.",
+          "tags": [
+            "mid-am"
+          ]
+        },
+        {
+          "title": "Ojai Senior Cup Wraps Today at Soule Park With Tim Hogarth Chasing a Third Straight Title",
+          "url": "https://www.nichegolfhq.com/seniorgolfhq/ojai-senior-cup",
+          "source": "nichegolfHQ",
+          "why": "The eighth Ojai Senior Cup concludes today at Soule Park in Ojai, Calif., with 54 holes of stroke play in Senior (55+) and Super Senior (65+) divisions. Hogarth won in 2024 and 2025, both times by one shot.",
+          "tags": [
+            "senior"
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-10-17",
       "title": "Daily Brief - October 17, 2026",
       "items": [
