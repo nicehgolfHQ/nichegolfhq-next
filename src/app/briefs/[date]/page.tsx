@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 
 // IMPORTANT: read directly from the build-generated JSON.
 // This avoids any runtime filesystem reads / dynamic bundling quirks on Vercel.
 import briefsData from "@/content/briefs.generated.json";
+import { briefSeoDescription, briefSeoTitle } from "@/lib/briefSeo";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo/structuredData";
 
 type DailyBrief = {
   date: string;
@@ -15,25 +18,6 @@ function getBriefs(): DailyBrief[] {
   const raw: any = briefsData as any;
   const briefs = raw?.briefs ?? raw?.default?.briefs;
   return Array.isArray(briefs) ? (briefs as DailyBrief[]) : [];
-}
-
-function topicsFromBrief(brief: DailyBrief): string[] {
-  const topics: string[] = [];
-  const titles = brief.items.map((it) => it.title.toLowerCase());
-  const sources = brief.items.map((it) => it.source.toLowerCase());
-
-  if (titles.some((t) => t.includes("gasparilla"))) topics.push("Gasparilla Results");
-  if (sources.some((s) => s.includes("ajga")) || titles.some((t) => t.includes("ajga"))) topics.push("AJGA News");
-
-  // Fallback: map high-level tags into readable topics.
-  const tags = new Set((brief.items.flatMap((it) => it.tags ?? []) as string[]).map((t) => t.toLowerCase()));
-  if (topics.length === 0) {
-    if (tags.has("mid-am")) topics.push("Mid-Am Golf");
-    if (tags.has("juniors")) topics.push("Junior Golf");
-    if (tags.has("seniors") || tags.has("senior")) topics.push("Senior Golf");
-  }
-
-  return topics.slice(0, 2);
 }
 
 // Pre-render known brief dates at build time (most reliable on Vercel).
@@ -57,23 +41,29 @@ export async function generateMetadata({
   const brief = getBriefs().find((b) => b.date === normalized) ?? null;
   if (!brief) {
     return {
-      title: "Daily Brief | nichegolfHQ",
+      title: { absolute: "Daily Brief | nichegolfHQ" },
     };
   }
 
-  const topics = topicsFromBrief(brief);
-  const middle = topics.length ? ` | ${topics.join(", ")}` : "";
+  const title = briefSeoTitle(brief);
+  const description = briefSeoDescription(brief);
 
   return {
-    title: `${brief.title}${middle} | nichegolfHQ`,
-    description: `Daily Brief for ${brief.date}: ${brief.items.length} items across competitive amateur golf.`,
+    title: { absolute: title },
+    description,
     alternates: { canonical: `/briefs/${brief.date}` },
     openGraph: {
       type: "article",
-      title: `${brief.title}${middle} | nichegolfHQ`,
+      title,
+      description,
       url: `https://www.nichegolfhq.com/briefs/${brief.date}`,
       siteName: "nichegolfHQ",
       publishedTime: `${brief.date}T09:00:00-05:00`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -91,29 +81,16 @@ export default async function BriefPage({
 
   const brief = getBriefs().find((b) => b.date === normalized) ?? null;
 
-  if (!brief) {
-    return (
-      <SiteShell>
-        <div className="mx-auto w-full max-w-3xl px-5 py-10">
-          <Link href="/briefs" className="text-sm text-zinc-600 hover:text-zinc-900">
-            ← All briefs
-          </Link>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">Brief not found</h1>
-          <p className="mt-3 text-zinc-700">
-            We couldn’t find a Daily Brief for <span className="font-medium">{normalized}</span>.
-          </p>
-        </div>
-      </SiteShell>
-    );
-  }
+  if (!brief) notFound();
 
   const displayDate = brief.title.replace(/^Daily Brief\s+[-—–]\s+/i, "");
 
   // Minimal structured data for LLM / crawler friendliness (no visual impact)
+  const seoTitle = briefSeoTitle(brief);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    headline: brief.title,
+    headline: seoTitle,
     datePublished: `${brief.date}T09:00:00-05:00`,
     dateModified: `${brief.date}T09:00:00-05:00`,
     mainEntityOfPage: `https://www.nichegolfhq.com/briefs/${brief.date}`,
@@ -123,7 +100,8 @@ export default async function BriefPage({
       name: "nichegolfHQ",
       logo: { "@type": "ImageObject", url: "https://www.nichegolfhq.com/brand/nichegolfhq/icon.png" },
     },
-    description: `Daily Brief: ${brief.items.length} items`,
+    description: briefSeoDescription(brief),
+    image: [DEFAULT_OG_IMAGE],
   };
 
   return (

@@ -36,10 +36,6 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@midamgolfhq",
-    title: "nichegolfHQ",
-    description:
-      "Competitive golfers covering the game beyond the mainstream. Overlooked stories, thoughtful coverage, off the beaten path.",
-    images: ["/og/og-nichegolfhq.png"],
   },
 };
 
