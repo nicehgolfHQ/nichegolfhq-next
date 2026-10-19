@@ -131,3 +131,13 @@ h3 {
   padding: 0.75rem;
   vertical-align: top;
 }
+
+#cc-main {
+  --cc-font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --cc-btn-primary-bg: #18181b;
+  --cc-btn-primary-hover-bg: #27272a;
+  --cc-btn-secondary-bg: #f4f4f5;
+  --cc-btn-secondary-color: #18181b;
+  --cc-btn-secondary-hover-bg: #e4e4e7;
+  --cc-link-color: #18181b;
+}

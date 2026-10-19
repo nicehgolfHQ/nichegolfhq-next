@@ -47,6 +47,7 @@ Archived editions, one URL per issue:
 - [About and editorial policy](https://www.nichegolfhq.com/about): how coverage works, sources, and corrections
 - [Terms](https://www.nichegolfhq.com/terms)
 - [Privacy](https://www.nichegolfhq.com/privacy)
+- [Your Privacy Choices](https://www.nichegolfhq.com/privacy-choices)
 - [Contact](https://www.nichegolfhq.com/contact)
 
 ## What this site is not

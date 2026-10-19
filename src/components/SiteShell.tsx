@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { KetchPreferencesLink } from "@/components/KetchPreferencesLink";
+import { CookieSettingsLink } from "@/components/CookieSettingsLink";
+import { PrivacyChoicesIcon } from "@/components/PrivacyChoicesIcon";
 
 const SOCIAL = {
   midamgolfhq: { x: "https://www.x.com/midamgolfhq", instagram: "https://www.instagram.com/midamgolfhq" },
@@ -156,7 +157,14 @@ export function SiteShell({
         <div className="mx-auto w-full max-w-6xl px-5 py-8">
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-              <KetchPreferencesLink label="Privacy Settings" />
+              <Link
+                href="/privacy-choices"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70"
+              >
+                <PrivacyChoicesIcon />
+                Your Privacy Choices
+              </Link>
+              <CookieSettingsLink />
               <Link href="/privacy" className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70">
                 Privacy Policy
               </Link>
