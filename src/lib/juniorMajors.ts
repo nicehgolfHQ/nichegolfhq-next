@@ -866,11 +866,13 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   {
     slug: "ajga-ping-invitational",
     name: "AJGA Ping Invitational",
-    liveStatus: "completed",
-    month: "October 2026",
-    startDate: "2026-10-19",
-    endDate: "2026-10-21",
-    officialUrl: "https://www.ajga.org/tournaments/ping-invitational",
+    // Rescheduled after the October cancellation. Confirmed on the AJGA
+    // tournament page (2026844): November 5-8, 2026 at Seminole Legacy.
+    liveStatus: "upcoming",
+    month: "November 2026",
+    startDate: "2026-11-05",
+    endDate: "2026-11-08",
+    officialUrl: "https://www.ajga.org/tournaments/2026844/information",
     course: "Seminole Legacy Golf Club",
     location: "Tallahassee, FL",
     coursePar: 72,
