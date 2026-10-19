@@ -114,15 +114,20 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-sm font-semibold tracking-tight text-zinc-950">4) Your choices</h2>
             <p className="text-sm leading-7 text-zinc-700">
-              Cookie choices are saved in this browser. Visitors in the EEA, the UK, and Switzerland see an opt-in
-              banner. Anyone can reopen the choices from the Cookie Settings link in the footer.
+              Opt-outs are saved in this browser for visitors who are not signed in. Visitors in the EEA, the UK, and
+              Switzerland see an opt-in banner. Anyone can reopen the choices from the Cookie Settings link in the footer.
             </p>
             <p className="text-sm leading-7 text-zinc-700">
-              To opt out across devices and from the newsletter, submit the form on{" "}
+              If you are signed in, the choice is saved to your account and follows that account on other devices. The
+              stricter choice wins. A Global Privacy Control signal, a browser opt-out, or an email opt-out is not
+              replaced by an older account setting that allowed analytics.
+            </p>
+            <p className="text-sm leading-7 text-zinc-700">
+              To opt out across devices without signing in, and to opt out of the newsletter, submit the form on{" "}
               <Link href="/privacy-choices" className="underline underline-offset-4 hover:text-zinc-950">
                 Your Privacy Choices
               </Link>{" "}
-              with your email. That request is stored against the email address, not an account.
+              with your email. If you later sign in with that same email, the opt-out follows the account.
             </p>
             <p className="text-sm leading-7 text-zinc-700">
               A Global Privacy Control signal, sent as the Sec-GPC header or exposed by the browser as
