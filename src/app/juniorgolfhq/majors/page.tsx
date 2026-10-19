@@ -5,7 +5,8 @@ import { resolveDatesLabel } from "@/lib/tournaments/dates";
 
 export const metadata = {
   title: "Junior Majors — 2026 | juniorgolfHQ",
-  description: "Junior majors schedule for 2026: event hubs and year-by-year results pages.",
+  description: "Junior majors schedule for 2026, with links to each event hub.",
+  alternates: { canonical: "/juniorgolfhq/majors" },
 };
 
 export default function JuniorMajorsIndexPage() {
@@ -29,7 +30,7 @@ export default function JuniorMajorsIndexPage() {
                 {m.events.map((e) => {
                   const datesLabel = resolveDatesLabel(e.startDate, e.endDate, e.dates2026);
                   return (
-                    <Link key={e.slug} href={`/juniorgolfhq/majors/${e.slug}`} className="block px-1 transition hover:bg-zinc-50">
+                    <Link key={e.slug} href={`/juniorgolfhq/${e.slug}`} className="block px-1 transition hover:bg-zinc-50">
                       <div className="py-3">
                         <div className="font-serif text-lg font-semibold tracking-tight text-zinc-950">{e.name}</div>
                         {datesLabel ? (

@@ -87,6 +87,7 @@ const MONTHS: MonthBlock[] = [
 export const metadata = {
   title: "Mid-Am Majors (Mock A) | midamgolfHQ",
   description: "Mock A: month sections with compact rows.",
+  robots: { index: false, follow: false },
 };
 
 export default function MidAmMajorsMockA() {
