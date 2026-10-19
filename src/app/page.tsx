@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/SiteShell";
+import { HomeHeroMedia } from "@/components/HomeHeroMedia";
 import { IssueCard } from "@/components/IssueCard";
 import { UnifiedScoreboard } from "@/components/UnifiedScoreboard";
 import { FEEDS } from "@/lib/feeds";
@@ -89,26 +90,7 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
       />
 
-      {/* ======= HERO VIDEO ======= */}
-      <section className="fixed inset-0 z-0 overflow-hidden">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          webkit-playsinline="true"
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%)",
-          }}
-        />
-      </section>
+      <HomeHeroMedia />
 
       <section className="relative z-10 w-full h-[38vh] flex items-center justify-center">
         <div className="text-center text-white px-6 max-w-3xl">

@@ -2,15 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   const disallowJunk = [
-    // Old Substack/Ghost newsletter paths
-    "/p/",
-    // Old WordPress-style date paths
-    "/2024/",
-    "/2025/",
+    // /p/, /YYYY/MM/DD/, and /forms/ permanently redirect. Leaving them
+    // disallowed would stop Google from seeing those redirects.
     // Old archive with query-string pollution
     "/archive?",
-    // Old forms path
-    "/forms/",
     // Feed endpoints Google shouldn't index
     "*/feed/",
     // Favicon variants

@@ -303,4 +303,21 @@ type NewsArticle = {
 
 ---
 
+## IndexNow
+
+After a brief or article is published, ping IndexNow so Bing hears about the new URL:
+
+```bash
+npm run indexnow -- /briefs/2026-10-19
+npm run indexnow -- https://www.nichegolfhq.com/midamgolfhq/the-berkeley-cup
+```
+
+A path is expanded to `https://www.nichegolfhq.com`. The script refuses any other host. It calls `https://api.indexnow.org/indexnow` with the public key in `public/ec120083fab42ae247b1f28b18a8807c.txt`. Run it after the production deploy that contains the new page, not before the URL returns 200.
+
+`POST /api/indexnow` accepts `{ "urls": ["https://www.nichegolfhq.com/..."] }` only when `INDEXNOW_SECRET` is set. Send that value in the `x-indexnow-secret` header. If the env var is missing, the route returns 404. The npm script does not use this route.
+
+`/api/envcheck`, `/api/_envcheck`, `/api/version`, and `/api/briefs-debug` also return 404 unless `DEBUG_API_TOKEN` is set and sent as `x-debug-token`. Nothing on the site calls them.
+
+---
+
 End of playbook. If you find yourself re-explaining a convention to the user, that convention probably belongs in this file. Add it.

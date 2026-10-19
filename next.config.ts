@@ -111,7 +111,39 @@ const nextConfig: NextConfig = {
       destination: "/contact",
       permanent: true,
     },
+
+    /* Thin junior/senior majors placeholders → the real event hub. */
+    {
+      source: "/juniorgolfhq/majors/:slug/:year",
+      destination: "/juniorgolfhq/:slug",
+      statusCode: 301,
+    },
+    {
+      source: "/juniorgolfhq/majors/:slug",
+      destination: "/juniorgolfhq/:slug",
+      statusCode: 301,
+    },
+    {
+      source: "/seniorgolfhq/majors/:slug/:year",
+      destination: "/seniorgolfhq/:slug",
+      statusCode: 301,
+    },
+    {
+      source: "/seniorgolfhq/majors/:slug",
+      destination: "/seniorgolfhq/:slug",
+      statusCode: 301,
+    },
   ],
+
+  async headers() {
+    const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow" }];
+    return [
+      { source: "/lab/:path*", headers: noindex },
+      { source: "/midamgolfhq/majors/mock-a", headers: noindex },
+      { source: "/midamgolfhq/majors/mock-b", headers: noindex },
+      { source: "/midamgolfhq/majors/mock-c", headers: noindex },
+    ];
+  },
 };
 
 export default nextConfig;

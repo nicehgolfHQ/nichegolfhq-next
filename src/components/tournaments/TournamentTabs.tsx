@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import type { Tournament } from "@/lib/tournaments/types";
 import { TournamentOverview } from "@/components/tournaments/TournamentOverview";
 import { TournamentResults } from "@/components/tournaments/TournamentResults";
+
 type TabKey = "overview" | "results";
 
 const TABS: { key: TabKey; label: string }[] = [
@@ -14,18 +15,15 @@ const TABS: { key: TabKey; label: string }[] = [
 export function TournamentTabs({ tournament }: { tournament: Tournament }) {
   const [active, setActive] = useState<TabKey>("overview");
 
-  const content = useMemo(() => {
-    if (active === "results") return <TournamentResults tournament={tournament} />;
-    return <TournamentOverview tournament={tournament} />;
-  }, [active, tournament]);
-
   return (
     <section className="mt-6">
-      <div className="flex justify-center gap-4 border-b border-zinc-200 px-6">
+      <div className="flex justify-center gap-4 border-b border-zinc-200 px-6" role="tablist">
         {TABS.map((t) => (
           <button
             key={t.key}
             type="button"
+            role="tab"
+            aria-selected={active === t.key}
             onClick={() => setActive(t.key)}
             className={
               "pb-3 text-sm font-medium transition " +
@@ -39,7 +37,13 @@ export function TournamentTabs({ tournament }: { tournament: Tournament }) {
         ))}
       </div>
 
-      <div className="mt-5">{content}</div>
+      {/* Both panels are in the initial HTML. Tabs only show and hide them. */}
+      <div className="mt-5" role="tabpanel" hidden={active !== "overview"}>
+        <TournamentOverview tournament={tournament} />
+      </div>
+      <div className="mt-5" role="tabpanel" hidden={active !== "results"}>
+        <TournamentResults tournament={tournament} />
+      </div>
     </section>
   );
 }

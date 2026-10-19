@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { IssueCard } from "@/components/IssueCard";
 import { BeehiivEmbed } from "@/components/BeehiivEmbed";
@@ -14,6 +15,8 @@ import { SENIOR_MAJOR_EVENTS_2026 , listLiveSeniorTournaments} from "@/lib/senio
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
 import type { Metadata } from "next";
 import type { Tournament } from "@/lib/tournaments/types";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return FEEDS.map((f) => ({ newsletter: f.slug }));
@@ -73,15 +76,7 @@ export default async function NewsletterPage({
 }) {
   const resolved = await Promise.resolve(params);
   const feed = getFeedBySlug(resolved.newsletter);
-  if (!feed) {
-    return (
-      <SiteShell>
-        <div className="mx-auto w-full max-w-6xl px-5 py-16">
-          <h1 className="text-2xl font-semibold">Not found</h1>
-        </div>
-      </SiteShell>
-    );
-  }
+  if (!feed) notFound();
 
   const items = await fetchFeedItems(feed.rssUrl, 24);
 

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { loadLatestBriefs } from "@/lib/briefs";
+import { briefSeoTitle } from "@/lib/briefSeo";
 import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
@@ -41,7 +42,7 @@ export function GET() {
     if (Number.isNaN(ms) || ms < cutoff) continue;
     entries.push({
       loc: `${SITE}/briefs/${b.date}`,
-      title: b.title,
+      title: briefSeoTitle(b),
       pubDateIso: iso,
       pubDateMs: ms,
     });

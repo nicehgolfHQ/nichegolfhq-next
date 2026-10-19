@@ -74,6 +74,7 @@ const MONTHS: MonthBlock[] = [
 export const metadata = {
   title: "Mid-Am Majors (Mock B) | midamgolfHQ",
   description: "Mock B: month cards with rows inside.",
+  robots: { index: false, follow: false },
 };
 
 export default function MidAmMajorsMockB() {

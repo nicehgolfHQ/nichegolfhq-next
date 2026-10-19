@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export const dynamic = "force-static";
 
@@ -9,5 +9,5 @@ export const metadata = {
 };
 
 export default function MidAmMajorsRedirectPage() {
-  redirect("/midamgolfhq");
+  permanentRedirect("/midamgolfhq");
 }

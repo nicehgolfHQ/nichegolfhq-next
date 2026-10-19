@@ -2,26 +2,13 @@ import type { MetadataRoute } from "next";
 import { FEEDS } from "@/lib/feeds";
 import { getSupabaseServer } from "@/lib/supabaseServer";
 
-// Daily Briefs (build-generated JSON; reliable on Vercel)
 import briefsData from "@/content/briefs.generated.json";
-import { isoWeekKeyFromYmd, monthKeyFromYmd, ymdToDateUtc } from "@/lib/briefsDates";
+import { ymdToDateUtc } from "@/lib/briefsDates";
 
-// Majors
-import { listMajorSlugs, listMajorYearParams } from "@/lib/majors";
-import {
-  listJuniorMajorSlugs,
-  listJuniorMajorArticleParams,
-} from "@/lib/juniorMajors";
-import {
-  listSeniorMajorSlugs,
-  listSeniorMajorArticleParams,
-} from "@/lib/seniorMajors";
-
-// Event pages (mid-am tournaments + junior/senior brand event pages)
-import {
-  listMidAmTournamentSlugs,
-  listMidAmTournamentArticleParams,
-} from "@/lib/tournaments/midam";
+import { listMajorYearParams } from "@/lib/majors";
+import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
+import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
+import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
 
 const BASE = "https://www.nichegolfhq.com";
 
@@ -31,218 +18,130 @@ type DailyBrief = {
   items: Array<{ title: string; url: string; source: string; why: string; tags?: string[] }>;
 };
 
+type NewsLike = { slug: string; date: string };
+type EventLike = { slug: string; news?: NewsLike[] };
+
 function getBriefs(): DailyBrief[] {
   const raw: any = briefsData as any;
   const briefs = raw?.briefs ?? raw?.default?.briefs;
   return Array.isArray(briefs) ? (briefs as DailyBrief[]) : [];
 }
 
+function dateFromYmd(date: string | null | undefined): Date | undefined {
+  const dt = ymdToDateUtc(date ?? "");
+  return dt ?? undefined;
+}
+
+function latestNewsDate(news?: NewsLike[]): Date | undefined {
+  let best: string | undefined;
+  for (const item of news ?? []) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date)) continue;
+    if (!best || item.date > best) best = item.date;
+  }
+  return best ? dateFromYmd(best) : undefined;
+}
+
+function urlEntry(
+  path: string,
+  opts: {
+    lastModified?: Date;
+    changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
+    priority: number;
+  }
+): MetadataRoute.Sitemap[number] {
+  const entry: MetadataRoute.Sitemap[number] = {
+    url: path.startsWith("http") ? path : `${BASE}${path}`,
+    changeFrequency: opts.changeFrequency,
+    priority: opts.priority,
+  };
+  if (opts.lastModified && !Number.isNaN(opts.lastModified.getTime())) {
+    entry.lastModified = opts.lastModified;
+  }
+  return entry;
+}
+
+function eventAndArticleUrls(events: EventLike[], channel: string): MetadataRoute.Sitemap {
+  const urls: MetadataRoute.Sitemap = [];
+  for (const event of events) {
+    urls.push(
+      urlEntry(`/${channel}/${event.slug}`, {
+        lastModified: latestNewsDate(event.news),
+        changeFrequency: "weekly",
+        priority: 0.7,
+      })
+    );
+    for (const article of event.news ?? []) {
+      urls.push(
+        urlEntry(`/${channel}/${event.slug}/${article.slug}`, {
+          lastModified: dateFromYmd(article.date),
+          changeFrequency: "monthly",
+          priority: 0.7,
+        })
+      );
+    }
+  }
+  return urls;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-
-  const staticUrls = ["/", "/subscribe", "/sponsors", "/contact"].map((path) => ({
-    url: `${BASE}${path}`,
-    lastModified: now,
-    changeFrequency: "daily" as const,
-    priority: path === "/" ? 1 : 0.6,
-  }));
-
-  const brandUrls = FEEDS.map((f) => ({
-    url: `${BASE}/${f.slug}`,
-    lastModified: now,
-    changeFrequency: "daily" as const,
-    priority: 0.7,
-  }));
-
-  // Daily Briefs: include index + archives + each dated brief page
   const briefs = getBriefs();
+  const newestBrief = briefs.map((b) => b.date).sort().at(-1);
+
+  const staticUrls: MetadataRoute.Sitemap = [
+    urlEntry("/", { changeFrequency: "daily", priority: 1 }),
+    urlEntry("/about", { changeFrequency: "monthly", priority: 0.5 }),
+    urlEntry("/terms", { changeFrequency: "yearly", priority: 0.3 }),
+    urlEntry("/privacy", { changeFrequency: "yearly", priority: 0.3 }),
+    urlEntry("/contact", { changeFrequency: "monthly", priority: 0.4 }),
+    urlEntry("/community", { changeFrequency: "monthly", priority: 0.4 }),
+    urlEntry("/subscribe", { changeFrequency: "monthly", priority: 0.4 }),
+    urlEntry("/sponsors", { changeFrequency: "monthly", priority: 0.4 }),
+  ];
+
+  const brandUrls = FEEDS.map((f) =>
+    urlEntry(`/${f.slug}`, { changeFrequency: "daily", priority: 0.7 })
+  );
 
   const briefIndexUrls: MetadataRoute.Sitemap = [
-    {
-      url: `${BASE}/briefs`,
-      lastModified: now,
+    urlEntry("/briefs", {
+      lastModified: newestBrief ? dateFromYmd(newestBrief) : undefined,
       changeFrequency: "daily",
       priority: 0.7,
-    },
-    {
-      url: `${BASE}/briefs/months`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
-      url: `${BASE}/briefs/weeks`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
+    }),
   ];
 
-  const monthKeys = Array.from(new Set(briefs.map((b) => monthKeyFromYmd(b.date)).filter(Boolean))).sort();
-  const weekKeys = Array.from(new Set(briefs.map((b) => isoWeekKeyFromYmd(b.date)).filter(Boolean))).sort();
+  const briefDateUrls: MetadataRoute.Sitemap = briefs.map((b) =>
+    urlEntry(`/briefs/${b.date}`, {
+      lastModified: dateFromYmd(b.date),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    })
+  );
 
-  const briefArchiveUrls: MetadataRoute.Sitemap = [
-    ...monthKeys.map((mk) => ({
-      url: `${BASE}/briefs/months/${mk}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    })),
-    ...weekKeys.map((wk) => ({
-      url: `${BASE}/briefs/weeks/${wk}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.4,
-    })),
+  // /midamgolfhq/majors and /midamgolfhq/majors/:slug redirect to the real hubs.
+  // Junior and senior /majors/:slug and /majors/:slug/:year pages are thin placeholders
+  // that 301 to the real hub, so they are omitted. The majors index pages stay.
+  const majorsUrls: MetadataRoute.Sitemap = [
+    urlEntry("/majors", { changeFrequency: "weekly", priority: 0.6 }),
+    urlEntry("/juniorgolfhq/majors", { changeFrequency: "weekly", priority: 0.5 }),
+    urlEntry("/seniorgolfhq/majors", { changeFrequency: "weekly", priority: 0.5 }),
   ];
 
-  const briefDateUrls: MetadataRoute.Sitemap = briefs.map((b) => {
-    const dt = ymdToDateUtc(b.date);
-    return {
-      url: `${BASE}/briefs/${b.date}`,
-      lastModified: dt || now,
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
-    };
-  });
-
-  // Majors hubs and detail pages
-  const majorsUrls: MetadataRoute.Sitemap = [];
-
-  // Cross-brand landing
-  majorsUrls.push({
-    url: `${BASE}/majors`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  });
-
-  // Mid-am majors (with per-event + per-year)
-  majorsUrls.push({
-    url: `${BASE}/midamgolfhq/majors`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  });
-  for (const slug of listMajorSlugs()) {
-    majorsUrls.push({
-      url: `${BASE}/midamgolfhq/majors/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    });
-  }
   for (const p of listMajorYearParams()) {
-    majorsUrls.push({
-      url: `${BASE}/midamgolfhq/majors/${p.slug}/${p.year}`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.5,
-    });
+    majorsUrls.push(
+      urlEntry(`/midamgolfhq/majors/${p.slug}/${p.year}`, {
+        changeFrequency: "yearly",
+        priority: 0.4,
+      })
+    );
   }
 
-  // Junior majors
-  majorsUrls.push({
-    url: `${BASE}/juniorgolfhq/majors`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  });
-  for (const slug of listJuniorMajorSlugs()) {
-    majorsUrls.push({
-      url: `${BASE}/juniorgolfhq/majors/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    });
-    majorsUrls.push({
-      url: `${BASE}/juniorgolfhq/majors/${slug}/2026`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.5,
-    });
-  }
+  const eventUrls = [
+    ...eventAndArticleUrls(MIDAM_TOURNAMENTS, "midamgolfhq"),
+    ...eventAndArticleUrls(JUNIOR_MAJOR_EVENTS_2026, "juniorgolfhq"),
+    ...eventAndArticleUrls(SENIOR_MAJOR_EVENTS_2026, "seniorgolfhq"),
+  ];
 
-  // Senior majors
-  majorsUrls.push({
-    url: `${BASE}/seniorgolfhq/majors`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  });
-  for (const slug of listSeniorMajorSlugs()) {
-    majorsUrls.push({
-      url: `${BASE}/seniorgolfhq/majors/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    });
-    majorsUrls.push({
-      url: `${BASE}/seniorgolfhq/majors/${slug}/2026`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.5,
-    });
-  }
-
-  // Event detail pages (mid-am, junior, senior)
-  const eventUrls: MetadataRoute.Sitemap = [];
-
-  for (const slug of listMidAmTournamentSlugs()) {
-    eventUrls.push({
-      url: `${BASE}/midamgolfhq/${slug}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    });
-  }
-  for (const slug of listJuniorMajorSlugs()) {
-    eventUrls.push({
-      url: `${BASE}/juniorgolfhq/${slug}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    });
-  }
-  for (const slug of listSeniorMajorSlugs()) {
-    eventUrls.push({
-      url: `${BASE}/seniorgolfhq/${slug}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    });
-  }
-  // Article detail pages (NewsArticle entries on each tournament hub).
-  // SEO-targeted URLs for individual recap / preview articles.
-  const articleUrls: MetadataRoute.Sitemap = [];
-  for (const p of listMidAmTournamentArticleParams()) {
-    articleUrls.push({
-      url: `${BASE}/midamgolfhq/${p.slug}/${p.article}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    });
-  }
-  for (const p of listSeniorMajorArticleParams()) {
-    articleUrls.push({
-      url: `${BASE}/seniorgolfhq/${p.slug}/${p.article}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    });
-  }
-  for (const p of listJuniorMajorArticleParams()) {
-    articleUrls.push({
-      url: `${BASE}/juniorgolfhq/${p.slug}/${p.article}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    });
-  }
-
-
-  // Issue URLs: pulled from Supabase so Google can crawl the full archive.
-  // Best-effort: if Supabase isn't configured, sitemap still returns other URLs.
   let issueUrls: MetadataRoute.Sitemap = [];
 
   try {
@@ -251,34 +150,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const { data, error } = await supabase
       .from("issues")
-      .select("newsletter_slug, issue_slug, updated_at")
-      .order("updated_at", { ascending: false })
+      .select("newsletter_slug, issue_slug, published_at")
+      .order("published_at", { ascending: false })
       .limit(5000);
 
     if (error) throw error;
 
+    const seen = new Set<string>();
     issueUrls = (data || [])
       .filter((r) => r.newsletter_slug && r.issue_slug)
-      .map((r) => ({
-        url: `${BASE}/${r.newsletter_slug}/issue/${r.issue_slug}`,
-        lastModified: r.updated_at ? new Date(r.updated_at) : now,
-        changeFrequency: "weekly" as const,
-        priority: 0.5,
-      }));
+      .filter((r) => !String(r.issue_slug).includes("hello-world"))
+      .map((r) => {
+        const path = `/${r.newsletter_slug}/issue/${r.issue_slug}`;
+        if (seen.has(path)) return null;
+        seen.add(path);
+        return urlEntry(path, {
+          lastModified: r.published_at ? new Date(r.published_at) : undefined,
+          changeFrequency: "weekly",
+          priority: 0.5,
+        });
+      })
+      .filter((entry): entry is MetadataRoute.Sitemap[number] => entry !== null);
   } catch {
-    // ignore
+    // Sitemap still returns the rest of the site if Supabase is unavailable.
   }
 
   return [
     ...staticUrls,
     ...brandUrls,
     ...briefIndexUrls,
-    ...briefArchiveUrls,
     ...briefDateUrls,
     ...majorsUrls,
     ...eventUrls,
-    ...articleUrls,
-    ...issueUrls,
     ...issueUrls,
   ];
 }

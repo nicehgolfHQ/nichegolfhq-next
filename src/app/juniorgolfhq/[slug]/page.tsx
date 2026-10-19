@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Script from "next/script";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd, sportsEventLd } from "@/lib/seo/structuredData";
 import { SiteShell } from "@/components/SiteShell";
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
@@ -179,71 +180,24 @@ export default async function JuniorScheduleEventPage({
   const baseUrl = "https://www.nichegolfhq.com";
   const pageUrl = `${baseUrl}/juniorgolfhq/${event.slug}`;
 
-  const breadcrumbsLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "juniorgolfHQ",
-        item: `${baseUrl}/juniorgolfhq`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Junior Major Schedule",
-        item: `${baseUrl}/juniorgolfhq`,
-      },
-      { "@type": "ListItem", position: 4, name: event.name, item: pageUrl },
-    ],
-  };
+  const breadcrumbsLd = breadcrumbLd([
+    { name: "Home", item: baseUrl },
+    { name: "juniorgolfHQ", item: `${baseUrl}/juniorgolfhq` },
+    { name: event.name, item: pageUrl },
+  ]);
 
   const isoDate = monthToISO(event.month);
 
-  const eventLd: any = {
-    "@context": "https://schema.org",
-    "@type": "SportsEvent",
+  const eventLd = sportsEventLd({
     name: event.name,
     url: pageUrl,
-    sport: "Golf",
-    eventStatus: "https://schema.org/EventScheduled",
-    organizer: {
-      "@type": "Organization",
-      name: "juniorgolfHQ",
-      url: `${baseUrl}/juniorgolfhq`,
-    },
     description: `Dates, venue, format, and past winners for ${event.name}.`,
-    image: `${baseUrl}/og/og-nichegolfhq.png`,
-    performer: {
-      "@type": "Organization",
-      name: event.name,
-    },
-    offers: {
-      "@type": "Offer",
-      url: pageUrl,
-      availability: "https://schema.org/InStock",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Amateur junior golf tournament",
-    },
-  };
-
-  if (event.location) {
-    eventLd.location = {
-      "@type": "Place",
-      name: [event.course, event.location].filter(Boolean).join(" \u2014 "),
-      address: event.location,
-    };
-  }
-
-  if (event.startDate) {
-    eventLd.startDate = event.startDate;
-    if (event.endDate) eventLd.endDate = event.endDate;
-  } else if (isoDate) {
-    eventLd.startDate = isoDate;
-  }
+    liveStatus: event.liveStatus,
+    course: event.course,
+    location: event.location,
+    startDate: event.startDate || isoDate || undefined,
+    endDate: event.endDate,
+  });
 
   const faqLd = buildFaqLd({
     name: event.name,
@@ -262,26 +216,9 @@ export default async function JuniorScheduleEventPage({
 
   return (
     <SiteShell brandSlug="juniorgolfhq">
-      <Script
-        id={`ld-breadcrumbs-junior-${event.slug}`}
-        type="application/ld+json"
-      >
-        {JSON.stringify(breadcrumbsLd)}
-      </Script>
-      <Script
-        id={`ld-event-junior-${event.slug}`}
-        type="application/ld+json"
-      >
-        {JSON.stringify(eventLd)}
-      </Script>
-      {faqLd ? (
-        <Script
-          id={`ld-faq-junior-${event.slug}`}
-          type="application/ld+json"
-        >
-          {JSON.stringify(faqLd)}
-        </Script>
-      ) : null}
+      <JsonLd data={breadcrumbsLd} />
+      <JsonLd data={eventLd} />
+      <JsonLd data={faqLd} />
 
       {/* -- Hero -- */}
       <section className="relative overflow-hidden bg-zinc-50">

@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export const dynamicParams = true;
 
@@ -9,6 +9,6 @@ export default async function MajorHubRedirectPage({
 }) {
   const p: any = await Promise.resolve(params as any);
   const slug = p?.slug ?? "";
-  if (!slug) redirect("/midamgolfhq");
-  redirect(`/midamgolfhq/${slug}`);
+  if (!slug) permanentRedirect("/midamgolfhq");
+  permanentRedirect(`/midamgolfhq/${slug}`);
 }
