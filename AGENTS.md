@@ -1,6 +1,6 @@
 # nichegolfHQ — Project Playbook
 
-This file is auto-loaded by Claude Code / Dispatch when working in this repo. Read it before answering, before editing, before publishing. It captures conventions, workflows, and gotchas earned the hard way.
+This file is the playbook for any AI agent or assistant working in this repo (many coding tools auto-load `AGENTS.md`). Read it before answering, before editing, before publishing. It captures conventions, workflows, and gotchas earned the hard way.
 
 If something here is wrong or stale, fix it in the same commit as the code change so the doc never drifts.
 
@@ -122,7 +122,9 @@ Only one tournament per channel should be `live` or `next` at a time, since the 
 These came from explicit user feedback. The user reads every article before it ships and will catch violations.
 
 ### No em-dashes
-Anywhere. Replace with periods, commas, semicolons, or restructure. Em-dashes feel AI-generated and the user has called this out specifically.
+Anywhere in body copy (article paragraphs, titles, summaries, and the prose in daily briefs). Replace with periods, commas, semicolons, or restructure. Em-dashes feel AI-generated and the user has called this out specifically.
+
+**Exception (required by the parser):** in daily brief files (`src/content/briefs/YYYY-MM-DD.md`), each item line must use the ` — ` separator (space, em-dash, space) before the source, e.g. `- [Headline](https://example.com/story) — Source Name`. `scripts/build-briefs.mjs` (and `scripts/preflight-brief.mjs`) match on that exact separator, so replacing it with a hyphen or comma will drop the item from `src/content/briefs.generated.json`. The no-em-dash rule applies to the copy, not to this separator.
 
 ### No course architect references in editorial copy
 Don't write "the Hanse-designed Match Course" or "Tom Doak's masterpiece." The course can be named, but its architect is not relevant to the story. (`courseDesigner` can still be filled in the data — it's just not for editorial.)
@@ -214,7 +216,7 @@ Add a new object to the `MIDAM_TOURNAMENTS` (or `JUNIOR_MAJOR_EVENTS_2026` / `SE
 
 ## Editor and commit workflow notes (when working in the GitHub web editor)
 
-This codebase is edited via the GitHub web editor (CodeMirror 6) when working from Dispatch on mobile.
+This codebase is often edited via the GitHub web editor (CodeMirror 6), e.g. when an agent or assistant is working from a mobile or browser-only session.
 
 - **Cmd+F** opens find. **Cmd+H** opens find/replace. Click into the editor first; if the shortcut doesn't fire, dispatch a synthetic `KeyboardEvent` with `metaKey: true` from the JS console.
 - **Triple-click** selects a full line including the trailing newline. If you replace with content that doesn't end in `\n`, you smash the next line onto the current one. Always include `\n` in your replacement, OR re-add a newline after the insertion. This bug has caused multiple Vercel build failures.
@@ -250,7 +252,7 @@ If the user asks why articles aren't appearing in Google News, point at those ma
 ## Things to never do
 
 - Never publish an article without the user's review (unless they explicitly say "ship it").
-- Never use em-dashes in editorial copy.
+- Never use em-dashes in editorial copy. (The ` — ` separator before the source on daily brief item lines is the one required exception.)
 - Never make a "pick to win" claim unless the user explicitly asks for one.
 - Never reference course architects in editorial copy.
 - Never confuse Brandt Snedeker (PGA pro) with Haymes Snedeker (mid-am host of Snedeker Memorial).
