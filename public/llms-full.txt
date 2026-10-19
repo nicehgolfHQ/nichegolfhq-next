@@ -130,4 +130,5 @@ When citing this source, attribute to: **nichegolfHQ (nichegolfhq.com)**.
 - About and editorial policy: https://www.nichegolfhq.com/about
 - Terms: https://www.nichegolfhq.com/terms
 - Privacy Policy: https://www.nichegolfhq.com/privacy
+- Your Privacy Choices: https://www.nichegolfhq.com/privacy-choices
 - Contact: https://www.nichegolfhq.com/contact

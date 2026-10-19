@@ -303,6 +303,16 @@ type NewsArticle = {
 
 ---
 
+## Privacy and consent
+
+There is no visitor sign-in for privacy choices. Do not store consent on `profiles` or behind the magic-link login.
+
+- Google Analytics (`G-BW8QC5W1CH`) loads from `src/app/layout.tsx` with consent mode v2. Ad storage is denied everywhere. Analytics is denied for EEA/UK/CH until opt-in, and denied for anyone sending Global Privacy Control. Google signals and ads personalization are off.
+- Cookie banner: Orestbida CookieConsent (`vanilla-cookieconsent`) in `src/components/ConsentManager.tsx`. The banner auto-opens only when `x-vercel-ip-country` is an EEA, UK, or Switzerland code. Footer "Cookie Settings" reopens it for everyone.
+- Browser opt-out of sale/sharing is the `ng_dns` cookie, set on `/privacy-choices`. It is per browser.
+- Email opt-out: `POST /api/privacy-request` writes `privacy_requests` and, for type `opt-out`, `privacy_opt_outs` (scope `all`, meaning sale/share and the newsletter). SQL is in `supabase/migrations/20261019191500_privacy_requests.sql`. Do not apply it from the app. The route emails `PRIVACY_TO_EMAIL`, then `CONTACT_TO_EMAIL`. Do not put either address in source.
+- Ketch and Simpli.fi are removed. Do not add them back.
+
 ## IndexNow
 
 After a brief or article is published, ping IndexNow so Bing hears about the new URL:
