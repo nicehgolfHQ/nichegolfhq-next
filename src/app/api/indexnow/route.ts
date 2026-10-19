@@ -1,7 +1,25 @@
+import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
-import { submitUrls } from "@/lib/indexnow";
+import { submitUrls, urlsForThisHost } from "@/lib/indexnow";
+
+function authorized(request: NextRequest): boolean {
+  const secret = process.env.INDEXNOW_SECRET;
+  if (!secret) return false;
+  const provided = request.headers.get("x-indexnow-secret") ?? "";
+  const a = Buffer.from(provided);
+  const b = Buffer.from(secret);
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
+}
 
 export async function POST(request: NextRequest) {
+  if (!process.env.INDEXNOW_SECRET) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+  if (!authorized(request)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();
@@ -43,7 +61,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  await submitUrls(urls as string[]);
+  const accepted = urlsForThisHost(urls as string[]);
+  if (accepted.length === 0) {
+    return NextResponse.json(
+      { error: "No URLs were on https://www.nichegolfhq.com" },
+      { status: 400 }
+    );
+  }
 
-  return NextResponse.json({ ok: true, submitted: urls.length });
+  await submitUrls(accepted);
+
+  return NextResponse.json({ ok: true, submitted: accepted.length });
 }
