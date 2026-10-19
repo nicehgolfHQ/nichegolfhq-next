@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { headers } from "next/headers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ConsentManager } from "@/components/ConsentManager";
+import { consentDefaultScript } from "@/lib/privacy/consentScript";
 import "./globals.css";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const GA_MEASUREMENT_ID = "G-BW8QC5W1CH";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nichegolfhq.com"),
@@ -39,12 +43,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const GA_MEASUREMENT_ID = "G-BW8QC5W1CH";
+  const h = await headers();
+  const country = (h.get("x-vercel-ip-country") || "").toUpperCase();
+  const serverGpc = h.get("sec-gpc") === "1";
 
   return (
     <html lang="en">
@@ -57,11 +63,9 @@ export default function RootLayout({
           href="https://www.nichegolfhq.com/briefs/feed.xml"
         />
 
-        {/* Ketch consent manager (tag as provided by Ketch; loads early so it can gate other tags) */}
-        <Script id="ketch-smart-tag" strategy="beforeInteractive">
-          {`!function(){window.semaphore=window.semaphore||[],window.ketch=function(){window.semaphore.push(arguments)};var e=new URLSearchParams(document.location.search),n=document.createElement("script");n.type="text/javascript", n.src="https://global.ketchcdn.com/web/v3/config/nicegolfhq/website_smart_tag/boot.js", n.defer=n.async=!0,document.getElementsByTagName("head")[0].appendChild(n)}();`}
+        <Script id="consent-defaults" strategy="beforeInteractive">
+          {consentDefaultScript(serverGpc)}
         </Script>
-
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -70,22 +74,19 @@ export default function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || gtag;
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('set', 'ads_data_redaction', true);
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false
+            });
           `}
         </Script>
-
-        {/* Simpli.fi retargeting tag (Ketch should gate this under Marketing consent where required) */}
-        <Script
-          id="simplifi"
-          async
-          referrerPolicy="no-referrer-when-downgrade"
-          src="https://tag.simpli.fi/sifitag/ed67e2ba-f353-49ca-9d4b-e76237917756"
-          strategy="afterInteractive"
-        />
       </head>
       <body className={`${sans.variable} font-sans antialiased`}>
         {children}
+        <ConsentManager country={country} serverGpc={serverGpc} />
         <SpeedInsights />
       </body>
     </html>

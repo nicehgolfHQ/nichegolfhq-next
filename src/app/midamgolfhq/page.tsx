@@ -1,8 +1,6 @@
 import Script from "next/script";
 import NewsletterPage from "@/app/[newsletter]/page";
 
-export const dynamic = "force-static";
-
 // Keep canonical + SEO strings, but restore the original midamgolfHQ landing experience
 // (hero + rankings + hub design) by reusing the newsletter landing page.
 export const metadata = {

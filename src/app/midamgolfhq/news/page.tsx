@@ -4,8 +4,6 @@ import { SiteShell } from "@/components/SiteShell";
 import { listMidAmArticles } from "@/lib/tournaments/midam";
 import type { Metadata } from "next";
 
-export const dynamic = "force-static";
-
 const SITE = "https://www.nichegolfhq.com";
 
 export const metadata: Metadata = {

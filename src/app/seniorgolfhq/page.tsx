@@ -1,8 +1,6 @@
 import Script from "next/script";
 import NewsletterPage from "@/app/[newsletter]/page";
 
-export const dynamic = "force-static";
-
 export const metadata = {
   title: "seniorgolfHQ",
   description: "Senior amateur hubs, rankings, and major schedule.",
