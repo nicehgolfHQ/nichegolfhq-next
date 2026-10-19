@@ -1,12 +1,13 @@
 import Link from "next/link";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
+import { JsonLd } from "@/components/JsonLd";
 import { PhotoCarousel } from "@/components/tournaments/PhotoCarousel";
 import {
   getJuniorMajorArticle,
   listJuniorMajorArticleParams,
 } from "@/lib/juniorMajors";
+import { breadcrumbLd, DEFAULT_OG_IMAGE, newsArticleLd } from "@/lib/seo/structuredData";
 import type { Metadata } from "next";
 
 export const dynamicParams = false;
@@ -27,9 +28,9 @@ export async function generateMetadata({
   if (!result) return { title: "juniorgolfHQ" };
   const { tournament, article } = result;
   const title = `${article.title} | ${tournament.name}`;
-  const description = article.summary || `${article.title} — coverage from juniorgolfHQ.`;
+  const description = article.summary || `${article.title}. Coverage from juniorgolfHQ.`;
   const url = `${SITE}/juniorgolfhq/${tournament.slug}/${article.slug}`;
-  const ogImage = article.photos?.[0];
+  const ogImage = article.photos?.[0] || DEFAULT_OG_IMAGE;
   return {
     title,
     description,
@@ -41,13 +42,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime: article.date,
       authors: article.author ? [article.author] : undefined,
-      images: ogImage ? [{ url: ogImage }] : undefined,
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ogImage ? [ogImage] : undefined,
+      images: [ogImage],
     },
   };
 }
@@ -63,47 +64,26 @@ export default async function JuniorTournamentArticlePage({
   const { tournament, article } = result;
 
   const articleUrl = `${SITE}/juniorgolfhq/${tournament.slug}/${article.slug}`;
-  const ogImage = article.photos?.[0] || `${SITE}/og/og-nichegolfhq.png`;
+  const ogImage = article.photos?.[0] || DEFAULT_OG_IMAGE;
 
-  const newsArticleLd = {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
+  const articleLd = newsArticleLd({
     headline: article.title,
     description: article.summary || article.content[0]?.slice(0, 160),
-    datePublished: article.date,
-    dateModified: article.date,
-    author: article.author
-      ? { "@type": "Organization", name: article.author }
-      : { "@type": "Organization", name: "nichegolfHQ" },
-    publisher: {
-      "@type": "Organization",
-      name: "nichegolfHQ",
-      url: SITE,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE}/brand/juniorgolfhq/logo.png`,
-      },
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
-    image: [ogImage],
-    articleSection: tournament.name,
+    date: article.date,
+    url: articleUrl,
+    author: article.author,
+    image: ogImage,
+    section: tournament.name,
     keywords: [tournament.name, "junior golf", "amateur golf"],
-  };
+    logoUrl: `${SITE}/brand/juniorgolfhq/logo.png`,
+  });
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "juniorgolfHQ", item: `${SITE}/juniorgolfhq` },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: tournament.name,
-        item: `${SITE}/juniorgolfhq/${tournament.slug}`,
-      },
-      { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
-    ],
-  };
+  const crumbs = breadcrumbLd([
+    { name: "Home", item: SITE },
+    { name: "juniorgolfHQ", item: `${SITE}/juniorgolfhq` },
+    { name: tournament.name, item: `${SITE}/juniorgolfhq/${tournament.slug}` },
+    { name: article.title, item: articleUrl },
+  ]);
 
   const formattedDate = new Date(article.date + "T12:00:00").toLocaleDateString(
     "en-US",
@@ -112,12 +92,8 @@ export default async function JuniorTournamentArticlePage({
 
   return (
     <SiteShell brandSlug="juniorgolfhq">
-      <Script id="ld-news-article" type="application/ld+json">
-        {JSON.stringify(newsArticleLd)}
-      </Script>
-      <Script id="ld-breadcrumb" type="application/ld+json">
-        {JSON.stringify(breadcrumbLd)}
-      </Script>
+      <JsonLd data={articleLd} />
+      <JsonLd data={crumbs} />
 
       <article className="mx-auto w-full max-w-3xl px-5 py-10 md:py-14">
         <nav className="mb-6 text-sm">

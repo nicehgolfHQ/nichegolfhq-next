@@ -1,13 +1,14 @@
 import Link from "next/link";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
+import { JsonLd } from "@/components/JsonLd";
 import {
   getMidAmTournamentBySlug,
   listMidAmTournamentSlugs,
   listMidAmTournaments,
 } from "@/lib/tournaments/midam";
 import { buildFaqLd } from "@/lib/tournaments/faqLd";
+import { breadcrumbLd, sportsEventLd } from "@/lib/seo/structuredData";
 import { TournamentHero } from "@/components/tournaments/TournamentHero";
 import { TournamentQuickFacts } from "@/components/tournaments/TournamentQuickFacts";
 import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
@@ -130,61 +131,32 @@ export default async function MidAmTournamentPage({
   const baseUrl = "https://www.nichegolfhq.com";
   const pageUrl = `${baseUrl}/midamgolfhq/${tournament.slug}`;
 
-  const breadcrumbsLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "midamgolfHQ", item: `${baseUrl}/midamgolfhq` },
-      { "@type": "ListItem", position: 3, name: "Mid-Am Major Schedule", item: `${baseUrl}/midamgolfhq` },
-      { "@type": "ListItem", position: 4, name: tournament.name, item: pageUrl },
-    ],
-  };
+  const breadcrumbsLd = breadcrumbLd([
+    { name: "Home", item: baseUrl },
+    { name: "midamgolfHQ", item: `${baseUrl}/midamgolfhq` },
+    { name: tournament.name, item: pageUrl },
+  ]);
 
-  const eventLd: any = {
-    "@context": "https://schema.org",
-    "@type": "SportsEvent",
-    name: tournament.name,
-    url: pageUrl,
-    sport: "Golf",
-    eventStatus: "https://schema.org/EventScheduled",
-    organizer: {
-      "@type": "Organization",
-      name: "midamgolfHQ",
-      url: `${baseUrl}/midamgolfhq`,
-    },
-    location: {
-      "@type": "Place",
-      name: [tournament.course, tournament.location].filter(Boolean).join(" \u2014 ") || tournament.location || tournament.course || tournament.name,
-      address: tournament.location,
-    },
-    description: `Dates, venue, format, and past winners for ${tournament.name}.`,
-    image: `${baseUrl}/og/og-nichegolfhq.png`,
-    performer: { "@type": "Organization", name: tournament.name },
-    offers: {
-      "@type": "Offer",
-      url: pageUrl,
-      availability: "https://schema.org/InStock",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Amateur golf tournament",
-    },
-  };
-
-  // Use ISO 8601 dates for structured data. Prefer the explicit startDate/endDate
-  // fields when available, falling back to parsing the human-readable string.
-  if (tournament.startDate) {
-    eventLd.startDate = tournament.startDate;
-    if (tournament.endDate) eventLd.endDate = tournament.endDate;
-  } else if (tournament.dates2026) {
+  let startDate = tournament.startDate;
+  let endDate = tournament.endDate;
+  if (!startDate && tournament.dates2026) {
     const parsed = parseDateToISO(tournament.dates2026, tournament.month);
     if (parsed) {
-      eventLd.startDate = parsed.start;
-      if (parsed.end) {
-        eventLd.endDate = parsed.end;
-      }
+      startDate = parsed.start;
+      endDate = parsed.end;
     }
   }
+
+  const eventLd = sportsEventLd({
+    name: tournament.name,
+    url: pageUrl,
+    description: `Dates, venue, format, and past winners for ${tournament.name}.`,
+    liveStatus: tournament.liveStatus,
+    course: tournament.course,
+    location: tournament.location,
+    startDate,
+    endDate,
+  });
 
   const faqLd = buildFaqLd({
     name: tournament.name,
@@ -203,17 +175,9 @@ export default async function MidAmTournamentPage({
 
   return (
     <SiteShell>
-      <Script id={`ld-breadcrumbs-${tournament.slug}`} type="application/ld+json">
-        {JSON.stringify(breadcrumbsLd)}
-      </Script>
-      <Script id={`ld-event-${tournament.slug}`} type="application/ld+json">
-        {JSON.stringify(eventLd)}
-      </Script>
-      {faqLd ? (
-        <Script id={`ld-faq-${tournament.slug}`} type="application/ld+json">
-          {JSON.stringify(faqLd)}
-        </Script>
-      ) : null}
+      <JsonLd data={breadcrumbsLd} />
+      <JsonLd data={eventLd} />
+      <JsonLd data={faqLd} />
 
       {/* -- Dark Hero -- */}
       <section className="relative overflow-hidden bg-zinc-50">
