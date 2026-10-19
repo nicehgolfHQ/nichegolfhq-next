@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { getSupabaseServer } from "@/lib/supabaseServer";
 import { OPT_OUT_SCOPE, parsePrivacyRequest, rateLimitPrivacyRequest } from "@/lib/privacy/request";
 
@@ -16,6 +17,27 @@ const TYPE_LABEL: Record<string, string> = {
 function clientKey(req: Request): string {
   const forwarded = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   return forwarded || req.headers.get("x-real-ip") || "unknown";
+}
+
+function bearer(req: Request): string {
+  const header = req.headers.get("authorization") || "";
+  return header.startsWith("Bearer ") ? header.slice("Bearer ".length).trim() : "";
+}
+
+async function rememberAccountOptOut(supabase: SupabaseClient, req: Request, email: string, gpc: boolean) {
+  const token = bearer(req);
+  if (!token) return;
+  const { data, error } = await supabase.auth.getUser(token);
+  const user = data.user;
+  if (error || !user?.email || user.email.trim().toLowerCase() !== email.trim().toLowerCase()) return;
+  const saved = await supabase.from("privacy_preferences").upsert({
+    user_id: user.id,
+    analytics_consent: false,
+    sale_share_opt_out: true,
+    gpc_seen: gpc,
+    updated_at: new Date().toISOString(),
+  });
+  if (saved.error) console.error("privacy request: preference update failed", saved.error.message);
 }
 
 export async function POST(req: Request) {
@@ -76,12 +98,13 @@ export async function POST(req: Request) {
       }
       if (type === "opt-out") {
         const optOut = await supabase.from("privacy_opt_outs").insert({
-          email,
+          email: email.toLowerCase(),
           scope: OPT_OUT_SCOPE,
         });
         if (optOut.error) {
           console.error("privacy request: privacy_opt_outs insert failed", optOut.error.message);
         }
+        await rememberAccountOptOut(supabase, req, email, gpc);
       }
     }
   } catch (error) {
@@ -123,7 +146,7 @@ export async function POST(req: Request) {
       "We will respond within 45 days.",
       "",
       type === "opt-out"
-        ? "Your opt-out covers sale or sharing of personal information and the newsletter. It is tied to this email address, so it can apply across devices once we process it. Browser cookie choices stay on each device until then."
+        ? "Your opt-out covers sale or sharing of personal information and the newsletter. It is stored for this email address. Signing in with the same email applies it on each device. A browser opt-out still applies on that browser even before you sign in."
         : "If you also want to opt out across devices and from the newsletter, submit the form again and choose Opt out.",
       "",
       "Submit another request at https://www.nichegolfhq.com/privacy-choices",

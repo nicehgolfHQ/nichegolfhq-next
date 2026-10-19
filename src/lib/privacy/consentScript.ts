@@ -3,6 +3,35 @@ import { OPT_IN_COUNTRIES } from "@/lib/privacy/regions";
 export const CONSENT_COOKIE = "ng_cc";
 export const DO_NOT_SELL_COOKIE = "ng_dns";
 
+export function readStoredAnalyticsChoice(): boolean | null {
+  if (typeof document === "undefined") return null;
+  const parts = document.cookie ? document.cookie.split("; ") : [];
+  for (const part of parts) {
+    if (!part.startsWith(`${CONSENT_COOKIE}=`)) continue;
+    try {
+      const parsed = JSON.parse(decodeURIComponent(part.slice(CONSENT_COOKIE.length + 1))) as {
+        categories?: unknown;
+      };
+      if (!parsed || !Array.isArray(parsed.categories)) return null;
+      return parsed.categories.includes("analytics");
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
+export function readDoNotSell(): boolean {
+  if (typeof document === "undefined") return false;
+  return document.cookie.split("; ").some((part) => part === `${DO_NOT_SELL_COOKIE}=1`);
+}
+
+export function writeDoNotSell(optedOut: boolean) {
+  if (typeof document === "undefined") return;
+  const secure = window.location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `${DO_NOT_SELL_COOKIE}=${optedOut ? "1" : "0"}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
+}
+
 /**
  * Inline snippet that must run before gtag.js. EEA/UK/CH visitors start
  * with every storage type denied. Everywhere else, analytics is granted
@@ -35,7 +64,7 @@ gtag("consent", "default", {
   functionality_storage: "denied",
   personalization_storage: "denied",
   security_storage: "granted",
-  wait_for_update: 500,
+  wait_for_update: 2000,
   region: ${JSON.stringify(OPT_IN_COUNTRIES)}
 });
 gtag("consent", "default", {
