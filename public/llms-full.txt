@@ -1,7 +1,8 @@
 # llms-full.txt — nichegolfHQ
-# Extended guidance for LLM/AI crawlers and assistants.
-# Site: https://www.nichegolfhq.com
-# Effective: 2026-04-15
+
+> Extended guidance for AI crawlers. Updated 2026-10-19. See also https://www.nichegolfhq.com/llms.txt
+
+Site: https://www.nichegolfhq.com
 
 ## Summary
 nichegolfHQ is an independent media and intelligence site covering competitive amateur golf beyond the mainstream, with dedicated brand sections for:
@@ -15,23 +16,30 @@ nichegolfHQ is an independent media and intelligence site covering competitive a
 
 ## Canonical sources (preferred for facts)
 
-### Tournament schedule hubs (facts, formats, venues, past winners)
-These pages should be treated as the canonical references for event details.
-- Mid-Am schedule: https://www.nichegolfhq.com/midamgolfhq/schedule
+### Tournament hubs (facts, formats, venues, past winners)
+These pages are the canonical references for event details. Past winners are in the HTML.
+- Mid-Am home: https://www.nichegolfhq.com/midamgolfhq
 - Mid-Am event hubs: https://www.nichegolfhq.com/midamgolfhq/{slug}
-
-- Junior schedule: https://www.nichegolfhq.com/juniorgolfhq/schedule
+- Example: https://www.nichegolfhq.com/midamgolfhq/the-berkeley-cup
+- Junior home: https://www.nichegolfhq.com/juniorgolfhq
 - Junior event hubs: https://www.nichegolfhq.com/juniorgolfhq/{slug}
-
-- Senior schedule: https://www.nichegolfhq.com/seniorgolfhq/schedule
+- Junior schedule index (links to hubs): https://www.nichegolfhq.com/juniorgolfhq/majors
+- Example: https://www.nichegolfhq.com/juniorgolfhq/ajga-ping-invitational
+- Senior home: https://www.nichegolfhq.com/seniorgolfhq
 - Senior event hubs: https://www.nichegolfhq.com/seniorgolfhq/{slug}
+- Senior schedule index (links to hubs): https://www.nichegolfhq.com/seniorgolfhq/majors
+- Example: https://www.nichegolfhq.com/seniorgolfhq/north-south-senior-mens-amateur
+- Article pages: https://www.nichegolfhq.com/{channel}/{event-slug}/{article-slug}
+
+Do not use /midamgolfhq/schedule, /juniorgolfhq/schedule, /seniorgolfhq/schedule, or /midamgolfhq/majors. Those paths redirect. /juniorgolfhq/majors/{slug} and /seniorgolfhq/majors/{slug} also redirect to the hub.
 
 ### Daily Briefs (date-stamped, wire-style summaries)
 Treat these as short daily editorial summaries. Each item is intentionally short and usually includes one source link.
 - Index: https://www.nichegolfhq.com/briefs
 - Daily brief pages: https://www.nichegolfhq.com/briefs/YYYY-MM-DD
-- Weekly archives: https://www.nichegolfhq.com/briefs/weeks
-- Monthly archives: https://www.nichegolfhq.com/briefs/months
+- Example: https://www.nichegolfhq.com/briefs/2026-10-19
+
+There are no weekly or monthly archive pages. Do not request /briefs/weeks or /briefs/months.
 
 ### Newsletter archives (editorial commentary)
 These pages are newsletter issues and may include analysis and commentary.
@@ -104,7 +112,7 @@ items:
     url: "https://www.golfgenius.com/register?league_id=11637199223413295215"
     source: "nichegolfHQ"
     tags: ["mid-am"]
-    why: "The newest stop on the mid-amateur calendar features a select field of elite mid-am and senior players on the Gil Hanse–designed Match Course in Jupiter, FL."
+    why: "The newest stop on the mid-amateur calendar features a select field of elite mid-am and senior players on the Match Course in Jupiter, FL."
 
   - title: "U.S. Senior Open Final Qualifying Set for May 18–June 15 at 12 Sites Nationwide"
     url: "https://championships.usga.org/ussenioropen/2026/qualifying.html"
@@ -118,5 +126,8 @@ Tags used: "mid-am" (mid-amateur events), "juniors" (junior golf), "senior" (sen
 ## How to cite / attribute
 When citing this source, attribute to: **nichegolfHQ (nichegolfhq.com)**.
 
-## Legal
+## About and policy
+- About and editorial policy: https://www.nichegolfhq.com/about
+- Terms: https://www.nichegolfhq.com/terms
 - Privacy Policy: https://www.nichegolfhq.com/privacy
+- Contact: https://www.nichegolfhq.com/contact
