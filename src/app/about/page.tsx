@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SiteShell } from "@/components/SiteShell";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd } from "@/lib/seo/structuredData";
+
+const CONTACT_EMAIL = process.env.CONTACT_TO_EMAIL?.trim() ?? "";
+const PUBLIC_CONTACT_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_EMAIL)
+  ? CONTACT_EMAIL
+  : null;
 
 export const metadata = {
   title: "About",
@@ -12,8 +19,25 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  const aboutLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About nichegolfHQ",
+    url: "https://www.nichegolfhq.com/about",
+    description:
+      "How nichegolfHQ covers junior, mid-amateur, and senior amateur golf, including sources and corrections.",
+    isPartOf: { "@type": "WebSite", name: "nichegolfHQ", url: "https://www.nichegolfhq.com" },
+    publisher: { "@type": "Organization", name: "nichegolfHQ", url: "https://www.nichegolfhq.com" },
+  };
+  const crumbs = breadcrumbLd([
+    { name: "Home", item: "https://www.nichegolfhq.com" },
+    { name: "About", item: "https://www.nichegolfhq.com/about" },
+  ]);
+
   return (
     <SiteShell>
+      <JsonLd data={aboutLd} />
+      <JsonLd data={crumbs} />
       {/* Fixed background image */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -106,6 +130,60 @@ export default function AboutPage() {
                 className="font-semibold text-emerald-400 underline-offset-4 transition hover:underline"
               >
                 contact page
+              </Link>
+              .
+            </p>
+          </div>
+
+          <div className="mt-8 rounded-2xl bg-black/50 p-8 text-left backdrop-blur-md md:p-12">
+            <h2 className="text-center font-serif text-2xl font-bold tracking-tight text-white md:text-3xl">
+              Editorial policy
+            </h2>
+
+            <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-white/80">
+              How coverage works
+            </h3>
+            <p className="mt-2 text-base leading-7 text-white/80">
+              nichegolfHQ publishes three kinds of pages. Tournament hubs collect dates, venue, format, eligibility, and past winners for junior, mid-amateur, and senior events. Daily briefs are short, dated roundups; each item names a source and links to it. Newsletter issues are the archived editions of midamgolfHQ, juniorgolfHQ, and seniorgolfHQ.
+            </p>
+
+            <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-white/80">
+              Sources
+            </h3>
+            <p className="mt-2 text-base leading-7 text-white/80">
+              Scores, fields, and dates come from the tournament, its association (including the USGA and AJGA), or live scoring. Rankings are cited from amateurgolfinfo.com. A daily brief item is a summary of the linked source, not a rewrite presented as an original report.
+            </p>
+
+            <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-white/80">
+              Corrections
+            </h3>
+            <p className="mt-2 text-base leading-7 text-white/80">
+              If a result, date, spelling, or attribution is wrong, tell us. We update the page and leave the corrected version in place. Bylines on articles stay with the channel staff desk.
+            </p>
+
+            <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-white/80">
+              Contact
+            </h3>
+            <p className="mt-2 text-base leading-7 text-white/80">
+              {PUBLIC_CONTACT_EMAIL ? (
+                <>
+                  Email{" "}
+                  <a
+                    href={`mailto:${PUBLIC_CONTACT_EMAIL}`}
+                    className="font-semibold text-emerald-400 underline-offset-4 hover:underline"
+                  >
+                    {PUBLIC_CONTACT_EMAIL}
+                  </a>{" "}
+                  or use the{" "}
+                </>
+              ) : (
+                <>Use the </>
+              )}
+              <Link
+                href="/contact"
+                className="font-semibold text-emerald-400 underline-offset-4 transition hover:underline"
+              >
+                contact form
               </Link>
               .
             </p>
