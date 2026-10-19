@@ -1118,7 +1118,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
   {
     slug: "ojai-senior-cup",
     name: "Ojai Senior Cup",
-    liveStatus: "live",
+    liveStatus: "completed",
     logo: "/brand/ojailogo.png",
     month: "October 2026",
     dates2026: "October 16-18, 2026",
@@ -1135,6 +1135,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2025 Results",
     overview: "The Ojai Senior Cup is the West Coast\u2019s premier senior amateur championship, held annually at the historic Soule Park Golf Course in the Ojai Valley north of Santa Barbara. The public course \u2014 renovated by Gil Hanse in 2006 \u2014 winds through towering oaks in the scenic Topatopa Mountains, featuring senior (55+) and super senior (65+) divisions over 54 holes.",
     winners: [
+      { year: 2026, champion: "John Derrick" },
       { year: 2025, champion: "Tim Hogarth" },
       { year: 2024, champion: "Tim Hogarth" },
       { year: 2023, champion: "Gregory Sato" },
