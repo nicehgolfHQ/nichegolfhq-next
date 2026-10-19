@@ -13,7 +13,6 @@ export const metadata = {
 export default async function PrivacyChoicesPage() {
   const h = await headers();
   const serverGpc = h.get("sec-gpc") === "1";
-  const country = (h.get("x-vercel-ip-country") || "").toUpperCase();
 
   return (
     <SiteShell>
@@ -21,12 +20,11 @@ export default async function PrivacyChoicesPage() {
         <div className="mb-8 text-center">
           <h1 className="font-serif text-4xl font-semibold tracking-tight text-zinc-950">Your Privacy Choices</h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
-            If you are not signed in, the switch is saved in this browser. If you are signed in, it is saved to your
-            account and follows you on other devices. To opt out across devices without signing in, and to opt out of
-            the newsletter, submit the form with your email.
+            The switch below is saved in this browser. To opt out across devices and from the newsletter, submit the
+            opt-out form with your email.
           </p>
         </div>
-        <PrivacyChoices serverGpc={serverGpc} country={country} />
+        <PrivacyChoices serverGpc={serverGpc} />
         <div className="mt-8 text-center">
           <Link href="/privacy" className="text-sm text-zinc-700 underline-offset-4 hover:underline">
             Privacy Policy

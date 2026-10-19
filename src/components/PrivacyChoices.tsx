@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { loadSignedInPrivacy, saveAccountPrivacy } from "@/lib/privacy/accountConsent";
-import { readDoNotSell, readStoredAnalyticsChoice, writeDoNotSell } from "@/lib/privacy/consentScript";
-import { isOptInCountry } from "@/lib/privacy/regions";
+import { readDoNotSell, writeDoNotSell } from "@/lib/privacy/consentScript";
 
 type Status =
   | { status: "idle" }
@@ -11,49 +9,27 @@ type Status =
   | { status: "sent" }
   | { status: "error"; message: string };
 
-export function PrivacyChoices({ serverGpc, country }: { serverGpc: boolean; country: string }) {
+export function PrivacyChoices({ serverGpc }: { serverGpc: boolean }) {
   const [gpc, setGpc] = useState(serverGpc);
-  const [emailOptOut, setEmailOptOut] = useState(false);
-  const [signedIn, setSignedIn] = useState(false);
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-  const [accountAnalytics, setAccountAnalytics] = useState<boolean | null>(null);
   const [optedOut, setOptedOut] = useState(serverGpc);
   const [status, setStatus] = useState<Status>({ status: "idle" });
 
   useEffect(() => {
     const signal = serverGpc || navigator.globalPrivacyControl === true;
-    let cancelled = false;
     setGpc(signal);
-    void (async () => {
-      const signed = await loadSignedInPrivacy();
-      if (cancelled) return;
-      const sale =
-        signal || signed.emailOptOut || readDoNotSell() || signed.account?.saleShareOptOut === true;
-      setSignedIn(signed.signedIn);
-      setAccessToken(signed.accessToken);
-      setEmailOptOut(signed.emailOptOut);
-      setAccountAnalytics(signed.account ? signed.account.analyticsConsent : null);
-      setOptedOut(sale);
-      if (sale) writeDoNotSell(true);
-    })();
-    return () => {
-      cancelled = true;
-    };
+    if (signal) {
+      writeDoNotSell(true);
+      setOptedOut(true);
+      return;
+    }
+    setOptedOut(readDoNotSell());
   }, [serverGpc]);
 
   function onToggle() {
-    if (gpc || emailOptOut) return;
+    if (gpc) return;
     const next = !optedOut;
     writeDoNotSell(next);
     setOptedOut(next);
-    if (!signedIn) return;
-    const stored = readStoredAnalyticsChoice();
-    const analyticsConsent = stored ?? accountAnalytics ?? !isOptInCountry(country);
-    void saveAccountPrivacy({
-      analyticsConsent: analyticsConsent && !gpc && !emailOptOut,
-      saleShareOptOut: next,
-      gpcSeen: gpc,
-    });
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -63,11 +39,9 @@ export function PrivacyChoices({ serverGpc, country }: { serverGpc: boolean; cou
     const fd = new FormData(form);
     setStatus({ status: "sending" });
     try {
-      const headers: Record<string, string> = { "Content-Type": "application/json" };
-      if (accessToken) headers.Authorization = `Bearer ${accessToken}`;
       const res = await fetch("/api/privacy-request", {
         method: "POST",
-        headers,
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: fd.get("type"),
           name: fd.get("name"),
@@ -84,11 +58,6 @@ export function PrivacyChoices({ serverGpc, country }: { serverGpc: boolean; cou
       if (fd.get("type") === "opt-out") {
         writeDoNotSell(true);
         setOptedOut(true);
-        const refreshed = await loadSignedInPrivacy();
-        setSignedIn(refreshed.signedIn);
-        setAccessToken(refreshed.accessToken);
-        setEmailOptOut(refreshed.emailOptOut);
-        setAccountAnalytics(refreshed.account ? refreshed.account.analyticsConsent : null);
       }
       setStatus({ status: "sent" });
     } catch (err) {
@@ -102,23 +71,18 @@ export function PrivacyChoices({ serverGpc, country }: { serverGpc: boolean; cou
       <section className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm shadow-zinc-900/5">
         <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Do Not Sell or Share</h2>
         <p className="mt-3 text-sm leading-7 text-zinc-700">
-          We do not sell personal information or share it for targeted advertising. If you are not signed in, this
-          switch stays in this browser. If you are signed in, it is saved to your account.
+          This switch is saved in this browser. We do not sell personal information or share it for targeted advertising.
+          Turning it on records your opt-out on this device.
         </p>
         {gpc ? (
           <p className="mt-3 text-sm font-semibold text-zinc-950">GPC signal detected and honored.</p>
-        ) : null}
-        {emailOptOut ? (
-          <p className="mt-3 text-sm font-semibold text-zinc-950">
-            Opted out for the signed-in account. This follows that account on every device.
-          </p>
         ) : null}
         <button
           type="button"
           role="switch"
           aria-checked={optedOut}
           aria-label="Do Not Sell or Share My Personal Information"
-          disabled={gpc || emailOptOut}
+          disabled={gpc}
           onClick={onToggle}
           className="mt-5 inline-flex items-center gap-3 disabled:cursor-not-allowed"
         >
@@ -130,13 +94,7 @@ export function PrivacyChoices({ serverGpc, country }: { serverGpc: boolean; cou
             />
           </span>
           <span className="text-sm font-medium text-zinc-900">
-            {optedOut
-              ? signedIn
-                ? "Opted out on this account"
-                : "Opted out in this browser"
-              : signedIn
-                ? "Not opted out on this account"
-                : "Not opted out in this browser"}
+            {optedOut ? "Opted out in this browser" : "Not opted out in this browser"}
           </span>
         </button>
       </section>
@@ -144,8 +102,8 @@ export function PrivacyChoices({ serverGpc, country }: { serverGpc: boolean; cou
       <section className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm shadow-zinc-900/5">
         <h2 className="text-sm font-semibold tracking-tight text-zinc-950">Privacy request</h2>
         <p className="mt-3 text-sm leading-7 text-zinc-700">
-          Submit this form with your email and choose Opt out to cover other devices and the newsletter. If you sign
-          in with that email later, the opt-out follows the account. We respond within 45 days.
+          Cookie choices stay in this browser. To opt out across devices and from the newsletter, submit this form
+          with your email and choose Opt out. We respond within 45 days.
         </p>
         <form onSubmit={onSubmit} className="relative mt-6 grid gap-4">
           <label className="grid gap-2">

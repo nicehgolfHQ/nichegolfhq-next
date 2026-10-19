@@ -1,6 +1,6 @@
 -- Apply manually in the Supabase SQL editor. This file is not run by the app.
 -- privacy_requests: service role only (no public policies).
--- privacy_opt_outs: anonymous and signed-in clients may insert, never read.
+-- privacy_opt_outs: public insert only (anon and authenticated), no public reads.
 
 create table if not exists public.privacy_requests (
   id uuid primary key default gen_random_uuid(),

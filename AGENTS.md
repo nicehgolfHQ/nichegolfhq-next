@@ -305,13 +305,12 @@ type NewsArticle = {
 
 ## Privacy and consent
 
-Anonymous choices stay in the browser. Signed-in choices live in `privacy_preferences` (not new columns on `profiles`). Do not render `PRIVACY_TO_EMAIL` or `CONTACT_TO_EMAIL` in a page, a client component, JSON-LD, or a mailto link.
+There is no visitor sign-in for privacy choices. Do not store consent on `profiles` or in a per-user preferences table. Do not render `PRIVACY_TO_EMAIL` or `CONTACT_TO_EMAIL` in a page, a client component, JSON-LD, or a mailto link.
 
 - Google Analytics (`G-BW8QC5W1CH`) loads from `src/app/layout.tsx` with consent mode v2. Ad storage is denied everywhere. Analytics is denied for EEA/UK/CH until opt-in, and denied for anyone sending Global Privacy Control. Google signals and ads personalization are off.
-- Cookie banner: Orestbida CookieConsent (`vanilla-cookieconsent`) in `src/components/ConsentManager.tsx`. The banner auto-opens only when `x-vercel-ip-country` is an EEA, UK, or Switzerland code. Footer "Cookie Settings" reopens it for everyone. On sign-in, the account row overrides the regional default. GPC, a browser opt-out, and an email opt-out win over an older account allow.
+- Cookie banner: Orestbida CookieConsent (`vanilla-cookieconsent`) in `src/components/ConsentManager.tsx`. The banner auto-opens only when `x-vercel-ip-country` is an EEA, UK, or Switzerland code. Footer "Cookie Settings" reopens it for everyone. The choice stays in this browser.
 - Browser opt-out of sale/sharing is the `ng_dns` cookie, set on `/privacy-choices`.
-- Email opt-out: `POST /api/privacy-request` writes `privacy_requests` and, for type `opt-out`, `privacy_opt_outs` (scope `all`, meaning sale/share and the newsletter). If that email matches the signed-in user, `privacy_preferences` is updated too. `GET /api/privacy-preferences` reports only whether the signed-in email has an opt-out. It does not return the address.
-- SQL: `supabase/migrations/20261019191500_privacy_requests.sql` and `supabase/migrations/20261019200000_privacy_preferences.sql`. Do not apply them from the app. The route emails `PRIVACY_TO_EMAIL`, then `CONTACT_TO_EMAIL`.
+- Email opt-out: `POST /api/privacy-request` writes `privacy_requests` and, for type `opt-out`, `privacy_opt_outs` (scope `all`, meaning sale/share and the newsletter). Public clients may insert into `privacy_opt_outs` and cannot read it. SQL is `supabase/migrations/20261019191500_privacy_requests.sql`. Do not apply it from the app. The route emails `PRIVACY_TO_EMAIL`, then `CONTACT_TO_EMAIL`.
 - Ketch and Simpli.fi are removed. Do not add them back.
 
 ## IndexNow
