@@ -4,11 +4,6 @@ import { SiteShell } from "@/components/SiteShell";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbLd } from "@/lib/seo/structuredData";
 
-const CONTACT_EMAIL = process.env.CONTACT_TO_EMAIL?.trim() ?? "";
-const PUBLIC_CONTACT_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_EMAIL)
-  ? CONTACT_EMAIL
-  : null;
-
 export const metadata = {
   title: "About",
   description:
@@ -165,25 +160,19 @@ export default function AboutPage() {
               Contact
             </h3>
             <p className="mt-2 text-base leading-7 text-white/80">
-              {PUBLIC_CONTACT_EMAIL ? (
-                <>
-                  Email{" "}
-                  <a
-                    href={`mailto:${PUBLIC_CONTACT_EMAIL}`}
-                    className="font-semibold text-emerald-400 underline-offset-4 hover:underline"
-                  >
-                    {PUBLIC_CONTACT_EMAIL}
-                  </a>{" "}
-                  or use the{" "}
-                </>
-              ) : (
-                <>Use the </>
-              )}
+              Send corrections through the{" "}
               <Link
                 href="/contact"
                 className="font-semibold text-emerald-400 underline-offset-4 transition hover:underline"
               >
                 contact form
+              </Link>
+              . Privacy requests go through{" "}
+              <Link
+                href="/privacy-choices"
+                className="font-semibold text-emerald-400 underline-offset-4 transition hover:underline"
+              >
+                Your Privacy Choices
               </Link>
               .
             </p>
