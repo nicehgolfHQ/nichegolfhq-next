@@ -115,6 +115,8 @@ The channel home-page widget (`ActiveTournamentWidget`) reads `liveStatus` to de
 
 Only one tournament per channel should be `live` or `next` at a time, since the widget shows the first match it finds.
 
+Mid-Am exception (`listLiveMidAmTournaments` in `src/lib/tournaments/midam.ts`): when nothing is `live`, the `/midamgolfhq` widget shows the first `next` event, then any `upcoming` event starting within 7 days of it (sorted by start date), each as its own "Up next" card. Keep a single `next` per channel; leave the companion as `upcoming`. The site-wide home ticker still shows only the `next` event.
+
 ---
 
 ## Voice and style rules (HARD — do not violate without asking)

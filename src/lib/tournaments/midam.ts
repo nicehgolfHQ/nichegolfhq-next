@@ -29,11 +29,28 @@ export function getLiveMidAmTournament(): Tournament | undefined {
 // Returns every Mid-Am tournament currently flagged as live. When none are live,
 // falls back to the single "next" event so the home-page widget still shows an
 // "Up next" card. The home page renders one card per returned tournament.
+// Any "upcoming" event that starts within 7 days of the "next" event is listed
+// right after it (sorted by start date) and shown as "Up next" too. Only the
+// channel page widget uses this; the site-wide ticker still picks the single
+// "next" event.
+const UP_NEXT_COMPANION_WINDOW_DAYS = 7;
+
 export function listLiveMidAmTournaments(): Tournament[] {
   const live = MIDAM_TOURNAMENTS.filter((t) => t.liveStatus === "live");
   if (live.length > 0) return live;
   const next = MIDAM_TOURNAMENTS.find((t) => t.liveStatus === "next");
-  return next ? [next] : [];
+  if (!next) return [];
+  if (!next.startDate) return [next];
+  const nextStart = Date.parse(next.startDate);
+  const windowEnd = nextStart + UP_NEXT_COMPANION_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+  const companions = MIDAM_TOURNAMENTS.filter((t) => {
+    if (t.slug === next.slug || t.liveStatus !== "upcoming" || !t.startDate) return false;
+    const start = Date.parse(t.startDate);
+    return !Number.isNaN(start) && start >= nextStart && start <= windowEnd;
+  })
+    .sort((a, b) => a.startDate!.localeCompare(b.startDate!))
+    .map((t) => ({ ...t, liveStatus: "next" as const }));
+  return [next, ...companions];
 }
 
 // Returns {tournament, article} for a given tournament slug + article slug, or undefined.
