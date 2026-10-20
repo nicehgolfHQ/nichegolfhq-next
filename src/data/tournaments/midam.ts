@@ -2777,8 +2777,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "54 holes stroke play",
     tournamentWebsite: "https://carltonwoodsinvitational.com/",
-    golfGeniusUrl: "https://carltonwoodsinvitational.com/results/",
-    golfGeniusUrlLabel: "2025 Results",
+    golfGeniusUrl: "https://www.golfgenius.com/pages/12399399159226997930",
+    golfGeniusUrlLabel: "Live Scoring",
     howToPlay: [
       { label: "Register here", href: "https://www.golfgenius.com/register?league_id=12399398994642508996" },
     ],
