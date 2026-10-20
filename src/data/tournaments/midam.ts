@@ -2741,6 +2741,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    news: [
+      {
+        slug: "2026-tree-farm-invitational-field-preview",
+        title: "Tree Farm Invitational Debuts at The Tree Farm With 37-Player Mid-Am Field",
+        date: "2026-10-20",
+        author: "midamgolfHQ Staff",
+        summary:
+          "The inaugural Tree Farm Invitational brings 37 players to The Tree Farm Golf Club in Batesburg, S.C., for a 36-hole Stableford event Oct. 26-27, with a field that includes 2021 Carolinas Mid-Amateur champion Chad Wilfong.",
+        content: [
+          "The inaugural Tree Farm Invitational tees off Monday at The Tree Farm Golf Club in Batesburg, S.C., with 37 players set for a 36-hole Stableford event Oct. 26-27. The club, located just outside Aiken, is the vision of PGA Tour player Zac Blair, and the course plays to a par of 71 at 7,293 yards from the Tree Monster tees. As a first-year event, there is no defending champion, so the first name on the trophy will be decided next week. Full tournament coverage can be found on the [Tree Farm Invitational tournament hub here](/midamgolfhq/tree-farm-invitational).",
+          "Chad Wilfong of Charlotte, N.C., headlines a field with deep Carolinas ties. Wilfong, a former Wake Forest golfer, won the 2001 North Carolina Amateur and the 2021 Carolinas Mid-Amateur, and he qualified for the Championship Flight at the Crump Cup at Pine Valley last month before falling to Stewart Hagestad. Matt Crenshaw of Burlington, N.C., the 2014 Carolinas Mid-Amateur champion, adds another Carolinas title holder. Brad Wilder of Fort Wright, Ky., brings the deepest USGA run in the field after reaching the semifinals of the 2015 U.S. Mid-Amateur at John's Island Club, and he also won the 2011 Cincinnati Metropolitan Amateur. Wilder and Billy Williamson of Cincinnati, also in the field, have teamed to win five Cincinnati Metropolitan Four-Ball titles. Williamson, the 2012 Cincinnati Metropolitan Amateur champion, has won five Metropolitan Mid-Amateur titles and six Greater Cincinnati Golf Association Player of the Year awards. Dan Horner of Sandy, Utah, a three-time Utah Mid-Amateur champion, makes the trip east as well.",
+          "Minnesota is represented by Ben Greve and Jesse Bull. Greve, a former University of Minnesota golfer, won the 2022 Minnesota Golf Association State Amateur and reached the Round of 32 at last month's U.S. Mid-Amateur at The Lido, winning his opening match in 19 holes. Bull won the MGA State Amateur in 2014 and the MGA Mid-Amateur in 2023. Nick Lykins and Chris Larbes, who teamed to win the 2018 Cincinnati Metropolitan Four-Ball, share a first-round group with Jeff Reisert, and Wilfong is paired with Jacob Hill in the second group. midamgolfHQ, with Jonathan Keane on site, will be tracking the action both days from Batesburg.",
+        ],
+      },
+    ],
   },
   {
     slug: "carlton-woods-invitational",
