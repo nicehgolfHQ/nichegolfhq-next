@@ -346,7 +346,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
         summary: "Vidhi Lakhawala closed at 1-under 215 to win the third edition of the Nelly Invitational by one shot over a tie for second at The Concession Golf Club.",
         content: [
           "Vidhi Lakhawala closed the 2026 Nelly Invitational presented by Chevron with rounds of 69-75-71 for a 1-under 215 total, winning by one shot at The Concession Golf Club in Bradenton, Florida. Zoe Cusack and Grace Carter tied for second at even-par 216, with 2025 champion Shauna Liu and Amelie Zalsman tied for fourth at 1-over 217.",
-          "Six players shared sixth place at 2-over 218, including Nobelle Park, Ann-Sophie Bourgault, Jude Lee, and Raegan Denton, with Iris Lee rounding out the top 10 at 3-over 219. The 66-player field saw three withdrawals over the course of the week.",
+          "Four players shared sixth place at 2-over 218: Nobelle Park, Ann-Sophie Bourgault, Jude Lee, and Raegan Denton, with Iris Lee rounding out the top 10 at 3-over 219. The 66-player field saw three withdrawals over the course of the week.",
           "Now in its third year, the Nelly Invitational was launched by LPGA star Nelly Korda at The Concession Golf Club, named for Jack Nicklaus's famous 'concession' putt to Tony Jacklin at the 1969 Ryder Cup. Chevron joined as presenting sponsor in 2025, and the champion earns a sponsor exemption into the Chevron Championship, an LPGA major.",
         ],
       },
@@ -401,8 +401,8 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
           "Lee rallied from behind in the championship match to win the 99th Women's Western Junior at Meridian Hills Country Club.",
         content: [
           "Iris Lee, a 13-year-old from the Lake Nona area of Orlando, Florida, won the 99th Women's Western Junior Championship at Meridian Hills Country Club in Indianapolis, becoming the youngest champion in the tournament's history.",
-          "Lee was among the top qualifiers after 36 holes of stroke play, building an early cushion before the field was cut to the top 16 for match play. She advanced through four rounds of 18-hole matches to reach the final against Athena Singh.",
-          "In the championship match, Lee trailed through the first 15 holes before rallying to win the 16th and 17th holes, then closed out the victory with a par on the 18th for a 1-up win.",
+          "Lee was among the top qualifiers after 36 holes of stroke play, building an early cushion before the field was cut to the top 16 for match play. She advanced through three rounds of 18-hole matches to reach the final against Athena Singh.",
+          "In the championship match, Lee fell behind for the first time on the 15th hole before rallying to win the 16th and 17th holes, then closed out the victory with a par on the 18th for a 1-up win.",
           "The Women's Western Junior, first contested in 1920, is among the oldest junior golf championships in the country; its alumni have combined for more than 200 LPGA Tour victories.",
         ],
       },
