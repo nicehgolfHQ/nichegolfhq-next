@@ -2782,7 +2782,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Register here", href: "https://www.golfgenius.com/register?league_id=12399398994642508996" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-carlton-woods-invitational-field-preview",
+        title: "Carlton Woods Invitational Preview: Gwin Defends Against Massa, Deraney and a 94-Player Field",
+        date: "2026-10-20",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Defending champion Robert Gwin, back-to-back Huddleston Cup winner Bobby Massa and three-time Canadian Mid-Am champion Joseph Deraney headline a 94-player field at The Club at Carlton Woods in The Woodlands, Texas, Oct. 26-28.",
+        content: [
+          "The 19th Carlton Woods Invitational tees off Monday at The Club at Carlton Woods in The Woodlands, Texas, with 94 players competing over 54 holes of stroke play on the Nicklaus Course Oct. 26-28. The field splits into a 63-player Mid-Am Division (ages 25-54) and a 31-player Senior Division (55 and older). The event moves to late October this year after being played in early June in 2025. Defending champion Robert Gwin of Montgomery, Texas, returns after closing with a 69 to catch Joseph Deraney at 4-under 212 and winning the playoff. Live scoring and full tournament coverage can be found on the [Carlton Woods Invitational tournament hub here](/midamgolfhq/carlton-woods-invitational).",
+          "Gwin also tied for second and took low Mid-Master honors at the 2025 Texas Mid-Amateur. Deraney of Belden, Miss., won this event in 2018, finished runner-up in 2019 and is a three-time Canadian Men's Mid-Amateur champion. Bobby Massa of Dallas, currently No. 75 overall on amateurgolfinfo.com, arrives as the back-to-back Huddleston Cup champion and the 2024 U.S. Mid-Amateur runner-up, and he opened last month's U.S. Mid-Amateur at The Lido with a 7-under 64. John Hunter of Spring, Texas, the 2022 champion, won the 2025 Valentine Invitational by one shot over Kyle Downey of Fairport, N.Y., a two-time New York State Mid-Amateur champion also in the field. Colby Harwell of San Antonio, Texas, won here in 2013 and 2016 and added the 2023 Stocker Cup, while Ryan Terry of Brentwood, Tenn., won the Mid-Amateur division of the Trans-Miss Mid-Amateur Championship by five shots in September.",
+          "Shane Heise of The Woodlands (2024), Justin Kaplan of Houston (2017) and Derek Meinhart of Mattoon, Ill. (2015) round out the past champions. Jordan Russell of Dallas, a 2011 U.S. Amateur semifinalist, reached the Round of 16 at The Lido. Jon Weiss Jr. of Florence, S.C., who won the inaugural Jupiter Invitational in a three-man playoff in May, is joined by Jay Kirchdorfer of Louisville, Ky., who lost that playoff. midamgolfHQ will be tracking the action all week from The Woodlands.",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Robert Gwin" },
       { year: 2024, champion: "Shane Heise" },
