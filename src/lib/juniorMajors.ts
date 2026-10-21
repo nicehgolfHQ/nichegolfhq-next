@@ -868,8 +868,9 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     name: "AJGA Ping Invitational",
     // Rescheduled after the October cancellation. Confirmed on the AJGA
     // tournament page (2026844): November 5-8, 2026 at Seminole Legacy.
-    liveStatus: "upcoming",
+    liveStatus: "next",
     month: "November 2026",
+    dates2026: "November 5-8, 2026",
     startDate: "2026-11-05",
     endDate: "2026-11-08",
     officialUrl: "https://www.ajga.org/tournaments/2026844/information",
@@ -897,9 +898,11 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     name: "The Elite Invitational",
     // 2026 dates and venue confirmed on theeliteinvitational.org (home, schedule,
     // course pages) and Golfstat: November 5-7, 2026 at The King & Bear Golf Club.
-    // First round Nov 5 precedes PING's first round (Nov 6), so Elite stays "next".
+    // Overlaps the rescheduled PING Invitational (Nov 5-8); both are flagged
+    // "next" and the juniorgolfHQ widget renders a card for each.
     liveStatus: "next",
     month: "November 2026",
+    dates2026: "November 5-7, 2026",
     startDate: "2026-11-05",
     endDate: "2026-11-07",
     officialUrl: "https://theeliteinvitational.org/",
@@ -1032,6 +1035,17 @@ export function listJuniorMajorArticleParams(): {
   return out;
 }
 
+
+// Returns every junior tournament flagged live (or, when none are live, every
+// one flagged next) whose end date hasn't passed. Lets the juniorgolfHQ widget
+// render a card for each overlapping event, matching the mid-am and senior pages.
+export function listLiveJuniorTournaments(): JuniorMajorEvent[] {
+  const today = new Date().toISOString().slice(0, 10);
+  const notOver = (t: JuniorMajorEvent) => !t.endDate || t.endDate >= today;
+  const live = JUNIOR_MAJOR_EVENTS_2026.filter((t) => t.liveStatus === "live" && notOver(t));
+  if (live.length > 0) return live;
+  return JUNIOR_MAJOR_EVENTS_2026.filter((t) => t.liveStatus === "next" && notOver(t));
+}
 
 // Returns the first junior tournament currently flagged as live or next.
 // Used by the active-tournament widget on the juniorgolfHQ home page.

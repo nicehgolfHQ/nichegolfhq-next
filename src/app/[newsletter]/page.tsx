@@ -10,7 +10,7 @@ import { fetchFeedItems } from "@/lib/rss";
 import { listMidAmTournaments, listMidAmArticles, listLiveMidAmTournaments } from "@/lib/tournaments/midam";
 import { ActiveTournamentWidget } from "@/components/ActiveTournamentWidget";
 import { LatestNewsSection } from "@/components/tournaments/LatestNews";
-import { JUNIOR_MAJOR_EVENTS_2026 , getLiveJuniorTournament} from "@/lib/juniorMajors";
+import { JUNIOR_MAJOR_EVENTS_2026 , listLiveJuniorTournaments} from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 , listLiveSeniorTournaments} from "@/lib/seniorMajors";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
 import type { Metadata } from "next";
@@ -174,13 +174,13 @@ export default async function NewsletterPage({
   const heroImage = HERO_IMAGES[feed.slug] ?? null;
 
   // Active-tournament widget: shown on midamgolfhq, juniorgolfhq, and seniorgolfhq when a tournament is flagged live.
-  // Mid-Am and senior can both have multiple live/next events at once (e.g. two championships
-  // sharing an opening weekend), so we render a card for each. Junior still surfaces a single event.
+  // Mid-Am, junior, and senior can all have multiple live/next events at once (e.g. two
+  // championships sharing an opening weekend), so we render a card for each.
   // Senior falls back to automatic date-based detection (see listLiveSeniorTournaments) so it
   // doesn't require anyone to manually flip liveStatus as events approach.
   const liveTournaments: Tournament[] =
       feed.slug === "midamgolfhq" ? listLiveMidAmTournaments() :
-      feed.slug === "juniorgolfhq" ? [getLiveJuniorTournament() as unknown as Tournament].filter(Boolean) :
+      feed.slug === "juniorgolfhq" ? (listLiveJuniorTournaments() as unknown as Tournament[]) :
       feed.slug === "seniorgolfhq" ? (listLiveSeniorTournaments() as unknown as Tournament[]) :
       [];
   const liveTournamentChannelPrefix = `/${feed.slug}`;
