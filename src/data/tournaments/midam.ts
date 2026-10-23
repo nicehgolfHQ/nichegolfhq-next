@@ -2345,6 +2345,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "john-r-williams-four-ball",
     name: "John R. Williams Four-Ball",
     channel: "midam",
+    liveStatus: "completed",
     month: 10,
     dates2026: "October 1-3, 2026",
     startDate: "2026-10-01",
