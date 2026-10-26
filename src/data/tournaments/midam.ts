@@ -2742,6 +2742,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only — no application" },
     ],
+    golfGeniusUrl: "/results/tree-farm-invitational-2026-round-1.html",
+    golfGeniusUrlLabel: "Live Scoring",
     news: [
       {
       slug: "2026-tree-farm-invitational-round-1-recap",
