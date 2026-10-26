@@ -2744,6 +2744,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+      slug: "2026-tree-farm-invitational-round-1-recap",
+      title: "Dan Horner Posts 45 Points to Lead Tree Farm After Opening Round",
+      date: "2026-10-26",
+      author: "midamgolfHQ Staff",
+      summary:
+      "Dan Horner opened with 45 Stableford points at The Tree Farm to lead the inaugural Tree Farm Invitational by two, with Dan Sullivan second and Jonathan Keane and Brian Thompson sharing third.",
+      content: [
+      "Dan Horner of Sandy, Utah, posted 45 Stableford points on Monday at The Tree Farm Golf Club in Batesburg, S.C., to open a two-point lead at the inaugural Tree Farm Invitational. Dan Sullivan sits second at 43, with Jonathan Keane and Brian Thompson sharing third at 42. Martin Golobic is alone in fifth at 41, and Michael Blackham, Nick Jallos and David Scott are tied for sixth at 40. Full tournament coverage can be found on the [Tree Farm Invitational tournament hub here](/midamgolfhq/tree-farm-invitational).",
+      "Horner, a three-time Utah Mid-Amateur champion, holds the overnight lead in the 36-hole Stableford debut. Jesse Bull, the 2023 Minnesota Mid-Amateur champion, is part of a group at 37. Chad Wilfong, the 2021 Carolinas Mid-Amateur champion, and Brad Wilder, a 2015 U.S. Mid-Amateur semifinalist, are both at 32, while 2013 U.S. Mid-Amateur runner-up Billy Williamson sits at 26 and 2014 Travis Invitational champion Brett Williams is at 29. Horner, Sullivan and Keane go off in Tuesday's final group at 10:42 a.m. midamgolfHQ, with Jonathan Keane on site, will have full coverage of Tuesday's final round from Batesburg.",
+      ],
+      },
+      {
         slug: "2026-tree-farm-invitational-field-preview",
         title: "Tree Farm Invitational Debuts at The Tree Farm With 37-Player Mid-Am Field",
         date: "2026-10-20",
