@@ -2785,6 +2785,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-carlton-woods-invitational-round-1-recap",
+        title: "Kade Stewart Fires 5-Under 67 to Lead Carlton Woods After Opening Round",
+        date: "2026-10-26",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Kade Stewart opened with a 5-under 67 at The Club at Carlton Woods to take a three-shot lead, while defending champion Robert Gwin sits eight over after Round 1.",
+        content: [
+          "Kade Stewart carded a 5-under 67 on Monday at The Club at Carlton Woods in The Woodlands, Texas, to open a three-shot lead at the Carlton Woods Invitational. Garrett Driver, Mitchell Ford, Brad Mason and Justin Kaplan share second at 2-under 70, with Rafael Abad, Coy Dobson and Charlie Holland tied for sixth at 1-under 71. Live scoring and full tournament coverage can be found on the [Carlton Woods Invitational tournament hub here](/midamgolfhq/carlton-woods-invitational).",
+          "Nine players sit at even-par 72, including Ryan Terry and Bobby Massa, while last year's playoff runner-up Joseph Deraney is tied for 37th at 4-over 76. Defending champion Robert Gwin, who closed with a 69 a year ago to catch Deraney at 4-under 212 and win in a playoff, opened with an 8-over 80 and is tied for 53rd. Two rounds remain on the Nicklaus Course. midamgolfHQ will be tracking the action from The Woodlands.",
+        ],
+      },
+      {
         slug: "2026-carlton-woods-invitational-field-preview",
         title: "Carlton Woods Invitational Preview: Gwin Defends Against Massa, Deraney and a 63-Player Mid-Am Field",
         date: "2026-10-20",
