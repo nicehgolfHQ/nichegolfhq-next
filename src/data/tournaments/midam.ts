@@ -2799,6 +2799,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-carlton-woods-invitational-round-2-recap",
+        title: "Stewart Holds One-Shot Carlton Woods Lead as Harwell and Hunter Fire 68s",
+        date: "2026-10-27",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Kade Stewart cards a 1-under 71 to lead at 6-under 138 heading into the final round, with Garrett Driver one back and Colby Harwell alone in third after a 4-under 68.",
+        content: [
+          "Kade Stewart of Magnolia, Texas, the 2025 Texas Mid-Amateur champion, held onto the lead at the Carlton Woods Invitational with a 1-under 71 on the Nicklaus Course to reach 6-under 138 through 36 holes at The Club at Carlton Woods in The Woodlands, Texas. Garrett Driver of Humble, Texas, climbed into solo second at 5-under 139 after a 3-under 69, one shot back. Two-time Carlton Woods champion Colby Harwell of San Antonio, Texas, fired a 4-under 68, matching the low round of the day, to vault into solo third at 4-under 140. Bobby Massa of Dallas, currently No. 75 overall on amateurgolfinfo.com, and Charlie Holland of Dallas share fourth at 3-under 141. Live scoring and full tournament coverage can be found on the [Carlton Woods Invitational tournament hub here](/midamgolfhq/carlton-woods-invitational).",
+          "John Hunter of Spring, Texas, the 2022 champion and 2025 Valentine Invitational winner, matched Harwell's 68 to climb into a tie for sixth at 2-under 142 with Coy Dobson of Austin, Texas, and Mitchell Ford of Little Rock, Ark. Austen Christiansen and Trans-Miss Mid-Amateur champion Ryan Terry of Brentwood, Tenn., share ninth at 1-under 143. Brad Mason and Justin Kaplan, the 2017 champion, who shared second after the opening round, both slipped after second-round 75 and 76, respectively, with Mason at 1-over 145 and Kaplan at 2-over 146 alongside 2018 champion Joseph Deraney. Stewart opened with a three-shot lead after a 5-under 67 and takes a one-shot cushion into Wednesday's final round. midamgolfHQ will have full coverage of the final round from The Woodlands.",
+        ],
+      },
+      {
         slug: "2026-carlton-woods-invitational-round-1-recap",
         title: "Kade Stewart Fires 5-Under 67 to Lead Carlton Woods After Opening Round",
         date: "2026-10-26",
