@@ -2779,7 +2779,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "carlton-woods-invitational",
     name: "Carlton Woods Invitational",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 10,
     dates2026: "October 26-28, 2026",
     startDate: "2026-10-26",
@@ -2796,11 +2796,23 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "54 holes stroke play",
     tournamentWebsite: "https://carltonwoodsinvitational.com/",
     golfGeniusUrl: "https://www.golfgenius.com/pages/12399399159226997930",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     howToPlay: [
       { label: "Register here", href: "https://www.golfgenius.com/register?league_id=12399398994642508996" },
     ],
     news: [
+      {
+        slug: "2026-carlton-woods-invitational-final-recap",
+        title: "Stewart Wins Carlton Woods Invitational Wire-to-Wire at 10-Under 206",
+        date: "2026-10-28",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Kade Stewart closes with a 4-under 68 to win the Carlton Woods Invitational at 10-under 206, holding off Garrett Driver by four on the Nicklaus Course in The Woodlands, Texas.",
+        content: [
+          "Kade Stewart of Magnolia, Texas, the 2025 Texas Mid-Amateur champion, won the Carlton Woods Invitational with a final-round 4-under 68 to finish at 10-under 206 on the Nicklaus Course at The Club at Carlton Woods in The Woodlands, Texas. Stewart led wire-to-wire after opening with a 5-under 67, taking a three-shot lead into Round 2 and a one-shot cushion into Wednesday's finale, then pulled away to win by four. Garrett Driver of Humble, Texas, closed with a 1-under 71 for solo second at 6-under 210. John Hunter of Spring, Texas, the 2022 champion and 2025 Valentine Invitational winner, and Bobby Massa of Dallas, currently No. 75 overall on amateurgolfinfo.com, share third at 5-under 211. Full results can be found on the [Carlton Woods Invitational tournament hub here](/midamgolfhq/carlton-woods-invitational).",
+          "Mitchell Ford of Little Rock, Ark., finished alone in fifth at 3-under 213, with Charlie Holland of Dallas sixth at 1-under 215. Austen Christiansen was alone in seventh at even-par 216, and Travis Woolf finished eighth at 1-over 217. Adam Condello fired a 3-under 69 to climb into a tie for ninth at 2-over 218 with Tucker Jenkins and Coy Dobson of Austin, Texas. Two-time Carlton Woods champion Colby Harwell of San Antonio, Texas, who entered the final round alone in third at 4-under after a second-round 68, shot 79 and finished T12 at 3-over 219 alongside Rafael Abad. Adam Harrington matched Stewart's 4-under 68, the low round of the day, to finish T28 at 10-over 226. Defending champion Robert Gwin of Montgomery, Texas, closed with a 72 to finish T32 at 11-over 227. Past champions Justin Kaplan (2017) finished T28 at 10-over, Joseph Deraney (2018) T20 at 7-over and Shane Heise (2024) T51 at 18-over. midamgolfHQ congratulates Kade Stewart on his Carlton Woods Invitational title.",
+        ],
+      },
       {
         slug: "2026-carlton-woods-invitational-round-2-recap",
         title: "Stewart Holds One-Shot Carlton Woods Lead as Harwell and Hunter Fire 68s",
@@ -2840,6 +2852,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Kade Stewart" },
       { year: 2025, champion: "Robert Gwin" },
       { year: 2024, champion: "Shane Heise" },
       { year: 2023, champion: "No tournament", notes: "Course renovation" },
