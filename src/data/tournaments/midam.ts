@@ -2722,7 +2722,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "tree-farm-invitational",
     name: "The Tree Farm Invitational",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     logo: "/brand/Tree Farm 2.jpeg",
     month: 10,
     dates2026: "October 26-27, 2026",
@@ -2743,7 +2743,10 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       { label: "Invite only — no application" },
     ],
     golfGeniusUrl: "/results/tree-farm-invitational-2026-round-1.html",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "Round 1 Scores",
+    pastResults: [
+      { year: 2026, champion: "Davis Weil" },
+    ],
     news: [
       {
       slug: "2026-tree-farm-invitational-round-1-recap",
