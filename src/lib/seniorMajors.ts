@@ -1159,7 +1159,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
   {
     slug: "reynolds-senior-invitational",
     name: "Reynolds Senior Invitational",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: "October 2026",
     startDate: "2026-10-26",
     endDate: "2026-10-28",
@@ -1466,6 +1466,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
   {
     slug: "golfweek-senior-desert-showdown",
     name: "Golfweek Senior Desert Showdown",
+    liveStatus: "next",
     logo: "/brand/GwkSrNation_BADGE.svg",
     tournamentWebsite: "https://golfweekseniornation.com/",
     golfGeniusUrl: "https://www.golfgenius.com/pages/11649874220149642639",
@@ -1481,7 +1482,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
   {
     slug: "carlton-woods-senior-invitational",
     name: "Carlton Woods Senior Invitational",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: "October 2026",
     startDate: "2026-10-26",
     endDate: "2026-10-28",

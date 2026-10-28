@@ -2880,6 +2880,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "east-vs-west-matches",
     name: "East vs West Matches",
     channel: "midam",
+    liveStatus: "next",
     month: 11,
     dates2026: "November 6-8, 2026",
     startDate: "2026-11-06",
