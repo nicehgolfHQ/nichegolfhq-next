@@ -1497,7 +1497,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
       { year: 2025, champion: "Robert Funk" },
       { year: 2024, champion: "Mark Strickland" },
       { year: 2022, champion: "Robert Funk" },
-      { year: 2021, champion: "David Ortega" },
+      { year: 2021, champion: "David Ortego" },
       { year: 2019, champion: "Lewis Stephenson" },
       { year: 2018, champion: "Mike Booker" },
       { year: 2017, champion: "Jeff New" },
