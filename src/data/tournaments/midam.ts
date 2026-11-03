@@ -2904,6 +2904,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseRating: 79.6,
     courseSlope: 155,
     courseTeeName: "Back",
+    golfGeniusUrl: "https://2026eastwestmatches.golfgenius.com/pages/13130623543135991976",
+    golfGeniusUrlLabel: "Live Scoring",
     format: "Team match play",
     howToPlay: [
       { label: "Invite only" },
