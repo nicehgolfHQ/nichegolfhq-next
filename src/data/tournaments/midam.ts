@@ -2908,7 +2908,23 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only" },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-east-vs-west-matches-preview",
+        title: "East vs West Matches Preview: Bailey, Hagestad Headline Fourth Edition as West Defends Series Lead at Maridoe",
+        date: "2026-11-03",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Reigning U.S. Mid-Amateur champion Andrew Bailey leads Paul Simson's East against Trip Kuehne's West, headlined by Stewart Hagestad and Bobby Massa, when the fourth East vs West Matches tee off at Maridoe Golf Club Nov. 6-8.",
+        content: [
+          "The fourth East vs West Matches tee off Friday at Maridoe Golf Club in Carrollton, Texas, where 18-man teams from either side of the Mississippi River meet in three days of match play Nov. 6-8. Each side fields 12 mid-amateurs and six seniors 55 and over. Half of each roster earned a spot through the East-West Points System, a two-year standings built from national championships and top invitationals, and the other half are captain's picks, with both teams set after the U.S. Mid-Amateur and U.S. Senior Amateur. Friday opens with four-ball, Saturday brings morning and afternoon foursomes, and Sunday's singles decide it, with the singles draw made right after play Saturday. Live scoring and full tournament coverage can be found on the [East vs West Matches tournament hub here](/midamgolfhq/east-vs-west-matches).",
+          "The West leads the series 2-1, and every edition has been played at Maridoe. The inaugural matches in 2020 came down to the final hole, where Patrick Christovich hit a flop shot to two feet on 18 to halve his match with Nathan Smith and clinch a 23-22 West win, capping a comeback from a 16-11 deficit with a 12-6 edge in Sunday singles. The East answered in 2022 with a 31½-13½ rout under captain Nathaniel Crosby, the 1981 U.S. Amateur champion, taking 14 of 18 singles points as Evan Beck and Jeronimo Esteve each went 4-0. In 2024, the West carried a one-point lead into Sunday, won the singles 10½-7½ and took a 24½-20½ victory under captain Brady Exber.",
+          "Paul Simson, the 2010 and 2012 U.S. Senior Amateur champion who co-captained the East with Tim Jackson in 2020, is back in charge, and his team is led by Andrew Bailey of Cleveland, who won the U.S. Mid-Amateur at The Lido at Sand Valley Resort in Nekoosa, Wis., beating Nate Smith 5 and 4 in the final. Bailey, the 2025 Giles Invitational champion, is No. 50 overall on amateurgolfinfo.com. Beck, the 2024 U.S. Mid-Am champion, returns after his perfect week in 2022, joined by 2014 U.S. Mid-Am champion Scott Harvey, who founded the event, and Indianapolis dentist Matt Vogt, the 2026 Indiana State Amateur champion and a U.S. Mid-Am semifinalist at The Lido. Christian Cavaliere reached the Round of 16 at this year's U.S. Amateur, the best finish by a mid-am, after making the U.S. Mid-Am semifinals in 2025. Andrew Price, the 2024 Crump Cup champion, 2018 U.S. Mid-Am medalist Stephen Behr, Will Davenport, Jonathan Bale, Christian Brand, Brett Patterson and Nate Gahman round out the East's mid-ams.",
+          "Trip Kuehne, the 2007 U.S. Mid-Am champion who played on the winning West side in 2024, captains a team led by three-time U.S. Mid-Am champion Stewart Hagestad, No. 4 overall on amateurgolfinfo.com, who beat Price 3 and 2 in the Crump Cup final at Pine Valley in September. Bobby Massa, the 2024 U.S. Mid-Am runner-up and medalist at The Lido at 133, has won the Huddleston Cup at Maridoe in each of the last two years and is No. 77 on amateurgolfinfo.com. Nate Smith of Tetonia, Idaho, the U.S. Mid-Am runner-up, beat Hagestad and Parker Edens on his way to the final, while Mikel Martinson of Throckmorton, Texas, reached the semifinals. Drew Kittleson of Scottsdale, Ariz., a three-time USGA runner-up, played in back-to-back U.S. Amateur Four-Ball finals with teammate Drew Stoltz in 2022 and 2023. Zach Foushee, Jordan Russell, Brad Nurski, Chris Wheeler and Josh Persons fill out the West's mid-ams.",
+          "The senior matches carry just as much hardware. The East sends 2026 U.S. Senior Amateur champion Mike Sposa of Spartanburg, S.C., who beat teammate Todd White 3 and 2 in the final at Baltimore Country Club, along with White, the 2023 champion, Doug Hanzel (2013), Bob Royak (2019), 1997 U.S. Mid-Am runner-up Rick Stimmel and Danny Nelson. The West counters with Mike McCoy, the 2013 U.S. Mid-Am and 2025 U.S. Senior Amateur champion, 2021 U.S. Senior Amateur champion Gene Elliott, 2026 U.S. Senior Amateur medalist Trae Cassell, Baltimore semifinalist Corby Segal, Bryan Hoops and Jason Pridmore. midamgolfHQ will be tracking the action all week from Maridoe.",
+        ],
+      },
+    ],
     pastResults: [],
   },
 
