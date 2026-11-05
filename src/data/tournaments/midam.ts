@@ -2964,7 +2964,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "Rob Couture of Celina, Texas, the 2011 Canadian Men's Mid-Amateur champion, was medalist at the Travis Invitational in May and reached the Championship Flight semifinals. Keith Guest of Athens, Ga., the 2021 Berkeley Cup champion, was runner-up at Berkeley Hills last month. Logan Blondell of Lakeland, Fla., won the 2022 Gasparilla Invitational with a tournament-record 200, Scott Turner of Stuart, Fla., won the Gasparilla in 2025, and 2025 Stocker Cup champion Parker Sisk and Travis Taft Cup winner TJ Shuart add more depth. Haymes Snedeker of Point Clear, Jackson King and Ethan Hagood of Vestavia Hills, Will McCurdy of Auburn and Nick Robillard of Birmingham all finished among the top 10 and ties at the Alabama State Mid-Am, leading a strong home-state contingent. midamgolfHQ will be tracking the action all week from Birmingham.",
         ],
       },
-    ],,
+    ],
     pastResults: [
       { year: 2025, champion: "Ryan Terry" },
       { year: 2024, champion: "Hunter Hamrick" },
