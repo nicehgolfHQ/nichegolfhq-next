@@ -900,7 +900,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     // course pages) and Golfstat: November 5-7, 2026 at The King & Bear Golf Club.
     // Overlaps the rescheduled PING Invitational (Nov 5-8); both are flagged
     // "next" and the juniorgolfHQ widget renders a card for each.
-    liveStatus: "next",
+    liveStatus: "live",
     month: "November 2026",
     dates2026: "November 5-7, 2026",
     startDate: "2026-11-05",
