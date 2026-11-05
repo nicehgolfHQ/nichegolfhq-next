@@ -2947,6 +2947,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "West Course (Back)",
 
     format: "54 holes stroke play",
+    golfGeniusUrl: "https://idp.golfgenius.com/auth/sign_in?client_id=wBAUsyPpl__2IzhkpkrIM88kwl8O-IUXqm-a81QS3y0&redirect_uri=https%3A%2F%2Fwww.golfgenius.com%2Foauth&response_type=code&scope=openid",
     golfGeniusCode: "NIT2026",
     howToPlay: [
       { label: "Invite only \u2014 no application" },

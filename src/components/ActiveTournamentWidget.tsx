@@ -41,8 +41,11 @@ export function ActiveTournamentWidget({ tournament, channelPrefix }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-500 hover:shadow-lg"
+              title={tournament.golfGeniusCode ? `Golf Genius ID: ${tournament.golfGeniusCode}` : undefined}
             >
-              Live Scoring
+              {tournament.golfGeniusCode
+                ? `Live Scoring · ${tournament.golfGeniusCode}`
+                : "Live Scoring"}
             </Link>
           ) : tournament.golfGeniusCode ? (
             <span

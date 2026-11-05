@@ -79,8 +79,13 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-bold text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-500 hover:shadow-lg"
+            title={tournament.golfGeniusCode ? `Golf Genius ID: ${tournament.golfGeniusCode}` : undefined}
           >
-            <span>{tournament.golfGeniusUrlLabel ?? "Live Scoring"}</span>
+            <span>
+              {tournament.golfGeniusCode
+                ? `Live Scoring · ${tournament.golfGeniusCode}`
+                : (tournament.golfGeniusUrlLabel ?? "Live Scoring")}
+            </span>
           </a>
         </div>
       ) : tournament.golfGeniusCode ? (
