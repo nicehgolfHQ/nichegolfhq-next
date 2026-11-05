@@ -2950,7 +2950,21 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Invite only \u2014 no application" },
     ],
-    news: [],
+        news: [
+      {
+        slug: "2026-national-invitational-tournament-preview",
+        title: "National Invitational Tournament Preview: Ryan Terry Leads Six Past Champions in 84-Player Field at The Country Club of Birmingham",
+        date: "2026-11-04",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Defending champion Ryan Terry leads an 84-player mid-am field with five other past NIT champions, including Hunter Hawkins and Hunter Hamrick, at The Country Club of Birmingham Nov. 6-8.",
+        content: [
+          "The National Invitational Tournament tees off Friday at The Country Club of Birmingham in Birmingham, Ala., with 84 mid-amateurs set for 54 holes of stroke play on the West Course Nov. 6-8. Six past champions are in the field, led by defending champion Ryan Terry of Brentwood, Tenn., who posted rounds of 67-69-70 last year to win at 7-under 206, seven shots clear of runner-up Taylor Eyster, who is also back. Live scoring and full tournament coverage can be found on the [National Invitational Tournament tournament hub here](/midamgolfhq/national-invitational-tournament).",
+          "Terry arrives after winning the Mid-Amateur division of the Trans-Miss Mid-Amateur Championship by five shots in September. Hunter Hawkins of Fort Payne, Ala., the 2022 champion, tied for third here last year and won the Alabama State Mid-Amateur for the second straight year in September. Hunter Hamrick of Pike Road, Ala., who won the 2024 NIT at 6-under 207, finished solo second behind Hawkins at the state Mid-Am. Blake Watts of Fort Payne, the 2023 champion, joins 2018 winner Clay Guerin and 2012 champion Patrick Christovich of New Orleans to round out the former winners.",
+          "Rob Couture of Celina, Texas, the 2011 Canadian Men's Mid-Amateur champion, was medalist at the Travis Invitational in May and reached the Championship Flight semifinals. Keith Guest of Athens, Ga., the 2021 Berkeley Cup champion, was runner-up at Berkeley Hills last month. Logan Blondell of Lakeland, Fla., won the 2022 Gasparilla Invitational with a tournament-record 200, Scott Turner of Stuart, Fla., won the Gasparilla in 2025, and 2025 Stocker Cup champion Parker Sisk and Travis Taft Cup winner TJ Shuart add more depth. Haymes Snedeker of Point Clear, Jackson King and Ethan Hagood of Vestavia Hills, Will McCurdy of Auburn and Nick Robillard of Birmingham all finished among the top 10 and ties at the Alabama State Mid-Am, leading a strong home-state contingent. midamgolfHQ will be tracking the action all week from Birmingham.",
+        ],
+      },
+    ],,
     pastResults: [
       { year: 2025, champion: "Ryan Terry" },
       { year: 2024, champion: "Hunter Hamrick" },
