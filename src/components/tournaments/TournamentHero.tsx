@@ -83,6 +83,15 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
             <span>{tournament.golfGeniusUrlLabel ?? "Live Scoring"}</span>
           </a>
         </div>
+      ) : tournament.golfGeniusCode ? (
+        <div className="mt-8">
+          <span
+            className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-bold text-zinc-900 shadow-sm"
+            title={`Golf Genius ID: ${tournament.golfGeniusCode}`}
+          >
+            <span>Live Scoring · {tournament.golfGeniusCode}</span>
+          </span>
+        </div>
       ) : null}
     </section>
   );

@@ -91,6 +91,8 @@ export interface Tournament {
   // === LINKS ===
   golfGeniusUrl?: string;
   golfGeniusUrlLabel?: string;
+  // Golf Genius event code when no public live-scoring URL exists (shown on the hub button).
+  golfGeniusCode?: string;
   tournamentWebsite?: string;
   tournamentWebsiteLabel?: string;
   courseWebsite?: string;

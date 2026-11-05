@@ -2947,6 +2947,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseTeeName: "West Course (Back)",
 
     format: "54 holes stroke play",
+    golfGeniusCode: "NIT2026",
     howToPlay: [
       { label: "Invite only \u2014 no application" },
     ],
