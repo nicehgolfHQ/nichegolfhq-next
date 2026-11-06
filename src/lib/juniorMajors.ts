@@ -906,6 +906,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     startDate: "2026-11-05",
     endDate: "2026-11-07",
     officialUrl: "https://theeliteinvitational.org/",
+    golfGeniusUrl: "https://results.golfstat.com/public/leaderboards/gsnav.cfm?pg=player&tid=29510",
     course: "The King & Bear Golf Club",
     location: "St. Augustine, FL",
     coursePar: 72,
