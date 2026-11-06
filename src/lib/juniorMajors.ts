@@ -868,7 +868,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     name: "AJGA Ping Invitational",
     // Rescheduled after the October cancellation. Confirmed on the AJGA
     // tournament page (2026844): November 5-8, 2026 at Seminole Legacy.
-    liveStatus: "next",
+    liveStatus: "live",
     month: "November 2026",
     dates2026: "November 5-8, 2026",
     startDate: "2026-11-05",
