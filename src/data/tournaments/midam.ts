@@ -2916,6 +2916,11 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         title: "West Surges to 15-12 Lead at Maridoe With Six Afternoon Wins",
         date: "2026-11-07",
         author: "midamgolfHQ Staff",
+        header: {
+          src: "/images/articles/2026-east-vs-west-day-2.jpg",
+          alt: "Golf course green beside a lake",
+          objectPosition: "center",
+        },
         summary:
           "The West won Saturday afternoon's foursomes session 6½-2½ to turn a one-point deficit into a three-point lead entering Sunday singles at the East vs West Matches.",
         content: [

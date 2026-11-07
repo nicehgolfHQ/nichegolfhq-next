@@ -26,6 +26,13 @@ export interface HowToPlayEntry {
   note?: string;
 }
 
+export interface NewsArticleHeader {
+  src: string;
+  alt: string;
+  // CSS object-position for the 16:9 crop window. Defaults to center.
+  objectPosition?: string;
+}
+
 export interface NewsArticle {
   slug: string;
   title: string;
@@ -34,6 +41,7 @@ export interface NewsArticle {
   summary?: string; // Short blurb for cards / SEO
   content: string[]; // Array of paragraphs (rendered as <p> tags)
   photos?: string[]; // Array of image URLs for photo gallery
+  header?: NewsArticleHeader; // Optional single article header. Not a tournament hero.
 }
 
 export interface Tournament {

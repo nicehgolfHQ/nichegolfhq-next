@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/SiteShell";
 import { JsonLd } from "@/components/JsonLd";
+import { ArticleHeader } from "@/components/tournaments/ArticleHeader";
 import { PhotoCarousel } from "@/components/tournaments/PhotoCarousel";
 import {
   getMidAmTournamentArticle,
@@ -18,6 +19,13 @@ export function generateStaticParams() {
 
 const SITE = "https://www.nichegolfhq.com";
 
+function shareImage(headerSrc?: string, photo?: string, logo?: string) {
+  const raw = headerSrc || photo;
+  if (raw) return raw.startsWith("http") ? raw : `${SITE}${raw}`;
+  if (logo) return `${SITE}${logo}`;
+  return DEFAULT_OG_IMAGE;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -30,7 +38,7 @@ export async function generateMetadata({
   const title = `${article.title} | ${tournament.name}`;
   const description = article.summary || `${article.title}. Coverage from midamgolfHQ.`;
   const url = `${SITE}/midamgolfhq/${tournament.slug}/${article.slug}`;
-  const ogImage = article.photos?.[0] || (tournament.logo ? `${SITE}${tournament.logo}` : DEFAULT_OG_IMAGE);
+  const ogImage = shareImage(article.header?.src, article.photos?.[0], tournament.logo);
   return {
     title,
     description,
@@ -64,9 +72,7 @@ export default async function MidAmTournamentArticlePage({
   const { tournament, article } = result;
 
   const articleUrl = `${SITE}/midamgolfhq/${tournament.slug}/${article.slug}`;
-  const ogImage =
-    article.photos?.[0] ||
-    (tournament.logo ? `${SITE}${tournament.logo}` : DEFAULT_OG_IMAGE);
+  const ogImage = shareImage(article.header?.src, article.photos?.[0], tournament.logo);
 
   const articleLd = newsArticleLd({
     headline: article.title,
@@ -107,6 +113,7 @@ export default async function MidAmTournamentArticlePage({
           </Link>
         </nav>
 
+        {article.header && <ArticleHeader header={article.header} priority />}
         {article.photos && article.photos.length > 0 && (
           <div className="mb-6">
             <PhotoCarousel photos={article.photos} />
