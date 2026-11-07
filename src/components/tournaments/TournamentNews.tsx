@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { NewsArticle } from "@/lib/tournaments/types";
+import { ArticleHeader } from "./ArticleHeader";
 import { PhotoCarousel } from "./PhotoCarousel";
 
 function ArticleBody({ article }: { article: NewsArticle }) {
   return (
     <>
+      {article.header && <ArticleHeader header={article.header} />}
       {article.photos && article.photos.length > 0 && (
         <PhotoCarousel photos={article.photos} />
       )}

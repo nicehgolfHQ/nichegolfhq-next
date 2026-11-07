@@ -72,7 +72,8 @@ Articles live inside the `news?: NewsArticle[]` array on each Tournament/Major e
     "Paragraph 1 ...",
     "Paragraph 2 ...",
   ],
-  photos?: ["https://..."],                          // optional; first photo becomes og:image
+  photos?: ["https://..."],                          // optional gallery; first photo is og:image when header is absent
+  header?: { src: "/images/...", alt: "Descriptive alt", objectPosition?: "center" }, // optional 16:9 article header, not the tournament hero
 }
 ```
 
@@ -300,6 +301,7 @@ type NewsArticle = {
   summary?: string;
   content: string[];                // each string is one paragraph; supports [text](url) markdown links
   photos?: string[];
+  header?: { src: string; alt: string; objectPosition?: string };
 };
 ```
 
