@@ -2912,6 +2912,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-east-vs-west-matches-day-1-recap",
+        title: "East Takes 5-4 Lead at Maridoe as Sposa and White Deliver Day 1's Biggest Win",
+        date: "2026-11-06",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Mike Sposa and Todd White won 5 and 3 as the East claimed four of nine four-ball matches Friday to take a 5-4 lead at Maridoe Golf Club.",
+        content: [
+          "The East took a 5-4 lead over the West in Friday's opening four-ball session of the East vs West Matches at Maridoe Golf Club in Carrollton, Texas, collecting four wins and two halves from nine matches. Mike Sposa and Todd White delivered the day's largest winning margin, defeating Bryan Hoops and Trae Cassell 5 and 3. Danny Nelson and Brett Patterson beat Mike McCoy and Stewart Hagestad 3 and 2, while Matt Vogt and Rick Stimmel defeated Gene Elliott and Parker Edens 2 up. Doug Hanzel and Bob Royak, the 2013 and 2019 U.S. Senior Amateur champions, respectively, added a 4-and-3 victory over Corby Segal and Jason Pridmore. Live scoring and full tournament coverage can be found on the [East vs West Matches tournament hub here](/midamgolfhq/east-vs-west-matches).",
+          "The West stayed within a point with three victories. Bobby Massa and Mikel Martinson defeated Christian Brand and Nate Gahman 4 and 2, Nate Smith and Zach Foushee beat Christian Cavaliere and Scott Harvey 2 and 1, and Brad Nurski and Josh Persons edged Andrew Price and Andrew Bailey 1 up. Jonathan Bale and Will Davenport halved their match with Chris Wheeler and Jordan Russell, while Evan Beck and Stephen Behr also shared a point with Drew Kittleson and Drew Stoltz. Those two halves left the teams separated by a single point heading into Saturday's morning and afternoon foursomes, with singles scheduled for Sunday. midamgolfHQ will be tracking the action all week from Maridoe.",
+        ],
+      },
+      {
         slug: "2026-east-vs-west-matches-preview",
         title: "East vs West Matches Preview: Bailey, Hagestad Headline Fourth Edition as West Defends Series Lead at Maridoe",
         date: "2026-11-03",
