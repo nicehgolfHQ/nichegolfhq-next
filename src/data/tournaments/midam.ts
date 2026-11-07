@@ -2912,6 +2912,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-east-vs-west-matches-day-2-recap",
+        title: "West Surges to 15-12 Lead at Maridoe With Six Afternoon Wins",
+        date: "2026-11-07",
+        author: "midamgolfHQ Staff",
+        summary:
+          "The West won Saturday afternoon's foursomes session 6½-2½ to turn a one-point deficit into a three-point lead entering Sunday singles at the East vs West Matches.",
+        content: [
+          "The West won six afternoon foursomes matches Saturday at Maridoe Golf Club in Carrollton, Texas, turning a one-point deficit into a 15-12 lead over the East entering Sunday singles at the East vs West Matches. Brad Nurski and Zach Foushee defeated Andrew Bailey and Christian Cavaliere 4 and 3, while Corby Segal and Bobby Massa beat Mike Sposa and Andrew Price 2 and 1. Trae Cassell and Chris Wheeler defeated Bob Royak and Stephen Behr 3 and 2, and Nate Smith and Drew Kittleson beat Brett Patterson and Jonathan Bale 2 up. Stewart Hagestad and Parker Edens added a 1-up victory over Nate Gahman and Will Davenport, while Drew Stoltz and Mikel Martinson defeated Matt Vogt and Christian Brand 3 and 2. Live scoring and full tournament coverage can be found on the [East vs West Matches tournament hub here](/midamgolfhq/east-vs-west-matches).",
+          "The teams split the morning session 4½-4½, with Todd White and Evan Beck delivering the morning's largest win, 7 and 5 over Bryan Hoops and Nate Smith. White then partnered Rick Stimmel to beat Hoops and Mike McCoy 1 up, while Doug Hanzel and Danny Nelson edged Jason Pridmore and Gene Elliott 1 up for the East's other afternoon victory. Scott Harvey and Beck halved with Josh Persons and Jordan Russell as the West took the session 6½-2½. Massa, Foushee, Nurski, Kittleson, Edens and Stoltz each won twice Saturday, as did White and Hanzel for the East. midamgolfHQ will have full coverage of Sunday's singles from Maridoe.",
+        ],
+      },
+      {
         slug: "2026-east-vs-west-matches-day-1-recap",
         title: "East Takes 5-4 Lead at Maridoe as Sposa and White Deliver Day 1's Biggest Win",
         date: "2026-11-06",
