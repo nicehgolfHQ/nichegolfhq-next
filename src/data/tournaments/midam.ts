@@ -2967,6 +2967,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
         news: [
       {
+        slug: "2026-national-invitational-tournament-round-1-recap",
+        title: "Blair Hamm Opens With 68 to Lead National Invitational by One at Birmingham",
+        date: "2026-11-06",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Blair Hamm leads Jackson King, Robbie Keyes and Keith Guest by one after a 3-under 68 in the National Invitational Tournament at The Country Club of Birmingham.",
+        content: [
+          "Blair Hamm opened with a 3-under 68 Friday to take a one-shot lead in the National Invitational Tournament on the West Course at The Country Club of Birmingham in Birmingham, Ala. Jackson King, Robbie Keyes and Keith Guest share second after 2-under 69s, with Will McCurdy, Tucker Jenkins, Hunter Hawkins, Sean Rowen and Sam Jackson another shot back in a tie for fifth at 1-under 70. Hamm was the only player to break 69 in the opening round, leaving the top nine separated by two shots heading into Saturday. Live scoring and full tournament coverage can be found on the [National Invitational Tournament hub](https://www.nichegolfhq.com/midamgolfhq/national-invitational-tournament).",
+          "Defending champion Ryan Terry shot a 5-over 76 to sit tied for 49th, eight shots behind Hamm. Hawkins, who won his second consecutive Alabama State Mid-Amateur title in September, is the closest of the returning NIT champions to the lead. Blake Watts opened with an even-par 71 to share 10th with Austin Coggin, JP Cave and Lawrence Allan. Hunter Hamrick and Patrick Christovich are tied for 14th after 1-over 72s, while Clay Guerin shot 78. The 54-hole stroke-play tournament continues Saturday before Sunday's final round. midamgolfHQ will be tracking the action all week from Birmingham.",
+        ],
+      },
+      {
         slug: "2026-national-invitational-tournament-preview",
         title: "National Invitational Tournament Preview: Ryan Terry Leads Six Past Champions in 84-Player Field at The Country Club of Birmingham",
         date: "2026-11-04",
