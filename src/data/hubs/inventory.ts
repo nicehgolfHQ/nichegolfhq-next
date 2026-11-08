@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "batch-7" | "batch-8" | "batch-9" | "batch-10" | "batch-11" | "batch-12" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "batch-7" | "batch-8" | "batch-9" | "batch-10" | "batch-11" | "batch-12" | "batch-13" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -160,6 +160,16 @@ export const HUB_BATCH_12: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "senior", slug: "golfweek-senior-desert-showdown" },
 ];
 
+/** 2026 senior boards checked on the public results pages. Lupton stays off this list. */
+export const HUB_BATCH_13: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "senior", slug: "reynolds-senior-invitational" },
+  { channel: "senior", slug: "golfweek-senior-amateur-championship" },
+  { channel: "senior", slug: "international-senior-individual-championship" },
+  { channel: "senior", slug: "north-south-senior-mens-amateur" },
+  { channel: "senior", slug: "society-of-seniors-ed-tutwiler-four-ball" },
+  { channel: "senior", slug: "national-senior-hall-of-fame" },
+];
+
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "ewing-cup-four-ball" },
   { channel: "senior", slug: "ewing-cup-four-ball" },
@@ -239,12 +249,13 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (HUB_BATCH_10.some((item) => item.channel === channel && item.slug === slug)) return "batch-10";
   if (HUB_BATCH_11.some((item) => item.channel === channel && item.slug === slug)) return "batch-11";
   if (HUB_BATCH_12.some((item) => item.channel === channel && item.slug === slug)) return "batch-12";
+  if (HUB_BATCH_13.some((item) => item.channel === channel && item.slug === slug)) return "batch-13";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6" || batch === "batch-7" || batch === "batch-8" || batch === "batch-9" || batch === "batch-10" || batch === "batch-11" || batch === "batch-12") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6" || batch === "batch-7" || batch === "batch-8" || batch === "batch-9" || batch === "batch-10" || batch === "batch-11" || batch === "batch-12" || batch === "batch-13") return "format-hub";
   return "legacy";
 }
 

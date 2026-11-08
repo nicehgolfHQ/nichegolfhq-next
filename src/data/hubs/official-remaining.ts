@@ -1,6 +1,7 @@
 import data from "@/data/hubs/official/remaining-2026.public.json";
 import juniorBatch from "@/data/hubs/official/junior-batch-2026.json";
 import seniorBatch from "@/data/hubs/official/senior-batch-2026.json";
+import seniorBatch2 from "@/data/hubs/official/senior-batch-2-2026.json";
 import westernWomen from "@/data/hubs/official/womens-western-2026.json";
 import type { MatchSnapshot, StrokeFinisher, StrokeSnapshot } from "@/data/hubs/batch1-results";
 
@@ -87,7 +88,7 @@ function displayRow(row: PublicRow, roundCount: number): StrokeFinisher {
 }
 
 export function officialRemainingSnapshot(slug: string): StrokeSnapshot | null {
-  const board = ([...data.boards, ...juniorBatch.boards, ...seniorBatch.boards] as PublicBoard[]).find((item) => item.slug === slug);
+  const board = ([...data.boards, ...juniorBatch.boards, ...seniorBatch.boards, ...seniorBatch2.boards] as PublicBoard[]).find((item) => item.slug === slug);
   if (!board) return null;
   const divisions = board.divisions?.map((division) => ({
     label: division.label,
