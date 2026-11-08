@@ -1,0 +1,2106 @@
+{
+  "main": {
+    "divisionLabel": "71st Gasparilla Invitational Golf Tournament",
+    "rows": [
+      {
+        "position": "1",
+        "name": "Hayes Brown",
+        "affiliation": "Atlanta, GA",
+        "toPar": "-2",
+        "rounds": [
+          "67",
+          "73",
+          "68"
+        ],
+        "total": "208",
+        "status": "ranked"
+      },
+      {
+        "position": "2",
+        "name": "Peyton White",
+        "affiliation": "Dublin, OH",
+        "toPar": "-1",
+        "rounds": [
+          "72",
+          "70",
+          "67"
+        ],
+        "total": "209",
+        "status": "ranked"
+      },
+      {
+        "position": "T3",
+        "name": "Michael Buttacavoli",
+        "affiliation": "Miami Beach, FL",
+        "toPar": "E",
+        "rounds": [
+          "70",
+          "70",
+          "70"
+        ],
+        "total": "210",
+        "status": "ranked"
+      },
+      {
+        "position": "T3",
+        "name": "Logan Blondell",
+        "affiliation": "Lakeland, FL",
+        "toPar": "E",
+        "rounds": [
+          "67",
+          "73",
+          "70"
+        ],
+        "total": "210",
+        "status": "ranked"
+      },
+      {
+        "position": "T5",
+        "name": "Kyle Martin",
+        "affiliation": "Plant City, FL",
+        "toPar": "+1",
+        "rounds": [
+          "74",
+          "67",
+          "70"
+        ],
+        "total": "211",
+        "status": "ranked"
+      },
+      {
+        "position": "T5",
+        "name": "Christian Cavaliere",
+        "affiliation": "Katonah, NY",
+        "toPar": "+1",
+        "rounds": [
+          "69",
+          "69",
+          "73"
+        ],
+        "total": "211",
+        "status": "ranked"
+      },
+      {
+        "position": "T5",
+        "name": "Winburne Hughes",
+        "affiliation": "Memphis, TN",
+        "toPar": "+1",
+        "rounds": [
+          "71",
+          "68",
+          "72"
+        ],
+        "total": "211",
+        "status": "ranked"
+      },
+      {
+        "position": "T5",
+        "name": "Payne Denman",
+        "affiliation": "Temple Terrace, FL",
+        "toPar": "+1",
+        "rounds": [
+          "73",
+          "66",
+          "72"
+        ],
+        "total": "211",
+        "status": "ranked"
+      },
+      {
+        "position": "9",
+        "name": "Nate Gahman",
+        "affiliation": "Albany, GA",
+        "toPar": "+2",
+        "rounds": [
+          "70",
+          "72",
+          "70"
+        ],
+        "total": "212",
+        "status": "ranked"
+      },
+      {
+        "position": "T10",
+        "name": "John Eades",
+        "affiliation": "Charlotte, NC",
+        "toPar": "+3",
+        "rounds": [
+          "75",
+          "69",
+          "69"
+        ],
+        "total": "213",
+        "status": "ranked"
+      },
+      {
+        "position": "T10",
+        "name": "Will Davenport",
+        "affiliation": "Boynton Beach, FL",
+        "toPar": "+3",
+        "rounds": [
+          "70",
+          "72",
+          "71"
+        ],
+        "total": "213",
+        "status": "ranked"
+      },
+      {
+        "position": "T10",
+        "name": "Ben Reeves",
+        "affiliation": "Birmingham, AL",
+        "toPar": "+3",
+        "rounds": [
+          "71",
+          "71",
+          "71"
+        ],
+        "total": "213",
+        "status": "ranked"
+      },
+      {
+        "position": "T10",
+        "name": "Chip Brooke",
+        "affiliation": "Altamonte Springs, FL",
+        "toPar": "+3",
+        "rounds": [
+          "71",
+          "71",
+          "71"
+        ],
+        "total": "213",
+        "status": "ranked"
+      },
+      {
+        "position": "T10",
+        "name": "Nick Maccario",
+        "affiliation": "Atlanta, GA",
+        "toPar": "+3",
+        "rounds": [
+          "70",
+          "71",
+          "72"
+        ],
+        "total": "213",
+        "status": "ranked"
+      },
+      {
+        "position": "T15",
+        "name": "Matt Parziale",
+        "affiliation": "Brockton, MA",
+        "toPar": "+4",
+        "rounds": [
+          "72",
+          "73",
+          "69"
+        ],
+        "total": "214",
+        "status": "ranked"
+      },
+      {
+        "position": "T15",
+        "name": "Stephen Behr",
+        "affiliation": "Atlanta, GA",
+        "toPar": "+4",
+        "rounds": [
+          "71",
+          "74",
+          "69"
+        ],
+        "total": "214",
+        "status": "ranked"
+      },
+      {
+        "position": "T15",
+        "name": "Matthew Lowe",
+        "affiliation": "Farmingdale, NY",
+        "toPar": "+4",
+        "rounds": [
+          "70",
+          "73",
+          "71"
+        ],
+        "total": "214",
+        "status": "ranked"
+      },
+      {
+        "position": "T18",
+        "name": "Ryan Terry",
+        "affiliation": "Brentwood, TN",
+        "toPar": "+5",
+        "rounds": [
+          "71",
+          "73",
+          "71"
+        ],
+        "total": "215",
+        "status": "ranked"
+      },
+      {
+        "position": "T18",
+        "name": "Charles Fitzsimmons",
+        "affiliation": "King, Canada",
+        "toPar": "+5",
+        "rounds": [
+          "70",
+          "73",
+          "72"
+        ],
+        "total": "215",
+        "status": "ranked"
+      },
+      {
+        "position": "T18",
+        "name": "Brandon Holtz",
+        "affiliation": "Bloomington, IL",
+        "toPar": "+5",
+        "rounds": [
+          "70",
+          "69",
+          "76"
+        ],
+        "total": "215",
+        "status": "ranked"
+      },
+      {
+        "position": "T21",
+        "name": "Christian Sease",
+        "affiliation": "Newberry, FL",
+        "toPar": "+6",
+        "rounds": [
+          "75",
+          "72",
+          "69"
+        ],
+        "total": "216",
+        "status": "ranked"
+      },
+      {
+        "position": "T21",
+        "name": "Jon Weiss Jr",
+        "affiliation": "Florence, SC",
+        "toPar": "+6",
+        "rounds": [
+          "77",
+          "69",
+          "70"
+        ],
+        "total": "216",
+        "status": "ranked"
+      },
+      {
+        "position": "T21",
+        "name": "Mitchell Ford",
+        "affiliation": "Little Rock, AR",
+        "toPar": "+6",
+        "rounds": [
+          "75",
+          "71",
+          "70"
+        ],
+        "total": "216",
+        "status": "ranked"
+      },
+      {
+        "position": "T21",
+        "name": "Blake Watts",
+        "affiliation": "Fort Payne, AL",
+        "toPar": "+6",
+        "rounds": [
+          "74",
+          "71",
+          "71"
+        ],
+        "total": "216",
+        "status": "ranked"
+      },
+      {
+        "position": "T21",
+        "name": "Weston Payne",
+        "affiliation": "Berkeley, CA",
+        "toPar": "+6",
+        "rounds": [
+          "70",
+          "70",
+          "76"
+        ],
+        "total": "216",
+        "status": "ranked"
+      },
+      {
+        "position": "T21",
+        "name": "Daniel Faccini",
+        "affiliation": "Weston, FL",
+        "toPar": "+6",
+        "rounds": [
+          "76",
+          "73",
+          "67"
+        ],
+        "total": "216",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "Bryce Hanstad",
+        "affiliation": "Edina, MN",
+        "toPar": "+7",
+        "rounds": [
+          "79",
+          "67",
+          "71"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "R.B. Clyburn",
+        "affiliation": "Cartersville, GA",
+        "toPar": "+7",
+        "rounds": [
+          "73",
+          "72",
+          "72"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "Steele Dewald",
+        "affiliation": "Kamas, UT",
+        "toPar": "+7",
+        "rounds": [
+          "71",
+          "76",
+          "70"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "Troy Vannucci",
+        "affiliation": "Marlton, NJ",
+        "toPar": "+7",
+        "rounds": [
+          "72",
+          "73",
+          "72"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "Adam Friedman",
+        "affiliation": "Gulf Stream, FL",
+        "toPar": "+7",
+        "rounds": [
+          "72",
+          "76",
+          "69"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "Joseph Deraney",
+        "affiliation": "Belden, MS",
+        "toPar": "+7",
+        "rounds": [
+          "75",
+          "73",
+          "69"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T27",
+        "name": "Kevin O'Connell",
+        "affiliation": "Apex, NC",
+        "toPar": "+7",
+        "rounds": [
+          "73",
+          "70",
+          "74"
+        ],
+        "total": "217",
+        "status": "ranked"
+      },
+      {
+        "position": "T34",
+        "name": "Sam O Dell",
+        "affiliation": "Hurricane, WV",
+        "toPar": "+8",
+        "rounds": [
+          "74",
+          "72",
+          "72"
+        ],
+        "total": "218",
+        "status": "ranked"
+      },
+      {
+        "position": "T34",
+        "name": "Christian Brand",
+        "affiliation": "Hurricane, WV",
+        "toPar": "+8",
+        "rounds": [
+          "74",
+          "73",
+          "71"
+        ],
+        "total": "218",
+        "status": "ranked"
+      },
+      {
+        "position": "T34",
+        "name": "Michael Weaver",
+        "affiliation": "Clovis, CA",
+        "toPar": "+8",
+        "rounds": [
+          "72",
+          "71",
+          "75"
+        ],
+        "total": "218",
+        "status": "ranked"
+      },
+      {
+        "position": "T37",
+        "name": "Rob Couture",
+        "affiliation": "Celina, TX",
+        "toPar": "+9",
+        "rounds": [
+          "72",
+          "75",
+          "72"
+        ],
+        "total": "219",
+        "status": "ranked"
+      },
+      {
+        "position": "T37",
+        "name": "Mike Valk",
+        "affiliation": "Medicine Hat, AB",
+        "toPar": "+9",
+        "rounds": [
+          "76",
+          "71",
+          "72"
+        ],
+        "total": "219",
+        "status": "ranked"
+      },
+      {
+        "position": "T37",
+        "name": "Parker Sisk",
+        "affiliation": "El Cajon, CA",
+        "toPar": "+9",
+        "rounds": [
+          "70",
+          "75",
+          "74"
+        ],
+        "total": "219",
+        "status": "ranked"
+      },
+      {
+        "position": "T37",
+        "name": "Matthew Galloway",
+        "affiliation": "Tampa, FL",
+        "toPar": "+9",
+        "rounds": [
+          "77",
+          "68",
+          "74"
+        ],
+        "total": "219",
+        "status": "ranked"
+      },
+      {
+        "position": "T37",
+        "name": "Andrew Morris",
+        "affiliation": "Saint Augustine, FL",
+        "toPar": "+9",
+        "rounds": [
+          "73",
+          "74",
+          "72"
+        ],
+        "total": "219",
+        "status": "ranked"
+      },
+      {
+        "position": "T37",
+        "name": "Haymes Snedeker",
+        "affiliation": "Point Clear, AL",
+        "toPar": "+9",
+        "rounds": [
+          "72",
+          "76",
+          "71"
+        ],
+        "total": "219",
+        "status": "ranked"
+      },
+      {
+        "position": "T43",
+        "name": "Scott Dunsire",
+        "affiliation": "Chicago, IL",
+        "toPar": "+10",
+        "rounds": [
+          "78",
+          "69",
+          "73"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "T43",
+        "name": "Davis Womble",
+        "affiliation": "Winston-Salem, NC",
+        "toPar": "+10",
+        "rounds": [
+          "72",
+          "75",
+          "73"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "T43",
+        "name": "Brandon Grzywacz",
+        "affiliation": "Pinebluff, NC",
+        "toPar": "+10",
+        "rounds": [
+          "71",
+          "76",
+          "73"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "T43",
+        "name": "Paul Mitzel",
+        "affiliation": "Gig Harbor, WA",
+        "toPar": "+10",
+        "rounds": [
+          "74",
+          "69",
+          "77"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "T43",
+        "name": "Chad Wilfong",
+        "affiliation": "Charlotte, NC",
+        "toPar": "+10",
+        "rounds": [
+          "78",
+          "71",
+          "71"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "T43",
+        "name": "Jeff Frazier",
+        "affiliation": "Mechanicsburg, PA",
+        "toPar": "+10",
+        "rounds": [
+          "73",
+          "73",
+          "74"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "T49",
+        "name": "Justin Grant",
+        "affiliation": "San Antonio, FL",
+        "toPar": "+11",
+        "rounds": [
+          "71",
+          "77",
+          "73"
+        ],
+        "total": "221",
+        "status": "ranked"
+      },
+      {
+        "position": "T49",
+        "name": "Darin Goldstein",
+        "affiliation": "New York, NY",
+        "toPar": "+11",
+        "rounds": [
+          "73",
+          "75",
+          "73"
+        ],
+        "total": "221",
+        "status": "ranked"
+      },
+      {
+        "position": "T49",
+        "name": "Alex Slaton",
+        "affiliation": "West Palm Beach, FL",
+        "toPar": "+11",
+        "rounds": [
+          "77",
+          "71",
+          "73"
+        ],
+        "total": "221",
+        "status": "ranked"
+      },
+      {
+        "position": "T49",
+        "name": "Ty Capps",
+        "affiliation": "Palm Coast, FL",
+        "toPar": "+11",
+        "rounds": [
+          "74",
+          "75",
+          "72"
+        ],
+        "total": "221",
+        "status": "ranked"
+      },
+      {
+        "position": "T49",
+        "name": "Kyle Downey",
+        "affiliation": "Fairport, NY",
+        "toPar": "+11",
+        "rounds": [
+          "77",
+          "72",
+          "72"
+        ],
+        "total": "221",
+        "status": "ranked"
+      },
+      {
+        "position": "T49",
+        "name": "Scott Turner",
+        "affiliation": "Stuart, FL",
+        "toPar": "+11",
+        "rounds": [
+          "75",
+          "74",
+          "72"
+        ],
+        "total": "221",
+        "status": "ranked"
+      },
+      {
+        "position": "T55",
+        "name": "Nick Geyer",
+        "affiliation": "Carlsbad, CA",
+        "toPar": "+12",
+        "rounds": [
+          "74",
+          "72",
+          "76"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T55",
+        "name": "Kevin Grady",
+        "affiliation": "Catonsville, MD",
+        "toPar": "+12",
+        "rounds": [
+          "77",
+          "70",
+          "75"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T55",
+        "name": "Chandler Mulkey",
+        "affiliation": "Johns Island, SC",
+        "toPar": "+12",
+        "rounds": [
+          "71",
+          "73",
+          "78"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T55",
+        "name": "Connor Doyal",
+        "affiliation": "Charleston, SC",
+        "toPar": "+12",
+        "rounds": [
+          "75",
+          "73",
+          "74"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T55",
+        "name": "Kristoffer Marshall",
+        "affiliation": "Scottsdale, AZ",
+        "toPar": "+12",
+        "rounds": [
+          "76",
+          "72",
+          "74"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T55",
+        "name": "Paul Royak",
+        "affiliation": "Tampa, FL",
+        "toPar": "+12",
+        "rounds": [
+          "73",
+          "76",
+          "73"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T61",
+        "name": "Kevin VandenBerg",
+        "affiliation": "Pulaski, NY",
+        "toPar": "+13",
+        "rounds": [
+          "75",
+          "74",
+          "74"
+        ],
+        "total": "223",
+        "status": "ranked"
+      },
+      {
+        "position": "T61",
+        "name": "Tony Wise",
+        "affiliation": "Georgetown, KY",
+        "toPar": "+13",
+        "rounds": [
+          "74",
+          "74",
+          "75"
+        ],
+        "total": "223",
+        "status": "ranked"
+      },
+      {
+        "position": "T63",
+        "name": "Colby Harwell",
+        "affiliation": "San Antonio, TX",
+        "toPar": "+14",
+        "rounds": [
+          "80",
+          "69",
+          "75"
+        ],
+        "total": "224",
+        "status": "ranked"
+      },
+      {
+        "position": "T63",
+        "name": "Hunter Hawkins",
+        "affiliation": "Fort Payne, AL",
+        "toPar": "+14",
+        "rounds": [
+          "72",
+          "77",
+          "75"
+        ],
+        "total": "224",
+        "status": "ranked"
+      },
+      {
+        "position": "T63",
+        "name": "Steve Albright",
+        "affiliation": "Ocala, FL",
+        "toPar": "+14",
+        "rounds": [
+          "75",
+          "74",
+          "75"
+        ],
+        "total": "224",
+        "status": "ranked"
+      },
+      {
+        "position": "T66",
+        "name": "Kevin Dutkowsky",
+        "affiliation": "Tampa, FL",
+        "toPar": "+16",
+        "rounds": [
+          "74",
+          "74",
+          "78"
+        ],
+        "total": "226",
+        "status": "ranked"
+      },
+      {
+        "position": "T66",
+        "name": "Devin Hernandez",
+        "affiliation": "Saint Petersburg, FL",
+        "toPar": "+16",
+        "rounds": [
+          "71",
+          "78",
+          "77"
+        ],
+        "total": "226",
+        "status": "ranked"
+      },
+      {
+        "position": "T66",
+        "name": "Johnny Spellerberg",
+        "affiliation": "Bennington, NE",
+        "toPar": "+16",
+        "rounds": [
+          "78",
+          "71",
+          "77"
+        ],
+        "total": "226",
+        "status": "ranked"
+      },
+      {
+        "position": "T66",
+        "name": "Tucker Jenkins",
+        "affiliation": "Nashville, TN",
+        "toPar": "+16",
+        "rounds": [
+          "78",
+          "71",
+          "77"
+        ],
+        "total": "226",
+        "status": "ranked"
+      },
+      {
+        "position": "T70",
+        "name": "Richard Douglas",
+        "affiliation": "Birmingham, AL",
+        "toPar": "+17",
+        "rounds": [
+          "78",
+          "71",
+          "78"
+        ],
+        "total": "227",
+        "status": "ranked"
+      },
+      {
+        "position": "T70",
+        "name": "Kyle Stiles",
+        "affiliation": "Watkinsville, GA",
+        "toPar": "+17",
+        "rounds": [
+          "76",
+          "73",
+          "78"
+        ],
+        "total": "227",
+        "status": "ranked"
+      },
+      {
+        "position": "72",
+        "name": "Eddie Hargett",
+        "affiliation": "Okatie, SC",
+        "toPar": "+19",
+        "rounds": [
+          "73",
+          "74",
+          "82"
+        ],
+        "total": "229",
+        "status": "ranked"
+      },
+      {
+        "position": "CUT",
+        "name": "Jerry Gunthorpe",
+        "affiliation": "Ovid, MI",
+        "toPar": "+10",
+        "rounds": [
+          "72",
+          "78"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Justin Bryant",
+        "affiliation": "Ladue, MO",
+        "toPar": "+10",
+        "rounds": [
+          "74",
+          "76"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jose Vega",
+        "affiliation": "Doral, FL",
+        "toPar": "+10",
+        "rounds": [
+          "75",
+          "75"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Ryan Greer",
+        "affiliation": "Knoxville, TN",
+        "toPar": "+10",
+        "rounds": [
+          "80",
+          "70"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Joshua Rhodes",
+        "affiliation": "Paducah, KY",
+        "toPar": "+10",
+        "rounds": [
+          "80",
+          "70"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jack Hall",
+        "affiliation": "Savannah, GA",
+        "toPar": "+10",
+        "rounds": [
+          "72",
+          "78"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Christopher Wheeler",
+        "affiliation": "Lewisville, TX",
+        "toPar": "+10",
+        "rounds": [
+          "72",
+          "78"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Billy Hanes",
+        "affiliation": "Elma, NY",
+        "toPar": "+10",
+        "rounds": [
+          "73",
+          "77"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Stephen Cerbara",
+        "affiliation": "Langhorne, PA",
+        "toPar": "+10",
+        "rounds": [
+          "73",
+          "77"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Trey Kidd",
+        "affiliation": "Scottsdale, AZ",
+        "toPar": "+11",
+        "rounds": [
+          "70",
+          "81"
+        ],
+        "total": "151",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Joe Alfieri",
+        "affiliation": "Lutz, FL",
+        "toPar": "+11",
+        "rounds": [
+          "74",
+          "77"
+        ],
+        "total": "151",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Fernando Asbun",
+        "affiliation": "Atizapan de Zaragoza, Mexico",
+        "toPar": "+11",
+        "rounds": [
+          "77",
+          "74"
+        ],
+        "total": "151",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Keith Guest",
+        "affiliation": "Athens, GA",
+        "toPar": "+11",
+        "rounds": [
+          "78",
+          "73"
+        ],
+        "total": "151",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Derek Meinhart",
+        "affiliation": "Mattoon, IL",
+        "toPar": "+12",
+        "rounds": [
+          "74",
+          "78"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Chad Ibbotson",
+        "affiliation": "Sanford, FL",
+        "toPar": "+12",
+        "rounds": [
+          "75",
+          "77"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Chris Hummel",
+        "affiliation": "Birmingham, AL",
+        "toPar": "+12",
+        "rounds": [
+          "74",
+          "78"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jake Byrum",
+        "affiliation": "Scottsdale, AZ",
+        "toPar": "+12",
+        "rounds": [
+          "76",
+          "76"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Denver Haddix",
+        "affiliation": "Lexington, KY",
+        "toPar": "+12",
+        "rounds": [
+          "77",
+          "75"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Corey Eccles",
+        "affiliation": "Richmond Hill, Canada",
+        "toPar": "+12",
+        "rounds": [
+          "78",
+          "74"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Simon McInnis",
+        "affiliation": "Crystal Beach, Canada",
+        "toPar": "+12",
+        "rounds": [
+          "78",
+          "74"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Todd Doss",
+        "affiliation": "Mandeville, LA",
+        "toPar": "+12",
+        "rounds": [
+          "79",
+          "73"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jay Halverson",
+        "affiliation": "St Petersburg, FL",
+        "toPar": "+12",
+        "rounds": [
+          "80",
+          "72"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jordan Sease",
+        "affiliation": "Columbia, SC",
+        "toPar": "+12",
+        "rounds": [
+          "80",
+          "72"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Adam Miller",
+        "affiliation": "Nekoosa, WI",
+        "toPar": "+12",
+        "rounds": [
+          "80",
+          "72"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Dennis Bull",
+        "affiliation": "Norwalk, IA",
+        "toPar": "+12",
+        "rounds": [
+          "73",
+          "79"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "JD Anderson",
+        "affiliation": "Johnston, IA",
+        "toPar": "+12",
+        "rounds": [
+          "74",
+          "78"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Joseph Trim",
+        "affiliation": "Tampa, FL",
+        "toPar": "+12",
+        "rounds": [
+          "76",
+          "76"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Lance LaCombe",
+        "affiliation": "Jacksonville, FL",
+        "toPar": "+12",
+        "rounds": [
+          "77",
+          "75"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "John Gabler",
+        "affiliation": "Tampa, FL",
+        "toPar": "+12",
+        "rounds": [
+          "77",
+          "75"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Erik Karlsson",
+        "affiliation": "Hjärup, Sweeden",
+        "toPar": "+13",
+        "rounds": [
+          "78",
+          "75"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Eric West",
+        "affiliation": "Spring, TX",
+        "toPar": "+13",
+        "rounds": [
+          "78",
+          "75"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Taylor Smith",
+        "affiliation": "Saint Simons Island, GA",
+        "toPar": "+13",
+        "rounds": [
+          "79",
+          "74"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Ben Greve",
+        "affiliation": "Eden Prairie, MN",
+        "toPar": "+13",
+        "rounds": [
+          "80",
+          "73"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Danny Nelson",
+        "affiliation": "Savannah, GA",
+        "toPar": "+13",
+        "rounds": [
+          "81",
+          "72"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jonathan Keane",
+        "affiliation": "Austin, TX",
+        "toPar": "+13",
+        "rounds": [
+          "72",
+          "81"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Park Ulrich",
+        "affiliation": "Overland Park, KS",
+        "toPar": "+13",
+        "rounds": [
+          "76",
+          "77"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Blanton Farmer",
+        "affiliation": "Richmond, VA",
+        "toPar": "+13",
+        "rounds": [
+          "77",
+          "76"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Erick Morales",
+        "affiliation": "Dorado, PR",
+        "toPar": "+13",
+        "rounds": [
+          "79",
+          "74"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Thad Hudgens",
+        "affiliation": "Longwood, FL",
+        "toPar": "+14",
+        "rounds": [
+          "81",
+          "73"
+        ],
+        "total": "154",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Chad Branton",
+        "affiliation": "Cartersville, GA",
+        "toPar": "+14",
+        "rounds": [
+          "77",
+          "77"
+        ],
+        "total": "154",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Richard Bradsby",
+        "affiliation": "Golden, CO",
+        "toPar": "+15",
+        "rounds": [
+          "79",
+          "76"
+        ],
+        "total": "155",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Michael Kelley",
+        "affiliation": "Tampa, FL",
+        "toPar": "+15",
+        "rounds": [
+          "75",
+          "80"
+        ],
+        "total": "155",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Scott Saterbo",
+        "affiliation": "Tampa, FL",
+        "toPar": "+15",
+        "rounds": [
+          "75",
+          "80"
+        ],
+        "total": "155",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Greg Sanders",
+        "affiliation": "Anthem, AZ",
+        "toPar": "+16",
+        "rounds": [
+          "77",
+          "79"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Wyatt Brook",
+        "affiliation": "Kamloops, Canada",
+        "toPar": "+16",
+        "rounds": [
+          "77",
+          "79"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Chris Leibl",
+        "affiliation": "Tampa, FL",
+        "toPar": "+16",
+        "rounds": [
+          "77",
+          "79"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jack Larkin Jr",
+        "affiliation": "Atlanta, GA",
+        "toPar": "+16",
+        "rounds": [
+          "81",
+          "75"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Ricky Stimets",
+        "affiliation": "Osterville, MA",
+        "toPar": "+16",
+        "rounds": [
+          "74",
+          "82"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Billy Mitchell",
+        "affiliation": "Atlanta, GA",
+        "toPar": "+16",
+        "rounds": [
+          "80",
+          "76"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Bob Royak",
+        "affiliation": "Alpharetta, GA",
+        "toPar": "+16",
+        "rounds": [
+          "78",
+          "78"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Adam Condello",
+        "affiliation": "Brentwood, TN",
+        "toPar": "+17",
+        "rounds": [
+          "77",
+          "80"
+        ],
+        "total": "157",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Rick Sulzer",
+        "affiliation": "Carrollton, TX",
+        "toPar": "+17",
+        "rounds": [
+          "77",
+          "80"
+        ],
+        "total": "157",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Mike Calef",
+        "affiliation": "Portsmouth, RI",
+        "toPar": "+18",
+        "rounds": [
+          "81",
+          "77"
+        ],
+        "total": "158",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Herbie Aikens",
+        "affiliation": "Kingston, MA",
+        "toPar": "+18",
+        "rounds": [
+          "76",
+          "82"
+        ],
+        "total": "158",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Enrique Llaguno",
+        "affiliation": "Monterrey, Mexico",
+        "toPar": "+18",
+        "rounds": [
+          "77",
+          "81"
+        ],
+        "total": "158",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Tom Mulrooney",
+        "affiliation": "Tampa, FL",
+        "toPar": "+18",
+        "rounds": [
+          "78",
+          "80"
+        ],
+        "total": "158",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Michael Auerbach",
+        "affiliation": "Bellport, NY",
+        "toPar": "+19",
+        "rounds": [
+          "82",
+          "77"
+        ],
+        "total": "159",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Brian Keenan",
+        "affiliation": "Tampa, FL",
+        "toPar": "+19",
+        "rounds": [
+          "82",
+          "77"
+        ],
+        "total": "159",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Phil Arci",
+        "affiliation": "Vaughan, Canada",
+        "toPar": "+20",
+        "rounds": [
+          "83",
+          "77"
+        ],
+        "total": "160",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Rusty Mosley",
+        "affiliation": "Vidalia, GA",
+        "toPar": "+20",
+        "rounds": [
+          "86",
+          "74"
+        ],
+        "total": "160",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Kacy Clemens",
+        "affiliation": "Conroe, TX",
+        "toPar": "+20",
+        "rounds": [
+          "77",
+          "83"
+        ],
+        "total": "160",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Nolan Johnson",
+        "affiliation": "Nassau, Bahamas",
+        "toPar": "+24",
+        "rounds": [
+          "84",
+          "80"
+        ],
+        "total": "164",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Richard Gibson Jr",
+        "affiliation": "Nassau, Bahamas",
+        "toPar": "+25",
+        "rounds": [
+          "81",
+          "84"
+        ],
+        "total": "165",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Lynford Miller",
+        "affiliation": "Nassau, Bahamas",
+        "toPar": "+26",
+        "rounds": [
+          "84",
+          "82"
+        ],
+        "total": "166",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Rob Swain",
+        "affiliation": "Tampa, FL",
+        "toPar": "+27",
+        "rounds": [
+          "83",
+          "84"
+        ],
+        "total": "167",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Brian Mezrah",
+        "affiliation": "Tampa, FL",
+        "toPar": "+31",
+        "rounds": [
+          "87",
+          "84"
+        ],
+        "total": "171",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Garrett Galloway",
+        "affiliation": "Tampa, FL",
+        "toPar": "+31",
+        "rounds": [
+          "88",
+          "83"
+        ],
+        "total": "171",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Ben Hotaling",
+        "affiliation": "Leawood, KS",
+        "toPar": "+34",
+        "rounds": [
+          "87",
+          "87"
+        ],
+        "total": "174",
+        "status": "CUT"
+      },
+      {
+        "position": "WD",
+        "name": "Mike Finster",
+        "affiliation": "Saint Petersburg, FL",
+        "toPar": "-",
+        "rounds": [
+          "75",
+          "WD"
+        ],
+        "total": "WD",
+        "status": "WD"
+      },
+      {
+        "position": "WD",
+        "name": "Torey Edwards",
+        "affiliation": "Long Beach, CA",
+        "toPar": "-",
+        "rounds": [
+          "82",
+          "WD"
+        ],
+        "total": "WD",
+        "status": "WD"
+      },
+      {
+        "position": "WD",
+        "name": "Gregory Seelinger",
+        "affiliation": "Downers Grove, IL",
+        "toPar": "-",
+        "rounds": [
+          "87",
+          "WD"
+        ],
+        "total": "WD",
+        "status": "WD"
+      },
+      {
+        "position": "DQ",
+        "name": "Jamie Miller",
+        "affiliation": "Orchard Park, NY",
+        "toPar": "-",
+        "rounds": [
+          "81",
+          "DQ"
+        ],
+        "total": "DQ",
+        "status": "DQ"
+      }
+    ]
+  },
+  "senior": {
+    "divisionLabel": "Low Senior - Senior Division",
+    "rows": [
+      {
+        "position": "1",
+        "name": "Jeff Frazier",
+        "affiliation": "Mechanicsburg, PA",
+        "toPar": "+10",
+        "rounds": [
+          "73",
+          "73",
+          "74"
+        ],
+        "total": "220",
+        "status": "ranked"
+      },
+      {
+        "position": "2",
+        "name": "Paul Royak",
+        "affiliation": "Tampa, FL",
+        "toPar": "+12",
+        "rounds": [
+          "73",
+          "76",
+          "73"
+        ],
+        "total": "222",
+        "status": "ranked"
+      },
+      {
+        "position": "T3",
+        "name": "Kevin VandenBerg",
+        "affiliation": "Pulaski, NY",
+        "toPar": "+13",
+        "rounds": [
+          "75",
+          "74",
+          "74"
+        ],
+        "total": "223",
+        "status": "ranked"
+      },
+      {
+        "position": "T3",
+        "name": "Tony Wise",
+        "affiliation": "Georgetown, KY",
+        "toPar": "+13",
+        "rounds": [
+          "74",
+          "74",
+          "75"
+        ],
+        "total": "223",
+        "status": "ranked"
+      },
+      {
+        "position": "5",
+        "name": "Steve Albright",
+        "affiliation": "Ocala, FL",
+        "toPar": "+14",
+        "rounds": [
+          "75",
+          "74",
+          "75"
+        ],
+        "total": "224",
+        "status": "ranked"
+      },
+      {
+        "position": "6",
+        "name": "Eddie Hargett",
+        "affiliation": "Okatie, SC",
+        "toPar": "+19",
+        "rounds": [
+          "73",
+          "74",
+          "82"
+        ],
+        "total": "229",
+        "status": "ranked"
+      },
+      {
+        "position": "CUT",
+        "name": "Jerry Gunthorpe",
+        "affiliation": "Ovid, MI",
+        "toPar": "+10",
+        "rounds": [
+          "72",
+          "78"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Jack Hall",
+        "affiliation": "Savannah, GA",
+        "toPar": "+10",
+        "rounds": [
+          "72",
+          "78"
+        ],
+        "total": "150",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Joe Alfieri",
+        "affiliation": "Lutz, FL",
+        "toPar": "+11",
+        "rounds": [
+          "74",
+          "77"
+        ],
+        "total": "151",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Chad Ibbotson",
+        "affiliation": "Sanford, FL",
+        "toPar": "+12",
+        "rounds": [
+          "75",
+          "77"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Todd Doss",
+        "affiliation": "Mandeville, LA",
+        "toPar": "+12",
+        "rounds": [
+          "79",
+          "73"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "John Gabler",
+        "affiliation": "Tampa, FL",
+        "toPar": "+12",
+        "rounds": [
+          "77",
+          "75"
+        ],
+        "total": "152",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Danny Nelson",
+        "affiliation": "Savannah, GA",
+        "toPar": "+13",
+        "rounds": [
+          "81",
+          "72"
+        ],
+        "total": "153",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Chad Branton",
+        "affiliation": "Cartersville, GA",
+        "toPar": "+14",
+        "rounds": [
+          "77",
+          "77"
+        ],
+        "total": "154",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Richard Bradsby",
+        "affiliation": "Golden, CO",
+        "toPar": "+15",
+        "rounds": [
+          "79",
+          "76"
+        ],
+        "total": "155",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Michael Kelley",
+        "affiliation": "Tampa, FL",
+        "toPar": "+15",
+        "rounds": [
+          "75",
+          "80"
+        ],
+        "total": "155",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Greg Sanders",
+        "affiliation": "Anthem, AZ",
+        "toPar": "+16",
+        "rounds": [
+          "77",
+          "79"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Billy Mitchell",
+        "affiliation": "Atlanta, GA",
+        "toPar": "+16",
+        "rounds": [
+          "80",
+          "76"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Bob Royak",
+        "affiliation": "Alpharetta, GA",
+        "toPar": "+16",
+        "rounds": [
+          "78",
+          "78"
+        ],
+        "total": "156",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Rick Sulzer",
+        "affiliation": "Carrollton, TX",
+        "toPar": "+17",
+        "rounds": [
+          "77",
+          "80"
+        ],
+        "total": "157",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Brian Keenan",
+        "affiliation": "Tampa, FL",
+        "toPar": "+19",
+        "rounds": [
+          "82",
+          "77"
+        ],
+        "total": "159",
+        "status": "CUT"
+      },
+      {
+        "position": "CUT",
+        "name": "Brian Mezrah",
+        "affiliation": "Tampa, FL",
+        "toPar": "+31",
+        "rounds": [
+          "87",
+          "84"
+        ],
+        "total": "171",
+        "status": "CUT"
+      },
+      {
+        "position": "WD",
+        "name": "Mike Finster",
+        "affiliation": "Saint Petersburg, FL",
+        "toPar": "-",
+        "rounds": [
+          "75",
+          "WD"
+        ],
+        "total": "WD",
+        "status": "WD"
+      },
+      {
+        "position": "WD",
+        "name": "Gregory Seelinger",
+        "affiliation": "Downers Grove, IL",
+        "toPar": "-",
+        "rounds": [
+          "87",
+          "WD"
+        ],
+        "total": "WD",
+        "status": "WD"
+      }
+    ]
+  }
+}
