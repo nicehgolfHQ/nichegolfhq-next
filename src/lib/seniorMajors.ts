@@ -549,7 +549,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     overview: "The R&A Senior Amateur Championship is the world\u2019s premier international senior amateur title, staged annually at rotating links and heathland courses across Great Britain and Ireland. Players 55 and over compete in stroke play, and the champion is widely regarded as the top senior amateur in the world.",
     pastResults: [
-      { year: 2026, champion: "Bryan Hoops", venue: "Frilford Heath Golf Club" },
+      { year: 2026, champion: "Bryan Hoops", venue: "Frilford Heath Golf Club", score: "278" },
       { year: 2025, champion: "John Kennedy", venue: "Walton Heath", score: "277" },
       { year: 2024, champion: "Todd White", venue: "Saunton", score: "291" },
       { year: 2023, champion: "Brent Paterson", venue: "Woodhall Spa", score: "283" },
@@ -1460,7 +1460,8 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     endDate: "2026-06-17",
     course: "Benvenue Golf & Country Club",
     location: "Rocky Mount, NC",
-    winners: [{ year: 2026, champion: "Bryan Hoops" }],
+    format: "54-hole stroke play",
+    winners: [{ year: 2026, champion: "Senior: Hoops, Bryan / Super Senior: Simson, Paul / Legend: Tyson, Terry / Super Legend: Donatoni, Don" }],
   },
   {
     slug: "george-c-thomas-invitational-senior-division",

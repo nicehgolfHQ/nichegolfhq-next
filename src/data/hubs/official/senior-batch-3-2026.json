@@ -1,0 +1,812 @@
+{
+  "boards": [
+    {
+      "slug": "golfweek-senior-national-championship",
+      "roundCount": 3,
+      "scope": "official-final",
+      "complete": true,
+      "divisions": [
+        {
+          "label": "Senior",
+          "rows": [
+            {
+              "position": "1",
+              "name": "Hoops, Bryan",
+              "affiliation": "Tempe, AZ",
+              "toPar": "-5",
+              "rounds": [
+                "75",
+                "68",
+                "68"
+              ],
+              "total": "211",
+              "status": "ranked"
+            },
+            {
+              "position": "2",
+              "name": "Johnson, Yancey",
+              "affiliation": "Simpsonville, SC",
+              "toPar": "+5",
+              "rounds": [
+                "72",
+                "77",
+                "72"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "3",
+              "name": "Nash, Lenny",
+              "affiliation": "Charlotte, NC",
+              "toPar": "+6",
+              "rounds": [
+                "73",
+                "76",
+                "73"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T4",
+              "name": "VandenBerg, Kevin",
+              "affiliation": "Pulaski, NY",
+              "toPar": "+7",
+              "rounds": [
+                "72",
+                "78",
+                "73"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T4",
+              "name": "Branton, Chad",
+              "affiliation": "Cartersville, GA",
+              "toPar": "+7",
+              "rounds": [
+                "74",
+                "75",
+                "74"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Stayer, Patrick",
+              "affiliation": "Ft Myers, FL",
+              "toPar": "+13",
+              "rounds": [
+                "79",
+                "77",
+                "73"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Olsen, John",
+              "affiliation": "Mooresville, NC",
+              "toPar": "+13",
+              "rounds": [
+                "77",
+                "78",
+                "74"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Hester, Brendan",
+              "affiliation": "Riviera Beach, FL",
+              "toPar": "+13",
+              "rounds": [
+                "77",
+                "73",
+                "79"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T9",
+              "name": "Wamack, Terry",
+              "affiliation": "Lewis Center, OH",
+              "toPar": "+14",
+              "rounds": [
+                "77",
+                "77",
+                "76"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "T9",
+              "name": "Barry, John",
+              "affiliation": "University Park, FL",
+              "toPar": "+14",
+              "rounds": [
+                "78",
+                "72",
+                "80"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "11",
+              "name": "Buckner, Rich",
+              "affiliation": "Hobe Sound, FL",
+              "toPar": "+15",
+              "rounds": [
+                "79",
+                "77",
+                "75"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "12",
+              "name": "Richter, Jeff",
+              "affiliation": "Spring Hill, TN",
+              "toPar": "+16",
+              "rounds": [
+                "77",
+                "79",
+                "76"
+              ],
+              "total": "232",
+              "status": "ranked"
+            },
+            {
+              "position": "13",
+              "name": "Bogart, Robert",
+              "affiliation": "Okatie, SC",
+              "toPar": "+18",
+              "rounds": [
+                "80",
+                "80",
+                "74"
+              ],
+              "total": "234",
+              "status": "ranked"
+            },
+            {
+              "position": "14",
+              "name": "Gregory, Trent",
+              "affiliation": "Wake Forest, NC",
+              "toPar": "+19",
+              "rounds": [
+                "79",
+                "80",
+                "76"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "15",
+              "name": "Cutrell, Arnold",
+              "affiliation": "Greensburg, PA",
+              "toPar": "+20",
+              "rounds": [
+                "75",
+                "80",
+                "81"
+              ],
+              "total": "236",
+              "status": "ranked"
+            },
+            {
+              "position": "16",
+              "name": "Holck, Curtis",
+              "affiliation": "Ankeny, IA",
+              "toPar": "+26",
+              "rounds": [
+                "80",
+                "79",
+                "83"
+              ],
+              "total": "242",
+              "status": "ranked"
+            },
+            {
+              "position": "T17",
+              "name": "Collett, Jeff",
+              "affiliation": "Ottumwa, IA",
+              "toPar": "+28",
+              "rounds": [
+                "79",
+                "84",
+                "81"
+              ],
+              "total": "244",
+              "status": "ranked"
+            },
+            {
+              "position": "T17",
+              "name": "Patterson, Smith",
+              "affiliation": "Lakeland, FL",
+              "toPar": "+28",
+              "rounds": [
+                "83",
+                "77",
+                "84"
+              ],
+              "total": "244",
+              "status": "ranked"
+            },
+            {
+              "position": "19",
+              "name": "Campbell, Brad",
+              "affiliation": "Morristown, TN",
+              "toPar": "+29",
+              "rounds": [
+                "84",
+                "81",
+                "80"
+              ],
+              "total": "245",
+              "status": "ranked"
+            },
+            {
+              "position": "20",
+              "name": "Shreve, Jed",
+              "affiliation": "The Woodlands, TX",
+              "toPar": "+30",
+              "rounds": [
+                "86",
+                "78",
+                "82"
+              ],
+              "total": "246",
+              "status": "ranked"
+            },
+            {
+              "position": "21",
+              "name": "Sterge, Andrew",
+              "affiliation": "Bluffton, SC",
+              "toPar": "+57",
+              "rounds": [
+                "87",
+                "92",
+                "94"
+              ],
+              "total": "273",
+              "status": "ranked"
+            },
+            {
+              "position": "WD",
+              "name": "Kinkopf, Ken",
+              "affiliation": "Jupiter, FL",
+              "toPar": "-",
+              "rounds": [
+                "79",
+                "82",
+                "WD"
+              ],
+              "total": "WD",
+              "status": "WD"
+            }
+          ]
+        },
+        {
+          "label": "Super Senior",
+          "rows": [
+            {
+              "position": "1",
+              "name": "Simson, Paul",
+              "affiliation": "Raleigh, NC",
+              "toPar": "+8",
+              "rounds": [
+                "76",
+                "75",
+                "73"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T2",
+              "name": "Ray, Scott",
+              "affiliation": "Central City, KY",
+              "toPar": "+14",
+              "rounds": [
+                "76",
+                "79",
+                "75"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "T2",
+              "name": "Sweigart, Tom",
+              "affiliation": "Vail, AZ",
+              "toPar": "+14",
+              "rounds": [
+                "75",
+                "77",
+                "78"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "4",
+              "name": "Cannady, Stevie",
+              "affiliation": "Pooler, GA",
+              "toPar": "+17",
+              "rounds": [
+                "77",
+                "77",
+                "79"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "5",
+              "name": "Whitman, Byron",
+              "affiliation": "Bonita Springs, FL",
+              "toPar": "+19",
+              "rounds": [
+                "78",
+                "82",
+                "75"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Beck, Bob",
+              "affiliation": "Allentown, PA",
+              "toPar": "+22",
+              "rounds": [
+                "74",
+                "81",
+                "83"
+              ],
+              "total": "238",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Wagner, Duff",
+              "affiliation": "Greenville, SC",
+              "toPar": "+22",
+              "rounds": [
+                "78",
+                "79",
+                "81"
+              ],
+              "total": "238",
+              "status": "ranked"
+            },
+            {
+              "position": "T8",
+              "name": "Long, Bill",
+              "affiliation": "Southern Pines, NC",
+              "toPar": "+25",
+              "rounds": [
+                "80",
+                "82",
+                "79"
+              ],
+              "total": "241",
+              "status": "ranked"
+            },
+            {
+              "position": "T8",
+              "name": "Brown, Todd",
+              "affiliation": "Winston-Salem, NC",
+              "toPar": "+25",
+              "rounds": [
+                "80",
+                "79",
+                "82"
+              ],
+              "total": "241",
+              "status": "ranked"
+            },
+            {
+              "position": "T10",
+              "name": "Waters, Keith",
+              "affiliation": "Raleigh, NC",
+              "toPar": "+27",
+              "rounds": [
+                "78",
+                "85",
+                "80"
+              ],
+              "total": "243",
+              "status": "ranked"
+            },
+            {
+              "position": "T10",
+              "name": "Rice, Rory",
+              "affiliation": "Carolina Shores, NC",
+              "toPar": "+27",
+              "rounds": [
+                "83",
+                "79",
+                "81"
+              ],
+              "total": "243",
+              "status": "ranked"
+            },
+            {
+              "position": "12",
+              "name": "Wright, Kirk",
+              "affiliation": "Oklahoma City, OK",
+              "toPar": "+28",
+              "rounds": [
+                "83",
+                "80",
+                "81"
+              ],
+              "total": "244",
+              "status": "ranked"
+            },
+            {
+              "position": "13",
+              "name": "Allen, Brett",
+              "affiliation": "Columbia, MO",
+              "toPar": "+29",
+              "rounds": [
+                "82",
+                "81",
+                "82"
+              ],
+              "total": "245",
+              "status": "ranked"
+            },
+            {
+              "position": "14",
+              "name": "Healey, Michael",
+              "affiliation": "Marana, AZ",
+              "toPar": "+30",
+              "rounds": [
+                "81",
+                "81",
+                "84"
+              ],
+              "total": "246",
+              "status": "ranked"
+            },
+            {
+              "position": "15",
+              "name": "Burnette, Andy",
+              "affiliation": "Raleigh, NC",
+              "toPar": "+34",
+              "rounds": [
+                "85",
+                "81",
+                "84"
+              ],
+              "total": "250",
+              "status": "ranked"
+            },
+            {
+              "position": "16",
+              "name": "Starnes, James",
+              "affiliation": "Fort Myers, FL",
+              "toPar": "+37",
+              "rounds": [
+                "87",
+                "79",
+                "87"
+              ],
+              "total": "253",
+              "status": "ranked"
+            },
+            {
+              "position": "17",
+              "name": "Seward, Steven",
+              "affiliation": "Harrisonburg, VA",
+              "toPar": "+41",
+              "rounds": [
+                "86",
+                "83",
+                "88"
+              ],
+              "total": "257",
+              "status": "ranked"
+            },
+            {
+              "position": "18",
+              "name": "Coyne, Patrick",
+              "affiliation": "St. Augustine, FL",
+              "toPar": "+50",
+              "rounds": [
+                "84",
+                "97",
+                "85"
+              ],
+              "total": "266",
+              "status": "ranked"
+            }
+          ]
+        },
+        {
+          "label": "Legend",
+          "rows": [
+            {
+              "position": "1",
+              "name": "Tyson, Terry",
+              "affiliation": "Perrysburg, OH",
+              "toPar": "+1",
+              "rounds": [
+                "71",
+                "74",
+                "72"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "2",
+              "name": "Edens, Bob",
+              "affiliation": "Columbia, SC",
+              "toPar": "+13",
+              "rounds": [
+                "78",
+                "77",
+                "74"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "3",
+              "name": "McKelvy, Keith",
+              "affiliation": "Granbury, TX",
+              "toPar": "+17",
+              "rounds": [
+                "81",
+                "76",
+                "76"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "4",
+              "name": "Turner, Ed",
+              "affiliation": "Richardson, TX",
+              "toPar": "+19",
+              "rounds": [
+                "79",
+                "80",
+                "76"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "5",
+              "name": "Daniels, Lawrence",
+              "affiliation": "Bremerton, WA",
+              "toPar": "+21",
+              "rounds": [
+                "76",
+                "77",
+                "84"
+              ],
+              "total": "237",
+              "status": "ranked"
+            },
+            {
+              "position": "6",
+              "name": "Johnston, Brian",
+              "affiliation": "St. Simons Island, GA",
+              "toPar": "+23",
+              "rounds": [
+                "79",
+                "79",
+                "81"
+              ],
+              "total": "239",
+              "status": "ranked"
+            },
+            {
+              "position": "7",
+              "name": "White Jr, Dale",
+              "affiliation": "Ft Worth, TX",
+              "toPar": "+30",
+              "rounds": [
+                "83",
+                "84",
+                "79"
+              ],
+              "total": "246",
+              "status": "ranked"
+            },
+            {
+              "position": "8",
+              "name": "Detweiler, Don",
+              "affiliation": "Raleigh, NC",
+              "toPar": "+31",
+              "rounds": [
+                "82",
+                "84",
+                "81"
+              ],
+              "total": "247",
+              "status": "ranked"
+            },
+            {
+              "position": "9",
+              "name": "Porter, Dale",
+              "affiliation": "Leland, NC",
+              "toPar": "+40",
+              "rounds": [
+                "82",
+                "91",
+                "83"
+              ],
+              "total": "256",
+              "status": "ranked"
+            },
+            {
+              "position": "WD",
+              "name": "Cole, Andy",
+              "affiliation": "Dallas, TX",
+              "toPar": "-",
+              "rounds": [
+                "84",
+                "86",
+                "WD"
+              ],
+              "total": "WD",
+              "status": "WD"
+            }
+          ]
+        },
+        {
+          "label": "Super Legend",
+          "rows": [
+            {
+              "position": "1",
+              "name": "Donatoni, Don",
+              "affiliation": "West Chester, PA",
+              "toPar": "+2",
+              "rounds": [
+                "74",
+                "72",
+                "72"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "2",
+              "name": "Kuehn, Don",
+              "affiliation": "Kansas City, MO",
+              "toPar": "+12",
+              "rounds": [
+                "77",
+                "74",
+                "77"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "3",
+              "name": "Osborne, John",
+              "affiliation": "Vero Beach, FL",
+              "toPar": "+14",
+              "rounds": [
+                "81",
+                "76",
+                "73"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "4",
+              "name": "Allen, Pete",
+              "affiliation": "Southport, NC",
+              "toPar": "+15",
+              "rounds": [
+                "78",
+                "74",
+                "79"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "5",
+              "name": "Owens, George",
+              "affiliation": "Suffolk, VA",
+              "toPar": "+21",
+              "rounds": [
+                "78",
+                "80",
+                "79"
+              ],
+              "total": "237",
+              "status": "ranked"
+            },
+            {
+              "position": "6",
+              "name": "Crocker, David",
+              "affiliation": "Bluffton, SC",
+              "toPar": "+23",
+              "rounds": [
+                "78",
+                "84",
+                "77"
+              ],
+              "total": "239",
+              "status": "ranked"
+            },
+            {
+              "position": "7",
+              "name": "Washburn, George",
+              "affiliation": "Frederick, MD",
+              "toPar": "+24",
+              "rounds": [
+                "79",
+                "79",
+                "82"
+              ],
+              "total": "240",
+              "status": "ranked"
+            },
+            {
+              "position": "8",
+              "name": "Costanzo, Frank",
+              "affiliation": "Savannah, GA",
+              "toPar": "+28",
+              "rounds": [
+                "81",
+                "85",
+                "78"
+              ],
+              "total": "244",
+              "status": "ranked"
+            },
+            {
+              "position": "9",
+              "name": "Casstevens, John",
+              "affiliation": "Glen Allen, VA",
+              "toPar": "+30",
+              "rounds": [
+                "84",
+                "80",
+                "82"
+              ],
+              "total": "246",
+              "status": "ranked"
+            },
+            {
+              "position": "10",
+              "name": "Flaer, Barry",
+              "affiliation": "Adamstown, MD",
+              "toPar": "+32",
+              "rounds": [
+                "84",
+                "85",
+                "79"
+              ],
+              "total": "248",
+              "status": "ranked"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
