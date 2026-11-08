@@ -5,6 +5,7 @@ import { EWING_SNAPSHOT, hasTimezoneOffset, verifyEwingSnapshot } from "../src/d
 import {
   auditScore,
   notPostedRound,
+  progressKey,
   standings,
   totalCell,
   type FourBallScore,
@@ -82,6 +83,30 @@ const mixedOfficial = mixed.find((row) => row.id === "mix-official");
 const mixedDerived = mixed.find((row) => row.id === "mix-derived");
 if (mixedOfficial?.position !== "T4" || mixedOfficial.rankNote !== "official") throw new Error("Mixed board recomputed the official place");
 if (mixedDerived?.position != null) throw new Error("Mixed board derived a place beside an official place");
+
+const nineOfRoundOne = score({
+  total: 40,
+  thru: "9",
+  rounds: [{ strokes: 40, status: "incomplete" }, notPostedRound(), notPostedRound()],
+});
+const nineOfRoundTwo = score({
+  total: 110,
+  thru: "9",
+  rounds: [
+    { strokes: 70, status: "complete" },
+    { strokes: 40, status: "incomplete" },
+    notPostedRound(),
+  ],
+});
+if (progressKey(nineOfRoundOne) !== "partial:0:0:9") throw new Error(`Round 1 thru 9 key was ${progressKey(nineOfRoundOne)}`);
+if (progressKey(nineOfRoundTwo) !== "partial:1:1:9") throw new Error(`Round 2 thru 9 key was ${progressKey(nineOfRoundTwo)}`);
+if (progressKey(nineOfRoundOne) === progressKey(nineOfRoundTwo)) throw new Error("Nine holes of different rounds compared as one key");
+const splitRounds = standings([
+  team("thru-r1", "mid-am", ["Thru Round One", "Partner One"], nineOfRoundOne),
+  team("thru-r2", "mid-am", ["Thru Round Two", "Partner Two"], nineOfRoundTwo),
+]);
+if (splitRounds.find((row) => row.id === "thru-r1")?.position != null) throw new Error("Round 1 thru 9 was ranked with round 2 thru 9");
+if (splitRounds.find((row) => row.id === "thru-r2")?.position !== "1") throw new Error("The further round was not the only ranked card");
 
 const pars = [72, 72, null];
 const padded = auditScore(score({

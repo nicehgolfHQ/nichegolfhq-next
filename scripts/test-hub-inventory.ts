@@ -1,8 +1,11 @@
 import { MIDAM_TOURNAMENTS } from "../src/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "../src/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "../src/lib/seniorMajors";
+import { resultSnapshot } from "../src/data/hubs/batch1-results";
 import {
   HUB_BATCH_1,
+  championLabel,
+  classifyCalendar,
   classifyFormat,
   inventorySummary,
   isFormatHub,
@@ -73,6 +76,35 @@ if (strokeRoundCount("54 holes stroke play", "stroke") !== 3) throw new Error("5
 if (strokeRoundCount("72-hole stroke play, no cut", "stroke") !== 4) throw new Error("72 holes was not 4 rounds");
 if (strokeRoundCount("Match play", "match") !== 0) throw new Error("Match play invented stroke rounds");
 if (strokeRoundCount("Team match play", "team-match") !== 0) throw new Error("Team match invented stroke rounds");
+
+if (classifyCalendar({ dates2026: "Rescheduled – 2027" }) !== "rescheduled-out") throw new Error("A 2027 reschedule was kept in 2026");
+if (classifyCalendar({ startDate: "2026-02-19", endDate: "2026-02-21" }, "2026-11-08") !== "played-in-2026") {
+  throw new Error("A February finish was not played");
+}
+if (classifyCalendar({ startDate: "2026-11-13", endDate: "2026-11-15" }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("A later November start was treated as played");
+}
+if (classifyCalendar({}) !== "unknown") throw new Error("A blank date was classified");
+const lupton = items.find((item) => item.slug === "john-t-lupton-memorial");
+const gasparilla = items.find((item) => item.slug === "gasparilla-invitational");
+if (lupton?.calendar !== "rescheduled-out") throw new Error(`Lupton calendar is ${lupton?.calendar}`);
+if (gasparilla?.calendar !== "played-in-2026") throw new Error(`Gasparilla calendar is ${gasparilla?.calendar}`);
+if (summary.calendar.rescheduledOut < 1 || summary.calendar.rescheduledOut >= summary.total) {
+  throw new Error("Rescheduled count is not a real subset");
+}
+if (championLabel(2026, 2026, "played-in-2026") !== "2026 champion") throw new Error("Completed edition winner was called defending");
+if (championLabel(2025, 2026, "scheduled-2026") !== "Defending champion") throw new Error("Prior winner was not defending");
+
+for (const slug of ["gasparilla-invitational", "junior-orange-bowl", "society-of-seniors-spring-classic", "walter-j-travis-invitational", "east-vs-west-matches"]) {
+  const snapshot = resultSnapshot(slug);
+  if (!snapshot) throw new Error(`${slug} has no sourced snapshot`);
+  if (snapshot.complete) throw new Error(`${slug} snapshot claims a complete field`);
+  if (snapshot.sources.length === 0) throw new Error(`${slug} snapshot has no source`);
+}
+const travis = resultSnapshot("walter-j-travis-invitational");
+if (travis?.kind !== "match" || travis.formatConfidence !== "string-only" || !travis.qualifying) {
+  throw new Error("Travis snapshot does not keep qualifying separate from the format string");
+}
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");

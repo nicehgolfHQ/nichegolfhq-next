@@ -53,12 +53,21 @@ function hasStrokes(score: FourBallScore | null) {
   return !!score && score.rounds.some((round) => round.strokes != null);
 }
 
-/** Comparable progress. Null means this card cannot be ranked against others. */
-function progressKey(score: FourBallScore): string | null {
-  const incomplete = score.rounds.some((round) => round.status === "incomplete");
-  if (incomplete) {
-    if (!score.thru || score.total == null) return null;
-    return `partial:${score.thru}`;
+/**
+ * Comparable progress. Null means this card cannot be ranked against others.
+ * A partial key names how many rounds are already complete and which round is
+ * in progress, so 9 holes of round 1 is not the same key as 9 holes of round 2.
+ */
+export function progressKey(score: FourBallScore): string | null {
+  const incompleteAt = score.rounds
+    .map((round, index) => (round.status === "incomplete" ? index : -1))
+    .filter((index) => index >= 0);
+  if (incompleteAt.length > 0) {
+    if (incompleteAt.length !== 1 || !score.thru || score.total == null) return null;
+    const roundIndex = incompleteAt[0];
+    const prior = score.rounds.slice(0, roundIndex);
+    if (prior.some((round) => round.status !== "complete" || round.strokes == null)) return null;
+    return `partial:${prior.length}:${roundIndex}:${score.thru}`;
   }
   const done = completeCount(score);
   if (done === 0 || score.total == null) return null;
@@ -67,8 +76,14 @@ function progressKey(score: FourBallScore): string | null {
 
 function progressValue(key: string) {
   if (key.startsWith("complete:")) return Number(key.slice("complete:".length)) * 1000;
-  const thru = Number(key.slice("partial:".length));
-  return Number.isFinite(thru) ? thru : 0;
+  const parts = key.split(":");
+  if (parts[0] === "partial" && parts.length === 4) {
+    const done = Number(parts[1]);
+    const thru = Number(parts[3]);
+    if (!Number.isFinite(done) || !Number.isFinite(thru)) return 0;
+    return done * 1000 + thru;
+  }
+  return 0;
 }
 
 function placeNumber(label: string) {

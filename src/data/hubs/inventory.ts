@@ -9,6 +9,14 @@ export type HubFormat = "stroke" | "four-ball" | "four-ball-match" | "match" | "
 
 export type HubTemplate = "legacy" | "format-hub" | "ewing-dedicated";
 
+export type CalendarStanding =
+  | "played-in-2026"
+  | "scheduled-2026"
+  | "in-progress-2026"
+  | "year-only-2026"
+  | "rescheduled-out"
+  | "unknown";
+
 export type HubInventoryItem = {
   channel: HubChannel;
   slug: string;
@@ -20,6 +28,7 @@ export type HubInventoryItem = {
   newsSlugs: string[];
   template: HubTemplate;
   batch: "batch-1" | "ewing" | null;
+  calendar: CalendarStanding;
 };
 
 const CHANNEL_PATH: Record<HubChannel, string> = {
@@ -64,6 +73,39 @@ export function strokeRoundCount(format: string | null | undefined, kind: HubFor
   return holes / 18;
 }
 
+const AS_OF = "2026-11-08";
+
+/** Separates a 2026 date from a reschedule, a bare year, or a missing date. */
+export function classifyCalendar(
+  input: {
+    dates2026?: string | null;
+    startDate?: string | null;
+    endDate?: string | null;
+    liveStatus?: string | null;
+  },
+  asOf = AS_OF,
+): CalendarStanding {
+  const label = (input.dates2026 ?? "").replace(/[–—]/g, "-").trim();
+  if (/reschedul/i.test(label) && /2027/.test(label)) return "rescheduled-out";
+  if (/\b2027\b/.test(label) && !/2026/.test(label)) return "rescheduled-out";
+  if (/^reschedul/i.test(label) || (/\bTBD\b/i.test(label) && !/2026/.test(label))) return "unknown";
+  const start = input.startDate ?? "";
+  const end = input.endDate || start;
+  if (start.startsWith("2026") || (end && end.startsWith("2026"))) {
+    if (input.liveStatus === "live" || (start <= asOf && end >= asOf)) return "in-progress-2026";
+    if (input.liveStatus === "completed" || end < asOf) return "played-in-2026";
+    if (start > asOf) return "scheduled-2026";
+  }
+  if (/\b2026\b/.test(label)) return "year-only-2026";
+  return "unknown";
+}
+
+export function championLabel(resultYear: number, editionYear: number, standing: CalendarStanding): string {
+  if (standing === "played-in-2026" && resultYear === editionYear) return `${resultYear} champion`;
+  if (standing === "in-progress-2026" && resultYear === editionYear) return `${resultYear} leader`;
+  return "Defending champion";
+}
+
 export function resultsTabLabel(kind: HubFormat): "Scoring" | "Matches" {
   if (kind === "match" || kind === "team-match" || kind === "four-ball-match") return "Matches";
   return "Scoring";
@@ -89,7 +131,7 @@ type SourceEvent = {
   news?: { slug: string }[];
 };
 
-function row(channel: HubChannel, event: SourceEvent): HubInventoryItem {
+function row(channel: HubChannel, event: SourceEvent & { dates2026?: string; startDate?: string; endDate?: string; liveStatus?: string; month?: string | number }): HubInventoryItem {
   const batch = batchFor(channel, event.slug);
   return {
     channel,
@@ -102,6 +144,7 @@ function row(channel: HubChannel, event: SourceEvent): HubInventoryItem {
     newsSlugs: (event.news ?? []).map((article) => article.slug),
     template: templateFor(batch),
     batch,
+    calendar: classifyCalendar(event),
   };
 }
 
@@ -141,5 +184,13 @@ export function inventorySummary(items: HubInventoryItem[] = listHubInventory())
     legacy: items.filter((item) => item.template === "legacy").length,
     withScoringUrl: items.filter((item) => item.scoringUrl).length,
     withNews: items.filter((item) => item.newsSlugs.length > 0).length,
+    calendar: {
+      played: items.filter((item) => item.calendar === "played-in-2026").length,
+      scheduled: items.filter((item) => item.calendar === "scheduled-2026").length,
+      inProgress: items.filter((item) => item.calendar === "in-progress-2026").length,
+      yearOnly: items.filter((item) => item.calendar === "year-only-2026").length,
+      rescheduledOut: items.filter((item) => item.calendar === "rescheduled-out").length,
+      unknown: items.filter((item) => item.calendar === "unknown").length,
+    },
   };
 }

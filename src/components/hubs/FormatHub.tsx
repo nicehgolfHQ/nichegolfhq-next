@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
 import { TournamentResults } from "@/components/tournaments/TournamentResults";
-import { classifyFormat, resultsTabLabel, strokeRoundCount, type HubChannel } from "@/data/hubs/inventory";
+import { resultSnapshot, snapshotNames, type ResultSnapshot, type StrokeSnapshot } from "@/data/hubs/batch1-results";
+import { championLabel, classifyCalendar, classifyFormat, resultsTabLabel, strokeRoundCount, type HubChannel } from "@/data/hubs/inventory";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
 import type { Tournament } from "@/lib/tournaments/types";
 
@@ -25,15 +26,16 @@ type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event" | "Coverage"
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
   const kind = classifyFormat(tournament.format);
   const resultsLabel = resultsTabLabel(kind);
-  const rounds = strokeRoundCount(tournament.format, kind);
+  const standing = classifyCalendar(tournament);
+  const snapshot = resultSnapshot(tournament.slug);
+  const rounds = snapshot?.kind === "stroke" ? snapshot.roundCount : strokeRoundCount(tournament.format, kind);
   const hasNews = (tournament.news ?? []).length > 0;
   const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event", ...(hasNews ? (["Coverage"] as Panel[]) : [])];
   const [tab, setTab] = useState<Panel>("Overview");
   const [round, setRound] = useState(1);
   const dates = resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026 ?? tournament.typicalDates);
   const place = [tournament.course, tournament.location].filter(Boolean).join(" · ");
-  const scoringUrl = tournament.golfGeniusUrl;
-  const scoringLabel = tournament.golfGeniusUrlLabel ?? "Live scoring";
+  const names = snapshot ? snapshotNames(snapshot) : [];
 
   return (
     <div className="bg-zinc-50 text-zinc-950">
@@ -47,18 +49,19 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
         </h1>
         {place ? <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-zinc-600 md:text-lg">{place}</p> : null}
         {dates ? <p className="mt-2 text-base font-semibold text-zinc-900">{dates}</p> : null}
-        {scoringUrl ? (
-          <div className="mt-4 flex justify-center">
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          <ScoringAccess tournament={tournament} />
+          {tournament.golfGeniusUrl && tournament.tournamentWebsite ? (
             <a
-              href={scoringUrl}
+              href={tournament.tournamentWebsite}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+              className="inline-flex rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
             >
-              {scoringLabel}
+              {tournament.tournamentWebsiteLabel ?? "Tournament website"}
             </a>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
         {tournament.format ? <p className="mx-auto mt-3 max-w-2xl text-balance text-sm leading-6 text-zinc-600">{tournament.format}</p> : null}
       </section>
 
@@ -83,16 +86,16 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
 
       <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         <div hidden={tab !== "Overview"}>
-          <OverviewPanel tournament={tournament} rounds={rounds} />
+          <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} />
         </div>
         <div hidden={tab !== resultsLabel}>
-          <ResultsPanel tournament={tournament} kind={kind} rounds={rounds} round={round} setRound={setRound} />
+          <ResultsPanel tournament={tournament} snapshot={snapshot} rounds={rounds} round={round} setRound={setRound} />
         </div>
         <div hidden={tab !== "Field"}>
-          <p className="text-center text-sm text-zinc-600">No players posted</p>
+          <FieldPanel names={names} />
         </div>
         <div hidden={tab !== "Event"}>
-          <EventPanel tournament={tournament} />
+          <EventPanel tournament={tournament} standing={standing} />
         </div>
         {hasNews ? (
           <div hidden={tab !== "Coverage"}>
@@ -104,23 +107,70 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   );
 }
 
-function OverviewPanel({ tournament, rounds }: { tournament: Tournament; rounds: number }) {
+function ScoringAccess({ tournament }: { tournament: Tournament }) {
+  if (tournament.golfGeniusUrl) {
+    const label = tournament.golfGeniusUrlLabel ?? (tournament.golfGeniusCode ? `Live scoring · ${tournament.golfGeniusCode}` : "Live scoring");
+    return (
+      <a
+        href={tournament.golfGeniusUrl}
+        target="_blank"
+        rel="noreferrer"
+        title={tournament.golfGeniusCode ? `Golf Genius ID: ${tournament.golfGeniusCode}` : undefined}
+        className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+      >
+        {label}
+      </a>
+    );
+  }
+  if (tournament.golfGeniusCode) {
+    return (
+      <span
+        className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white"
+        title={`Golf Genius ID: ${tournament.golfGeniusCode}`}
+      >
+        Live scoring · {tournament.golfGeniusCode}
+      </span>
+    );
+  }
+  if (tournament.tournamentWebsite) {
+    return (
+      <a
+        href={tournament.tournamentWebsite}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
+      >
+        {tournament.tournamentWebsiteLabel ?? "Tournament website"}
+      </a>
+    );
+  }
+  return null;
+}
+
+function OverviewPanel({
+  tournament,
+  rounds,
+  standing,
+}: {
+  tournament: Tournament;
+  rounds: number;
+  standing: ReturnType<typeof classifyCalendar>;
+}) {
   const facts = [
     tournament.fieldSize ? { label: "Field", value: tournament.fieldSize } : null,
     tournament.eligibility ? { label: "Eligibility", value: tournament.eligibility } : null,
     tournament.founded ? { label: "Founded", value: String(tournament.founded) } : null,
   ].filter((item): item is { label: string; value: string } => Boolean(item));
-  const defending = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];
+  const latest = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];
 
   return (
     <div>
-      {rounds > 0 ? (
+      {rounds > 0 && standing === "scheduled-2026" ? (
         <div className={`grid grid-cols-1 gap-4 ${rounds >= 4 ? "md:grid-cols-2 xl:grid-cols-4" : rounds === 3 ? "md:grid-cols-3" : rounds === 2 ? "md:grid-cols-2" : ""}`}>
           {Array.from({ length: rounds }, (_, index) => (
             <div key={index} className="rounded-2xl border border-zinc-200 bg-white p-5 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Round {index + 1}</p>
               {tournament.course ? <p className="mt-2 font-serif text-2xl font-semibold">{tournament.course}</p> : null}
-              <p className="mt-2 text-sm text-emerald-800">No scores yet</p>
             </div>
           ))}
         </div>
@@ -131,19 +181,19 @@ function OverviewPanel({ tournament, rounds }: { tournament: Tournament; rounds:
         </div>
       )}
 
-      {facts.length > 0 || defending ? (
+      {facts.length > 0 || latest ? (
         <div className="mt-4 flex flex-wrap justify-center gap-3">
           {facts.map((fact) => (
             <div key={fact.label} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{fact.label}</p>
-              <p className="mt-1 text-sm font-semibold">{fact.value}</p>
+              <p className="mt-1 max-w-md text-sm font-semibold">{fact.value}</p>
             </div>
           ))}
-          {defending ? (
+          {latest ? (
             <div className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Defending champion</p>
-              <p className="mt-1 text-sm font-semibold">{defending.champion}</p>
-              <p className="mt-1 text-xs text-zinc-500">{defending.year}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{championLabel(latest.year, 2026, standing)}</p>
+              <p className="mt-1 text-sm font-semibold">{latest.champion}</p>
+              <p className="mt-1 text-xs text-zinc-500">{latest.year}</p>
             </div>
           ) : null}
         </div>
@@ -156,25 +206,25 @@ function OverviewPanel({ tournament, rounds }: { tournament: Tournament; rounds:
       {(tournament.howToPlay ?? []).length > 0 ? (
         <section className="mx-auto mt-8 max-w-xl text-center">
           <h2 className="font-serif text-2xl font-semibold">How to play</h2>
-          <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {tournament.howToPlay!.map((entry) =>
-              entry.href ? (
-                <a
-                  key={entry.label}
-                  href={entry.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
-                >
-                  {entry.label}
-                </a>
-              ) : (
-                <p key={entry.label} className="text-sm font-semibold text-zinc-800">
-                  {entry.label}
-                </p>
-              ),
-            )}
-          </div>
+          <ul className="mt-4 space-y-3">
+            {tournament.howToPlay!.map((entry) => (
+              <li key={entry.label}>
+                {entry.href ? (
+                  <a
+                    href={entry.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+                  >
+                    {entry.label}
+                  </a>
+                ) : (
+                  <p className="text-sm font-semibold text-zinc-800">{entry.label}</p>
+                )}
+                {entry.note ? <p className="mx-auto mt-1 max-w-md text-sm leading-6 text-zinc-600">{entry.note}</p> : null}
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
     </div>
@@ -183,59 +233,185 @@ function OverviewPanel({ tournament, rounds }: { tournament: Tournament; rounds:
 
 function ResultsPanel({
   tournament,
-  kind,
+  snapshot,
   rounds,
   round,
   setRound,
 }: {
   tournament: Tournament;
-  kind: ReturnType<typeof classifyFormat>;
+  snapshot: ResultSnapshot | null;
   rounds: number;
   round: number;
   setRound: (round: number) => void;
 }) {
-  const scoringUrl = tournament.golfGeniusUrl;
-  const scoringLabel = tournament.golfGeniusUrlLabel ?? "Live scoring";
-  const heading = kind === "stroke" || kind === "four-ball" ? `Round ${round}` : resultsTabLabel(kind);
-
+  const roundScores = snapshot?.kind === "stroke" && snapshot.rows.some((row) => row.rounds.some((score) => score != null));
   return (
     <div>
-      {rounds > 1 ? (
-        <div className="flex flex-wrap justify-center gap-2 pb-4">
-          {Array.from({ length: rounds }, (_, index) => (
-            <button
-              key={index}
-              type="button"
-              aria-pressed={round === index + 1}
-              onClick={() => setRound(index + 1)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
-                round === index + 1 ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-300 bg-white"
-              }`}
-            >
-              Round {index + 1}
-            </button>
-          ))}
-        </div>
+      {snapshot?.kind === "stroke" && roundScores ? (
+        <>
+          {rounds > 1 ? (
+            <div className="flex flex-wrap justify-center gap-2 pb-4">
+              {Array.from({ length: rounds }, (_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  aria-pressed={round === index + 1}
+                  onClick={() => setRound(index + 1)}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+                    round === index + 1 ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-300 bg-white"
+                  }`}
+                >
+                  Round {index + 1}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          <h2 className="text-center font-serif text-3xl font-semibold">Published finishers</h2>
+          <div className="mt-4">
+            <StrokeTable snapshot={snapshot} highlight={round - 1} />
+          </div>
+        </>
       ) : null}
-      <h2 className="text-center font-serif text-3xl font-semibold">{heading}</h2>
-      <p className="mt-3 text-center text-sm text-zinc-600">{kind === "match" || kind === "team-match" || kind === "four-ball-match" ? "No matches posted" : "No scores yet"}</p>
-      {scoringUrl ? (
+      {snapshot?.kind === "match" ? <MatchTable snapshot={snapshot} /> : null}
+      {snapshot?.kind === "team-match" ? <TeamTable snapshot={snapshot} /> : null}
+      {!snapshot ? (
+        <div className="text-center">
+          <h2 className="font-serif text-3xl font-semibold">Results</h2>
+          <div className="mt-4 flex justify-center">
+            <ScoringAccess tournament={tournament} />
+          </div>
+        </div>
+      ) : (
         <div className="mt-4 flex justify-center">
-          <a
-            href={scoringUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900"
-          >
-            {scoringLabel}
-          </a>
+          <ScoringAccess tournament={tournament} />
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
 
-function EventPanel({ tournament }: { tournament: Tournament }) {
+function StrokeTable({ snapshot, highlight }: { snapshot: StrokeSnapshot; highlight: number }) {
+  return (
+    <div className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
+      <table className="w-full min-w-[640px] text-left text-sm">
+        <caption className="sr-only">Published finishers. Blank rounds were not in the source.</caption>
+        <thead className="border-b border-zinc-200 text-xs uppercase tracking-[0.12em] text-zinc-500">
+          <tr>
+            <th className="px-3 py-3 font-semibold">Place</th>
+            {snapshot.rows.some((row) => row.division) ? <th className="px-3 py-3 font-semibold">Division</th> : null}
+            <th className="px-3 py-3 font-semibold">Player</th>
+            {Array.from({ length: snapshot.roundCount }, (_, index) => (
+              <th key={index} className={`px-3 py-3 font-semibold ${highlight === index ? "text-zinc-950" : ""}`}>
+                R{index + 1}
+              </th>
+            ))}
+            <th className="px-3 py-3 font-semibold">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {snapshot.rows.map((row) => (
+            <tr key={`${row.division ?? ""}-${row.name}`} className="border-b border-zinc-100">
+              <td className="px-3 py-3 font-semibold">{row.place}</td>
+              {snapshot.rows.some((item) => item.division) ? <td className="px-3 py-3">{row.division}</td> : null}
+              <td className="px-3 py-3">
+                <span className="font-semibold">{row.name}</span>
+                {row.detail ? <span className="mt-1 block text-xs text-zinc-500">{row.detail}</span> : null}
+              </td>
+              {row.rounds.map((score, index) => (
+                <td key={index} className={`px-3 py-3 tabular-nums ${highlight === index ? "bg-emerald-50 font-semibold" : ""}`}>
+                  {score ?? ""}
+                </td>
+              ))}
+              <td className="px-3 py-3 font-semibold tabular-nums">{row.total ?? ""}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function MatchTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "match" }> }) {
+  return (
+    <div>
+      <h2 className="text-center font-serif text-3xl font-semibold">Match play</h2>
+      <p className="mt-2 text-center text-sm text-zinc-600">Recorded format: Match play</p>
+      {snapshot.qualifying ? (
+        <p className="mt-4 text-center text-sm font-semibold">Qualifying medalist: {snapshot.qualifying.medalist}</p>
+      ) : null}
+      <ul className="mx-auto mt-4 max-w-2xl space-y-2 text-sm">
+        {snapshot.matches.map((match) => (
+          <li key={`${match.flight}-${match.round}-${match.result}`} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
+              {match.flight} · {match.round}
+            </p>
+            <p className="mt-1 text-center font-semibold">{match.result}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function TeamTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "team-match" }> }) {
+  return (
+    <div>
+      <h2 className="text-center font-serif text-3xl font-semibold">Sessions</h2>
+      <div className="mx-auto mt-4 max-w-xl overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
+        <table className="w-full text-left text-sm">
+          <caption className="sr-only">Session scores</caption>
+          <thead className="border-b border-zinc-200 text-xs uppercase tracking-[0.12em] text-zinc-500">
+            <tr>
+              <th className="px-3 py-3 text-center font-semibold">Session</th>
+              <th className="px-3 py-3 text-center font-semibold">East</th>
+              <th className="px-3 py-3 text-center font-semibold">West</th>
+            </tr>
+          </thead>
+          <tbody>
+            {snapshot.sessions.map((session) => (
+              <tr key={session.session} className="border-b border-zinc-100">
+                <td className="px-3 py-3 text-center">{session.session}</td>
+                <td className="px-3 py-3 text-center font-semibold tabular-nums">{session.east}</td>
+                <td className="px-3 py-3 text-center font-semibold tabular-nums">{session.west}</td>
+              </tr>
+            ))}
+            <tr>
+              <td className="px-3 py-3 text-center font-semibold">{snapshot.cumulative.label}</td>
+              <td className="px-3 py-3 text-center font-semibold tabular-nums">{snapshot.cumulative.east}</td>
+              <td className="px-3 py-3 text-center font-semibold tabular-nums">{snapshot.cumulative.west}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 className="mt-8 text-center font-serif text-2xl font-semibold">Friday four-ball</h3>
+      <ul className="mx-auto mt-4 max-w-2xl space-y-2 text-sm">
+        {snapshot.matches.map((match) => (
+          <li key={match.result} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
+            {match.result}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function FieldPanel({ names }: { names: string[] }) {
+  if (names.length === 0) return null;
+  return (
+    <div>
+      <h2 className="text-center font-serif text-3xl font-semibold">Named players</h2>
+      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+        {names.map((name) => (
+          <li key={name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+            {name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function EventPanel({ tournament, standing }: { tournament: Tournament; standing: ReturnType<typeof classifyCalendar> }) {
   const facts = [
     tournament.course ? { label: "Course", value: tournament.course } : null,
     tournament.location ? { label: "Location", value: tournament.location } : null,
@@ -247,11 +423,13 @@ function EventPanel({ tournament }: { tournament: Tournament }) {
     tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
     tournament.courseYear ? { label: "Opened", value: String(tournament.courseYear) } : null,
   ].filter((item): item is { label: string; value: string } => Boolean(item));
+  const latest = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];
 
   return (
     <div className="grid gap-4 md:grid-cols-2">
       <section className="rounded-2xl border border-zinc-200 bg-white p-6 text-center">
         <h2 className="font-serif text-2xl font-semibold">{tournament.course ?? tournament.name}</h2>
+        {latest ? <p className="mt-2 text-sm text-zinc-600">{championLabel(latest.year, 2026, standing)}: {latest.champion}</p> : null}
         {facts.length > 0 ? (
           <dl className="mt-4 space-y-3 text-sm text-zinc-700">
             {facts.map((fact) => (
