@@ -23,6 +23,7 @@ import {
   HUB_BATCH_4,
   HUB_BATCH_5,
   HUB_BATCH_6,
+  HUB_BATCH_7,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -41,7 +42,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -642,7 +643,7 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
 }
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
 const publishedRows = remainingBoards.boards.flatMap((board) => board.rows.map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 175) throw new Error("The published European, Picard, and Tree Farm rows are no longer 175");
+if (publishedRows.length !== 249) throw new Error("The published checked boards are no longer 249 rows");
 for (const { slug, row } of publishedRows) {
   const players = "players" in row ? row.players : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
@@ -750,6 +751,39 @@ if (!renderHub({ slug: "the-farrell", name: "The Farrell", channel: "midam", mon
 }
 if (resultSnapshot("east-vs-west-matches")?.kind !== "team-match" || resultSnapshot("national-invitational-tournament")?.kind !== "stroke") {
   throw new Error("In-progress coverage was replaced");
+}
+const seniorBoards = [
+  ["giles-invitational-senior-division", 30, "Rick Stimmel", "73,66,73", 212, "giles-invitational"],
+  ["jupiter-invitational-senior-division", 17, "Michael McCoy", "70,68,66", 204, "the-jupiter-invitational"],
+  ["huddleston-cup-senior-division", 27, "Bob Royak", "70,73,73", 216, "the-huddleston-cup"],
+] as const;
+for (const [slug, count, leader, rounds, total, midamSlug] of seniorBoards) {
+  const board = officialRemainingSnapshot(slug);
+  const midam = officialStrokeSnapshot(midamSlug);
+  if (!board || board.rows.length !== count || board.rows[0]?.name !== leader || board.rows[0].rounds.join(",") !== rounds || board.rows[0].total !== total) {
+    throw new Error(`${slug} senior board changed`);
+  }
+  const midamNames = new Set(midam?.rows.map((row) => row.name));
+  if (board.rows.some((row) => midamNames.has(row.name))) throw new Error(`${slug} repeats a mid-am name`);
+  if (!isFormatHub("senior", slug)) throw new Error(`${slug} is still on the legacy layout`);
+}
+const gilesSenior = officialRemainingSnapshot("giles-invitational-senior-division");
+const oconnell = gilesSenior?.rows.find((row) => row.name === "Eoghan O'Connell");
+const mcclure = gilesSenior?.rows.find((row) => row.name === "John McClure");
+if (oconnell?.status !== "DQ" || oconnell.rounds.join(",") !== "75,77,DQ" || oconnell.total !== "DQ" || mcclure?.status !== "CUT" || mcclure.rounds.join(",") !== "77,80," || mcclure.total !== 157) {
+  throw new Error("Giles senior status tokens were rewritten");
+}
+const huddlestonSenior = officialRemainingSnapshot("huddleston-cup-senior-division");
+const lohner = huddlestonSenior?.rows.find((row) => row.name === "Mike Lohner");
+const joseph = huddlestonSenior?.rows.find((row) => row.name === "Eric Joseph");
+if (lohner?.rounds.join(",") !== "84,WD," || lohner.total !== "WD" || joseph?.rounds.join(",") !== "88,NC," || joseph.total !== "NC") {
+  throw new Error("Huddleston senior WD or NC token was rewritten");
+}
+if (SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "jupiter-invitational-senior-division")?.winners?.[0]?.champion !== "Mike McCoy") {
+  throw new Error("The stored Jupiter senior champion line was renamed");
+}
+if (SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "huddleston-cup-senior-division")?.startDate !== "2026-05-26") {
+  throw new Error("Huddleston dates were changed from the widget");
 }
 
 console.log(JSON.stringify(summary, null, 2));

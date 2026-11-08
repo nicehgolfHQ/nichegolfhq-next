@@ -238,6 +238,27 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     note: "Existing senior hub. 30 rows, including one WD. Not shown on the mid-am page. Retrieved 2026-11-08 at 9:20 a.m. CT.",
   },
   {
+    channel: "senior",
+    slug: "giles-invitational-senior-division",
+    access: "public-page",
+    completeness: "full",
+    note: "Public results page, senior division, 30 rows. Rick Stimmel 73, 66, 73, total 212. Five CUT cards and one DQ. No name is also on the mid-am board. Stored URL unchanged.",
+  },
+  {
+    channel: "senior",
+    slug: "jupiter-invitational-senior-division",
+    access: "public-page",
+    completeness: "full",
+    note: "Public results page, senior division, 17 rows. Michael McCoy 70, 68, 66, total 204. The stored champion line still says Mike McCoy. No name is also on the mid-am board.",
+  },
+  {
+    channel: "senior",
+    slug: "huddleston-cup-senior-division",
+    access: "public-page",
+    completeness: "full",
+    note: "Public results page, Senior Amateur, 27 rows. Bob Royak 70, 73, 73, total 216. WD and NC tokens kept. The widget dates the rounds May 28-30. Stored dates stay May 26-28.",
+  },
+  {
     channel: "midam",
     slug: "ewing-cup-four-ball",
     access: "not-yet-published",
