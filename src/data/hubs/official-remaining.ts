@@ -22,7 +22,25 @@ type PublicBoard = {
   rows: PublicRow[];
 };
 
+/** A PDF page header must never survive into a player name, country, or score token. */
+const PAGE_HEADER = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
+
+function rejectPageHeader(value: string, where: string) {
+  if (PAGE_HEADER.test(value)) throw new Error(`${where} contains a page header`);
+}
+
 function displayRow(row: PublicRow, roundCount: number): StrokeFinisher {
+  for (const [label, value] of [
+    ["place", row.position],
+    ["name", row.name],
+    ["country", row.affiliation],
+    ["toPar", row.toPar],
+    ["total", row.total],
+    ...(row.players ?? []).map((player, index) => [`player ${index + 1}`, player] as const),
+    ...row.rounds.map((round, index) => [`round ${index + 1}`, round] as const),
+  ]) {
+    rejectPageHeader(value, `${row.name} ${label}`);
+  }
   const rounds: Array<number | string | null> = row.rounds.map((value) => {
     if (value === "") return null;
     return /^\d+$/.test(value) ? Number(value) : value;

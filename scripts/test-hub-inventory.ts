@@ -11,6 +11,7 @@ import dispute from "../src/data/hubs/official/farrell-final-dispute.json";
 import { officialFormatSnapshot } from "../src/data/hubs/official-formats";
 import { officialRemainingSnapshot } from "../src/data/hubs/official-remaining";
 import remainingAudit from "../src/data/hubs/official/remaining-2026.provenance.json";
+import remainingBoards from "../src/data/hubs/official/remaining-2026.public.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -633,6 +634,25 @@ if (schaffrath?.status !== "RTD" || schaffrath.toPar !== "+19" || schaffrath.rou
   throw new Error("European RTD row was rewritten");
 }
 if (stewartCountry?.hometown !== "United States") throw new Error("A wrapped European country was split");
+const szmidt = european.rows.find((row) => row.name === "Szmidt, Jan");
+const vanBiljon = european.rows.find((row) => row.name === "Van Biljon, Vincent");
+if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
+  throw new Error("A PDF page header stayed in a country cell");
+}
+const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
+const publishedRows = remainingBoards.boards.flatMap((board) => board.rows.map((row) => ({ slug: board.slug, row })));
+if (publishedRows.length !== 175) throw new Error("The published European, Picard, and Tree Farm rows are no longer 175");
+for (const { slug, row } of publishedRows) {
+  const players = "players" in row ? row.players : [];
+  const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
+  for (const token of tokens) {
+    if (pageHeader.test(token)) throw new Error(`${slug} ${row.name} kept a page header in ${token}`);
+  }
+}
+const europeanHtml = renderHub({ slug: "european-mens-mid-amateur", name: "European Mid-Amateur", channel: "midam", month: 6, format: "54 holes stroke play" }, "midam");
+if (europeanHtml.includes("Pos Name") || europeanHtml.includes("To par R1") || !europeanHtml.includes("Poland") || !europeanHtml.includes("Netherlands")) {
+  throw new Error("The European page rendered a PDF header in a country");
+}
 if (!remainingAudit["european-mens-mid-amateur"].withheld.includes("Ladies result list")) {
   throw new Error("European withheld lists were dropped");
 }
