@@ -23,15 +23,15 @@ const CHANNEL_PATH: Record<HubChannel, string> = {
   senior: "seniorgolfhq",
 };
 
-type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event" | "Coverage";
+type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event";
 
 /** Public scope lines. These do not add scores. */
 const RESULTS_NOTE: Record<string, string> = {
   "sanger-invitational": "Full results unavailable here.",
-  "the-stocker-cup": "Full results unavailable here. See Coverage.",
+  "the-stocker-cup": "Full results unavailable here.",
   "the-crump-cup": "The posted sheet is pairings and tee times, not match results.",
-  "usga-mens-mid-am": "Full results unavailable here. See Coverage.",
-  "usga-womens-mid-am": "Full results unavailable here. See Coverage.",
+  "usga-mens-mid-am": "Full results unavailable here.",
+  "usga-womens-mid-am": "Full results unavailable here.",
   "elite-invitational": "Girls results unavailable here.",
   "us-junior-amateur": "Full results unavailable here.",
   "us-girls-junior": "Full results unavailable here.",
@@ -47,7 +47,7 @@ const RESULTS_NOTE: Record<string, string> = {
   "north-south-junior": "Full results unavailable here.",
   "us-amateur": "Full results unavailable here.",
   "ajga-ping-invitational": "Full results unavailable here.",
-  "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
+  "dustin-johnson-world-junior": "Full results unavailable here.",
 };
 
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
@@ -56,8 +56,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   const standing = classifyCalendar(tournament);
   const snapshot = resultSnapshot(tournament.slug);
   const rounds = snapshot?.kind === "stroke" ? snapshot.roundCount : strokeRoundCount(tournament.format, kind);
-  const hasNews = (tournament.news ?? []).length > 0;
-  const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event", ...(hasNews ? (["Coverage"] as Panel[]) : [])];
+  const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event"];
   const [tab, setTab] = useState<Panel>("Overview");
   const [round, setRound] = useState(() =>
     snapshot?.kind === "stroke" && snapshot.scope !== "published-finishers" ? snapshot.roundCount : 1,
@@ -116,7 +115,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
 
       <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         <div hidden={tab !== "Overview"}>
-          <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} />
+          <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} channel={channel} />
         </div>
         <div hidden={tab !== resultsLabel}>
           <ResultsPanel
@@ -137,11 +136,6 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
         <div hidden={tab !== "Event"}>
           <EventPanel tournament={tournament} standing={standing} snapshot={snapshot} />
         </div>
-        {hasNews ? (
-          <div hidden={tab !== "Coverage"}>
-            <TournamentNews news={tournament.news} articleHrefPrefix={`/${CHANNEL_PATH[channel]}/${tournament.slug}`} />
-          </div>
-        ) : null}
       </div>
     </div>
   );
@@ -191,10 +185,12 @@ function OverviewPanel({
   tournament,
   rounds,
   standing,
+  channel,
 }: {
   tournament: Tournament;
   rounds: number;
   standing: ReturnType<typeof classifyCalendar>;
+  channel: HubChannel;
 }) {
   const facts = [
     tournament.fieldSize ? { label: "Field", value: tournament.fieldSize } : null,
@@ -214,12 +210,7 @@ function OverviewPanel({
             </div>
           ))}
         </div>
-      ) : (
-        <div className="rounded-2xl border border-zinc-200 bg-white p-5 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Format</p>
-          <p className="mt-2 font-serif text-2xl font-semibold">{tournament.format}</p>
-        </div>
-      )}
+      ) : null}
 
       {facts.length > 0 || latest ? (
         <div className="mt-4 flex flex-wrap justify-center gap-3">
@@ -278,6 +269,8 @@ function OverviewPanel({
           </ul>
         </section>
       ) : null}
+
+      <TournamentNews news={tournament.news} articleHrefPrefix={`/${CHANNEL_PATH[channel]}/${tournament.slug}`} />
     </div>
   );
 }
