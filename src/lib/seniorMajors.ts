@@ -1329,6 +1329,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     location: "Carrollton, TX",
     golfGeniusUrl: "https://2026eastwestmatches.golfgenius.com/pages/13130623543135991976",
     golfGeniusUrlLabel: "2026 Results",
+    winners: [{ year: 2026, champion: "West (25.5 to 19.5)" }],
     overview: "The East West Cup Matches pits an elite team from west of the Mississippi against a team from the east in a Ryder Cup-style team competition. Each side fields 18 players drawn from senior, mid-amateur, and young amateur ranks, and the event is primarily hosted at Maridoe Golf Club in Carrollton, Texas \u2014 one of America\u2019s most demanding private courses.",
     howToPlay: [{ label: "Invite only \u2014 no application" }],
   },

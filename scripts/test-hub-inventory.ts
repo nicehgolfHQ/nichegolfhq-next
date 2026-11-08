@@ -1239,7 +1239,7 @@ const nit = MIDAM_TOURNAMENTS.find((event) => event.slug === "national-invitatio
 const nitFinal = nit?.news?.find((article) => article.slug === "2026-national-invitational-tournament-final-recap");
 if (
   nit?.course !== "The Country Club of Birmingham" ||
-  nit.liveStatus !== "live" ||
+  nit.liveStatus !== "completed" ||
   !nit.golfGeniusUrl?.includes("sign_in") ||
   !nit.pastResults?.some((result) => result.year === 2025 && result.champion === "Ryan Terry") ||
   nitFinal?.title !== "Sam Jackson Wins the National Invitational by Four at The Country Club of Birmingham" ||
@@ -1262,7 +1262,34 @@ if (nitPhoto.length < 1000 || nitPhoto[0] !== 0xff || nitPhoto[1] !== 0xd8) {
 for (const slug of ["2026-national-invitational-tournament-round-2-recap", "2026-national-invitational-tournament-round-1-recap", "2026-national-invitational-tournament-preview"]) {
   if (!nit.news?.some((article) => article.slug === slug)) throw new Error(`${slug} was dropped`);
 }
+const nitSnapshot = resultSnapshot("national-invitational-tournament");
+if (!nitSnapshot || nitSnapshot.kind !== "stroke" || nitSnapshot.rows.some((row) => row.name === "Keith Guest") || !nitSnapshot.rows.some((row) => row.name === "Hunter Hawkins")) {
+  throw new Error("The NIT scoreboard was replaced or Keith Guest was given a score");
+}
+const nitHubHtml = renderHub({ ...nit, news: nit.news?.map((article) => ({ ...article, photos: undefined })) }, "midam");
+const nitNames = [
+  "Sam Jackson", "Sean Rowen", "Jackson King", "Will McCurdy", "Ethan Hagood", "Jeff Reuter", "Bo Hayes", "JP Cave", "Charlie Hoyle", "John Quigley", "Alan Coshatt", "Blake Watts", "Lawrence Allan", "Andy Sajevic", "Hunter Hamrick", "Cam Roam", "Patrick Christovich", "John Hunter", "Ryan Terry", "Daniel Connolly", "Austin Coggin", "TJ Shuart", "Taylor Eyster", "Logan Blondell", "Blair Hamm", "Keith Guest", "Hunter Hawkins",
+];
+for (const name of nitNames) {
+  if (!nitHubHtml.includes(`>${name}</li>`)) throw new Error(`${name} is missing from the NIT field`);
+}
+if (nitHubHtml.includes("Patrick Christovich,") || nitHubHtml.includes("Tournament field, listed alphabetically.")) {
+  throw new Error("The NIT field has a bad name or claims to be the full field");
+}
+const nitChampion = nitHubHtml.slice(nitHubHtml.indexOf("2026 champion"), nitHubHtml.indexOf("2026 champion") + 180);
+if (!nitChampion.includes("Sam Jackson (208 -5)") || !nitHubHtml.includes("Ryan Terry")) {
+  throw new Error("The NIT champion box did not show Sam Jackson or dropped Ryan Terry");
+}
 const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
+const eastChampion = eastWestHtml.slice(eastWestHtml.indexOf("2026 champion"), eastWestHtml.indexOf("2026 champion") + 160);
+if (!eastChampion.includes("West (25.5 to 19.5)") || eastChampion.includes("10.5") || eastChampion.includes("7.50")) {
+  throw new Error("The senior East vs West champion box is not the overall total");
+}
+const midamEastHtml = renderHub(MIDAM_TOURNAMENTS.find((event) => event.slug === "east-vs-west-matches")!, "midam");
+const midamChampion = midamEastHtml.slice(midamEastHtml.indexOf("2026 champion"), midamEastHtml.indexOf("2026 champion") + 160);
+if (!midamChampion.includes("West (25.5 to 19.5)") || midamChampion.includes("10.5") || midamChampion.includes("7.50")) {
+  throw new Error("The mid-am East vs West champion box is not the overall total");
+}
 const teamsAt = eastWestHtml.indexOf(">Teams</h2>");
 const teamBlock = teamsAt < 0 ? "" : eastWestHtml.slice(teamsAt, teamsAt + 600);
 if (eastWestHtml.includes("Named players") || !teamBlock.includes(">East</li>") || !teamBlock.includes(">West</li>") || !eastWestHtml.includes("East 19.50, West 25.50") || !eastWestHtml.includes("East 7.50, West 10.50") || !eastWestHtml.includes("Mike McCoy def. Mike Sposa, 2 and 1") || eastWestHtml.includes("Scott Harvey")) {

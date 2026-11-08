@@ -2972,14 +2972,14 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
         ],
       },
     ],
-    pastResults: [],
+    pastResults: [{ year: 2026, champion: "West (25.5 to 19.5)" }],
   },
 
   {
     slug: "national-invitational-tournament",
     name: "National Invitational Tournament",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 11,
     dates2026: "November 6-8, 2026",
     startDate: "2026-11-06",
@@ -3051,6 +3051,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
       },
     ],
     pastResults: [
+      { year: 2026, champion: "Sam Jackson (208 -5)" },
       { year: 2025, champion: "Ryan Terry" },
       { year: 2024, champion: "Hunter Hamrick" },
       { year: 2023, champion: "Blake Watts" },

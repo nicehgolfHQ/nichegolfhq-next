@@ -42,6 +42,8 @@ export type StrokeSnapshot = {
   /** Public retrieval time. Provenance URLs stay off the page. */
   updatedLabel?: string;
   rows: StrokeFinisher[];
+  /** Extra people to list. Does not add scores or replace the rows. */
+  fieldNames?: string[];
   /** Separate official divisions. Each keeps its own places. */
   divisions?: { label: string; par?: number; yardage?: number; rows: StrokeFinisher[] }[];
   /** Award standings for players who are already in rows. Not an extra field. */
@@ -160,6 +162,34 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
       { place: "T4", name: "Alan Coshatt", rounds: [null, 70], total: 143, detail: "1-over" },
       { place: "T4", name: "Ethan Hagood", rounds: [null, 69], total: 143, detail: "1-over" },
       { place: "T4", name: "Hunter Hawkins", rounds: [null, 73], total: 143, detail: "1-over" },
+    ],
+    fieldNames: [
+      "Sam Jackson",
+      "Sean Rowen",
+      "Jackson King",
+      "Will McCurdy",
+      "Ethan Hagood",
+      "Jeff Reuter",
+      "Bo Hayes",
+      "JP Cave",
+      "Charlie Hoyle",
+      "John Quigley",
+      "Alan Coshatt",
+      "Blake Watts",
+      "Lawrence Allan",
+      "Andy Sajevic",
+      "Hunter Hamrick",
+      "Cam Roam",
+      "Patrick Christovich",
+      "John Hunter",
+      "Ryan Terry",
+      "Daniel Connolly",
+      "Austin Coggin",
+      "TJ Shuart",
+      "Taylor Eyster",
+      "Logan Blondell",
+      "Blair Hamm",
+      "Keith Guest",
     ],
     sources: [{ articleSlug: "2026-national-invitational-tournament-round-2-recap", record: "article", label: "Round 2 recap" }],
   },
@@ -295,7 +325,8 @@ export function scopeLabel(snapshot: ResultSnapshot): string {
 
 export function snapshotNames(snapshot: ResultSnapshot): string[] {
   if (snapshot.kind === "stroke") {
-    return snapshot.rows.flatMap((row) => (row.players?.length ? row.players : [row.name]).map(individualName));
+    const names = snapshot.rows.flatMap((row) => (row.players?.length ? row.players : [row.name]));
+    return [...new Set([...names, ...(snapshot.fieldNames ?? [])].map(individualName))];
   }
   if (snapshot.kind === "team-match") {
     const names = snapshot.fieldNames ?? snapshot.matches.flatMap((match) => match.players);
