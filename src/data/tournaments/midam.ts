@@ -501,6 +501,8 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Men-only club; est. 1899",
 
     format: "Match play",
+    golfGeniusUrl: "https://116thwalterjtravisinvitational.golfgenius.com/pages/12475288108469871110",
+    golfGeniusUrlLabel: "2026 Results",
     howToPlay: [
       { label: "Invite only — no application" },
     ],
@@ -1032,7 +1034,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     format: "54 holes stroke play",
     courseWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
     tournamentWebsite: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9",
-    golfGeniusUrl: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9#/competition/5530426/leaderboard",
+    golfGeniusUrl: "https://www.ega-golf.ch/sites/ega/files/ckeditor/EMAC%202026%20-%20RESULTS.pdf",
     golfGeniusUrlLabel: "2026 Results",
     howToPlay: [
       { label: "Open entry via national federation", href: "https://www.ega-golf.ch/content/european-mid-amateur-mens-championship-9" },
@@ -1327,7 +1329,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "GolfLink shows 73.9/138 from different tees",
 
     format: "4-ball",
-    golfGeniusUrl: "https://picardcup.com/portal/",
+    golfGeniusUrl: "https://picardcup.com/leaderboard/",
     golfGeniusUrlLabel: "2026 Results",
     tournamentWebsite: "https://picardcup.com/",
     howToPlay: [

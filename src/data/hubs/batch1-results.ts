@@ -5,6 +5,7 @@
 
 import { gasparillaMainSnapshot, gasparillaSeniorSnapshot } from "@/data/hubs/gasparilla-public";
 import { officialFormatSnapshot } from "@/data/hubs/official-formats";
+import { officialRemainingSnapshot } from "@/data/hubs/official-remaining";
 import { officialStrokeSnapshot } from "@/data/hubs/official-stroke";
 
 export type ResultSource = {
@@ -22,7 +23,7 @@ export type StrokeFinisher = {
   detail?: string;
   hometown?: string;
   toPar?: string;
-  status?: "ranked" | "CUT" | "WD" | "DQ" | "DNF" | "NC" | "NS";
+  status?: "ranked" | "CUT" | "WD" | "DQ" | "DNF" | "NC" | "NS" | "MC" | "RTD";
   /** One person per entry. A better-ball side is never stored as one combined name. */
   players?: string[];
 };
@@ -30,8 +31,12 @@ export type StrokeFinisher = {
 export type StrokeSnapshot = {
   kind: "stroke";
   complete: boolean;
-  scope: "published-finishers" | "official-overall" | "official-final" | "official-award" | "official-totals";
+  scope: "published-finishers" | "official-overall" | "official-final" | "official-award" | "official-totals" | "official-points";
   roundCount: number;
+  /** Stableford points are not stroke scores. */
+  scoring?: "strokes" | "stableford-points";
+  /** Keeps the published column order when it is not rounds then total. */
+  columnOrder?: "rounds-then-total" | "total-then-rounds";
   /** Short stage already stated by the source, such as "Through 36 holes". */
   stageLabel?: string;
   /** Public retrieval time. Provenance URLs stay off the page. */
@@ -180,7 +185,7 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
 };
 
 export function resultSnapshot(slug: string): ResultSnapshot | null {
-  return BATCH_1_RESULTS[slug] ?? officialStrokeSnapshot(slug) ?? officialFormatSnapshot(slug);
+  return BATCH_1_RESULTS[slug] ?? officialRemainingSnapshot(slug) ?? officialStrokeSnapshot(slug) ?? officialFormatSnapshot(slug);
 }
 
 function individualName(name: string): string {
@@ -193,6 +198,7 @@ export function scopeLabel(snapshot: ResultSnapshot): string {
   if (snapshot.kind === "stroke" && snapshot.scope === "official-final") return "Final results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-award") return "Low Senior award";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-totals") return "Qualifying totals";
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-points") return "Stableford points";
   return snapshot.kind === "stroke" ? "Selected results" : "Selected matches";
 }
 

@@ -1,0 +1,38 @@
+{
+  "european-mens-mid-amateur": {
+    "source": "https://www.ega-golf.ch/sites/ega/files/ckeditor/EMAC%202026%20-%20RESULTS.pdf",
+    "mounted": "Men result list, 104 rows",
+    "withheld": ["Ladies result list", "Men +40", "Ladies +40"],
+    "rtd": "Schaffrath, Nikolai is printed RTD, +19, 81, blank, 81. The 81 was not changed to match +19."
+  },
+  "the-picard-cup": {
+    "source": "https://picardcup.com/leaderboard/",
+    "mounted": "Mid Am, 36 teams, every card finished",
+    "withheld": "Senior Am, 12 teams, first side Todd Franks and Billy Joe Tolliver. No senior hub.",
+    "tie": "The scoreboard ties Bobby Wyatt and Vince Cave with Nick Robillard and Paul Vardaman at 200. It does not print a playoff."
+  },
+  "tree-farm-invitational": {
+    "source": "/results/tree-farm-invitational-2026-final.html",
+    "mounted": "35 published rows. Columns are place, player, total, R1, R2. Every total is R1 plus R2.",
+    "preview": "The preview said 37 players and did not publish the roster.",
+    "absentWithoutAStatus": ["Matt Crenshaw", "Ben Greve"],
+    "name": "The final board prints Bill Williamson. The round-1 board and the recap print Billy Williamson for the same 26-point first round."
+  },
+  "walter-j-travis-invitational": {
+    "source": "https://116thwalterjtravisinvitational.golfgenius.com/pages/12475288108469871110",
+    "notMounted": "The qualifying table is 80 rows and labels 64 players CUT, including Matthew Naumec, who won the Devereux Emmet Cup. That CUT label was not published as the event result. The bracket JSON also disagrees with the visible final, DeJohn 2 & 1.",
+    "kept": "The hub still shows the recap match list."
+  },
+  "the-crump-cup": {
+    "notMounted": "The stored PDF and the GAP brackets PDF are match sheets with tee times. They were not turned into results."
+  },
+  "the-stocker-cup": {
+    "notMounted": "stockercup.com has 2024 and 2025 result posts and a 2026 live-video page. It has no 2026 results post or leaderboard table."
+  },
+  "sanger-invitational": {
+    "notMounted": "No public Fishers Island results page was found."
+  },
+  "usga": {
+    "notMounted": "Both stored scoring URLs returned HTTP 403 from Akamai. The existing recaps stay in place."
+  }
+}

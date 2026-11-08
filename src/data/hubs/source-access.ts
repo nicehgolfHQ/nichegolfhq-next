@@ -65,9 +65,9 @@ export const SOURCE_ACCESS: SourceAccess[] = [
   {
     channel: "midam",
     slug: "walter-j-travis-invitational",
-    access: "no-url",
+    access: "public-page",
     completeness: "selected",
-    note: "No scoring URL is stored. The hub still has the recap match list. No bracket was inferred.",
+    note: "Public Golf Genius page retrieved. Its qualifying table is 80 rows and labels 64 players CUT, including Matthew Naumec, who won the Devereux Emmet Cup, so that table was not mounted. The bracket JSON disagrees with the visible final, DeJohn 2 & 1. The hub keeps the recap match list.",
   },
   {
     channel: "midam",
@@ -93,9 +93,9 @@ export const SOURCE_ACCESS: SourceAccess[] = [
   {
     channel: "midam",
     slug: "european-mens-mid-amateur",
-    access: "external-page",
-    completeness: "none",
-    note: "The stored EGA page returned 200. Its frames are not a Golf Genius results table. No scores were read from it.",
+    access: "public-page",
+    completeness: "full",
+    note: "The official EGA results PDF men's list is 104 rows: finishers, MC, and one RTD. Ladies and the +40 lists stay off this page. Schaffrath prints +19 and 81.",
   },
   {
     channel: "midam",
@@ -109,7 +109,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "sanger-invitational",
     access: "no-url",
     completeness: "none",
-    note: "No scoring URL and no 2026 champion are stored. The hub says the results and field are unavailable here.",
+    note: "No public Fishers Island results page was found. An unrelated club invitational PDF was not used. No 2026 champion is stored.",
   },
   {
     channel: "midam",
@@ -121,9 +121,9 @@ export const SOURCE_ACCESS: SourceAccess[] = [
   {
     channel: "midam",
     slug: "the-picard-cup",
-    access: "inaccessible",
-    completeness: "none",
-    note: "The stored portal URL returned no page on this run either. No scores were imported.",
+    access: "public-page",
+    completeness: "full",
+    note: "The public Leaderboard page embeds the mid-am board, 36 finished teams. Wyatt/Cave and Robillard/Vardaman are tied at 200. The scoreboard does not print a playoff. The senior board is 12 teams and stays off this page.",
   },
   {
     channel: "midam",
@@ -144,7 +144,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "usga-womens-mid-am",
     access: "inaccessible",
     completeness: "selected",
-    note: "The stored USGA scoring page returned 403 to an ordinary curl. The hub still has the recap, not an official board.",
+    note: "The stored scoring URL returned HTTP 403 from Akamai. It was not fetched again by another client. The hub keeps the recap.",
   },
   {
     channel: "midam",
@@ -158,14 +158,14 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "the-crump-cup",
     access: "local-file",
     completeness: "none",
-    note: "The stored final PDF is a match sheet with tee times and match results. It was not turned into a complete bracket.",
+    note: "The stored PDF and the GAP brackets PDF are match sheets with tee times. They were not turned into a results board. No separate post-event results table was found.",
   },
   {
     channel: "midam",
     slug: "usga-mens-mid-am",
     access: "inaccessible",
     completeness: "selected",
-    note: "The stored USGA scoring page returned 403 to an ordinary curl. The hub still has the recap, not an official board.",
+    note: "The stored scoring URL returned HTTP 403 from Akamai. It was not fetched again by another client. The hub keeps the recap.",
   },
   {
     channel: "midam",
@@ -186,7 +186,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "the-stocker-cup",
     access: "external-page",
     completeness: "none",
-    note: "The stored site returned 200 and no Golf Genius results table. No scores were read from it.",
+    note: "The official site has 2024 and 2025 result posts and a 2026 live-video page. It has no 2026 results post or leaderboard table, so no board was mounted.",
   },
   {
     channel: "midam",
@@ -199,8 +199,8 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     channel: "midam",
     slug: "tree-farm-invitational",
     access: "local-file",
-    completeness: "none",
-    note: "The stored file is a 35-row Stableford points table, not a stroke board. Points were not imported as strokes.",
+    completeness: "full",
+    note: "The published board is 35 Stableford rows, total then R1 and R2, and every total is the sum of the rounds. The preview said 37 players. Matt Crenshaw and Ben Greve are named there and are on neither board, with no DNS or WD printed, so no rows were added. The final board prints Bill Williamson where the round-1 board prints Billy Williamson.",
   },
   {
     channel: "midam",
