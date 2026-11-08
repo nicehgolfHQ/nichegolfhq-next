@@ -2,13 +2,9 @@
 
 import { openCookieSettings } from "@/components/ConsentManager";
 
-export function CookieSettingsLink() {
+export function CookieSettingsLink({ className }: { className: string }) {
   return (
-    <button
-      type="button"
-      className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70"
-      onClick={() => openCookieSettings()}
-    >
+    <button type="button" className={className} onClick={() => openCookieSettings()}>
       Cookie Settings
     </button>
   );
