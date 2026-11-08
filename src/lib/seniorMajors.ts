@@ -1244,14 +1244,13 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     coursePar: 72,
     courseYardage: 7169,
     tournamentWebsite: "https://www.ewingcup.com/",
-    note: "Senior division. 2023 was not played.",
     pastResults: [
       { year: 2025, champion: "Bob Brewer & Greg Smith", venue: "Dallas Athletic Club" },
       { year: 2024, champion: "Bob Brewer & Greg Smith", venue: "Dallas Athletic Club" },
       { year: 2022, champion: "Mike Peck & Steve Love", venue: "Dallas Athletic Club" },
       { year: 2021, champion: "John Brellenthin & Tim Peterson", venue: "Dallas Athletic Club" },
     ],
-    howToPlay: [{ label: "Apply to play", href: "https://www.ewingcup.com/" }],
+    howToPlay: [{ label: "Application information", href: "https://www.ewingcup.com/apply", note: "Password required on the official page." }],
   },
   {
     slug: "society-of-seniors-ralph-bogart",

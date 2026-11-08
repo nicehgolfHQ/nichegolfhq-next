@@ -4,7 +4,7 @@ export function FourBallBoard({ rows }: { rows: FourBallStanding[] }) {
   return (
     <div className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
       <table className="w-full min-w-[640px] text-left text-sm">
-        <caption className="sr-only">Four-ball leaderboard. Blank cells are not posted.</caption>
+        <caption className="sr-only">Four-ball leaderboard</caption>
         <thead className="border-b border-zinc-200 text-xs uppercase tracking-[0.12em] text-zinc-500">
           <tr>
             <th className="px-3 py-3 font-semibold">Place</th>

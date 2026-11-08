@@ -35,9 +35,10 @@ export default function EwingCupHubPage() {
     )
     .map((player) => ({
       ...player,
-      appearances: appearancesFor(player.id).filter(
-        (row) => row.eventSlug === EWING_EVENT_SLUG && row.sideLabel === "Mid-Amateur",
-      ),
+      sources: [],
+      appearances: appearancesFor(player.id)
+        .filter((row) => row.eventSlug === EWING_EVENT_SLUG && row.sideLabel === "Mid-Amateur")
+        .map((row) => ({ ...row, sources: [] })),
     }));
 
   const baseUrl = "https://www.nichegolfhq.com";
