@@ -60,5 +60,9 @@
     "us-womens-amateur": "Stored scoring URL returned HTTP 403. Not fetched by another client.",
     "boys-junior-pga": "Stored embed URL returned HTTP 403. Not fetched by another client.",
     "elite-invitational": "The stored Golfstat page is the boys leaderboard. No girls board was on that page, so it was not mounted as the event result."
+  },
+  "elite-invitational": {
+    "source": "https://results.golfstat.com/public/leaderboards/gsnav.cfm?pg=player&tid=29510",
+    "mounted": "Boys, 56 rows. The boys header says Par 71 and 7213 yards. Warren Stiglitz 64, 66, 69, total 199, to par -14. Noah Chauvin is W, 0, -, total -. Girls were not on this page."
   }
 }

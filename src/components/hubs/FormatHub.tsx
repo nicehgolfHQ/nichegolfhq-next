@@ -32,6 +32,12 @@ const RESULTS_NOTE: Record<string, string> = {
   "the-crump-cup": "The posted sheet is pairings and tee times, not match results.",
   "usga-mens-mid-am": "Full results unavailable here. See Coverage.",
   "usga-womens-mid-am": "Full results unavailable here. See Coverage.",
+  "elite-invitational": "Girls results unavailable here.",
+  "us-junior-amateur": "Full results unavailable here.",
+  "us-girls-junior": "Full results unavailable here.",
+  "us-womens-amateur": "Full results unavailable here.",
+  "boys-junior-pga": "Full results unavailable here.",
+  "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
 };
 
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
@@ -118,7 +124,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
           <FieldPanel snapshot={snapshot} names={names} />
         </div>
         <div hidden={tab !== "Event"}>
-          <EventPanel tournament={tournament} standing={standing} />
+          <EventPanel tournament={tournament} standing={standing} snapshot={snapshot} />
         </div>
         {hasNews ? (
           <div hidden={tab !== "Coverage"}>
@@ -286,7 +292,7 @@ function ResultsPanel({
 }) {
   const stroke = snapshot?.kind === "stroke" ? snapshot : null;
   const resultsNote = RESULTS_NOTE[tournament.slug];
-  const divisions = stroke?.divisions && stroke.divisions.length > 1 ? stroke.divisions : null;
+  const divisions = stroke?.divisions && stroke.divisions.length > 0 ? stroke.divisions : null;
   const activeRows = divisions ? divisions[division]?.rows ?? divisions[0].rows : stroke?.rows ?? [];
   const roundScores = activeRows.some((row) => row.rounds.some((score) => score != null));
   return (
@@ -557,6 +563,21 @@ function TeamTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "te
 }
 
 function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; names: string[] }) {
+  if (snapshot?.kind === "stroke" && snapshot.divisions && snapshot.divisions.length === 1) {
+    const item = snapshot.divisions[0];
+    return (
+      <div>
+        <h2 className="text-center font-serif text-3xl font-semibold">{item.label}</h2>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+          {[...item.rows].sort((a, b) => a.name.localeCompare(b.name)).map((player) => (
+            <li key={player.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+              {player.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
   if (snapshot?.kind === "stroke" && snapshot.divisions && snapshot.divisions.length > 1) {
     const primary = new Set(snapshot.divisions[0].rows.map((row) => row.name));
     const separate = snapshot.divisions.slice(1).some((item) => item.rows.some((row) => !primary.has(row.name)));
@@ -636,17 +657,33 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
   );
 }
 
-function EventPanel({ tournament, standing }: { tournament: Tournament; standing: ReturnType<typeof classifyCalendar> }) {
+function EventPanel({
+  tournament,
+  standing,
+  snapshot,
+}: {
+  tournament: Tournament;
+  standing: ReturnType<typeof classifyCalendar>;
+  snapshot: ResultSnapshot | null;
+}) {
+  const divisionFacts =
+    snapshot?.kind === "stroke"
+      ? (snapshot.divisions ?? []).flatMap((division) => [
+          division.par != null ? { label: `${division.label} par`, value: String(division.par) } : null,
+          division.yardage != null ? { label: `${division.label} yardage`, value: `${division.yardage.toLocaleString()} yards` } : null,
+        ]).filter((fact): fact is { label: string; value: string } => Boolean(fact))
+      : [];
   const facts = [
     tournament.course ? { label: "Course", value: tournament.course } : null,
     tournament.location ? { label: "Location", value: tournament.location } : null,
     tournament.courseTeeName ? { label: "Tee", value: tournament.courseTeeName } : null,
-    tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
-    tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
+    divisionFacts.some((fact) => fact.label.endsWith(" par")) ? null : tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
+    divisionFacts.some((fact) => fact.label.endsWith(" yardage")) ? null : tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
     tournament.courseRating ? { label: "Rating", value: String(tournament.courseRating) } : null,
     tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
     tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
     tournament.courseYear ? { label: "Opened", value: String(tournament.courseYear) } : null,
+    ...divisionFacts,
   ].filter((item): item is { label: string; value: string } => Boolean(item));
   const latest = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];
 
@@ -656,7 +693,7 @@ function EventPanel({ tournament, standing }: { tournament: Tournament; standing
         <h2 className="font-serif text-2xl font-semibold">{tournament.course ?? tournament.name}</h2>
         {latest ? <p className="mt-2 text-sm text-zinc-600">{championLabel(latest.year, 2026, standing)}: {latest.champion}</p> : null}
         {facts.length > 0 ? (
-          <dl className="mt-4 space-y-3 text-sm text-zinc-700">
+          <dl data-event-facts className="mt-4 space-y-3 text-sm text-zinc-700">
             {facts.map((fact) => (
               <div key={fact.label}>
                 <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{fact.label}</dt>
