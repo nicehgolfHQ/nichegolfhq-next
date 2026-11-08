@@ -1249,9 +1249,15 @@ if (
   nitFinal.content.join("\n") !== [
     "Sam Jackson won the National Invitational Tournament on the West Course at The Country Club of Birmingham in Birmingham, Ala., with rounds of 70, 68 and 70 for a 5-under 208. He finished four shots ahead of Sean Rowen, who closed with a 68 for a 1-under 212. Full results and tournament coverage can be found on the [National Invitational Tournament hub](https://www.nichegolfhq.com/midamgolfhq/national-invitational-tournament).",
     "Jackson King, Will McCurdy and Ethan Hagood tied for third at 1-over 214. Defending champion Ryan Terry finished tied for 16th at 5-over 218. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
-  ].join("\n")
+  ].join("\n") ||
+  nitFinal.photos?.join("|") !== "/images/articles/2026-nit-final-trophy.jpg" ||
+  nitFinal.header
 ) {
   throw new Error("The NIT final recap or the existing hub scoring record changed");
+}
+const nitPhoto = readFileSync("public/images/articles/2026-nit-final-trophy.jpg");
+if (nitPhoto.length < 1000 || nitPhoto[0] !== 0xff || nitPhoto[1] !== 0xd8) {
+  throw new Error("The NIT trophy photo is not the uploaded JPEG");
 }
 for (const slug of ["2026-national-invitational-tournament-round-2-recap", "2026-national-invitational-tournament-round-1-recap", "2026-national-invitational-tournament-preview"]) {
   if (!nit.news?.some((article) => article.slug === slug)) throw new Error(`${slug} was dropped`);

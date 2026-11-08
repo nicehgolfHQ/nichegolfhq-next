@@ -3010,6 +3010,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
           "Sam Jackson won the National Invitational Tournament on the West Course at The Country Club of Birmingham in Birmingham, Ala., with rounds of 70, 68 and 70 for a 5-under 208. He finished four shots ahead of Sean Rowen, who closed with a 68 for a 1-under 212. Full results and tournament coverage can be found on the [National Invitational Tournament hub](https://www.nichegolfhq.com/midamgolfhq/national-invitational-tournament).",
           "Jackson King, Will McCurdy and Ethan Hagood tied for third at 1-over 214. Defending champion Ryan Terry finished tied for 16th at 5-over 218. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
         ],
+        photos: ["/images/articles/2026-nit-final-trophy.jpg"],
       },
       {
         slug: "2026-national-invitational-tournament-round-2-recap",
