@@ -301,7 +301,7 @@ const sangerHtml = renderHub(
   },
   "midam",
 );
-if (!sangerHtml.includes("No 2026 official results page was found.")) throw new Error("Sanger results tab is blank");
+if (!sangerHtml.includes("Full results unavailable here.")) throw new Error("Sanger results tab is blank");
 if (!sangerHtml.includes("Field unavailable here")) throw new Error("Sanger field tab is blank");
 if (sangerHtml.includes("No scores yet") || sangerHtml.includes("No players posted") || sangerHtml.includes("golfgenius.com")) {
   throw new Error("Sanger implies an official empty board or a made-up link");
@@ -722,13 +722,28 @@ const crumpHtml = renderHub({ slug: "the-crump-cup", name: "The Crump Cup", chan
 if (!crumpHtml.includes("The posted sheet is pairings and tee times, not match results.") || crumpHtml.includes(" def. ") || !crumpHtml.includes("IBT Golf Travel")) {
   throw new Error("Crump page invented a match or dropped the tee-time label");
 }
-for (const slug of ["sanger-invitational", "the-stocker-cup"]) {
-  const html = renderHub({ slug, name: slug, channel: "midam", month: 6, format: "54 holes stroke play" }, "midam");
-  if (!html.includes("No 2026 official results page was found.")) throw new Error(`${slug} has no honest results state`);
+const stockerHtml = renderHub({ slug: "the-stocker-cup", name: "Stocker", channel: "midam", month: 10, format: "54 holes stroke play" }, "midam");
+if (!sangerHtml.includes("Full results unavailable here.") || sangerHtml.includes("See Coverage.") || sangerHtml.includes("was found")) {
+  throw new Error("Sanger results copy is not hub-scoped");
+}
+if (!stockerHtml.includes("Full results unavailable here. See Coverage.") || stockerHtml.includes("was found")) {
+  throw new Error("Stocker results copy is not hub-scoped");
 }
 const usgaHtml = renderHub({ slug: "usga-mens-mid-am", name: "USGA Men’s Mid-Am", channel: "midam", month: 10, format: "Match play" }, "midam");
-if (!usgaHtml.includes("Official scoring was not available. The published recap is the coverage.") || !usgaHtml.includes("PuttView Books")) {
-  throw new Error("USGA page dropped the scoring note or the sponsor");
+const usgaWomenHtml = renderHub({ slug: "usga-womens-mid-am", name: "USGA Women’s Mid-Am", channel: "midam", month: 9, format: "Match play" }, "midam");
+for (const html of [usgaHtml, usgaWomenHtml]) {
+  if (!html.includes("Full results unavailable here. See Coverage.") || html.includes("Official scoring was not available")) {
+    throw new Error("USGA results copy describes the retrieval instead of the hub");
+  }
+}
+if (!usgaHtml.includes("PuttView Books")) throw new Error("USGA page dropped the sponsor");
+const seniorLupton = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
+const midamLupton = MIDAM_TOURNAMENTS.find((event) => event.slug === "john-t-lupton-memorial");
+if (seniorLupton?.startDate !== "2026-05-11" || seniorLupton.endDate !== "2026-05-13" || midamLupton?.dates2026 !== "Rescheduled – 2027") {
+  throw new Error("A Lupton year was changed from the other division");
+}
+if (!SOURCE_ACCESS.find((entry) => entry.slug === "john-t-lupton-memorial")?.note.includes("May 11-13, 2026")) {
+  throw new Error("The Lupton date conflict was not flagged");
 }
 if (!renderHub({ slug: "the-farrell", name: "The Farrell", channel: "midam", month: 10, format: "Match play" }, "midam").includes("PuttView Books")) {
   throw new Error("Farrell sponsor was dropped");

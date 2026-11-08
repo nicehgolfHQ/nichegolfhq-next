@@ -27,11 +27,11 @@ type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event" | "Coverage"
 
 /** Public scope lines. These do not add scores. */
 const RESULTS_NOTE: Record<string, string> = {
-  "sanger-invitational": "No 2026 official results page was found.",
-  "the-stocker-cup": "No 2026 official results page was found.",
+  "sanger-invitational": "Full results unavailable here.",
+  "the-stocker-cup": "Full results unavailable here. See Coverage.",
   "the-crump-cup": "The posted sheet is pairings and tee times, not match results.",
-  "usga-mens-mid-am": "Official scoring was not available. The published recap is the coverage.",
-  "usga-womens-mid-am": "Official scoring was not available. The published recap is the coverage.",
+  "usga-mens-mid-am": "Full results unavailable here. See Coverage.",
+  "usga-womens-mid-am": "Full results unavailable here. See Coverage.",
 };
 
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
