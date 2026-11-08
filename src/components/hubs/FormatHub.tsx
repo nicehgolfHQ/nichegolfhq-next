@@ -675,6 +675,22 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
       </div>
     );
   }
+  if (snapshot?.kind === "match" && snapshot.qualifyingBoard?.rows.length) {
+    const players = [...snapshot.qualifyingBoard.rows].sort((a, b) => a.name.localeCompare(b.name));
+    return (
+      <div data-field-panel>
+        <h2 className="text-center font-serif text-3xl font-semibold">Field</h2>
+        <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">Tournament field, listed alphabetically.</p>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+          {players.map((player) => (
+            <li key={player.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+              {player.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
   if (names.length === 0) {
     return (
       <div className="text-center">

@@ -881,6 +881,41 @@ const cheng = westernWomen.kind === "match" ? westernWomen.qualifyingBoard?.rows
 if (cheng?.rounds.join(",") !== "88,WD" || cheng.total !== "") {
   throw new Error("Women's Western withdrawal was rewritten");
 }
+const qualifyingNames = westernWomen.kind === "match" ? (westernWomen.qualifyingBoard?.rows.map((row) => row.name) ?? []) : [];
+const fieldNames = westernWomen ? snapshotNames(westernWomen) : [];
+if (fieldNames.length !== 78 || new Set(fieldNames).size !== 78 || fieldNames.join("\n") !== qualifyingNames.join("\n")) {
+  throw new Error("Women's Western field is not the 78 qualifying names");
+}
+const abbreviated = ["Lee", "I. Lee", "G. Lee", "Guthrie", "Carter", "Singh", "Rigby", "Errichetto", "Wiertel"];
+if (fieldNames.some((name) => abbreviated.includes(name))) {
+  throw new Error("Women's Western field used an abbreviated match name");
+}
+const wwHtml = renderHub(
+  {
+    slug: "womens-western-junior",
+    name: "Women's Western Junior Championship",
+    channel: "junior",
+    month: 6,
+    format: westernWomenEvent?.format,
+    course: westernWomenEvent?.course,
+    location: westernWomenEvent?.location,
+  },
+  "junior",
+);
+const fieldStart = wwHtml.indexOf("data-field-panel");
+const fieldEnd = wwHtml.indexOf("data-event-facts");
+const fieldHtml = fieldStart >= 0 && fieldEnd > fieldStart ? wwHtml.slice(fieldStart, fieldEnd) : "";
+const renderedField = [...fieldHtml.matchAll(/<li[^>]*>([^<]+)<\/li>/g)].map((match) => match[1].trim());
+const expectedField = [...qualifyingNames].sort((a, b) => a.localeCompare(b));
+if (renderedField.length !== 78 || renderedField.join("\n") !== expectedField.join("\n") || fieldHtml.includes("Named players")) {
+  throw new Error("Rendered Women's Western field is not the 78 source names");
+}
+if (renderedField.some((name) => abbreviated.includes(name))) {
+  throw new Error("Rendered Women's Western field repeated an abbreviated match name");
+}
+if (!wwHtml.includes("I. Lee def. G. Lee, 2 and 1") || !wwHtml.includes("Guthrie def. Carter, 4 and 3") || !wwHtml.includes("Lee def. Singh, 1 up")) {
+  throw new Error("Women's Western match lines were rewritten");
+}
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");

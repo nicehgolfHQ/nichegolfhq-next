@@ -211,6 +211,9 @@ export function snapshotNames(snapshot: ResultSnapshot): string[] {
   if (snapshot.kind === "team-match") {
     return [...new Set(snapshot.matches.flatMap((match) => match.players.map(individualName)))];
   }
+  if (snapshot.qualifyingBoard?.rows.length) {
+    return snapshot.qualifyingBoard.rows.map((row) => individualName(row.name));
+  }
   const names = snapshot.qualifying ? [individualName(snapshot.qualifying.medalist)] : [];
   for (const match of snapshot.matches) {
     if (match.players?.length) {
