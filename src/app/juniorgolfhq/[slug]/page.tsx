@@ -9,6 +9,8 @@ import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
 import { RelatedEvents } from "@/components/tournaments/RelatedEvents";
+import { FormatHub } from "@/components/hubs/FormatHub";
+import { isFormatHub } from "@/data/hubs/inventory";
 import {
   getJuniorMajorBySlug,
   listJuniorMajorSlugs,
@@ -213,6 +215,20 @@ export default async function JuniorScheduleEventPage({
       name: e.name,
       month: e.month.replace(" 2026", ""),
     }));
+
+  if (isFormatHub("junior", tournament.slug)) {
+    return (
+      <SiteShell brandSlug="juniorgolfhq">
+        <JsonLd data={breadcrumbsLd} />
+        <JsonLd data={eventLd} />
+        <JsonLd data={faqLd} />
+        <FormatHub tournament={tournament} channel="junior" />
+        <div className="mx-auto w-full max-w-6xl px-5 pb-10">
+          <RelatedEvents events={relatedEvents} brandSlug="juniorgolfhq" brandLabel="juniorgolfHQ" />
+        </div>
+      </SiteShell>
+    );
+  }
 
   return (
     <SiteShell brandSlug="juniorgolfhq">
