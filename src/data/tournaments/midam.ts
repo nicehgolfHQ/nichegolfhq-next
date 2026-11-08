@@ -2894,7 +2894,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "east-vs-west-matches",
     name: "East vs West Matches",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 11,
     dates2026: "November 6-8, 2026",
     startDate: "2026-11-06",
@@ -2907,7 +2907,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseSlope: 155,
     courseTeeName: "Back",
     golfGeniusUrl: "https://2026eastwestmatches.golfgenius.com/pages/13130623543135991976",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     format: "Team match play",
     howToPlay: [
       { label: "Invite only" },

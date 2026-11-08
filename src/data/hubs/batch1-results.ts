@@ -87,6 +87,8 @@ export type TeamSnapshot = {
   sessions: SessionScore[];
   cumulative: { label: string; east: string; west: string };
   matches: NamedMatch[];
+  /** Field list when the match cards include another division. One person per name. */
+  fieldNames?: string[];
   sources: ResultSource[];
 };
 
@@ -207,6 +209,14 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
       { flight: "Four Ball", round: "Fri, November 6", result: "East 5.00, West 4.00", teams: ["East", "West"] },
       { flight: "Foursomes", round: "R1", result: "East 4.50, West 4.50", teams: ["East", "West"] },
       { flight: "Foursomes", round: "R2", result: "East 2.50, West 6.50", teams: ["East", "West"] },
+      { flight: "Singles", round: "Sun, November 8", result: "East 7.50, West 10.50", teams: ["East", "West"] },
+      { flight: "All divisions", round: "Final", result: "East 19.50, West 25.50", teams: ["East", "West"] },
+      { flight: "Senior singles", round: "Sun, November 8", result: "Mike McCoy def. Mike Sposa, 2 and 1", teams: ["East", "West"] },
+      { flight: "Senior singles", round: "Sun, November 8", result: "Todd White def. Trae Cassell, 6 and 5", teams: ["East", "West"] },
+      { flight: "Senior singles", round: "Sun, November 8", result: "Gene Elliott def. Danny Nelson, 4 and 3", teams: ["East", "West"] },
+      { flight: "Senior singles", round: "Sun, November 8", result: "Bryan Hoops def. Rick Stimmel, 5 and 4", teams: ["East", "West"] },
+      { flight: "Senior singles", round: "Sun, November 8", result: "Corby Segal def. Bob Royak, 1 up", teams: ["East", "West"] },
+      { flight: "Senior singles", round: "Sun, November 8", result: "Jason Pridmore def. Doug Hanzel, 1 up", teams: ["East", "West"] },
     ],
     sources: [{ record: "official-board" }],
   },
@@ -227,8 +237,9 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
       { session: "Friday four-ball", east: "5", west: "4" },
       { session: "Saturday morning foursomes", east: "4½", west: "4½" },
       { session: "Saturday afternoon foursomes", east: "2½", west: "6½" },
+      { session: "Sunday singles, all divisions", east: "7.50", west: "10.50" },
     ],
-    cumulative: { label: "Entering Sunday singles", east: "12", west: "15" },
+    cumulative: { label: "Final, all divisions", east: "19.50", west: "25.50" },
     matches: [
       { session: "Friday four-ball", players: ["Mike Sposa", "Todd White", "Bryan Hoops", "Trae Cassell"], result: "Mike Sposa and Todd White def. Bryan Hoops and Trae Cassell, 5 and 3" },
       { session: "Friday four-ball", players: ["Danny Nelson", "Brett Patterson", "Mike McCoy", "Stewart Hagestad"], result: "Danny Nelson and Brett Patterson def. Mike McCoy and Stewart Hagestad, 3 and 2" },
@@ -239,6 +250,22 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
       { session: "Friday four-ball", players: ["Brad Nurski", "Josh Persons", "Andrew Price", "Andrew Bailey"], result: "Brad Nurski and Josh Persons def. Andrew Price and Andrew Bailey, 1 up" },
       { session: "Friday four-ball", players: ["Jonathan Bale", "Will Davenport", "Chris Wheeler", "Jordan Russell"], result: "Jonathan Bale and Will Davenport halved with Chris Wheeler and Jordan Russell" },
       { session: "Friday four-ball", players: ["Evan Beck", "Stephen Behr", "Drew Kittleson", "Drew Stoltz"], result: "Evan Beck and Stephen Behr halved with Drew Kittleson and Drew Stoltz" },
+      { session: "Sunday singles, mid-amateur", players: ["Bobby Massa", "Scott Harvey"], result: "Bobby Massa def. Scott Harvey, 7 and 6" },
+      { session: "Sunday singles, mid-amateur", players: ["Evan Beck", "Mikel Martinson"], result: "Evan Beck def. Mikel Martinson, 6 and 5" },
+      { session: "Sunday singles, mid-amateur", players: ["Christian Cavaliere", "Zach Foushee"], result: "Christian Cavaliere def. Zach Foushee, 1 up" },
+      { session: "Sunday singles, mid-amateur", players: ["Will Davenport", "Drew Stoltz"], result: "Will Davenport def. Drew Stoltz, 4 and 3" },
+      { session: "Sunday singles, mid-amateur", players: ["Stewart Hagestad", "Brett Patterson"], result: "Stewart Hagestad def. Brett Patterson, 2 and 1" },
+      { session: "Sunday singles, mid-amateur", players: ["Parker Edens", "Matt Vogt"], result: "Parker Edens def. Matt Vogt, 1 up" },
+      { session: "Sunday singles, mid-amateur", players: ["Nate Smith", "Jonathan Bale"], result: "Nate Smith def. Jonathan Bale, 1 up" },
+      { session: "Sunday singles, mid-amateur", players: ["Christian Brand", "Jordan Russell"], result: "Christian Brand def. Jordan Russell, 3 and 2" },
+      { session: "Sunday singles, mid-amateur", players: ["Andrew Price", "Chris Wheeler"], result: "Andrew Price def. Chris Wheeler, 3 and 2" },
+      { session: "Sunday singles, mid-amateur", players: ["Josh Persons", "Stephen Behr"], result: "Josh Persons def. Stephen Behr, 6 and 5" },
+      { session: "Sunday singles, mid-amateur", players: ["Nate Gahman", "Drew Kittleson"], result: "Nate Gahman halved with Drew Kittleson" },
+      { session: "Sunday singles, mid-amateur", players: ["Andrew Bailey", "Brad Nurski"], result: "Andrew Bailey def. Brad Nurski, 1 up" },
+    ],
+    fieldNames: [
+      "Andrew Bailey", "Evan Beck", "Scott Harvey", "Matt Vogt", "Christian Cavaliere", "Andrew Price", "Stephen Behr", "Will Davenport", "Jonathan Bale", "Christian Brand", "Brett Patterson", "Nate Gahman",
+      "Stewart Hagestad", "Bobby Massa", "Nate Smith", "Mikel Martinson", "Drew Kittleson", "Drew Stoltz", "Zach Foushee", "Jordan Russell", "Brad Nurski", "Chris Wheeler", "Josh Persons", "Parker Edens",
     ],
     sources: [
       { articleSlug: "2026-east-vs-west-matches-day-1-recap", record: "article" },
@@ -271,7 +298,8 @@ export function snapshotNames(snapshot: ResultSnapshot): string[] {
     return snapshot.rows.flatMap((row) => (row.players?.length ? row.players : [row.name]).map(individualName));
   }
   if (snapshot.kind === "team-match") {
-    return [...new Set(snapshot.matches.flatMap((match) => match.players.map(individualName)))];
+    const names = snapshot.fieldNames ?? snapshot.matches.flatMap((match) => match.players);
+    return [...new Set(names.map(individualName))];
   }
   if (snapshot.qualifyingBoard?.rows.length) {
     return snapshot.qualifyingBoard.rows.map((row) => individualName(row.name));

@@ -601,14 +601,23 @@ function TeamTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "te
           </tbody>
         </table>
       </div>
-      <h3 className="mt-8 text-center font-serif text-2xl font-semibold">Friday four-ball</h3>
-      <ul className="mx-auto mt-4 max-w-2xl space-y-2 text-sm">
-        {snapshot.matches.map((match) => (
-          <li key={match.result} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
-            {match.result}
-          </li>
-        ))}
-      </ul>
+      {snapshot.matches.reduce<Array<{ session: string; matches: typeof snapshot.matches }>>((groups, match) => {
+        const group = groups.find((item) => item.session === match.session);
+        if (group) group.matches.push(match);
+        else groups.push({ session: match.session, matches: [match] });
+        return groups;
+      }, []).map((group) => (
+        <div key={group.session}>
+          <h3 className="mt-8 text-center font-serif text-2xl font-semibold">{group.session}</h3>
+          <ul className="mx-auto mt-4 max-w-2xl space-y-2 text-sm">
+            {group.matches.map((match) => (
+              <li key={match.result} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
+                {match.result}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }
