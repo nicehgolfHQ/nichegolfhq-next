@@ -29,10 +29,16 @@ export default function EwingCupHubPage() {
   const tournament = getMidAmTournamentBySlug(EWING_EVENT_SLUG);
   if (!tournament) throw new Error("Ewing Cup tournament record is missing");
 
-  const entrants = playersInEvent(EWING_EVENT_SLUG).map((player) => ({
-    ...player,
-    appearances: appearancesFor(player.id),
-  }));
+  const entrants = playersInEvent(EWING_EVENT_SLUG)
+    .filter((player) =>
+      appearancesFor(player.id).some((row) => row.eventSlug === EWING_EVENT_SLUG && row.sideLabel === "Mid-Amateur"),
+    )
+    .map((player) => ({
+      ...player,
+      appearances: appearancesFor(player.id).filter(
+        (row) => row.eventSlug === EWING_EVENT_SLUG && row.sideLabel === "Mid-Amateur",
+      ),
+    }));
 
   const baseUrl = "https://www.nichegolfhq.com";
   const pageUrl = `${baseUrl}/midamgolfhq/${tournament.slug}`;
@@ -72,6 +78,8 @@ export default function EwingCupHubPage() {
         })}
       />
       <EwingCupHub
+        division="mid-am"
+        channelLabel="midamgolfHQ"
         pastChampions={tournament.pastResults ?? []}
         entrants={entrants}
         articles={(tournament.news ?? []).map((article) => ({

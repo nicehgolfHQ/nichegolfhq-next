@@ -4,6 +4,8 @@ This is the checklist for a future once-daily read of a public scoring page. It 
 
 The Ewing Cup is the first event on this model. Other tournament hubs stay on the existing pages until someone deliberately moves them.
 
+The mid-amateur hub is `/midamgolfhq/ewing-cup-four-ball`. The senior division is `/seniorgolfhq/ewing-cup-four-ball`. Keep senior pairings and senior champions on the senior hub. Player ids stay at `/midamgolfhq/players/{id}`.
+
 ## When to read
 
 Once a day, in `America/Chicago`, while the event is on the calendar. Skip the read if nothing public could have changed, and still record that you looked when you do look.
