@@ -25,14 +25,14 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "gasparilla-invitational",
     access: "public-page",
     completeness: "full",
-    note: "Public page, widget, and HTML tables on 2026-11-08 at 8:55 a.m. CT. Main board 144: 72 finishers, 68 CUT, 3 WD, 1 DQ. Low Senior is 24 overlapping award rows, shown only as an award filter. Official link unchanged.",
+    note: "Public page, widget, and HTML tables retrieved 2026-11-08 at 8:55 a.m. CT. The mid-am hub shows the official overall board of 144, which includes the 24 senior award entrants at their overall places. The existing senior hub shows those 24 award rows. Official link unchanged.",
   },
   {
     channel: "senior",
     slug: "gasparilla-invitational-senior-division",
     access: "public-page",
     completeness: "award-filter",
-    note: "Same retrieval. The senior hub shows the Low Senior award only. Those players are already in the tournament field.",
+    note: "Same retrieval. The existing senior hub shows the 24 Low Senior award rows. They are not a second field.",
   },
   {
     channel: "midam",

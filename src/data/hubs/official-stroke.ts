@@ -20,7 +20,6 @@ type PublicBoard = {
   slug: string;
   divisionLabel: string;
   roundCount: number;
-  updatedLabel: string;
   rows: PublicRow[];
 };
 
@@ -49,8 +48,6 @@ export function officialStrokeSnapshot(slug: string): StrokeSnapshot | null {
     complete: true,
     scope: "official-final",
     roundCount: board.roundCount,
-    stageLabel: "Round buttons highlight a column. Places stay in the final order.",
-    updatedLabel: board.updatedLabel,
     rows: board.rows.map((row) => displayRow(row, board.roundCount)),
     sources: [{ record: "official-board" }],
   };

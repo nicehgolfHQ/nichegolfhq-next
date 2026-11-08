@@ -1,6 +1,6 @@
 import board from "@/data/hubs/gasparilla-2026.json";
 import publicBoard from "@/data/hubs/gasparilla-2026.public.json";
-import { gasparillaMainSnapshot } from "@/data/hubs/gasparilla-public";
+import { gasparillaMainSnapshot, gasparillaSeniorSnapshot } from "@/data/hubs/gasparilla-public";
 
 /**
  * Official final boards for the 71st Gasparilla Invitational.
@@ -96,9 +96,10 @@ export function assertGasparillaBoard(): void {
     });
   }
   const display = gasparillaMainSnapshot();
-  if (!display.complete || display.rows.length !== 144 || display.award?.rows.length !== 24) {
-    throw new Error("Display snapshot dropped rows");
+  if (!display.complete || display.scope !== "official-overall" || display.rows.length !== 144 || display.award || display.updatedLabel || display.stageLabel) {
+    throw new Error("Overall Gasparilla board was filtered or annotated");
   }
+  if (JSON.stringify(publicBoard).includes("Updated ")) throw new Error("Public Gasparilla board includes a retrieval time");
   const hayes = display.rows[0];
   if (hayes?.name !== "Hayes Brown" || hayes.place !== "1" || hayes.total !== 208 || hayes.rounds.join(",") !== "67,73,68") {
     throw new Error("Hayes Brown final card changed");
@@ -107,7 +108,8 @@ export function assertGasparillaBoard(): void {
   if (!peyton || peyton.rounds.join(",") !== "72,70,67" || peyton.total !== 209) {
     throw new Error("Peyton White still has the recap subset");
   }
-  const awardLeader = display.award?.rows[0];
+  const seniorDisplay = gasparillaSeniorSnapshot();
+  const awardLeader = seniorDisplay.rows[0];
   const mainFrazier = display.rows.find((row) => row.name === "Jeff Frazier");
   if (awardLeader?.name !== "Jeff Frazier" || awardLeader.place !== "1" || awardLeader.total !== 220) {
     throw new Error("Low Senior award leader changed");

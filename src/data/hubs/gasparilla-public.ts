@@ -15,7 +15,6 @@ type PublicRow = {
   status: "ranked" | "CUT" | "WD" | "DQ";
 };
 
-const AWARD_NOTE = "Low Senior award. These players are also in the tournament field. Places are the award order.";
 const sources: ResultSource[] = [{ record: "official-board" }];
 
 export function gasparillaDisplayRow(row: PublicRow): StrokeFinisher {
@@ -36,16 +35,9 @@ export function gasparillaMainSnapshot(): StrokeSnapshot {
   return {
     kind: "stroke",
     complete: true,
-    scope: "official-final",
+    scope: "official-overall",
     roundCount: ROUND_COUNT,
-    stageLabel: "Round buttons highlight a column. Places stay in the final order.",
-    updatedLabel: board.updatedLabel,
     rows: (board.main.rows as PublicRow[]).map(gasparillaDisplayRow),
-    award: {
-      label: "Low Senior award",
-      note: AWARD_NOTE,
-      rows: (board.senior.rows as PublicRow[]).map(gasparillaDisplayRow),
-    },
     sources,
   };
 }
@@ -56,8 +48,6 @@ export function gasparillaSeniorSnapshot(): StrokeSnapshot {
     complete: false,
     scope: "official-award",
     roundCount: ROUND_COUNT,
-    stageLabel: AWARD_NOTE,
-    updatedLabel: board.updatedLabel,
     rows: (board.senior.rows as PublicRow[]).map(gasparillaDisplayRow),
     sources,
   };

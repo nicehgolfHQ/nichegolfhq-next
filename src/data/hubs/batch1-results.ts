@@ -27,7 +27,7 @@ export type StrokeFinisher = {
 export type StrokeSnapshot = {
   kind: "stroke";
   complete: boolean;
-  scope: "published-finishers" | "official-final" | "official-award";
+  scope: "published-finishers" | "official-overall" | "official-final" | "official-award";
   roundCount: number;
   /** Short stage already stated by the source, such as "Through 36 holes". */
   stageLabel?: string;
@@ -182,6 +182,7 @@ function individualName(name: string): string {
 }
 
 export function scopeLabel(snapshot: ResultSnapshot): string {
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-overall") return "Overall results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-final") return "Final results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-award") return "Low Senior award";
   return snapshot.kind === "stroke" ? "Selected results" : "Selected matches";

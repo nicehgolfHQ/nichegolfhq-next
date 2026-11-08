@@ -4,7 +4,6 @@
       "slug": "the-jupiter-invitational",
       "divisionLabel": "Mid Amateur",
       "roundCount": 3,
-      "updatedLabel": "Updated Nov 8, 2026, 9:05 a.m. CT",
       "rows": [
         {
           "position": "1",
@@ -651,7 +650,7 @@
           "rounds": [
             "74",
             "79",
-            ""
+            "DNF"
           ],
           "total": "DNF",
           "status": "DNF"
@@ -675,7 +674,6 @@
       "slug": "the-huddleston-cup",
       "divisionLabel": "Huddleston Cup - Mid-Amateur",
       "roundCount": 3,
-      "updatedLabel": "Updated Nov 8, 2026, 9:05 a.m. CT",
       "rows": [
         {
           "position": "1",
@@ -1151,7 +1149,6 @@
       "slug": "snedeker-memorial",
       "divisionLabel": "Individual Stroke Play",
       "roundCount": 3,
-      "updatedLabel": "Updated Nov 8, 2026, 9:05 a.m. CT",
       "rows": [
         {
           "position": "1",
@@ -2302,7 +2299,6 @@
       "slug": "giles-invitational",
       "divisionLabel": "2nd Annual Giles Invitational Mid-Am Division",
       "roundCount": 3,
-      "updatedLabel": "Updated Nov 8, 2026, 9:05 a.m. CT",
       "rows": [
         {
           "position": "1",

@@ -317,11 +317,12 @@ const gasparillaText = gasparillaHtml.replace(/&#x27;/g, "'").replace(/&amp;/g, 
 for (const row of gasparillaBoard.rows) {
   if (!gasparillaText.includes(row.name)) throw new Error(`Missing tournament player ${row.name}`);
 }
-if (!gasparillaHtml.includes("Final results") || !gasparillaHtml.includes("Updated Nov 8, 2026, 8:55 a.m. CT")) {
-  throw new Error("Gasparilla final label or Chicago time missing");
+if (!gasparillaHtml.includes("Overall results")) throw new Error("Gasparilla overall board has no scope label");
+if (gasparillaHtml.includes("Low Senior award") || gasparillaHtml.includes("Updated Nov 8, 2026") || gasparillaHtml.includes("Round buttons highlight")) {
+  throw new Error("Mid-am Gasparilla hub shows the senior award or a public provenance note");
 }
-if (!gasparillaHtml.includes("Low Senior award") || !gasparillaHtml.includes("Places are the award order")) {
-  throw new Error("Senior award is not labeled as an award filter");
+if (gasparillaBoard.scope !== "official-overall" || gasparillaBoard.award || gasparillaBoard.rows.length !== 144) {
+  throw new Error("Overall board was reduced to a mid-am-only field");
 }
 if (!gasparillaHtml.includes(">Peyton White<") || !gasparillaHtml.includes(">209<") || !gasparillaHtml.includes(">72<")) {
   throw new Error("Peyton White recap subset is still on the board");
@@ -336,14 +337,9 @@ if (gasparillaHtml.includes("/players/") || gasparillaHtml.includes("tournaments
   throw new Error("Unverified player profile or per-row source URL was rendered");
 }
 if (!gasparillaHtml.includes(GASPARILLA_OFFICIAL_RESULTS_URL)) throw new Error("Stored official link missing");
-const tournamentHtml = gasparillaHtml.slice(gasparillaHtml.indexOf('data-board="tournament"'), gasparillaHtml.indexOf('data-board="award"'));
-const awardHtml = gasparillaHtml.slice(gasparillaHtml.indexOf('data-board="award"'));
-if (!awardHtml.includes("Jeff Frazier") || !awardHtml.includes(">1<") || !awardHtml.includes("Places are the award order")) {
-  throw new Error("Award leader is not shown in the award order");
-}
-const frazierAt = tournamentHtml.indexOf("Jeff Frazier");
-const frazierCard = tournamentHtml.slice(Math.max(0, frazierAt - 90), frazierAt);
-if (frazierAt < 0 || frazierCard.includes(">1<")) throw new Error("Jeff Frazier tournament place was replaced with the award place");
+const frazierAt = gasparillaHtml.indexOf("Jeff Frazier");
+const frazierCard = gasparillaHtml.slice(Math.max(0, frazierAt - 90), frazierAt);
+if (frazierAt < 0 || frazierCard.includes(">1<")) throw new Error("Jeff Frazier overall place was replaced with the award place");
 
 const seniorHtml = renderHub(
   {
@@ -358,10 +354,12 @@ const seniorHtml = renderHub(
   },
   "senior",
 );
-if (!seniorHtml.includes("Low Senior award") || !seniorHtml.includes("also in the tournament field")) {
-  throw new Error("Senior hub presents the award as its own field");
+if (!seniorHtml.includes("Low Senior award") || !seniorHtml.includes("Jeff Frazier") || !seniorHtml.includes(">220<")) {
+  throw new Error("Senior hub is missing the Low Senior award");
 }
-if (!seniorHtml.includes("/midamgolfhq/gasparilla-invitational")) throw new Error("Senior hub does not link the tournament field");
+if (seniorHtml.includes("also in the tournament field") || seniorHtml.includes("Updated Nov 8, 2026") || seniorHtml.includes("Round buttons highlight") || seniorHtml.includes("Overall results")) {
+  throw new Error("Senior hub explains the award or repeats the overall board");
+}
 if (seniorHtml.includes("144 players") || seniorHtml.includes("24 players")) throw new Error("Senior hub publishes a field count");
 const seniorBoard = resultSnapshot("gasparilla-invitational-senior-division");
 if (seniorBoard?.kind !== "stroke" || seniorBoard.complete || seniorBoard.rows.length !== 24) {
@@ -399,9 +397,27 @@ for (const board of provenance.boards) {
 
 const jupiter = officialStrokeSnapshot("the-jupiter-invitational");
 const mitchell = jupiter?.rows.find((row) => row.name === "Matt Mitchell");
-if (!jupiter || jupiter.rows[0]?.name !== "Jon Weiss" || jupiter.rows[0]?.total !== 205 || mitchell?.total !== "DNF" || mitchell.rounds.join(",") !== "74,79,") {
-  throw new Error("Jupiter board did not keep the DNF card");
+const jallos = jupiter?.rows.find((row) => row.name === "Nick Jallos");
+if (!jupiter || jupiter.rows[0]?.name !== "Jon Weiss" || jupiter.rows[0]?.total !== 205 || mitchell?.total !== "DNF" || mitchell.rounds.join(",") !== "74,79,DNF") {
+  throw new Error("Jupiter dropped Matt Mitchell's DNF round token");
 }
+if (jallos?.rounds.join(",") !== "77,85,") throw new Error("Nick Jallos was given a round token the source cell did not post");
+let preservedTokens = 0;
+for (const board of provenance.boards) {
+  const snapshot = officialStrokeSnapshot(board.slug);
+  if (!snapshot) throw new Error(`${board.slug} snapshot missing during token audit`);
+  board.rows.forEach((row, index) => {
+    row.rounds.forEach((value, round) => {
+      if (value !== "" && !/^\d+$/.test(value)) {
+        preservedTokens += 1;
+        if (snapshot.rows[index]?.rounds[round] !== value) {
+          throw new Error(`${board.slug} dropped ${row.name} round token ${value}`);
+        }
+      }
+    });
+  });
+}
+if (preservedTokens < 1) throw new Error("Non-numeric round token audit did not run");
 const giles = officialStrokeSnapshot("giles-invitational");
 if (giles?.rows[0]?.name !== "Brett Patterson" || giles.rows[0]?.total !== 209 || giles.rows.length !== 60) {
   throw new Error("Giles board leader changed");
@@ -418,7 +434,7 @@ const jupiterHtml = renderHub(
   },
   "midam",
 );
-if (!jupiterHtml.includes("Final results") || !jupiterHtml.includes("Jon Weiss") || !jupiterHtml.includes(">DNF<") || jupiterHtml.includes("51 players")) {
+if (!jupiterHtml.includes("Final results") || !jupiterHtml.includes("Jon Weiss") || !jupiterHtml.includes(">DNF<") || jupiterHtml.includes("51 players") || jupiterHtml.includes("Updated Nov 8, 2026") || jupiterHtml.includes("Round buttons highlight")) {
   throw new Error("Jupiter hub does not show the checked final board");
 }
 if (jupiterHtml.includes("Michael McCoy")) throw new Error("Jupiter senior division was added to the mid-am field");

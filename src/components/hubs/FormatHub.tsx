@@ -36,7 +36,6 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   const [round, setRound] = useState(() =>
     snapshot?.kind === "stroke" && snapshot.scope !== "published-finishers" ? snapshot.roundCount : 1,
   );
-  const [award, setAward] = useState(false);
   const dates = resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026 ?? tournament.typicalDates);
   const place = [tournament.course, tournament.location].filter(Boolean).join(" · ");
   const names = snapshot ? snapshotNames(snapshot) : [];
@@ -93,16 +92,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
           <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} />
         </div>
         <div hidden={tab !== resultsLabel}>
-          <ResultsPanel
-            tournament={tournament}
-            snapshot={snapshot}
-            rounds={rounds}
-            round={round}
-            setRound={setRound}
-            channel={channel}
-            award={award}
-            setAward={setAward}
-          />
+          <ResultsPanel tournament={tournament} snapshot={snapshot} rounds={rounds} round={round} setRound={setRound} channel={channel} />
         </div>
         <div hidden={tab !== "Field"}>
           <FieldPanel snapshot={snapshot} names={names} />
@@ -251,8 +241,6 @@ function ResultsPanel({
   round,
   setRound,
   channel,
-  award,
-  setAward,
 }: {
   tournament: Tournament;
   snapshot: ResultSnapshot | null;
@@ -260,40 +248,13 @@ function ResultsPanel({
   round: number;
   setRound: (round: number) => void;
   channel: HubChannel;
-  award: boolean;
-  setAward: (award: boolean) => void;
 }) {
   const stroke = snapshot?.kind === "stroke" ? snapshot : null;
   const roundScores = stroke != null && stroke.rows.some((row) => row.rounds.some((score) => score != null));
-  const showAward = Boolean(stroke?.award) && award;
   return (
     <div>
       {stroke || (!snapshot && editionResult(tournament)) ? (
         <>
-          {stroke?.award ? (
-            <div className="mb-4 flex flex-wrap justify-center gap-2" role="group" aria-label="Leaderboard">
-              <button
-                type="button"
-                aria-pressed={!award}
-                onClick={() => setAward(false)}
-                className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
-                  !award ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-300 bg-white"
-                }`}
-              >
-                Tournament
-              </button>
-              <button
-                type="button"
-                aria-pressed={award}
-                onClick={() => setAward(true)}
-                className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
-                  award ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-300 bg-white"
-                }`}
-              >
-                {stroke.award.label}
-              </button>
-            </div>
-          ) : null}
           {roundScores && rounds > 1 ? (
             <div className="flex flex-wrap justify-center gap-2 pb-4">
               {Array.from({ length: rounds }, (_, index) => (
@@ -312,22 +273,10 @@ function ResultsPanel({
             </div>
           ) : null}
           <h2 className="text-center font-serif text-3xl font-semibold">{snapshot ? scopeLabel(snapshot) : "Selected results"}</h2>
-          {stroke?.updatedLabel ? <p className="mt-2 text-center text-sm text-zinc-600">{stroke.updatedLabel}</p> : null}
           {stroke?.stageLabel ? <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">{stroke.stageLabel}</p> : null}
           <div className="mt-4">
             {stroke ? (
-              <>
-                <div hidden={showAward} data-board="tournament">
-                  <StrokeTable snapshot={stroke} rows={stroke.rows} highlight={roundScores ? round - 1 : -1} />
-                </div>
-                {stroke.award ? (
-                  <div hidden={!showAward} data-board="award">
-                    <h3 className="mb-2 text-center font-serif text-2xl font-semibold">{stroke.award.label}</h3>
-                    <p className="mx-auto mb-4 max-w-xl text-center text-sm text-zinc-600">{stroke.award.note}</p>
-                    <StrokeTable snapshot={stroke} rows={stroke.award.rows} highlight={roundScores ? round - 1 : -1} />
-                  </div>
-                ) : null}
-              </>
+              <StrokeTable snapshot={stroke} rows={stroke.rows} highlight={roundScores ? round - 1 : -1} />
             ) : (
               <ChampionTable tournament={tournament} />
             )}
@@ -409,11 +358,13 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
   const hasDivision = rows.some((row) => row.division);
   const hasToPar = rows.some((row) => row.toPar);
   const caption =
-    snapshot.scope === "official-final"
-      ? "Final cumulative board. A blank cell was not posted. WD and DQ are statuses."
-      : snapshot.scope === "official-award"
-        ? "Low Senior award. Places are the award order. A blank cell was not posted."
-        : "Published finishers. Blank rounds were not in the source.";
+    snapshot.scope === "official-overall"
+      ? "Overall results"
+      : snapshot.scope === "official-final"
+        ? "Final results"
+        : snapshot.scope === "official-award"
+          ? "Low Senior award"
+          : "Published finishers. Blank rounds were not in the source.";
   return (
     <div tabIndex={0} aria-label={caption} className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">
       <table className="w-full min-w-[640px] text-left text-sm">
@@ -547,14 +498,6 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
     return (
       <div>
         <h2 className="text-center font-serif text-3xl font-semibold">Low Senior award</h2>
-        <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">
-          Award standings for players who are also in the tournament field. Places are the award order.
-        </p>
-        <p className="mt-3 text-center">
-          <Link href="/midamgolfhq/gasparilla-invitational" className="text-sm font-semibold text-emerald-800 underline underline-offset-2">
-            Tournament field
-          </Link>
-        </p>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           {snapshot.rows.map((player) => (
             <li key={player.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm">
