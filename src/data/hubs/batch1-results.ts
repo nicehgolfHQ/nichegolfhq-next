@@ -1,25 +1,41 @@
 /**
- * Partial 2026 results copied from articles and past-champion rows already on this site.
- * A missing round is null. These are not full fields.
+ * 2026 results. Partial snapshots are copied from articles and past-champion rows.
+ * A missing round is null. Official boards keep source statuses and do not turn them into zero.
  */
 
-export type ResultSource = { articleSlug?: string; record: "article" | "past-champion" };
+import { gasparillaMainSnapshot, gasparillaSeniorSnapshot } from "@/data/hubs/gasparilla-public";
+import { officialStrokeSnapshot } from "@/data/hubs/official-stroke";
+
+export type ResultSource = {
+  articleSlug?: string;
+  record: "article" | "past-champion" | "official-board";
+  label?: string;
+};
 
 export type StrokeFinisher = {
   division?: string;
   place: string;
   name: string;
-  rounds: Array<number | null>;
-  total: number | null;
+  rounds: Array<number | string | null>;
+  total: number | string | null;
   detail?: string;
+  hometown?: string;
+  toPar?: string;
+  status?: "ranked" | "CUT" | "WD" | "DQ" | "DNF" | "NC" | "NS";
 };
 
 export type StrokeSnapshot = {
   kind: "stroke";
-  complete: false;
-  scope: "published-finishers";
+  complete: boolean;
+  scope: "published-finishers" | "official-final" | "official-award";
   roundCount: number;
+  /** Short stage already stated by the source, such as "Through 36 holes". */
+  stageLabel?: string;
+  /** Public retrieval time. Provenance URLs stay off the page. */
+  updatedLabel?: string;
   rows: StrokeFinisher[];
+  /** Award standings for players who are already in rows. Not an extra field. */
+  award?: { label: string; note: string; rows: StrokeFinisher[] };
   sources: ResultSource[];
 };
 
@@ -61,19 +77,8 @@ export type TeamSnapshot = {
 export type ResultSnapshot = StrokeSnapshot | MatchSnapshot | TeamSnapshot;
 
 export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
-  "gasparilla-invitational": {
-    kind: "stroke",
-    complete: false,
-    scope: "published-finishers",
-    roundCount: 3,
-    rows: [
-      { place: "1", name: "Hayes Brown", rounds: [67, 73, 68], total: 208, detail: "2-under" },
-      { place: "2", name: "Peyton White", rounds: [null, null, 67], total: null, detail: "one shot back" },
-      { place: "T3", name: "Michael Buttacavoli", rounds: [70, 70, 70], total: 210, detail: "even par" },
-      { place: "T3", name: "Logan Blondell", rounds: [null, null, null], total: 210 },
-    ],
-    sources: [{ articleSlug: "2026-gasparilla-invitational-recap", record: "article" }],
-  },
+  "gasparilla-invitational": gasparillaMainSnapshot(),
+  "gasparilla-invitational-senior-division": gasparillaSeniorSnapshot(),
   "junior-orange-bowl": {
     kind: "stroke",
     complete: false,
@@ -124,6 +129,22 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
       { articleSlug: "2026-travis-invitational-final-recap", record: "article" },
     ],
   },
+  "national-invitational-tournament": {
+    kind: "stroke",
+    complete: false,
+    scope: "published-finishers",
+    roundCount: 2,
+    stageLabel: "Through 36 holes",
+    rows: [
+      { place: "1", name: "Sam Jackson", rounds: [70, 68], total: 138, detail: "4-under" },
+      { place: "2", name: "Hunter Hamrick", rounds: [null, 68], total: 140, detail: "2-under" },
+      { place: "3", name: "Jackson King", rounds: [null, 72], total: 141, detail: "1-under" },
+      { place: "T4", name: "Alan Coshatt", rounds: [null, 70], total: 143, detail: "1-over" },
+      { place: "T4", name: "Ethan Hagood", rounds: [null, 69], total: 143, detail: "1-over" },
+      { place: "T4", name: "Hunter Hawkins", rounds: [null, 73], total: 143, detail: "1-over" },
+    ],
+    sources: [{ articleSlug: "2026-national-invitational-tournament-round-2-recap", record: "article", label: "Round 2 recap" }],
+  },
   "east-vs-west-matches": {
     kind: "team-match",
     complete: false,
@@ -152,7 +173,7 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
 };
 
 export function resultSnapshot(slug: string): ResultSnapshot | null {
-  return BATCH_1_RESULTS[slug] ?? null;
+  return BATCH_1_RESULTS[slug] ?? officialStrokeSnapshot(slug);
 }
 
 function individualName(name: string): string {
@@ -160,7 +181,9 @@ function individualName(name: string): string {
   return name;
 }
 
-export function scopeLabel(snapshot: ResultSnapshot): "Selected results" | "Selected matches" {
+export function scopeLabel(snapshot: ResultSnapshot): string {
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-final") return "Final results";
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-award") return "Low Senior award";
   return snapshot.kind === "stroke" ? "Selected results" : "Selected matches";
 }
 

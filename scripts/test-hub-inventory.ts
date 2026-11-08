@@ -5,6 +5,10 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { FormatHub } from "../src/components/hubs/FormatHub";
 import { resultSnapshot, snapshotNames } from "../src/data/hubs/batch1-results";
+import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/data/hubs/gasparilla-2026";
+import { SOURCE_ACCESS } from "../src/data/hubs/source-access";
+import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
+import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import type { Tournament } from "../src/lib/tournaments/types";
 import {
   HUB_BATCH_1,
@@ -107,12 +111,13 @@ if (summary.calendar.rescheduledOut < 1 || summary.calendar.rescheduledOut >= su
 if (championLabel(2026, 2026, "played-in-2026") !== "2026 champion") throw new Error("Completed edition winner was called defending");
 if (championLabel(2025, 2026, "scheduled-2026") !== "Defending champion") throw new Error("Prior winner was not defending");
 
-for (const slug of ["gasparilla-invitational", "junior-orange-bowl", "society-of-seniors-spring-classic", "walter-j-travis-invitational", "east-vs-west-matches"]) {
+for (const slug of ["junior-orange-bowl", "society-of-seniors-spring-classic", "walter-j-travis-invitational", "east-vs-west-matches"]) {
   const snapshot = resultSnapshot(slug);
   if (!snapshot) throw new Error(`${slug} has no sourced snapshot`);
   if (snapshot.complete) throw new Error(`${slug} snapshot claims a complete field`);
   if (snapshot.sources.length === 0) throw new Error(`${slug} snapshot has no source`);
 }
+assertGasparillaBoard();
 const travis = resultSnapshot("walter-j-travis-invitational");
 if (travis?.kind !== "match" || travis.formatConfidence !== "string-only" || !travis.qualifying) {
   throw new Error("Travis snapshot does not keep qualifying separate from the format string");
@@ -214,8 +219,8 @@ if (eastHtml.includes(">Mike Sposa and Todd White</li>")) throw new Error("A pai
 
 const championOnly = renderHub(
   {
-    slug: "snedeker-memorial",
-    name: "Snedeker Memorial",
+    slug: "carlton-woods-invitational",
+    name: "Carlton Woods Invitational",
     channel: "midam",
     month: 3,
     startDate: "2026-03-01",
@@ -247,6 +252,176 @@ const nitHtml = renderHub(
 );
 if (!nitHtml.includes("Live scoring · NIT2026")) throw new Error("Golf Genius code was dropped");
 if (!nitHtml.includes("idp.golfgenius.com")) throw new Error("Login-bound scoring URL was dropped");
+if (!nitHtml.includes("Sam Jackson") || !nitHtml.includes(">138<")) throw new Error("NIT 36-hole leader did not render");
+if (!nitHtml.includes("Hunter Hamrick") || !nitHtml.includes(">140<")) throw new Error("Hamrick total missing");
+if (!nitHtml.includes("Jackson King") || !nitHtml.includes(">141<")) throw new Error("King total missing");
+if (!nitHtml.includes("Alan Coshatt") || !nitHtml.includes("Ethan Hagood") || !nitHtml.includes("Hunter Hawkins")) {
+  throw new Error("Tied fourth was dropped");
+}
+if (!nitHtml.includes("Through 36 holes") || !nitHtml.includes("Selected results")) throw new Error("NIT board looks final");
+if (!nitHtml.includes("Round 2 recap")) throw new Error("Round 2 recap is not linked from scoring");
+if (nitHtml.includes("2026 champion")) throw new Error("NIT leader was labeled the 2026 champion");
+
+const nitWithDefending = renderHub(
+  {
+    slug: "national-invitational-tournament",
+    name: "National Invitational Tournament",
+    channel: "midam",
+    month: 11,
+    liveStatus: "live",
+    startDate: "2026-11-06",
+    endDate: "2026-11-08",
+    pastResults: [{ year: 2025, champion: "Ryan Terry" }],
+  },
+  "midam",
+);
+if (!nitWithDefending.includes("Defending champion")) throw new Error("Ryan Terry is not labeled the defending champion");
+if (!nitWithDefending.includes("Ryan Terry")) throw new Error("Ryan Terry dropped off the hub");
+
+const sangerHtml = renderHub(
+  {
+    slug: "sanger-invitational",
+    name: "Sanger Invitational",
+    channel: "midam",
+    month: 6,
+    startDate: "2026-06-01",
+    endDate: "2026-06-03",
+  },
+  "midam",
+);
+if (!sangerHtml.includes("Results unavailable here")) throw new Error("Sanger results tab is blank");
+if (!sangerHtml.includes("Field unavailable here")) throw new Error("Sanger field tab is blank");
+if (sangerHtml.includes("No scores yet") || sangerHtml.includes("No players posted") || sangerHtml.includes("golfgenius.com")) {
+  throw new Error("Sanger implies an official empty board or a made-up link");
+}
+
+const gasparillaHtml = renderHub(
+  {
+    slug: "gasparilla-invitational",
+    name: "Gasparilla Invitational",
+    channel: "midam",
+    month: 2,
+    startDate: "2026-02-19",
+    endDate: "2026-02-21",
+    coursePar: 70,
+    golfGeniusUrl: GASPARILLA_OFFICIAL_RESULTS_URL,
+    pastResults: [{ year: 2026, champion: "Hayes Brown" }],
+  },
+  "midam",
+);
+const gasparillaBoard = resultSnapshot("gasparilla-invitational");
+if (gasparillaBoard?.kind !== "stroke" || !gasparillaBoard.complete || gasparillaBoard.rows.length !== 144) {
+  throw new Error("Gasparilla hub is not the full tournament board");
+}
+const gasparillaText = gasparillaHtml.replace(/&#x27;/g, "'").replace(/&amp;/g, "&");
+for (const row of gasparillaBoard.rows) {
+  if (!gasparillaText.includes(row.name)) throw new Error(`Missing tournament player ${row.name}`);
+}
+if (!gasparillaHtml.includes("Final results") || !gasparillaHtml.includes("Updated Nov 8, 2026, 8:55 a.m. CT")) {
+  throw new Error("Gasparilla final label or Chicago time missing");
+}
+if (!gasparillaHtml.includes("Low Senior award") || !gasparillaHtml.includes("Places are the award order")) {
+  throw new Error("Senior award is not labeled as an award filter");
+}
+if (!gasparillaHtml.includes(">Peyton White<") || !gasparillaHtml.includes(">209<") || !gasparillaHtml.includes(">72<")) {
+  throw new Error("Peyton White recap subset is still on the board");
+}
+if (!gasparillaHtml.includes(">WD<") || !gasparillaHtml.includes(">DQ<") || !gasparillaHtml.includes(">CUT<")) {
+  throw new Error("CUT, WD, or DQ status missing");
+}
+if (gasparillaHtml.includes("144 players") || gasparillaHtml.includes("24 players") || gasparillaHtml.includes("sourceAggregateId")) {
+  throw new Error("Internal field count or provenance leaked");
+}
+if (gasparillaHtml.includes("/players/") || gasparillaHtml.includes("tournaments2/details")) {
+  throw new Error("Unverified player profile or per-row source URL was rendered");
+}
+if (!gasparillaHtml.includes(GASPARILLA_OFFICIAL_RESULTS_URL)) throw new Error("Stored official link missing");
+const tournamentHtml = gasparillaHtml.slice(gasparillaHtml.indexOf('data-board="tournament"'), gasparillaHtml.indexOf('data-board="award"'));
+const awardHtml = gasparillaHtml.slice(gasparillaHtml.indexOf('data-board="award"'));
+if (!awardHtml.includes("Jeff Frazier") || !awardHtml.includes(">1<") || !awardHtml.includes("Places are the award order")) {
+  throw new Error("Award leader is not shown in the award order");
+}
+const frazierAt = tournamentHtml.indexOf("Jeff Frazier");
+const frazierCard = tournamentHtml.slice(Math.max(0, frazierAt - 90), frazierAt);
+if (frazierAt < 0 || frazierCard.includes(">1<")) throw new Error("Jeff Frazier tournament place was replaced with the award place");
+
+const seniorHtml = renderHub(
+  {
+    slug: "gasparilla-invitational-senior-division",
+    name: "Gasparilla Invitational (Senior Division)",
+    channel: "senior",
+    month: 2,
+    startDate: "2026-02-19",
+    endDate: "2026-02-21",
+    golfGeniusUrl: GASPARILLA_OFFICIAL_RESULTS_URL,
+    pastResults: [{ year: 2026, champion: "Jeff Frazier" }],
+  },
+  "senior",
+);
+if (!seniorHtml.includes("Low Senior award") || !seniorHtml.includes("also in the tournament field")) {
+  throw new Error("Senior hub presents the award as its own field");
+}
+if (!seniorHtml.includes("/midamgolfhq/gasparilla-invitational")) throw new Error("Senior hub does not link the tournament field");
+if (seniorHtml.includes("144 players") || seniorHtml.includes("24 players")) throw new Error("Senior hub publishes a field count");
+const seniorBoard = resultSnapshot("gasparilla-invitational-senior-division");
+if (seniorBoard?.kind !== "stroke" || seniorBoard.complete || seniorBoard.rows.length !== 24) {
+  throw new Error("Senior hub snapshot is not the award filter");
+}
+
+const audited = new Set(SOURCE_ACCESS.filter((item) => item.channel === "midam").map((item) => item.slug));
+for (const event of MIDAM_TOURNAMENTS) {
+  if (!audited.has(event.slug)) throw new Error(`No scoring audit for ${event.slug}`);
+}
+if (audited.size !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am scoring audit has an extra or duplicate slug");
+const mounted = ["gasparilla-invitational", "giles-invitational", "the-jupiter-invitational", "the-huddleston-cup", "snedeker-memorial"];
+for (const item of SOURCE_ACCESS.filter((entry) => entry.channel === "midam")) {
+  const expectsFull = mounted.includes(item.slug);
+  if (expectsFull !== (item.completeness === "full")) {
+    throw new Error(`${item.slug} completeness is ${item.completeness}`);
+  }
+}
+
+for (const board of provenance.boards) {
+  const snapshot = officialStrokeSnapshot(board.slug);
+  if (!snapshot || snapshot.rows.length !== board.rows.length || snapshot.complete !== board.mounted) {
+    throw new Error(`${board.slug} public board does not match provenance`);
+  }
+  board.rows.forEach((row, index) => {
+    const shown = snapshot.rows[index];
+    const rounds = row.rounds.map((value) => (value === "" ? null : /^\d+$/.test(value) ? Number(value) : value));
+    while (rounds.length < snapshot.roundCount) rounds.push(null);
+    if (!shown || shown.name !== row.name || shown.place !== row.position || String(shown.total ?? "") !== row.total || shown.toPar !== row.toPar || shown.rounds.join(",") !== rounds.join(",")) {
+      throw new Error(`${board.slug} row ${index} changed`);
+    }
+  });
+  if (snapshot.rows.some((row) => /\band\b|\+/.test(row.name))) throw new Error(`${board.slug} stored a pairing as one player`);
+}
+
+const jupiter = officialStrokeSnapshot("the-jupiter-invitational");
+const mitchell = jupiter?.rows.find((row) => row.name === "Matt Mitchell");
+if (!jupiter || jupiter.rows[0]?.name !== "Jon Weiss" || jupiter.rows[0]?.total !== 205 || mitchell?.total !== "DNF" || mitchell.rounds.join(",") !== "74,79,") {
+  throw new Error("Jupiter board did not keep the DNF card");
+}
+const giles = officialStrokeSnapshot("giles-invitational");
+if (giles?.rows[0]?.name !== "Brett Patterson" || giles.rows[0]?.total !== 209 || giles.rows.length !== 60) {
+  throw new Error("Giles board leader changed");
+}
+const jupiterHtml = renderHub(
+  {
+    slug: "the-jupiter-invitational",
+    name: "The Jupiter Invitational",
+    channel: "midam",
+    month: 5,
+    startDate: "2026-05-06",
+    endDate: "2026-05-08",
+    pastResults: [{ year: 2026, champion: "Jon Weiss" }],
+  },
+  "midam",
+);
+if (!jupiterHtml.includes("Final results") || !jupiterHtml.includes("Jon Weiss") || !jupiterHtml.includes(">DNF<") || jupiterHtml.includes("51 players")) {
+  throw new Error("Jupiter hub does not show the checked final board");
+}
+if (jupiterHtml.includes("Michael McCoy")) throw new Error("Jupiter senior division was added to the mid-am field");
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");
