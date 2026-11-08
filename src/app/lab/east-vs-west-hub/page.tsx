@@ -35,6 +35,11 @@ export default function EastVsWestHubConceptPage() {
 
   return (
     <SiteShell brandSlug="midamgolfhq">
+      <style>{`
+        body:has(.east-west-hub-concept) header.sticky {
+          position: static;
+        }
+      `}</style>
       <HubMockup articles={articles} />
     </SiteShell>
   );

@@ -115,7 +115,7 @@ export function HubMockup({ articles }: { articles: CoverageArticle[] }) {
   }
 
   return (
-    <div className="bg-zinc-50 text-zinc-950">
+    <div className="east-west-hub-concept bg-zinc-50 text-zinc-950">
       <div className="border-b border-emerald-200 bg-emerald-50">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-3 text-sm text-emerald-950 md:flex-row md:items-center md:justify-between">
           <p>
@@ -158,7 +158,7 @@ export function HubMockup({ articles }: { articles: CoverageArticle[] }) {
       </section>
 
       <div className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-5 py-3">
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap gap-2 px-5 py-3">
           {TABS.map((item) => (
             <button
               key={item}
@@ -209,14 +209,14 @@ export function HubMockup({ articles }: { articles: CoverageArticle[] }) {
 
         {tab === "Matches" && (
           <div>
-            <div className="flex gap-2 overflow-x-auto pb-4">
+            <div className="flex flex-wrap gap-2 pb-4">
               {SESSIONS.map((item) => (
                 <button
                   key={item.id}
                   type="button"
                   aria-pressed={session === item.id}
                   onClick={() => setSession(item.id)}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
                     session === item.id ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-300 bg-white text-zinc-800"
                   }`}
                 >
@@ -308,7 +308,7 @@ export function HubMockup({ articles }: { articles: CoverageArticle[] }) {
                 })}
               </ul>
             </div>
-            <div ref={playerPanel} className="order-1 scroll-mt-40 lg:order-2">
+            <div ref={playerPanel} className="order-1 scroll-mt-4 lg:order-2">
               <PlayerBreakout name={selected} articles={articles} onPick={openPlayer} />
             </div>
           </div>
