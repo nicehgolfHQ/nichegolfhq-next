@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
 import { TournamentResults } from "@/components/tournaments/TournamentResults";
-import { resultSnapshot, snapshotNames, type ResultSnapshot, type StrokeSnapshot } from "@/data/hubs/batch1-results";
+import { resultSnapshot, scopeLabel, snapshotNames, type ResultSnapshot, type StrokeSnapshot } from "@/data/hubs/batch1-results";
 import { championLabel, classifyCalendar, classifyFormat, resultsTabLabel, strokeRoundCount, type HubChannel } from "@/data/hubs/inventory";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
 import type { Tournament } from "@/lib/tournaments/types";
@@ -247,9 +247,9 @@ function ResultsPanel({
   const roundScores = snapshot?.kind === "stroke" && snapshot.rows.some((row) => row.rounds.some((score) => score != null));
   return (
     <div>
-      {snapshot?.kind === "stroke" && roundScores ? (
+      {snapshot?.kind === "stroke" ? (
         <>
-          {rounds > 1 ? (
+          {roundScores && rounds > 1 ? (
             <div className="flex flex-wrap justify-center gap-2 pb-4">
               {Array.from({ length: rounds }, (_, index) => (
                 <button
@@ -266,9 +266,9 @@ function ResultsPanel({
               ))}
             </div>
           ) : null}
-          <h2 className="text-center font-serif text-3xl font-semibold">Published finishers</h2>
+          <h2 className="text-center font-serif text-3xl font-semibold">{scopeLabel(snapshot)}</h2>
           <div className="mt-4">
-            <StrokeTable snapshot={snapshot} highlight={round - 1} />
+            <StrokeTable snapshot={snapshot} highlight={roundScores ? round - 1 : -1} />
           </div>
         </>
       ) : null}
@@ -300,11 +300,13 @@ function StrokeTable({ snapshot, highlight }: { snapshot: StrokeSnapshot; highli
             <th className="px-3 py-3 font-semibold">Place</th>
             {snapshot.rows.some((row) => row.division) ? <th className="px-3 py-3 font-semibold">Division</th> : null}
             <th className="px-3 py-3 font-semibold">Player</th>
-            {Array.from({ length: snapshot.roundCount }, (_, index) => (
-              <th key={index} className={`px-3 py-3 font-semibold ${highlight === index ? "text-zinc-950" : ""}`}>
-                R{index + 1}
-              </th>
-            ))}
+            {snapshot.rows.some((row) => row.rounds.some((score) => score != null))
+              ? Array.from({ length: snapshot.roundCount }, (_, index) => (
+                  <th key={index} className={`px-3 py-3 font-semibold ${highlight === index ? "text-zinc-950" : ""}`}>
+                    R{index + 1}
+                  </th>
+                ))
+              : null}
             <th className="px-3 py-3 font-semibold">Total</th>
           </tr>
         </thead>
@@ -317,11 +319,13 @@ function StrokeTable({ snapshot, highlight }: { snapshot: StrokeSnapshot; highli
                 <span className="font-semibold">{row.name}</span>
                 {row.detail ? <span className="mt-1 block text-xs text-zinc-500">{row.detail}</span> : null}
               </td>
-              {row.rounds.map((score, index) => (
-                <td key={index} className={`px-3 py-3 tabular-nums ${highlight === index ? "bg-emerald-50 font-semibold" : ""}`}>
-                  {score ?? ""}
-                </td>
-              ))}
+              {snapshot.rows.some((item) => item.rounds.some((score) => score != null))
+                ? row.rounds.map((score, index) => (
+                    <td key={index} className={`px-3 py-3 tabular-nums ${highlight === index ? "bg-emerald-50 font-semibold" : ""}`}>
+                      {score ?? ""}
+                    </td>
+                  ))
+                : null}
               <td className="px-3 py-3 font-semibold tabular-nums">{row.total ?? ""}</td>
             </tr>
           ))}
@@ -334,7 +338,7 @@ function StrokeTable({ snapshot, highlight }: { snapshot: StrokeSnapshot; highli
 function MatchTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "match" }> }) {
   return (
     <div>
-      <h2 className="text-center font-serif text-3xl font-semibold">Match play</h2>
+      <h2 className="text-center font-serif text-3xl font-semibold">{scopeLabel(snapshot)}</h2>
       <p className="mt-2 text-center text-sm text-zinc-600">Recorded format: Match play</p>
       {snapshot.qualifying ? (
         <p className="mt-4 text-center text-sm font-semibold">Qualifying medalist: {snapshot.qualifying.medalist}</p>
@@ -356,7 +360,7 @@ function MatchTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "m
 function TeamTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "team-match" }> }) {
   return (
     <div>
-      <h2 className="text-center font-serif text-3xl font-semibold">Sessions</h2>
+      <h2 className="text-center font-serif text-3xl font-semibold">{scopeLabel(snapshot)}</h2>
       <div className="mx-auto mt-4 max-w-xl overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
         <table className="w-full text-left text-sm">
           <caption className="sr-only">Session scores</caption>

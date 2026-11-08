@@ -1,7 +1,11 @@
 import { MIDAM_TOURNAMENTS } from "../src/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "../src/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "../src/lib/seniorMajors";
-import { resultSnapshot } from "../src/data/hubs/batch1-results";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { FormatHub } from "../src/components/hubs/FormatHub";
+import { resultSnapshot, snapshotNames } from "../src/data/hubs/batch1-results";
+import type { Tournament } from "../src/lib/tournaments/types";
 import {
   HUB_BATCH_1,
   championLabel,
@@ -105,6 +109,100 @@ const travis = resultSnapshot("walter-j-travis-invitational");
 if (travis?.kind !== "match" || travis.formatConfidence !== "string-only" || !travis.qualifying) {
   throw new Error("Travis snapshot does not keep qualifying separate from the format string");
 }
+const couture = travis.matches.filter((match) => match.result.startsWith("Rob Couture def."));
+if (couture.filter((match) => match.round === "Quarterfinal").length !== 1) throw new Error("Couture has more than one quarterfinal");
+if (!couture.some((match) => match.round === "Round of 16" && match.result.includes("Saladino"))) {
+  throw new Error("Couture vs Saladino is not the opening match");
+}
+if (!couture.some((match) => match.round === "Quarterfinal" && match.result.includes("Abbondandolo"))) {
+  throw new Error("Couture vs Abbondandolo lost its stated quarterfinal");
+}
+const hunter = travis.matches.filter((match) => match.result.startsWith("John Hunter def."));
+if (hunter.some((match) => match.round === "Quarterfinal")) throw new Error("Hunter was given a quarterfinal the source did not name");
+if (!hunter.some((match) => match.round === "Round of 16" && match.result.includes("Parziale"))) {
+  throw new Error("Hunter vs Parziale is not the opening match");
+}
+if (!hunter.some((match) => match.round === "Saturday" && match.result.includes("Deraney"))) {
+  throw new Error("Hunter vs Deraney was given a stage the source did not name");
+}
+
+const east = resultSnapshot("east-vs-west-matches");
+if (east?.kind !== "team-match") throw new Error("East vs West snapshot missing");
+const eastNames = east.kind === "team-match" ? snapshotNames(east) : [];
+if (eastNames.some((name) => /\band\b/i.test(name))) throw new Error("A pairing was stored as one player");
+if (!eastNames.includes("Mike Sposa") || !eastNames.includes("Todd White")) throw new Error("Friday partners were not stored as two players");
+
+function renderHub(tournament: Tournament, channel: "midam" | "junior" | "senior") {
+  return renderToStaticMarkup(createElement(FormatHub, { tournament, channel }));
+}
+
+const sosHtml = renderHub(
+  {
+    slug: "society-of-seniors-spring-classic",
+    name: "Society of Seniors: Spring Classic",
+    channel: "senior",
+    month: 2,
+    startDate: "2026-02-09",
+    endDate: "2026-02-11",
+    pastResults: [{ year: 2026, champion: "William Mallon" }],
+  },
+  "senior",
+);
+if (!sosHtml.includes("William Mallon")) throw new Error("Champion-only snapshot did not render");
+if (!sosHtml.includes("Selected results")) throw new Error("Partial stroke scope label missing");
+if (sosHtml.includes(">Round 1<")) throw new Error("Champion-only snapshot rendered a round control");
+
+const orangeHtml = renderHub(
+  {
+    slug: "junior-orange-bowl",
+    name: "Junior Orange Bowl",
+    channel: "junior",
+    month: 1,
+    startDate: "2026-01-03",
+    endDate: "2026-01-06",
+  },
+  "junior",
+);
+if (!orangeHtml.includes("Selected results")) throw new Error("Orange Bowl partial board has no scope label");
+if (!orangeHtml.includes("Tomas Restrepo")) throw new Error("Orange Bowl finisher missing");
+
+const travisHtml = renderHub(
+  {
+    slug: "walter-j-travis-invitational",
+    name: "The Walter J. Travis Invitational",
+    channel: "midam",
+    month: 5,
+    format: "Match play",
+    startDate: "2026-05-15",
+    endDate: "2026-05-17",
+  },
+  "midam",
+);
+if (!travisHtml.includes("Selected matches")) throw new Error("Travis partial matches have no scope label");
+const saladinoCard = travisHtml.slice(Math.max(0, travisHtml.indexOf("Joe Saladino") - 240), travisHtml.indexOf("Joe Saladino") + 20);
+if (!saladinoCard.includes("Round of 16") || saladinoCard.includes("Quarterfinal")) {
+  throw new Error("Saladino was not rendered as the opening match");
+}
+const deraneyCard = travisHtml.slice(Math.max(0, travisHtml.indexOf("Joseph Deraney") - 240), travisHtml.indexOf("Joseph Deraney") + 20);
+if (deraneyCard.includes("Quarterfinal") || !deraneyCard.includes("Saturday")) {
+  throw new Error("Deraney was given a quarterfinal label");
+}
+
+const eastHtml = renderHub(
+  {
+    slug: "east-vs-west-matches",
+    name: "East vs West Matches",
+    channel: "midam",
+    month: 11,
+    liveStatus: "live",
+    startDate: "2026-11-06",
+    endDate: "2026-11-08",
+  },
+  "midam",
+);
+if (!eastHtml.includes(">Mike Sposa</li>")) throw new Error("Mike Sposa was not rendered as his own player");
+if (!eastHtml.includes(">Todd White</li>")) throw new Error("Todd White was not rendered as his own player");
+if (eastHtml.includes(">Mike Sposa and Todd White</li>")) throw new Error("A pairing rendered as one field entry");
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");

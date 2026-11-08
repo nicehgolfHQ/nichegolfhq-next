@@ -25,7 +25,8 @@ export type StrokeSnapshot = {
 
 export type MatchLine = {
   flight: string;
-  round: string;
+  /** Only a stage the source names, or Saturday when the source gives the day and not the round. */
+  round: "Round of 16" | "Quarterfinal" | "Semifinal" | "Final" | "Saturday";
   result: string;
 };
 
@@ -41,7 +42,12 @@ export type MatchSnapshot = {
 
 export type SessionScore = { session: string; east: string; west: string };
 
-export type NamedMatch = { session: string; result: string };
+export type NamedMatch = {
+  session: string;
+  /** One person per entry. Partners are separate names, never a combined string. */
+  players: string[];
+  result: string;
+};
 
 export type TeamSnapshot = {
   kind: "team-match";
@@ -102,10 +108,10 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
       { flight: "Championship", round: "Final", result: "Chris DeJohn def. Pat Wilson, 2 and 1" },
       { flight: "Championship", round: "Semifinal", result: "Chris DeJohn def. Rob Couture, 19 holes" },
       { flight: "Championship", round: "Semifinal", result: "Pat Wilson def. John Hunter" },
-      { flight: "Championship", round: "Quarterfinal", result: "Rob Couture def. Joe Saladino, 2 and 1" },
+      { flight: "Championship", round: "Round of 16", result: "Rob Couture def. Joe Saladino, 2 and 1" },
       { flight: "Championship", round: "Quarterfinal", result: "Rob Couture def. Daniel Abbondandolo, 2 and 1" },
-      { flight: "Championship", round: "Quarterfinal", result: "John Hunter def. Matt Parziale, 3 and 2" },
-      { flight: "Championship", round: "Quarterfinal", result: "John Hunter def. Joseph Deraney, 2 and 1" },
+      { flight: "Championship", round: "Round of 16", result: "John Hunter def. Matt Parziale, 3 and 2" },
+      { flight: "Championship", round: "Saturday", result: "John Hunter def. Joseph Deraney, 2 and 1" },
       { flight: "Devereux Emmet Cup", round: "Final", result: "Matthew Naumec def. Andrew Lane" },
       { flight: "Dwight D. Eisenhower Cup", round: "Final", result: "Dave Scialabba def. Doug Clapp" },
       { flight: "William H. Taft Cup", round: "Final", result: "TJ Shuart def. Oscar Maxfield" },
@@ -114,6 +120,7 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
     ],
     sources: [
       { articleSlug: "2026-travis-invitational-qualifying-recap", record: "article" },
+      { articleSlug: "2026-travis-invitational-saturday-results", record: "article" },
       { articleSlug: "2026-travis-invitational-final-recap", record: "article" },
     ],
   },
@@ -127,15 +134,15 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
     ],
     cumulative: { label: "Entering Sunday singles", east: "12", west: "15" },
     matches: [
-      { session: "Friday four-ball", result: "Mike Sposa and Todd White def. Bryan Hoops and Trae Cassell, 5 and 3" },
-      { session: "Friday four-ball", result: "Danny Nelson and Brett Patterson def. Mike McCoy and Stewart Hagestad, 3 and 2" },
-      { session: "Friday four-ball", result: "Matt Vogt and Rick Stimmel def. Gene Elliott and Parker Edens, 2 up" },
-      { session: "Friday four-ball", result: "Doug Hanzel and Bob Royak def. Corby Segal and Jason Pridmore, 4 and 3" },
-      { session: "Friday four-ball", result: "Bobby Massa and Mikel Martinson def. Christian Brand and Nate Gahman, 4 and 2" },
-      { session: "Friday four-ball", result: "Nate Smith and Zach Foushee def. Christian Cavaliere and Scott Harvey, 2 and 1" },
-      { session: "Friday four-ball", result: "Brad Nurski and Josh Persons def. Andrew Price and Andrew Bailey, 1 up" },
-      { session: "Friday four-ball", result: "Jonathan Bale and Will Davenport halved with Chris Wheeler and Jordan Russell" },
-      { session: "Friday four-ball", result: "Evan Beck and Stephen Behr halved with Drew Kittleson and Drew Stoltz" },
+      { session: "Friday four-ball", players: ["Mike Sposa", "Todd White", "Bryan Hoops", "Trae Cassell"], result: "Mike Sposa and Todd White def. Bryan Hoops and Trae Cassell, 5 and 3" },
+      { session: "Friday four-ball", players: ["Danny Nelson", "Brett Patterson", "Mike McCoy", "Stewart Hagestad"], result: "Danny Nelson and Brett Patterson def. Mike McCoy and Stewart Hagestad, 3 and 2" },
+      { session: "Friday four-ball", players: ["Matt Vogt", "Rick Stimmel", "Gene Elliott", "Parker Edens"], result: "Matt Vogt and Rick Stimmel def. Gene Elliott and Parker Edens, 2 up" },
+      { session: "Friday four-ball", players: ["Doug Hanzel", "Bob Royak", "Corby Segal", "Jason Pridmore"], result: "Doug Hanzel and Bob Royak def. Corby Segal and Jason Pridmore, 4 and 3" },
+      { session: "Friday four-ball", players: ["Bobby Massa", "Mikel Martinson", "Christian Brand", "Nate Gahman"], result: "Bobby Massa and Mikel Martinson def. Christian Brand and Nate Gahman, 4 and 2" },
+      { session: "Friday four-ball", players: ["Nate Smith", "Zach Foushee", "Christian Cavaliere", "Scott Harvey"], result: "Nate Smith and Zach Foushee def. Christian Cavaliere and Scott Harvey, 2 and 1" },
+      { session: "Friday four-ball", players: ["Brad Nurski", "Josh Persons", "Andrew Price", "Andrew Bailey"], result: "Brad Nurski and Josh Persons def. Andrew Price and Andrew Bailey, 1 up" },
+      { session: "Friday four-ball", players: ["Jonathan Bale", "Will Davenport", "Chris Wheeler", "Jordan Russell"], result: "Jonathan Bale and Will Davenport halved with Chris Wheeler and Jordan Russell" },
+      { session: "Friday four-ball", players: ["Evan Beck", "Stephen Behr", "Drew Kittleson", "Drew Stoltz"], result: "Evan Beck and Stephen Behr halved with Drew Kittleson and Drew Stoltz" },
     ],
     sources: [
       { articleSlug: "2026-east-vs-west-matches-day-1-recap", record: "article" },
@@ -148,17 +155,25 @@ export function resultSnapshot(slug: string): ResultSnapshot | null {
   return BATCH_1_RESULTS[slug] ?? null;
 }
 
-function sides(result: string): string[] {
-  return result
-    .split(/ def\. | halved with /)
-    .map((side) => side.replace(/,.*$/, "").trim())
-    .filter(Boolean);
+function individualName(name: string): string {
+  if (/\band\b/i.test(name)) throw new Error(`Player name is a pairing, not one person: ${name}`);
+  return name;
+}
+
+export function scopeLabel(snapshot: ResultSnapshot): "Selected results" | "Selected matches" {
+  return snapshot.kind === "stroke" ? "Selected results" : "Selected matches";
 }
 
 export function snapshotNames(snapshot: ResultSnapshot): string[] {
-  if (snapshot.kind === "stroke") return snapshot.rows.map((row) => row.name);
-  const lines = snapshot.kind === "match" ? snapshot.matches.map((match) => match.result) : snapshot.matches.map((match) => match.result);
-  const names = snapshot.kind === "match" && snapshot.qualifying ? [snapshot.qualifying.medalist] : [];
-  for (const line of lines) names.push(...sides(line));
-  return [...new Set(names)];
+  if (snapshot.kind === "stroke") return snapshot.rows.map((row) => individualName(row.name));
+  if (snapshot.kind === "team-match") {
+    return [...new Set(snapshot.matches.flatMap((match) => match.players.map(individualName)))];
+  }
+  const names = snapshot.qualifying ? [individualName(snapshot.qualifying.medalist)] : [];
+  for (const match of snapshot.matches) {
+    for (const side of match.result.split(/ def\. | halved with /)) {
+      names.push(individualName(side.replace(/,.*$/, "").trim()));
+    }
+  }
+  return [...new Set(names.filter(Boolean))];
 }
