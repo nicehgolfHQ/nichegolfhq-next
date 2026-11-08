@@ -103,7 +103,11 @@ export function standings(teams: FourBallTeam[], division?: FourBallTeam["divisi
       notes.set(team.id, { position: team.score!.officialPosition, rankNote: "official" });
     }
     const rest = rows.filter((team) => !notes.has(team.id));
-    const keyed = rest.map((team) => ({ team, key: team.score ? progressKey(team.score) : null }));
+    // An official place and a derived place must not share one board.
+    // Until every card has an official place, the rest stay unranked.
+    const keyed = official.length
+      ? []
+      : rest.map((team) => ({ team, key: team.score ? progressKey(team.score) : null }));
     const keys = [...new Set(keyed.map((item) => item.key).filter((key): key is string => !!key))];
     const leadKey = keys.sort((a, b) => progressValue(b) - progressValue(a))[0];
     const lead = leadKey ? keyed.filter((item) => item.key === leadKey).map((item) => item.team) : [];
@@ -151,6 +155,13 @@ export function auditScore(score: FourBallScore, pars: Array<number | null>): st
   if (incomplete.length === 0 && score.total != null && complete.length > 0) {
     const sum = complete.reduce((total, round) => total + (round.strokes as number), 0);
     if (score.total !== sum) problems.push(`total ${score.total} does not match completed rounds ${sum}`);
+  }
+  if (incomplete.length > 0 && score.total != null && score.thru) {
+    const posted = score.rounds.filter((round) => round.strokes != null);
+    const sum = posted.reduce((total, round) => total + (round.strokes as number), 0);
+    if (posted.length > 0 && score.total !== sum) {
+      problems.push(`partial total ${score.total} does not match posted strokes ${sum}`);
+    }
   }
   if (score.toPar != null) {
     const missingPar = score.rounds.some((round, index) => round.status === "complete" && pars[index] == null);

@@ -15,6 +15,8 @@ import { TournamentTabs } from "@/components/tournaments/TournamentTabs";
 import { TournamentHowToPlay } from "@/components/tournaments/TournamentHowToPlay";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
 import { RelatedEvents } from "@/components/tournaments/RelatedEvents";
+import { FormatHub } from "@/components/hubs/FormatHub";
+import { isFormatHub } from "@/data/hubs/inventory";
 
 export const dynamicParams = false;
 
@@ -172,6 +174,20 @@ export default async function MidAmTournamentPage({
       name: t.name,
       month: MONTH_NAMES[t.month] || "",
     }));
+
+  if (isFormatHub("midam", tournament.slug)) {
+    return (
+      <SiteShell>
+        <JsonLd data={breadcrumbsLd} />
+        <JsonLd data={eventLd} />
+        <JsonLd data={faqLd} />
+        <FormatHub tournament={tournament} channel="midam" />
+        <div className="mx-auto w-full max-w-6xl px-5 pb-10">
+          <RelatedEvents events={relatedEvents} brandSlug="midamgolfhq" brandLabel="midamgolfHQ" />
+        </div>
+      </SiteShell>
+    );
+  }
 
   return (
     <SiteShell>

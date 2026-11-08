@@ -1,0 +1,145 @@
+import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
+import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
+import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
+
+export type HubChannel = "midam" | "junior" | "senior";
+
+/** Presentation family. Classified from the recorded format string, not the event name. */
+export type HubFormat = "stroke" | "four-ball" | "four-ball-match" | "match" | "team-match" | "unspecified";
+
+export type HubTemplate = "legacy" | "format-hub" | "ewing-dedicated";
+
+export type HubInventoryItem = {
+  channel: HubChannel;
+  slug: string;
+  name: string;
+  path: string;
+  formatLabel: string | null;
+  formatKind: HubFormat;
+  scoringUrl: string | null;
+  newsSlugs: string[];
+  template: HubTemplate;
+  batch: "batch-1" | "ewing" | null;
+};
+
+const CHANNEL_PATH: Record<HubChannel, string> = {
+  midam: "midamgolfhq",
+  junior: "juniorgolfhq",
+  senior: "seniorgolfhq",
+};
+
+/** First reviewable migration. Dedicated Ewing hubs are already live and are not in this list. */
+export const HUB_BATCH_1: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "gasparilla-invitational" },
+  { channel: "midam", slug: "walter-j-travis-invitational" },
+  { channel: "midam", slug: "east-vs-west-matches" },
+  { channel: "junior", slug: "junior-orange-bowl" },
+  { channel: "senior", slug: "society-of-seniors-spring-classic" },
+];
+
+const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "ewing-cup-four-ball" },
+  { channel: "senior", slug: "ewing-cup-four-ball" },
+];
+
+export function classifyFormat(format?: string | null): HubFormat {
+  const text = (format ?? "").toLowerCase();
+  if (!text.trim()) return "unspecified";
+  if (text.includes("team match") || (text.includes("foursomes") && text.includes("singles"))) return "team-match";
+  if (text.includes("better ball") || text.includes("four-ball") || text.includes("four ball") || text.includes("4-ball") || text.includes("4 ball")) {
+    return text.includes("match") ? "four-ball-match" : "four-ball";
+  }
+  if (text.includes("match")) return "match";
+  if (text.includes("stroke")) return "stroke";
+  return "unspecified";
+}
+
+/** Stroke rounds implied by an N-hole stroke or better-ball format. Match play returns none. */
+export function strokeRoundCount(format: string | null | undefined, kind: HubFormat): number {
+  if (kind !== "stroke" && kind !== "four-ball") return 0;
+  const match = (format ?? "").toLowerCase().match(/(\d+)\s*-?\s*holes?/);
+  if (!match) return 0;
+  const holes = Number(match[1]);
+  if (!Number.isFinite(holes) || holes < 18 || holes > 108 || holes % 18 !== 0) return 0;
+  return holes / 18;
+}
+
+export function resultsTabLabel(kind: HubFormat): "Scoring" | "Matches" {
+  if (kind === "match" || kind === "team-match" || kind === "four-ball-match") return "Matches";
+  return "Scoring";
+}
+
+function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] {
+  if (EWING_DEDICATED.some((item) => item.channel === channel && item.slug === slug)) return "ewing";
+  if (HUB_BATCH_1.some((item) => item.channel === channel && item.slug === slug)) return "batch-1";
+  return null;
+}
+
+function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
+  if (batch === "ewing") return "ewing-dedicated";
+  if (batch === "batch-1") return "format-hub";
+  return "legacy";
+}
+
+type SourceEvent = {
+  slug: string;
+  name: string;
+  format?: string;
+  golfGeniusUrl?: string;
+  news?: { slug: string }[];
+};
+
+function row(channel: HubChannel, event: SourceEvent): HubInventoryItem {
+  const batch = batchFor(channel, event.slug);
+  return {
+    channel,
+    slug: event.slug,
+    name: event.name,
+    path: `/${CHANNEL_PATH[channel]}/${event.slug}`,
+    formatLabel: event.format ?? null,
+    formatKind: classifyFormat(event.format),
+    scoringUrl: event.golfGeniusUrl ?? null,
+    newsSlugs: (event.news ?? []).map((article) => article.slug),
+    template: templateFor(batch),
+    batch,
+  };
+}
+
+export function listHubInventory(): HubInventoryItem[] {
+  return [
+    ...MIDAM_TOURNAMENTS.map((event) => row("midam", event)),
+    ...JUNIOR_MAJOR_EVENTS_2026.map((event) => row("junior", event)),
+    ...SENIOR_MAJOR_EVENTS_2026.map((event) => row("senior", event)),
+  ];
+}
+
+export function isFormatHub(channel: HubChannel, slug: string): boolean {
+  return listHubInventory().some((item) => item.channel === channel && item.slug === slug && item.template === "format-hub");
+}
+
+export function inventorySummary(items: HubInventoryItem[] = listHubInventory()) {
+  const byChannel = {
+    midam: items.filter((item) => item.channel === "midam").length,
+    junior: items.filter((item) => item.channel === "junior").length,
+    senior: items.filter((item) => item.channel === "senior").length,
+  };
+  const byKind: Record<HubFormat, number> = {
+    stroke: 0,
+    "four-ball": 0,
+    "four-ball-match": 0,
+    match: 0,
+    "team-match": 0,
+    unspecified: 0,
+  };
+  for (const item of items) byKind[item.formatKind] += 1;
+  return {
+    total: items.length,
+    byChannel,
+    byKind,
+    formatHub: items.filter((item) => item.template === "format-hub").length,
+    ewingDedicated: items.filter((item) => item.template === "ewing-dedicated").length,
+    legacy: items.filter((item) => item.template === "legacy").length,
+    withScoringUrl: items.filter((item) => item.scoringUrl).length,
+    withNews: items.filter((item) => item.newsSlugs.length > 0).length,
+  };
+}
