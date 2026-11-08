@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "batch-7" | "batch-8" | "batch-9" | "batch-10" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "batch-7" | "batch-8" | "batch-9" | "batch-10" | "batch-11" | "batch-12" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -143,6 +143,23 @@ export const HUB_BATCH_10: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "junior", slug: "junior-presidents-cup" },
 ];
 
+/** Remaining 2026 junior hubs. Upcoming events stay without a 2026 champion or a field. */
+export const HUB_BATCH_11: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "junior", slug: "north-south-junior" },
+  { channel: "junior", slug: "us-amateur" },
+  { channel: "junior", slug: "ajga-ping-invitational" },
+  { channel: "junior", slug: "rolex-tournament-of-champions" },
+  { channel: "junior", slug: "junior-jones-cup" },
+];
+
+/** Senior divisions whose 2026 public boards were checked. Lupton stays off this list. */
+export const HUB_BATCH_12: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "senior", slug: "ojai-senior-cup" },
+  { channel: "senior", slug: "trans-mississippi-senior-championship" },
+  { channel: "senior", slug: "society-of-seniors-dale-morey" },
+  { channel: "senior", slug: "golfweek-senior-desert-showdown" },
+];
+
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "ewing-cup-four-ball" },
   { channel: "senior", slug: "ewing-cup-four-ball" },
@@ -220,12 +237,14 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (HUB_BATCH_8.some((item) => item.channel === channel && item.slug === slug)) return "batch-8";
   if (HUB_BATCH_9.some((item) => item.channel === channel && item.slug === slug)) return "batch-9";
   if (HUB_BATCH_10.some((item) => item.channel === channel && item.slug === slug)) return "batch-10";
+  if (HUB_BATCH_11.some((item) => item.channel === channel && item.slug === slug)) return "batch-11";
+  if (HUB_BATCH_12.some((item) => item.channel === channel && item.slug === slug)) return "batch-12";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6" || batch === "batch-7" || batch === "batch-8" || batch === "batch-9" || batch === "batch-10") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6" || batch === "batch-7" || batch === "batch-8" || batch === "batch-9" || batch === "batch-10" || batch === "batch-11" || batch === "batch-12") return "format-hub";
   return "legacy";
 }
 

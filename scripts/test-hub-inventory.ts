@@ -13,6 +13,7 @@ import { officialRemainingSnapshot, womensWesternSnapshot } from "../src/data/hu
 import remainingAudit from "../src/data/hubs/official/remaining-2026.provenance.json";
 import remainingBoards from "../src/data/hubs/official/remaining-2026.public.json";
 import juniorBatch from "../src/data/hubs/official/junior-batch-2026.json";
+import seniorBatch from "../src/data/hubs/official/senior-batch-2026.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -28,6 +29,8 @@ import {
   HUB_BATCH_8,
   HUB_BATCH_9,
   HUB_BATCH_10,
+  HUB_BATCH_11,
+  HUB_BATCH_12,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -46,7 +49,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -648,8 +651,8 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
 const boardRows = (board: { rows?: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[]; divisions?: { rows: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[] }[] }) =>
   board.divisions?.flatMap((division) => division.rows) ?? board.rows ?? [];
-const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 839) throw new Error("The published checked boards are no longer 839 rows");
+const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards, ...seniorBatch.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
+if (publishedRows.length !== 1152) throw new Error("The published checked boards are no longer 1152 rows");
 for (const { slug, row } of publishedRows) {
   const players = "players" in row ? row.players ?? [] : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
@@ -974,7 +977,45 @@ if (!presidentsHtml.includes("17.5 - 6.5") || !presidentsHtml.includes("Full res
   throw new Error("Junior Presidents Cup score or note changed");
 }
 for (const slug of ["ajga-ping-invitational", "rolex-tournament-of-champions", "junior-jones-cup", "north-south-junior", "us-amateur"]) {
-  if (isFormatHub("junior", slug)) throw new Error(`${slug} was moved onto the shared layout`);
+  if (!isFormatHub("junior", slug)) throw new Error(`${slug} stayed on the legacy layout`);
+}
+const amateurHtml = renderHub({ slug: "us-amateur", name: "U.S. Amateur", channel: "junior", month: 8, format: "Match play", pastResults: [{ year: 2026, champion: "Jack Whaley", runnerUp: "Jay Leng Jr." }] }, "junior");
+if (!amateurHtml.includes("Jack Whaley") || !amateurHtml.includes("Jay Leng Jr.") || !amateurHtml.includes("Full results unavailable here.") || amateurHtml.includes("4 and 3")) {
+  throw new Error("U.S. Amateur champion line changed");
+}
+const pingHtml = renderHub({ slug: "ajga-ping-invitational", name: "AJGA Ping Invitational", channel: "junior", month: 11, format: "54-hole stroke play", startDate: "2026-11-05", endDate: "2026-11-08", liveStatus: "live", pastResults: [{ year: 2025, champion: "Boys: Preston Hage / Girls: Honorine Nobuta Ferry" }] }, "junior");
+if (pingHtml.includes("Tripp Depoy") || pingHtml.includes("2026 champion") || !pingHtml.includes("Full results unavailable here.") || !pingHtml.includes("Defending champion")) {
+  throw new Error("PING in-progress board was frozen or a 2026 champion was added");
+}
+const tocHtml = renderHub({ slug: "rolex-tournament-of-champions", name: "Rolex Tournament of Champions", channel: "junior", month: 11, format: "72-hole stroke play", startDate: "2026-11-21", endDate: "2026-11-25", pastResults: [{ year: 2025, champion: "Boys: Luke Ringkamp / Girls: Nikki Oh" }] }, "junior");
+if (tocHtml.includes("2026 champion") || !tocHtml.includes("Defending champion") || !tocHtml.includes("Luke Ringkamp")) {
+  throw new Error("Rolex Tournament of Champions was given a 2026 champion");
+}
+const northSouth = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "north-south-junior");
+if (northSouth?.startDate !== "2026-06-29" || northSouth.endDate !== "2026-07-01") {
+  throw new Error("North and South Junior dates changed without an official 2026 schedule");
+}
+const ojai = officialRemainingSnapshot("ojai-senior-cup");
+const steinberg = ojai?.kind === "stroke" ? ojai.divisions?.flatMap((division) => division.rows).find((row) => row.name === "Craig Steinberg") : null;
+if (!ojai || ojai.kind !== "stroke" || ojai.divisions?.map((division) => division.label).join("|") !== "Senior|Super Senior" || ojai.divisions[0].rows[0]?.rounds.join(",") !== "69,72,68" || ojai.divisions[0].rows[0].total !== 209 || steinberg?.rounds.join(",") !== "DNF,," || steinberg.total !== "DNF") {
+  throw new Error("Ojai senior boards changed");
+}
+const transMiss = officialRemainingSnapshot("trans-mississippi-senior-championship");
+const nunez = transMiss?.kind === "stroke" ? transMiss.divisions?.flatMap((division) => division.rows).find((row) => row.name === "Nunez, Larry") : null;
+const transEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "trans-mississippi-senior-championship");
+if (!transMiss || transMiss.kind !== "stroke" || transMiss.divisions?.length !== 3 || transMiss.rows[0]?.name !== "Pridmore, Jason" || transMiss.rows[0].rounds.join(",") !== "62,72,72" || nunez?.rounds.join(",") !== "78,NS," || transEvent?.startDate !== "2026-05-19" || transEvent.endDate !== "2026-05-21") {
+  throw new Error("Trans-Mississippi senior board or dates changed");
+}
+const morey = officialRemainingSnapshot("society-of-seniors-dale-morey");
+const desert = officialRemainingSnapshot("golfweek-senior-desert-showdown");
+if (!morey || morey.kind !== "stroke" || morey.divisions?.length !== 2 || morey.rows[0]?.name !== "Jeff Frazier" || morey.rows[0].total !== 210) {
+  throw new Error("Dale Morey board changed");
+}
+if (!desert || desert.kind !== "stroke" || desert.divisions?.map((division) => division.label).join("|") !== "Senior|Super Senior|Legend|Super Legend" || desert.rows[0]?.rounds.join(",") !== "67,65,68" || desert.rows[0].total !== 200) {
+  throw new Error("Desert Showdown board changed");
+}
+if (isFormatHub("senior", "john-t-lupton-memorial-senior-division") || isFormatHub("midam", "john-t-lupton-memorial") || isFormatHub("midam", "ewing-cup-four-ball")) {
+  throw new Error("Lupton or Ewing was moved");
 }
 const seniorLuptonStill = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
 if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13") {

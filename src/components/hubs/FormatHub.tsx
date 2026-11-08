@@ -39,6 +39,11 @@ const RESULTS_NOTE: Record<string, string> = {
   "boys-junior-pga": "Full results unavailable here.",
   "wyndham-cup": "Full results unavailable here.",
   "junior-presidents-cup": "Full results unavailable here.",
+  "north-south-junior": "Full results unavailable here.",
+  "us-amateur": "Full results unavailable here.",
+  "ajga-ping-invitational": "Full results unavailable here.",
+  "rolex-tournament-of-champions": "Full results unavailable here.",
+  "junior-jones-cup": "Full results unavailable here.",
   "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
 };
 
