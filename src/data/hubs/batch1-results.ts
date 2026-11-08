@@ -34,6 +34,8 @@ export type StrokeSnapshot = {
   /** Public retrieval time. Provenance URLs stay off the page. */
   updatedLabel?: string;
   rows: StrokeFinisher[];
+  /** Separate official divisions. Each keeps its own places. */
+  divisions?: { label: string; rows: StrokeFinisher[] }[];
   /** Award standings for players who are already in rows. Not an extra field. */
   award?: { label: string; note: string; rows: StrokeFinisher[] };
   sources: ResultSource[];

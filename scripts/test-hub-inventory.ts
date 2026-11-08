@@ -9,10 +9,12 @@ import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/d
 import { SOURCE_ACCESS } from "../src/data/hubs/source-access";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
+import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
 import type { Tournament } from "../src/lib/tournaments/types";
 import {
   HUB_BATCH_1,
   HUB_BATCH_2,
+  HUB_BATCH_3,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -31,7 +33,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length) throw new Error("Format hub count drifted");
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length) throw new Error("Format hub count drifted");
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
 if (summary.ewingDedicated !== 2) throw new Error("Ewing dedicated hubs drifted");
 if (summary.legacy !== summary.total - summary.formatHub - summary.ewingDedicated) throw new Error("Legacy remainder drifted");
@@ -219,8 +221,8 @@ if (eastHtml.includes(">Mike Sposa and Todd White</li>")) throw new Error("A pai
 
 const championOnly = renderHub(
   {
-    slug: "carlton-woods-invitational",
-    name: "Carlton Woods Invitational",
+    slug: "the-stocker-cup",
+    name: "The Stocker Cup",
     channel: "midam",
     month: 3,
     startDate: "2026-03-01",
@@ -371,7 +373,18 @@ for (const event of MIDAM_TOURNAMENTS) {
   if (!audited.has(event.slug)) throw new Error(`No scoring audit for ${event.slug}`);
 }
 if (audited.size !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am scoring audit has an extra or duplicate slug");
-const mounted = ["gasparilla-invitational", "giles-invitational", "the-jupiter-invitational", "the-huddleston-cup", "snedeker-memorial"];
+const mounted = [
+  "gasparilla-invitational",
+  "giles-invitational",
+  "the-jupiter-invitational",
+  "the-huddleston-cup",
+  "snedeker-memorial",
+  "george-c-thomas-invitational",
+  "trans-miss-mid-master-championship",
+  "canadian-mens-mid-amateur",
+  "the-berkeley-cup",
+  "carlton-woods-invitational",
+];
 for (const item of SOURCE_ACCESS.filter((entry) => entry.channel === "midam")) {
   const expectsFull = mounted.includes(item.slug);
   if (expectsFull !== (item.completeness === "full")) {
@@ -438,6 +451,99 @@ if (!jupiterHtml.includes("Final results") || !jupiterHtml.includes("Jon Weiss")
   throw new Error("Jupiter hub does not show the checked final board");
 }
 if (jupiterHtml.includes("Michael McCoy")) throw new Error("Jupiter senior division was added to the mid-am field");
+
+const gct = officialStrokeSnapshot("george-c-thomas-invitational");
+const price = gct?.rows[0];
+if (!gct || gct.rows.length !== 34 || price?.name !== "Price, Andrew" || price.total !== 214 || price.toPar !== "+3") {
+  throw new Error("George Thomas source to-par was recomputed");
+}
+const gctSenior = officialStrokeSnapshot("george-c-thomas-invitational-senior-division");
+if (!gctSenior || gctSenior.rows.length !== 30 || gctSenior.rows[0]?.name !== "Hoops, Bryan" || gctSenior.rows[0]?.total !== 220) {
+  throw new Error("George Thomas senior board is not on the senior hub snapshot");
+}
+if (gct.rows.some((row) => row.name === "Hoops, Bryan")) throw new Error("Senior division was mixed into the mid-am board");
+
+const trans = officialStrokeSnapshot("trans-miss-mid-master-championship");
+if (!trans?.divisions || trans.divisions[0]?.rows.length !== 24 || trans.divisions[1]?.rows.length !== 45) {
+  throw new Error("Trans-Miss divisions were combined");
+}
+if (trans.divisions[0].rows[0]?.name !== "Terry, Ryan" || trans.divisions[1].rows[0]?.name !== "Grady, Pat") {
+  throw new Error("Trans-Miss division leaders changed");
+}
+if (trans.divisions[1].rows.some((row) => trans.divisions?.[0].rows.some((other) => other.name === row.name))) {
+  throw new Error("Trans-Miss divisions overlap");
+}
+
+const canada = officialStrokeSnapshot("canadian-mens-mid-amateur");
+if (!canada?.divisions || canada.divisions[0]?.rows.length !== 156 || canada.divisions[1]?.rows.length !== 61) {
+  throw new Error("Canadian boards were combined");
+}
+if (canada.divisions[0].rows[0]?.name !== "Garrett Rank" || canada.divisions[0].rows[0]?.total !== 270) {
+  throw new Error("Canadian championship leader changed");
+}
+if (canada.divisions[1].rows[0]?.name !== "Rob Couture" || canada.divisions[1].rows[0]?.place !== "1") {
+  throw new Error("Canadian Mid-Master place was collapsed into the championship place");
+}
+const coutureMain = canada.divisions[0].rows.find((row) => row.name === "Rob Couture");
+if (coutureMain?.place === "1") throw new Error("Rob Couture championship place was replaced with the Mid-Master place");
+if (!canada.divisions[1].rows.every((row) => canada.divisions?.[0].rows.some((other) => other.name === row.name))) {
+  throw new Error("A Mid-Master player is missing from the championship board");
+}
+
+const berkeley = officialStrokeSnapshot("the-berkeley-cup");
+const walton = berkeley?.rows.find((row) => row.name === "Christopher Walton");
+const milewski = berkeley?.rows.find((row) => row.name === "Mike Milewski");
+if (!berkeley || berkeley.scope !== "official-overall" || berkeley.rows.length !== 41 || berkeley.rows[0]?.name !== "Zach Healy") {
+  throw new Error("Berkeley overall board changed");
+}
+if (walton?.rounds.join(",") !== "81,85,NC" || walton.total !== 166 || milewski?.rounds.join(",") !== "79,88,NS" || milewski.total !== 167) {
+  throw new Error("Berkeley NC or NS token was dropped");
+}
+const carlton = officialStrokeSnapshot("carlton-woods-invitational");
+const stewart = carlton?.rows[0];
+if (!carlton || carlton.rows.length !== 66 || stewart?.name !== "Kade Stewart" || stewart.rounds.join(",") !== "67,71,68" || stewart.total !== 206) {
+  throw new Error("Carlton mid-am board changed");
+}
+const carltonSenior = officialStrokeSnapshot("carlton-woods-senior-invitational");
+if (!carltonSenior || carltonSenior.rows.length !== 33 || carltonSenior.rows[0]?.name !== "Edward Fryatt" || carltonSenior.rows[0]?.total !== 212) {
+  throw new Error("Carlton senior board is not on the senior hub snapshot");
+}
+const barber = carlton.rows.find((row) => row.name === "Jack Barber");
+if (barber?.rounds.join(",") !== "WD,,") throw new Error("Carlton WD round token was dropped");
+
+const canadaHtml = renderHub({ slug: "canadian-mens-mid-amateur", name: "Canadian Men's Mid-Amateur", channel: "midam", month: 8 }, "midam");
+const transHtml = renderHub({ slug: "trans-miss-mid-master-championship", name: "Trans-Miss", channel: "midam", month: 9 }, "midam");
+const berkeleyHtml = renderHub({ slug: "the-berkeley-cup", name: "Berkeley Cup", channel: "midam", month: 10 }, "midam");
+const gctHtml = renderHub({ slug: "george-c-thomas-invitational", name: "George C. Thomas", channel: "midam", month: 6 }, "midam");
+if (!canadaHtml.includes('data-division="Championship"') || !canadaHtml.includes('data-division="Mid-Master"')) {
+  throw new Error("Canadian divisions are not separate");
+}
+if (!transHtml.includes('data-division="Mid-Amateur"') || !transHtml.includes('data-division="Mid-Master"') || !transHtml.includes("Grady, Pat") || !transHtml.includes("Terry, Ryan")) {
+  throw new Error("Trans-Miss Mid-Master was omitted");
+}
+if (berkeleyHtml.includes("Low Senior") || !berkeleyHtml.includes("Overall results") || !berkeleyHtml.includes(">NC<") || !berkeleyHtml.includes(">NS<")) {
+  throw new Error("Berkeley senior award was shown on the mid-am hub, or NC/NS was dropped");
+}
+if (gctHtml.includes("Hoops, Bryan") || !gctHtml.includes("Price, Andrew") || !gctHtml.includes("+3")) {
+  throw new Error("George Thomas mid-am board includes the senior division or lost the source to-par");
+}
+for (const html of [canadaHtml, transHtml, berkeleyHtml, gctHtml]) {
+  if (html.includes("Updated Nov 8, 2026") || html.includes("Round buttons highlight")) {
+    throw new Error("A public retrieval note was rendered");
+  }
+}
+for (const board of provenance3.boards.filter((item) => item.mounted)) {
+  const snapshot = officialStrokeSnapshot(board.slug);
+  const rows = snapshot?.divisions?.find((item) => item.label === board.divisionLabel)?.rows ?? (!snapshot?.divisions ? snapshot?.rows : undefined);
+  if (!rows || rows.length !== board.rows.length) throw new Error(`${board.slug} ${board.divisionLabel} row count drifted`);
+  board.rows.forEach((row, index) => {
+    row.rounds.forEach((value, round) => {
+      if (value !== "" && !/^\d+$/.test(value) && rows[index]?.rounds[round] !== value) {
+        throw new Error(`${board.slug} dropped ${row.name} token ${value}`);
+      }
+    });
+  });
+}
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");
