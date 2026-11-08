@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { SponsorStrip } from "@/components/tournaments/SponsorStrip";
 import { TournamentNews } from "@/components/tournaments/TournamentNews";
 import { TournamentResults } from "@/components/tournaments/TournamentResults";
 import { resultSnapshot, scopeLabel, snapshotNames, type ResultSnapshot, type StrokeSnapshot } from "@/data/hubs/batch1-results";
@@ -23,6 +24,15 @@ const CHANNEL_PATH: Record<HubChannel, string> = {
 };
 
 type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event" | "Coverage";
+
+/** Public scope lines. These do not add scores. */
+const RESULTS_NOTE: Record<string, string> = {
+  "sanger-invitational": "No 2026 official results page was found.",
+  "the-stocker-cup": "No 2026 official results page was found.",
+  "the-crump-cup": "The posted sheet is pairings and tee times, not match results.",
+  "usga-mens-mid-am": "Official scoring was not available. The published recap is the coverage.",
+  "usga-womens-mid-am": "Official scoring was not available. The published recap is the coverage.",
+};
 
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
   const kind = classifyFormat(tournament.format);
@@ -216,6 +226,17 @@ function OverviewPanel({
         <p className="mx-auto mt-8 max-w-3xl text-left text-base leading-7 text-zinc-700">{tournament.overview}</p>
       ) : null}
 
+      {tournament.slug === "the-crump-cup" ? (
+        <div className="mx-auto mt-8 max-w-xl">
+          <SponsorStrip sponsorName="IBT Golf Travel" sponsorUrl="https://ibt-golf.com" attribution="Supported by" discountCode="IBTNicheGolfHQ" />
+        </div>
+      ) : null}
+      {tournament.slug === "usga-mens-mid-am" || tournament.slug === "the-farrell" ? (
+        <div className="mx-auto mt-8 max-w-xl">
+          <SponsorStrip sponsorName="PuttView Books" sponsorUrl="https://puttviewbooks.com/" attribution="Supported by" />
+        </div>
+      ) : null}
+
       {(tournament.howToPlay ?? []).length > 0 ? (
         <section className="mx-auto mt-8 max-w-xl text-center">
           <h2 className="font-serif text-2xl font-semibold">How to play</h2>
@@ -264,6 +285,7 @@ function ResultsPanel({
   setDivision: (division: number) => void;
 }) {
   const stroke = snapshot?.kind === "stroke" ? snapshot : null;
+  const resultsNote = RESULTS_NOTE[tournament.slug];
   const divisions = stroke?.divisions && stroke.divisions.length > 1 ? stroke.divisions : null;
   const activeRows = divisions ? divisions[division]?.rows ?? divisions[0].rows : stroke?.rows ?? [];
   const roundScores = activeRows.some((row) => row.rounds.some((score) => score != null));
@@ -306,6 +328,7 @@ function ResultsPanel({
             </div>
           ) : null}
           <h2 className="text-center font-serif text-3xl font-semibold">{snapshot ? scopeLabel(snapshot) : "Selected results"}</h2>
+          {resultsNote ? <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">{resultsNote}</p> : null}
           {stroke?.stageLabel ? <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">{stroke.stageLabel}</p> : null}
           <div className="mt-4">
             {stroke ? (
@@ -344,7 +367,7 @@ function ResultsPanel({
       {!snapshot && !editionResult(tournament) ? (
         <div className="text-center">
           <h2 className="font-serif text-3xl font-semibold">Results</h2>
-          <p className="mt-3 text-sm text-zinc-600">Results unavailable here</p>
+          <p className="mt-3 text-sm text-zinc-600">{resultsNote ?? "Results unavailable here"}</p>
           <div className="mt-4 flex justify-center">
             <ScoringAccess tournament={tournament} />
           </div>

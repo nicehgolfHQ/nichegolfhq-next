@@ -1985,7 +1985,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseNotes: "Regular tees: 73.6/153; #1 course in America",
 
     golfGeniusUrl: "/results/crump-cup-2026-final-results.pdf",
-    golfGeniusUrlLabel: "2026 Results",
+    golfGeniusUrlLabel: "Pairings and tee times",
     format: "Match play",
     howToPlay: [
       { label: "Invite only — no application" },
