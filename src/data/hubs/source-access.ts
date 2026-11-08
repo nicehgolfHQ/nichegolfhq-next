@@ -214,7 +214,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "east-vs-west-matches",
     access: "public-page",
     completeness: "selected",
-    note: "The public page has Sunday singles and a two-team aggregate. The event is still in progress, so those tables were not treated as a final board. The hub keeps the published session recap.",
+    note: "Official team points: Four Ball East 5.00 West 4.00, Foursomes East 4.50 West 4.50, Foursomes East 2.50 West 6.50, Singles East 7.50 West 10.50, total East 19.50 West 25.50. The 7.50 and 10.50 are the singles session, and Points this Round on that view matches them. The mid-am hub lists the 12 mid-amateur singles. Parker Edens is the West player in that draw who is not one of the six seniors named in the published preview.",
   },
   {
     channel: "midam",
@@ -557,7 +557,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "east-west-cup-matches",
     access: "public-page",
     completeness: "partial",
-    note: "Four Ball is complete: East 5.00, West 4.00. Foursomes R1 is East 4.50, West 4.50. Foursomes R2 is East 2.50, West 6.50. Singles on November 8 were still in progress and were not mounted.",
+    note: "Official team points total East 19.50, West 25.50. Singles are East 7.50, West 10.50 and are not the cup total. The senior hub lists the six senior singles. The other 12 singles are on the mid-am hub.",
   },
   {
     channel: "senior",

@@ -2894,7 +2894,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "east-vs-west-matches",
     name: "East vs West Matches",
     channel: "midam",
-    liveStatus: "live",
+    liveStatus: "completed",
     month: 11,
     dates2026: "November 6-8, 2026",
     startDate: "2026-11-06",
@@ -2907,12 +2907,25 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     courseSlope: 155,
     courseTeeName: "Back",
     golfGeniusUrl: "https://2026eastwestmatches.golfgenius.com/pages/13130623543135991976",
-    golfGeniusUrlLabel: "Live Scoring",
+    golfGeniusUrlLabel: "2026 Results",
     format: "Team match play",
     howToPlay: [
       { label: "Invite only" },
     ],
     news: [
+      {
+        slug: "2026-east-vs-west-matches-final-recap",
+        title: "West Wins East vs West Matches, 25.5 to 19.5, at Maridoe",
+        date: "2026-11-08",
+        author: "midamgolfHQ Staff",
+        summary:
+          "The West won the East vs West Matches at Maridoe Golf Club, finishing 25.5 to 19.5 after a 10.5 to 7.5 singles victory.",
+        content: [
+          "The West won the East vs West Matches at Maridoe Golf Club in Carrollton, Texas, taking Sunday’s singles session 10.5 to 7.5 to finish with a 25.5 to 19.5 victory. The West entered the final day leading 15 to 12 after winning Saturday’s second foursomes session 6.5 to 2.5. Full results and tournament coverage can be found on the [East vs West Matches tournament hub](https://www.nichegolfhq.com/midamgolfhq/east-vs-west-matches).",
+          "Bobby Massa delivered the largest margin in the mid-amateur singles, defeating Scott Harvey 7 and 6. Josh Persons added a 6 and 5 victory over Stephen Behr, while Stewart Hagestad beat Brett Patterson 2 and 1. Parker Edens and Nate Smith earned 1 up wins over Matt Vogt and Jonathan Bale, respectively. Nate Gahman and Drew Kittleson halved their match.",
+          "Evan Beck led the East’s mid-amateur winners with a 6 and 5 victory over Mikel Martinson. Will Davenport defeated Drew Stoltz 4 and 3, Christian Brand beat Jordan Russell 3 and 2, and Andrew Price beat Chris Wheeler by the same margin. Christian Cavaliere edged Zach Foushee 1 up, while Andrew Bailey defeated Brad Nurski 1 up. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
+        ],
+      },
       {
         slug: "2026-east-vs-west-matches-day-2-recap",
         title: "West Surges to 15-12 Lead at Maridoe With Six Afternoon Wins",

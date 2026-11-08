@@ -235,8 +235,9 @@ export function classifyCalendar(
   const start = input.startDate ?? "";
   const end = input.endDate || start;
   if (start.startsWith("2026") || (end && end.startsWith("2026"))) {
+    if (input.liveStatus === "completed") return "played-in-2026";
     if (input.liveStatus === "live" || (start <= asOf && end >= asOf)) return "in-progress-2026";
-    if (input.liveStatus === "completed" || end < asOf) return "played-in-2026";
+    if (end < asOf) return "played-in-2026";
     if (start > asOf) return "scheduled-2026";
   }
   if (/\b2026\b/.test(label)) return "year-only-2026";

@@ -129,6 +129,12 @@ if (classifyCalendar({ startDate: "2026-02-19", endDate: "2026-02-21" }, "2026-1
 if (classifyCalendar({ startDate: "2026-11-13", endDate: "2026-11-15" }, "2026-11-08") !== "scheduled-2026") {
   throw new Error("A later November start was treated as played");
 }
+if (classifyCalendar({ startDate: "2026-11-06", endDate: "2026-11-08", liveStatus: "completed" }, "2026-11-08") !== "played-in-2026") {
+  throw new Error("A completed event on its last day stayed in progress");
+}
+if (classifyCalendar({ startDate: "2026-11-06", endDate: "2026-11-08", liveStatus: "live" }, "2026-11-08") !== "in-progress-2026") {
+  throw new Error("A live event on its last day was marked played");
+}
 if (classifyCalendar({}) !== "unknown") throw new Error("A blank date was classified");
 const lupton = items.find((item) => item.slug === "john-t-lupton-memorial");
 const gasparilla = items.find((item) => item.slug === "gasparilla-invitational");
@@ -172,7 +178,14 @@ const east = resultSnapshot("east-vs-west-matches");
 if (east?.kind !== "team-match") throw new Error("East vs West snapshot missing");
 const eastNames = east.kind === "team-match" ? snapshotNames(east) : [];
 if (eastNames.some((name) => /\band\b/i.test(name))) throw new Error("A pairing was stored as one player");
-if (!eastNames.includes("Mike Sposa") || !eastNames.includes("Todd White")) throw new Error("Friday partners were not stored as two players");
+const sposaMatch = east.kind === "team-match" ? east.matches.find((match) => match.result.startsWith("Mike Sposa and Todd White")) : undefined;
+if (sposaMatch?.players.join("|") !== "Mike Sposa|Todd White|Bryan Hoops|Trae Cassell") throw new Error("Friday partners were not stored as separate players");
+for (const senior of ["Mike Sposa", "Todd White", "Doug Hanzel", "Bob Royak", "Mike McCoy", "Gene Elliott", "Bryan Hoops", "Jason Pridmore"]) {
+  if (eastNames.includes(senior)) throw new Error(`${senior} was listed in the mid-am field`);
+}
+if (!eastNames.includes("Scott Harvey") || !eastNames.includes("Andrew Bailey") || !eastNames.includes("Parker Edens")) {
+  throw new Error("Mid-am singles players were dropped from the field");
+}
 
 function renderHub(tournament: Tournament, channel: "midam" | "junior" | "senior") {
   return renderToStaticMarkup(createElement(FormatHub, { tournament, channel }));
@@ -242,9 +255,15 @@ const eastHtml = renderHub(
   },
   "midam",
 );
-if (!eastHtml.includes(">Mike Sposa</li>")) throw new Error("Mike Sposa was not rendered as his own player");
-if (!eastHtml.includes(">Todd White</li>")) throw new Error("Todd White was not rendered as his own player");
-if (eastHtml.includes(">Mike Sposa and Todd White</li>")) throw new Error("A pairing rendered as one field entry");
+if (eastHtml.includes(">Mike Sposa</li>") || eastHtml.includes(">Doug Hanzel</li>")) throw new Error("A senior was rendered in the mid-am field");
+if (!eastHtml.includes(">Scott Harvey</li>") || !eastHtml.includes(">Andrew Bailey</li>")) throw new Error("Mid-am singles were not rendered as separate players");
+if (!eastHtml.includes("Mike Sposa and Todd White def. Bryan Hoops and Trae Cassell, 5 and 3")) throw new Error("Friday four-ball result was dropped");
+if (!eastHtml.includes("Final, all divisions") || !eastHtml.includes("19.50") || !eastHtml.includes("25.50") || !eastHtml.includes("Sunday singles, all divisions") || !eastHtml.includes("7.50")) {
+  throw new Error("East vs West final was not shown as the all-division total");
+}
+if (!eastHtml.includes("Sunday singles, mid-amateur") || !eastHtml.includes("Bobby Massa def. Scott Harvey, 7 and 6") || eastHtml.includes("Mike McCoy def.")) {
+  throw new Error("Mid-am singles were mixed with the senior singles");
+}
 
 const championOnly = renderHub(
   {
@@ -1176,11 +1195,14 @@ if (!bogartSource?.course || !bogartSource.note || bogartAdapted?.course !== bog
   throw new Error("A confirmed senior venue note was treated as unconfirmed or published");
 }
 const eastWest = resultSnapshot("east-west-cup-matches");
-if (!eastWest || eastWest.kind !== "match" || eastWest.complete || eastWest.matches.length !== 3 || eastWest.matches.some((match) => /singles|November 8/i.test(`${match.round} ${match.result}`))) {
-  throw new Error("East vs West senior included Sunday or was marked final");
+if (!eastWest || eastWest.kind !== "match" || eastWest.complete || eastWest.matches.length !== 11) {
+  throw new Error("East vs West senior final changed");
 }
-if (eastWest.kind === "match" && eastWest.matches.map((match) => match.result).join("|") !== "East 5.00, West 4.00|East 4.50, West 4.50|East 2.50, West 6.50") {
+if (eastWest.kind === "match" && eastWest.matches.slice(0, 5).map((match) => match.result).join("|") !== "East 5.00, West 4.00|East 4.50, West 4.50|East 2.50, West 6.50|East 7.50, West 10.50|East 19.50, West 25.50") {
   throw new Error("East vs West senior session scores changed");
+}
+if (eastWest.kind === "match" && eastWest.matches.filter((match) => match.flight === "Senior singles").length !== 6) {
+  throw new Error("Senior singles were not kept to the six senior matches");
 }
 if (eastWest.kind === "match" && eastWest.matches.some((match) => match.players?.length)) {
   throw new Error("East and West were stored as players");
@@ -1192,14 +1214,31 @@ if (PLAYERS.some((player) => player.name === "East" || player.name === "West") |
   throw new Error("East or West was added to the player registry");
 }
 const eastWestEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "east-west-cup-matches");
-if (eastWestEvent?.liveStatus !== "live" || eastWestEvent.endDate !== "2026-11-08" || eastWestEvent.course !== "Maridoe Golf Club") {
-  throw new Error("East vs West senior was marked complete");
+if (eastWestEvent?.liveStatus !== "completed" || eastWestEvent.endDate !== "2026-11-08" || eastWestEvent.course !== "Maridoe Golf Club" || eastWestEvent.golfGeniusUrlLabel !== "2026 Results") {
+  throw new Error("East vs West senior was not marked complete from the final board");
+}
+const midamEastWest = MIDAM_TOURNAMENTS.find((event) => event.slug === "east-vs-west-matches");
+if (midamEastWest?.liveStatus !== "completed" || midamEastWest.golfGeniusUrlLabel !== "2026 Results") {
+  throw new Error("East vs West mid-am was not marked complete");
+}
+const finalRecap = midamEastWest.news?.find((article) => article.slug === "2026-east-vs-west-matches-final-recap");
+const approvedRecap = [
+  "The West won the East vs West Matches at Maridoe Golf Club in Carrollton, Texas, taking Sunday\u2019s singles session 10.5 to 7.5 to finish with a 25.5 to 19.5 victory. The West entered the final day leading 15 to 12 after winning Saturday\u2019s second foursomes session 6.5 to 2.5. Full results and tournament coverage can be found on the [East vs West Matches tournament hub](https://www.nichegolfhq.com/midamgolfhq/east-vs-west-matches).",
+  "Bobby Massa delivered the largest margin in the mid-amateur singles, defeating Scott Harvey 7 and 6. Josh Persons added a 6 and 5 victory over Stephen Behr, while Stewart Hagestad beat Brett Patterson 2 and 1. Parker Edens and Nate Smith earned 1 up wins over Matt Vogt and Jonathan Bale, respectively. Nate Gahman and Drew Kittleson halved their match.",
+  "Evan Beck led the East\u2019s mid-amateur winners with a 6 and 5 victory over Mikel Martinson. Will Davenport defeated Drew Stoltz 4 and 3, Christian Brand beat Jordan Russell 3 and 2, and Andrew Price beat Chris Wheeler by the same margin. Christian Cavaliere edged Zach Foushee 1 up, while Andrew Bailey defeated Brad Nurski 1 up. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
+];
+if (finalRecap?.title !== "West Wins East vs West Matches, 25.5 to 19.5, at Maridoe" || finalRecap.date !== "2026-11-08" || finalRecap.author !== "midamgolfHQ Staff" || finalRecap.summary !== "The West won the East vs West Matches at Maridoe Golf Club, finishing 25.5 to 19.5 after a 10.5 to 7.5 singles victory." || finalRecap.content.join("\n") !== approvedRecap.join("\n")) {
+  throw new Error("The approved East vs West final recap was changed");
+}
+const eastNews = midamEastWest.news?.map((article) => article.slug) ?? [];
+for (const slug of ["2026-east-vs-west-matches-day-2-recap", "2026-east-vs-west-matches-day-1-recap", "2026-east-vs-west-matches-preview"]) {
+  if (!eastNews.includes(slug)) throw new Error(`${slug} was dropped`);
 }
 const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
 const teamsAt = eastWestHtml.indexOf(">Teams</h2>");
 const teamBlock = teamsAt < 0 ? "" : eastWestHtml.slice(teamsAt, teamsAt + 600);
-if (eastWestHtml.includes("Named players") || !teamBlock.includes(">East</li>") || !teamBlock.includes(">West</li>") || !eastWestHtml.includes("East 5.00, West 4.00") || eastWestHtml.includes("Singles")) {
-  throw new Error("East vs West field lists the sides as players or dropped the completed sessions");
+if (eastWestHtml.includes("Named players") || !teamBlock.includes(">East</li>") || !teamBlock.includes(">West</li>") || !eastWestHtml.includes("East 19.50, West 25.50") || !eastWestHtml.includes("East 7.50, West 10.50") || !eastWestHtml.includes("Mike McCoy def. Mike Sposa, 2 and 1") || eastWestHtml.includes("Scott Harvey")) {
+  throw new Error("East vs West senior final mixed the mid-am singles into the team field");
 }
 const dixie = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "dixie-senior-amateur");
 if (dixie?.startDate !== "2026-12-09" || dixie.endDate !== "2026-12-11" || classifyCalendar({ startDate: dixie.startDate, endDate: dixie.endDate }, "2026-11-08") !== "scheduled-2026") {
