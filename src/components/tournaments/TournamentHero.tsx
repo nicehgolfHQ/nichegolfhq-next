@@ -10,7 +10,7 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
   );
 
   return (
-    <section>
+    <section className="text-center">
       {tournament.logo ? (
         <Image
           src={tournament.logo}
@@ -67,7 +67,7 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
       ) : null}
 
       {tournament.golfGeniusUrl ? (
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <a
             href={tournament.golfGeniusUrl}
             target="_blank"
@@ -83,7 +83,7 @@ export function TournamentHero({ tournament }: { tournament: Tournament }) {
           </a>
         </div>
       ) : tournament.golfGeniusCode ? (
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <span
             className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-bold text-zinc-900 shadow-sm"
             title={`Golf Genius ID: ${tournament.golfGeniusCode}`}

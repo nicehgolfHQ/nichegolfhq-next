@@ -78,21 +78,19 @@ export function EwingCupHub({
 
   return (
     <div className="ewing-cup-hub bg-zinc-50 text-zinc-950">
-      <section className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">{channelLabel}</p>
-          <Image src="/brand/midamgolfhq/Ewing Cup.jpeg" alt="" width={72} height={72} className="mx-auto mt-3 h-16 w-16 rounded-xl object-cover" />
-          <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-serif text-4xl font-semibold tracking-tight md:text-6xl">
-            Ewing Cup Four-Ball
-          </h1>
-          <p className="mt-4 max-w-2xl text-base text-zinc-600 md:text-lg">
-            Dallas Athletic Club, Dallas, Texas. Nov. 13-15, 2026.
-          </p>
-          <div className="mt-4">
-            <LiveScoringButton url={EWING_SNAPSHOT.scoringUrl} />
-          </div>
+      <section className="mx-auto w-full max-w-6xl px-5 py-8 text-center md:py-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">{channelLabel}</p>
+        <Image src="/brand/midamgolfhq/Ewing Cup.jpeg" alt="" width={72} height={72} className="mx-auto mt-3 h-16 w-16 rounded-xl object-cover" />
+        <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-serif text-4xl font-semibold tracking-tight md:text-6xl">
+          Ewing Cup Four-Ball
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-zinc-600 md:text-lg">
+          Dallas Athletic Club, Dallas, Texas. Nov. 13-15, 2026.
+        </p>
+        <div className="mt-4 flex justify-center">
+          <LiveScoringButton url={EWING_SNAPSHOT.scoringUrl} />
         </div>
-        <p className="mt-3 text-sm leading-6 text-zinc-600">
+        <p className="mx-auto mt-3 max-w-2xl text-balance text-sm leading-6 text-zinc-600">
           {division === "mid-am" ? "54-hole better ball, mid-amateur division." : "54-hole better ball, senior division."}
         </p>
         {EWING_SNAPSHOT.leaderboardStatus === "verified" ? (
@@ -101,7 +99,7 @@ export function EwingCupHub({
       </section>
 
       <div className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap gap-2 px-5 py-3" role="tablist" aria-label="Ewing Cup sections">
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-2 px-5 py-3" role="tablist" aria-label="Ewing Cup sections">
           {tabs.map((item) => (
             <button
               key={item}
@@ -121,7 +119,7 @@ export function EwingCupHub({
 
       <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         {tab === "Overview" && (
-          <div className="grid gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {EWING_SNAPSHOT.rounds.map((item) => (
               <button
                 key={item.id}
@@ -130,7 +128,7 @@ export function EwingCupHub({
                   setRoundId(item.id);
                   setTab("Scoring");
                 }}
-                className="rounded-2xl border border-zinc-200 bg-white p-5 text-left hover:border-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+                className="rounded-2xl border border-zinc-200 bg-white p-5 text-center hover:border-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{item.label}</p>
                 <p className="mt-2 font-serif text-2xl font-semibold">{item.course}</p>
