@@ -192,7 +192,7 @@ export default async function NewsletterPage({
     feed.slug === "midamgolfhq" ? listMidAmArticles(6) : [];
 
   return (
-    <SiteShell brandSlug={feed.slug}>
+    <SiteShell brandSlug={feed.slug} footer="dark">
       {/* -- Fixed hero background (parallax effect) -- */}
       {heroImage ? (
         <div className="fixed inset-0 z-0">

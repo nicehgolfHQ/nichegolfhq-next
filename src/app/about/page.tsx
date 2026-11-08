@@ -30,7 +30,7 @@ export default function AboutPage() {
   ]);
 
   return (
-    <SiteShell>
+    <SiteShell footer="dark">
       <JsonLd data={aboutLd} />
       <JsonLd data={crumbs} />
       {/* Fixed background image */}

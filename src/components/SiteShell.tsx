@@ -15,10 +15,14 @@ export function SiteShell({
   children,
   brandSlug,
   hideHeader,
+  footer = "light",
 }: {
   children: React.ReactNode;
   brandSlug?: string;
   hideHeader?: boolean;
+  // "dark" keeps white footer text for pages whose backdrop is a full-bleed photo.
+  // "light" is the default because article and hub pages sit on a white body.
+  footer?: "light" | "dark";
 }) {
   const headerBrand =
     brandSlug === "midamgolfhq" || brandSlug === "juniorgolfhq" || brandSlug === "seniorgolfhq"
@@ -26,6 +30,10 @@ export function SiteShell({
       : "nichegolfhq";
 
   const logoSrc = headerBrand === "nichegolfhq" ? "/brand/nichegolfhq/logo-v2.png" : `/brand/${headerBrand}/logo.png`;
+  const onDark = footer === "dark";
+  const footerLinkClass = onDark
+    ? "rounded-sm text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    : "rounded-sm text-sm font-semibold text-zinc-900 underline underline-offset-2 hover:text-zinc-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900";
 
   return (
     <div className="min-h-screen text-zinc-950 antialiased">
@@ -153,26 +161,26 @@ export function SiteShell({
 
       <main>{children}</main>
 
-      <footer className="relative z-10 border-t border-white/20 mt-8">
+      <footer className={`relative z-10 mt-8 border-t ${onDark ? "border-white/20" : "border-zinc-200"}`}>
         <div className="mx-auto w-full max-w-6xl px-5 py-8">
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
               <Link
                 href="/privacy-choices"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70"
+                className={`inline-flex items-center gap-2 ${footerLinkClass}`}
               >
                 <PrivacyChoicesIcon />
                 Your Privacy Choices
               </Link>
-              <CookieSettingsLink />
-              <Link href="/privacy" className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70">
+              <CookieSettingsLink className={footerLinkClass} />
+              <Link href="/privacy" className={footerLinkClass}>
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm font-semibold text-white underline underline-offset-2 hover:text-white/70">
+              <Link href="/terms" className={footerLinkClass}>
                 Terms of Use
               </Link>
             </div>
-            <div className="text-sm text-white/50">2026 nichegolfHQ all rights reserved</div>
+            <div className={`text-sm ${onDark ? "text-white/50" : "text-zinc-600"}`}>2026 nichegolfHQ all rights reserved</div>
           </div>
         </div>
       </footer>

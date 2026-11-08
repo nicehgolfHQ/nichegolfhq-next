@@ -79,7 +79,7 @@ export default async function Home() {
   const briefHref = latestBrief ? `/briefs/${latestBrief.date}` : null;
 
   return (
-    <SiteShell>
+    <SiteShell footer="dark">
       {/* ── Structured data ─────────────────────────────────────────── */}
       <script
         type="application/ld+json"
