@@ -14,6 +14,7 @@ import remainingAudit from "../src/data/hubs/official/remaining-2026.provenance.
 import remainingBoards from "../src/data/hubs/official/remaining-2026.public.json";
 import juniorBatch from "../src/data/hubs/official/junior-batch-2026.json";
 import seniorBatch from "../src/data/hubs/official/senior-batch-2026.json";
+import seniorBatch2 from "../src/data/hubs/official/senior-batch-2-2026.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -31,6 +32,7 @@ import {
   HUB_BATCH_10,
   HUB_BATCH_11,
   HUB_BATCH_12,
+  HUB_BATCH_13,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -49,7 +51,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -651,8 +653,8 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
 const boardRows = (board: { rows?: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[]; divisions?: { rows: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[] }[] }) =>
   board.divisions?.flatMap((division) => division.rows) ?? board.rows ?? [];
-const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards, ...seniorBatch.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 1152) throw new Error("The published checked boards are no longer 1152 rows");
+const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards, ...seniorBatch.boards, ...seniorBatch2.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
+if (publishedRows.length !== 1789) throw new Error("The published checked boards are no longer 1789 rows");
 for (const { slug, row } of publishedRows) {
   const players = "players" in row ? row.players ?? [] : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
@@ -1048,6 +1050,39 @@ if (!desert || desert.kind !== "stroke" || desert.divisions?.map((division) => d
 }
 if (isFormatHub("senior", "john-t-lupton-memorial-senior-division") || isFormatHub("midam", "john-t-lupton-memorial") || isFormatHub("midam", "ewing-cup-four-ball")) {
   throw new Error("Lupton or Ewing was moved");
+}
+const reynolds = officialRemainingSnapshot("reynolds-senior-invitational");
+if (!reynolds || reynolds.kind !== "stroke" || reynolds.divisions?.map((division) => division.label).join("|") !== "Senior|Super Senior|Legends|Grand Master" || reynolds.rows[0]?.rounds.join(",") !== "70,73,68" || reynolds.rows[0].total !== 211) {
+  throw new Error("Reynolds boards changed");
+}
+const golfweek = officialRemainingSnapshot("golfweek-senior-amateur-championship");
+const golfweekEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "golfweek-senior-amateur-championship");
+if (!golfweek || golfweek.kind !== "stroke" || golfweek.divisions?.length !== 4 || golfweek.rows[0]?.name !== "Doss, Todd" || golfweek.rows[0].total !== 209 || golfweekEvent?.startDate !== "2026-03-31" || golfweekEvent.endDate !== "2026-04-02") {
+  throw new Error("Golfweek Senior Amateur board or dates changed");
+}
+const individual = officialRemainingSnapshot("international-senior-individual-championship");
+const individualEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "international-senior-individual-championship");
+if (!individual || individual.kind !== "stroke" || individual.divisions || individual.rows.length !== 90 || individual.rows[0]?.name !== "Wise, Tony" || individual.rows[0].rounds.join(",") !== "67,72,67" || individualEvent?.startDate !== "2026-10-08") {
+  throw new Error("International individual board changed");
+}
+const northSouthSenior = officialRemainingSnapshot("north-south-senior-mens-amateur");
+if (!northSouthSenior || northSouthSenior.kind !== "stroke" || northSouthSenior.divisions?.map((division) => division.label).join("|") !== "Open|Super Senior" || northSouthSenior.rows[0]?.name !== "Stewart, Rick" || northSouthSenior.rows[0].total !== 213) {
+  throw new Error("North and South senior boards changed");
+}
+const tutwiler = officialRemainingSnapshot("society-of-seniors-ed-tutwiler-four-ball");
+const fox = tutwiler?.kind === "stroke" ? tutwiler.divisions?.find((division) => division.label === "Open")?.rows[0] : null;
+if (!tutwiler || tutwiler.kind !== "stroke" || tutwiler.roundCount !== 2 || fox?.players?.join("|") !== "Stephen Fox|Dean Channell" || fox.rounds.join(",") !== "64,67" || fox.total !== 131) {
+  throw new Error("Tutwiler four-ball teams changed");
+}
+const hall = officialRemainingSnapshot("national-senior-hall-of-fame");
+const bingman = hall?.kind === "stroke" ? hall.divisions?.flatMap((division) => division.rows).find((row) => row.name === "George Bingman") : null;
+const hallCut = hall?.kind === "stroke" ? hall.rows.find((row) => row.status === "CUT") : null;
+if (!hall || hall.kind !== "stroke" || hall.divisions?.length !== 3 || hall.rows[0]?.name !== "Vance Welch" || hall.rows[0].total !== 215 || bingman?.rounds.join(",") !== "84,NC," || bingman.total !== "NC" || hallCut?.rounds[2] != null) {
+  throw new Error("Hall of Fame board changed");
+}
+const tutHtml = renderHub({ slug: "society-of-seniors-ed-tutwiler-four-ball", name: "Ed Tutwiler Four-Ball", channel: "senior", month: 3, format: "36-hole four-ball" }, "senior");
+if (!tutHtml.includes("Stephen Fox") || !tutHtml.includes("Dean Channell") || tutHtml.includes("Fox, Stephen + Channell, Dean")) {
+  throw new Error("Tutwiler field combined a team into one name");
 }
 const seniorLuptonStill = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
 if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13") {

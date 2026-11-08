@@ -149,12 +149,14 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     logo: "/brand/society-of-seniors.jpg",
     month: "March 2026",
-    startDate: "2026-03-15",
+    startDate: "2026-03-17",
     endDate: "2026-03-18",
+    dates2026: "March 17–18, 2026",
+    format: "36-hole four-ball",
     course: "The Reserve Golf Club",
     location: "Pawleys Island, SC",
     pastResults: [
-      { year: 2026, champion: "Fox & Channell", venue: "The Reserve Golf Club" },
+      { year: 2026, champion: "Open: Stephen Fox / Dean Channell; Senior/Super Senior: Johnny Elam / Steve Sharpe", venue: "The Reserve Golf Club" },
       { year: 2025, champion: "Allen & Donatoni", venue: "The Reserve Golf Club" },
       { year: 2024, champion: "Semple & Durr", venue: "Cape Club of Palm City" },
       { year: 2023, champion: "Russo & Kennedy", venue: "Estero Country Club" },
@@ -203,8 +205,9 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     name: "Golfweek Senior Amateur Championship",
     logo: "/brand/GwkSrNation_BADGE.svg",
     month: "March/April 2026",
-    startDate: "2026-03-30",
+    startDate: "2026-03-31",
     endDate: "2026-04-02",
+    dates2026: "March 31–April 2, 2026",
     format: "54-hole stroke play",
     course: "Desert Willow Golf Resort (The Firecliff Course)",
     location: "Palm Desert, CA",
@@ -216,7 +219,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     pastResults: [
       {
         year: 2026,
-        champion: "Todd Doss",
+        champion: "Senior: Doss, Todd / Super Senior: Masingill, Scott / Legend: Calkins, Craig / Super Legend: Rasley, David",
         venue: "Desert Willow Golf Resort (Firecliff)",
         resultsUrl: "https://www.golfgenius.com/leagues/12156704060203865310/rounds/12156704220828931295/v2tournaments",
         divisions: [
@@ -679,7 +682,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     overview: "The North & South Senior Men's Amateur Championship is contested over 54 holes of stroke play at Pinehurst Resort, with one round apiece on Nos. 4, 5, and 8. Split into Open and Super-Senior divisions, it is one of the oldest and most celebrated senior amateur championships in the country, drawing a national field of elite amateurs to the Sandhills of North Carolina each August.",
     winners: [
-      { year: 2026, champion: "Rick Stewart" },
+      { year: 2026, champion: "Open: Stewart, Rick / Super Senior: Cloninger, Rick" },
       { year: 2025, champion: "Howard Clendenin" },
       { year: 2024, champion: "Stan Humphries" },
       { year: 2023, champion: "Bob Royak" },
@@ -1100,8 +1103,8 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     name: "International Senior Individual Championship",
     liveStatus: "completed",
     month: "October 2026",
-    dates2026: "October 7-10, 2026",
-    startDate: "2026-10-07",
+    dates2026: "October 8–10, 2026",
+    startDate: "2026-10-08",
     endDate: "2026-10-10",
     course: "Cartersville Country Club",
     location: "Cartersville, GA",
@@ -1110,7 +1113,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     overview: "The International Senior Individual Championship is an elite 54-hole stroke-play event on the global senior amateur calendar, drawing invited players from multiple countries to compete as individuals. The format provides an international stage for the world\u2019s top 55+ amateurs and complements national team senior competitions.",
     winners: [
-      { year: 2026, champion: "Tony Wise" },
+      { year: 2026, champion: "Wise, Tony" },
       { year: 2025, champion: "Joe Lyons" },
       { year: 2024, champion: "Doug Hanzel" },
     ],
@@ -1172,7 +1175,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     overview: "The Reynolds Senior Invitational is an elite invitation-only event held at Reynolds Lake Oconee in the Georgia countryside. The Jack Nicklaus-designed Great Waters course provides a championship-caliber setting for the 54-hole stroke-play competition, which features senior, super senior, legend, and grand master age divisions.",
     winners: [
-      { year: 2026, champion: "Jeff Knox" },
+      { year: 2026, champion: "Senior: Jeff Knox / Super Senior: Doug Hanzel / Legends: Steve Humphrey / Grand Master: Charley Yandell" },
       { year: 2025, champion: "Bob Royak" },
       { year: 2024, champion: "Jack Larkin" },
     ],
@@ -1403,7 +1406,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     howToPlay: [{ label: "Apply for invite here", href: "https://www.nsahof.com/tournament/entry-form" }],
     winners: [
-      { year: 2026, champion: "Vance Welch" },
+      { year: 2026, champion: "Senior: Vance Welch / Super Senior: Doug Hanzel / Legends: Phil Pavoni" },
       { year: 2025, champion: "Greg Sanders" },
       { year: 2024, champion: "Randy Haag" },
       { year: 2023, champion: "Joe Jaspers" },
