@@ -136,7 +136,7 @@ export function EwingCupHub({
 
         {tab === "Scoring" && (
           <div>
-            <div className="flex flex-wrap gap-2 pb-4">
+            <div className="flex flex-wrap justify-center gap-2 pb-4">
               {EWING_SNAPSHOT.rounds.map((item) => (
                 <button
                   key={item.id}
@@ -151,30 +151,32 @@ export function EwingCupHub({
                 </button>
               ))}
             </div>
-            <h2 className="font-serif text-3xl font-semibold">{round.label}</h2>
-            {round.publicLine ? <p className="mt-2 text-base text-zinc-700">{round.publicLine}</p> : null}
+            <h2 className="text-center font-serif text-3xl font-semibold">{round.label}</h2>
+            {round.publicLine ? <p className="mt-2 text-center text-base text-zinc-700">{round.publicLine}</p> : null}
             <div className="mt-4">
               <FourBallBoard rows={board} />
             </div>
-            <a
-              href={EWING_OFFICIAL.information}
-              className="mt-4 inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
-            >
-              Official schedule
-            </a>
+            <div className="mt-4 flex justify-center">
+              <a
+                href={EWING_OFFICIAL.information}
+                className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+              >
+                Official schedule
+              </a>
+            </div>
           </div>
         )}
 
         {tab === "Field" && (
           <div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex justify-center">
               <label className="sr-only" htmlFor="ewing-player-search">Search players</label>
               <input
                 id="ewing-player-search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search players"
-                className="w-full rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 sm:max-w-xs"
+                className="w-full max-w-xs rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
               />
             </div>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -223,17 +225,23 @@ export function EwingCupHub({
 
         {tab === "Event" && (
           <div className="grid gap-4 md:grid-cols-2">
-            <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <section className="rounded-2xl border border-zinc-200 bg-white p-6 text-center">
               <h2 className="font-serif text-2xl font-semibold">Dallas Athletic Club</h2>
               <p className="mt-2 text-sm text-zinc-600">4111 Dallas Athletic Club Drive, Dallas, TX 75228</p>
-              <dl className="mt-4 space-y-2 text-sm text-zinc-700">
-                <div className="flex justify-between gap-4"><dt>Format</dt><dd>54 holes better ball</dd></div>
-                <div className="flex justify-between gap-4 text-right"><dt>Gold Course</dt><dd>Back tees, par 72, 7,169 yards, 75.1 / 142</dd></div>
+              <dl className="mt-4 space-y-3 text-sm text-zinc-700">
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Format</dt>
+                  <dd className="mt-1">54 holes better ball</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Gold Course</dt>
+                  <dd className="mt-1 text-balance">Back tees, par 72, 7,169 yards, 75.1 / 142</dd>
+                </div>
               </dl>
             </section>
             {pastChampions.length ? (
             <section className="rounded-2xl border border-zinc-200 bg-white p-6">
-              <h2 className="font-serif text-2xl font-semibold">Past winners</h2>
+              <h2 className="text-center font-serif text-2xl font-semibold">Past winners</h2>
               <ul className="mt-4 space-y-1 text-sm">
                 {pastChampions.map((row) => (
                   <li key={row.year} className="flex justify-between gap-3 border-b border-zinc-100 py-1">
