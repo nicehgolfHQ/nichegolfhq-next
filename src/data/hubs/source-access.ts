@@ -307,4 +307,18 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     completeness: "none",
     note: "The stored scoring URL returned HTTP 403. No 2026 champion is stored.",
   },
+  {
+    channel: "junior",
+    slug: "western-junior",
+    access: "public-page",
+    completeness: "full",
+    note: "2026 scores page at Knollwood Club. 156 rows: 50 finishers, 103 CUT, 2 WD, 1 DQ. Andrew Sciortino 72, 70, 67, 68, total 277.",
+  },
+  {
+    channel: "junior",
+    slug: "womens-western-junior",
+    access: "public-page",
+    completeness: "full",
+    note: "Official results page. Stroke play is 78 rows. Match play is 8, 4, 2, and 1. Final is Lee def. Singh, 1 up.",
+  },
 ];

@@ -1,5 +1,6 @@
 import data from "@/data/hubs/official/remaining-2026.public.json";
-import type { StrokeFinisher, StrokeSnapshot } from "@/data/hubs/batch1-results";
+import westernWomen from "@/data/hubs/official/womens-western-2026.json";
+import type { MatchSnapshot, StrokeFinisher, StrokeSnapshot } from "@/data/hubs/batch1-results";
 
 type PublicRow = {
   position: string;
@@ -80,6 +81,23 @@ export function officialRemainingSnapshot(slug: string): StrokeSnapshot | null {
     roundCount: board.roundCount,
     rows: sourceRows,
     divisions,
+    sources: [{ record: "official-board" }],
+  };
+}
+
+export function womensWesternSnapshot(): MatchSnapshot | null {
+  const qualifyingRows = (westernWomen.qualifying.rows as PublicRow[]).map((row) => displayRow(row, westernWomen.qualifying.roundCount));
+  return {
+    kind: "match",
+    formatConfidence: "string-only",
+    complete: false,
+    qualifying: { medalist: qualifyingRows[0]?.name ?? "" },
+    qualifyingBoard: {
+      label: westernWomen.qualifying.label,
+      roundCount: westernWomen.qualifying.roundCount,
+      rows: qualifyingRows,
+    },
+    matches: westernWomen.matches,
     sources: [{ record: "official-board" }],
   };
 }

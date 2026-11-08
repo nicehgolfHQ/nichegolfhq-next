@@ -498,12 +498,52 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
   );
 }
 
+function QualifyingBoard({ board }: { board: NonNullable<Extract<ResultSnapshot, { kind: "match" }>["qualifyingBoard"]> }) {
+  return (
+    <div className="mt-4">
+      <h3 className="text-center font-serif text-2xl font-semibold">{board.label}</h3>
+      <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
+        <table className="w-full min-w-[640px] text-left text-sm">
+          <caption className="sr-only">{board.label}</caption>
+          <thead className="border-b border-zinc-200 text-xs uppercase tracking-[0.12em] text-zinc-500">
+            <tr>
+              <th className="px-3 py-3 font-semibold">Place</th>
+              <th className="px-3 py-3 font-semibold">Player</th>
+              {Array.from({ length: board.roundCount }, (_, index) => (
+                <th key={index} className="px-3 py-3 font-semibold">R{index + 1}</th>
+              ))}
+              <th className="px-3 py-3 font-semibold">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {board.rows.map((row) => (
+              <tr key={row.name} className="border-b border-zinc-100">
+                <td className="px-3 py-3 font-semibold">{row.place}</td>
+                <td className="px-3 py-3">
+                  <span className="font-semibold">{row.name}</span>
+                  {row.hometown ? <span className="mt-1 block text-xs text-zinc-500">{row.hometown}</span> : null}
+                </td>
+                {row.rounds.slice(0, board.roundCount).map((score, index) => (
+                  <td key={index} className="px-3 py-3 tabular-nums">{score ?? ""}</td>
+                ))}
+                <td className="px-3 py-3 font-semibold tabular-nums">{row.total ?? ""}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function MatchTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "match" }> }) {
   return (
     <div>
-      <h2 className="text-center font-serif text-3xl font-semibold">{scopeLabel(snapshot)}</h2>
+      <h2 className="text-center font-serif text-3xl font-semibold">{snapshot.qualifyingBoard ? "Match play" : scopeLabel(snapshot)}</h2>
       <p className="mt-2 text-center text-sm text-zinc-600">Recorded format: Match play</p>
-      {snapshot.qualifying ? (
+      {snapshot.qualifyingBoard ? (
+        <QualifyingBoard board={snapshot.qualifyingBoard} />
+      ) : snapshot.qualifying ? (
         <p className="mt-4 text-center text-sm font-semibold">Qualifying medalist: {snapshot.qualifying.medalist}</p>
       ) : null}
       <ul className="mx-auto mt-4 max-w-2xl space-y-2 text-sm">
@@ -629,6 +669,22 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
             <li key={player.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm">
               <span className="font-semibold">{player.name}</span>
               {player.hometown ? <span className="mt-1 block text-xs text-zinc-500">{player.hometown}</span> : null}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  if (snapshot?.kind === "match" && snapshot.qualifyingBoard?.rows.length) {
+    const players = [...snapshot.qualifyingBoard.rows].sort((a, b) => a.name.localeCompare(b.name));
+    return (
+      <div data-field-panel>
+        <h2 className="text-center font-serif text-3xl font-semibold">Field</h2>
+        <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">Tournament field, listed alphabetically.</p>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+          {players.map((player) => (
+            <li key={player.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+              {player.name}
             </li>
           ))}
         </ul>
