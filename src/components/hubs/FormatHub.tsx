@@ -63,7 +63,9 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   );
   const [division, setDivision] = useState(0);
   const dates = resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026 ?? tournament.typicalDates);
-  const place = [tournament.course, tournament.location].filter(Boolean).join(" · ");
+  const place = tournament.venueStatus === "unconfirmed"
+    ? "Venue unconfirmed"
+    : [tournament.course, tournament.location].filter(Boolean).join(" · ");
   const names = snapshot ? snapshotNames(snapshot) : [];
 
   return (
@@ -230,7 +232,7 @@ function OverviewPanel({
         </div>
       ) : null}
 
-      {tournament.overview ? (
+      {tournament.overview && tournament.venueStatus !== "unconfirmed" ? (
         <p className="mx-auto mt-8 max-w-3xl text-left text-base leading-7 text-zinc-700">{tournament.overview}</p>
       ) : null}
 
@@ -700,6 +702,23 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
       </div>
     );
   }
+  if (snapshot?.kind === "match") {
+    const teams = [...new Set(snapshot.matches.flatMap((match) => match.teams ?? []))];
+    if (teams.length > 0 && names.every((name) => teams.includes(name))) {
+      return (
+        <div>
+          <h2 className="text-center font-serif text-3xl font-semibold">Teams</h2>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            {teams.map((team) => (
+              <li key={team} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+                {team}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+  }
   if (names.length === 0) {
     return (
       <div className="text-center">
@@ -738,15 +757,16 @@ function EventPanel({
           division.yardage != null ? { label: `${division.label} yardage`, value: `${division.yardage.toLocaleString()} yards` } : null,
         ]).filter((fact): fact is { label: string; value: string } => Boolean(fact))
       : [];
+  const venueUnconfirmed = tournament.venueStatus === "unconfirmed";
   const facts = [
-    tournament.course ? { label: "Course", value: tournament.course } : null,
-    tournament.location ? { label: "Location", value: tournament.location } : null,
-    tournament.courseTeeName ? { label: "Tee", value: tournament.courseTeeName } : null,
-    divisionFacts.some((fact) => fact.label.endsWith(" par")) ? null : tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
-    divisionFacts.some((fact) => fact.label.endsWith(" yardage")) ? null : tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
-    tournament.courseRating ? { label: "Rating", value: String(tournament.courseRating) } : null,
-    tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
-    tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
+    venueUnconfirmed ? { label: "Venue", value: "Unconfirmed" } : tournament.course ? { label: "Course", value: tournament.course } : null,
+    venueUnconfirmed ? null : tournament.location ? { label: "Location", value: tournament.location } : null,
+    venueUnconfirmed ? null : tournament.courseTeeName ? { label: "Tee", value: tournament.courseTeeName } : null,
+    venueUnconfirmed || divisionFacts.some((fact) => fact.label.endsWith(" par")) ? null : tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
+    venueUnconfirmed || divisionFacts.some((fact) => fact.label.endsWith(" yardage")) ? null : tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
+    venueUnconfirmed ? null : tournament.courseRating ? { label: "Rating", value: String(tournament.courseRating) } : null,
+    venueUnconfirmed ? null : tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
+    venueUnconfirmed ? null : tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
     tournament.courseYear ? { label: "Opened", value: String(tournament.courseYear) } : null,
     ...divisionFacts,
   ].filter((item): item is { label: string; value: string } => Boolean(item));

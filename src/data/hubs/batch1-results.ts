@@ -56,6 +56,8 @@ export type MatchLine = {
   result: string;
   /** One person per entry when the source names the players separately. */
   players?: string[];
+  /** Side names such as East and West. Not people, and not part of the player field. */
+  teams?: string[];
 };
 
 export type MatchSnapshot = {
@@ -202,9 +204,9 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
     complete: false,
     qualifying: null,
     matches: [
-      { flight: "Four Ball", round: "Fri, November 6", result: "East 5.00, West 4.00", players: ["East", "West"] },
-      { flight: "Foursomes", round: "R1", result: "East 4.50, West 4.50", players: ["East", "West"] },
-      { flight: "Foursomes", round: "R2", result: "East 2.50, West 6.50", players: ["East", "West"] },
+      { flight: "Four Ball", round: "Fri, November 6", result: "East 5.00, West 4.00", teams: ["East", "West"] },
+      { flight: "Foursomes", round: "R1", result: "East 4.50, West 4.50", teams: ["East", "West"] },
+      { flight: "Foursomes", round: "R2", result: "East 2.50, West 6.50", teams: ["East", "West"] },
     ],
     sources: [{ record: "official-board" }],
   },
@@ -276,6 +278,7 @@ export function snapshotNames(snapshot: ResultSnapshot): string[] {
   }
   const names = snapshot.qualifying ? [individualName(snapshot.qualifying.medalist)] : [];
   for (const match of snapshot.matches) {
+    if (match.teams?.length) continue;
     if (match.players?.length) {
       names.push(...match.players.map(individualName));
       continue;

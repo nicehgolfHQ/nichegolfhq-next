@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { toTournament } from "../src/lib/tournaments/seniorTournament";
+import { PLAYERS, PLAYER_APPEARANCES } from "../src/data/players/registry";
 import { MIDAM_TOURNAMENTS } from "../src/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "../src/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "../src/lib/seniorMajors";
@@ -1149,12 +1152,28 @@ if (!tocSeniorHtml.includes("Not started") || tocSeniorHtml.includes("Full resul
   throw new Error("Golfweek Senior Tournament of Champions was given a finished-results claim");
 }
 const coleman = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "george-coleman-invitational-senior-division");
-if (coleman?.winners?.some((winner) => winner.year === 2026) || !coleman?.note?.includes("pending confirmation")) {
-  throw new Error("George Coleman was given a 2026 champion or a confirmed venue");
+if (!coleman || coleman.winners?.some((winner) => winner.year === 2026) || coleman.course !== "Seminole Golf Club" || coleman.location !== "Juno Beach, FL" || !coleman.note?.includes("venue for 2026 pending confirmation")) {
+  throw new Error("George Coleman source course or pending-venue note changed");
 }
-const colemanHtml = renderHub({ slug: "george-coleman-invitational-senior-division", name: "George Coleman", channel: "senior", month: 4, format: "54-hole stroke play", startDate: "2026-04-13", endDate: "2026-04-15", pastResults: [{ year: 2024, champion: "Mike McCoy" }] }, "senior");
-if (!colemanHtml.includes("Full results unavailable here.") || colemanHtml.includes("2026 champion") || !colemanHtml.includes("Defending champion")) {
+const seniorPage = readFileSync("src/app/seniorgolfhq/[slug]/page.tsx", "utf8");
+if (!seniorPage.includes('from "@/lib/tournaments/seniorTournament"') || seniorPage.includes("function toTournament")) {
+  throw new Error("Senior hub page is not using the shared tournament adapter");
+}
+const colemanAdapted = toTournament(coleman);
+if (colemanAdapted.course || colemanAdapted.location || colemanAdapted.courseDesigner || colemanAdapted.overview || colemanAdapted.note || colemanAdapted.venueStatus !== "unconfirmed") {
+  throw new Error("George Coleman adapter still publishes the unconfirmed venue or its internal note");
+}
+const colemanHtml = renderHub(colemanAdapted, "senior");
+if (!colemanHtml.includes("Venue unconfirmed") || !colemanHtml.includes(">Unconfirmed<") || colemanHtml.includes("Seminole") || colemanHtml.includes("Juno Beach") || colemanHtml.includes("rising water") || colemanHtml.includes("Donald Ross")) {
+  throw new Error("George Coleman page asserts Seminole or prints the internal venue note");
+}
+if (!colemanHtml.includes("Full results unavailable here.") || colemanHtml.includes("2026 champion") || !colemanHtml.includes("Defending champion") || !colemanHtml.includes("Mike McCoy")) {
   throw new Error("George Coleman results were invented");
+}
+const bogartSource = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "society-of-seniors-ralph-bogart");
+const bogartAdapted = bogartSource ? toTournament(bogartSource) : null;
+if (!bogartSource?.course || !bogartSource.note || bogartAdapted?.course !== bogartSource.course || bogartAdapted.venueStatus || bogartAdapted.note) {
+  throw new Error("A confirmed senior venue note was treated as unconfirmed or published");
 }
 const eastWest = resultSnapshot("east-west-cup-matches");
 if (!eastWest || eastWest.kind !== "match" || eastWest.complete || eastWest.matches.length !== 3 || eastWest.matches.some((match) => /singles|November 8/i.test(`${match.round} ${match.result}`))) {
@@ -1163,9 +1182,24 @@ if (!eastWest || eastWest.kind !== "match" || eastWest.complete || eastWest.matc
 if (eastWest.kind === "match" && eastWest.matches.map((match) => match.result).join("|") !== "East 5.00, West 4.00|East 4.50, West 4.50|East 2.50, West 6.50") {
   throw new Error("East vs West senior session scores changed");
 }
+if (eastWest.kind === "match" && eastWest.matches.some((match) => match.players?.length)) {
+  throw new Error("East and West were stored as players");
+}
+if (snapshotNames(eastWest).some((name) => name === "East" || name === "West" || name.startsWith("East "))) {
+  throw new Error("East vs West team sides were treated as player names");
+}
+if (PLAYERS.some((player) => player.name === "East" || player.name === "West") || PLAYER_APPEARANCES.some((row) => row.eventSlug === "east-west-cup-matches")) {
+  throw new Error("East or West was added to the player registry");
+}
 const eastWestEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "east-west-cup-matches");
-if (eastWestEvent?.liveStatus !== "live" || eastWestEvent.endDate !== "2026-11-08") {
+if (eastWestEvent?.liveStatus !== "live" || eastWestEvent.endDate !== "2026-11-08" || eastWestEvent.course !== "Maridoe Golf Club") {
   throw new Error("East vs West senior was marked complete");
+}
+const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
+const teamsAt = eastWestHtml.indexOf(">Teams</h2>");
+const teamBlock = teamsAt < 0 ? "" : eastWestHtml.slice(teamsAt, teamsAt + 600);
+if (eastWestHtml.includes("Named players") || !teamBlock.includes(">East</li>") || !teamBlock.includes(">West</li>") || !eastWestHtml.includes("East 5.00, West 4.00") || eastWestHtml.includes("Singles")) {
+  throw new Error("East vs West field lists the sides as players or dropped the completed sessions");
 }
 const dixie = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "dixie-senior-amateur");
 if (dixie?.startDate !== "2026-12-09" || dixie.endDate !== "2026-12-11" || classifyCalendar({ startDate: dixie.startDate, endDate: dixie.endDate }, "2026-11-08") !== "scheduled-2026") {
