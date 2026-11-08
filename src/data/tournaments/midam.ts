@@ -2984,6 +2984,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
         news: [
       {
+        slug: "2026-national-invitational-tournament-round-2-recap",
+        title: "Sam Jackson Takes Two-Shot NIT Lead Into Sunday After 68 at Birmingham",
+        date: "2026-11-07",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Sam Jackson shot 68 to reach 4-under 138 and lead Hunter Hamrick by two heading into the National Invitational Tournament final round at The Country Club of Birmingham.",
+        content: [
+          "Sam Jackson shot a 3-under 68 Saturday to take a two-shot lead into the final round of the National Invitational Tournament on the West Course at The Country Club of Birmingham in Birmingham, Ala. Jackson followed his opening 70 to reach 4-under 138 through 36 holes, with Hunter Hamrick also posting a 68 to move into second at 2-under 140. Jackson King stands third at 1-under 141 after a 72. Alan Coshatt, Ethan Hagood and Hunter Hawkins share fourth at 1-over 143 following rounds of 70, 69 and 73, respectively. Live scoring and full tournament coverage can be found on the [National Invitational Tournament hub](https://www.nichegolfhq.com/midamgolfhq/national-invitational-tournament).",
+          "Friday leader Blair Hamm shot 77 after his opening 68 to fall into a tie for 16th at 3-over 145, seven shots behind Jackson. Defending champion Ryan Terry moved the other direction, following his opening 76 with a 2-under 69 to join Hamm, Bradley Sutherland and Blake Watts at 145. John Quigley, Lawrence Allan, Trent Alexander, Andy Sajevic, Jeff Reuter, Sean Rowen, JP Cave, Austin Coggin and Will McCurdy share seventh at 2-over 144, six shots off the lead. The 54-hole stroke-play tournament concludes Sunday, with Jackson seeking to protect his two-shot advantage over Hamrick. midamgolfHQ will have full coverage of Sunday's final round from Birmingham.",
+        ],
+      },
+      {
         slug: "2026-national-invitational-tournament-round-1-recap",
         title: "Blair Hamm Opens With 68 to Lead National Invitational by One at Birmingham",
         date: "2026-11-06",
