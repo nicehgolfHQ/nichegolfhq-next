@@ -9,6 +9,7 @@ import { listMajorYearParams } from "@/lib/majors";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "@/lib/seniorMajors";
 import { MIDAM_TOURNAMENTS } from "@/data/tournaments/midam";
+import { PLAYERS } from "@/data/players/registry";
 
 const BASE = "https://www.nichegolfhq.com";
 
@@ -183,6 +184,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...briefDateUrls,
     ...majorsUrls,
     ...eventUrls,
+    ...PLAYERS.map((player) =>
+      urlEntry(`/midamgolfhq/players/${player.id}`, {
+        changeFrequency: "weekly",
+        priority: 0.4,
+      }),
+    ),
     ...issueUrls,
   ];
 }

@@ -1,0 +1,101 @@
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { FourBallBoard } from "../src/components/hubs/FourBallBoard";
+import { EWING_SNAPSHOT, hasTimezoneOffset, verifyEwingSnapshot } from "../src/data/hubs/ewing-cup-four-ball";
+import {
+  auditScore,
+  notPostedRound,
+  standings,
+  totalCell,
+  type FourBallScore,
+  type FourBallTeam,
+} from "../src/data/hubs/four-ball";
+
+function score(partial: Partial<FourBallScore> & Pick<FourBallScore, "total">): FourBallScore {
+  return {
+    rounds: partial.rounds ?? [notPostedRound(), notPostedRound(), notPostedRound()],
+    total: partial.total,
+    toPar: partial.toPar ?? null,
+    thru: partial.thru ?? null,
+    officialPosition: partial.officialPosition ?? null,
+  };
+}
+
+function team(id: string, division: FourBallTeam["division"], names: [string, string], value: FourBallScore | null): FourBallTeam {
+  return { id, division, divisionLabel: division === "mid-am" ? "Mid-Amateur" : "Senior", names, score: value };
+}
+
+const twoRounds = (first: number, second: number, total: number): FourBallScore =>
+  score({
+    total,
+    rounds: [
+      { strokes: first, status: "complete" },
+      { strokes: second, status: "complete" },
+      notPostedRound(),
+    ],
+  });
+
+const fixture: FourBallTeam[] = [
+  team("fixture-a", "mid-am", ["Fixture Alpha", "Fixture Bravo"], twoRounds(68, 72, 140)),
+  team("fixture-b", "mid-am", ["Fixture Charlie", "Fixture Delta"], twoRounds(70, 70, 140)),
+  team("fixture-c", "senior", ["Fixture Echo", "Fixture Foxtrot"], score({
+    total: null,
+    rounds: [{ strokes: 35, status: "incomplete" }, notPostedRound(), notPostedRound()],
+    thru: "9",
+  })),
+  team("fixture-d", "senior", ["Fixture Golf", "Fixture Hotel"], twoRounds(65, 65, 130)),
+  team("fixture-e", "mid-am", ["Fixture India", "Fixture Juliet"], score({
+    total: 70,
+    rounds: [{ strokes: 70, status: "complete" }, notPostedRound(), notPostedRound()],
+  })),
+];
+
+const rows = standings(fixture);
+const order = rows.map((row) => row.id);
+if (order.indexOf("fixture-a") > order.indexOf("fixture-d")) throw new Error("All view ranked a senior team ahead of the mid-am group");
+const midPlaces = rows.filter((row) => row.division === "mid-am" && row.position === "T1");
+if (midPlaces.length !== 2) throw new Error("Mid-am tie was not ranked inside the division");
+const seniorLeader = rows.find((row) => row.id === "fixture-d");
+if (seniorLeader?.position !== "1") throw new Error("Senior leader was ranked against Mid-Am");
+const shortRound = rows.find((row) => row.id === "fixture-e");
+if (shortRound?.position != null || shortRound?.rankNote !== "in_progress") throw new Error("Unequal completed rounds were ranked");
+const incomplete = rows.find((row) => row.id === "fixture-c");
+if (!incomplete || incomplete.position != null || incomplete.rankNote !== "in_progress") throw new Error("Incomplete team was ranked");
+if (totalCell(incomplete.score) !== "") throw new Error("Missing total was rendered as a number");
+
+const html = renderToStaticMarkup(createElement(FourBallBoard, { rows }));
+for (const needle of ["Fixture Alpha", "Fixture Echo", "140", "T1", "35", "Not posted", "In progress"]) {
+  if (!html.includes(needle)) throw new Error(`Fixture board missing ${needle}`);
+}
+if (html.includes(">0<")) throw new Error("Fixture board printed a fabricated zero");
+
+const official = standings([
+  team("off-a", "mid-am", ["Official One", "Official Two"], score({ ...twoRounds(70, 70, 140), officialPosition: "T4" })),
+]);
+if (official[0]?.position !== "T4" || official[0].rankNote !== "official") throw new Error("Official place was recomputed");
+
+const pars = [72, 72, null];
+const good = auditScore(twoRounds(70, 72, 142), pars);
+if (good.length) throw new Error(`Valid total failed: ${good.join("; ")}`);
+const bad = auditScore(twoRounds(70, 72, 150), pars);
+if (!bad.some((problem) => problem.includes("does not match"))) throw new Error("Mismatched total was accepted");
+const partial = auditScore(score({
+  total: 35,
+  rounds: [{ strokes: 35, status: "incomplete" }, notPostedRound(), notPostedRound()],
+}), pars);
+if (!partial.some((problem) => problem.includes("thru"))) throw new Error("Partial total without thru was accepted");
+const toPar = auditScore({ ...twoRounds(70, 72, 142), toPar: -2 }, pars);
+if (toPar.length) throw new Error(`Supported to-par failed: ${toPar.join("; ")}`);
+const unsupported = auditScore({ ...twoRounds(70, 72, 142), toPar: -2 }, [null, 72, null]);
+if (!unsupported.some((problem) => problem.includes("to-par"))) throw new Error("To-par without Blue par was accepted");
+
+verifyEwingSnapshot();
+if (!hasTimezoneOffset("2026-11-13T18:00:00-05:00")) throw new Error("DST offset -05:00 was rejected");
+if (!hasTimezoneOffset("2026-11-07T19:04:00-06:00")) throw new Error("Standard offset -06:00 was rejected");
+if (hasTimezoneOffset("2026-11-07T19:04:00")) throw new Error("Missing offset was accepted");
+if (EWING_SNAPSHOT.leaderboardStatus === "source_pending" && EWING_SNAPSHOT.teams.some((team) => team.score != null)) {
+  throw new Error("Pre-event snapshot includes a score");
+}
+if (EWING_SNAPSHOT.teams.some((team) => team.names.includes("Fixture Alpha"))) throw new Error("Fixture names leaked into the live snapshot");
+
+console.log("four-ball tests ok");
