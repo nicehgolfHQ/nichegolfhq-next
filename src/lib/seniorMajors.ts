@@ -355,8 +355,9 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     slug: "trans-mississippi-senior-championship",
     name: "Trans-Mississippi Senior Championship",
     month: "May 2026",
-    startDate: "2026-05-04",
-    endDate: "2026-05-06",
+    startDate: "2026-05-19",
+    endDate: "2026-05-21",
+    dates2026: "May 19–21, 2026",
     format: "54-hole stroke play",
     course: "Mission Hills Country Club",
     location: "Rancho Mirage, CA",
@@ -366,7 +367,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     overview: "The Trans-Mississippi Senior Championship, organized by the Trans-Mississippi Golf Association since 2000, is one of America\u2019s most prestigious regional senior titles. The event rotates annually among distinguished courses west of the Mississippi River, drawing elite 55+ amateurs for 54 holes of stroke play each May.",
     pastResults: [
-      { year: 2026, champion: "Jason Pridmore", venue: "Mission Hills Country Club, Rancho Mirage, CA" },
+      { year: 2026, champion: "Senior: Pridmore, Jason / Super Senior: Valuck, Jon / Legends: Boyns, Casey", venue: "Mission Hills Country Club, Rancho Mirage, CA" },
       { year: 2025, champion: "Bryan Hoops", venue: "Thunderbird Country Club, Rancho Mirage, CA" },
       { year: 2024, champion: "Terrence Miskell", venue: "Blessings Golf Club, Fayetteville, AR" },
       { year: 2023, champion: "Jon Lindstrom", venue: "Hacienda Golf Club, La Habra Heights, CA" },
@@ -1135,7 +1136,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     golfGeniusUrlLabel: "2026 Results",
     overview: "The Ojai Senior Cup is the West Coast\u2019s premier senior amateur championship, held annually at the historic Soule Park Golf Course in the Ojai Valley north of Santa Barbara. The public course \u2014 renovated by Gil Hanse in 2006 \u2014 winds through towering oaks in the scenic Topatopa Mountains, featuring senior (55+) and super senior (65+) divisions over 54 holes.",
     winners: [
-      { year: 2026, champion: "John Derrick" },
+      { year: 2026, champion: "Senior: John Derrick / Super Senior: John Pate" },
       { year: 2025, champion: "Tim Hogarth" },
       { year: 2024, champion: "Tim Hogarth" },
       { year: 2023, champion: "Gregory Sato" },
@@ -1502,7 +1503,10 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     endDate: "2026-11-05",
     course: "Boulder Creek Golf Club",
     location: "Boulder City, NV",
-    winners: [{ year: 2025, champion: "Jerry Gunthorpe" }],
+    winners: [
+      { year: 2026, champion: "Senior: Fryatt, Edward / Super Senior: Easterlin, Bob / Legend: Ujihara, David / Super Legend: Mokler, Greg" },
+      { year: 2025, champion: "Jerry Gunthorpe" },
+    ],
     howToPlay: [{ label: "Apply to Play", href: "https://www.golfgenius.com/pages/12693592928455496898" }],
   },
   {
@@ -1564,7 +1568,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     location: "Savannah, GA",
     note: "Rotating venue; 2026 host: The Landings Golf & Athletic Club (Deer Creek Course), Savannah, GA",
     pastResults: [
-      { year: 2026, champion: "Jeff Frazier", venue: "The Landings Golf & Athletic Club (Deer Creek Course)" },
+      { year: 2026, champion: "Senior: Jeff Frazier / Super Senior: Douglas Hanzel", venue: "The Landings Golf & Athletic Club (Deer Creek Course)" },
       { year: 2025, champion: "Timothy Cobb", venue: "Innisbrook Resort (Copperhead Course)" },
       { year: 2024, champion: "Stan Humphries", venue: "Treyburn Country Club" },
       { year: 2023, champion: "Jack Hall", venue: "Berkeley Hall Club" },

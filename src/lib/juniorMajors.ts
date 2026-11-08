@@ -755,6 +755,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     overview: "The U.S. Amateur, held annually since 1895, is the oldest and most prestigious amateur golf championship in the United States. Its alumni list includes Tiger Woods (3 titles), Jack Nicklaus, Bobby Jones, and Arnold Palmer. The 312-player stroke play field is one of the deepest in amateur golf, and the match play bracket tests champions across seven rounds in seven days.",
     note: "Host course rotates annually. 2026 host: Merion Golf Club, Ardmore, PA.",
     pastResults: [
+      { year: 2026, champion: "Jack Whaley", runnerUp: "Jay Leng Jr." },
       { year: 2025, champion: "Mason Howell", runnerUp: "Jackson Herrington (7 & 6)" },
       { year: 2024, champion: "Jose Luis Ballester", runnerUp: "Noah Kent (2-up)" },
       { year: 2023, champion: "Nick Dunlap", runnerUp: "Neal Shipley (4 & 3)" },
