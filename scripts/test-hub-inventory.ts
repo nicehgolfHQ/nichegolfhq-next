@@ -1221,6 +1221,19 @@ const midamEastWest = MIDAM_TOURNAMENTS.find((event) => event.slug === "east-vs-
 if (midamEastWest?.liveStatus !== "completed" || midamEastWest.golfGeniusUrlLabel !== "2026 Results") {
   throw new Error("East vs West mid-am was not marked complete");
 }
+const finalRecap = midamEastWest.news?.find((article) => article.slug === "2026-east-vs-west-matches-final-recap");
+const approvedRecap = [
+  "The West won the East vs West Matches at Maridoe Golf Club in Carrollton, Texas, taking Sunday\u2019s singles session 10.5 to 7.5 to finish with a 25.5 to 19.5 victory. The West entered the final day leading 15 to 12 after winning Saturday\u2019s second foursomes session 6.5 to 2.5. Full results and tournament coverage can be found on the [East vs West Matches tournament hub](https://www.nichegolfhq.com/midamgolfhq/east-vs-west-matches).",
+  "Bobby Massa delivered the largest margin in the mid-amateur singles, defeating Scott Harvey 7 and 6. Josh Persons added a 6 and 5 victory over Stephen Behr, while Stewart Hagestad beat Brett Patterson 2 and 1. Parker Edens and Nate Smith earned 1 up wins over Matt Vogt and Jonathan Bale, respectively. Nate Gahman and Drew Kittleson halved their match.",
+  "Evan Beck led the East\u2019s mid-amateur winners with a 6 and 5 victory over Mikel Martinson. Will Davenport defeated Drew Stoltz 4 and 3, Christian Brand beat Jordan Russell 3 and 2, and Andrew Price beat Chris Wheeler by the same margin. Christian Cavaliere edged Zach Foushee 1 up, while Andrew Bailey defeated Brad Nurski 1 up. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
+];
+if (finalRecap?.title !== "West Wins East vs West Matches, 25.5 to 19.5, at Maridoe" || finalRecap.date !== "2026-11-08" || finalRecap.author !== "midamgolfHQ Staff" || finalRecap.summary !== "The West won the East vs West Matches at Maridoe Golf Club, finishing 25.5 to 19.5 after a 10.5 to 7.5 singles victory." || finalRecap.content.join("\n") !== approvedRecap.join("\n")) {
+  throw new Error("The approved East vs West final recap was changed");
+}
+const eastNews = midamEastWest.news?.map((article) => article.slug) ?? [];
+for (const slug of ["2026-east-vs-west-matches-day-2-recap", "2026-east-vs-west-matches-day-1-recap", "2026-east-vs-west-matches-preview"]) {
+  if (!eastNews.includes(slug)) throw new Error(`${slug} was dropped`);
+}
 const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
 const teamsAt = eastWestHtml.indexOf(">Teams</h2>");
 const teamBlock = teamsAt < 0 ? "" : eastWestHtml.slice(teamsAt, teamsAt + 600);
