@@ -4868,6 +4868,2198 @@
           "status": "ranked"
         }
       ]
+    },
+    {
+      "slug": "western-junior",
+      "roundCount": 4,
+      "scope": "official-final",
+      "complete": true,
+      "rows": [
+        {
+          "position": "1",
+          "name": "Andrew Sciortino",
+          "affiliation": "Brentwood, TN, 2026",
+          "toPar": "-7",
+          "rounds": [
+            "72",
+            "70",
+            "67",
+            "68"
+          ],
+          "total": "277",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Brady Barnum",
+          "affiliation": "Dublin, OH, 2027",
+          "toPar": "+2",
+          "rounds": [
+            "73",
+            "71",
+            "72",
+            "70"
+          ],
+          "total": "286",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "SJ Thomas",
+          "affiliation": "Birmingham, AL, 2029",
+          "toPar": "+2",
+          "rounds": [
+            "71",
+            "70",
+            "73",
+            "72"
+          ],
+          "total": "286",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Ryan Xie",
+          "affiliation": "Auckland, New Zealand, 2026",
+          "toPar": "+3",
+          "rounds": [
+            "74",
+            "74",
+            "68",
+            "71"
+          ],
+          "total": "287",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Walker Webb",
+          "affiliation": "Brentwood, TN, 2027",
+          "toPar": "+3",
+          "rounds": [
+            "73",
+            "71",
+            "70",
+            "73"
+          ],
+          "total": "287",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Ash Edwards",
+          "affiliation": "Boulder, CO, 2028",
+          "toPar": "+3",
+          "rounds": [
+            "73",
+            "72",
+            "74",
+            "68"
+          ],
+          "total": "287",
+          "status": "ranked"
+        },
+        {
+          "position": "7",
+          "name": "Brooks Colton",
+          "affiliation": "Riviera Beach, FL, 2027",
+          "toPar": "+4",
+          "rounds": [
+            "79",
+            "70",
+            "69",
+            "70"
+          ],
+          "total": "288",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Hill Wang",
+          "affiliation": "Hacienda Heights, CA, 2027",
+          "toPar": "+5",
+          "rounds": [
+            "74",
+            "72",
+            "73",
+            "70"
+          ],
+          "total": "289",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Cody Guetzke",
+          "affiliation": "Hartland, WI, 2026",
+          "toPar": "+5",
+          "rounds": [
+            "72",
+            "73",
+            "72",
+            "72"
+          ],
+          "total": "289",
+          "status": "ranked"
+        },
+        {
+          "position": "T10",
+          "name": "Kailer Stone",
+          "affiliation": "Alameda, CA, 2026",
+          "toPar": "+6",
+          "rounds": [
+            "75",
+            "72",
+            "75",
+            "68"
+          ],
+          "total": "290",
+          "status": "ranked"
+        },
+        {
+          "position": "T10",
+          "name": "Parker Rodgers",
+          "affiliation": "Nevada, IA, 2027",
+          "toPar": "+6",
+          "rounds": [
+            "76",
+            "74",
+            "69",
+            "71"
+          ],
+          "total": "290",
+          "status": "ranked"
+        },
+        {
+          "position": "T10",
+          "name": "Keane Taino",
+          "affiliation": "Pinehurst, NC, 2028",
+          "toPar": "+6",
+          "rounds": [
+            "70",
+            "74",
+            "75",
+            "71"
+          ],
+          "total": "290",
+          "status": "ranked"
+        },
+        {
+          "position": "T10",
+          "name": "Zude Xu",
+          "affiliation": "Rancho Palos Verdes, CA, 2028",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "69",
+            "78",
+            "70"
+          ],
+          "total": "290",
+          "status": "ranked"
+        },
+        {
+          "position": "T14",
+          "name": "Joseph Corcell",
+          "affiliation": "Tampa, FL, 2027",
+          "toPar": "+7",
+          "rounds": [
+            "76",
+            "72",
+            "72",
+            "71"
+          ],
+          "total": "291",
+          "status": "ranked"
+        },
+        {
+          "position": "T14",
+          "name": "William Chang",
+          "affiliation": "Danville, CA, 2026",
+          "toPar": "+7",
+          "rounds": [
+            "73",
+            "73",
+            "75",
+            "70"
+          ],
+          "total": "291",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "JP Lynch",
+          "affiliation": "Austin, TX, 2028",
+          "toPar": "+8",
+          "rounds": [
+            "72",
+            "76",
+            "72",
+            "72"
+          ],
+          "total": "292",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Lester Low",
+          "affiliation": "Evanston, IL, 2028",
+          "toPar": "+8",
+          "rounds": [
+            "73",
+            "74",
+            "74",
+            "71"
+          ],
+          "total": "292",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Owen Coniaris",
+          "affiliation": "Glen Ellyn, IL, 2027",
+          "toPar": "+8",
+          "rounds": [
+            "74",
+            "75",
+            "71",
+            "72"
+          ],
+          "total": "292",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Brayden Jones",
+          "affiliation": "Seal Beach, CA, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "74",
+            "74",
+            "72",
+            "73"
+          ],
+          "total": "293",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Tommy Kelley",
+          "affiliation": "Omaha, NE, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "73",
+            "76",
+            "75",
+            "69"
+          ],
+          "total": "293",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Nicholas Canitano",
+          "affiliation": "Milton, GA, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "73",
+            "73",
+            "76",
+            "71"
+          ],
+          "total": "293",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Owen Greenough",
+          "affiliation": "Bend, OR, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "79",
+            "71",
+            "70",
+            "73"
+          ],
+          "total": "293",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Davis Wotnosky",
+          "affiliation": "Wake Forest, NC, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "77",
+            "72",
+            "72",
+            "73"
+          ],
+          "total": "294",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Ainslie Stanford III",
+          "affiliation": "Edmond, OK, 2028",
+          "toPar": "+10",
+          "rounds": [
+            "78",
+            "72",
+            "72",
+            "72"
+          ],
+          "total": "294",
+          "status": "ranked"
+        },
+        {
+          "position": "T25",
+          "name": "Jager Pain",
+          "affiliation": "Ontario, Canada, 2026",
+          "toPar": "+11",
+          "rounds": [
+            "75",
+            "74",
+            "74",
+            "72"
+          ],
+          "total": "295",
+          "status": "ranked"
+        },
+        {
+          "position": "T25",
+          "name": "Liam Maclauchlan",
+          "affiliation": "Mosely, VA, 2027",
+          "toPar": "+11",
+          "rounds": [
+            "74",
+            "75",
+            "72",
+            "74"
+          ],
+          "total": "295",
+          "status": "ranked"
+        },
+        {
+          "position": "T25",
+          "name": "Brayden Forte",
+          "affiliation": "Aurora, CO, 2026",
+          "toPar": "+11",
+          "rounds": [
+            "72",
+            "73",
+            "73",
+            "77"
+          ],
+          "total": "295",
+          "status": "ranked"
+        },
+        {
+          "position": "T25",
+          "name": "Cole Pregler",
+          "affiliation": "Fulshear, TX, 2026",
+          "toPar": "+11",
+          "rounds": [
+            "68",
+            "73",
+            "78",
+            "76"
+          ],
+          "total": "295",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "Landon Abalateo",
+          "affiliation": "Fair Oaks, CA, 2026",
+          "toPar": "+12",
+          "rounds": [
+            "72",
+            "76",
+            "76",
+            "72"
+          ],
+          "total": "296",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "Cody Weaver",
+          "affiliation": "Gilman, IA, 2026",
+          "toPar": "+12",
+          "rounds": [
+            "76",
+            "73",
+            "75",
+            "72"
+          ],
+          "total": "296",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Jake Valentine",
+          "affiliation": "Palm Beach Gardens, FL, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "71",
+            "77",
+            "75",
+            "74"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Brayden Verret",
+          "affiliation": "Farmers Branch, TX, 2029",
+          "toPar": "+13",
+          "rounds": [
+            "73",
+            "75",
+            "76",
+            "73"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Shawn Nawata",
+          "affiliation": "Irvine, CA, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "76",
+            "71",
+            "77",
+            "73"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Evan Tyree",
+          "affiliation": "Scottsdale, AZ, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "74",
+            "73",
+            "75",
+            "75"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Kaden Leivian",
+          "affiliation": "Wichita, KS, 2029",
+          "toPar": "+13",
+          "rounds": [
+            "73",
+            "76",
+            "76",
+            "72"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Jacob Newsom",
+          "affiliation": "Tulsa, OK, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "73",
+            "73",
+            "77",
+            "74"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Isaiah Diaz",
+          "affiliation": "Del Rio, TX, 2029",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "73",
+            "73",
+            "74"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Christian Koehn",
+          "affiliation": "Winter Park, FL, 2028",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "73",
+            "75",
+            "72"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Colt Farrow",
+          "affiliation": "Wichita, KS, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "73",
+            "74",
+            "73"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "40",
+          "name": "Ryan Y. Lee",
+          "affiliation": "Plano, TX, 2028",
+          "toPar": "+14",
+          "rounds": [
+            "77",
+            "72",
+            "76",
+            "73"
+          ],
+          "total": "298",
+          "status": "ranked"
+        },
+        {
+          "position": "T41",
+          "name": "Braeden Nelson",
+          "affiliation": "West Des Moines, IA, 2026",
+          "toPar": "+15",
+          "rounds": [
+            "77",
+            "69",
+            "77",
+            "76"
+          ],
+          "total": "299",
+          "status": "ranked"
+        },
+        {
+          "position": "T41",
+          "name": "Charlie Hipp",
+          "affiliation": "St Johns, FL, 2027",
+          "toPar": "+15",
+          "rounds": [
+            "74",
+            "76",
+            "75",
+            "74"
+          ],
+          "total": "299",
+          "status": "ranked"
+        },
+        {
+          "position": "T43",
+          "name": "Rawlin Sutter",
+          "affiliation": "Cullman, AL, 2027",
+          "toPar": "+16",
+          "rounds": [
+            "74",
+            "75",
+            "77",
+            "74"
+          ],
+          "total": "300",
+          "status": "ranked"
+        },
+        {
+          "position": "T43",
+          "name": "Jaden Peterson",
+          "affiliation": "Port Saint Lucie, FL, 2027",
+          "toPar": "+16",
+          "rounds": [
+            "75",
+            "71",
+            "75",
+            "79"
+          ],
+          "total": "300",
+          "status": "ranked"
+        },
+        {
+          "position": "T45",
+          "name": "Manav Bharani",
+          "affiliation": "Ontario, Canada, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "74",
+            "74",
+            "81",
+            "72"
+          ],
+          "total": "301",
+          "status": "ranked"
+        },
+        {
+          "position": "T45",
+          "name": "Cooper Smith",
+          "affiliation": "Jasper, GA, 2028",
+          "toPar": "+17",
+          "rounds": [
+            "75",
+            "75",
+            "74",
+            "77"
+          ],
+          "total": "301",
+          "status": "ranked"
+        },
+        {
+          "position": "T47",
+          "name": "Zachary Rubis",
+          "affiliation": "Farmers Branch, TX, 2029",
+          "toPar": "+18",
+          "rounds": [
+            "73",
+            "74",
+            "80",
+            "75"
+          ],
+          "total": "302",
+          "status": "ranked"
+        },
+        {
+          "position": "T47",
+          "name": "Austin Perkins",
+          "affiliation": "West Hartford, CT, 2026",
+          "toPar": "+18",
+          "rounds": [
+            "73",
+            "73",
+            "76",
+            "80"
+          ],
+          "total": "302",
+          "status": "ranked"
+        },
+        {
+          "position": "T47",
+          "name": "Aadi Parmar",
+          "affiliation": "Selma, TX, 2027",
+          "toPar": "+18",
+          "rounds": [
+            "76",
+            "73",
+            "76",
+            "77"
+          ],
+          "total": "302",
+          "status": "ranked"
+        },
+        {
+          "position": "50",
+          "name": "Jake Eickhoff",
+          "affiliation": "Arrington, TN, 2027",
+          "toPar": "+19",
+          "rounds": [
+            "79",
+            "70",
+            "79",
+            "75"
+          ],
+          "total": "303",
+          "status": "ranked"
+        },
+        {
+          "position": "CUT",
+          "name": "Andy Dai",
+          "affiliation": "Ontario, Canada, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "78",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Theodore Snyder",
+          "affiliation": "Gig Harbor, WA, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "75",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Andrew Rodriguez",
+          "affiliation": "Whittier, CA, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "79",
+            "72",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Sahish Reddy",
+          "affiliation": "Duluth, GA, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "72",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Nico Ward",
+          "affiliation": "Coraopolis, PA, 2028",
+          "toPar": "+9",
+          "rounds": [
+            "78",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Eddie Gu",
+          "affiliation": "Ontario, Canada, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "78",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Stuart Boulware",
+          "affiliation": "Fairway, KS, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "73",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Joseph Nelson",
+          "affiliation": "Gilbert, AZ, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "77",
+            "74",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Macaulay Myers",
+          "affiliation": "Whitestown, IN, 2028",
+          "toPar": "+9",
+          "rounds": [
+            "74",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "David Kim",
+          "affiliation": "Marriotsville, MD, 2029",
+          "toPar": "+9",
+          "rounds": [
+            "72",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ethan Schramm",
+          "affiliation": "Encinitas, CA, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "75",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Maxim McKenzie",
+          "affiliation": "British Columbia, Canada, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "76",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Asher Nelson",
+          "affiliation": "Scottsdale, AZ, 2027",
+          "toPar": "+9",
+          "rounds": [
+            "75",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ben Wheeler",
+          "affiliation": "Kansas City, MO, 2026",
+          "toPar": "+9",
+          "rounds": [
+            "75",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Luc Kelty",
+          "affiliation": "Louisville, KY, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "73",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jaspreet Kondal",
+          "affiliation": "Saint Augustine, FL, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "78",
+            "74",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Khanh Hung Le",
+          "affiliation": "Ho Chi Minh City, Vietnam, 2026",
+          "toPar": "+10",
+          "rounds": [
+            "81",
+            "71",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Warren Stiglitz",
+          "affiliation": "Denver, NC, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "79",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Zhengda Li",
+          "affiliation": "Melbourne, Australia, 2029",
+          "toPar": "+10",
+          "rounds": [
+            "78",
+            "74",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Chase Birdwell",
+          "affiliation": "Blaine, MN, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "75",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Toku Fujiwara",
+          "affiliation": "West Chester, OH (Japan), 2026",
+          "toPar": "+10",
+          "rounds": [
+            "76",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Paxton Lane",
+          "affiliation": "Benton, AR, 2026",
+          "toPar": "+10",
+          "rounds": [
+            "79",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Cole Kim",
+          "affiliation": "Orange, CA, 2026",
+          "toPar": "+10",
+          "rounds": [
+            "77",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Sam Carraher",
+          "affiliation": "Crown Point, IN, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "77",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Austin Shelley",
+          "affiliation": "Salt Lake City, UT, 2026",
+          "toPar": "+10",
+          "rounds": [
+            "79",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jack Denery",
+          "affiliation": "Little Rock, AR, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "78",
+            "74",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Yilang Chen",
+          "affiliation": "Irvine, CA, 2030",
+          "toPar": "+10",
+          "rounds": [
+            "78",
+            "74",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Chase Jerome",
+          "affiliation": "Ontario, Canada, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "79",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ryan Lee",
+          "affiliation": "College Station, TX, 2028",
+          "toPar": "+10",
+          "rounds": [
+            "78",
+            "74",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Duff McKay",
+          "affiliation": "Dallas, TX, 2026",
+          "toPar": "+11",
+          "rounds": [
+            "80",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Darren Zhou",
+          "affiliation": "Hong Kong, 2028",
+          "toPar": "+11",
+          "rounds": [
+            "76",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Konner Kubica",
+          "affiliation": "Northville, MI, 2026",
+          "toPar": "+11",
+          "rounds": [
+            "77",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "JT Cochrane",
+          "affiliation": "La Jolla, CA, 2028",
+          "toPar": "+11",
+          "rounds": [
+            "76",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Emerson Majma",
+          "affiliation": "Edmond, OK, 2027",
+          "toPar": "+11",
+          "rounds": [
+            "78",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "William Cui",
+          "affiliation": "Jupiter, FL, 2028",
+          "toPar": "+12",
+          "rounds": [
+            "81",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Xander Mulder",
+          "affiliation": "Scottsdale, AZ, 2026",
+          "toPar": "+12",
+          "rounds": [
+            "79",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Brady Rapp",
+          "affiliation": "Leawood, KS, 2026",
+          "toPar": "+12",
+          "rounds": [
+            "74",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Tucker Gutierrez",
+          "affiliation": "Madison, MS, 2026",
+          "toPar": "+12",
+          "rounds": [
+            "79",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ryan Hooker",
+          "affiliation": "Oakton, VA, 2030",
+          "toPar": "+12",
+          "rounds": [
+            "78",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Brooks Urquhart",
+          "affiliation": "Columbus, GA, 2027",
+          "toPar": "+12",
+          "rounds": [
+            "77",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Bennett Kuhns",
+          "affiliation": "Austin, TX, 2027",
+          "toPar": "+12",
+          "rounds": [
+            "82",
+            "72",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Joseph Vartabedian",
+          "affiliation": "Silver Spring, MD, 2027",
+          "toPar": "+12",
+          "rounds": [
+            "75",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ben Cowgill",
+          "affiliation": "Richmond, VA, 2027",
+          "toPar": "+12",
+          "rounds": [
+            "77",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Nemo Tsai",
+          "affiliation": "Ann Arbor, MI, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "82",
+            "73",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Bear Dollander",
+          "affiliation": "Savannah, GA, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Miguel Garcia",
+          "affiliation": "Queretaro, Mexico, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Wylie Inman",
+          "affiliation": "North Palm Beach, FL, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "80",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Noah Maclauchlan",
+          "affiliation": "Moseley, VA, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "80",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Leo McDonough",
+          "affiliation": "Lafayette, CA, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "78",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Gatlin Albright",
+          "affiliation": "Stuart, FL, 2028",
+          "toPar": "+13",
+          "rounds": [
+            "80",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Matthew Simpson",
+          "affiliation": "Ontario, Canada, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jed Choi",
+          "affiliation": "Rancho Palos Verdes, CA, 2029",
+          "toPar": "+13",
+          "rounds": [
+            "79",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Nicholas Brooks",
+          "affiliation": "Parker, CO, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "76",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Sage Bradshaw",
+          "affiliation": "Bluffton, SC, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "74",
+            "81",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Kaden Chang",
+          "affiliation": "Carlsbad, CA, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "79",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Hampton Beebe",
+          "affiliation": "West Palm Beach, FL, 2026",
+          "toPar": "+13",
+          "rounds": [
+            "78",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Colton Rodgers",
+          "affiliation": "Great Falls, VA, 2028",
+          "toPar": "+14",
+          "rounds": [
+            "79",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Carter Graham",
+          "affiliation": "Brentwood, TN, 2026",
+          "toPar": "+14",
+          "rounds": [
+            "76",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Riley Franklin",
+          "affiliation": "Ozark, MO, 2027",
+          "toPar": "+14",
+          "rounds": [
+            "81",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Aston Lim",
+          "affiliation": "Union City, CA, 2028",
+          "toPar": "+15",
+          "rounds": [
+            "80",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Matthew Hull",
+          "affiliation": "Corona Del Mar, CA, 2026",
+          "toPar": "+15",
+          "rounds": [
+            "81",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Barron Mundy",
+          "affiliation": "Ontario, Canada, 2026",
+          "toPar": "+15",
+          "rounds": [
+            "80",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Hiroto Ozawa",
+          "affiliation": "Tokyo, Japan, 2030",
+          "toPar": "+15",
+          "rounds": [
+            "80",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jaxson Hinze",
+          "affiliation": "York, NE, 2026",
+          "toPar": "+15",
+          "rounds": [
+            "82",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ethan White",
+          "affiliation": "Chagrin Falls, OH, 2028",
+          "toPar": "+15",
+          "rounds": [
+            "79",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jack Kelley",
+          "affiliation": "Falls Church, VA, 2028",
+          "toPar": "+15",
+          "rounds": [
+            "82",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Tristan Rhodenizer",
+          "affiliation": "Palm Beach Gardens, FL, 2027",
+          "toPar": "+15",
+          "rounds": [
+            "77",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ben Wilson",
+          "affiliation": "Sandy, UT, 2026",
+          "toPar": "+16",
+          "rounds": [
+            "79",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Graham Christopher",
+          "affiliation": "Westlake Village, CA, 2026",
+          "toPar": "+16",
+          "rounds": [
+            "75",
+            "83",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Austin Le",
+          "affiliation": "Houston, TX, 2026",
+          "toPar": "+16",
+          "rounds": [
+            "82",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Maxwell Milton",
+          "affiliation": "Polson, MT, 2028",
+          "toPar": "+16",
+          "rounds": [
+            "80",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Henry Holland",
+          "affiliation": "Charlotte, NC, 2026",
+          "toPar": "+16",
+          "rounds": [
+            "81",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Aidan Szentanai",
+          "affiliation": "Boise, ID, 2027",
+          "toPar": "+16",
+          "rounds": [
+            "82",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ben Lathrop",
+          "affiliation": "Oklahoma City, OK, 2026",
+          "toPar": "+16",
+          "rounds": [
+            "78",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Taighan Chea",
+          "affiliation": "Bothell, WA, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "84",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Chase Blaser",
+          "affiliation": "Edmond, OK, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "77",
+            "82",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ethan Butters",
+          "affiliation": "Chandler, AZ, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "79",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Shayaan Kim",
+          "affiliation": "Rockledge, FL, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "79",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Blake Brown",
+          "affiliation": "Cypress, TX, 2026",
+          "toPar": "+17",
+          "rounds": [
+            "79",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Kaichen Xia",
+          "affiliation": "Shanghai, China, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "79",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "William Long",
+          "affiliation": "Alpharetta, GA, 2027",
+          "toPar": "+17",
+          "rounds": [
+            "81",
+            "78",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Anson Munzlinger",
+          "affiliation": "Columbia, MO, 2028",
+          "toPar": "+17",
+          "rounds": [
+            "82",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Clark Browne",
+          "affiliation": "Vestavia Hills, AL, 2026",
+          "toPar": "+17",
+          "rounds": [
+            "79",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Michael Jorski",
+          "affiliation": "Clarendon Hills, IL, 2028",
+          "toPar": "+18",
+          "rounds": [
+            "81",
+            "79",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Frederick Egnatios",
+          "affiliation": "Norfolk, VA, 2026",
+          "toPar": "+18",
+          "rounds": [
+            "84",
+            "76",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Spencer Shropshire",
+          "affiliation": "Ontario, Canada, 2026",
+          "toPar": "+18",
+          "rounds": [
+            "77",
+            "83",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Declan Dent",
+          "affiliation": "Grapevine, TX, 2028",
+          "toPar": "+18",
+          "rounds": [
+            "77",
+            "83",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Zachary Johnson",
+          "affiliation": "Maple Grove, MN, 2026",
+          "toPar": "+19",
+          "rounds": [
+            "78",
+            "83",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Peyton Smith",
+          "affiliation": "Lee's Summit, MO, 2026",
+          "toPar": "+19",
+          "rounds": [
+            "77",
+            "84",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Kaden Puranik",
+          "affiliation": "Windermere, FL, 2027",
+          "toPar": "+20",
+          "rounds": [
+            "80",
+            "82",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Will Judd",
+          "affiliation": "Louisville, KY, 2026",
+          "toPar": "+20",
+          "rounds": [
+            "82",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Christian Choi",
+          "affiliation": "Saratoga, CA, 2028",
+          "toPar": "+20",
+          "rounds": [
+            "85",
+            "77",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Heath Harvey",
+          "affiliation": "Las Vegas, NV, 2029",
+          "toPar": "+20",
+          "rounds": [
+            "77",
+            "85",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Charles McPherson",
+          "affiliation": "Durham, NC, 2026",
+          "toPar": "+20",
+          "rounds": [
+            "77",
+            "85",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ethan Evans",
+          "affiliation": "Fairfax Station, VA, 2028",
+          "toPar": "+21",
+          "rounds": [
+            "88",
+            "75",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Michael Hahn",
+          "affiliation": "Lake Forest, IL, 2027",
+          "toPar": "+21",
+          "rounds": [
+            "82",
+            "81",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Henry Talarico",
+          "affiliation": "Austin, TX, 2028",
+          "toPar": "+22",
+          "rounds": [
+            "83",
+            "81",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Casen Justice",
+          "affiliation": "Selmer, TN, 2027",
+          "toPar": "+22",
+          "rounds": [
+            "84",
+            "80",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Drew Krystyn",
+          "affiliation": "Leawood, KS, 2026",
+          "toPar": "+22",
+          "rounds": [
+            "82",
+            "82",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Alexander Eckstein",
+          "affiliation": "Poland, OH, 2026",
+          "toPar": "+24",
+          "rounds": [
+            "84",
+            "82",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Liam Kelly",
+          "affiliation": "Winnetka, IL, 2027",
+          "toPar": "+26",
+          "rounds": [
+            "84",
+            "84",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Louis Mahakan",
+          "affiliation": "Hua Hin, Thailand, 2027",
+          "toPar": "+28",
+          "rounds": [
+            "86",
+            "84",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Denton Brooks",
+          "affiliation": "Birmingham, AL, 2027",
+          "toPar": "+32",
+          "rounds": [
+            "86",
+            "88",
+            "",
+            ""
+          ],
+          "total": "-",
+          "status": "CUT"
+        },
+        {
+          "position": "WD",
+          "name": "Michael Vivone",
+          "affiliation": "Ontario, Canada, 2026",
+          "toPar": "-",
+          "rounds": [
+            "79",
+            "WD",
+            "",
+            ""
+          ],
+          "total": "79",
+          "status": "WD"
+        },
+        {
+          "position": "WD",
+          "name": "Joey Iaciofano",
+          "affiliation": "Jupiter, FL, 2027",
+          "toPar": "-",
+          "rounds": [
+            "88",
+            "WD",
+            "",
+            ""
+          ],
+          "total": "88",
+          "status": "WD"
+        },
+        {
+          "position": "DQ",
+          "name": "Luke Gossett",
+          "affiliation": "Sorrento, FL, 2026",
+          "toPar": "-",
+          "rounds": [
+            "74",
+            "DQ",
+            "",
+            ""
+          ],
+          "total": "74",
+          "status": "DQ"
+        }
+      ]
     }
   ]
 }

@@ -9,7 +9,7 @@ import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/d
 import { SOURCE_ACCESS } from "../src/data/hubs/source-access";
 import dispute from "../src/data/hubs/official/farrell-final-dispute.json";
 import { officialFormatSnapshot } from "../src/data/hubs/official-formats";
-import { officialRemainingSnapshot } from "../src/data/hubs/official-remaining";
+import { officialRemainingSnapshot, womensWesternSnapshot } from "../src/data/hubs/official-remaining";
 import remainingAudit from "../src/data/hubs/official/remaining-2026.provenance.json";
 import remainingBoards from "../src/data/hubs/official/remaining-2026.public.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
@@ -25,6 +25,7 @@ import {
   HUB_BATCH_6,
   HUB_BATCH_7,
   HUB_BATCH_8,
+  HUB_BATCH_9,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -43,7 +44,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -644,7 +645,7 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
 }
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
 const publishedRows = remainingBoards.boards.flatMap((board) => board.rows.map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 305) throw new Error("The published checked boards are no longer 305 rows");
+if (publishedRows.length !== 461) throw new Error("The published checked boards are no longer 461 rows");
 for (const { slug, row } of publishedRows) {
   const players = "players" in row ? row.players : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
@@ -852,6 +853,33 @@ const djHtml = renderHub({ slug: "dustin-johnson-world-junior", name: "DJ World 
 if (!djHtml.includes("Full results unavailable here. See Coverage.")) throw new Error("DJ World Junior coverage note is missing");
 if (seniorLupton?.startDate !== "2026-05-11" || seniorLupton.endDate !== "2026-05-13") {
   throw new Error("Senior Lupton dates were changed without an official source");
+}
+const western = officialRemainingSnapshot("western-junior");
+const sciortino = western?.kind === "stroke" ? western.rows[0] : null;
+const westernCut = western?.kind === "stroke" ? western.rows.filter((row) => row.status === "CUT") : [];
+const westernWd = western?.kind === "stroke" ? western.rows.filter((row) => row.status === "WD") : [];
+if (!western || western.kind !== "stroke" || !western.complete || western.rows.length !== 156 || sciortino?.rounds.join(",") !== "72,70,67,68" || sciortino.total !== 277 || sciortino.toPar !== "-7") {
+  throw new Error("Western Junior board changed");
+}
+if (westernCut.length !== 103 || westernCut[0]?.rounds[2] != null || westernWd.length !== 2 || western.rows.filter((row) => row.status === "DQ").length !== 1) {
+  throw new Error("Western Junior cut or status tokens changed");
+}
+const westernEvent = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "western-junior");
+if (westernEvent?.course !== "Knollwood Club" || westernEvent.coursePar != null || westernEvent.location != null) {
+  throw new Error("Western Junior course metadata was not limited to the 2026 page");
+}
+const westernWomenEvent = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "womens-western-junior");
+if (westernWomenEvent?.course !== "Meridian Hills Country Club" || westernWomenEvent.coursePar != null) {
+  throw new Error("Women's Western par was left on the event without a printed source");
+}
+const westernWomen = womensWesternSnapshot();
+const finalMatch = westernWomen?.kind === "match" ? westernWomen.matches.find((match) => match.round === "Final") : null;
+if (!westernWomen || westernWomen.kind !== "match" || westernWomen.complete || westernWomen.qualifyingBoard?.rows.length !== 78 || westernWomen.matches.length !== 15 || finalMatch?.result !== "Lee def. Singh, 1 up") {
+  throw new Error("Women's Western results changed");
+}
+const cheng = westernWomen.kind === "match" ? westernWomen.qualifyingBoard?.rows.find((row) => row.name === "Madelyn Cheng") : null;
+if (cheng?.rounds.join(",") !== "88,WD" || cheng.total !== "") {
+  throw new Error("Women's Western withdrawal was rewritten");
 }
 
 console.log(JSON.stringify(summary, null, 2));

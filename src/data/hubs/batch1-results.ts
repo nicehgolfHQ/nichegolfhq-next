@@ -5,7 +5,7 @@
 
 import { gasparillaMainSnapshot, gasparillaSeniorSnapshot } from "@/data/hubs/gasparilla-public";
 import { officialFormatSnapshot } from "@/data/hubs/official-formats";
-import { officialRemainingSnapshot } from "@/data/hubs/official-remaining";
+import { officialRemainingSnapshot, womensWesternSnapshot } from "@/data/hubs/official-remaining";
 import { officialStrokeSnapshot } from "@/data/hubs/official-stroke";
 
 export type ResultSource = {
@@ -64,6 +64,8 @@ export type MatchSnapshot = {
   formatConfidence: "string-only";
   complete: false;
   qualifying: { medalist: string } | null;
+  /** Stroke-play rows printed with the matches. Not a second event. */
+  qualifyingBoard?: { label: string; roundCount: number; rows: StrokeFinisher[] };
   matches: MatchLine[];
   sources: ResultSource[];
 };
@@ -185,7 +187,7 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
 };
 
 export function resultSnapshot(slug: string): ResultSnapshot | null {
-  return BATCH_1_RESULTS[slug] ?? officialRemainingSnapshot(slug) ?? officialStrokeSnapshot(slug) ?? officialFormatSnapshot(slug);
+  return BATCH_1_RESULTS[slug] ?? (slug === "womens-western-junior" ? womensWesternSnapshot() : null) ?? officialRemainingSnapshot(slug) ?? officialStrokeSnapshot(slug) ?? officialFormatSnapshot(slug);
 }
 
 function individualName(name: string): string {
