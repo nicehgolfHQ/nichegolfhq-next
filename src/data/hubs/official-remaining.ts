@@ -12,6 +12,8 @@ type PublicRow = {
   status: StrokeFinisher["status"];
 };
 
+type PublicDivision = { label: string; rows: PublicRow[] };
+
 type PublicBoard = {
   slug: string;
   roundCount: number;
@@ -19,7 +21,8 @@ type PublicBoard = {
   scoring?: StrokeSnapshot["scoring"];
   columnOrder?: StrokeSnapshot["columnOrder"];
   complete?: boolean;
-  rows: PublicRow[];
+  rows?: PublicRow[];
+  divisions?: PublicDivision[];
 };
 
 /** A PDF page header must never survive into a player name, country, or score token. */
@@ -61,6 +64,11 @@ function displayRow(row: PublicRow, roundCount: number): StrokeFinisher {
 export function officialRemainingSnapshot(slug: string): StrokeSnapshot | null {
   const board = (data.boards as PublicBoard[]).find((item) => item.slug === slug);
   if (!board) return null;
+  const divisions = board.divisions?.map((division) => ({
+    label: division.label,
+    rows: division.rows.map((row) => displayRow(row, board.roundCount)),
+  }));
+  const sourceRows = divisions?.[0]?.rows ?? (board.rows ?? []).map((row) => displayRow(row, board.roundCount));
   return {
     kind: "stroke",
     complete: board.complete !== false,
@@ -68,7 +76,8 @@ export function officialRemainingSnapshot(slug: string): StrokeSnapshot | null {
     scoring: board.scoring,
     columnOrder: board.columnOrder,
     roundCount: board.roundCount,
-    rows: board.rows.map((row) => displayRow(row, board.roundCount)),
+    rows: sourceRows,
+    divisions,
     sources: [{ record: "official-board" }],
   };
 }

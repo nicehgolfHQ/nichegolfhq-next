@@ -32,6 +32,12 @@ const RESULTS_NOTE: Record<string, string> = {
   "the-crump-cup": "The posted sheet is pairings and tee times, not match results.",
   "usga-mens-mid-am": "Full results unavailable here. See Coverage.",
   "usga-womens-mid-am": "Full results unavailable here. See Coverage.",
+  "elite-invitational": "Girls results unavailable here.",
+  "us-junior-amateur": "Full results unavailable here.",
+  "us-girls-junior": "Full results unavailable here.",
+  "us-womens-amateur": "Full results unavailable here.",
+  "boys-junior-pga": "Full results unavailable here.",
+  "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
 };
 
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
@@ -286,7 +292,7 @@ function ResultsPanel({
 }) {
   const stroke = snapshot?.kind === "stroke" ? snapshot : null;
   const resultsNote = RESULTS_NOTE[tournament.slug];
-  const divisions = stroke?.divisions && stroke.divisions.length > 1 ? stroke.divisions : null;
+  const divisions = stroke?.divisions && stroke.divisions.length > 0 ? stroke.divisions : null;
   const activeRows = divisions ? divisions[division]?.rows ?? divisions[0].rows : stroke?.rows ?? [];
   const roundScores = activeRows.some((row) => row.rounds.some((score) => score != null));
   return (
@@ -557,6 +563,21 @@ function TeamTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "te
 }
 
 function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; names: string[] }) {
+  if (snapshot?.kind === "stroke" && snapshot.divisions && snapshot.divisions.length === 1) {
+    const item = snapshot.divisions[0];
+    return (
+      <div>
+        <h2 className="text-center font-serif text-3xl font-semibold">{item.label}</h2>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+          {[...item.rows].sort((a, b) => a.name.localeCompare(b.name)).map((player) => (
+            <li key={player.name} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+              {player.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
   if (snapshot?.kind === "stroke" && snapshot.divisions && snapshot.divisions.length > 1) {
     const primary = new Set(snapshot.divisions[0].rows.map((row) => row.name));
     const separate = snapshot.divisions.slice(1).some((item) => item.rows.some((row) => !primary.has(row.name)));

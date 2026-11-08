@@ -24,6 +24,7 @@ import {
   HUB_BATCH_5,
   HUB_BATCH_6,
   HUB_BATCH_7,
+  HUB_BATCH_8,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -42,7 +43,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -643,7 +644,7 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
 }
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
 const publishedRows = remainingBoards.boards.flatMap((board) => board.rows.map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 249) throw new Error("The published checked boards are no longer 249 rows");
+if (publishedRows.length !== 305) throw new Error("The published checked boards are no longer 305 rows");
 for (const { slug, row } of publishedRows) {
   const players = "players" in row ? row.players : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
@@ -795,6 +796,33 @@ const huddlestonHtml = renderHub(
   "senior",
 );
 if (!huddlestonHtml.includes("May 28–30, 2026")) throw new Error("Huddleston senior page does not show May 28-30");
+const elite = officialRemainingSnapshot("elite-invitational");
+const stiglitz = elite?.rows[0];
+const chauvin = elite?.rows.find((row) => row.name === "Noah Chauvin");
+const tied = elite?.rows.filter((row) => row.place === "T6" && row.total === 209);
+if (!elite || elite.complete || elite.divisions?.length !== 1 || elite.divisions[0].label !== "Boys" || elite.rows.length !== 56) {
+  throw new Error("Elite boys board was marked as the whole event");
+}
+if (stiglitz?.name !== "Warren Stiglitz" || stiglitz.rounds.join(",") !== "64,66,69" || stiglitz.total !== 199 || stiglitz.toPar !== "-14") {
+  throw new Error("Elite boys leader changed");
+}
+if (tied?.length !== 4 || chauvin?.rounds.join(",") !== "W,0,-" || chauvin.total !== "-") {
+  throw new Error("Elite ties or the unfinished row were rewritten");
+}
+if (elite.rows.some((row) => row.name.includes("Girl"))) throw new Error("A girls row was added to the Elite boys board");
+const eliteHtml = renderHub({ slug: "elite-invitational", name: "The Elite Invitational", channel: "junior", month: 11, format: "54-hole stroke play" }, "junior");
+if (!eliteHtml.includes("Boys") || !eliteHtml.includes("Girls results unavailable here.") || !eliteHtml.includes("Warren Stiglitz")) {
+  throw new Error("Elite page does not label the boys board");
+}
+const juniorNote = renderHub({ slug: "us-junior-amateur", name: "U.S. Junior Amateur", channel: "junior", month: 7, format: "Match play", pastResults: [{ year: 2026, champion: "Noah Maclauchlan" }] }, "junior");
+if (!juniorNote.includes("Full results unavailable here.") || juniorNote.includes("See Coverage.") || !juniorNote.includes("Noah Maclauchlan")) {
+  throw new Error("U.S. Junior page dropped the champion or described the retrieval");
+}
+const djHtml = renderHub({ slug: "dustin-johnson-world-junior", name: "DJ World Junior", channel: "junior", month: 3, format: "54-hole stroke play" }, "junior");
+if (!djHtml.includes("Full results unavailable here. See Coverage.")) throw new Error("DJ World Junior coverage note is missing");
+if (seniorLupton?.startDate !== "2026-05-11" || seniorLupton.endDate !== "2026-05-13") {
+  throw new Error("Senior Lupton dates were changed without an official source");
+}
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");
