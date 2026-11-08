@@ -196,6 +196,18 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
     ],
     sources: [{ record: "official-board" }],
   },
+  "east-west-cup-matches": {
+    kind: "match",
+    formatConfidence: "string-only",
+    complete: false,
+    qualifying: null,
+    matches: [
+      { flight: "Four Ball", round: "Fri, November 6", result: "East 5.00, West 4.00", players: ["East", "West"] },
+      { flight: "Foursomes", round: "R1", result: "East 4.50, West 4.50", players: ["East", "West"] },
+      { flight: "Foursomes", round: "R2", result: "East 2.50, West 6.50", players: ["East", "West"] },
+    ],
+    sources: [{ record: "official-board" }],
+  },
   "walter-j-travis-invitational-senior-division": {
     kind: "match",
     formatConfidence: "string-only",

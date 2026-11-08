@@ -445,7 +445,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "john-t-lupton-memorial-senior-division",
     access: "no-url",
     completeness: "none",
-    note: "Dates remain May 11-13, 2026. The mid-am listing remains rescheduled for 2027. Neither date was changed.",
+    note: "The mid-am article says the John T. Lupton Memorial will not be held in 2026, then calls it a mid-amateur event. It does not name the senior division. Senior dates remain May 11-13, 2026. Mid-am dates remain rescheduled for 2027.",
   },
   {
     channel: "senior",
@@ -544,5 +544,26 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     access: "not-yet-published",
     completeness: "none",
     note: "Scheduled December 5-7, 2026. No 2026 champion is stored.",
+  },
+  {
+    channel: "senior",
+    slug: "george-coleman-invitational-senior-division",
+    access: "no-url",
+    completeness: "none",
+    note: "No 2026 champion is stored. The venue note still says 2026 is unconfirmed. No board was added.",
+  },
+  {
+    channel: "senior",
+    slug: "east-west-cup-matches",
+    access: "public-page",
+    completeness: "partial",
+    note: "Four Ball is complete: East 5.00, West 4.00. Foursomes R1 is East 4.50, West 4.50. Foursomes R2 is East 2.50, West 6.50. Singles on November 8 were still in progress and were not mounted.",
+  },
+  {
+    channel: "senior",
+    slug: "dixie-senior-amateur",
+    access: "not-yet-published",
+    completeness: "none",
+    note: "Scheduled December 9-11, 2026. No 2026 champion is stored, and no 2025 winner was copied forward.",
   },
 ];

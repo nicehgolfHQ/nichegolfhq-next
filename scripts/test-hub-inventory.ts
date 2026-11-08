@@ -35,6 +35,7 @@ import {
   HUB_BATCH_12,
   HUB_BATCH_13,
   HUB_BATCH_14,
+  HUB_BATCH_15,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -53,7 +54,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length + HUB_BATCH_15.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -1146,8 +1147,32 @@ if (!bogartHtml.includes("Not started") || bogartHtml.includes("Full results una
 if (!tocSeniorHtml.includes("Not started") || tocSeniorHtml.includes("Full results unavailable here.")) {
   throw new Error("Golfweek Senior Tournament of Champions was given a finished-results claim");
 }
-for (const slug of ["east-west-cup-matches", "george-coleman-invitational-senior-division", "dixie-senior-amateur"]) {
-  if (isFormatHub("senior", slug)) throw new Error(`${slug} was moved before its source was settled`);
+const coleman = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "george-coleman-invitational-senior-division");
+if (coleman?.winners?.some((winner) => winner.year === 2026) || !coleman?.note?.includes("pending confirmation")) {
+  throw new Error("George Coleman was given a 2026 champion or a confirmed venue");
+}
+const colemanHtml = renderHub({ slug: "george-coleman-invitational-senior-division", name: "George Coleman", channel: "senior", month: 4, format: "54-hole stroke play", startDate: "2026-04-13", endDate: "2026-04-15", pastResults: [{ year: 2024, champion: "Mike McCoy" }] }, "senior");
+if (!colemanHtml.includes("Full results unavailable here.") || colemanHtml.includes("2026 champion") || !colemanHtml.includes("Defending champion")) {
+  throw new Error("George Coleman results were invented");
+}
+const eastWest = resultSnapshot("east-west-cup-matches");
+if (!eastWest || eastWest.kind !== "match" || eastWest.complete || eastWest.matches.length !== 3 || eastWest.matches.some((match) => /singles|November 8/i.test(`${match.round} ${match.result}`))) {
+  throw new Error("East vs West senior included Sunday or was marked final");
+}
+if (eastWest.kind === "match" && eastWest.matches.map((match) => match.result).join("|") !== "East 5.00, West 4.00|East 4.50, West 4.50|East 2.50, West 6.50") {
+  throw new Error("East vs West senior session scores changed");
+}
+const eastWestEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "east-west-cup-matches");
+if (eastWestEvent?.liveStatus !== "live" || eastWestEvent.endDate !== "2026-11-08") {
+  throw new Error("East vs West senior was marked complete");
+}
+const dixie = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "dixie-senior-amateur");
+if (dixie?.startDate !== "2026-12-09" || dixie.endDate !== "2026-12-11" || classifyCalendar({ startDate: dixie.startDate, endDate: dixie.endDate }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("Dixie Senior Amateur was not left as a future 2026 event");
+}
+const dixieHtml = renderHub({ slug: "dixie-senior-amateur", name: "Dixie Senior Amateur", channel: "senior", month: 12, startDate: "2026-12-09", endDate: "2026-12-11" }, "senior");
+if (!dixieHtml.includes("Not started") || dixieHtml.includes("2026 champion") || dixieHtml.includes("Full results unavailable here.")) {
+  throw new Error("Dixie Senior Amateur was given a 2026 result");
 }
 
 console.log(JSON.stringify(summary, null, 2));

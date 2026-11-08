@@ -43,6 +43,7 @@ const RESULTS_NOTE: Record<string, string> = {
   "usga-mens-senior-amateur": "Full results unavailable here.",
   "us-senior-womens-amateur": "Full results unavailable here.",
   "crump-cup-senior-division": "Full results unavailable here.",
+  "george-coleman-invitational-senior-division": "Full results unavailable here.",
   "north-south-junior": "Full results unavailable here.",
   "us-amateur": "Full results unavailable here.",
   "ajga-ping-invitational": "Full results unavailable here.",
