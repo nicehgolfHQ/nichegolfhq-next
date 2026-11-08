@@ -35,9 +35,10 @@ export default function SeniorEwingCupHubPage() {
     )
     .map((player) => ({
       ...player,
-      appearances: appearancesFor(player.id).filter(
-        (row) => row.eventSlug === EWING_EVENT_SLUG && row.sideLabel === "Senior",
-      ),
+      sources: [],
+      appearances: appearancesFor(player.id)
+        .filter((row) => row.eventSlug === EWING_EVENT_SLUG && row.sideLabel === "Senior")
+        .map((row) => ({ ...row, sources: [] })),
     }));
 
   const baseUrl = "https://www.nichegolfhq.com";
@@ -77,7 +78,10 @@ export default function SeniorEwingCupHubPage() {
       <EwingCupHub
         division="senior"
         channelLabel="seniorgolfHQ"
-        pastChampions={[]}
+        pastChampions={(tournament.pastResults ?? []).map((row) => ({
+          year: row.year,
+          champion: row.champion,
+        }))}
         entrants={entrants}
         articles={(tournament.news ?? []).map((article) => ({
           href: `/seniorgolfhq/${tournament.slug}/${article.slug}`,

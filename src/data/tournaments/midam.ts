@@ -3061,7 +3061,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
 
     format: "54 holes better ball",
     howToPlay: [
-      { label: "Apply to play", href: "https://www.ewingcup.com/" },
+      { label: "Application information", href: "https://www.ewingcup.com/apply", note: "Password required on the official page." },
     ],
     news: [],
     pastResults: [

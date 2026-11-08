@@ -20,7 +20,10 @@ export type PlannedRound = {
   label: string;
   date: string;
   course: string;
+  /** Internal schedule note. Not rendered. */
   detail: string;
+  /** Reader-facing fact. Null when the only note is an internal caveat. */
+  publicLine: string | null;
   /** Course par when this site has it. Blue Course par is not in the verified record. */
   par: number | null;
 };
@@ -28,6 +31,8 @@ export type PlannedRound = {
 export const EWING_OFFICIAL = {
   home: "https://www.ewingcup.com/",
   information: "https://www.ewingcup.com/tournament-information",
+  /** Public nav item "Apply". The page is password-protected; it is not an open form. */
+  apply: "https://www.ewingcup.com/apply",
 } as const;
 
 export const EWING_SNAPSHOT = {
@@ -60,6 +65,7 @@ export const EWING_SNAPSHOT = {
       date: "2026-11-13",
       course: "Blue Course",
       detail: "Round 1. Tee times were still TBD on the official schedule.",
+      publicLine: null,
       par: null,
     },
     {
@@ -68,6 +74,7 @@ export const EWING_SNAPSHOT = {
       date: "2026-11-14",
       course: "Gold Course",
       detail: "Round 2. Tee times were still TBD on the official schedule.",
+      publicLine: null,
       par: 72,
     },
     {
@@ -76,6 +83,7 @@ export const EWING_SNAPSHOT = {
       date: "2026-11-15",
       course: "Blue Course",
       detail: "Final round. Full field start at 8:30 AM.",
+      publicLine: "Full field start at 8:30 AM.",
       par: null,
     },
   ] satisfies PlannedRound[],

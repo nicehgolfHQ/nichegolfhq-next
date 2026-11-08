@@ -19,7 +19,7 @@ export async function generateMetadata({
   const resolved = await Promise.resolve(params);
   const player = getPlayer(resolved.playerId ?? "");
   if (!player) return { title: "Player | midamgolfHQ" };
-  const description = `${player.name} on nichegolfHQ. Entries are limited to events where a source names this player.`;
+  const description = `${player.name} on nichegolfHQ.`;
   return {
     title: `${player.name} | midamgolfHQ`,
     description,
@@ -80,14 +80,7 @@ export default async function PlayerPage({
                     </Link>
                   </p>
                 ) : null}
-                {row.result ? <p className="mt-2 text-sm">{row.result}</p> : <p className="mt-2 text-sm text-zinc-500">No result posted.</p>}
-                <ul className="mt-3 space-y-1 text-xs text-zinc-500">
-                  {row.sources.map((source) => (
-                    <li key={source.checkedAt + source.title}>
-                      {source.title}. Checked {source.checkedAt}. {source.established}
-                    </li>
-                  ))}
-                </ul>
+                {row.result ? <p className="mt-2 text-sm">{row.result}</p> : null}
               </li>
             );
           })}
