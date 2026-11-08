@@ -3000,6 +3000,18 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
         news: [
       {
+        slug: "2026-national-invitational-tournament-final-recap",
+        title: "Sam Jackson Wins the National Invitational by Four at The Country Club of Birmingham",
+        date: "2026-11-08",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Sam Jackson posts 70, 68 and 70 for a 5-under 208, four shots ahead of Sean Rowen at 1-under 212.",
+        content: [
+          "Sam Jackson won the National Invitational Tournament on the West Course at The Country Club of Birmingham in Birmingham, Ala., with rounds of 70, 68 and 70 for a 5-under 208. He finished four shots ahead of Sean Rowen, who closed with a 68 for a 1-under 212. Full results and tournament coverage can be found on the [National Invitational Tournament hub](https://www.nichegolfhq.com/midamgolfhq/national-invitational-tournament).",
+          "Jackson King, Will McCurdy and Ethan Hagood tied for third at 1-over 214. Defending champion Ryan Terry finished tied for 16th at 5-over 218. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
+        ],
+      },
+      {
         slug: "2026-national-invitational-tournament-round-2-recap",
         title: "Sam Jackson Takes Two-Shot NIT Lead Into Sunday After 68 at Birmingham",
         date: "2026-11-07",

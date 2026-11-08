@@ -1235,6 +1235,27 @@ const eastNews = midamEastWest.news?.map((article) => article.slug) ?? [];
 for (const slug of ["2026-east-vs-west-matches-day-2-recap", "2026-east-vs-west-matches-day-1-recap", "2026-east-vs-west-matches-preview"]) {
   if (!eastNews.includes(slug)) throw new Error(`${slug} was dropped`);
 }
+const nit = MIDAM_TOURNAMENTS.find((event) => event.slug === "national-invitational-tournament");
+const nitFinal = nit?.news?.find((article) => article.slug === "2026-national-invitational-tournament-final-recap");
+if (
+  nit?.course !== "The Country Club of Birmingham" ||
+  nit.liveStatus !== "live" ||
+  !nit.golfGeniusUrl?.includes("sign_in") ||
+  !nit.pastResults?.some((result) => result.year === 2025 && result.champion === "Ryan Terry") ||
+  nitFinal?.title !== "Sam Jackson Wins the National Invitational by Four at The Country Club of Birmingham" ||
+  nitFinal.date !== "2026-11-08" ||
+  nitFinal.author !== "midamgolfHQ Staff" ||
+  nitFinal.summary !== "Sam Jackson posts 70, 68 and 70 for a 5-under 208, four shots ahead of Sean Rowen at 1-under 212." ||
+  nitFinal.content.join("\n") !== [
+    "Sam Jackson won the National Invitational Tournament on the West Course at The Country Club of Birmingham in Birmingham, Ala., with rounds of 70, 68 and 70 for a 5-under 208. He finished four shots ahead of Sean Rowen, who closed with a 68 for a 1-under 212. Full results and tournament coverage can be found on the [National Invitational Tournament hub](https://www.nichegolfhq.com/midamgolfhq/national-invitational-tournament).",
+    "Jackson King, Will McCurdy and Ethan Hagood tied for third at 1-over 214. Defending champion Ryan Terry finished tied for 16th at 5-over 218. midamgolfHQ will be back next week with coverage from the Ewing Cup.",
+  ].join("\n")
+) {
+  throw new Error("The NIT final recap or the existing hub scoring record changed");
+}
+for (const slug of ["2026-national-invitational-tournament-round-2-recap", "2026-national-invitational-tournament-round-1-recap", "2026-national-invitational-tournament-preview"]) {
+  if (!nit.news?.some((article) => article.slug === slug)) throw new Error(`${slug} was dropped`);
+}
 const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
 const teamsAt = eastWestHtml.indexOf(">Teams</h2>");
 const teamBlock = teamsAt < 0 ? "" : eastWestHtml.slice(teamsAt, teamsAt + 600);
