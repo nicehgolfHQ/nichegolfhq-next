@@ -69,6 +69,8 @@ export interface Tournament {
   endDate?: string; // ISO "YYYY-MM-DD" (omit for single-day events)
 
   // === VENUE ===
+  /** Public venue state. Set only when the stored course is not confirmed for this edition. */
+  venueStatus?: "unconfirmed";
   course?: string;
   location?: string;
   courseDesigner?: string;

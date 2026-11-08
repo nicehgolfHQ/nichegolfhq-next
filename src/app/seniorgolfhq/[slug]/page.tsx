@@ -16,8 +16,8 @@ import {
   listSeniorMajorSlugs,
   SENIOR_MAJOR_EVENTS_2026,
 } from "@/lib/seniorMajors";
-import type { Tournament } from "@/lib/tournaments/types";
 import { buildFaqLd } from "@/lib/tournaments/faqLd";
+import { seniorVenueUnconfirmed, toTournament } from "@/lib/tournaments/seniorTournament";
 
 export const dynamicParams = false;
 
@@ -25,53 +25,6 @@ export function generateStaticParams() {
   return listSeniorMajorSlugs()
     .filter((slug) => slug !== "ewing-cup-four-ball")
     .map((slug) => ({ slug }));
-}
-
-/* ------------------------------------------------------------------ */
-/*  Helper: convert SeniorMajorEvent → Tournament for shared components */
-/* ------------------------------------------------------------------ */
-function toTournament(
-  event: NonNullable<ReturnType<typeof getSeniorMajorBySlug>>
-): Tournament {
-  return {
-    slug: event.slug,
-    name: event.name,
-    channel: "senior",
-    logo: event.logo,
-    month: 1, // placeholder
-    dates2026: event.dates2026 ?? event.month, // e.g. "February 2026"
-    startDate: event.startDate,
-    endDate: event.endDate,
-    course: event.course,
-    location: event.location,
-    coursePar: event.coursePar,
-    courseYardage: event.courseYardage,
-    courseDesigner: event.courseDesigner,
-    format: event.format,
-    fieldSize: event.fieldSize,
-    eligibility: event.eligibility,
-    overview: event.overview,
-    pastResults: event.pastResults?.map((r) => ({
-      year: r.year,
-      champion: r.champion,
-      score: r.score,
-      runnerUp: r.runnerUp,
-      venue: r.venue,
-      resultsUrl: r.resultsUrl,
-      divisions: r.divisions,
-    })) ?? (event.winners ?? []).map((w) => ({
-      year: w.year,
-      champion: w.champion,
-    })),
-    pastResultsVenueLabel: event.pastResultsVenueLabel,
-    howToPlay: event.howToPlay,
-    news: event.news,
-    golfGeniusUrl: event.golfGeniusUrl,
-    golfGeniusUrlLabel: event.golfGeniusUrlLabel,
-    tournamentWebsite: event.tournamentWebsite,
-    tournamentWebsiteLabel: event.tournamentWebsiteLabel,
-    liveStatus: event.liveStatus,
-  } as Tournament;
 }
 
 /* ------------------------------------------------------------------ */
@@ -105,7 +58,11 @@ export async function generateMetadata({
   const event = getSeniorMajorBySlug(slug);
   if (!event) return { title: "seniorgolfHQ" };
 
-  const subtitle = [event.course, event.location, event.month]
+  const subtitle = [
+    seniorVenueUnconfirmed(event.note) ? "Venue unconfirmed" : event.course,
+    seniorVenueUnconfirmed(event.note) ? null : event.location,
+    event.month,
+  ]
     .filter(Boolean)
     .join(" \u2022 ");
 
@@ -152,8 +109,8 @@ export default async function SeniorScheduleEventPage({
     url: pageUrl,
     description: `Dates, venue, format, and past winners for ${event.name}.`,
     liveStatus: event.liveStatus,
-    course: event.course,
-    location: event.location,
+    course: tournament.course,
+    location: tournament.location,
     startDate: event.startDate || isoDate || undefined,
     endDate: event.endDate,
   });

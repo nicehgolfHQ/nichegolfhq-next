@@ -23,15 +23,15 @@ const CHANNEL_PATH: Record<HubChannel, string> = {
   senior: "seniorgolfhq",
 };
 
-type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event" | "Coverage";
+type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event";
 
 /** Public scope lines. These do not add scores. */
 const RESULTS_NOTE: Record<string, string> = {
   "sanger-invitational": "Full results unavailable here.",
-  "the-stocker-cup": "Full results unavailable here. See Coverage.",
+  "the-stocker-cup": "Full results unavailable here.",
   "the-crump-cup": "The posted sheet is pairings and tee times, not match results.",
-  "usga-mens-mid-am": "Full results unavailable here. See Coverage.",
-  "usga-womens-mid-am": "Full results unavailable here. See Coverage.",
+  "usga-mens-mid-am": "Full results unavailable here.",
+  "usga-womens-mid-am": "Full results unavailable here.",
   "elite-invitational": "Girls results unavailable here.",
   "us-junior-amateur": "Full results unavailable here.",
   "us-girls-junior": "Full results unavailable here.",
@@ -43,10 +43,11 @@ const RESULTS_NOTE: Record<string, string> = {
   "usga-mens-senior-amateur": "Full results unavailable here.",
   "us-senior-womens-amateur": "Full results unavailable here.",
   "crump-cup-senior-division": "Full results unavailable here.",
+  "george-coleman-invitational-senior-division": "Full results unavailable here.",
   "north-south-junior": "Full results unavailable here.",
   "us-amateur": "Full results unavailable here.",
   "ajga-ping-invitational": "Full results unavailable here.",
-  "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
+  "dustin-johnson-world-junior": "Full results unavailable here.",
 };
 
 export function FormatHub({ tournament, channel }: { tournament: Tournament; channel: HubChannel }) {
@@ -55,15 +56,16 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   const standing = classifyCalendar(tournament);
   const snapshot = resultSnapshot(tournament.slug);
   const rounds = snapshot?.kind === "stroke" ? snapshot.roundCount : strokeRoundCount(tournament.format, kind);
-  const hasNews = (tournament.news ?? []).length > 0;
-  const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event", ...(hasNews ? (["Coverage"] as Panel[]) : [])];
+  const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event"];
   const [tab, setTab] = useState<Panel>("Overview");
   const [round, setRound] = useState(() =>
     snapshot?.kind === "stroke" && snapshot.scope !== "published-finishers" ? snapshot.roundCount : 1,
   );
   const [division, setDivision] = useState(0);
   const dates = resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026 ?? tournament.typicalDates);
-  const place = [tournament.course, tournament.location].filter(Boolean).join(" · ");
+  const place = tournament.venueStatus === "unconfirmed"
+    ? "Venue unconfirmed"
+    : [tournament.course, tournament.location].filter(Boolean).join(" · ");
   const names = snapshot ? snapshotNames(snapshot) : [];
 
   return (
@@ -115,7 +117,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
 
       <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         <div hidden={tab !== "Overview"}>
-          <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} />
+          <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} channel={channel} />
         </div>
         <div hidden={tab !== resultsLabel}>
           <ResultsPanel
@@ -136,11 +138,6 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
         <div hidden={tab !== "Event"}>
           <EventPanel tournament={tournament} standing={standing} snapshot={snapshot} />
         </div>
-        {hasNews ? (
-          <div hidden={tab !== "Coverage"}>
-            <TournamentNews news={tournament.news} articleHrefPrefix={`/${CHANNEL_PATH[channel]}/${tournament.slug}`} />
-          </div>
-        ) : null}
       </div>
     </div>
   );
@@ -190,10 +187,12 @@ function OverviewPanel({
   tournament,
   rounds,
   standing,
+  channel,
 }: {
   tournament: Tournament;
   rounds: number;
   standing: ReturnType<typeof classifyCalendar>;
+  channel: HubChannel;
 }) {
   const facts = [
     tournament.fieldSize ? { label: "Field", value: tournament.fieldSize } : null,
@@ -213,12 +212,7 @@ function OverviewPanel({
             </div>
           ))}
         </div>
-      ) : (
-        <div className="rounded-2xl border border-zinc-200 bg-white p-5 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Format</p>
-          <p className="mt-2 font-serif text-2xl font-semibold">{tournament.format}</p>
-        </div>
-      )}
+      ) : null}
 
       {facts.length > 0 || latest ? (
         <div className="mt-4 flex flex-wrap justify-center gap-3">
@@ -238,7 +232,7 @@ function OverviewPanel({
         </div>
       ) : null}
 
-      {tournament.overview ? (
+      {tournament.overview && tournament.venueStatus !== "unconfirmed" ? (
         <p className="mx-auto mt-8 max-w-3xl text-left text-base leading-7 text-zinc-700">{tournament.overview}</p>
       ) : null}
 
@@ -277,6 +271,8 @@ function OverviewPanel({
           </ul>
         </section>
       ) : null}
+
+      <TournamentNews news={tournament.news} articleHrefPrefix={`/${CHANNEL_PATH[channel]}/${tournament.slug}`} />
     </div>
   );
 }
@@ -706,6 +702,23 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
       </div>
     );
   }
+  if (snapshot?.kind === "match") {
+    const teams = [...new Set(snapshot.matches.flatMap((match) => match.teams ?? []))];
+    if (teams.length > 0 && names.every((name) => teams.includes(name))) {
+      return (
+        <div>
+          <h2 className="text-center font-serif text-3xl font-semibold">Teams</h2>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            {teams.map((team) => (
+              <li key={team} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+                {team}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+  }
   if (names.length === 0) {
     return (
       <div className="text-center">
@@ -744,15 +757,16 @@ function EventPanel({
           division.yardage != null ? { label: `${division.label} yardage`, value: `${division.yardage.toLocaleString()} yards` } : null,
         ]).filter((fact): fact is { label: string; value: string } => Boolean(fact))
       : [];
+  const venueUnconfirmed = tournament.venueStatus === "unconfirmed";
   const facts = [
-    tournament.course ? { label: "Course", value: tournament.course } : null,
-    tournament.location ? { label: "Location", value: tournament.location } : null,
-    tournament.courseTeeName ? { label: "Tee", value: tournament.courseTeeName } : null,
-    divisionFacts.some((fact) => fact.label.endsWith(" par")) ? null : tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
-    divisionFacts.some((fact) => fact.label.endsWith(" yardage")) ? null : tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
-    tournament.courseRating ? { label: "Rating", value: String(tournament.courseRating) } : null,
-    tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
-    tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
+    venueUnconfirmed ? { label: "Venue", value: "Unconfirmed" } : tournament.course ? { label: "Course", value: tournament.course } : null,
+    venueUnconfirmed ? null : tournament.location ? { label: "Location", value: tournament.location } : null,
+    venueUnconfirmed ? null : tournament.courseTeeName ? { label: "Tee", value: tournament.courseTeeName } : null,
+    venueUnconfirmed || divisionFacts.some((fact) => fact.label.endsWith(" par")) ? null : tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
+    venueUnconfirmed || divisionFacts.some((fact) => fact.label.endsWith(" yardage")) ? null : tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
+    venueUnconfirmed ? null : tournament.courseRating ? { label: "Rating", value: String(tournament.courseRating) } : null,
+    venueUnconfirmed ? null : tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
+    venueUnconfirmed ? null : tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
     tournament.courseYear ? { label: "Opened", value: String(tournament.courseYear) } : null,
     ...divisionFacts,
   ].filter((item): item is { label: string; value: string } => Boolean(item));

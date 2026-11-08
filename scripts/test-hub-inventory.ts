@@ -1,8 +1,12 @@
+import { readFileSync } from "node:fs";
+import { toTournament } from "../src/lib/tournaments/seniorTournament";
+import { PLAYERS, PLAYER_APPEARANCES } from "../src/data/players/registry";
 import { MIDAM_TOURNAMENTS } from "../src/data/tournaments/midam";
 import { JUNIOR_MAJOR_EVENTS_2026 } from "../src/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 } from "../src/lib/seniorMajors";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+import { EwingCupHub } from "../src/components/hubs/EwingCupHub";
 import { FormatHub } from "../src/components/hubs/FormatHub";
 import { resultSnapshot, snapshotNames } from "../src/data/hubs/batch1-results";
 import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/data/hubs/gasparilla-2026";
@@ -35,6 +39,7 @@ import {
   HUB_BATCH_12,
   HUB_BATCH_13,
   HUB_BATCH_14,
+  HUB_BATCH_15,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -53,7 +58,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length + HUB_BATCH_15.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -745,13 +750,13 @@ const stockerHtml = renderHub({ slug: "the-stocker-cup", name: "Stocker", channe
 if (!sangerHtml.includes("Full results unavailable here.") || sangerHtml.includes("See Coverage.") || sangerHtml.includes("was found")) {
   throw new Error("Sanger results copy is not hub-scoped");
 }
-if (!stockerHtml.includes("Full results unavailable here. See Coverage.") || stockerHtml.includes("was found")) {
+if (!stockerHtml.includes("Full results unavailable here.") || stockerHtml.includes("See Coverage.") || stockerHtml.includes("was found")) {
   throw new Error("Stocker results copy is not hub-scoped");
 }
 const usgaHtml = renderHub({ slug: "usga-mens-mid-am", name: "USGA Men’s Mid-Am", channel: "midam", month: 10, format: "Match play" }, "midam");
 const usgaWomenHtml = renderHub({ slug: "usga-womens-mid-am", name: "USGA Women’s Mid-Am", channel: "midam", month: 9, format: "Match play" }, "midam");
 for (const html of [usgaHtml, usgaWomenHtml]) {
-  if (!html.includes("Full results unavailable here. See Coverage.") || html.includes("Official scoring was not available")) {
+  if (!html.includes("Full results unavailable here.") || html.includes("See Coverage.") || html.includes("Official scoring was not available")) {
     throw new Error("USGA results copy describes the retrieval instead of the hub");
   }
 }
@@ -866,7 +871,7 @@ if (!juniorNote.includes("Full results unavailable here.") || juniorNote.include
   throw new Error("U.S. Junior page dropped the champion or described the retrieval");
 }
 const djHtml = renderHub({ slug: "dustin-johnson-world-junior", name: "DJ World Junior", channel: "junior", month: 3, format: "54-hole stroke play" }, "junior");
-if (!djHtml.includes("Full results unavailable here. See Coverage.")) throw new Error("DJ World Junior coverage note is missing");
+if (!djHtml.includes("Full results unavailable here.") || djHtml.includes("See Coverage.")) throw new Error("DJ World Junior coverage note is missing");
 if (seniorLupton?.startDate !== "2026-05-11" || seniorLupton.endDate !== "2026-05-13") {
   throw new Error("Senior Lupton dates were changed without an official source");
 }
@@ -1146,8 +1151,154 @@ if (!bogartHtml.includes("Not started") || bogartHtml.includes("Full results una
 if (!tocSeniorHtml.includes("Not started") || tocSeniorHtml.includes("Full results unavailable here.")) {
   throw new Error("Golfweek Senior Tournament of Champions was given a finished-results claim");
 }
-for (const slug of ["east-west-cup-matches", "george-coleman-invitational-senior-division", "dixie-senior-amateur"]) {
-  if (isFormatHub("senior", slug)) throw new Error(`${slug} was moved before its source was settled`);
+const coleman = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "george-coleman-invitational-senior-division");
+if (!coleman || coleman.winners?.some((winner) => winner.year === 2026) || coleman.course !== "Seminole Golf Club" || coleman.location !== "Juno Beach, FL" || !coleman.note?.includes("venue for 2026 pending confirmation")) {
+  throw new Error("George Coleman source course or pending-venue note changed");
+}
+const seniorPage = readFileSync("src/app/seniorgolfhq/[slug]/page.tsx", "utf8");
+if (!seniorPage.includes('from "@/lib/tournaments/seniorTournament"') || seniorPage.includes("function toTournament")) {
+  throw new Error("Senior hub page is not using the shared tournament adapter");
+}
+const colemanAdapted = toTournament(coleman);
+if (colemanAdapted.course || colemanAdapted.location || colemanAdapted.courseDesigner || colemanAdapted.overview || colemanAdapted.note || colemanAdapted.venueStatus !== "unconfirmed") {
+  throw new Error("George Coleman adapter still publishes the unconfirmed venue or its internal note");
+}
+const colemanHtml = renderHub(colemanAdapted, "senior");
+if (!colemanHtml.includes("Venue unconfirmed") || !colemanHtml.includes(">Unconfirmed<") || colemanHtml.includes("Seminole") || colemanHtml.includes("Juno Beach") || colemanHtml.includes("rising water") || colemanHtml.includes("Donald Ross")) {
+  throw new Error("George Coleman page asserts Seminole or prints the internal venue note");
+}
+if (!colemanHtml.includes("Full results unavailable here.") || colemanHtml.includes("2026 champion") || !colemanHtml.includes("Defending champion") || !colemanHtml.includes("Mike McCoy")) {
+  throw new Error("George Coleman results were invented");
+}
+const bogartSource = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "society-of-seniors-ralph-bogart");
+const bogartAdapted = bogartSource ? toTournament(bogartSource) : null;
+if (!bogartSource?.course || !bogartSource.note || bogartAdapted?.course !== bogartSource.course || bogartAdapted.venueStatus || bogartAdapted.note) {
+  throw new Error("A confirmed senior venue note was treated as unconfirmed or published");
+}
+const eastWest = resultSnapshot("east-west-cup-matches");
+if (!eastWest || eastWest.kind !== "match" || eastWest.complete || eastWest.matches.length !== 3 || eastWest.matches.some((match) => /singles|November 8/i.test(`${match.round} ${match.result}`))) {
+  throw new Error("East vs West senior included Sunday or was marked final");
+}
+if (eastWest.kind === "match" && eastWest.matches.map((match) => match.result).join("|") !== "East 5.00, West 4.00|East 4.50, West 4.50|East 2.50, West 6.50") {
+  throw new Error("East vs West senior session scores changed");
+}
+if (eastWest.kind === "match" && eastWest.matches.some((match) => match.players?.length)) {
+  throw new Error("East and West were stored as players");
+}
+if (snapshotNames(eastWest).some((name) => name === "East" || name === "West" || name.startsWith("East "))) {
+  throw new Error("East vs West team sides were treated as player names");
+}
+if (PLAYERS.some((player) => player.name === "East" || player.name === "West") || PLAYER_APPEARANCES.some((row) => row.eventSlug === "east-west-cup-matches")) {
+  throw new Error("East or West was added to the player registry");
+}
+const eastWestEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "east-west-cup-matches");
+if (eastWestEvent?.liveStatus !== "live" || eastWestEvent.endDate !== "2026-11-08" || eastWestEvent.course !== "Maridoe Golf Club") {
+  throw new Error("East vs West senior was marked complete");
+}
+const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
+const teamsAt = eastWestHtml.indexOf(">Teams</h2>");
+const teamBlock = teamsAt < 0 ? "" : eastWestHtml.slice(teamsAt, teamsAt + 600);
+if (eastWestHtml.includes("Named players") || !teamBlock.includes(">East</li>") || !teamBlock.includes(">West</li>") || !eastWestHtml.includes("East 5.00, West 4.00") || eastWestHtml.includes("Singles")) {
+  throw new Error("East vs West field lists the sides as players or dropped the completed sessions");
+}
+const dixie = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "dixie-senior-amateur");
+if (dixie?.startDate !== "2026-12-09" || dixie.endDate !== "2026-12-11" || classifyCalendar({ startDate: dixie.startDate, endDate: dixie.endDate }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("Dixie Senior Amateur was not left as a future 2026 event");
+}
+const dixieHtml = renderHub({ slug: "dixie-senior-amateur", name: "Dixie Senior Amateur", channel: "senior", month: 12, startDate: "2026-12-09", endDate: "2026-12-11" }, "senior");
+if (!dixieHtml.includes("Not started") || dixieHtml.includes("2026 champion") || dixieHtml.includes("Full results unavailable here.")) {
+  throw new Error("Dixie Senior Amateur was given a 2026 result");
+}
+
+function heroAndOverview(html: string) {
+  const tab = html.indexOf('role="tablist"');
+  if (tab < 0) throw new Error("Hub tabs did not render");
+  const rest = html.slice(tab);
+  const hidden = rest.indexOf(" hidden=\"\"");
+  return { hero: html.slice(0, tab), overview: hidden < 0 ? rest : rest.slice(0, hidden) };
+}
+
+function assertSingleFormat(html: string, format: string, label: string) {
+  const { hero, overview } = heroAndOverview(html);
+  const shown = hero.split(format).length - 1;
+  if (shown !== 1) throw new Error(`${label} format appeared ${shown} times above the tabs`);
+  if (overview.includes(">Format</p>") || overview.includes(`>${format}<`)) {
+    throw new Error(`${label} repeated its format under Overview`);
+  }
+}
+
+const gasparillaEvent = MIDAM_TOURNAMENTS.find((event) => event.slug === "gasparilla-invitational");
+const championsEvent = MIDAM_TOURNAMENTS.find((event) => event.slug === "champions-cup-four-ball");
+const travisEvent = MIDAM_TOURNAMENTS.find((event) => event.slug === "walter-j-travis-invitational");
+const andersonEvent = MIDAM_TOURNAMENTS.find((event) => event.slug === "anderson-memorial-four-ball");
+if (!gasparillaEvent?.format || !championsEvent?.format || !travisEvent?.format || !andersonEvent?.format) {
+  throw new Error("A representative hub is missing its format");
+}
+function withoutPhotos(event: Tournament): Tournament {
+  return { ...event, news: event.news?.map((article) => ({ ...article, photos: undefined })) };
+}
+const gasparillaPage = renderHub(withoutPhotos(gasparillaEvent), "midam");
+const championsPage = renderHub(withoutPhotos(championsEvent), "midam");
+const travisPage = renderHub(withoutPhotos(travisEvent), "midam");
+const andersonPage = renderHub(withoutPhotos(andersonEvent), "midam");
+const orangeBowl = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "junior-orange-bowl");
+if (!orangeBowl?.format || !orangeBowl.fieldSize || !orangeBowl.eligibility) throw new Error("Junior Orange Bowl facts changed");
+const orangePage = renderHub({
+  slug: orangeBowl.slug,
+  name: orangeBowl.name,
+  channel: "junior",
+  month: 1,
+  format: orangeBowl.format,
+  startDate: orangeBowl.startDate,
+  endDate: orangeBowl.endDate,
+  course: orangeBowl.course,
+  coursePar: orangeBowl.coursePar,
+  fieldSize: orangeBowl.fieldSize,
+  eligibility: orangeBowl.eligibility,
+}, "junior");
+assertSingleFormat(gasparillaPage, gasparillaEvent.format, "Gasparilla");
+assertSingleFormat(championsPage, championsEvent.format, "Champions Cup");
+assertSingleFormat(travisPage, travisEvent.format, "Travis");
+assertSingleFormat(andersonPage, andersonEvent.format, "Anderson");
+assertSingleFormat(orangePage, orangeBowl.format, "Junior Orange Bowl");
+assertSingleFormat(bogartHtml, "54-hole stroke play", "Ralph Bogart");
+if (!gasparillaPage.includes("2026 Results") || !gasparillaPage.includes("Hayes Brown") || !gasparillaPage.includes("Monday qualifier") || !gasparillaPage.includes(">Par<") || !gasparillaPage.includes(">70<")) {
+  throw new Error("Gasparilla scoring label, board, qualifier, or par was dropped");
+}
+if (!championsPage.includes(">Team<") || !championsPage.includes("Gibbons, Josh") || !championsPage.includes("Stewart, Kade") || !championsPage.includes(">263<") || !championsPage.includes(">Par<")) {
+  throw new Error("Champions Cup pairs or scoring facts were dropped");
+}
+if (!travisPage.includes("Recorded format: Match play") || !travisPage.includes("Qualifying medalist: Rob Couture") || !travisPage.includes("Chris DeJohn def. Pat Wilson, 2 and 1") || !travisPage.includes("Garden City Golf Club")) {
+  throw new Error("Travis match labels were dropped");
+}
+if (!andersonPage.includes("Recorded format: Match play") || !andersonPage.includes("Costanza, Mark") || !andersonPage.includes("3 &amp; 2") || !andersonPage.includes("Winged Foot Golf Club")) {
+  throw new Error("Anderson match result was dropped");
+}
+if (!orangePage.includes(orangeBowl.fieldSize) || !orangePage.includes(orangeBowl.eligibility) || !orangePage.includes(">Par<") || !orangePage.includes(">71<")) {
+  throw new Error("Junior Orange Bowl field, eligibility, or par was dropped");
+}
+if (!bogartHtml.includes(">Round 1<") || !bogartHtml.includes(">Round 3<") || !bogartHtml.includes("Defending champion") || !bogartHtml.includes("Rick Stimmel")) {
+  throw new Error("Upcoming stroke rounds or the defending champion were dropped");
+}
+const gasparillaOverview = heroAndOverview(gasparillaPage).overview;
+if (gasparillaPage.includes(">Coverage</button>") || !gasparillaOverview.includes("/midamgolfhq/gasparilla-invitational/2026-gasparilla-invitational-recap") || !gasparillaOverview.includes("Brown Birdies 18 to Edge White by One")) {
+  throw new Error("Gasparilla coverage is still behind a tab or lost its article");
+}
+if (championsPage.includes(">Coverage</button>") || !heroAndOverview(championsPage).overview.includes("/midamgolfhq/champions-cup-four-ball/2026-champions-cup-recap")) {
+  throw new Error("Champions Cup coverage is still behind a tab");
+}
+if (dixieHtml.includes(">Coverage</button>") || orangePage.includes(">Coverage</button>")) {
+  throw new Error("A hub without articles invented a Coverage tab");
+}
+const ewingHtml = renderToStaticMarkup(createElement(EwingCupHub, {
+  division: "mid-am",
+  channelLabel: "midamgolfHQ",
+  pastChampions: [],
+  entrants: [],
+  articles: [{ href: "/midamgolfhq/ewing-cup-four-ball/sample", title: "Ewing preview", date: "2026-11-01", summary: "Existing preview." }],
+}));
+if (ewingHtml.includes(">Coverage</button>") || !ewingHtml.includes('href="/midamgolfhq/ewing-cup-four-ball/sample"') || !ewingHtml.includes("Ewing preview") || !ewingHtml.includes("54-hole better ball, mid-amateur division.")) {
+  throw new Error("Ewing coverage is still behind a tab or the division line changed");
 }
 
 console.log(JSON.stringify(summary, null, 2));

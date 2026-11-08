@@ -12,7 +12,7 @@ export type ChampionRow = { year: number; champion: string };
 
 export type HubArticle = { href: string; title: string; date: string; summary: string };
 
-type Tab = "Overview" | "Scoring" | "Field" | "Event" | "Coverage";
+type Tab = "Overview" | "Scoring" | "Field" | "Event";
 
 function initials(name: string) {
   const parts = name.split(" ").filter(Boolean);
@@ -32,7 +32,7 @@ export function EwingCupHub({
   entrants: Array<Player & { appearances: PlayerAppearance[] }>;
   articles: HubArticle[];
 }) {
-  const tabs: Tab[] = articles.length ? ["Overview", "Scoring", "Field", "Event", "Coverage"] : ["Overview", "Scoring", "Field", "Event"];
+  const tabs: Tab[] = ["Overview", "Scoring", "Field", "Event"];
   const [tab, setTab] = useState<Tab>("Overview");
   const [roundId, setRoundId] = useState<(typeof EWING_SNAPSHOT.rounds)[number]["id"]>("round-1");
   const [query, setQuery] = useState("");
@@ -131,6 +131,17 @@ export function EwingCupHub({
               Application information
             </a>
           </section>
+          {articles.length > 0 ? (
+            <div className="mt-8 grid gap-4">
+              {articles.map((article) => (
+                <Link key={article.href} href={article.href} className="rounded-2xl border border-zinc-200 bg-white p-5 hover:border-emerald-700">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800">{article.date}</p>
+                  <h2 className="mt-2 font-serif text-2xl font-semibold">{article.title}</h2>
+                  {article.summary ? <p className="mt-2 text-base leading-7 text-zinc-600">{article.summary}</p> : null}
+                </Link>
+              ))}
+            </div>
+          ) : null}
           </>
         )}
 
@@ -208,18 +219,6 @@ export function EwingCupHub({
                 );
               })}
             </ul>
-          </div>
-        )}
-
-        {tab === "Coverage" && (
-          <div className="grid gap-4">
-            {articles.map((article) => (
-              <Link key={article.href} href={article.href} className="rounded-2xl border border-zinc-200 bg-white p-5 hover:border-emerald-700">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800">{article.date}</p>
-                <h2 className="mt-2 font-serif text-2xl font-semibold">{article.title}</h2>
-                {article.summary ? <p className="mt-2 text-base leading-7 text-zinc-600">{article.summary}</p> : null}
-              </Link>
-            ))}
           </div>
         )}
 
