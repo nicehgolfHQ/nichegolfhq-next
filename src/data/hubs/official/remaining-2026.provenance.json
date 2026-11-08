@@ -53,7 +53,7 @@
   },
   "huddleston-cup-senior-division": {
     "source": "https://www.golfgenius.com/pages/12245787651055057396",
-    "mounted": "Senior Amateur, 27 rows. Bob Royak 70, 73, 73, 216. Sherill Britt WD, Mike Lohner WD, Eric Joseph NC. The results widget dates the rounds May 28-30. The stored dates stay May 26-28."
+    "mounted": "Senior Amateur, 27 rows. Bob Royak 70, 73, 73, 216. Sherill Britt WD, Mike Lohner WD, Eric Joseph NC. Official tee sheets: Round 1 Thu May 28, Round 2 Fri May 29, final Sat May 30. Mid-am and senior are both on those sheets. Hub dates are May 28-30."
   },
   "junior-opened-not-mounted": {
     "us-junior-amateur": "Stored scoring URL returned HTTP 403. Not fetched by another client.",

@@ -782,9 +782,19 @@ if (lohner?.rounds.join(",") !== "84,WD," || lohner.total !== "WD" || joseph?.ro
 if (SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "jupiter-invitational-senior-division")?.winners?.[0]?.champion !== "Mike McCoy") {
   throw new Error("The stored Jupiter senior champion line was renamed");
 }
-if (SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "huddleston-cup-senior-division")?.startDate !== "2026-05-26") {
-  throw new Error("Huddleston dates were changed from the widget");
+const huddlestonSeniorEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "huddleston-cup-senior-division");
+const huddlestonMidam = MIDAM_TOURNAMENTS.find((event) => event.slug === "the-huddleston-cup");
+if (huddlestonSeniorEvent?.startDate !== "2026-05-28" || huddlestonSeniorEvent.endDate !== "2026-05-30") {
+  throw new Error("Huddleston senior dates are not the official May 28-30 rounds");
 }
+if (huddlestonMidam?.startDate !== "2026-05-28" || huddlestonMidam.endDate !== "2026-05-30") {
+  throw new Error("Huddleston mid-am dates are not the official May 28-30 rounds");
+}
+const huddlestonHtml = renderHub(
+  { slug: "huddleston-cup-senior-division", name: "Huddleston Senior", channel: "senior", month: 5, format: "54-hole stroke play", startDate: "2026-05-28", endDate: "2026-05-30" },
+  "senior",
+);
+if (!huddlestonHtml.includes("May 28–30, 2026")) throw new Error("Huddleston senior page does not show May 28-30");
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");

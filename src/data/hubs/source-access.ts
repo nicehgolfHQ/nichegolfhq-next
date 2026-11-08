@@ -256,7 +256,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "huddleston-cup-senior-division",
     access: "public-page",
     completeness: "full",
-    note: "Public results page, Senior Amateur, 27 rows. Bob Royak 70, 73, 73, total 216. WD and NC tokens kept. The widget dates the rounds May 28-30. Stored dates stay May 26-28.",
+    note: "Public results page, Senior Amateur, 27 rows. Bob Royak 70, 73, 73, total 216. WD and NC tokens kept. Official tee sheets date Round 1 Thu May 28, Round 2 Fri May 29, and the final Sat May 30. The senior sheet has 27 players on the first two rounds and 25 on the final. Hub dates are May 28-30.",
   },
   {
     channel: "midam",
