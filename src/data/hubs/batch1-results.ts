@@ -4,6 +4,7 @@
  */
 
 import { gasparillaMainSnapshot, gasparillaSeniorSnapshot } from "@/data/hubs/gasparilla-public";
+import { officialFormatSnapshot } from "@/data/hubs/official-formats";
 import { officialStrokeSnapshot } from "@/data/hubs/official-stroke";
 
 export type ResultSource = {
@@ -22,12 +23,14 @@ export type StrokeFinisher = {
   hometown?: string;
   toPar?: string;
   status?: "ranked" | "CUT" | "WD" | "DQ" | "DNF" | "NC" | "NS";
+  /** One person per entry. A better-ball side is never stored as one combined name. */
+  players?: string[];
 };
 
 export type StrokeSnapshot = {
   kind: "stroke";
   complete: boolean;
-  scope: "published-finishers" | "official-overall" | "official-final" | "official-award";
+  scope: "published-finishers" | "official-overall" | "official-final" | "official-award" | "official-totals";
   roundCount: number;
   /** Short stage already stated by the source, such as "Through 36 holes". */
   stageLabel?: string;
@@ -43,9 +46,11 @@ export type StrokeSnapshot = {
 
 export type MatchLine = {
   flight: string;
-  /** Only a stage the source names, or Saturday when the source gives the day and not the round. */
-  round: "Round of 16" | "Quarterfinal" | "Semifinal" | "Final" | "Saturday";
+  /** The stage printed by the source. */
+  round: string;
   result: string;
+  /** One person per entry when the source names the players separately. */
+  players?: string[];
 };
 
 export type MatchSnapshot = {
@@ -175,7 +180,7 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
 };
 
 export function resultSnapshot(slug: string): ResultSnapshot | null {
-  return BATCH_1_RESULTS[slug] ?? officialStrokeSnapshot(slug);
+  return BATCH_1_RESULTS[slug] ?? officialStrokeSnapshot(slug) ?? officialFormatSnapshot(slug);
 }
 
 function individualName(name: string): string {
@@ -187,16 +192,23 @@ export function scopeLabel(snapshot: ResultSnapshot): string {
   if (snapshot.kind === "stroke" && snapshot.scope === "official-overall") return "Overall results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-final") return "Final results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-award") return "Low Senior award";
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-totals") return "Totals";
   return snapshot.kind === "stroke" ? "Selected results" : "Selected matches";
 }
 
 export function snapshotNames(snapshot: ResultSnapshot): string[] {
-  if (snapshot.kind === "stroke") return snapshot.rows.map((row) => individualName(row.name));
+  if (snapshot.kind === "stroke") {
+    return snapshot.rows.flatMap((row) => (row.players?.length ? row.players : [row.name]).map(individualName));
+  }
   if (snapshot.kind === "team-match") {
     return [...new Set(snapshot.matches.flatMap((match) => match.players.map(individualName)))];
   }
   const names = snapshot.qualifying ? [individualName(snapshot.qualifying.medalist)] : [];
   for (const match of snapshot.matches) {
+    if (match.players?.length) {
+      names.push(...match.players.map(individualName));
+      continue;
+    }
     for (const side of match.result.split(/ def\. | halved with /)) {
       names.push(individualName(side.replace(/,.*$/, "").trim()));
     }

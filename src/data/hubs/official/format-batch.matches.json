@@ -1,0 +1,750 @@
+{
+  "anderson-memorial-four-ball": [
+    {
+      "flight": "Championship Match Play",
+      "round": "Finals",
+      "players": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo",
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt"
+      ],
+      "result": "Costanza, Mark / Esteve , Jeronimo def. Cavaliere, Christian / Minerva Jr. , Matt, 3 & 2",
+      "winner": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Semifinals",
+      "players": [
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt",
+        "Sigler, Jason",
+        "Cassini, Nick"
+      ],
+      "result": "Cavaliere, Christian / Minerva Jr. , Matt def. Sigler, Jason / Cassini, Nick, 3 & 2",
+      "winner": [
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Semifinals",
+      "players": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo",
+        "Brown, Hayes",
+        "Wyatt, Bobby"
+      ],
+      "result": "Costanza, Mark / Esteve , Jeronimo def. Brown, Hayes / Wyatt, Bobby, 22 holes",
+      "winner": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo"
+      ],
+      "score": "22 holes"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt",
+        "Albers, Doug",
+        "McGee, Michael"
+      ],
+      "result": "Cavaliere, Christian / Minerva Jr. , Matt def. Albers, Doug / McGee, Michael, 3 & 2",
+      "winner": [
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "Sigler, Jason",
+        "Cassini, Nick",
+        "Hegarty, Timothy",
+        "Loomis, Ben"
+      ],
+      "result": "Sigler, Jason / Cassini, Nick def. Hegarty, Timothy / Loomis, Ben, 1 up",
+      "winner": [
+        "Sigler, Jason",
+        "Cassini, Nick"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo",
+        "Buckley, Max",
+        "Whitman, Tobin"
+      ],
+      "result": "Costanza, Mark / Esteve , Jeronimo def. Buckley, Max / Whitman, Tobin, 2 & 1",
+      "winner": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo"
+      ],
+      "score": "2 & 1"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "Brown, Hayes",
+        "Wyatt, Bobby",
+        "Colquitt, Brooks",
+        "Lape , Sam"
+      ],
+      "result": "Brown, Hayes / Wyatt, Bobby def. Colquitt, Brooks / Lape , Sam, 4 & 3",
+      "winner": [
+        "Brown, Hayes",
+        "Wyatt, Bobby"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt",
+        "Goldstein, Darin",
+        "Buttacavoli, Michael"
+      ],
+      "result": "Cavaliere, Christian / Minerva Jr. , Matt def. Goldstein, Darin / Buttacavoli, Michael, 1 up",
+      "winner": [
+        "Cavaliere, Christian",
+        "Minerva Jr. , Matt"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Albers, Doug",
+        "McGee, Michael",
+        "Larkin Jr., Jack",
+        "Whitehead, Brent"
+      ],
+      "result": "Albers, Doug / McGee, Michael def. Larkin Jr., Jack / Whitehead, Brent, 1 up",
+      "winner": [
+        "Albers, Doug",
+        "McGee, Michael"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Hegarty, Timothy",
+        "Loomis, Ben",
+        "Leon, Tyler",
+        "Leon, Trent"
+      ],
+      "result": "Hegarty, Timothy / Loomis, Ben def. Leon, Tyler / Leon, Trent, 2 & 1",
+      "winner": [
+        "Hegarty, Timothy",
+        "Loomis, Ben"
+      ],
+      "score": "2 & 1"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Sigler, Jason",
+        "Cassini, Nick",
+        "Day, Chad",
+        "Huntley, Will"
+      ],
+      "result": "Sigler, Jason / Cassini, Nick def. Day, Chad / Huntley, Will, 1 up",
+      "winner": [
+        "Sigler, Jason",
+        "Cassini, Nick"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Buckley, Max",
+        "Whitman, Tobin",
+        "Alzamora, Patricio",
+        "Salem, Patricio"
+      ],
+      "result": "Buckley, Max / Whitman, Tobin def. Alzamora, Patricio / Salem, Patricio, 4 & 3",
+      "winner": [
+        "Buckley, Max",
+        "Whitman, Tobin"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo",
+        "Meinhart, Derek",
+        "Maxwell, Kyle"
+      ],
+      "result": "Costanza, Mark / Esteve , Jeronimo def. Meinhart, Derek / Maxwell, Kyle, 2 & 1",
+      "winner": [
+        "Costanza, Mark",
+        "Esteve , Jeronimo"
+      ],
+      "score": "2 & 1"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Brown, Hayes",
+        "Wyatt, Bobby",
+        "Boardman, Clayton",
+        "Robinson, Matt"
+      ],
+      "result": "Brown, Hayes / Wyatt, Bobby def. Boardman, Clayton / Robinson, Matt, 5 & 3",
+      "winner": [
+        "Brown, Hayes",
+        "Wyatt, Bobby"
+      ],
+      "score": "5 & 3"
+    },
+    {
+      "flight": "Championship Match Play",
+      "round": "Championship Match Play",
+      "players": [
+        "Colquitt, Brooks",
+        "Lape , Sam",
+        "Edgerton, Jordan",
+        "Harrell, Logan"
+      ],
+      "result": "Colquitt, Brooks / Lape , Sam def. Edgerton, Jordan / Harrell, Logan, 2 & 1",
+      "winner": [
+        "Colquitt, Brooks",
+        "Lape , Sam"
+      ],
+      "score": "2 & 1"
+    }
+  ],
+  "anderson-memorial-four-ball-senior-division": [
+    {
+      "flight": "Senior Match Play",
+      "round": "Finals",
+      "players": [
+        "O'Connell, Eoghan",
+        "Sargent, Seth",
+        "McCoy, Michael",
+        "Gerwin, Robert"
+      ],
+      "result": "O'Connell, Eoghan / Sargent, Seth def. McCoy, Michael / Gerwin, Robert, 5 & 3",
+      "winner": [
+        "O'Connell, Eoghan",
+        "Sargent, Seth"
+      ],
+      "score": "5 & 3"
+    },
+    {
+      "flight": "Senior Match Play",
+      "round": "Semifinals",
+      "players": [
+        "McCoy, Michael",
+        "Gerwin, Robert",
+        "Staudinger, Dave",
+        "Meyer, Matthew"
+      ],
+      "result": "McCoy, Michael / Gerwin, Robert def. Staudinger, Dave / Meyer, Matthew, 5 & 3",
+      "winner": [
+        "McCoy, Michael",
+        "Gerwin, Robert"
+      ],
+      "score": "5 & 3"
+    },
+    {
+      "flight": "Senior Match Play",
+      "round": "Semifinals",
+      "players": [
+        "O'Connell, Eoghan",
+        "Sargent, Seth",
+        "Goodwin, Bart",
+        "Peck, Mike"
+      ],
+      "result": "O'Connell, Eoghan / Sargent, Seth def. Goodwin, Bart / Peck, Mike, 5 & 4",
+      "winner": [
+        "O'Connell, Eoghan",
+        "Sargent, Seth"
+      ],
+      "score": "5 & 4"
+    },
+    {
+      "flight": "Senior Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "McCoy, Michael",
+        "Gerwin, Robert",
+        "Lehman, Jim",
+        "Rose, Jerry"
+      ],
+      "result": "McCoy, Michael / Gerwin, Robert def. Lehman, Jim / Rose, Jerry, 1 up",
+      "winner": [
+        "McCoy, Michael",
+        "Gerwin, Robert"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Senior Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "Staudinger, Dave",
+        "Meyer, Matthew",
+        "Higgins, Pete",
+        "Gabelman, Andy"
+      ],
+      "result": "Staudinger, Dave / Meyer, Matthew def. Higgins, Pete / Gabelman, Andy, 4 & 3",
+      "winner": [
+        "Staudinger, Dave",
+        "Meyer, Matthew"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Senior Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "O'Connell, Eoghan",
+        "Sargent, Seth",
+        "Sposa, Mike",
+        "Fain, Max"
+      ],
+      "result": "O'Connell, Eoghan / Sargent, Seth def. Sposa, Mike / Fain, Max, 3 & 2",
+      "winner": [
+        "O'Connell, Eoghan",
+        "Sargent, Seth"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Senior Match Play",
+      "round": "Quarterfinals",
+      "players": [
+        "Goodwin, Bart",
+        "Peck, Mike",
+        "Davis, Tripp",
+        "Kitchin, Craig"
+      ],
+      "result": "Goodwin, Bart / Peck, Mike def. Davis, Tripp / Kitchin, Craig, 1 up",
+      "winner": [
+        "Goodwin, Bart",
+        "Peck, Mike"
+      ],
+      "score": "1 up"
+    }
+  ],
+  "the-farrell": [
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Finals",
+      "players": [
+        "David Kitt",
+        "John Lazor"
+      ],
+      "result": "David Kitt def. John Lazor, 4 & 3",
+      "winner": [
+        "David Kitt"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Finals",
+      "players": [
+        "Ina Kim-Schaad",
+        "Lauren Greenlief"
+      ],
+      "result": "Ina Kim-Schaad def. Lauren Greenlief, 3 & 2",
+      "winner": [
+        "Ina Kim-Schaad"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Semifinals",
+      "players": [
+        "David Kitt",
+        "Thomas McCarthy"
+      ],
+      "result": "David Kitt def. Thomas McCarthy, 4 & 3",
+      "winner": [
+        "David Kitt"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Semifinals",
+      "players": [
+        "John Lazor",
+        "Rij Patel"
+      ],
+      "result": "John Lazor def. Rij Patel, 3 & 1",
+      "winner": [
+        "John Lazor"
+      ],
+      "score": "3 & 1"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Semifinals",
+      "players": [
+        "Ina Kim-Schaad",
+        "Kimberly Dinh"
+      ],
+      "result": "Ina Kim-Schaad def. Kimberly Dinh, 4 & 3",
+      "winner": [
+        "Ina Kim-Schaad"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Semifinals",
+      "players": [
+        "Lauren Greenlief",
+        "Corinna Limbocker"
+      ],
+      "result": "Lauren Greenlief def. Corinna Limbocker, 2 & 1",
+      "winner": [
+        "Lauren Greenlief"
+      ],
+      "score": "2 & 1"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "Thomas McCarthy",
+        "Ricky Stimets"
+      ],
+      "result": "Thomas McCarthy def. Ricky Stimets, 3 & 2",
+      "winner": [
+        "Thomas McCarthy"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "David Kitt",
+        "Ben Cooley"
+      ],
+      "result": "David Kitt def. Ben Cooley, 19 Holes",
+      "winner": [
+        "David Kitt"
+      ],
+      "score": "19 Holes"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "Rij Patel",
+        "Seiji Liu"
+      ],
+      "result": "Rij Patel def. Seiji Liu, 6 & 5",
+      "winner": [
+        "Rij Patel"
+      ],
+      "score": "6 & 5"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "John Lazor",
+        "Brad Tilley"
+      ],
+      "result": "John Lazor def. Brad Tilley, 1 up",
+      "winner": [
+        "John Lazor"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "Ina Kim-Schaad",
+        "Hana Ku"
+      ],
+      "result": "Ina Kim-Schaad def. Hana Ku, 22 Holes",
+      "winner": [
+        "Ina Kim-Schaad"
+      ],
+      "score": "22 Holes"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "Kimberly Dinh",
+        "Catherine McEvoy"
+      ],
+      "result": "Kimberly Dinh def. Catherine McEvoy, 3 & 2",
+      "winner": [
+        "Kimberly Dinh"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "Corinna Limbocker",
+        "Katie Woodruff"
+      ],
+      "result": "Corinna Limbocker def. Katie Woodruff, 1 up",
+      "winner": [
+        "Corinna Limbocker"
+      ],
+      "score": "1 up"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Quarterfinals",
+      "players": [
+        "Lauren Greenlief",
+        "Jackie Rogowicz"
+      ],
+      "result": "Lauren Greenlief def. Jackie Rogowicz, 19 Holes",
+      "winner": [
+        "Lauren Greenlief"
+      ],
+      "score": "19 Holes"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "Thomas McCarthy",
+        "Mark Costanza"
+      ],
+      "result": "Thomas McCarthy def. Mark Costanza, 4 & 3",
+      "winner": [
+        "Thomas McCarthy"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "Ricky Stimets",
+        "Darin Goldstein"
+      ],
+      "result": "Ricky Stimets def. Darin Goldstein, 2 up",
+      "winner": [
+        "Ricky Stimets"
+      ],
+      "score": "2 up"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "David Kitt",
+        "David Reddan"
+      ],
+      "result": "David Kitt def. David Reddan, 6 & 5",
+      "winner": [
+        "David Kitt"
+      ],
+      "score": "6 & 5"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "Ben Cooley",
+        "Tim Hegarty"
+      ],
+      "result": "Ben Cooley def. Tim Hegarty, 1 Up",
+      "winner": [
+        "Ben Cooley"
+      ],
+      "score": "1 Up"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "Seiji Liu",
+        "William Davenport"
+      ],
+      "result": "Seiji Liu def. William Davenport, 20 Holes",
+      "winner": [
+        "Seiji Liu"
+      ],
+      "score": "20 Holes"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "Rij Patel",
+        "Mac Webster"
+      ],
+      "result": "Rij Patel def. Mac Webster, 3 & 1",
+      "winner": [
+        "Rij Patel"
+      ],
+      "score": "3 & 1"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "Brad Tilley",
+        "Hugo Rouillon"
+      ],
+      "result": "Brad Tilley def. Hugo Rouillon, 4 & 2",
+      "winner": [
+        "Brad Tilley"
+      ],
+      "score": "4 & 2"
+    },
+    {
+      "flight": "Men's Mid-Amateur",
+      "round": "Men's Mid-Amateur",
+      "players": [
+        "John Lazor",
+        "Matt Lowe"
+      ],
+      "result": "John Lazor def. Matt Lowe, 4 & 3",
+      "winner": [
+        "John Lazor"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Ina Kim-Schaad",
+        "Mimi McAndrew"
+      ],
+      "result": "Ina Kim-Schaad def. Mimi McAndrew, 24 Holes",
+      "winner": [
+        "Ina Kim-Schaad"
+      ],
+      "score": "24 Holes"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Hana Ku",
+        "Jacqueline Setas"
+      ],
+      "result": "Hana Ku def. Jacqueline Setas, 3 & 1",
+      "winner": [
+        "Hana Ku"
+      ],
+      "score": "3 & 1"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Kimberly Dinh",
+        "Katrin Wolfe"
+      ],
+      "result": "Kimberly Dinh def. Katrin Wolfe, 19 Holes",
+      "winner": [
+        "Kimberly Dinh"
+      ],
+      "score": "19 Holes"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Catherine McEvoy",
+        "Clare Connolly"
+      ],
+      "result": "Catherine McEvoy def. Clare Connolly, 4 & 2",
+      "winner": [
+        "Catherine McEvoy"
+      ],
+      "score": "4 & 2"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Katie Woodruff",
+        "Allison Gonring"
+      ],
+      "result": "Katie Woodruff def. Allison Gonring, 4 & 3",
+      "winner": [
+        "Katie Woodruff"
+      ],
+      "score": "4 & 3"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Corinna Limbocker",
+        "Alyssa Roland"
+      ],
+      "result": "Corinna Limbocker def. Alyssa Roland, 3 & 2",
+      "winner": [
+        "Corinna Limbocker"
+      ],
+      "score": "3 & 2"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Lauren Greenlief",
+        "Kelly Strickland"
+      ],
+      "result": "Lauren Greenlief def. Kelly Strickland, 7 & 5",
+      "winner": [
+        "Lauren Greenlief"
+      ],
+      "score": "7 & 5"
+    },
+    {
+      "flight": "Women's Mid-Amateur",
+      "round": "Women's Mid-Amateur",
+      "players": [
+        "Jackie Rogowicz",
+        "Charlotte Daughan"
+      ],
+      "result": "Jackie Rogowicz def. Charlotte Daughan, 6 & 5",
+      "winner": [
+        "Jackie Rogowicz"
+      ],
+      "score": "6 & 5"
+    }
+  ]
+}

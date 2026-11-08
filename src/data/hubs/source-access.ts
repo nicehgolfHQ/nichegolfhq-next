@@ -1,7 +1,7 @@
 import type { HubChannel } from "@/data/hubs/inventory";
 
 /** Internal audit. Not rendered. */
-export type BoardCompleteness = "none" | "selected" | "full" | "award-filter" | "retrieved-held";
+export type BoardCompleteness = "none" | "selected" | "full" | "partial" | "award-filter" | "retrieved-held";
 
 export type SourceAccess = {
   channel: HubChannel;
@@ -45,8 +45,8 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     channel: "midam",
     slug: "champions-cup-four-ball",
     access: "public-page",
-    completeness: "retrieved-held",
-    note: "Public team board has 54 pairing rows and the round sums check. Pairing strings are not individual players, so the board is not mounted.",
+    completeness: "full",
+    note: "54 team rows. Each side is stored as two players. Josh Gibbons and Kade Stewart 68, 63, 67, 65, total 263.",
   },
   {
     channel: "midam",
@@ -87,8 +87,8 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     channel: "midam",
     slug: "anderson-memorial-four-ball",
     access: "public-page",
-    completeness: "retrieved-held",
-    note: "The public widget's final round is one championship match and one senior match. That is not a full bracket, so it is not mounted.",
+    completeness: "partial",
+    note: "Published championship matches are 8, 4, 2, and 1. The final is Costanza and Esteve def. Cavaliere and Minerva, 3 and 2. Earlier stroke-play team rows were not mixed into the matches. This is not a complete bracket.",
   },
   {
     channel: "midam",
@@ -101,8 +101,8 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     channel: "midam",
     slug: "cb-macdonald-invitational-tournament",
     access: "public-page",
-    completeness: "retrieved-held",
-    note: "Public customized results have place, player, to-par, and total for a Mid-Am table and a Senior-Am table, with no round columns. Rounds were not invented, and the tables are not mounted.",
+    completeness: "partial",
+    note: "Qualifying totals for 80 mid-am players and 48 senior players. The table has no round columns, so none were added. Bracket JSON scores disagreed with the visible final table, so the bracket was not imported.",
   },
   {
     channel: "midam",
@@ -136,8 +136,8 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     channel: "midam",
     slug: "the-valentine-invitational",
     access: "public-page",
-    completeness: "retrieved-held",
-    note: "The results widget has a mid-am board and a senior board. Round cells include a course code, such as VSab or VMan, so they are not plain stroke scores. They are not mounted.",
+    completeness: "full",
+    note: "84 mid-am rows and 42 senior rows. Round cells keep the course code, such as 65 VSab. The senior board is on the existing senior hub.",
   },
   {
     channel: "midam",
@@ -171,15 +171,15 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     channel: "midam",
     slug: "john-r-williams-four-ball",
     access: "public-page",
-    completeness: "retrieved-held",
-    note: "Public mid-am and senior leaderboards are team pairings, and the round sums check. They are not mounted as individual players. Skins tables are not scorecards.",
+    completeness: "full",
+    note: "50 mid-am teams and 18 senior teams. Each team is two players. Skins tables were not imported. The senior board is on the existing senior hub.",
   },
   {
     channel: "midam",
     slug: "the-farrell",
     access: "public-page",
-    completeness: "selected",
-    note: "The public results widget is the final matches only: men's, women's, and senior. That is not a full bracket. Qualifying was not parsed. The hub keeps the recap.",
+    completeness: "partial",
+    note: "Men's and women's published matches are 8, 4, 2, and 1. David Kitt def. John Lazor, 4 and 3. Senior matches stay off this page because there is no senior hub. One-round qualifying tables were not mixed into the matches. This is not a complete event.",
   },
   {
     channel: "midam",

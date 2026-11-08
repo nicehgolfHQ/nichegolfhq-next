@@ -397,6 +397,7 @@ function ChampionTable({ tournament }: { tournament: Tournament }) {
 function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; rows: StrokeSnapshot["rows"]; highlight: number }) {
   const hasRounds = rows.some((row) => row.rounds.some((score) => score != null));
   const hasDivision = rows.some((row) => row.division);
+  const hasTeams = rows.some((row) => row.players && row.players.length > 1);
   const hasToPar = rows.some((row) => row.toPar);
   const caption =
     snapshot.scope === "official-overall"
@@ -405,7 +406,9 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
         ? "Final results"
         : snapshot.scope === "official-award"
           ? "Low Senior award"
-          : "Published finishers. Blank rounds were not in the source.";
+          : snapshot.scope === "official-totals"
+            ? "Totals"
+            : "Published finishers. Blank rounds were not in the source.";
   return (
     <div tabIndex={0} aria-label={caption} className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">
       <table className="w-full min-w-[640px] text-left text-sm">
@@ -414,7 +417,7 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
           <tr>
             <th className="px-3 py-3 font-semibold">Place</th>
             {hasDivision ? <th className="px-3 py-3 font-semibold">Division</th> : null}
-            <th className="px-3 py-3 font-semibold">Player</th>
+            <th className="px-3 py-3 font-semibold">{hasTeams ? "Team" : "Player"}</th>
             {hasRounds
               ? Array.from({ length: snapshot.roundCount }, (_, index) => (
                   <th key={index} className={`px-3 py-3 font-semibold ${highlight === index ? "text-zinc-950" : ""}`}>
@@ -432,7 +435,13 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
               <td className="px-3 py-3 font-semibold">{row.place}</td>
               {hasDivision ? <td className="px-3 py-3">{row.division}</td> : null}
               <td className="px-3 py-3">
-                <span className="font-semibold">{row.name}</span>
+                {row.players && row.players.length > 1 ? (
+                  row.players.map((player) => (
+                    <span key={player} className="block font-semibold">{player}</span>
+                  ))
+                ) : (
+                  <span className="font-semibold">{row.name}</span>
+                )}
                 {row.hometown ? <span className="mt-1 block text-xs text-zinc-500">{row.hometown}</span> : null}
                 {row.detail ? <span className="mt-1 block text-xs text-zinc-500">{row.detail}</span> : null}
               </td>
@@ -541,8 +550,10 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
       );
     }
   }
-  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall")) {
-    const players = [...snapshot.rows].sort((a, b) => a.name.localeCompare(b.name));
+  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall" || snapshot.scope === "official-totals")) {
+    const players = [...snapshot.rows]
+      .flatMap((row) => (row.players?.length ? row.players.map((name) => ({ name, hometown: undefined as string | undefined })) : [{ name: row.name, hometown: row.hometown }]))
+      .sort((a, b) => a.name.localeCompare(b.name));
     return (
       <div>
         <h2 className="text-center font-serif text-3xl font-semibold">Field</h2>

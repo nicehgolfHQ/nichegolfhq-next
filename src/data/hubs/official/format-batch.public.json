@@ -1,0 +1,4973 @@
+{
+  "boards": [
+    {
+      "slug": "champions-cup-four-ball",
+      "roundCount": 4,
+      "scope": "official-final",
+      "rows": [
+        {
+          "position": "1",
+          "name": "Gibbons, Josh",
+          "players": [
+            "Gibbons, Josh",
+            "Stewart, Kade"
+          ],
+          "affiliation": "Houston, TX, Magnolia, TX",
+          "toPar": "-21",
+          "rounds": [
+            "68",
+            "63",
+            "67",
+            "65"
+          ],
+          "total": "263",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Jones, Marcus",
+          "players": [
+            "Jones, Marcus",
+            "Mason, Brad"
+          ],
+          "affiliation": "Argyle, TX, Dallas, TX",
+          "toPar": "-18",
+          "rounds": [
+            "68",
+            "62",
+            "69",
+            "67"
+          ],
+          "total": "266",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Griffin, Will",
+          "players": [
+            "Griffin, Will",
+            "McClain, Wesley"
+          ],
+          "affiliation": "Dallas, TX, Montgomery, TX",
+          "toPar": "-18",
+          "rounds": [
+            "66",
+            "62",
+            "68",
+            "70"
+          ],
+          "total": "266",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Lampley, Josh",
+          "players": [
+            "Lampley, Josh",
+            "Snow, Ben"
+          ],
+          "affiliation": "Gulfport, MS, Hattiesburg, MS",
+          "toPar": "-17",
+          "rounds": [
+            "67",
+            "68",
+            "68",
+            "64"
+          ],
+          "total": "267",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Holland, Charlie",
+          "players": [
+            "Holland, Charlie",
+            "Russell, Jordan"
+          ],
+          "affiliation": "Dallas, TX",
+          "toPar": "-17",
+          "rounds": [
+            "65",
+            "63",
+            "67",
+            "72"
+          ],
+          "total": "267",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Callas, Brett",
+          "players": [
+            "Callas, Brett",
+            "Walsh, Jacob"
+          ],
+          "affiliation": "Houston, TX, Montgomery, TX",
+          "toPar": "-15",
+          "rounds": [
+            "68",
+            "66",
+            "68",
+            "67"
+          ],
+          "total": "269",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Elkington, Sam",
+          "players": [
+            "Elkington, Sam",
+            "Perras, Mike"
+          ],
+          "affiliation": "Houston, TX",
+          "toPar": "-14",
+          "rounds": [
+            "67",
+            "67",
+            "66",
+            "70"
+          ],
+          "total": "270",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Buchanan, Billy",
+          "players": [
+            "Buchanan, Billy",
+            "Edgerton, Jordan"
+          ],
+          "affiliation": "Greensboro, NC, Charlotte, NC",
+          "toPar": "-14",
+          "rounds": [
+            "71",
+            "63",
+            "67",
+            "69"
+          ],
+          "total": "270",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Abbate, Ryan",
+          "players": [
+            "Abbate, Ryan",
+            "Christovich, Patrick"
+          ],
+          "affiliation": "Weston, FL, New Orleans, LA",
+          "toPar": "-13",
+          "rounds": [
+            "68",
+            "66",
+            "70",
+            "67"
+          ],
+          "total": "271",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Gibson, Campbell",
+          "players": [
+            "Gibson, Campbell",
+            "Rogers, Grant"
+          ],
+          "affiliation": "Houston, TX",
+          "toPar": "-13",
+          "rounds": [
+            "66",
+            "67",
+            "67",
+            "71"
+          ],
+          "total": "271",
+          "status": "ranked"
+        },
+        {
+          "position": "11",
+          "name": "Chabaud, Russell",
+          "players": [
+            "Chabaud, Russell",
+            "Ferries, AJ"
+          ],
+          "affiliation": "The Woodlands, TX, Spring, TX",
+          "toPar": "-12",
+          "rounds": [
+            "66",
+            "67",
+            "73",
+            "66"
+          ],
+          "total": "272",
+          "status": "ranked"
+        },
+        {
+          "position": "12",
+          "name": "Boatner, Logan",
+          "players": [
+            "Boatner, Logan",
+            "Loving, Scott"
+          ],
+          "affiliation": "Kingwood, TX, Conroe, TX",
+          "toPar": "-11",
+          "rounds": [
+            "68",
+            "67",
+            "70",
+            "68"
+          ],
+          "total": "273",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Ormand, Robby",
+          "players": [
+            "Ormand, Robby",
+            "Woolf, Jordan"
+          ],
+          "affiliation": "Driftwood, TX, Fort Worth, TX",
+          "toPar": "-10",
+          "rounds": [
+            "65",
+            "70",
+            "71",
+            "68"
+          ],
+          "total": "274",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Crawford, Tyler",
+          "players": [
+            "Crawford, Tyler",
+            "Scheibach, Mark"
+          ],
+          "affiliation": "Sarasota, FL, Bermuda Dunes, CA",
+          "toPar": "-10",
+          "rounds": [
+            "67",
+            "68",
+            "69",
+            "70"
+          ],
+          "total": "274",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Martin, Weldon",
+          "players": [
+            "Martin, Weldon",
+            "McAlpine, Scott"
+          ],
+          "affiliation": "Houston, TX",
+          "toPar": "-10",
+          "rounds": [
+            "71",
+            "65",
+            "69",
+            "69"
+          ],
+          "total": "274",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Kuehne, Trip",
+          "players": [
+            "Kuehne, Trip",
+            "Sisk, Parker"
+          ],
+          "affiliation": "Southlake, TX, El Cajon, CA",
+          "toPar": "-10",
+          "rounds": [
+            "71",
+            "69",
+            "68",
+            "66"
+          ],
+          "total": "274",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Logan, Liam",
+          "players": [
+            "Logan, Liam",
+            "Vinson, Blake"
+          ],
+          "affiliation": "Dallas, TX, Aledo, TX",
+          "toPar": "-9",
+          "rounds": [
+            "67",
+            "69",
+            "68",
+            "71"
+          ],
+          "total": "275",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Carnes, Casey",
+          "players": [
+            "Carnes, Casey",
+            "Carnes, Michael"
+          ],
+          "affiliation": "Schertz, TX, Odessa, TX",
+          "toPar": "-9",
+          "rounds": [
+            "69",
+            "66",
+            "70",
+            "70"
+          ],
+          "total": "275",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Phillips, Keaton",
+          "players": [
+            "Phillips, Keaton",
+            "Solimene, Nick"
+          ],
+          "affiliation": "Naples, FL",
+          "toPar": "-9",
+          "rounds": [
+            "66",
+            "70",
+            "72",
+            "67"
+          ],
+          "total": "275",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Farmer, Blanton",
+          "players": [
+            "Farmer, Blanton",
+            "Terry, Ryan"
+          ],
+          "affiliation": "Richmond, VA, Brentwood, TN",
+          "toPar": "-9",
+          "rounds": [
+            "64",
+            "73",
+            "67",
+            "71"
+          ],
+          "total": "275",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Heise, Shane",
+          "players": [
+            "Heise, Shane",
+            "Kaplan, Justin"
+          ],
+          "affiliation": "The Woodlands, TX, Houston, TX",
+          "toPar": "-9",
+          "rounds": [
+            "68",
+            "71",
+            "65",
+            "71"
+          ],
+          "total": "275",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Comerford, Ty",
+          "players": [
+            "Comerford, Ty",
+            "Sloat, Dustin"
+          ],
+          "affiliation": "Glen Carbon, IL, Charleston, IL",
+          "toPar": "-9",
+          "rounds": [
+            "69",
+            "66",
+            "71",
+            "69"
+          ],
+          "total": "275",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Kerr, Keith",
+          "players": [
+            "Kerr, Keith",
+            "Parker, Michael"
+          ],
+          "affiliation": "Houston, TX, Spring, TX",
+          "toPar": "-8",
+          "rounds": [
+            "66",
+            "70",
+            "68",
+            "72"
+          ],
+          "total": "276",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Byrum, Jake",
+          "players": [
+            "Byrum, Jake",
+            "Marshall, Kristoffer"
+          ],
+          "affiliation": "Phoenix, AZ, Scottsdale, AZ",
+          "toPar": "-8",
+          "rounds": [
+            "67",
+            "68",
+            "73",
+            "68"
+          ],
+          "total": "276",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Rowen, Sean",
+          "players": [
+            "Rowen, Sean",
+            "Widner, Brett"
+          ],
+          "affiliation": "Indianapolis, IN, Avon, IN",
+          "toPar": "-8",
+          "rounds": [
+            "71",
+            "71",
+            "68",
+            "66"
+          ],
+          "total": "276",
+          "status": "ranked"
+        },
+        {
+          "position": "26",
+          "name": "McKay, Justin",
+          "players": [
+            "McKay, Justin",
+            "Parks, Blake"
+          ],
+          "affiliation": "Dayton, TX, Odessa, TX",
+          "toPar": "-6",
+          "rounds": [
+            "71",
+            "69",
+            "70",
+            "68"
+          ],
+          "total": "278",
+          "status": "ranked"
+        },
+        {
+          "position": "T27",
+          "name": "Anderson, Chris",
+          "players": [
+            "Anderson, Chris",
+            "Bartell, James"
+          ],
+          "affiliation": "Maitland, FL, Houston, TX",
+          "toPar": "-5",
+          "rounds": [
+            "70",
+            "68",
+            "69",
+            "72"
+          ],
+          "total": "279",
+          "status": "ranked"
+        },
+        {
+          "position": "T27",
+          "name": "Minton, Chris",
+          "players": [
+            "Minton, Chris",
+            "O'Brien, Kevin"
+          ],
+          "affiliation": "Houston, TX, Pittsburgh, PA",
+          "toPar": "-5",
+          "rounds": [
+            "71",
+            "68",
+            "69",
+            "71"
+          ],
+          "total": "279",
+          "status": "ranked"
+        },
+        {
+          "position": "29",
+          "name": "McCoy, Craig",
+          "players": [
+            "McCoy, Craig",
+            "Pugh, Blake"
+          ],
+          "affiliation": "Frisco, TX, Aledo, TX",
+          "toPar": "-4",
+          "rounds": [
+            "68",
+            "69",
+            "70",
+            "73"
+          ],
+          "total": "280",
+          "status": "ranked"
+        },
+        {
+          "position": "T30",
+          "name": "Christian, Spencer",
+          "players": [
+            "Christian, Spencer",
+            "Courington, Jack"
+          ],
+          "affiliation": "Wichita, KS",
+          "toPar": "-3",
+          "rounds": [
+            "70",
+            "68",
+            "70",
+            "73"
+          ],
+          "total": "281",
+          "status": "ranked"
+        },
+        {
+          "position": "T30",
+          "name": "Fast, Matt",
+          "players": [
+            "Fast, Matt",
+            "Holman, Donny"
+          ],
+          "affiliation": "Bryan, TX, Prosper, TX",
+          "toPar": "-3",
+          "rounds": [
+            "73",
+            "70",
+            "70",
+            "68"
+          ],
+          "total": "281",
+          "status": "ranked"
+        },
+        {
+          "position": "T30",
+          "name": "Cassity, Trey",
+          "players": [
+            "Cassity, Trey",
+            "Martinez, Nicko"
+          ],
+          "affiliation": "Ponca City, OK, Cypress, TX",
+          "toPar": "-3",
+          "rounds": [
+            "73",
+            "71",
+            "72",
+            "65"
+          ],
+          "total": "281",
+          "status": "ranked"
+        },
+        {
+          "position": "T30",
+          "name": "Bills, Gant",
+          "players": [
+            "Bills, Gant",
+            "Maurer, Scott"
+          ],
+          "affiliation": "Plano, TX, Dallas, TX",
+          "toPar": "-3",
+          "rounds": [
+            "72",
+            "67",
+            "68",
+            "74"
+          ],
+          "total": "281",
+          "status": "ranked"
+        },
+        {
+          "position": "T30",
+          "name": "Clemens, Kacy",
+          "players": [
+            "Clemens, Kacy",
+            "Verplank, Bryce"
+          ],
+          "affiliation": "Conroe, TX",
+          "toPar": "-3",
+          "rounds": [
+            "72",
+            "68",
+            "72",
+            "69"
+          ],
+          "total": "281",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "Maxwell, Kyle",
+          "players": [
+            "Maxwell, Kyle",
+            "Meinhart, Derek"
+          ],
+          "affiliation": "The Woodlands, TX, Mattoon, IL",
+          "toPar": "-2",
+          "rounds": [
+            "63",
+            "73",
+            "72",
+            "74"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "Cordell, Matt",
+          "players": [
+            "Cordell, Matt",
+            "Lach, Bryant"
+          ],
+          "affiliation": "Tomball, TX, Spring, TX",
+          "toPar": "-2",
+          "rounds": [
+            "69",
+            "70",
+            "71",
+            "72"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "Exber, Brady",
+          "players": [
+            "Exber, Brady",
+            "Marsh, Kevin"
+          ],
+          "affiliation": "Las Vegas, NV",
+          "toPar": "-2",
+          "rounds": [
+            "67",
+            "72",
+            "72",
+            "71"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "Albers, Doug",
+          "players": [
+            "Albers, Doug",
+            "Sigler, Jason"
+          ],
+          "affiliation": "Leanwood, KS, Atlanta, GA",
+          "toPar": "-2",
+          "rounds": [
+            "68",
+            "72",
+            "72",
+            "70"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "DePasquale, Dan",
+          "players": [
+            "DePasquale, Dan",
+            "Sandefur, Barrett"
+          ],
+          "affiliation": "Austin, TX",
+          "toPar": "-2",
+          "rounds": [
+            "71",
+            "71",
+            "70",
+            "70"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "Blundell, Ben",
+          "players": [
+            "Blundell, Ben",
+            "Durbin, Eric"
+          ],
+          "affiliation": "Nichols Hills, OK, Tomball, TX",
+          "toPar": "-2",
+          "rounds": [
+            "73",
+            "69",
+            "70",
+            "70"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T35",
+          "name": "Arci, Phil",
+          "players": [
+            "Arci, Phil",
+            "McInnis, Simon"
+          ],
+          "affiliation": "Woodridge, ON, Crystal Beach, ON",
+          "toPar": "-2",
+          "rounds": [
+            "71",
+            "72",
+            "70",
+            "69"
+          ],
+          "total": "282",
+          "status": "ranked"
+        },
+        {
+          "position": "T42",
+          "name": "Fullick, Clay",
+          "players": [
+            "Fullick, Clay",
+            "Gwin, Robert"
+          ],
+          "affiliation": "Conroe, TX, Montgomery, TX",
+          "toPar": "+1",
+          "rounds": [
+            "68",
+            "67",
+            "75",
+            "75"
+          ],
+          "total": "285",
+          "status": "ranked"
+        },
+        {
+          "position": "T42",
+          "name": "Battson, Brent",
+          "players": [
+            "Battson, Brent",
+            "Black, JJ"
+          ],
+          "affiliation": "Houston, TX, Dallas, TX",
+          "toPar": "+1",
+          "rounds": [
+            "74",
+            "66",
+            "72",
+            "73"
+          ],
+          "total": "285",
+          "status": "ranked"
+        },
+        {
+          "position": "T42",
+          "name": "Driver, Garrett",
+          "players": [
+            "Driver, Garrett",
+            "Driver, Scayne"
+          ],
+          "affiliation": "Humble, TX, Garrison, TX",
+          "toPar": "+1",
+          "rounds": [
+            "73",
+            "71",
+            "72",
+            "69"
+          ],
+          "total": "285",
+          "status": "ranked"
+        },
+        {
+          "position": "45",
+          "name": "Mitchell, Ben",
+          "players": [
+            "Mitchell, Ben",
+            "Mitchell, Tod"
+          ],
+          "affiliation": "Houston, TX, Cypress, TX",
+          "toPar": "+2",
+          "rounds": [
+            "74",
+            "69",
+            "74",
+            "69"
+          ],
+          "total": "286",
+          "status": "ranked"
+        },
+        {
+          "position": "T46",
+          "name": "Moss, Clayton",
+          "players": [
+            "Moss, Clayton",
+            "Smith, Jack"
+          ],
+          "affiliation": "Knoxville, TN, Conroe, TX",
+          "toPar": "+3",
+          "rounds": [
+            "72",
+            "72",
+            "71",
+            "72"
+          ],
+          "total": "287",
+          "status": "ranked"
+        },
+        {
+          "position": "T46",
+          "name": "Ebalo, Kenny",
+          "players": [
+            "Ebalo, Kenny",
+            "Horodesky, Greg"
+          ],
+          "affiliation": "Las Vegas, NV",
+          "toPar": "+3",
+          "rounds": [
+            "74",
+            "69",
+            "74",
+            "70"
+          ],
+          "total": "287",
+          "status": "ranked"
+        },
+        {
+          "position": "48",
+          "name": "Ward, Chris",
+          "players": [
+            "Ward, Chris",
+            "Weiss Jr, Jon"
+          ],
+          "affiliation": "The Woodlands, TX, Florence, NC",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "75",
+            "70",
+            "72"
+          ],
+          "total": "290",
+          "status": "ranked"
+        },
+        {
+          "position": "49",
+          "name": "Albert, Todd",
+          "players": [
+            "Albert, Todd",
+            "Thomason, Logan"
+          ],
+          "affiliation": "Katy, TX, Montgomery, TX",
+          "toPar": "+7",
+          "rounds": [
+            "69",
+            "72",
+            "76",
+            "74"
+          ],
+          "total": "291",
+          "status": "ranked"
+        },
+        {
+          "position": "50",
+          "name": "Ammon, Ryan",
+          "players": [
+            "Ammon, Ryan",
+            "Speirs, Jesse"
+          ],
+          "affiliation": "Dallas, TX, Willow Park, TX",
+          "toPar": "+8",
+          "rounds": [
+            "68",
+            "71",
+            "76",
+            "77"
+          ],
+          "total": "292",
+          "status": "ranked"
+        },
+        {
+          "position": "51",
+          "name": "Fox, Robert",
+          "players": [
+            "Fox, Robert",
+            "Zubatkin, Jason"
+          ],
+          "affiliation": "Jupiter, FL, Palm Beach Gardens, FL",
+          "toPar": "+10",
+          "rounds": [
+            "73",
+            "68",
+            "74",
+            "79"
+          ],
+          "total": "294",
+          "status": "ranked"
+        },
+        {
+          "position": "52",
+          "name": "Frank, Brad",
+          "players": [
+            "Frank, Brad",
+            "Patterson, Wes"
+          ],
+          "affiliation": "Cranberry Township, PA, Hope Sound, FL",
+          "toPar": "+12",
+          "rounds": [
+            "76",
+            "73",
+            "76",
+            "71"
+          ],
+          "total": "296",
+          "status": "ranked"
+        },
+        {
+          "position": "T53",
+          "name": "Edgeworth, Jason",
+          "players": [
+            "Edgeworth, Jason",
+            "Smith, Tyler"
+          ],
+          "affiliation": "Houston, TX",
+          "toPar": "+13",
+          "rounds": [
+            "69",
+            "72",
+            "82",
+            "74"
+          ],
+          "total": "297",
+          "status": "ranked"
+        },
+        {
+          "position": "T53",
+          "name": "Seibert, Andrew",
+          "players": [
+            "Seibert, Andrew",
+            "Starr, Cameron"
+          ],
+          "affiliation": "Palm Beach Gardens, FL, Jupiter, FL",
+          "toPar": "+13",
+          "rounds": [
+            "74",
+            "73",
+            "81",
+            "69"
+          ],
+          "total": "297",
+          "status": "ranked"
+        }
+      ]
+    },
+    {
+      "slug": "john-r-williams-four-ball",
+      "roundCount": 3,
+      "scope": "official-final",
+      "rows": [
+        {
+          "position": "1",
+          "name": "Joel Durrance",
+          "players": [
+            "Joel Durrance",
+            "Justin Grant"
+          ],
+          "affiliation": "Orlando, FL, Ocala, FL",
+          "toPar": "-5",
+          "rounds": [
+            "65",
+            "72",
+            "68"
+          ],
+          "total": "205",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Blake Vinson",
+          "players": [
+            "Blake Vinson",
+            "Liam Logan"
+          ],
+          "affiliation": "Aledo, TX, Dallas, TX",
+          "toPar": "-5",
+          "rounds": [
+            "69",
+            "68",
+            "68"
+          ],
+          "total": "205",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Crawford Reeves",
+          "players": [
+            "Crawford Reeves",
+            "Corbin Mills"
+          ],
+          "affiliation": "Greer, SC, Greenville, SC",
+          "toPar": "-5",
+          "rounds": [
+            "69",
+            "68",
+            "68"
+          ],
+          "total": "205",
+          "status": "ranked"
+        },
+        {
+          "position": "4",
+          "name": "Patrick Frodigh",
+          "players": [
+            "Patrick Frodigh",
+            "Danny Frodigh"
+          ],
+          "affiliation": "South Boston, MA, Westwood, MA",
+          "toPar": "-5",
+          "rounds": [
+            "67",
+            "68",
+            "70"
+          ],
+          "total": "205",
+          "status": "ranked"
+        },
+        {
+          "position": "5",
+          "name": "Jack Barber",
+          "players": [
+            "Jack Barber",
+            "Mike Perchak"
+          ],
+          "affiliation": "La Jolla, CA, Alamo, CA",
+          "toPar": "-4",
+          "rounds": [
+            "66",
+            "71",
+            "69"
+          ],
+          "total": "206",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Richard Donegan",
+          "players": [
+            "Richard Donegan",
+            "Joseph Latowski"
+          ],
+          "affiliation": "Jupiter, FL, Port St. Lucie, FL",
+          "toPar": "-4",
+          "rounds": [
+            "67",
+            "70",
+            "69"
+          ],
+          "total": "206",
+          "status": "ranked"
+        },
+        {
+          "position": "7",
+          "name": "Jeff Mallette",
+          "players": [
+            "Jeff Mallette",
+            "Ryan Mallette"
+          ],
+          "affiliation": "North Canton, OH",
+          "toPar": "-3",
+          "rounds": [
+            "65",
+            "75",
+            "67"
+          ],
+          "total": "207",
+          "status": "ranked"
+        },
+        {
+          "position": "8",
+          "name": "Kyle Gordon",
+          "players": [
+            "Kyle Gordon",
+            "Nicholas Hofland"
+          ],
+          "affiliation": "Whitby, ON, Hamilton, ON",
+          "toPar": "-3",
+          "rounds": [
+            "67",
+            "71",
+            "69"
+          ],
+          "total": "207",
+          "status": "ranked"
+        },
+        {
+          "position": "9",
+          "name": "Kevin Dutkowsky",
+          "players": [
+            "Kevin Dutkowsky",
+            "Scott Dunsire"
+          ],
+          "affiliation": "Tampa, FL, Chicago, IL",
+          "toPar": "-3",
+          "rounds": [
+            "68",
+            "70",
+            "69"
+          ],
+          "total": "207",
+          "status": "ranked"
+        },
+        {
+          "position": "10",
+          "name": "Tyler Thomas",
+          "players": [
+            "Tyler Thomas",
+            "Brad Gibson"
+          ],
+          "affiliation": "Dallas, TX, Lewisville, TX",
+          "toPar": "-2",
+          "rounds": [
+            "68",
+            "72",
+            "68"
+          ],
+          "total": "208",
+          "status": "ranked"
+        },
+        {
+          "position": "11",
+          "name": "Shane Heise",
+          "players": [
+            "Shane Heise",
+            "Scott Loving"
+          ],
+          "affiliation": "The Woodlands, TX",
+          "toPar": "-2",
+          "rounds": [
+            "72",
+            "67",
+            "69"
+          ],
+          "total": "208",
+          "status": "ranked"
+        },
+        {
+          "position": "12",
+          "name": "Jeremy Moreno",
+          "players": [
+            "Jeremy Moreno",
+            "Danny Licursi"
+          ],
+          "affiliation": "Visalia, CA, Gilbert, AZ",
+          "toPar": "-2",
+          "rounds": [
+            "68",
+            "70",
+            "70"
+          ],
+          "total": "208",
+          "status": "ranked"
+        },
+        {
+          "position": "13",
+          "name": "Cameron Crawford",
+          "players": [
+            "Cameron Crawford",
+            "David Jennings"
+          ],
+          "affiliation": "Cedar Hills, UT, Layton, UT",
+          "toPar": "-2",
+          "rounds": [
+            "65",
+            "70",
+            "73"
+          ],
+          "total": "208",
+          "status": "ranked"
+        },
+        {
+          "position": "14",
+          "name": "Christian Chapman",
+          "players": [
+            "Christian Chapman",
+            "Blake Gianniny"
+          ],
+          "affiliation": "West Palm Beach, FL, Rochester, NY",
+          "toPar": "-1",
+          "rounds": [
+            "72",
+            "66",
+            "71"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "15",
+          "name": "Andrew Fedele",
+          "players": [
+            "Andrew Fedele",
+            "Nick Sortino"
+          ],
+          "affiliation": "Rochester, NY",
+          "toPar": "-1",
+          "rounds": [
+            "68",
+            "68",
+            "73"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "16",
+          "name": "Kyle Downey",
+          "players": [
+            "Kyle Downey",
+            "Brandon Grzywacz"
+          ],
+          "affiliation": "Fairport, NY, Pinehurst, NC",
+          "toPar": "-1",
+          "rounds": [
+            "67",
+            "67",
+            "75"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "17",
+          "name": "Brett Walker",
+          "players": [
+            "Brett Walker",
+            "Shane Dobesh"
+          ],
+          "affiliation": "Burlington, ON, Tonawanda, NY",
+          "toPar": "E",
+          "rounds": [
+            "75",
+            "67",
+            "68"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "18",
+          "name": "Jordan Woolf",
+          "players": [
+            "Jordan Woolf",
+            "Robby Ormand"
+          ],
+          "affiliation": "Fort Worth, TX, Driftwood, TX",
+          "toPar": "E",
+          "rounds": [
+            "71",
+            "68",
+            "71"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "19",
+          "name": "Nelson Dickson",
+          "players": [
+            "Nelson Dickson",
+            "Josh Gallman"
+          ],
+          "affiliation": "Simpsonville, SC, Spartanburg, SC",
+          "toPar": "E",
+          "rounds": [
+            "70",
+            "69",
+            "71"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "20",
+          "name": "Philip Reale",
+          "players": [
+            "Philip Reale",
+            "Cam Roam"
+          ],
+          "affiliation": "Ona, WV, Huntington, WV",
+          "toPar": "E",
+          "rounds": [
+            "69",
+            "68",
+            "73"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "21",
+          "name": "Ollie Cordeiro",
+          "players": [
+            "Ollie Cordeiro",
+            "Brian Isztwan"
+          ],
+          "affiliation": "Brooklyn, NY, Philadelphia, PA",
+          "toPar": "E",
+          "rounds": [
+            "66",
+            "70",
+            "74"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "22",
+          "name": "Keaton Phillips",
+          "players": [
+            "Keaton Phillips",
+            "Nicholas Solimene"
+          ],
+          "affiliation": "Naples, FL",
+          "toPar": "+1",
+          "rounds": [
+            "71",
+            "68",
+            "72"
+          ],
+          "total": "211",
+          "status": "ranked"
+        },
+        {
+          "position": "23",
+          "name": "Dave Hanes",
+          "players": [
+            "Dave Hanes",
+            "Billy Hanes"
+          ],
+          "affiliation": "Elma, NY",
+          "toPar": "+2",
+          "rounds": [
+            "66",
+            "75",
+            "71"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "24",
+          "name": "Denver Haddix",
+          "players": [
+            "Denver Haddix",
+            "Andy Roberts"
+          ],
+          "affiliation": "Lexington, KY, Owensboro, KY",
+          "toPar": "+2",
+          "rounds": [
+            "69",
+            "70",
+            "73"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "25",
+          "name": "Simon McInnis",
+          "players": [
+            "Simon McInnis",
+            "Jordan Edgerton"
+          ],
+          "affiliation": "Knoxville, TN, Crystal Beach, ON",
+          "toPar": "+2",
+          "rounds": [
+            "67",
+            "72",
+            "73"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "26",
+          "name": "Thomas Holmes",
+          "players": [
+            "Thomas Holmes",
+            "Ryan Blackburn"
+          ],
+          "affiliation": "Macon, GA, Brookhaven, GA",
+          "toPar": "+2",
+          "rounds": [
+            "65",
+            "71",
+            "76"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "27",
+          "name": "Trip Kuehne",
+          "players": [
+            "Trip Kuehne",
+            "Parker Sisk"
+          ],
+          "affiliation": "Dallas, TX, El Cajon, CA",
+          "toPar": "+3",
+          "rounds": [
+            "68",
+            "73",
+            "72"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "28",
+          "name": "Andrew Kay",
+          "players": [
+            "Andrew Kay",
+            "Sean Brannan"
+          ],
+          "affiliation": "Pittsford, NY, Hollidaysburg, PA",
+          "toPar": "+4",
+          "rounds": [
+            "70",
+            "72",
+            "72"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "29",
+          "name": "Austin Fisher",
+          "players": [
+            "Austin Fisher",
+            "Nate Jetter"
+          ],
+          "affiliation": "Scottsdale, AZ",
+          "toPar": "+4",
+          "rounds": [
+            "69",
+            "73",
+            "72"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "30",
+          "name": "Seve Calmi",
+          "players": [
+            "Seve Calmi",
+            "George Zolotas"
+          ],
+          "affiliation": "Rochester, NY, Danvers, MA",
+          "toPar": "+5",
+          "rounds": [
+            "70",
+            "72",
+            "73"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "31",
+          "name": "Brinson Holder",
+          "players": [
+            "Brinson Holder",
+            "Matt Gourgeot"
+          ],
+          "affiliation": "Point Clear, AL, Decatur, AL",
+          "toPar": "+6",
+          "rounds": [
+            "70",
+            "71",
+            "75"
+          ],
+          "total": "216",
+          "status": "ranked"
+        },
+        {
+          "position": "CUT",
+          "name": "Jack Gianniny",
+          "players": [
+            "Jack Gianniny",
+            "Danny Gianniny"
+          ],
+          "affiliation": "Rochester, NY",
+          "toPar": "+3",
+          "rounds": [
+            "73",
+            "70",
+            ""
+          ],
+          "total": "143",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Dan Bernard",
+          "players": [
+            "Dan Bernard",
+            "Mike Davis"
+          ],
+          "affiliation": "Philadelphia, PA, Devon, PA",
+          "toPar": "+3",
+          "rounds": [
+            "72",
+            "71",
+            ""
+          ],
+          "total": "143",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jimmy Castles",
+          "players": [
+            "Jimmy Castles",
+            "Johnny Castles"
+          ],
+          "affiliation": "Cupertino, CA",
+          "toPar": "+4",
+          "rounds": [
+            "72",
+            "72",
+            ""
+          ],
+          "total": "144",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Phil Arci",
+          "players": [
+            "Phil Arci",
+            "Russell Bowie"
+          ],
+          "affiliation": "Woodbridge, ON, Brampton, ON",
+          "toPar": "+4",
+          "rounds": [
+            "68",
+            "76",
+            ""
+          ],
+          "total": "144",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Brad Wilder",
+          "players": [
+            "Brad Wilder",
+            "Bill Williamson"
+          ],
+          "affiliation": "Fort Wright, KY, Cincinnati, OH",
+          "toPar": "+5",
+          "rounds": [
+            "72",
+            "73",
+            ""
+          ],
+          "total": "145",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Mike Stamberger",
+          "players": [
+            "Mike Stamberger",
+            "Zan Banks"
+          ],
+          "affiliation": "Brielle, NJ, Lookout Mtn, TN",
+          "toPar": "+6",
+          "rounds": [
+            "72",
+            "74",
+            ""
+          ],
+          "total": "146",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jeff March",
+          "players": [
+            "Jeff March",
+            "Joshua Medcalf"
+          ],
+          "affiliation": "Penfield, NY, San Diego, CA",
+          "toPar": "+6",
+          "rounds": [
+            "71",
+            "75",
+            ""
+          ],
+          "total": "146",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jeff Kinney",
+          "players": [
+            "Jeff Kinney",
+            "Brian Higgins"
+          ],
+          "affiliation": "Harwich Port, MA, Bellingham, MA",
+          "toPar": "+6",
+          "rounds": [
+            "70",
+            "76",
+            ""
+          ],
+          "total": "146",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Olof Bengtsson",
+          "players": [
+            "Olof Bengtsson",
+            "Matt Kilgo"
+          ],
+          "affiliation": "Charlotte, NC",
+          "toPar": "+7",
+          "rounds": [
+            "72",
+            "75",
+            ""
+          ],
+          "total": "147",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "W. Scott Winslett",
+          "players": [
+            "W. Scott Winslett",
+            "JJ Black"
+          ],
+          "affiliation": "Dallas, TX",
+          "toPar": "+7",
+          "rounds": [
+            "71",
+            "76",
+            ""
+          ],
+          "total": "147",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Phil Bojc",
+          "players": [
+            "Phil Bojc",
+            "Chris Okeson"
+          ],
+          "affiliation": "Aurora, OH, Beachwood, OH",
+          "toPar": "+8",
+          "rounds": [
+            "74",
+            "74",
+            ""
+          ],
+          "total": "148",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Robert Rowling Jr",
+          "players": [
+            "Robert Rowling Jr",
+            "David Schultz"
+          ],
+          "affiliation": "Dallas, TX",
+          "toPar": "+8",
+          "rounds": [
+            "72",
+            "76",
+            ""
+          ],
+          "total": "148",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Dan DiFrancesco",
+          "players": [
+            "Dan DiFrancesco",
+            "Chris Ironroad"
+          ],
+          "affiliation": "Hamilton, ON, Fairfax, VA",
+          "toPar": "+9",
+          "rounds": [
+            "73",
+            "76",
+            ""
+          ],
+          "total": "149",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Tommy Smith",
+          "players": [
+            "Tommy Smith",
+            "Erick Morales"
+          ],
+          "affiliation": "Hilton Head, SC, Dorado, PR",
+          "toPar": "+9",
+          "rounds": [
+            "72",
+            "77",
+            ""
+          ],
+          "total": "149",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Justin Jennings",
+          "players": [
+            "Justin Jennings",
+            "Andrew McCabe"
+          ],
+          "affiliation": "Dallas, TX",
+          "toPar": "+9",
+          "rounds": [
+            "72",
+            "77",
+            ""
+          ],
+          "total": "149",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Andrew Hodge",
+          "players": [
+            "Andrew Hodge",
+            "Evan Ruhling"
+          ],
+          "affiliation": "Oakmont, PA",
+          "toPar": "+10",
+          "rounds": [
+            "75",
+            "75",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Dan DePasquale",
+          "players": [
+            "Dan DePasquale",
+            "Barrett Sandefur"
+          ],
+          "affiliation": "Austin, TX",
+          "toPar": "+12",
+          "rounds": [
+            "77",
+            "75",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ernie Clement",
+          "players": [
+            "Ernie Clement",
+            "Jason Schantz"
+          ],
+          "affiliation": "Rochester, NY",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "76",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Brian Katrek",
+          "players": [
+            "Brian Katrek",
+            "Bryce Barber"
+          ],
+          "affiliation": "Rochester, NY",
+          "toPar": "+13",
+          "rounds": [
+            "74",
+            "79",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        }
+      ]
+    },
+    {
+      "slug": "john-r-williams-four-ball-senior-division",
+      "roundCount": 3,
+      "scope": "official-final",
+      "rows": [
+        {
+          "position": "1",
+          "name": "Michael Anderson",
+          "players": [
+            "Michael Anderson",
+            "Dave Vaclav"
+          ],
+          "affiliation": "Novi, MI, Flat Rock, MI",
+          "toPar": "-13",
+          "rounds": [
+            "66",
+            "68",
+            "66"
+          ],
+          "total": "200",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Kevin VandenBerg",
+          "players": [
+            "Kevin VandenBerg",
+            "Ken Hudson"
+          ],
+          "affiliation": "Pulaski, NY, Bonita Springs, FL",
+          "toPar": "-4",
+          "rounds": [
+            "71",
+            "69",
+            "69"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Dave Fries",
+          "players": [
+            "Dave Fries",
+            "Todd Schmitt"
+          ],
+          "affiliation": "Orlando, FL",
+          "toPar": "-4",
+          "rounds": [
+            "72",
+            "68",
+            "69"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "4",
+          "name": "Brian Harris",
+          "players": [
+            "Brian Harris",
+            "Lee Crannell"
+          ],
+          "affiliation": "Carmel, IN",
+          "toPar": "-1",
+          "rounds": [
+            "71",
+            "69",
+            "72"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "5",
+          "name": "John Gabler",
+          "players": [
+            "John Gabler",
+            "Billy Joe Tolliver"
+          ],
+          "affiliation": "Tampa, FL, San Gabriel, CA",
+          "toPar": "E",
+          "rounds": [
+            "66",
+            "71",
+            "76"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Wade Sarkis",
+          "players": [
+            "Wade Sarkis",
+            "Jim Scorse"
+          ],
+          "affiliation": "Canandaigua, NY, Churchville, NY",
+          "toPar": "+1",
+          "rounds": [
+            "70",
+            "72",
+            "72"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "7",
+          "name": "Paul Royak",
+          "players": [
+            "Paul Royak",
+            "Bob Royak"
+          ],
+          "affiliation": "Tampa, FL, Alpharetta, GA",
+          "toPar": "+1",
+          "rounds": [
+            "67",
+            "72",
+            "75"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "8",
+          "name": "Michael Hammett",
+          "players": [
+            "Michael Hammett",
+            "EJ Blanchard"
+          ],
+          "affiliation": "Hattiesburg, MS, Madison, MS",
+          "toPar": "+4",
+          "rounds": [
+            "71",
+            "72",
+            "74"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "CUT",
+          "name": "PJ Alterio",
+          "players": [
+            "PJ Alterio",
+            "Andy Bernatovicz"
+          ],
+          "affiliation": "Buffalo, NY, Grand Island, NY",
+          "toPar": "+2",
+          "rounds": [
+            "75",
+            "69",
+            ""
+          ],
+          "total": "144",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Billy Mitchell",
+          "players": [
+            "Billy Mitchell",
+            "David Rismiller"
+          ],
+          "affiliation": "Atlanta, GA, Kansas City, MO",
+          "toPar": "+2",
+          "rounds": [
+            "72",
+            "72",
+            ""
+          ],
+          "total": "144",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Michael Arasin",
+          "players": [
+            "Michael Arasin",
+            "Shaw Pritchett"
+          ],
+          "affiliation": "Auburn, AL, Montgomery, AL",
+          "toPar": "+2",
+          "rounds": [
+            "71",
+            "73",
+            ""
+          ],
+          "total": "144",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ken Ogden",
+          "players": [
+            "Ken Ogden",
+            "Jerry Gunthorpe"
+          ],
+          "affiliation": "Canandaigua, NY, Ovid, MI",
+          "toPar": "+2",
+          "rounds": [
+            "70",
+            "74",
+            ""
+          ],
+          "total": "144",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Derek Paton",
+          "players": [
+            "Derek Paton",
+            "Ronnie Clark"
+          ],
+          "affiliation": "Lundin Links, SCT, Erskine, SCT",
+          "toPar": "+3",
+          "rounds": [
+            "73",
+            "72",
+            ""
+          ],
+          "total": "145",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Stu Harris",
+          "players": [
+            "Stu Harris",
+            "John Kircher"
+          ],
+          "affiliation": "Pittsford, NY, Auburn, AL",
+          "toPar": "+5",
+          "rounds": [
+            "72",
+            "75",
+            ""
+          ],
+          "total": "147",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Rupert Kellock",
+          "players": [
+            "Rupert Kellock",
+            "Paul Wharton"
+          ],
+          "affiliation": "Sunningdale, ENG, Woodhall Spa, ENG",
+          "toPar": "+6",
+          "rounds": [
+            "74",
+            "74",
+            ""
+          ],
+          "total": "148",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Daniel Russo",
+          "players": [
+            "Daniel Russo",
+            "Brian Kennedy"
+          ],
+          "affiliation": "Hagaman, NY, Highland Beach, FL",
+          "toPar": "+8",
+          "rounds": [
+            "76",
+            "74",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Paul Favorito",
+          "players": [
+            "Paul Favorito",
+            "Chris Straley"
+          ],
+          "affiliation": "Cincinnati, OH",
+          "toPar": "+8",
+          "rounds": [
+            "70",
+            "80",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "David Lindstrom",
+          "players": [
+            "David Lindstrom",
+            "Eric Joseph"
+          ],
+          "affiliation": "Lancaster, NY, Longview, TX",
+          "toPar": "+25",
+          "rounds": [
+            "80",
+            "87",
+            ""
+          ],
+          "total": "167",
+          "status": "CUT"
+        }
+      ]
+    },
+    {
+      "slug": "the-valentine-invitational",
+      "roundCount": 3,
+      "scope": "official-final",
+      "rows": [
+        {
+          "position": "1",
+          "name": "Will Collins",
+          "affiliation": "Charlottesville, VA",
+          "toPar": "-13",
+          "rounds": [
+            "65 VSab",
+            "68 VMan",
+            "70 VSab"
+          ],
+          "total": "203",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Winburne Hughes",
+          "affiliation": "Memphis, TN",
+          "toPar": "-10",
+          "rounds": [
+            "69 VSab",
+            "65 VMan",
+            "72 VSab"
+          ],
+          "total": "206",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Blanton Farmer",
+          "affiliation": "Richmond, VA",
+          "toPar": "-7",
+          "rounds": [
+            "69 VSab",
+            "67 VMan",
+            "73 VSab"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "4",
+          "name": "Keith Guest",
+          "affiliation": "Athens, GA",
+          "toPar": "-5",
+          "rounds": [
+            "71 VSab",
+            "70 VMan",
+            "70 VSab"
+          ],
+          "total": "211",
+          "status": "ranked"
+        },
+        {
+          "position": "T5",
+          "name": "Sam Beach",
+          "affiliation": "Midlothian, VA",
+          "toPar": "-3",
+          "rounds": [
+            "70 VSab",
+            "69 VMan",
+            "74 VSab"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "T5",
+          "name": "Connor Hill",
+          "affiliation": "Richmond, VA",
+          "toPar": "-3",
+          "rounds": [
+            "71 VSab",
+            "67 VMan",
+            "75 VSab"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "7",
+          "name": "Zachary Sterling",
+          "affiliation": "Midlothian, VA",
+          "toPar": "-2",
+          "rounds": [
+            "72 VSab",
+            "67 VMan",
+            "75 VSab"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Blake Micholas",
+          "affiliation": "Rehoboth Beach, DE",
+          "toPar": "-1",
+          "rounds": [
+            "74 VSab",
+            "71 VMan",
+            "70 VSab"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Kevin Miller",
+          "affiliation": "Manakin Sabot, VA",
+          "toPar": "-1",
+          "rounds": [
+            "71 VSab",
+            "72 VMan",
+            "72 VSab"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Jordan Utley",
+          "affiliation": "Midlothian, VA",
+          "toPar": "-1",
+          "rounds": [
+            "72 VSab",
+            "75 VMan",
+            "68 VSab"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Kevin Olson",
+          "affiliation": "Virginia Beach, VA",
+          "toPar": "E",
+          "rounds": [
+            "74 VSab",
+            "68 VMan",
+            "74 VSab"
+          ],
+          "total": "216",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Joey Jordan",
+          "affiliation": "Richmond, VA",
+          "toPar": "E",
+          "rounds": [
+            "70 VSab",
+            "69 VMan",
+            "77 VSab"
+          ],
+          "total": "216",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Nick Brediger",
+          "affiliation": "Palmyra, VA",
+          "toPar": "+1",
+          "rounds": [
+            "77 VSab",
+            "68 VMan",
+            "72 VSab"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Peter Bowie",
+          "affiliation": "Asheville, NC",
+          "toPar": "+1",
+          "rounds": [
+            "76 VSab",
+            "70 VMan",
+            "71 VSab"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Jon Weiss Jr.",
+          "affiliation": "Florence, SC",
+          "toPar": "+1",
+          "rounds": [
+            "72 VSab",
+            "72 VMan",
+            "73 VSab"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Robbie Keyes",
+          "affiliation": "Louisville, KY",
+          "toPar": "+1",
+          "rounds": [
+            "73 VSab",
+            "69 VMan",
+            "75 VSab"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Nicolas Brown",
+          "affiliation": "Greenville, NC",
+          "toPar": "+1",
+          "rounds": [
+            "69 VSab",
+            "72 VMan",
+            "76 VSab"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Robert Lutomski",
+          "affiliation": "Simpsonville, SC",
+          "toPar": "+2",
+          "rounds": [
+            "71 VSab",
+            "73 VMan",
+            "74 VSab"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Walt Todd, Jr",
+          "affiliation": "Laurens, SC",
+          "toPar": "+2",
+          "rounds": [
+            "74 VSab",
+            "70 VMan",
+            "74 VSab"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Andy DeKeuster",
+          "affiliation": "Centreville, VA",
+          "toPar": "+2",
+          "rounds": [
+            "70 VSab",
+            "74 VMan",
+            "74 VSab"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Adam Horton",
+          "affiliation": "Chesapeake, VA",
+          "toPar": "+2",
+          "rounds": [
+            "74 VSab",
+            "69 VMan",
+            "75 VSab"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Sam O'Dell",
+          "affiliation": "Hurricane, WV",
+          "toPar": "+2",
+          "rounds": [
+            "72 VSab",
+            "70 VMan",
+            "76 VSab"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Tucker Jenkins",
+          "affiliation": "Nashville, TN",
+          "toPar": "+2",
+          "rounds": [
+            "71 VSab",
+            "68 VMan",
+            "79 VSab"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "James Lightsey",
+          "affiliation": "Indian Land, SC",
+          "toPar": "+3",
+          "rounds": [
+            "74 VSab",
+            "71 VMan",
+            "74 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Joe Du Chateau",
+          "affiliation": "Oshkosh, WI",
+          "toPar": "+3",
+          "rounds": [
+            "76 VSab",
+            "70 VMan",
+            "73 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Trip Kuehne",
+          "affiliation": "Southlake, TX",
+          "toPar": "+3",
+          "rounds": [
+            "76 VSab",
+            "67 VMan",
+            "76 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Andy Butler",
+          "affiliation": "Philadelphia, PA",
+          "toPar": "+3",
+          "rounds": [
+            "73 VSab",
+            "73 VMan",
+            "73 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Joshua Moss",
+          "affiliation": "Stafford, VA",
+          "toPar": "+3",
+          "rounds": [
+            "71 VSab",
+            "72 VMan",
+            "76 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Chad Wilfong",
+          "affiliation": "Charlotte, NC",
+          "toPar": "+3",
+          "rounds": [
+            "72 VSab",
+            "69 VMan",
+            "78 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Jeff Reuter",
+          "affiliation": "Humboldt, TN",
+          "toPar": "+3",
+          "rounds": [
+            "73 VSab",
+            "75 VMan",
+            "71 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Rob Damschen",
+          "affiliation": "Glen Allen, VA",
+          "toPar": "+4",
+          "rounds": [
+            "78 VSab",
+            "69 VMan",
+            "73 VSab"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Rij Patel",
+          "affiliation": "Hunt Valley, MD",
+          "toPar": "+4",
+          "rounds": [
+            "75 VSab",
+            "73 VMan",
+            "72 VSab"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Joseph Trim",
+          "affiliation": "Tampa, FL",
+          "toPar": "+4",
+          "rounds": [
+            "78 VSab",
+            "71 VMan",
+            "71 VSab"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T34",
+          "name": "Marshall Tinsley",
+          "affiliation": "Amherst, VA",
+          "toPar": "+5",
+          "rounds": [
+            "75 VSab",
+            "71 VMan",
+            "75 VSab"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T34",
+          "name": "Alan King",
+          "affiliation": "Charlotte, NC",
+          "toPar": "+5",
+          "rounds": [
+            "77 VSab",
+            "70 VMan",
+            "74 VSab"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T36",
+          "name": "Trent Young",
+          "affiliation": "Manakin Sabot, VA",
+          "toPar": "+6",
+          "rounds": [
+            "74 VSab",
+            "73 VMan",
+            "75 VSab"
+          ],
+          "total": "222",
+          "status": "ranked"
+        },
+        {
+          "position": "T36",
+          "name": "Brad Burling",
+          "affiliation": "Knoxville, TN",
+          "toPar": "+6",
+          "rounds": [
+            "75 VSab",
+            "67 VMan",
+            "80 VSab"
+          ],
+          "total": "222",
+          "status": "ranked"
+        },
+        {
+          "position": "T38",
+          "name": "Zack Wehrman",
+          "affiliation": "Manakin Sabot, VA",
+          "toPar": "+7",
+          "rounds": [
+            "76 VSab",
+            "70 VMan",
+            "77 VSab"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T38",
+          "name": "Kyle Bailey",
+          "affiliation": "Keswick, VA",
+          "toPar": "+7",
+          "rounds": [
+            "78 VSab",
+            "65 VMan",
+            "80 VSab"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T38",
+          "name": "Sam Jenkins",
+          "affiliation": "Charlotte, NC",
+          "toPar": "+7",
+          "rounds": [
+            "78 VSab",
+            "69 VMan",
+            "76 VSab"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T41",
+          "name": "Brooks Colquitt",
+          "affiliation": "Atlanta, GA",
+          "toPar": "+8",
+          "rounds": [
+            "74 VSab",
+            "71 VMan",
+            "79 VSab"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "T41",
+          "name": "Nick Eberhardt",
+          "affiliation": "Rock Hill, SC",
+          "toPar": "+8",
+          "rounds": [
+            "73 VSab",
+            "73 VMan",
+            "78 VSab"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "T41",
+          "name": "Brandon Ramsuer",
+          "affiliation": "Henrico, VA",
+          "toPar": "+8",
+          "rounds": [
+            "75 VSab",
+            "74 VMan",
+            "75 VSab"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "T44",
+          "name": "George Ordway",
+          "affiliation": "Charlottesville, VA",
+          "toPar": "+9",
+          "rounds": [
+            "76 VSab",
+            "70 VMan",
+            "79 VSab"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T44",
+          "name": "Cameron Luczka",
+          "affiliation": "Lebanon, IN",
+          "toPar": "+9",
+          "rounds": [
+            "79 VSab",
+            "69 VMan",
+            "77 VSab"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T44",
+          "name": "Stephen Bain",
+          "affiliation": "Salem, VA",
+          "toPar": "+9",
+          "rounds": [
+            "75 VSab",
+            "74 VMan",
+            "76 VSab"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T47",
+          "name": "Austin Gray",
+          "affiliation": "North Chesterfield, VA",
+          "toPar": "+11",
+          "rounds": [
+            "73 VSab",
+            "74 VMan",
+            "80 VSab"
+          ],
+          "total": "227",
+          "status": "ranked"
+        },
+        {
+          "position": "T47",
+          "name": "Will MacIlwaine",
+          "affiliation": "Richmond, VA",
+          "toPar": "+11",
+          "rounds": [
+            "77 VSab",
+            "72 VMan",
+            "78 VSab"
+          ],
+          "total": "227",
+          "status": "ranked"
+        },
+        {
+          "position": "49",
+          "name": "Ben Keefer",
+          "affiliation": "Glen Allen, VA",
+          "toPar": "+12",
+          "rounds": [
+            "77 VSab",
+            "70 VMan",
+            "81 VSab"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "50",
+          "name": "Mason Bryan",
+          "affiliation": "Manakin Sabot, VA",
+          "toPar": "+14",
+          "rounds": [
+            "77 VSab",
+            "72 VMan",
+            "81 VSab"
+          ],
+          "total": "230",
+          "status": "ranked"
+        },
+        {
+          "position": "CUT",
+          "name": "Tracy Vallandingham",
+          "affiliation": "California, MD",
+          "toPar": "+6",
+          "rounds": [
+            "76 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Nick Taliaferro",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+6",
+          "rounds": [
+            "75 VSab",
+            "75 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Drew Brockwell",
+          "affiliation": "Richmond, VA",
+          "toPar": "+6",
+          "rounds": [
+            "80 VSab",
+            "70 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ryan Rettberg",
+          "affiliation": "Ashland, VA",
+          "toPar": "+6",
+          "rounds": [
+            "73 VSab",
+            "77 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ben Beach",
+          "affiliation": "Glen Allen, VA",
+          "toPar": "+6",
+          "rounds": [
+            "74 VSab",
+            "76 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Justin Young",
+          "affiliation": "Salem, VA",
+          "toPar": "+6",
+          "rounds": [
+            "76 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Carter Thompson",
+          "affiliation": "New York, NY",
+          "toPar": "+6",
+          "rounds": [
+            "78 VSab",
+            "72 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Sean Dougherty",
+          "affiliation": "Richmond, VA",
+          "toPar": "+6",
+          "rounds": [
+            "76 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Drew Noble",
+          "affiliation": "Henrico, VA",
+          "toPar": "+6",
+          "rounds": [
+            "78 VSab",
+            "72 VMan",
+            ""
+          ],
+          "total": "150",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jeremy Walsh",
+          "affiliation": "Jupiter, FL",
+          "toPar": "+7",
+          "rounds": [
+            "77 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "151",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Zach Schwab",
+          "affiliation": "Henrico, VA",
+          "toPar": "+7",
+          "rounds": [
+            "77 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "151",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Nick Hogan",
+          "affiliation": "Henrico, VA",
+          "toPar": "+7",
+          "rounds": [
+            "77 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "151",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Lucas Armstrong",
+          "affiliation": "Church Hill, TN",
+          "toPar": "+7",
+          "rounds": [
+            "77 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "151",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Frank Adams III",
+          "affiliation": "Salisbury, NC",
+          "toPar": "+7",
+          "rounds": [
+            "77 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "151",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ryan Walsh",
+          "affiliation": "Henrico, VA",
+          "toPar": "+7",
+          "rounds": [
+            "79 VSab",
+            "72 VMan",
+            ""
+          ],
+          "total": "151",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "John Rosenstock",
+          "affiliation": "Richmond, VA",
+          "toPar": "+8",
+          "rounds": [
+            "79 VSab",
+            "73 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jason Spaar",
+          "affiliation": "Roanoke, VA",
+          "toPar": "+8",
+          "rounds": [
+            "78 VSab",
+            "74 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ryan Bishop",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+8",
+          "rounds": [
+            "81 VSab",
+            "71 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "John Hunter",
+          "affiliation": "Spring, TX",
+          "toPar": "+8",
+          "rounds": [
+            "76 VSab",
+            "76 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Pete Toole",
+          "affiliation": "Glen Allen, VA",
+          "toPar": "+8",
+          "rounds": [
+            "76 VSab",
+            "76 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Samuel Banks",
+          "affiliation": "Glen Allen, VA",
+          "toPar": "+8",
+          "rounds": [
+            "79 VSab",
+            "73 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jeff Donham",
+          "affiliation": "Henrico, VA",
+          "toPar": "+8",
+          "rounds": [
+            "80 VSab",
+            "72 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "John David Hunter",
+          "affiliation": "Charleston, SC",
+          "toPar": "+8",
+          "rounds": [
+            "81 VSab",
+            "71 VMan",
+            ""
+          ],
+          "total": "152",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Scott Alouf",
+          "affiliation": "Moseley, VA",
+          "toPar": "+9",
+          "rounds": [
+            "81 VSab",
+            "72 VMan",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ralston King",
+          "affiliation": "Richmond, VA",
+          "toPar": "+9",
+          "rounds": [
+            "82 VSab",
+            "71 VMan",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Gus Lascola",
+          "affiliation": "Falls Church, VA",
+          "toPar": "+9",
+          "rounds": [
+            "80 VSab",
+            "73 VMan",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Elliott Wilson",
+          "affiliation": "Richmond, VA",
+          "toPar": "+9",
+          "rounds": [
+            "74 VSab",
+            "79 VMan",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Turner Gray",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+9",
+          "rounds": [
+            "76 VSab",
+            "77 VMan",
+            ""
+          ],
+          "total": "153",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Trey Smith",
+          "affiliation": "Virginia Beach, VA",
+          "toPar": "+10",
+          "rounds": [
+            "78 VSab",
+            "76 VMan",
+            ""
+          ],
+          "total": "154",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Patrick Galleher",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+11",
+          "rounds": [
+            "84 VSab",
+            "71 VMan",
+            ""
+          ],
+          "total": "155",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Ryan Taylor",
+          "affiliation": "Henrico, VA",
+          "toPar": "+14",
+          "rounds": [
+            "80 VSab",
+            "78 VMan",
+            ""
+          ],
+          "total": "158",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Carter Morgan",
+          "affiliation": "Norfolk, VA",
+          "toPar": "+15",
+          "rounds": [
+            "78 VSab",
+            "81 VMan",
+            ""
+          ],
+          "total": "159",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Jimmy Delp",
+          "affiliation": "Alexandria, VA",
+          "toPar": "+19",
+          "rounds": [
+            "80 VSab",
+            "83 VMan",
+            ""
+          ],
+          "total": "163",
+          "status": "CUT"
+        },
+        {
+          "position": "WD",
+          "name": "Jacob Golliday",
+          "affiliation": "Raleigh, NC",
+          "toPar": "-",
+          "rounds": [
+            "76 VSab",
+            "WD VMan",
+            ""
+          ],
+          "total": "WD",
+          "status": "WD"
+        }
+      ]
+    },
+    {
+      "slug": "valentine-invitational",
+      "roundCount": 3,
+      "scope": "official-final",
+      "rows": [
+        {
+          "position": "1",
+          "name": "Buck Brittain",
+          "affiliation": "Tazewell, VA",
+          "toPar": "-6",
+          "rounds": [
+            "69 VMan",
+            "69 VSab",
+            "72 VSab"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Matt Mitchell",
+          "affiliation": "Burns, TN",
+          "toPar": "-2",
+          "rounds": [
+            "72 VMan",
+            "68 VSab",
+            "74 VSab"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "T3",
+          "name": "John O'Brien",
+          "affiliation": "Columbia, SC",
+          "toPar": "-1",
+          "rounds": [
+            "75 VMan",
+            "69 VSab",
+            "71 VSab"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "T3",
+          "name": "Thomas Garner",
+          "affiliation": "Henrico, VA",
+          "toPar": "-1",
+          "rounds": [
+            "69 VMan",
+            "69 VSab",
+            "77 VSab"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "T5",
+          "name": "Pete Barbera",
+          "affiliation": "Alexandria, VA",
+          "toPar": "+3",
+          "rounds": [
+            "71 VMan",
+            "70 VSab",
+            "78 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T5",
+          "name": "Scott Shingler",
+          "affiliation": "Haymarket, VA",
+          "toPar": "+3",
+          "rounds": [
+            "73 VMan",
+            "70 VSab",
+            "76 VSab"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Jason Lina",
+          "affiliation": "Alpharetta, GA",
+          "toPar": "+4",
+          "rounds": [
+            "74 VMan",
+            "71 VSab",
+            "75 VSab"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Carlos Aranda",
+          "affiliation": "Springfield, VA",
+          "toPar": "+4",
+          "rounds": [
+            "68 VMan",
+            "76 VSab",
+            "76 VSab"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Daniel Neveu",
+          "affiliation": "Pinehurst, NC",
+          "toPar": "+5",
+          "rounds": [
+            "72 VMan",
+            "74 VSab",
+            "75 VSab"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Brian Quackenbush",
+          "affiliation": "Aiken, SC",
+          "toPar": "+5",
+          "rounds": [
+            "72 VMan",
+            "72 VSab",
+            "77 VSab"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Dave Williams Jr",
+          "affiliation": "Chesapeake, VA",
+          "toPar": "+6",
+          "rounds": [
+            "71 VMan",
+            "74 VSab",
+            "77 VSab"
+          ],
+          "total": "222",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Tony Good",
+          "affiliation": "Glen Allen, VA",
+          "toPar": "+6",
+          "rounds": [
+            "73 VMan",
+            "77 VSab",
+            "72 VSab"
+          ],
+          "total": "222",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Steve Serrao",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+7",
+          "rounds": [
+            "72 VMan",
+            "75 VSab",
+            "76 VSab"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Gettys Glaze",
+          "affiliation": "Charleston, SC",
+          "toPar": "+7",
+          "rounds": [
+            "76 VMan",
+            "74 VSab",
+            "73 VSab"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "15",
+          "name": "Paras Pandya",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+8",
+          "rounds": [
+            "74 VMan",
+            "72 VSab",
+            "78 VSab"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "16",
+          "name": "Robert Nussey",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+9",
+          "rounds": [
+            "74 VMan",
+            "74 VSab",
+            "77 VSab"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Kevin South",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+10",
+          "rounds": [
+            "76 VMan",
+            "71 VSab",
+            "79 VSab"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Chris Cassetta",
+          "affiliation": "High Point, NC",
+          "toPar": "+10",
+          "rounds": [
+            "75 VMan",
+            "77 VSab",
+            "74 VSab"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Michael O’Hanlon",
+          "affiliation": "Ashburn, VA",
+          "toPar": "+10",
+          "rounds": [
+            "76 VMan",
+            "77 VSab",
+            "73 VSab"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "20",
+          "name": "Richard Wintsch",
+          "affiliation": "Richmond, VA",
+          "toPar": "+11",
+          "rounds": [
+            "77 VMan",
+            "72 VSab",
+            "78 VSab"
+          ],
+          "total": "227",
+          "status": "ranked"
+        },
+        {
+          "position": "T21",
+          "name": "Brent Holsten",
+          "affiliation": "Henrico, VA",
+          "toPar": "+13",
+          "rounds": [
+            "72 VMan",
+            "75 VSab",
+            "82 VSab"
+          ],
+          "total": "229",
+          "status": "ranked"
+        },
+        {
+          "position": "T21",
+          "name": "Michael Trueworthy",
+          "affiliation": "Virginia Beach, VA",
+          "toPar": "+13",
+          "rounds": [
+            "77 VMan",
+            "74 VSab",
+            "78 VSab"
+          ],
+          "total": "229",
+          "status": "ranked"
+        },
+        {
+          "position": "T21",
+          "name": "Brian Campbell",
+          "affiliation": "Manakin Sabot, VA",
+          "toPar": "+13",
+          "rounds": [
+            "76 VMan",
+            "76 VSab",
+            "77 VSab"
+          ],
+          "total": "229",
+          "status": "ranked"
+        },
+        {
+          "position": "T21",
+          "name": "Jay Serrao",
+          "affiliation": "Virginia Beach, VA",
+          "toPar": "+13",
+          "rounds": [
+            "75 VMan",
+            "78 VSab",
+            "76 VSab"
+          ],
+          "total": "229",
+          "status": "ranked"
+        },
+        {
+          "position": "25",
+          "name": "Darren Dortch",
+          "affiliation": "Dallas, TX",
+          "toPar": "+16",
+          "rounds": [
+            "73 VMan",
+            "78 VSab",
+            "81 VSab"
+          ],
+          "total": "232",
+          "status": "ranked"
+        },
+        {
+          "position": "26",
+          "name": "Marc Hogan",
+          "affiliation": "Woodberry Forest, VA",
+          "toPar": "+25",
+          "rounds": [
+            "74 VMan",
+            "79 VSab",
+            "88 VSab"
+          ],
+          "total": "241",
+          "status": "ranked"
+        },
+        {
+          "position": "CUT",
+          "name": "Gregory Gerczak",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+10",
+          "rounds": [
+            "76 VMan",
+            "78 VSab",
+            ""
+          ],
+          "total": "154",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Robert Jones",
+          "affiliation": "Henrico, VA",
+          "toPar": "+10",
+          "rounds": [
+            "76 VMan",
+            "78 VSab",
+            ""
+          ],
+          "total": "154",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Rich Jeremiah",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+11",
+          "rounds": [
+            "74 VMan",
+            "81 VSab",
+            ""
+          ],
+          "total": "155",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Scott Bemberis",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+12",
+          "rounds": [
+            "77 VMan",
+            "79 VSab",
+            ""
+          ],
+          "total": "156",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Mike Garner",
+          "affiliation": "Darnestown, MD",
+          "toPar": "+12",
+          "rounds": [
+            "78 VMan",
+            "78 VSab",
+            ""
+          ],
+          "total": "156",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Cam Young",
+          "affiliation": "Richmond, VA",
+          "toPar": "+13",
+          "rounds": [
+            "82 VMan",
+            "75 VSab",
+            ""
+          ],
+          "total": "157",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Kevin Dillard",
+          "affiliation": "McLean, VA",
+          "toPar": "+15",
+          "rounds": [
+            "83 VMan",
+            "76 VSab",
+            ""
+          ],
+          "total": "159",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Dan Hosek",
+          "affiliation": "Alexandria, VA",
+          "toPar": "+15",
+          "rounds": [
+            "77 VMan",
+            "82 VSab",
+            ""
+          ],
+          "total": "159",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Todd Hoyle",
+          "affiliation": "Midlothian, VA",
+          "toPar": "+16",
+          "rounds": [
+            "80 VMan",
+            "80 VSab",
+            ""
+          ],
+          "total": "160",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Steve Liebler",
+          "affiliation": "Irmo, SC",
+          "toPar": "+17",
+          "rounds": [
+            "81 VMan",
+            "80 VSab",
+            ""
+          ],
+          "total": "161",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Barrett Hubbard",
+          "affiliation": "Richmond, VA",
+          "toPar": "+21",
+          "rounds": [
+            "83 VMan",
+            "82 VSab",
+            ""
+          ],
+          "total": "165",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Emmett Clougherty",
+          "affiliation": "Richmond, VA",
+          "toPar": "+21",
+          "rounds": [
+            "84 VMan",
+            "81 VSab",
+            ""
+          ],
+          "total": "165",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Stephen Whitfield",
+          "affiliation": "Virginia Beach, VA",
+          "toPar": "+23",
+          "rounds": [
+            "77 VMan",
+            "90 VSab",
+            ""
+          ],
+          "total": "167",
+          "status": "CUT"
+        },
+        {
+          "position": "CUT",
+          "name": "Hugh Reams",
+          "affiliation": "Manakin Sabot, VA",
+          "toPar": "+28",
+          "rounds": [
+            "81 VMan",
+            "91 VSab",
+            ""
+          ],
+          "total": "172",
+          "status": "CUT"
+        },
+        {
+          "position": "WD",
+          "name": "Yancey Johnson",
+          "affiliation": "Simpsonville, SC",
+          "toPar": "-",
+          "rounds": [
+            "WD VMan",
+            "",
+            ""
+          ],
+          "total": "WD",
+          "status": "WD"
+        },
+        {
+          "position": "WD",
+          "name": "Jeffrey Klatt",
+          "affiliation": "Manassas, VA",
+          "toPar": "-",
+          "rounds": [
+            "WD VMan",
+            "",
+            ""
+          ],
+          "total": "WD",
+          "status": "WD"
+        }
+      ]
+    },
+    {
+      "slug": "cb-macdonald-invitational-tournament",
+      "roundCount": 0,
+      "scope": "official-totals",
+      "complete": false,
+      "rows": [
+        {
+          "position": "1",
+          "name": "Hagestad, Stewart",
+          "affiliation": "",
+          "toPar": "-7",
+          "rounds": [],
+          "total": "65",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Esteve, Jeronimo",
+          "affiliation": "",
+          "toPar": "-4",
+          "rounds": [],
+          "total": "68",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Leopold, Bobby",
+          "affiliation": "",
+          "toPar": "-4",
+          "rounds": [],
+          "total": "68",
+          "status": "ranked"
+        },
+        {
+          "position": "4",
+          "name": "Davenport, Will",
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "5",
+          "name": "DelPrete, Johnny",
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Cress, Michael",
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "7",
+          "name": "Hahn, John",
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "8",
+          "name": "Cassini, Nick",
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [],
+          "total": "70",
+          "status": "ranked"
+        },
+        {
+          "position": "9",
+          "name": "Turner, Scott",
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [],
+          "total": "70",
+          "status": "ranked"
+        },
+        {
+          "position": "10",
+          "name": "Dove, Hal",
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [],
+          "total": "70",
+          "status": "ranked"
+        },
+        {
+          "position": "11",
+          "name": "Abbate, Ryan",
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [],
+          "total": "70",
+          "status": "ranked"
+        },
+        {
+          "position": "12",
+          "name": "Barrett, Sean",
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [],
+          "total": "70",
+          "status": "ranked"
+        },
+        {
+          "position": "13",
+          "name": "White, Steve",
+          "affiliation": "",
+          "toPar": "-1",
+          "rounds": [],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "14",
+          "name": "Richards, Brad",
+          "affiliation": "",
+          "toPar": "-1",
+          "rounds": [],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "15",
+          "name": "Parziale, Matt",
+          "affiliation": "",
+          "toPar": "-1",
+          "rounds": [],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "16",
+          "name": "Schonbaum, Andy",
+          "affiliation": "",
+          "toPar": "-1",
+          "rounds": [],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "17",
+          "name": "Cavaliere, Christian",
+          "affiliation": "",
+          "toPar": "-1",
+          "rounds": [],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "18",
+          "name": "Chestnut, Jimmy",
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "19",
+          "name": "Miller, James",
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "20",
+          "name": "McAllister, Aengus",
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "21",
+          "name": "Getz, Chip",
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "22",
+          "name": "Ulrich, Park",
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "23",
+          "name": "Harrison, Charlie",
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "24",
+          "name": "McBride, Michael Paul",
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "25",
+          "name": "Hanes, Billy",
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "26",
+          "name": "Horner, Dan",
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "27",
+          "name": "Liu, Seiji",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "28",
+          "name": "Keller, John",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "29",
+          "name": "Williams, Brian",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "30",
+          "name": "Rawitzer, Matthew",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "31",
+          "name": "Stamberger, Michael",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "32",
+          "name": "Lane, Andrew",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "33",
+          "name": "Shuart, TJ",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "34",
+          "name": "Naumec, Matthew",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "35",
+          "name": "Kovacs, John",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "36",
+          "name": "Casey, Conor",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "37",
+          "name": "Bollini, Nico",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "38",
+          "name": "Herlihy, Brent",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "39",
+          "name": "Cammisa, Jack",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "40",
+          "name": "Price, Andrew",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "41",
+          "name": "Cole, Spencer",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "42",
+          "name": "Dailly, Xavier",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "43",
+          "name": "Araskog, Rand",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "44",
+          "name": "Butler, Prescott",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "45",
+          "name": "Donaldson, Nicolas",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "46",
+          "name": "Bohn, Nate",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "47",
+          "name": "Falk, Brian",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "48",
+          "name": "Lister, Davis",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "49",
+          "name": "Christovich, Patrick",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "50",
+          "name": "Streib, West",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "51",
+          "name": "Longley, Reid",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "52",
+          "name": "Savitt, Michael",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "53",
+          "name": "Kirkpatrick, Kip",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "54",
+          "name": "Barbosa, Michael",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "55",
+          "name": "Halpin, Christopher",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "56",
+          "name": "Lape, Sam",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "57",
+          "name": "Araskog, Jack",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "58",
+          "name": "Torell V, John",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "59",
+          "name": "Pierce, Wes",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "60",
+          "name": "Parker, William",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "61",
+          "name": "Boudria, George",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "62",
+          "name": "Warner, Philip",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "63",
+          "name": "Banks, Zan",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "64",
+          "name": "Maude, Tug",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "65",
+          "name": "McBride, JJ",
+          "affiliation": "",
+          "toPar": "+8",
+          "rounds": [],
+          "total": "80",
+          "status": "ranked"
+        },
+        {
+          "position": "66",
+          "name": "Huber, Andreas",
+          "affiliation": "",
+          "toPar": "+9",
+          "rounds": [],
+          "total": "81",
+          "status": "ranked"
+        },
+        {
+          "position": "67",
+          "name": "Nordeman, John",
+          "affiliation": "",
+          "toPar": "+9",
+          "rounds": [],
+          "total": "81",
+          "status": "ranked"
+        },
+        {
+          "position": "68",
+          "name": "Robertson, Alexander",
+          "affiliation": "",
+          "toPar": "+9",
+          "rounds": [],
+          "total": "81",
+          "status": "ranked"
+        },
+        {
+          "position": "69",
+          "name": "Lessing, Jack",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "70",
+          "name": "Hyder, Bill",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "71",
+          "name": "Keane, Jonathan",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "72",
+          "name": "Reynolds, Jamie",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "73",
+          "name": "McBride, Jack",
+          "affiliation": "",
+          "toPar": "+12",
+          "rounds": [],
+          "total": "84",
+          "status": "ranked"
+        },
+        {
+          "position": "74",
+          "name": "Dimitri, James",
+          "affiliation": "",
+          "toPar": "+12",
+          "rounds": [],
+          "total": "84",
+          "status": "ranked"
+        },
+        {
+          "position": "75",
+          "name": "McCoy, Trip",
+          "affiliation": "",
+          "toPar": "+12",
+          "rounds": [],
+          "total": "84",
+          "status": "ranked"
+        },
+        {
+          "position": "76",
+          "name": "Yates Jr., Daniel",
+          "affiliation": "",
+          "toPar": "+12",
+          "rounds": [],
+          "total": "84",
+          "status": "ranked"
+        },
+        {
+          "position": "77",
+          "name": "Goergen Jr., Robert",
+          "affiliation": "",
+          "toPar": "+13",
+          "rounds": [],
+          "total": "85",
+          "status": "ranked"
+        },
+        {
+          "position": "78",
+          "name": "McAndrew, Matthew",
+          "affiliation": "",
+          "toPar": "+15",
+          "rounds": [],
+          "total": "87",
+          "status": "ranked"
+        },
+        {
+          "position": "79",
+          "name": "McBride, Christopher",
+          "affiliation": "",
+          "toPar": "+18",
+          "rounds": [],
+          "total": "90",
+          "status": "ranked"
+        },
+        {
+          "position": "80",
+          "name": "Herlihy, Todd",
+          "affiliation": "",
+          "toPar": "+20",
+          "rounds": [],
+          "total": "92",
+          "status": "ranked"
+        }
+      ]
+    },
+    {
+      "slug": "cb-macdonald-invitational-senior-division",
+      "roundCount": 0,
+      "scope": "official-totals",
+      "complete": false,
+      "rows": [
+        {
+          "position": "1",
+          "name": "Newsom, Roger",
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Albertsson, Hans",
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Rowley, Michael",
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [],
+          "total": "70",
+          "status": "ranked"
+        },
+        {
+          "position": "4",
+          "name": "Norton, Bryan",
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "5",
+          "name": "Keogh, Dan",
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Palmer, Joe",
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "7",
+          "name": "Tennyson, Brian",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "8",
+          "name": "Williams, Johnny",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "9",
+          "name": "McCoy, Michael",
+          "affiliation": "",
+          "toPar": "+2",
+          "rounds": [],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "10",
+          "name": "Lape, Tom",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "11",
+          "name": "Hoit, Roger",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "12",
+          "name": "Fadel, Alan",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "13",
+          "name": "Brennan, Tommy",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "14",
+          "name": "Gerwin, Robert",
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "15",
+          "name": "O'Connell, Eoghan",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "16",
+          "name": "Addington, Mark",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "17",
+          "name": "Kellock, Rupert",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "18",
+          "name": "Mackesy, Scott",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "19",
+          "name": "O'Callaghan, Dan",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "20",
+          "name": "Hayes, David",
+          "affiliation": "",
+          "toPar": "+4",
+          "rounds": [],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "21",
+          "name": "Powers, John",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "22",
+          "name": "Higgins, Brian",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "23",
+          "name": "Marucci Jr., Buddy",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "24",
+          "name": "Howison, Ryan",
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [],
+          "total": "77",
+          "status": "ranked"
+        },
+        {
+          "position": "25",
+          "name": "McClure, John",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "26",
+          "name": "McAvity, Malcolm",
+          "affiliation": "",
+          "toPar": "+6",
+          "rounds": [],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "27",
+          "name": "Kenny, Kevin",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "28",
+          "name": "Kaneb, Paul",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "29",
+          "name": "Goodwin, Bart",
+          "affiliation": "",
+          "toPar": "+7",
+          "rounds": [],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "30",
+          "name": "Keenan, Brian",
+          "affiliation": "",
+          "toPar": "+8",
+          "rounds": [],
+          "total": "80",
+          "status": "ranked"
+        },
+        {
+          "position": "31",
+          "name": "Berman, James",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "32",
+          "name": "Sherrill, Stephen",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "33",
+          "name": "Lonergan, Simon",
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "34",
+          "name": "O’Neill, Craig",
+          "affiliation": "",
+          "toPar": "+11",
+          "rounds": [],
+          "total": "83",
+          "status": "ranked"
+        },
+        {
+          "position": "35",
+          "name": "Harris, David",
+          "affiliation": "",
+          "toPar": "+12",
+          "rounds": [],
+          "total": "84",
+          "status": "ranked"
+        },
+        {
+          "position": "36",
+          "name": "Dunne, James",
+          "affiliation": "",
+          "toPar": "+12",
+          "rounds": [],
+          "total": "84",
+          "status": "ranked"
+        },
+        {
+          "position": "37",
+          "name": "Torell IV, John",
+          "affiliation": "",
+          "toPar": "+13",
+          "rounds": [],
+          "total": "85",
+          "status": "ranked"
+        },
+        {
+          "position": "38",
+          "name": "Graham, Jim",
+          "affiliation": "",
+          "toPar": "+13",
+          "rounds": [],
+          "total": "85",
+          "status": "ranked"
+        },
+        {
+          "position": "39",
+          "name": "Yates Sr., Danny",
+          "affiliation": "",
+          "toPar": "+13",
+          "rounds": [],
+          "total": "85",
+          "status": "ranked"
+        },
+        {
+          "position": "40",
+          "name": "Araskog, William",
+          "affiliation": "",
+          "toPar": "+14",
+          "rounds": [],
+          "total": "86",
+          "status": "ranked"
+        },
+        {
+          "position": "41",
+          "name": "Head, Graham",
+          "affiliation": "",
+          "toPar": "+15",
+          "rounds": [],
+          "total": "87",
+          "status": "ranked"
+        },
+        {
+          "position": "42",
+          "name": "Novak, David",
+          "affiliation": "",
+          "toPar": "+15",
+          "rounds": [],
+          "total": "87",
+          "status": "ranked"
+        },
+        {
+          "position": "43",
+          "name": "McCarthy, Jed",
+          "affiliation": "",
+          "toPar": "+16",
+          "rounds": [],
+          "total": "88",
+          "status": "ranked"
+        },
+        {
+          "position": "44",
+          "name": "Giles, Vinny",
+          "affiliation": "",
+          "toPar": "+16",
+          "rounds": [],
+          "total": "88",
+          "status": "ranked"
+        },
+        {
+          "position": "45",
+          "name": "Gerry, Bobby",
+          "affiliation": "",
+          "toPar": "+17",
+          "rounds": [],
+          "total": "89",
+          "status": "ranked"
+        },
+        {
+          "position": "46",
+          "name": "O'Neill, Darrin",
+          "affiliation": "",
+          "toPar": "+18",
+          "rounds": [],
+          "total": "90",
+          "status": "ranked"
+        },
+        {
+          "position": "47",
+          "name": "Idol, John",
+          "affiliation": "",
+          "toPar": "+20",
+          "rounds": [],
+          "total": "92",
+          "status": "ranked"
+        },
+        {
+          "position": "48",
+          "name": "Lambrecht, Laurence",
+          "affiliation": "",
+          "toPar": "+22",
+          "rounds": [],
+          "total": "94",
+          "status": "ranked"
+        }
+      ]
+    }
+  ]
+}
