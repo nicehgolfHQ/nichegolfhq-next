@@ -1104,7 +1104,23 @@ const raHtml = renderHub({ slug: "ra-senior-amateur", name: "R&A Senior Amateur"
 if (raEvent?.pastResults?.find((result) => result.year === 2026)?.score !== "278" || !raHtml.includes("Full results unavailable here.") || !raHtml.includes("278")) {
   throw new Error("R&A selected result changed");
 }
-const crumpSeniorHtml = renderHub({ slug: "crump-cup-senior-division", name: "Crump Cup Senior", channel: "senior", month: 9, format: "stroke play", pastResults: [{ year: 2026, champion: "Randy Haag" }] }, "senior");
+const crumpSenior = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "crump-cup-senior-division");
+if (!crumpSenior || crumpSenior.golfGeniusUrl !== "/results/crump-cup-2026-final-results.pdf" || crumpSenior.golfGeniusUrlLabel !== "Pairings and tee times") {
+  throw new Error("Crump senior sheet is still labeled as results");
+}
+const crumpSeniorHtml = renderHub({
+  slug: crumpSenior.slug,
+  name: crumpSenior.name,
+  channel: "senior",
+  month: 9,
+  format: crumpSenior.format,
+  golfGeniusUrl: crumpSenior.golfGeniusUrl,
+  golfGeniusUrlLabel: crumpSenior.golfGeniusUrlLabel,
+  pastResults: [{ year: 2026, champion: "Randy Haag" }],
+}, "senior");
+if (!crumpSeniorHtml.includes(`href="${crumpSenior.golfGeniusUrl}"`) || !crumpSeniorHtml.includes("Pairings and tee times") || crumpSeniorHtml.includes("2026 Results")) {
+  throw new Error("Crump senior scoring link does not use the real pairings label");
+}
 if (!crumpSeniorHtml.includes("Randy Haag") || !crumpSeniorHtml.includes("Full results unavailable here.") || crumpSeniorHtml.includes("3 and 2")) {
   throw new Error("Crump senior sheet was parsed into a margin");
 }
