@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -44,6 +44,28 @@ export const HUB_BATCH_1: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "east-vs-west-matches" },
   { channel: "junior", slug: "junior-orange-bowl" },
   { channel: "senior", slug: "society-of-seniors-spring-classic" },
+];
+
+/** Straightforward N-hole stroke play still on the 2026 calendar. Cuts, match play, and the 2027 Lupton reschedule stay off this list. */
+export const HUB_BATCH_2: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "snedeker-memorial" },
+  { channel: "midam", slug: "giles-invitational" },
+  { channel: "midam", slug: "the-jupiter-invitational" },
+  { channel: "midam", slug: "the-huddleston-cup" },
+  { channel: "midam", slug: "sanger-invitational" },
+  { channel: "midam", slug: "national-invitational-tournament" },
+  { channel: "junior", slug: "ajga-simplify-boys-championship" },
+  { channel: "junior", slug: "fortinet-stanford-invitational" },
+  { channel: "junior", slug: "junior-invitational-sage-valley" },
+  { channel: "junior", slug: "ajga-team-taylormade-invitational" },
+  { channel: "junior", slug: "nelly-invitational" },
+  { channel: "junior", slug: "ajga-wyndham-invitational" },
+  { channel: "senior", slug: "gasparilla-invitational-senior-division" },
+  { channel: "senior", slug: "jones-cup-senior-invitational" },
+  { channel: "senior", slug: "society-of-seniors-senior-masters" },
+  { channel: "senior", slug: "sunnehanna-senior-amateur" },
+  { channel: "senior", slug: "senior-porter-cup" },
+  { channel: "senior", slug: "california-senior-amateur" },
 ];
 
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
@@ -114,12 +136,13 @@ export function resultsTabLabel(kind: HubFormat): "Scoring" | "Matches" {
 function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] {
   if (EWING_DEDICATED.some((item) => item.channel === channel && item.slug === slug)) return "ewing";
   if (HUB_BATCH_1.some((item) => item.channel === channel && item.slug === slug)) return "batch-1";
+  if (HUB_BATCH_2.some((item) => item.channel === channel && item.slug === slug)) return "batch-2";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2") return "format-hub";
   return "legacy";
 }
 

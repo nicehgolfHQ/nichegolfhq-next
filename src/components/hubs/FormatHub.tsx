@@ -247,7 +247,7 @@ function ResultsPanel({
   const roundScores = snapshot?.kind === "stroke" && snapshot.rows.some((row) => row.rounds.some((score) => score != null));
   return (
     <div>
-      {snapshot?.kind === "stroke" ? (
+      {snapshot?.kind === "stroke" || (!snapshot && editionResult(tournament)) ? (
         <>
           {roundScores && rounds > 1 ? (
             <div className="flex flex-wrap justify-center gap-2 pb-4">
@@ -266,15 +266,19 @@ function ResultsPanel({
               ))}
             </div>
           ) : null}
-          <h2 className="text-center font-serif text-3xl font-semibold">{scopeLabel(snapshot)}</h2>
+          <h2 className="text-center font-serif text-3xl font-semibold">{snapshot ? scopeLabel(snapshot) : "Selected results"}</h2>
           <div className="mt-4">
-            <StrokeTable snapshot={snapshot} highlight={roundScores ? round - 1 : -1} />
+            {snapshot?.kind === "stroke" ? (
+              <StrokeTable snapshot={snapshot} highlight={roundScores ? round - 1 : -1} />
+            ) : (
+              <ChampionTable tournament={tournament} />
+            )}
           </div>
         </>
       ) : null}
       {snapshot?.kind === "match" ? <MatchTable snapshot={snapshot} /> : null}
       {snapshot?.kind === "team-match" ? <TeamTable snapshot={snapshot} /> : null}
-      {!snapshot ? (
+      {!snapshot && !editionResult(tournament) ? (
         <div className="text-center">
           <h2 className="font-serif text-3xl font-semibold">Results</h2>
           <div className="mt-4 flex justify-center">
@@ -286,6 +290,42 @@ function ResultsPanel({
           <ScoringAccess tournament={tournament} />
         </div>
       )}
+    </div>
+  );
+}
+
+function editionResult(tournament: Tournament) {
+  return (tournament.pastResults ?? []).find((result) => result.year === 2026);
+}
+
+function ChampionTable({ tournament }: { tournament: Tournament }) {
+  const result = editionResult(tournament);
+  if (!result) return null;
+  return (
+    <div className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
+      <table className="w-full text-left text-sm">
+        <caption className="sr-only">Selected results</caption>
+        <thead className="border-b border-zinc-200 text-xs uppercase tracking-[0.12em] text-zinc-500">
+          <tr>
+            <th className="px-3 py-3 font-semibold">Place</th>
+            <th className="px-3 py-3 font-semibold">Player</th>
+            <th className="px-3 py-3 font-semibold">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-zinc-100">
+            <td className="px-3 py-3 font-semibold">1</td>
+            <td className="px-3 py-3 font-semibold">{result.champion}</td>
+            <td className="px-3 py-3">{result.score ?? ""}</td>
+          </tr>
+          {result.runnerUp ? (
+            <tr>
+              <td className="px-3 py-3 font-semibold">Runner-up</td>
+              <td className="px-3 py-3" colSpan={2}>{result.runnerUp}</td>
+            </tr>
+          ) : null}
+        </tbody>
+      </table>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { resultSnapshot, snapshotNames } from "../src/data/hubs/batch1-results";
 import type { Tournament } from "../src/lib/tournaments/types";
 import {
   HUB_BATCH_1,
+  HUB_BATCH_2,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -26,7 +27,8 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length) throw new Error("Batch 1 size drifted");
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length) throw new Error("Format hub count drifted");
+if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
 if (summary.ewingDedicated !== 2) throw new Error("Ewing dedicated hubs drifted");
 if (summary.legacy !== summary.total - summary.formatHub - summary.ewingDedicated) throw new Error("Legacy remainder drifted");
 
@@ -50,7 +52,7 @@ for (const event of [...MIDAM_TOURNAMENTS, ...JUNIOR_MAJOR_EVENTS_2026, ...SENIO
   }
 }
 
-for (const item of HUB_BATCH_1) {
+for (const item of [...HUB_BATCH_1, ...HUB_BATCH_2]) {
   if (!isFormatHub(item.channel, item.slug)) throw new Error(`${item.slug} is not on the format hub`);
   const row = items.find((entry) => entry.channel === item.channel && entry.slug === item.slug);
   if (!row) throw new Error(`Batch slug missing ${item.slug}`);
@@ -59,6 +61,12 @@ for (const item of HUB_BATCH_1) {
 
 if (isFormatHub("midam", "ewing-cup-four-ball") || isFormatHub("senior", "ewing-cup-four-ball")) {
   throw new Error("Ewing was pulled onto the generic format hub");
+}
+if (isFormatHub("midam", "john-t-lupton-memorial")) throw new Error("Rescheduled Lupton was migrated as stroke");
+for (const item of HUB_BATCH_2) {
+  const row = items.find((entry) => entry.channel === item.channel && entry.slug === item.slug);
+  if (row?.formatKind !== "stroke") throw new Error(`${item.slug} is not straightforward stroke`);
+  if (row.calendar === "rescheduled-out" || row.calendar === "unknown") throw new Error(`${item.slug} is not a 2026 playing`);
 }
 
 const expectedKind: Record<string, string> = {
@@ -203,6 +211,42 @@ const eastHtml = renderHub(
 if (!eastHtml.includes(">Mike Sposa</li>")) throw new Error("Mike Sposa was not rendered as his own player");
 if (!eastHtml.includes(">Todd White</li>")) throw new Error("Todd White was not rendered as his own player");
 if (eastHtml.includes(">Mike Sposa and Todd White</li>")) throw new Error("A pairing rendered as one field entry");
+
+const championOnly = renderHub(
+  {
+    slug: "snedeker-memorial",
+    name: "Snedeker Memorial",
+    channel: "midam",
+    month: 3,
+    startDate: "2026-03-01",
+    endDate: "2026-03-03",
+    pastResults: [{ year: 2026, champion: "Brett Patterson" }],
+  },
+  "midam",
+);
+if (!championOnly.includes("Brett Patterson")) throw new Error("Stored 2026 champion did not render");
+if (!championOnly.includes("Selected results")) throw new Error("Champion-only board has no scope label");
+if (championOnly.includes(">Round 1<")) throw new Error("Champion-only board rendered a round control");
+if (championOnly.includes("No scores yet") || championOnly.includes("No players posted")) {
+  throw new Error("Finished event implies nothing was posted");
+}
+
+const nitHtml = renderHub(
+  {
+    slug: "national-invitational-tournament",
+    name: "National Invitational Tournament",
+    channel: "midam",
+    month: 11,
+    liveStatus: "live",
+    startDate: "2026-11-06",
+    endDate: "2026-11-08",
+    golfGeniusUrl: "https://idp.golfgenius.com/auth/sign_in?client_id=example",
+    golfGeniusCode: "NIT2026",
+  },
+  "midam",
+);
+if (!nitHtml.includes("Live scoring · NIT2026")) throw new Error("Golf Genius code was dropped");
+if (!nitHtml.includes("idp.golfgenius.com")) throw new Error("Login-bound scoring URL was dropped");
 
 console.log(JSON.stringify(summary, null, 2));
 console.log("hub inventory tests ok");
