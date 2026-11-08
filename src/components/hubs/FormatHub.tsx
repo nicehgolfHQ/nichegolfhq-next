@@ -37,6 +37,8 @@ const RESULTS_NOTE: Record<string, string> = {
   "us-girls-junior": "Full results unavailable here.",
   "us-womens-amateur": "Full results unavailable here.",
   "boys-junior-pga": "Full results unavailable here.",
+  "wyndham-cup": "Full results unavailable here.",
+  "junior-presidents-cup": "Full results unavailable here.",
   "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
 };
 
@@ -448,7 +450,9 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
             ? "Qualifying totals"
             : snapshot.scope === "official-points"
               ? "Stableford points"
-              : "Published finishers. Blank rounds were not in the source.";
+              : snapshot.scope === "official-partial"
+                ? snapshot.stageLabel ?? "Partial results"
+                : "Published finishers. Blank rounds were not in the source.";
   return (
     <div tabIndex={0} aria-label={caption} className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">
       <table className="w-full min-w-[640px] text-left text-sm">
@@ -641,7 +645,7 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
       );
     }
   }
-  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall" || snapshot.scope === "official-totals" || snapshot.scope === "official-points")) {
+  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall" || snapshot.scope === "official-partial" || snapshot.scope === "official-totals" || snapshot.scope === "official-points")) {
     const players = [...snapshot.rows]
       .flatMap((row) => (row.players?.length ? row.players.map((name) => ({ name, hometown: undefined as string | undefined })) : [{ name: row.name, hometown: row.hometown }]))
       .sort((a, b) => a.name.localeCompare(b.name));

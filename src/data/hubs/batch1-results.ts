@@ -31,7 +31,7 @@ export type StrokeFinisher = {
 export type StrokeSnapshot = {
   kind: "stroke";
   complete: boolean;
-  scope: "published-finishers" | "official-overall" | "official-final" | "official-award" | "official-totals" | "official-points";
+  scope: "published-finishers" | "official-overall" | "official-final" | "official-partial" | "official-award" | "official-totals" | "official-points";
   roundCount: number;
   /** Stableford points are not stroke scores. */
   scoring?: "strokes" | "stableford-points";
@@ -159,6 +159,43 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
     ],
     sources: [{ articleSlug: "2026-national-invitational-tournament-round-2-recap", record: "article", label: "Round 2 recap" }],
   },
+  "rlx-ralph-lauren-junior-classic": {
+    kind: "match",
+    formatConfidence: "string-only",
+    complete: false,
+    qualifying: null,
+    matches: [
+      { flight: "Boys", round: "Final", result: "Rory Asselta def. Joseph Corcell (Fla.), 5&4" },
+      { flight: "Girls", round: "Final", result: "Eliana Saga def. Clairey Lin (Canada), 2&1" },
+    ],
+    sources: [{ record: "official-board" }],
+  },
+  "junior-solheim-cup": {
+    kind: "match",
+    formatConfidence: "string-only",
+    complete: false,
+    qualifying: null,
+    matches: [
+      { flight: "Singles", round: "Singles", result: "Annabel Peaford (Europe) def. Asterisk Talley (U.S. Team), 1 up" },
+      { flight: "Singles", round: "Singles", result: "Eliana Saga (U.S. Team) def. Adriana García Terol (Europe), 4 and 3" },
+      { flight: "Singles", round: "Singles", result: "Lauren Crump (Europe) def. Amber Lee (U.S. Team), 3 and 2" },
+      { flight: "Singles", round: "Singles", result: "Anna Ludvova (Europe) def. Grace Carter (U.S. Team), 2 and 1" },
+      { flight: "Singles", round: "Singles", result: "Madeleine Conser (U.S. Team) def. Lana Guyot (Europe), 5 and 4" },
+      { flight: "Singles", round: "Singles", result: "Kelly Zhang (U.S. Team) def. Caroline Perez-Tasso (Europe), 2 up" },
+      { flight: "Singles", round: "Singles", result: "Lena Geier (Europe) def. Aubrey Hilgers (U.S. Team), 2up" },
+      { flight: "Singles", round: "Singles", result: "Sofia Maier-Borst (Europe) def. Amelie Zalsman (U.S. Team), 2 and 1" },
+      { flight: "Singles", round: "Singles", result: "Axelle Guillemard (Europe) def. Honorine Ferry (U.S. Team), 3 and 2" },
+      { flight: "Singles", round: "Singles", result: "Carlota Lopez Minguela (Europe) def. Iris Lee (U.S. Team), 3 and 2" },
+      {
+        flight: "Singles",
+        round: "Singles",
+        result: "Anna Fang (U.S. Team) and Marta Muñoz (Europe), Tie",
+        players: ["Anna Fang", "Marta Muñoz"],
+      },
+      { flight: "Singles", round: "Singles", result: "Alice Kong (Europe) def. Lily Peng (USA), 1 up" },
+    ],
+    sources: [{ record: "official-board" }],
+  },
   "east-vs-west-matches": {
     kind: "team-match",
     complete: false,
@@ -198,6 +235,7 @@ function individualName(name: string): string {
 export function scopeLabel(snapshot: ResultSnapshot): string {
   if (snapshot.kind === "stroke" && snapshot.scope === "official-overall") return "Overall results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-final") return "Final results";
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-partial") return snapshot.stageLabel ?? "Partial results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-award") return "Low Senior award";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-totals") return "Qualifying totals";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-points") return "Stableford points";
