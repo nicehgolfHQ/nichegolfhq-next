@@ -18,7 +18,9 @@ export function FourBallBoard({ rows }: { rows: FourBallStanding[] }) {
         <tbody>
           {rows.map((row) => (
             <tr key={row.id} className="border-b border-zinc-100 align-top">
-              <td className="px-3 py-3 font-semibold text-zinc-800">{row.position ?? ""}</td>
+              <td className="px-3 py-3 font-semibold text-zinc-800">
+                {row.position ?? (row.rankNote === "in_progress" ? "In progress" : "")}
+              </td>
               <td className="px-3 py-3">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-800">{row.divisionLabel}</p>
                 <p className="mt-1">

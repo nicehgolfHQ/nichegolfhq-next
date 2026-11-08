@@ -1,6 +1,6 @@
 import { PLAYERS, PLAYER_APPEARANCES } from "@/data/players/registry";
 import type { FactSource } from "@/data/players/types";
-import type { FourBallScore } from "./four-ball";
+import { auditScore, type FourBallScore } from "./four-ball";
 import { EWING_2026_TEAMS, EWING_FIELD_CHECKED_AT } from "./ewing-2026-field";
 import { EWING_EVENT_SLUG } from "./ewing-event";
 
@@ -21,6 +21,8 @@ export type PlannedRound = {
   date: string;
   course: string;
   detail: string;
+  /** Course par when this site has it. Blue Course par is not in the verified record. */
+  par: number | null;
 };
 
 export const EWING_OFFICIAL = {
@@ -34,7 +36,7 @@ export const EWING_SNAPSHOT = {
   scoringCheckedAt: SCORING_CHECKED_AT,
   fieldCheckedAt: EWING_FIELD_CHECKED_AT,
   fieldStatus: "posted" as const,
-  leaderboardStatus: "source_pending" as const,
+  leaderboardStatus: "source_pending" as "source_pending" | "verified" | "source_unavailable",
   competitionStart: "2026-11-13",
   competitionEnd: "2026-11-15",
   sources: [
@@ -56,6 +58,7 @@ export const EWING_SNAPSHOT = {
       date: "2026-11-13",
       course: "Blue Course",
       detail: "Round 1. Tee times were still TBD on the official schedule.",
+      par: null,
     },
     {
       id: "round-2",
@@ -63,6 +66,7 @@ export const EWING_SNAPSHOT = {
       date: "2026-11-14",
       course: "Gold Course",
       detail: "Round 2. Tee times were still TBD on the official schedule.",
+      par: 72,
     },
     {
       id: "final",
@@ -70,6 +74,7 @@ export const EWING_SNAPSHOT = {
       date: "2026-11-15",
       course: "Blue Course",
       detail: "Final round. Full field start at 8:30 AM.",
+      par: null,
     },
   ] satisfies PlannedRound[],
   teams: EWING_2026_TEAMS.map((team) => ({
@@ -116,7 +121,12 @@ export function verifyEwingSnapshot() {
   for (const team of EWING_SNAPSHOT.teams) {
     if (ids.has(team.id)) problems.push(`Duplicate team ${team.id}`);
     ids.add(team.id);
-    if (team.score != null) problems.push(`Live team ${team.id} has a score before a verified board`);
+    if (EWING_SNAPSHOT.leaderboardStatus !== "verified" && team.score != null) {
+      problems.push(`Team ${team.id} has a score while the leaderboard is ${EWING_SNAPSHOT.leaderboardStatus}`);
+    }
+    if (EWING_SNAPSHOT.leaderboardStatus === "verified" && team.score) {
+      problems.push(...auditScore(team.score, EWING_SNAPSHOT.rounds.map((round) => round.par)));
+    }
     for (const playerId of team.playerIds) {
       const player = PLAYERS.find((item) => item.id === playerId);
       if (!player) problems.push(`Missing player ${playerId}`);

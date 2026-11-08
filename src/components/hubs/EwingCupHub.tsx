@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Player, PlayerAppearance } from "@/data/players/types";
-import { standings } from "@/data/hubs/four-ball";
+import { leaderboardCopy, roundHasScores, standings } from "@/data/hubs/four-ball";
 import { EWING_OFFICIAL, EWING_SNAPSHOT } from "@/data/hubs/ewing-cup-four-ball";
 import { FourBallBoard } from "./FourBallBoard";
 
@@ -57,6 +57,7 @@ export function EwingCupHub({
       return player.name.toLowerCase().includes(query.trim().toLowerCase());
     });
   }, [division, entrants, query]);
+  const scoringCopy = leaderboardCopy(EWING_SNAPSHOT.leaderboardStatus);
   const board = standings(
     EWING_SNAPSHOT.teams.map((team) => ({
       id: team.id,
@@ -73,7 +74,7 @@ export function EwingCupHub({
       <div className="border-b border-emerald-200 bg-emerald-50">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-3 text-sm text-emerald-950 md:flex-row md:items-center md:justify-between">
           <p>Verified read, not a live feed. Scoring pages checked {scoringChecked}.</p>
-          <p>Field sheet received {fieldChecked}. No public scoring link was found on the pages checked.</p>
+          <p>Field sheet received {fieldChecked}. {scoringCopy.note}</p>
         </div>
       </div>
 
@@ -88,12 +89,10 @@ export function EwingCupHub({
             Dallas Athletic Club, Dallas, Texas. Nov. 13-15, 2026.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3">
-            <StatusCard label="Field" value="Posted" />
-            <StatusCard label="Leaderboard" value="Not posted" />
+            <StatusCard label="Field" value={EWING_SNAPSHOT.fieldStatus === "posted" ? "Posted" : "Not published"} />
+            <StatusCard label="Leaderboard" value={scoringCopy.board} />
           </div>
-          <p className="mt-3 text-sm leading-6 text-zinc-600">
-            54-hole better ball. The event has not started, so this page has no scores.
-          </p>
+          <p className="mt-3 text-sm leading-6 text-zinc-600">54-hole better ball. {scoringCopy.note}</p>
         </div>
       </section>
 
@@ -131,7 +130,11 @@ export function EwingCupHub({
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{item.label}</p>
                 <p className="mt-2 font-serif text-2xl font-semibold">{item.course}</p>
-                <p className="mt-2 text-sm text-emerald-800">No scores yet</p>
+                <p className="mt-2 text-sm text-emerald-800">
+                  {roundHasScores(EWING_SNAPSHOT.teams, EWING_SNAPSHOT.rounds.findIndex((round) => round.id === item.id) as 0 | 1 | 2)
+                    ? "Scores posted"
+                    : "No scores yet"}
+                </p>
               </button>
             ))}
           </div>
@@ -156,9 +159,7 @@ export function EwingCupHub({
             </div>
             <h2 className="font-serif text-3xl font-semibold">{round.label}</h2>
             <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-700">{round.detail}</p>
-            <p className="mt-4 text-base leading-7 text-zinc-700">
-              No public scoring link was found on the pages checked. Round cells stay blank until a verified board prints a number. A blank cell is not a zero.
-            </p>
+            <p className="mt-4 text-base leading-7 text-zinc-700">{scoringCopy.note} A blank cell is not a zero.</p>
             <div className="my-4 flex flex-wrap gap-2">
               {(["all", "mid-am", "senior"] as const).map((item) => (
                 <button

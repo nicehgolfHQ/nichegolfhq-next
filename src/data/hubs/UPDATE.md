@@ -45,7 +45,7 @@ Do not add a bio, a headshot, a ranking, or a career record that the source did 
 
 ## Adding scores
 
-Scores belong on the event snapshot, keyed by player id. A four-ball row has two ids. Leave a round blank when the board has not printed it. Do not type a zero for a round that has not started.
+Scores belong on the event snapshot, keyed by team. Set `leaderboardStatus` to `verified` before adding any score. While it is `source_pending` or `source_unavailable`, every score stays null. A completed total must equal the sum of the completed rounds. Do not fill a missing round with zero. Set `toPar` only when each completed round has a course par. Rankings stay inside each division, and teams that have not played the same number of holes stay unranked unless the source prints a place.
 
 After the edit, `verifyEwingSnapshot()` must still pass. The hub page calls it.
 
