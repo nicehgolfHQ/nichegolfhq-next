@@ -12,7 +12,7 @@ type PublicRow = {
   status: StrokeFinisher["status"];
 };
 
-type PublicDivision = { label: string; rows: PublicRow[] };
+type PublicDivision = { label: string; par?: number; yardage?: number; rows: PublicRow[] };
 
 type PublicBoard = {
   slug: string;
@@ -66,6 +66,8 @@ export function officialRemainingSnapshot(slug: string): StrokeSnapshot | null {
   if (!board) return null;
   const divisions = board.divisions?.map((division) => ({
     label: division.label,
+    par: division.par,
+    yardage: division.yardage,
     rows: division.rows.map((row) => displayRow(row, board.roundCount)),
   }));
   const sourceRows = divisions?.[0]?.rows ?? (board.rows ?? []).map((row) => displayRow(row, board.roundCount));

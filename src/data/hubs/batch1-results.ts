@@ -43,7 +43,7 @@ export type StrokeSnapshot = {
   updatedLabel?: string;
   rows: StrokeFinisher[];
   /** Separate official divisions. Each keeps its own places. */
-  divisions?: { label: string; rows: StrokeFinisher[] }[];
+  divisions?: { label: string; par?: number; yardage?: number; rows: StrokeFinisher[] }[];
   /** Award standings for players who are already in rows. Not an extra field. */
   award?: { label: string; note: string; rows: StrokeFinisher[] };
   sources: ResultSource[];

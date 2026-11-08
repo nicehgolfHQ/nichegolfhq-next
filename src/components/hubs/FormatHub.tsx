@@ -124,7 +124,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
           <FieldPanel snapshot={snapshot} names={names} />
         </div>
         <div hidden={tab !== "Event"}>
-          <EventPanel tournament={tournament} standing={standing} />
+          <EventPanel tournament={tournament} standing={standing} snapshot={snapshot} />
         </div>
         {hasNews ? (
           <div hidden={tab !== "Coverage"}>
@@ -657,17 +657,33 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
   );
 }
 
-function EventPanel({ tournament, standing }: { tournament: Tournament; standing: ReturnType<typeof classifyCalendar> }) {
+function EventPanel({
+  tournament,
+  standing,
+  snapshot,
+}: {
+  tournament: Tournament;
+  standing: ReturnType<typeof classifyCalendar>;
+  snapshot: ResultSnapshot | null;
+}) {
+  const divisionFacts =
+    snapshot?.kind === "stroke"
+      ? (snapshot.divisions ?? []).flatMap((division) => [
+          division.par != null ? { label: `${division.label} par`, value: String(division.par) } : null,
+          division.yardage != null ? { label: `${division.label} yardage`, value: `${division.yardage.toLocaleString()} yards` } : null,
+        ]).filter((fact): fact is { label: string; value: string } => Boolean(fact))
+      : [];
   const facts = [
     tournament.course ? { label: "Course", value: tournament.course } : null,
     tournament.location ? { label: "Location", value: tournament.location } : null,
     tournament.courseTeeName ? { label: "Tee", value: tournament.courseTeeName } : null,
-    tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
-    tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
+    divisionFacts.some((fact) => fact.label.endsWith(" par")) ? null : tournament.coursePar ? { label: "Par", value: String(tournament.coursePar) } : null,
+    divisionFacts.some((fact) => fact.label.endsWith(" yardage")) ? null : tournament.courseYardage ? { label: "Yardage", value: `${tournament.courseYardage.toLocaleString()} yards` } : null,
     tournament.courseRating ? { label: "Rating", value: String(tournament.courseRating) } : null,
     tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
     tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
     tournament.courseYear ? { label: "Opened", value: String(tournament.courseYear) } : null,
+    ...divisionFacts,
   ].filter((item): item is { label: string; value: string } => Boolean(item));
   const latest = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];
 
@@ -677,7 +693,7 @@ function EventPanel({ tournament, standing }: { tournament: Tournament; standing
         <h2 className="font-serif text-2xl font-semibold">{tournament.course ?? tournament.name}</h2>
         {latest ? <p className="mt-2 text-sm text-zinc-600">{championLabel(latest.year, 2026, standing)}: {latest.champion}</p> : null}
         {facts.length > 0 ? (
-          <dl className="mt-4 space-y-3 text-sm text-zinc-700">
+          <dl data-event-facts className="mt-4 space-y-3 text-sm text-zinc-700">
             {facts.map((fact) => (
               <div key={fact.label}>
                 <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{fact.label}</dt>

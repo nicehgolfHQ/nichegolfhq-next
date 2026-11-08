@@ -3404,6 +3404,8 @@
       "divisions": [
         {
           "label": "Boys",
+          "par": 71,
+          "yardage": 7213,
           "rows": [
             {
               "position": "1",

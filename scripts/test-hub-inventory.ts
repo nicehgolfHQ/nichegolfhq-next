@@ -807,7 +807,10 @@ if (stiglitz?.name !== "Warren Stiglitz" || stiglitz.rounds.join(",") !== "64,66
   throw new Error("Elite boys leader changed");
 }
 const eliteEvent = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "elite-invitational");
-if (eliteEvent?.coursePar !== 71 || eliteEvent.courseYardage !== 7213) {
+if (eliteEvent?.coursePar != null || eliteEvent?.courseYardage != null) {
+  throw new Error("Elite boys par was stored as the whole event");
+}
+if (elite.divisions?.[0]?.par !== 71 || elite.divisions[0].yardage !== 7213) {
   throw new Error("Elite boys competition par was not 71");
 }
 if (stiglitz.total !== 71 * 3 + Number(stiglitz.toPar)) {
@@ -827,14 +830,19 @@ const eliteHtml = renderHub({
   channel: "junior",
   month: 11,
   format: "54-hole stroke play",
-  coursePar: eliteEvent?.coursePar,
-  courseYardage: eliteEvent?.courseYardage,
+  course: "The King & Bear Golf Club",
+  coursePar: 72,
+  courseYardage: 7280,
 }, "junior");
-if (!eliteHtml.includes("Boys") || !eliteHtml.includes("Girls results unavailable here.") || !eliteHtml.includes("Warren Stiglitz") || !eliteHtml.includes(">Par</dt><dd class=\"mt-1 text-balance\">71</dd>") || !eliteHtml.includes("7,213 yards")) {
-  throw new Error("Elite page does not label the boys board or its par");
+const eventFacts = eliteHtml.slice(eliteHtml.indexOf("data-event-facts"), eliteHtml.indexOf("</dl>"));
+if (!eventFacts.includes(">Boys par</dt><dd class=\"mt-1 text-balance\">71</dd>") || !eventFacts.includes(">Boys yardage</dt><dd class=\"mt-1 text-balance\">7,213 yards</dd>")) {
+  throw new Error("Elite event facts do not name the boys par and yardage");
 }
-if (eliteHtml.includes(">Par</dt><dd class=\"mt-1 text-balance\">72</dd>") || eliteHtml.includes("7,280 yards")) {
-  throw new Error("Elite page still shows the unverified par 72 setup");
+if (eventFacts.includes(">Par</dt>") || eventFacts.includes(">Yardage</dt>")) {
+  throw new Error("Elite event facts still use an unqualified par or yardage");
+}
+if (!eliteHtml.includes("Girls results unavailable here.") || !eliteHtml.includes("Warren Stiglitz") || !eliteHtml.includes("-14")) {
+  throw new Error("Elite boys scores or the girls line changed");
 }
 const juniorNote = renderHub({ slug: "us-junior-amateur", name: "U.S. Junior Amateur", channel: "junior", month: 7, format: "Match play", pastResults: [{ year: 2026, champion: "Noah Maclauchlan" }] }, "junior");
 if (!juniorNote.includes("Full results unavailable here.") || juniorNote.includes("See Coverage.") || !juniorNote.includes("Noah Maclauchlan")) {
