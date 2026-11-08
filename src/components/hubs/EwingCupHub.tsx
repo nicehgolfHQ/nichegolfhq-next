@@ -33,10 +33,14 @@ function initials(name: string) {
 }
 
 export function EwingCupHub({
+  division,
+  channelLabel,
   pastChampions,
   entrants,
   articles,
 }: {
+  division: "mid-am" | "senior";
+  channelLabel: "midamgolfHQ" | "seniorgolfHQ";
   pastChampions: ChampionRow[];
   entrants: Array<Player & { appearances: PlayerAppearance[] }>;
   articles: HubArticle[];
@@ -44,56 +48,56 @@ export function EwingCupHub({
   const tabs: Tab[] = articles.length ? ["Overview", "Scoring", "Field", "Event", "Coverage"] : ["Overview", "Scoring", "Field", "Event"];
   const [tab, setTab] = useState<Tab>("Overview");
   const [roundId, setRoundId] = useState<(typeof EWING_SNAPSHOT.rounds)[number]["id"]>("round-1");
-  const [division, setDivision] = useState<"all" | "mid-am" | "senior">("all");
   const [query, setQuery] = useState("");
+  const sideLabel = division === "mid-am" ? "Mid-Amateur" : "Senior";
+  const officialDivision = division === "mid-am" ? "Mid Amateur" : "Senior Amateur";
   const round = EWING_SNAPSHOT.rounds.find((item) => item.id === roundId) ?? EWING_SNAPSHOT.rounds[0];
   const scoringChecked = formatChecked(EWING_SNAPSHOT.scoringCheckedAt);
-  const fieldChecked = formatChecked(EWING_SNAPSHOT.fieldCheckedAt);
+  const divisionTeams = EWING_SNAPSHOT.teams.filter((team) => team.division === division);
+  const officialChampions = EWING_SNAPSHOT.officialChampions.filter(
+    (row) => row.division === officialDivision || row.division === "No tournament",
+  );
   const visibleEntrants = useMemo(() => {
     return entrants.filter((player) => {
       const appearance = player.appearances.find((row) => row.eventSlug === "ewing-cup-four-ball");
-      if (division === "mid-am" && appearance?.sideLabel !== "Mid-Amateur") return false;
-      if (division === "senior" && appearance?.sideLabel !== "Senior") return false;
+      if (appearance?.sideLabel !== sideLabel) return false;
       return player.name.toLowerCase().includes(query.trim().toLowerCase());
     });
-  }, [division, entrants, query]);
+  }, [entrants, query, sideLabel]);
   const scoringCopy = leaderboardCopy(EWING_SNAPSHOT.leaderboardStatus);
   const board = standings(
-    EWING_SNAPSHOT.teams.map((team) => ({
+    divisionTeams.map((team) => ({
       id: team.id,
       division: team.division,
       divisionLabel: team.divisionLabel,
       names: team.names,
       score: team.score,
     })),
-    division === "all" ? undefined : division,
+    division,
   );
 
   return (
     <div className="ewing-cup-hub bg-zinc-50 text-zinc-950">
-      <div className="border-b border-emerald-200 bg-emerald-50">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-3 text-sm text-emerald-950 md:flex-row md:items-center md:justify-between">
-          <p>Verified read, not a live feed. Scoring pages checked {scoringChecked}.</p>
-          <p>Field sheet received {fieldChecked}. {scoringCopy.note}</p>
-        </div>
-      </div>
-
       <section className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">midamgolfHQ</p>
-          <div className="mt-3 flex items-center gap-4">
-            <Image src="/brand/midamgolfhq/Ewing Cup.jpeg" alt="" width={72} height={72} className="h-16 w-16 rounded-xl object-cover" />
-            <h1 className="font-serif text-4xl font-semibold tracking-tight md:text-6xl">Ewing Cup Four-Ball</h1>
-          </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">{channelLabel}</p>
+          <Image src="/brand/midamgolfhq/Ewing Cup.jpeg" alt="" width={72} height={72} className="mx-auto mt-3 h-16 w-16 rounded-xl object-cover" />
+          <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-serif text-4xl font-semibold tracking-tight md:text-6xl">
+            Ewing Cup Four-Ball
+          </h1>
           <p className="mt-4 max-w-2xl text-base text-zinc-600 md:text-lg">
             Dallas Athletic Club, Dallas, Texas. Nov. 13-15, 2026.
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            <StatusCard label="Field" value={EWING_SNAPSHOT.fieldStatus === "posted" ? "Posted" : "Not published"} />
-            <StatusCard label="Leaderboard" value={scoringCopy.board} />
+          <div className="mt-4">
+            <LiveScoringButton url={EWING_SNAPSHOT.scoringUrl} />
           </div>
-          <p className="mt-3 text-sm leading-6 text-zinc-600">54-hole better ball. {scoringCopy.note}</p>
         </div>
+        <p className="mt-3 text-sm leading-6 text-zinc-600">
+          {division === "mid-am" ? "54-hole better ball, mid-amateur division." : "54-hole better ball, senior division."}
+        </p>
+        {EWING_SNAPSHOT.leaderboardStatus === "verified" ? (
+          <p className="mt-1 text-sm text-zinc-500">Updated {scoringChecked}</p>
+        ) : null}
       </section>
 
       <div className="border-y border-zinc-200 bg-white">
@@ -131,7 +135,7 @@ export function EwingCupHub({
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{item.label}</p>
                 <p className="mt-2 font-serif text-2xl font-semibold">{item.course}</p>
                 <p className="mt-2 text-sm text-emerald-800">
-                  {roundHasScores(EWING_SNAPSHOT.teams, EWING_SNAPSHOT.rounds.findIndex((round) => round.id === item.id) as 0 | 1 | 2)
+                  {roundHasScores(divisionTeams, EWING_SNAPSHOT.rounds.findIndex((round) => round.id === item.id) as 0 | 1 | 2)
                     ? "Scores posted"
                     : "No scores yet"}
                 </p>
@@ -160,21 +164,6 @@ export function EwingCupHub({
             <h2 className="font-serif text-3xl font-semibold">{round.label}</h2>
             <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-700">{round.detail}</p>
             <p className="mt-4 text-base leading-7 text-zinc-700">{scoringCopy.note} A blank cell is not a zero.</p>
-            <div className="my-4 flex flex-wrap gap-2">
-              {(["all", "mid-am", "senior"] as const).map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  aria-pressed={division === item}
-                  onClick={() => setDivision(item)}
-                  className={`rounded-full px-3 py-1.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
-                    division === item ? "bg-emerald-800 text-white" : "bg-white text-zinc-800 ring-1 ring-zinc-300"
-                  }`}
-                >
-                  {item === "all" ? "All divisions" : item === "mid-am" ? "Mid-Amateur" : "Senior"}
-                </button>
-              ))}
-            </div>
             <FourBallBoard rows={board} />
             <a
               href={EWING_OFFICIAL.information}
@@ -196,25 +185,12 @@ export function EwingCupHub({
                 placeholder="Search players"
                 className="w-full rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 sm:max-w-xs"
               />
-              <div className="flex flex-wrap gap-2">
-                {(["all", "mid-am", "senior"] as const).map((item) => (
-                  <button
-                    key={item}
-                    type="button"
-                    aria-pressed={division === item}
-                    onClick={() => setDivision(item)}
-                    className={`rounded-full px-3 py-1.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
-                      division === item ? "bg-emerald-800 text-white" : "bg-white text-zinc-800 ring-1 ring-zinc-300"
-                    }`}
-                  >
-                    {item === "all" ? "All divisions" : item === "mid-am" ? "Mid-Amateur" : "Senior"}
-                  </button>
-                ))}
-              </div>
             </div>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {visibleEntrants.map((player) => {
-                const appearance = player.appearances.find((row) => row.year === 2026);
+                const appearance = player.appearances.find(
+                  (row) => row.eventSlug === "ewing-cup-four-ball" && row.sideLabel === sideLabel,
+                );
                 const partner = appearance?.partnerIds?.[0]
                   ? entrants.find((item) => item.id === appearance.partnerIds?.[0])
                   : undefined;
@@ -276,17 +252,18 @@ export function EwingCupHub({
               <h2 className="font-serif text-2xl font-semibold">Official champions, 2021-2025</h2>
               <p className="mt-2 text-sm text-zinc-600">From the tournament information page at the last check. 2023 was not played.</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-800">
-                {EWING_SNAPSHOT.officialChampions.map((row) => (
+                {officialChampions.map((row) => (
                   <li key={`${row.year}-${row.division}`}>
                     <span className="font-semibold">{row.year}</span> {row.division}: {row.players}
                   </li>
                 ))}
               </ul>
             </section>
+            {pastChampions.length ? (
             <section className="rounded-2xl border border-zinc-200 bg-white p-6 md:col-span-2">
               <h2 className="font-serif text-2xl font-semibold">Champions kept on nichegolfHQ</h2>
               <p className="mt-2 text-sm text-zinc-600">
-                This is the list already published on the tournament record. It is one line per year and does not separate the senior division.
+                This is the mid-amateur list already published on the tournament record, one line per year.
               </p>
               <ul className="mt-4 grid gap-x-8 gap-y-1 text-sm sm:grid-cols-2">
                 {pastChampions.map((row) => (
@@ -297,6 +274,7 @@ export function EwingCupHub({
                 ))}
               </ul>
             </section>
+            ) : null}
           </div>
         )}
       </div>
@@ -304,11 +282,28 @@ export function EwingCupHub({
   );
 }
 
-function StatusCard({ label, value }: { label: string; value: string }) {
+function LiveScoringButton({ url }: { url: string | null }) {
+  if (url) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex rounded-full bg-emerald-800 px-3.5 py-1.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+      >
+        Live scoring
+      </a>
+    );
+  }
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-800">{label}</p>
-      <p className="mt-2 font-serif text-3xl font-semibold">{value}</p>
-    </div>
+    <button
+      type="button"
+      disabled
+      aria-disabled="true"
+      className="inline-flex cursor-not-allowed rounded-full border border-zinc-300 bg-zinc-100 px-3.5 py-1.5 text-sm font-semibold text-zinc-400"
+    >
+      Live scoring
+    </button>
   );
 }
+

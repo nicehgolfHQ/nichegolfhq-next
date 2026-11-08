@@ -64,7 +64,10 @@ export default async function PlayerPage({
               <li key={`${row.eventSlug}-${row.year}`} className="rounded-2xl border border-zinc-200 bg-white p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{row.year}</p>
                 <h2 className="mt-1 font-serif text-2xl font-semibold">
-                  <Link href={`/midamgolfhq/${row.eventSlug}`} className="text-emerald-800 underline underline-offset-2">
+                  <Link
+                    href={row.sideLabel === "Senior" ? `/seniorgolfhq/${row.eventSlug}` : `/midamgolfhq/${row.eventSlug}`}
+                    className="text-emerald-800 underline underline-offset-2"
+                  >
                     {event?.name ?? row.eventSlug}
                   </Link>
                 </h2>

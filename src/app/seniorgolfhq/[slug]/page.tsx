@@ -20,7 +20,9 @@ import { buildFaqLd } from "@/lib/tournaments/faqLd";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return listSeniorMajorSlugs().map((slug) => ({ slug }));
+  return listSeniorMajorSlugs()
+    .filter((slug) => slug !== "ewing-cup-four-ball")
+    .map((slug) => ({ slug }));
 }
 
 /* ------------------------------------------------------------------ */
