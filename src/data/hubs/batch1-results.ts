@@ -196,6 +196,16 @@ export const BATCH_1_RESULTS: Record<string, ResultSnapshot> = {
     ],
     sources: [{ record: "official-board" }],
   },
+  "walter-j-travis-invitational-senior-division": {
+    kind: "match",
+    formatConfidence: "string-only",
+    complete: false,
+    qualifying: null,
+    matches: [
+      { flight: "Dwight D. Eisenhower Cup", round: "Final", result: "Dave Scialabba def. Doug Clapp" },
+    ],
+    sources: [{ record: "official-board" }],
+  },
   "east-vs-west-matches": {
     kind: "team-match",
     complete: false,

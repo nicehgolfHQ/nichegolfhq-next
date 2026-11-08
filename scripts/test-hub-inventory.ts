@@ -15,6 +15,7 @@ import remainingBoards from "../src/data/hubs/official/remaining-2026.public.jso
 import juniorBatch from "../src/data/hubs/official/junior-batch-2026.json";
 import seniorBatch from "../src/data/hubs/official/senior-batch-2026.json";
 import seniorBatch2 from "../src/data/hubs/official/senior-batch-2-2026.json";
+import seniorBatch3 from "../src/data/hubs/official/senior-batch-3-2026.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -33,6 +34,7 @@ import {
   HUB_BATCH_11,
   HUB_BATCH_12,
   HUB_BATCH_13,
+  HUB_BATCH_14,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -51,7 +53,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -653,8 +655,13 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
 const boardRows = (board: { rows?: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[]; divisions?: { rows: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[] }[] }) =>
   board.divisions?.flatMap((division) => division.rows) ?? board.rows ?? [];
-const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards, ...seniorBatch.boards, ...seniorBatch2.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 1789) throw new Error("The published checked boards are no longer 1789 rows");
+const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards, ...seniorBatch.boards, ...seniorBatch2.boards, ...seniorBatch3.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
+if (publishedRows.length !== 1849) throw new Error("The published checked boards are no longer 1849 rows");
+const batch2Rows = seniorBatch2.boards.flatMap((board) => boardRows(board));
+const batch2Teams = batch2Rows.filter((row) => (row.players?.length ?? 0) > 1);
+if (batch2Rows.length !== 637 || batch2Teams.length !== 31 || batch2Rows.length - batch2Teams.length !== 606) {
+  throw new Error("The 637 checked rows are not 606 individual rows plus 31 team rows");
+}
 for (const { slug, row } of publishedRows) {
   const players = "players" in row ? row.players ?? [] : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
@@ -1085,8 +1092,62 @@ if (!tutHtml.includes("Stephen Fox") || !tutHtml.includes("Dean Channell") || tu
   throw new Error("Tutwiler field combined a team into one name");
 }
 const seniorLuptonStill = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
-if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13") {
+if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13" || isFormatHub("senior", "john-t-lupton-memorial-senior-division")) {
   throw new Error("Senior Lupton dates were changed without an official source");
+}
+const national = officialRemainingSnapshot("golfweek-senior-national-championship");
+if (!national || national.kind !== "stroke" || national.divisions?.map((division) => division.label).join("|") !== "Senior|Super Senior|Legend|Super Legend" || national.rows[0]?.rounds.join(",") !== "75,68,68" || national.rows[0].total !== 211 || national.rows[0].name !== "Hoops, Bryan") {
+  throw new Error("Golfweek Senior National board changed");
+}
+const raEvent = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "ra-senior-amateur");
+const raHtml = renderHub({ slug: "ra-senior-amateur", name: "R&A Senior Amateur", channel: "senior", month: 7, format: "stroke play", pastResults: [{ year: 2026, champion: "Bryan Hoops", score: "278" }] }, "senior");
+if (raEvent?.pastResults?.find((result) => result.year === 2026)?.score !== "278" || !raHtml.includes("Full results unavailable here.") || !raHtml.includes("278")) {
+  throw new Error("R&A selected result changed");
+}
+const crumpSenior = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "crump-cup-senior-division");
+if (!crumpSenior || crumpSenior.golfGeniusUrl !== "/results/crump-cup-2026-final-results.pdf" || crumpSenior.golfGeniusUrlLabel !== "Pairings and tee times") {
+  throw new Error("Crump senior sheet is still labeled as results");
+}
+const crumpSeniorHtml = renderHub({
+  slug: crumpSenior.slug,
+  name: crumpSenior.name,
+  channel: "senior",
+  month: 9,
+  format: crumpSenior.format,
+  golfGeniusUrl: crumpSenior.golfGeniusUrl,
+  golfGeniusUrlLabel: crumpSenior.golfGeniusUrlLabel,
+  pastResults: [{ year: 2026, champion: "Randy Haag" }],
+}, "senior");
+if (!crumpSeniorHtml.includes(`href="${crumpSenior.golfGeniusUrl}"`) || !crumpSeniorHtml.includes("Pairings and tee times") || crumpSeniorHtml.includes("2026 Results")) {
+  throw new Error("Crump senior scoring link does not use the real pairings label");
+}
+if (!crumpSeniorHtml.includes("Randy Haag") || !crumpSeniorHtml.includes("Full results unavailable here.") || crumpSeniorHtml.includes("3 and 2")) {
+  throw new Error("Crump senior sheet was parsed into a margin");
+}
+const womenHtml = renderHub({ slug: "us-senior-womens-amateur", name: "U.S. Senior Women's Amateur", channel: "senior", month: 9, format: "match play", startDate: "2026-09-26", endDate: "2026-10-01", pastResults: [{ year: 2025, champion: "Dawn Woodard" }] }, "senior");
+if (!womenHtml.includes("Full results unavailable here.") || womenHtml.includes("2026 champion") || !womenHtml.includes("Defending champion")) {
+  throw new Error("U.S. Senior Women's Amateur was given a 2026 champion");
+}
+const travisSenior = resultSnapshot("walter-j-travis-invitational-senior-division");
+if (!travisSenior || travisSenior.kind !== "match" || travisSenior.matches.length !== 1 || travisSenior.matches[0]?.result !== "Dave Scialabba def. Doug Clapp") {
+  throw new Error("Travis senior final changed");
+}
+if (classifyCalendar({ startDate: "2026-11-30", endDate: "2026-12-02" }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("Ralph Bogart was not classified as upcoming");
+}
+if (classifyCalendar({ startDate: "2026-12-05", endDate: "2026-12-07" }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("Golfweek Senior Tournament of Champions was not classified as upcoming");
+}
+const bogartHtml = renderHub({ slug: "society-of-seniors-ralph-bogart", name: "Ralph Bogart", channel: "senior", month: 11, format: "54-hole stroke play", startDate: "2026-11-30", endDate: "2026-12-02", pastResults: [{ year: 2025, champion: "Rick Stimmel" }] }, "senior");
+const tocSeniorHtml = renderHub({ slug: "golfweek-senior-tournament-of-champions", name: "Golfweek Senior Tournament of Champions", channel: "senior", month: 12, format: "54-hole stroke play", startDate: "2026-12-05", endDate: "2026-12-07" }, "senior");
+if (!bogartHtml.includes("Not started") || bogartHtml.includes("Full results unavailable here.") || bogartHtml.includes("2026 champion")) {
+  throw new Error("Ralph Bogart was given a finished-results claim");
+}
+if (!tocSeniorHtml.includes("Not started") || tocSeniorHtml.includes("Full results unavailable here.")) {
+  throw new Error("Golfweek Senior Tournament of Champions was given a finished-results claim");
+}
+for (const slug of ["east-west-cup-matches", "george-coleman-invitational-senior-division", "dixie-senior-amateur"]) {
+  if (isFormatHub("senior", slug)) throw new Error(`${slug} was moved before its source was settled`);
 }
 
 console.log(JSON.stringify(summary, null, 2));
