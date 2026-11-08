@@ -118,7 +118,7 @@ Only one tournament per channel should be `live` or `next` at a time, since the 
 
 ### Redesigned hub (Ewing Cup only)
 
-`/midamgolfhq/ewing-cup-four-ball` uses the redesigned hub. Other events, including East vs West, stay on `src/app/midamgolfhq/[slug]/page.tsx`. Player ids and appearances live in `src/data/players/`. The Ewing score snapshot and the once-daily update rules live in `src/data/hubs/`. Do not invent a field or a score when the snapshot says the source has not published one.
+`/midamgolfhq/ewing-cup-four-ball` uses the redesigned hub. Other events, including East vs West, stay on `src/app/midamgolfhq/[slug]/page.tsx`. Player ids and appearances live in `src/data/players/`. The Ewing score snapshot and the once-daily update rules live in `src/data/hubs/`. Do not invent a score while the leaderboard status is source pending. A supplied field sheet is a separate check from the scoring-page check.
 
 Mid-Am exception (`listLiveMidAmTournaments` in `src/lib/tournaments/midam.ts`): when nothing is `live`, the `/midamgolfhq` widget shows the first `next` event, then any `upcoming` event starting within 7 days of it (sorted by start date), each as its own "Up next" card. Keep a single `next` per channel; leave the companion as `upcoming`. The site-wide home ticker still shows only the `next` event.
 

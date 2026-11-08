@@ -23,12 +23,14 @@ There is no public leaderboard URL yet. If a later page prints one, add that URL
 
 Set these from what the page actually did.
 
-- `not_published` on the field: the official page loaded, and it did not list 2026 entrants.
-- `source_pending` on the leaderboard: the official page loaded, and it did not link to a public board. This is not an error.
+- `not_published` on the field: the pages checked loaded, and none of them listed entrants.
+- `posted` on the field: a supplied sheet or public list named the players. Record that check separately from the scoring check.
+- `source_pending` on the leaderboard: no public scoring link was found on the pages checked. This is not a claim that no scoring page can exist, and it is not an error.
+- `verified` on the leaderboard: names and scores were copied from a public page on this read.
 - `source_unavailable`: a known URL failed, timed out, or asked for a sign-in. Write the URL and what blocked it under `missingInput`. Do not fill scores from memory.
 - `verified`: names and scores were copied from a public page on this read.
 
-`checkedAt` is an ISO-8601 timestamp with the Central offset, for example `2026-11-13T18:00:00-06:00`. The hub prints that timestamp. Do not invent a minute you did not check.
+Timestamps are ISO-8601 with a numeric offset. Central time is `-06:00` in standard time and `-05:00` during daylight saving time. The field sheet and the scoring-page check keep separate timestamps. Do not invent a minute you did not check.
 
 ## Adding a player
 

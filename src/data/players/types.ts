@@ -2,12 +2,14 @@
 export type PlayerId = string;
 
 export type FactSource = {
-  url: string;
+  /** Public page, when one exists. Omitted for a document supplied to the desk. */
+  url?: string;
   title: string;
-  /** ISO-8601 with a numeric offset, in the event's local timezone. */
+  /** ISO-8601 with a numeric offset. Central time uses -06:00 or -05:00 depending on DST. */
   checkedAt: string;
   /** What this source actually established. */
   established: string;
+  kind?: "public_page" | "supplied_document";
 };
 
 export type Player = {

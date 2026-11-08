@@ -2,18 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Player, PlayerAppearance } from "@/data/players/types";
-import {
-  EWING_OFFICIAL,
-  EWING_SNAPSHOT,
-  type PlannedRound,
-} from "@/data/hubs/ewing-cup-four-ball";
+import { standings } from "@/data/hubs/four-ball";
+import { EWING_OFFICIAL, EWING_SNAPSHOT } from "@/data/hubs/ewing-cup-four-ball";
+import { FourBallBoard } from "./FourBallBoard";
 
 export type ChampionRow = { year: number; champion: string };
 
-const TABS = ["Overview", "Scoring", "Field", "Event"] as const;
-type Tab = (typeof TABS)[number];
+export type HubArticle = { href: string; title: string; date: string; summary: string };
+
+type Tab = "Overview" | "Scoring" | "Field" | "Event" | "Coverage";
 
 function formatChecked(iso: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -36,27 +35,45 @@ function initials(name: string) {
 export function EwingCupHub({
   pastChampions,
   entrants,
+  articles,
 }: {
   pastChampions: ChampionRow[];
   entrants: Array<Player & { appearances: PlayerAppearance[] }>;
+  articles: HubArticle[];
 }) {
+  const tabs: Tab[] = articles.length ? ["Overview", "Scoring", "Field", "Event", "Coverage"] : ["Overview", "Scoring", "Field", "Event"];
   const [tab, setTab] = useState<Tab>("Overview");
-  const [roundId, setRoundId] = useState<PlannedRound["id"]>("round-1");
+  const [roundId, setRoundId] = useState<(typeof EWING_SNAPSHOT.rounds)[number]["id"]>("round-1");
+  const [division, setDivision] = useState<"all" | "mid-am" | "senior">("all");
   const [query, setQuery] = useState("");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const round = EWING_SNAPSHOT.rounds.find((item) => item.id === roundId) ?? EWING_SNAPSHOT.rounds[1];
-  const checkedLabel = formatChecked(EWING_SNAPSHOT.checkedAt);
-  const visibleEntrants = entrants.filter((player) =>
-    player.name.toLowerCase().includes(query.trim().toLowerCase()),
+  const round = EWING_SNAPSHOT.rounds.find((item) => item.id === roundId) ?? EWING_SNAPSHOT.rounds[0];
+  const scoringChecked = formatChecked(EWING_SNAPSHOT.scoringCheckedAt);
+  const fieldChecked = formatChecked(EWING_SNAPSHOT.fieldCheckedAt);
+  const visibleEntrants = useMemo(() => {
+    return entrants.filter((player) => {
+      const appearance = player.appearances.find((row) => row.eventSlug === "ewing-cup-four-ball");
+      if (division === "mid-am" && appearance?.sideLabel !== "Mid-Amateur") return false;
+      if (division === "senior" && appearance?.sideLabel !== "Senior") return false;
+      return player.name.toLowerCase().includes(query.trim().toLowerCase());
+    });
+  }, [division, entrants, query]);
+  const board = standings(
+    EWING_SNAPSHOT.teams.map((team) => ({
+      id: team.id,
+      division: team.division,
+      divisionLabel: team.divisionLabel,
+      names: team.names,
+      score: team.score,
+    })),
+    division === "all" ? undefined : division,
   );
-  const selected = entrants.find((player) => player.id === selectedId) ?? null;
 
   return (
     <div className="ewing-cup-hub bg-zinc-50 text-zinc-950">
       <div className="border-b border-emerald-200 bg-emerald-50">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-3 text-sm text-emerald-950 md:flex-row md:items-center md:justify-between">
-          <p>Verified read, not a live feed. Last checked {checkedLabel}.</p>
-          <p>Field not published. Leaderboard not posted.</p>
+          <p>Verified read, not a live feed. Scoring pages checked {scoringChecked}.</p>
+          <p>Field sheet received {fieldChecked}. No public scoring link was found on the pages checked.</p>
         </div>
       </div>
 
@@ -68,10 +85,10 @@ export function EwingCupHub({
             <h1 className="font-serif text-4xl font-semibold tracking-tight md:text-6xl">Ewing Cup Four-Ball</h1>
           </div>
           <p className="mt-4 max-w-2xl text-base text-zinc-600 md:text-lg">
-            Dallas Athletic Club, Dallas, Texas. Competition Nov. 13-15, 2026. Practice round Thursday, Nov. 12.
+            Dallas Athletic Club, Dallas, Texas. Nov. 13-15, 2026.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3">
-            <StatusCard label="Field" value="Not published" />
+            <StatusCard label="Field" value="Posted" />
             <StatusCard label="Leaderboard" value="Not posted" />
           </div>
           <p className="mt-3 text-sm leading-6 text-zinc-600">
@@ -82,7 +99,7 @@ export function EwingCupHub({
 
       <div className="border-y border-zinc-200 bg-white">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap gap-2 px-5 py-3" role="tablist" aria-label="Ewing Cup sections">
-          {TABS.map((item) => (
+          {tabs.map((item) => (
             <button
               key={item}
               type="button"
@@ -114,7 +131,7 @@ export function EwingCupHub({
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{item.label}</p>
                 <p className="mt-2 font-serif text-2xl font-semibold">{item.course}</p>
-                <p className="mt-2 text-sm text-emerald-800">{item.scored ? "No scores yet" : "No scoring round"}</p>
+                <p className="mt-2 text-sm text-emerald-800">No scores yet</p>
               </button>
             ))}
           </div>
@@ -139,11 +156,25 @@ export function EwingCupHub({
             </div>
             <h2 className="font-serif text-3xl font-semibold">{round.label}</h2>
             <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-700">{round.detail}</p>
-            <p className="mt-4 rounded-2xl border border-dashed border-zinc-300 bg-white p-5 text-base leading-7 text-zinc-700">
-              {round.scored
-                ? "No team scores are available. A public leaderboard was not linked from the official site at the last check, and this round has not been played."
-                : "Thursday is registration and a practice round. It is not a scored round."}
+            <p className="mt-4 text-base leading-7 text-zinc-700">
+              No public scoring link was found on the pages checked. Round cells stay blank until a verified board prints a number. A blank cell is not a zero.
             </p>
+            <div className="my-4 flex flex-wrap gap-2">
+              {(["all", "mid-am", "senior"] as const).map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  aria-pressed={division === item}
+                  onClick={() => setDivision(item)}
+                  className={`rounded-full px-3 py-1.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+                    division === item ? "bg-emerald-800 text-white" : "bg-white text-zinc-800 ring-1 ring-zinc-300"
+                  }`}
+                >
+                  {item === "all" ? "All divisions" : item === "mid-am" ? "Mid-Amateur" : "Senior"}
+                </button>
+              ))}
+            </div>
+            <FourBallBoard rows={board} />
             <a
               href={EWING_OFFICIAL.information}
               className="mt-4 inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
@@ -153,48 +184,72 @@ export function EwingCupHub({
           </div>
         )}
 
-        {tab === "Field" && entrants.length === 0 && (
-          <div className="max-w-2xl rounded-2xl border border-zinc-200 bg-white p-6">
-            <h2 className="font-serif text-3xl font-semibold">2026 field</h2>
-            <p className="mt-3 text-base leading-7 text-zinc-700">
-              No entrants are on file. The official home page and tournament information loaded, and they did not name a 2026 field. The paths for players, field, entries, scoring, and leaderboard were not found.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-zinc-600">
-              When a public list names players, each person gets a stable id and this page shows that record. A shared last name is not enough to merge two people.
-            </p>
-          </div>
-        )}
-
-        {tab === "Field" && entrants.length > 0 && (
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <div>
+        {tab === "Field" && (
+          <div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <label className="sr-only" htmlFor="ewing-player-search">Search players</label>
               <input
                 id="ewing-player-search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search players"
-                className="w-full max-w-xs rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+                className="w-full rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 sm:max-w-xs"
               />
-              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {visibleEntrants.map((player) => (
+              <div className="flex flex-wrap gap-2">
+                {(["all", "mid-am", "senior"] as const).map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    aria-pressed={division === item}
+                    onClick={() => setDivision(item)}
+                    className={`rounded-full px-3 py-1.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+                      division === item ? "bg-emerald-800 text-white" : "bg-white text-zinc-800 ring-1 ring-zinc-300"
+                    }`}
+                  >
+                    {item === "all" ? "All divisions" : item === "mid-am" ? "Mid-Amateur" : "Senior"}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {visibleEntrants.map((player) => {
+                const appearance = player.appearances.find((row) => row.year === 2026);
+                const partner = appearance?.partnerIds?.[0]
+                  ? entrants.find((item) => item.id === appearance.partnerIds?.[0])
+                  : undefined;
+                return (
                   <li key={player.id}>
-                    <button
-                      type="button"
-                      aria-pressed={selectedId === player.id}
-                      onClick={() => setSelectedId(player.id)}
-                      className="flex w-full items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-3 py-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+                    <Link
+                      href={`/midamgolfhq/players/${player.id}`}
+                      className="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-3 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
                     >
-                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-950 font-serif text-sm text-white" aria-hidden>
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-zinc-950 font-serif text-sm text-white" aria-hidden>
                         {initials(player.name)}
                       </span>
-                      <span className="font-semibold">{player.name}</span>
-                    </button>
+                      <span>
+                        <span className="block font-semibold text-zinc-950">{player.name}</span>
+                        <span className="block text-sm text-zinc-500">
+                          {appearance?.sideLabel}
+                          {partner ? ` with ${partner.name}` : ""}
+                        </span>
+                      </span>
+                    </Link>
                   </li>
-                ))}
-              </ul>
-            </div>
-            <PlayerCard player={selected} />
+                );
+              })}
+            </ul>
+          </div>
+        )}
+
+        {tab === "Coverage" && (
+          <div className="grid gap-4">
+            {articles.map((article) => (
+              <Link key={article.href} href={article.href} className="rounded-2xl border border-zinc-200 bg-white p-5 hover:border-emerald-700">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800">{article.date}</p>
+                <h2 className="mt-2 font-serif text-2xl font-semibold">{article.title}</h2>
+                {article.summary ? <p className="mt-2 text-base leading-7 text-zinc-600">{article.summary}</p> : null}
+              </Link>
+            ))}
           </div>
         )}
 
@@ -254,36 +309,5 @@ function StatusCard({ label, value }: { label: string; value: string }) {
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-800">{label}</p>
       <p className="mt-2 font-serif text-3xl font-semibold">{value}</p>
     </div>
-  );
-}
-
-function PlayerCard({ player }: { player: (Player & { appearances: PlayerAppearance[] }) | null }) {
-  if (!player) {
-    return (
-      <aside className="h-fit rounded-2xl border border-dashed border-zinc-300 bg-white p-5 text-sm leading-6 text-zinc-600">
-        Select a player. The card shows initials and the events linked to that id. It does not add a bio or a headshot.
-      </aside>
-    );
-  }
-  return (
-    <aside className="h-fit rounded-2xl border border-zinc-200 bg-white p-5">
-      <div className="flex items-center gap-3">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-950 font-serif text-lg text-white" aria-hidden>
-          {initials(player.name)}
-        </span>
-        <h2 className="font-serif text-2xl font-semibold">{player.name}</h2>
-      </div>
-      <ul className="mt-4 space-y-3 text-sm">
-        {player.appearances.map((row) => (
-          <li key={`${row.eventSlug}-${row.year}`}>
-            <Link href={`/midamgolfhq/${row.eventSlug}`} className="font-semibold text-emerald-800 underline underline-offset-2">
-              {row.year}
-            </Link>
-            {row.sideLabel ? <p>{row.sideLabel}</p> : null}
-            {row.result ? <p>{row.result}</p> : null}
-          </li>
-        ))}
-      </ul>
-    </aside>
   );
 }

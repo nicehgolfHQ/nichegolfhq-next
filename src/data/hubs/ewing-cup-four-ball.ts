@@ -1,9 +1,13 @@
 import { PLAYERS, PLAYER_APPEARANCES } from "@/data/players/registry";
 import type { FactSource } from "@/data/players/types";
+import type { FourBallScore } from "./four-ball";
+import { EWING_2026_TEAMS, EWING_FIELD_CHECKED_AT } from "./ewing-2026-field";
+import { EWING_EVENT_SLUG } from "./ewing-event";
 
-export const EWING_EVENT_SLUG = "ewing-cup-four-ball";
+/** When the public site was checked for a scoring link. Not the field-sheet time. */
+const SCORING_CHECKED_AT = "2026-11-07T19:04:00-06:00";
 
-const CHECKED_AT = "2026-11-07T19:04:00-06:00";
+export { EWING_EVENT_SLUG };
 
 export type SourceRead = {
   url: string;
@@ -12,12 +16,11 @@ export type SourceRead = {
 };
 
 export type PlannedRound = {
-  id: "practice" | "round-1" | "round-2" | "final";
+  id: "round-1" | "round-2" | "final";
   label: string;
   date: string;
   course: string;
   detail: string;
-  scored: boolean;
 };
 
 export const EWING_OFFICIAL = {
@@ -28,9 +31,9 @@ export const EWING_OFFICIAL = {
 export const EWING_SNAPSHOT = {
   eventSlug: EWING_EVENT_SLUG,
   timezone: "America/Chicago",
-  checkedAt: CHECKED_AT,
-  /** Official pages loaded. A field and a public leaderboard were not on them. */
-  fieldStatus: "not_published" as const,
+  scoringCheckedAt: SCORING_CHECKED_AT,
+  fieldCheckedAt: EWING_FIELD_CHECKED_AT,
+  fieldStatus: "posted" as const,
   leaderboardStatus: "source_pending" as const,
   competitionStart: "2026-11-13",
   competitionEnd: "2026-11-15",
@@ -44,43 +47,35 @@ export const EWING_SNAPSHOT = {
     { url: "https://www.ewingcup.com/leaderboard", title: "Guessed leaderboard path", outcome: "not_found" },
   ] satisfies SourceRead[],
   missingInput: [
-    "A public 2026 entry list or tee sheet that names the players.",
-    "A public leaderboard URL. The tournament record has no scoring link, and the official site has no scoring or leaderboard page.",
+    "No public scoring link was found on the pages checked. A later public leaderboard URL can be added here before any score is copied.",
   ],
   rounds: [
-    {
-      id: "practice",
-      label: "Thursday",
-      date: "2026-11-12",
-      course: "Dallas Athletic Club",
-      detail: "Player registration at the DAC pro shop. Practice rounds in morning and afternoon waves.",
-      scored: false,
-    },
     {
       id: "round-1",
       label: "Friday",
       date: "2026-11-13",
       course: "Blue Course",
-      detail: "Tournament round 1. Tee times were still TBD on the official schedule.",
-      scored: true,
+      detail: "Round 1. Tee times were still TBD on the official schedule.",
     },
     {
       id: "round-2",
       label: "Saturday",
       date: "2026-11-14",
       course: "Gold Course",
-      detail: "Tournament round 2. Tee times were still TBD. The Ewing Tailgate Party is after play.",
-      scored: true,
+      detail: "Round 2. Tee times were still TBD on the official schedule.",
     },
     {
       id: "final",
       label: "Sunday",
       date: "2026-11-15",
       course: "Blue Course",
-      detail: "Final round. Full field start at 8:30 AM. Awards on the patio after play.",
-      scored: true,
+      detail: "Final round. Full field start at 8:30 AM.",
     },
   ] satisfies PlannedRound[],
+  teams: EWING_2026_TEAMS.map((team) => ({
+    ...team,
+    score: null as FourBallScore | null,
+  })),
   officialChampions: [
     { year: 2025, division: "Mid Amateur", players: "Charlie Holland and James Minahan" },
     { year: 2025, division: "Senior Amateur", players: "Bob Brewer and Greg Smith" },
@@ -97,21 +92,42 @@ export const EWING_SNAPSHOT = {
 export const EWING_SOURCE: FactSource = {
   url: EWING_OFFICIAL.information,
   title: "DAC Ewing Cup tournament information",
-  checkedAt: CHECKED_AT,
-  established: "2026 schedule and 2021-2025 champions by division.",
+  checkedAt: SCORING_CHECKED_AT,
+  established: "Competition schedule and 2021-2025 champions by division.",
+  kind: "public_page",
 };
+
+function sameInstant(left: string, right: string) {
+  return left === right;
+}
+
+export function hasTimezoneOffset(iso: string) {
+  return /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/.test(iso);
+}
 
 export function verifyEwingSnapshot() {
   const problems: string[] = [];
-  if (!EWING_SNAPSHOT.checkedAt.endsWith("-06:00")) problems.push("checkedAt must use Central offset");
-  const ewingRows = PLAYER_APPEARANCES.filter((row) => row.eventSlug === EWING_EVENT_SLUG);
-  if (EWING_SNAPSHOT.fieldStatus === "not_published" && ewingRows.length > 0) {
-    problems.push("Field is marked unpublished while player appearances exist");
+  if (!hasTimezoneOffset(EWING_SNAPSHOT.scoringCheckedAt)) problems.push("scoringCheckedAt needs a numeric offset");
+  if (!hasTimezoneOffset(EWING_SNAPSHOT.fieldCheckedAt)) problems.push("fieldCheckedAt needs a numeric offset");
+  if (sameInstant(EWING_SNAPSHOT.scoringCheckedAt, EWING_SNAPSHOT.fieldCheckedAt)) {
+    problems.push("Field and scoring checks must stay separate timestamps");
   }
-  for (const row of ewingRows) {
-    if (!PLAYERS.some((player) => player.id === row.playerId)) {
-      problems.push(`Missing player ${row.playerId}`);
+  const ids = new Set<string>();
+  for (const team of EWING_SNAPSHOT.teams) {
+    if (ids.has(team.id)) problems.push(`Duplicate team ${team.id}`);
+    ids.add(team.id);
+    if (team.score != null) problems.push(`Live team ${team.id} has a score before a verified board`);
+    for (const playerId of team.playerIds) {
+      const player = PLAYERS.find((item) => item.id === playerId);
+      if (!player) problems.push(`Missing player ${playerId}`);
     }
   }
+  const mid = EWING_SNAPSHOT.teams.filter((team) => team.division === "mid-am").length;
+  const senior = EWING_SNAPSHOT.teams.filter((team) => team.division === "senior").length;
+  if (mid !== 32 || senior !== 20) problems.push(`Team counts ${mid}/${senior}`);
+  const ewingRows = PLAYER_APPEARANCES.filter((row) => row.eventSlug === EWING_EVENT_SLUG);
+  if (ewingRows.length !== EWING_SNAPSHOT.teams.length * 2) problems.push("Appearance count");
+  const stollenwerck = PLAYERS.filter((player) => player.name.startsWith("John Stollenwerck"));
+  if (stollenwerck.length !== 2) problems.push("Stollenwerck ids");
   if (problems.length) throw new Error(problems.join("; "));
 }
