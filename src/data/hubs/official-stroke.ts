@@ -1,4 +1,5 @@
 import data from "@/data/hubs/official/stroke-batch.public.json";
+import batch3 from "@/data/hubs/official/stroke-batch-3.public.json";
 import type { StrokeFinisher, StrokeSnapshot } from "@/data/hubs/batch1-results";
 
 /**
@@ -16,11 +17,15 @@ type PublicRow = {
   status: StrokeFinisher["status"];
 };
 
+type PublicDivision = { label: string; rows: PublicRow[] };
+
 type PublicBoard = {
   slug: string;
-  divisionLabel: string;
+  divisionLabel?: string;
   roundCount: number;
-  rows: PublicRow[];
+  scope?: StrokeSnapshot["scope"];
+  rows?: PublicRow[];
+  divisions?: PublicDivision[];
 };
 
 function displayRow(row: PublicRow, roundCount: number): StrokeFinisher {
@@ -40,15 +45,24 @@ function displayRow(row: PublicRow, roundCount: number): StrokeFinisher {
   };
 }
 
-export function officialStrokeSnapshot(slug: string): StrokeSnapshot | null {
-  const board = (data.boards as PublicBoard[]).find((item) => item.slug === slug);
-  if (!board) return null;
+function snapshotFrom(board: PublicBoard): StrokeSnapshot {
+  const divisions = board.divisions?.map((division) => ({
+    label: division.label,
+    rows: division.rows.map((row) => displayRow(row, board.roundCount)),
+  }));
+  const sourceRows = divisions?.[0]?.rows ?? (board.rows ?? []).map((row) => displayRow(row, board.roundCount));
   return {
     kind: "stroke",
     complete: true,
-    scope: "official-final",
+    scope: board.scope ?? "official-final",
     roundCount: board.roundCount,
-    rows: board.rows.map((row) => displayRow(row, board.roundCount)),
+    rows: sourceRows,
+    divisions: divisions && divisions.length > 1 ? divisions : undefined,
     sources: [{ record: "official-board" }],
   };
+}
+
+export function officialStrokeSnapshot(slug: string): StrokeSnapshot | null {
+  const board = [...(data.boards as PublicBoard[]), ...(batch3.boards as PublicBoard[])].find((item) => item.slug === slug);
+  return board ? snapshotFrom(board) : null;
 }

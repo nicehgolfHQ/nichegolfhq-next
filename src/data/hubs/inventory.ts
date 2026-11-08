@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -66,6 +66,17 @@ export const HUB_BATCH_2: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "senior", slug: "sunnehanna-senior-amateur" },
   { channel: "senior", slug: "senior-porter-cup" },
   { channel: "senior", slug: "california-senior-amateur" },
+];
+
+/** Checked 2026 stroke boards. Senior rows stay on an existing senior hub. */
+export const HUB_BATCH_3: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "george-c-thomas-invitational" },
+  { channel: "senior", slug: "george-c-thomas-invitational-senior-division" },
+  { channel: "midam", slug: "trans-miss-mid-master-championship" },
+  { channel: "midam", slug: "canadian-mens-mid-amateur" },
+  { channel: "midam", slug: "the-berkeley-cup" },
+  { channel: "midam", slug: "carlton-woods-invitational" },
+  { channel: "senior", slug: "carlton-woods-senior-invitational" },
 ];
 
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
@@ -137,12 +148,13 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (EWING_DEDICATED.some((item) => item.channel === channel && item.slug === slug)) return "ewing";
   if (HUB_BATCH_1.some((item) => item.channel === channel && item.slug === slug)) return "batch-1";
   if (HUB_BATCH_2.some((item) => item.channel === channel && item.slug === slug)) return "batch-2";
+  if (HUB_BATCH_3.some((item) => item.channel === channel && item.slug === slug)) return "batch-3";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3") return "format-hub";
   return "legacy";
 }
 

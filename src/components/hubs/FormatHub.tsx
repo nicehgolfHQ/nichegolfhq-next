@@ -36,6 +36,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   const [round, setRound] = useState(() =>
     snapshot?.kind === "stroke" && snapshot.scope !== "published-finishers" ? snapshot.roundCount : 1,
   );
+  const [division, setDivision] = useState(0);
   const dates = resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026 ?? tournament.typicalDates);
   const place = [tournament.course, tournament.location].filter(Boolean).join(" · ");
   const names = snapshot ? snapshotNames(snapshot) : [];
@@ -92,7 +93,16 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
           <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} />
         </div>
         <div hidden={tab !== resultsLabel}>
-          <ResultsPanel tournament={tournament} snapshot={snapshot} rounds={rounds} round={round} setRound={setRound} channel={channel} />
+          <ResultsPanel
+            tournament={tournament}
+            snapshot={snapshot}
+            rounds={rounds}
+            round={round}
+            setRound={setRound}
+            channel={channel}
+            division={division}
+            setDivision={setDivision}
+          />
         </div>
         <div hidden={tab !== "Field"}>
           <FieldPanel snapshot={snapshot} names={names} />
@@ -241,6 +251,8 @@ function ResultsPanel({
   round,
   setRound,
   channel,
+  division,
+  setDivision,
 }: {
   tournament: Tournament;
   snapshot: ResultSnapshot | null;
@@ -248,13 +260,34 @@ function ResultsPanel({
   round: number;
   setRound: (round: number) => void;
   channel: HubChannel;
+  division: number;
+  setDivision: (division: number) => void;
 }) {
   const stroke = snapshot?.kind === "stroke" ? snapshot : null;
-  const roundScores = stroke != null && stroke.rows.some((row) => row.rounds.some((score) => score != null));
+  const divisions = stroke?.divisions && stroke.divisions.length > 1 ? stroke.divisions : null;
+  const activeRows = divisions ? divisions[division]?.rows ?? divisions[0].rows : stroke?.rows ?? [];
+  const roundScores = activeRows.some((row) => row.rounds.some((score) => score != null));
   return (
     <div>
       {stroke || (!snapshot && editionResult(tournament)) ? (
         <>
+          {divisions ? (
+            <div className="mb-4 flex flex-wrap justify-center gap-2" role="group" aria-label="Division">
+              {divisions.map((item, index) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  aria-pressed={division === index}
+                  onClick={() => setDivision(index)}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+                    division === index ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-300 bg-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          ) : null}
           {roundScores && rounds > 1 ? (
             <div className="flex flex-wrap justify-center gap-2 pb-4">
               {Array.from({ length: rounds }, (_, index) => (
@@ -276,7 +309,15 @@ function ResultsPanel({
           {stroke?.stageLabel ? <p className="mx-auto mt-2 max-w-xl text-center text-sm text-zinc-600">{stroke.stageLabel}</p> : null}
           <div className="mt-4">
             {stroke ? (
-              <StrokeTable snapshot={stroke} rows={stroke.rows} highlight={roundScores ? round - 1 : -1} />
+              divisions ? (
+                divisions.map((item, index) => (
+                  <div key={item.label} hidden={division !== index} data-division={item.label}>
+                    <StrokeTable snapshot={stroke} rows={item.rows} highlight={roundScores ? round - 1 : -1} />
+                  </div>
+                ))
+              ) : (
+                <StrokeTable snapshot={stroke} rows={stroke.rows} highlight={roundScores ? round - 1 : -1} />
+              )
             ) : (
               <ChampionTable tournament={tournament} />
             )}
@@ -477,7 +518,30 @@ function TeamTable({ snapshot }: { snapshot: Extract<ResultSnapshot, { kind: "te
 }
 
 function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; names: string[] }) {
-  if (snapshot?.kind === "stroke" && snapshot.scope === "official-final") {
+  if (snapshot?.kind === "stroke" && snapshot.divisions && snapshot.divisions.length > 1) {
+    const primary = new Set(snapshot.divisions[0].rows.map((row) => row.name));
+    const separate = snapshot.divisions.slice(1).some((item) => item.rows.some((row) => !primary.has(row.name)));
+    if (separate) {
+      return (
+        <div>
+          <h2 className="text-center font-serif text-3xl font-semibold">Field</h2>
+          {snapshot.divisions.map((item) => (
+            <section key={item.label} className="mt-6">
+              <h3 className="text-center font-serif text-2xl font-semibold">{item.label}</h3>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {[...item.rows].sort((a, b) => a.name.localeCompare(b.name)).map((player) => (
+                  <li key={`${item.label}-${player.name}`} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold">
+                    {player.name}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      );
+    }
+  }
+  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall")) {
     const players = [...snapshot.rows].sort((a, b) => a.name.localeCompare(b.name));
     return (
       <div>
