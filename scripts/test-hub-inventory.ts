@@ -9,6 +9,9 @@ import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/d
 import { SOURCE_ACCESS } from "../src/data/hubs/source-access";
 import dispute from "../src/data/hubs/official/farrell-final-dispute.json";
 import { officialFormatSnapshot } from "../src/data/hubs/official-formats";
+import { officialRemainingSnapshot } from "../src/data/hubs/official-remaining";
+import remainingAudit from "../src/data/hubs/official/remaining-2026.provenance.json";
+import remainingBoards from "../src/data/hubs/official/remaining-2026.public.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -18,6 +21,7 @@ import {
   HUB_BATCH_2,
   HUB_BATCH_3,
   HUB_BATCH_4,
+  HUB_BATCH_5,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -36,7 +40,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -392,6 +396,9 @@ const mounted = [
   "champions-cup-four-ball",
   "john-r-williams-four-ball",
   "the-valentine-invitational",
+  "european-mens-mid-amateur",
+  "the-picard-cup",
+  "tree-farm-invitational",
 ];
 for (const item of SOURCE_ACCESS.filter((entry) => entry.channel === "midam")) {
   const expectsFull = mounted.includes(item.slug);
@@ -606,6 +613,90 @@ for (const board of provenance3.boards.filter((item) => item.mounted)) {
       }
     });
   });
+}
+
+const european = officialRemainingSnapshot("european-mens-mid-amateur");
+const tillement = european?.rows[0];
+const jaakola = european?.rows[1];
+const schoen = european?.rows.find((row) => row.name === "Schoen, Christopher");
+const schaffrath = european?.rows.find((row) => row.name === "Schaffrath, Nikolai");
+const stewartCountry = european?.rows.find((row) => row.name === "Stewart, David");
+if (!european || !european.complete || european.rows.length !== 104 || tillement?.name !== "Tillement, Pierre" || tillement.rounds.join(",") !== "73,69,70" || tillement.total !== 212) {
+  throw new Error("European men's board changed");
+}
+if (jaakola?.place !== "2" || jaakola.total !== 212 || european.rows.some((row) => row.name.includes("Stein") || row.name.includes("Oppenheimer"))) {
+  throw new Error("European women's list or the +40 ranking was mixed into the men's board");
+}
+if (schoen?.status !== "MC" || schoen.place !== "MC" || schoen.rounds.join(",") !== "81,75," || schoen.total !== 156) {
+  throw new Error("European MC row was rewritten");
+}
+if (schaffrath?.status !== "RTD" || schaffrath.toPar !== "+19" || schaffrath.rounds.join(",") !== "81,," || schaffrath.total !== 81) {
+  throw new Error("European RTD row was rewritten");
+}
+if (stewartCountry?.hometown !== "United States") throw new Error("A wrapped European country was split");
+const szmidt = european.rows.find((row) => row.name === "Szmidt, Jan");
+const vanBiljon = european.rows.find((row) => row.name === "Van Biljon, Vincent");
+if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
+  throw new Error("A PDF page header stayed in a country cell");
+}
+const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
+const publishedRows = remainingBoards.boards.flatMap((board) => board.rows.map((row) => ({ slug: board.slug, row })));
+if (publishedRows.length !== 175) throw new Error("The published European, Picard, and Tree Farm rows are no longer 175");
+for (const { slug, row } of publishedRows) {
+  const players = "players" in row ? row.players : [];
+  const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
+  for (const token of tokens) {
+    if (pageHeader.test(token)) throw new Error(`${slug} ${row.name} kept a page header in ${token}`);
+  }
+}
+const europeanHtml = renderHub({ slug: "european-mens-mid-amateur", name: "European Mid-Amateur", channel: "midam", month: 6, format: "54 holes stroke play" }, "midam");
+if (europeanHtml.includes("Pos Name") || europeanHtml.includes("To par R1") || !europeanHtml.includes("Poland") || !europeanHtml.includes("Netherlands")) {
+  throw new Error("The European page rendered a PDF header in a country");
+}
+if (!remainingAudit["european-mens-mid-amateur"].withheld.includes("Ladies result list")) {
+  throw new Error("European withheld lists were dropped");
+}
+
+const picard = officialRemainingSnapshot("the-picard-cup");
+const wyatt = picard?.rows[0];
+const robillard = picard?.rows[1];
+if (!picard || picard.rows.length !== 36 || wyatt?.players?.join("|") !== "Bobby Wyatt|Vince Cave" || wyatt.rounds.join(",") !== "65,71,64" || wyatt.total !== 200 || wyatt.place !== "T1") {
+  throw new Error("Picard mid-am teams changed");
+}
+if (robillard?.place !== "T1" || robillard.total !== 200 || picard.rows.some((row) => row.players?.some((player) => player === "Todd Franks" || player === "Billy Joe Tolliver"))) {
+  throw new Error("Picard scoreboard tie was broken or the senior board was added");
+}
+if (picard.rows.some((row) => row.name.includes("+"))) throw new Error("A Picard pairing was stored as one name");
+
+const tree = officialRemainingSnapshot("tree-farm-invitational");
+const weil = tree?.rows[0];
+if (!tree || tree.scope !== "official-points" || tree.columnOrder !== "total-then-rounds" || tree.rows.length !== 35 || weil?.name !== "Davis Weil" || weil.rounds.join(",") !== "38,51" || weil.total !== 89) {
+  throw new Error("Tree Farm points board changed");
+}
+if (tree.rows.some((row) => row.name === "Matt Crenshaw" || row.name === "Ben Greve" || row.status === "WD")) {
+  throw new Error("Tree Farm invented a row for a player who is not on the published board");
+}
+if (tree.rows.filter((row) => row.name.includes("Williamson")).map((row) => row.name).join("|") !== "Bill Williamson") {
+  throw new Error("Tree Farm renamed or duplicated Williamson");
+}
+const treeRecap = MIDAM_TOURNAMENTS.find((event) => event.slug === "tree-farm-invitational")?.news?.find((article) => article.slug === "2026-tree-farm-invitational-final-recap");
+if (!treeRecap?.content.some((paragraph) => paragraph.includes("Billy Williamson"))) throw new Error("Tree Farm recap was rewritten");
+const treeHtml = renderHub({ slug: "tree-farm-invitational", name: "Tree Farm", channel: "midam", month: 10, format: "Stableford" }, "midam");
+const totalAt = treeHtml.indexOf(">Total<");
+const roundAt = treeHtml.indexOf(">R1<");
+if (!treeHtml.includes("Stableford points") || totalAt < 0 || roundAt < 0 || totalAt > roundAt || treeHtml.includes("Final results") || treeHtml.includes("Matt Crenshaw")) {
+  throw new Error("Tree Farm points were shown as a stroke final or in the wrong column order");
+}
+const picardHtml = renderHub({ slug: "the-picard-cup", name: "Picard Cup", channel: "midam", month: 8, format: "4-ball" }, "midam");
+if (!picardHtml.includes("Bobby Wyatt") || !picardHtml.includes("Vince Cave") || picardHtml.includes("Todd Franks") || picardHtml.includes("Bobby Wyatt + Vince Cave")) {
+  throw new Error("Picard page merged a team or added the senior board");
+}
+const travisStill = resultSnapshot("walter-j-travis-invitational");
+if (travisStill?.kind !== "match" || travisStill.complete || travisStill.matches.some((match) => match.result.includes("22 holes"))) {
+  throw new Error("Travis bracket JSON was mounted");
+}
+if (!MIDAM_TOURNAMENTS.find((event) => event.slug === "walter-j-travis-invitational")?.golfGeniusUrl?.includes("116thwalterjtravisinvitational.golfgenius.com")) {
+  throw new Error("Travis official page was not stored");
 }
 
 console.log(JSON.stringify(summary, null, 2));

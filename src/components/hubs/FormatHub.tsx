@@ -399,6 +399,15 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
   const hasDivision = rows.some((row) => row.division);
   const hasTeams = rows.some((row) => row.players && row.players.length > 1);
   const hasToPar = rows.some((row) => row.toPar);
+  const pointsFirst = snapshot.scoring === "stableford-points" && snapshot.columnOrder === "total-then-rounds";
+  const roundHeaders = hasRounds
+    ? Array.from({ length: snapshot.roundCount }, (_, index) => (
+        <th key={index} className={`px-3 py-3 font-semibold ${highlight === index ? "text-zinc-950" : ""}`}>
+          R{index + 1}
+        </th>
+      ))
+    : null;
+  const totalHeader = <th className="px-3 py-3 font-semibold">Total</th>;
   const caption =
     snapshot.scope === "official-overall"
       ? "Overall results"
@@ -408,7 +417,9 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
           ? "Low Senior award"
           : snapshot.scope === "official-totals"
             ? "Qualifying totals"
-            : "Published finishers. Blank rounds were not in the source.";
+            : snapshot.scope === "official-points"
+              ? "Stableford points"
+              : "Published finishers. Blank rounds were not in the source.";
   return (
     <div tabIndex={0} aria-label={caption} className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">
       <table className="w-full min-w-[640px] text-left text-sm">
@@ -418,15 +429,10 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
             <th className="px-3 py-3 font-semibold">Place</th>
             {hasDivision ? <th className="px-3 py-3 font-semibold">Division</th> : null}
             <th className="px-3 py-3 font-semibold">{hasTeams ? "Team" : "Player"}</th>
-            {hasRounds
-              ? Array.from({ length: snapshot.roundCount }, (_, index) => (
-                  <th key={index} className={`px-3 py-3 font-semibold ${highlight === index ? "text-zinc-950" : ""}`}>
-                    R{index + 1}
-                  </th>
-                ))
-              : null}
+            {pointsFirst ? totalHeader : null}
+            {roundHeaders}
             {hasToPar ? <th className="px-3 py-3 font-semibold">To par</th> : null}
-            <th className="px-3 py-3 font-semibold">Total</th>
+            {pointsFirst ? null : totalHeader}
           </tr>
         </thead>
         <tbody>
@@ -445,6 +451,7 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
                 {row.hometown ? <span className="mt-1 block text-xs text-zinc-500">{row.hometown}</span> : null}
                 {row.detail ? <span className="mt-1 block text-xs text-zinc-500">{row.detail}</span> : null}
               </td>
+              {pointsFirst ? <td className="px-3 py-3 font-semibold tabular-nums">{row.total ?? ""}</td> : null}
               {hasRounds
                 ? row.rounds.map((score, index) => (
                     <td key={index} className={`px-3 py-3 tabular-nums ${highlight === index ? "bg-emerald-50 font-semibold" : ""}`}>
@@ -453,7 +460,7 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
                   ))
                 : null}
               {hasToPar ? <td className="px-3 py-3 tabular-nums">{row.toPar ?? ""}</td> : null}
-              <td className="px-3 py-3 font-semibold tabular-nums">{row.total ?? ""}</td>
+              {pointsFirst ? null : <td className="px-3 py-3 font-semibold tabular-nums">{row.total ?? ""}</td>}
             </tr>
           ))}
         </tbody>
@@ -550,7 +557,7 @@ function FieldPanel({ snapshot, names }: { snapshot: ResultSnapshot | null; name
       );
     }
   }
-  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall" || snapshot.scope === "official-totals")) {
+  if (snapshot?.kind === "stroke" && (snapshot.scope === "official-final" || snapshot.scope === "official-overall" || snapshot.scope === "official-totals" || snapshot.scope === "official-points")) {
     const players = [...snapshot.rows]
       .flatMap((row) => (row.players?.length ? row.players.map((name) => ({ name, hometown: undefined as string | undefined })) : [{ name: row.name, hometown: row.hometown }]))
       .sort((a, b) => a.name.localeCompare(b.name));

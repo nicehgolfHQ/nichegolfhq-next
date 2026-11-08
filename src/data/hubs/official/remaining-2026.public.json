@@ -1,0 +1,2414 @@
+{
+  "boards": [
+    {
+      "slug": "european-mens-mid-amateur",
+      "roundCount": 3,
+      "scope": "official-final",
+      "complete": true,
+      "rows": [
+        {
+          "position": "1",
+          "name": "Tillement, Pierre",
+          "affiliation": "France",
+          "toPar": "-4",
+          "rounds": [
+            "73",
+            "69",
+            "70"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "2",
+          "name": "Jaakola, Keijo",
+          "affiliation": "Finland",
+          "toPar": "-4",
+          "rounds": [
+            "73",
+            "72",
+            "67"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Habeler, Markus",
+          "affiliation": "Austria",
+          "toPar": "Par",
+          "rounds": [
+            "68",
+            "76",
+            "72"
+          ],
+          "total": "216",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "De Grancey, Christophe",
+          "affiliation": "France",
+          "toPar": "+1",
+          "rounds": [
+            "72",
+            "74",
+            "71"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Jönsson, Rickard",
+          "affiliation": "Sweden",
+          "toPar": "+1",
+          "rounds": [
+            "73",
+            "72",
+            "72"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Schmieding, Daniel",
+          "affiliation": "Germany",
+          "toPar": "+1",
+          "rounds": [
+            "73",
+            "69",
+            "75"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Wijkstrom, Hampus",
+          "affiliation": "Sweden",
+          "toPar": "+1",
+          "rounds": [
+            "70",
+            "72",
+            "75"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Phipps, Ben",
+          "affiliation": "Ireland (a)",
+          "toPar": "+2",
+          "rounds": [
+            "74",
+            "74",
+            "70"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Gabriel, Dario",
+          "affiliation": "Switzerland",
+          "toPar": "+2",
+          "rounds": [
+            "72",
+            "75",
+            "71"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T8",
+          "name": "Magee, Dan",
+          "affiliation": "England",
+          "toPar": "+2",
+          "rounds": [
+            "72",
+            "72",
+            "74"
+          ],
+          "total": "218",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Højer, Michael",
+          "affiliation": "Denmark",
+          "toPar": "+3",
+          "rounds": [
+            "73",
+            "76",
+            "70"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Thannhäuser, Michael",
+          "affiliation": "Germany",
+          "toPar": "+3",
+          "rounds": [
+            "75",
+            "73",
+            "71"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Steger, Christopher",
+          "affiliation": "Germany",
+          "toPar": "+4",
+          "rounds": [
+            "75",
+            "75",
+            "70"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Ebner, Tobias",
+          "affiliation": "Austria",
+          "toPar": "+4",
+          "rounds": [
+            "74",
+            "75",
+            "71"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Shanahan, Mark",
+          "affiliation": "Ireland (a)",
+          "toPar": "+4",
+          "rounds": [
+            "72",
+            "76",
+            "72"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Hornung, Luis",
+          "affiliation": "Germany",
+          "toPar": "+4",
+          "rounds": [
+            "72",
+            "72",
+            "76"
+          ],
+          "total": "220",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Westermann, Philipp",
+          "affiliation": "Germany",
+          "toPar": "+5",
+          "rounds": [
+            "75",
+            "75",
+            "71"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Brückner, Max",
+          "affiliation": "Germany",
+          "toPar": "+5",
+          "rounds": [
+            "71",
+            "76",
+            "74"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Leppäniemi, Väinö",
+          "affiliation": "Finland",
+          "toPar": "+5",
+          "rounds": [
+            "73",
+            "73",
+            "75"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Behnke, Maximilian",
+          "affiliation": "Germany",
+          "toPar": "+5",
+          "rounds": [
+            "73",
+            "72",
+            "76"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "T21",
+          "name": "Henningsson, Henrik",
+          "affiliation": "Sweden",
+          "toPar": "+6",
+          "rounds": [
+            "70",
+            "78",
+            "74"
+          ],
+          "total": "222",
+          "status": "ranked"
+        },
+        {
+          "position": "T21",
+          "name": "Gray, Mike",
+          "affiliation": "Scotland",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "71",
+            "78"
+          ],
+          "total": "222",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Dlaska, Christopher",
+          "affiliation": "Austria",
+          "toPar": "+7",
+          "rounds": [
+            "73",
+            "78",
+            "72"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Dr Hahn, Daniel",
+          "affiliation": "Germany",
+          "toPar": "+7",
+          "rounds": [
+            "68",
+            "79",
+            "76"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Wallmo, Jonas",
+          "affiliation": "Sweden",
+          "toPar": "+7",
+          "rounds": [
+            "74",
+            "72",
+            "77"
+          ],
+          "total": "223",
+          "status": "ranked"
+        },
+        {
+          "position": "T26",
+          "name": "Vos, Jesper",
+          "affiliation": "Netherlands",
+          "toPar": "+8",
+          "rounds": [
+            "79",
+            "72",
+            "73"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "T26",
+          "name": "Lager, Martin",
+          "affiliation": "Sweden",
+          "toPar": "+8",
+          "rounds": [
+            "72",
+            "77",
+            "75"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "T26",
+          "name": "Olsson, Jonas",
+          "affiliation": "Sweden",
+          "toPar": "+8",
+          "rounds": [
+            "76",
+            "71",
+            "77"
+          ],
+          "total": "224",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "Pasanen, Antti",
+          "affiliation": "Finland",
+          "toPar": "+9",
+          "rounds": [
+            "77",
+            "77",
+            "71"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "Gallini, Michele",
+          "affiliation": "Italy",
+          "toPar": "+9",
+          "rounds": [
+            "74",
+            "75",
+            "76"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "De Heer, Rodolphe",
+          "affiliation": "Switzerland",
+          "toPar": "+9",
+          "rounds": [
+            "74",
+            "75",
+            "76"
+          ],
+          "total": "225",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Hammergaard, Nikolaj",
+          "affiliation": "Denmark",
+          "toPar": "+10",
+          "rounds": [
+            "77",
+            "77",
+            "72"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Welch, Ben",
+          "affiliation": "England",
+          "toPar": "+10",
+          "rounds": [
+            "77",
+            "75",
+            "74"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Haukka, Elias",
+          "affiliation": "Finland",
+          "toPar": "+10",
+          "rounds": [
+            "76",
+            "75",
+            "75"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Laihonen, Mikko",
+          "affiliation": "Finland",
+          "toPar": "+10",
+          "rounds": [
+            "76",
+            "75",
+            "75"
+          ],
+          "total": "226",
+          "status": "ranked"
+        },
+        {
+          "position": "T36",
+          "name": "Buch, Jens",
+          "affiliation": "Luxembourg",
+          "toPar": "+11",
+          "rounds": [
+            "75",
+            "79",
+            "73"
+          ],
+          "total": "227",
+          "status": "ranked"
+        },
+        {
+          "position": "T36",
+          "name": "Tonge, Alex",
+          "affiliation": "England",
+          "toPar": "+11",
+          "rounds": [
+            "77",
+            "75",
+            "75"
+          ],
+          "total": "227",
+          "status": "ranked"
+        },
+        {
+          "position": "T36",
+          "name": "Trolle, Nicolai",
+          "affiliation": "Denmark",
+          "toPar": "+11",
+          "rounds": [
+            "76",
+            "74",
+            "77"
+          ],
+          "total": "227",
+          "status": "ranked"
+        },
+        {
+          "position": "T39",
+          "name": "Lopez Malo, Jacobo",
+          "affiliation": "Spain",
+          "toPar": "+12",
+          "rounds": [
+            "80",
+            "74",
+            "74"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "T39",
+          "name": "Stewart, David",
+          "affiliation": "United States",
+          "toPar": "+12",
+          "rounds": [
+            "75",
+            "79",
+            "74"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "T39",
+          "name": "Szmidt, Jan",
+          "affiliation": "Poland",
+          "toPar": "+12",
+          "rounds": [
+            "75",
+            "78",
+            "75"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "T39",
+          "name": "Gallavresi, Lodovico",
+          "affiliation": "Italy",
+          "toPar": "+12",
+          "rounds": [
+            "74",
+            "77",
+            "77"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "T39",
+          "name": "Lengeling, Roman",
+          "affiliation": "Germany",
+          "toPar": "+12",
+          "rounds": [
+            "76",
+            "75",
+            "77"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "T39",
+          "name": "Bürki, John",
+          "affiliation": "Switzerland",
+          "toPar": "+12",
+          "rounds": [
+            "72",
+            "75",
+            "81"
+          ],
+          "total": "228",
+          "status": "ranked"
+        },
+        {
+          "position": "T45",
+          "name": "Heider, Petr",
+          "affiliation": "Czech Republic",
+          "toPar": "+14",
+          "rounds": [
+            "74",
+            "81",
+            "75"
+          ],
+          "total": "230",
+          "status": "ranked"
+        },
+        {
+          "position": "T45",
+          "name": "Willadsen, Andreas",
+          "affiliation": "Denmark",
+          "toPar": "+14",
+          "rounds": [
+            "78",
+            "77",
+            "75"
+          ],
+          "total": "230",
+          "status": "ranked"
+        },
+        {
+          "position": "T45",
+          "name": "Barzen, Tom",
+          "affiliation": "Germany",
+          "toPar": "+14",
+          "rounds": [
+            "76",
+            "74",
+            "80"
+          ],
+          "total": "230",
+          "status": "ranked"
+        },
+        {
+          "position": "T45",
+          "name": "Hellat, Carl",
+          "affiliation": "Estonia",
+          "toPar": "+14",
+          "rounds": [
+            "71",
+            "78",
+            "81"
+          ],
+          "total": "230",
+          "status": "ranked"
+        },
+        {
+          "position": "49",
+          "name": "Watkins, Harry",
+          "affiliation": "Wales",
+          "toPar": "+15",
+          "rounds": [
+            "78",
+            "77",
+            "76"
+          ],
+          "total": "231",
+          "status": "ranked"
+        },
+        {
+          "position": "T50",
+          "name": "Harry, Tim",
+          "affiliation": "Wales",
+          "toPar": "+16",
+          "rounds": [
+            "79",
+            "73",
+            "80"
+          ],
+          "total": "232",
+          "status": "ranked"
+        },
+        {
+          "position": "T50",
+          "name": "Khazanbeik, Ali",
+          "affiliation": "Iran",
+          "toPar": "+16",
+          "rounds": [
+            "78",
+            "73",
+            "81"
+          ],
+          "total": "232",
+          "status": "ranked"
+        },
+        {
+          "position": "52",
+          "name": "Rumpf, David",
+          "affiliation": "Germany",
+          "toPar": "+17",
+          "rounds": [
+            "80",
+            "74",
+            "79"
+          ],
+          "total": "233",
+          "status": "ranked"
+        },
+        {
+          "position": "53",
+          "name": "Merckx, Dewi",
+          "affiliation": "Belgium",
+          "toPar": "+19",
+          "rounds": [
+            "73",
+            "77",
+            "85"
+          ],
+          "total": "235",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "McAspurn, Joshua",
+          "affiliation": "England",
+          "toPar": "+20",
+          "rounds": [
+            "79",
+            "76",
+            "81"
+          ],
+          "total": "236",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Nebe, Jan Philipp",
+          "affiliation": "Germany",
+          "toPar": "+20",
+          "rounds": [
+            "76",
+            "79",
+            "81"
+          ],
+          "total": "236",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Mittler, Nicolas",
+          "affiliation": "Belgium",
+          "toPar": "+20",
+          "rounds": [
+            "80",
+            "73",
+            "83"
+          ],
+          "total": "236",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Vajta, Balazs",
+          "affiliation": "Hungary",
+          "toPar": "+20",
+          "rounds": [
+            "80",
+            "72",
+            "84"
+          ],
+          "total": "236",
+          "status": "ranked"
+        },
+        {
+          "position": "58",
+          "name": "Holzhausen, Jakob",
+          "affiliation": "Germany",
+          "toPar": "+22",
+          "rounds": [
+            "79",
+            "75",
+            "84"
+          ],
+          "total": "238",
+          "status": "ranked"
+        },
+        {
+          "position": "MC",
+          "name": "Schoen, Christopher",
+          "affiliation": "Austria",
+          "toPar": "+12",
+          "rounds": [
+            "81",
+            "75",
+            ""
+          ],
+          "total": "156",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "McCarron, Kyle",
+          "affiliation": "Ireland (a)",
+          "toPar": "+12",
+          "rounds": [
+            "79",
+            "77",
+            ""
+          ],
+          "total": "156",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Scheublein, Luca",
+          "affiliation": "Germany",
+          "toPar": "+12",
+          "rounds": [
+            "77",
+            "79",
+            ""
+          ],
+          "total": "156",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "D'Amico, Luigi",
+          "affiliation": "Italy",
+          "toPar": "+12",
+          "rounds": [
+            "77",
+            "79",
+            ""
+          ],
+          "total": "156",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Roehri, Alexandre",
+          "affiliation": "France",
+          "toPar": "+12",
+          "rounds": [
+            "76",
+            "80",
+            ""
+          ],
+          "total": "156",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Ellsiepen, Martin",
+          "affiliation": "Germany",
+          "toPar": "+13",
+          "rounds": [
+            "83",
+            "74",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Stoffersen, Henrik",
+          "affiliation": "Germany",
+          "toPar": "+13",
+          "rounds": [
+            "82",
+            "75",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Kogl, Christoph",
+          "affiliation": "Austria",
+          "toPar": "+13",
+          "rounds": [
+            "82",
+            "75",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Zweig, Sebastian",
+          "affiliation": "Germany",
+          "toPar": "+13",
+          "rounds": [
+            "80",
+            "77",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Prini, Filippo",
+          "affiliation": "Italy",
+          "toPar": "+13",
+          "rounds": [
+            "79",
+            "78",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Castellana, Arnaud",
+          "affiliation": "Luxembourg",
+          "toPar": "+13",
+          "rounds": [
+            "79",
+            "78",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Karlsson, Erik",
+          "affiliation": "Sweden",
+          "toPar": "+13",
+          "rounds": [
+            "78",
+            "79",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Borg, Andrew",
+          "affiliation": "Malta",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "80",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Gille, Julien",
+          "affiliation": "Switzerland",
+          "toPar": "+13",
+          "rounds": [
+            "75",
+            "82",
+            ""
+          ],
+          "total": "157",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Loning, Thomas",
+          "affiliation": "Netherlands",
+          "toPar": "+14",
+          "rounds": [
+            "82",
+            "76",
+            ""
+          ],
+          "total": "158",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Wandel, Peeke",
+          "affiliation": "Germany",
+          "toPar": "+14",
+          "rounds": [
+            "81",
+            "77",
+            ""
+          ],
+          "total": "158",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Ravina Fernández, Jaime",
+          "affiliation": "Spain",
+          "toPar": "+14",
+          "rounds": [
+            "79",
+            "79",
+            ""
+          ],
+          "total": "158",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Hestley, Palmer",
+          "affiliation": "United States",
+          "toPar": "+14",
+          "rounds": [
+            "79",
+            "79",
+            ""
+          ],
+          "total": "158",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Patacão, José",
+          "affiliation": "Portugal",
+          "toPar": "+15",
+          "rounds": [
+            "83",
+            "76",
+            ""
+          ],
+          "total": "159",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Bogya, Niklas",
+          "affiliation": "Germany",
+          "toPar": "+15",
+          "rounds": [
+            "83",
+            "76",
+            ""
+          ],
+          "total": "159",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Calvert, Tom",
+          "affiliation": "England",
+          "toPar": "+15",
+          "rounds": [
+            "81",
+            "78",
+            ""
+          ],
+          "total": "159",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Costa, Tiago Alexandre",
+          "affiliation": "Portugal",
+          "toPar": "+15",
+          "rounds": [
+            "80",
+            "79",
+            ""
+          ],
+          "total": "159",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Van Biljon, Vincent",
+          "affiliation": "Netherlands",
+          "toPar": "+15",
+          "rounds": [
+            "78",
+            "81",
+            ""
+          ],
+          "total": "159",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Nazet, Philipp-Noah",
+          "affiliation": "Germany",
+          "toPar": "+16",
+          "rounds": [
+            "82",
+            "78",
+            ""
+          ],
+          "total": "160",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Aldershof, Stevan",
+          "affiliation": "Netherlands",
+          "toPar": "+17",
+          "rounds": [
+            "81",
+            "80",
+            ""
+          ],
+          "total": "161",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Baraka, Tarek",
+          "affiliation": "Germany",
+          "toPar": "+17",
+          "rounds": [
+            "78",
+            "83",
+            ""
+          ],
+          "total": "161",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Silva, Francisco",
+          "affiliation": "Portugal",
+          "toPar": "+18",
+          "rounds": [
+            "82",
+            "80",
+            ""
+          ],
+          "total": "162",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Blatter, Daniel",
+          "affiliation": "Switzerland",
+          "toPar": "+18",
+          "rounds": [
+            "81",
+            "81",
+            ""
+          ],
+          "total": "162",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "O’Donnell, Robert",
+          "affiliation": "Scotland",
+          "toPar": "+18",
+          "rounds": [
+            "77",
+            "85",
+            ""
+          ],
+          "total": "162",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Aarons, Dave",
+          "affiliation": "Canada",
+          "toPar": "+18",
+          "rounds": [
+            "76",
+            "86",
+            ""
+          ],
+          "total": "162",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Costa Macedo, Luis",
+          "affiliation": "Portugal",
+          "toPar": "+19",
+          "rounds": [
+            "82",
+            "81",
+            ""
+          ],
+          "total": "163",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Weiler, Thomas",
+          "affiliation": "Germany",
+          "toPar": "+20",
+          "rounds": [
+            "81",
+            "83",
+            ""
+          ],
+          "total": "164",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Tomczyk, Hubert",
+          "affiliation": "Poland",
+          "toPar": "+21",
+          "rounds": [
+            "83",
+            "82",
+            ""
+          ],
+          "total": "165",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Neuhäußer, Timo",
+          "affiliation": "Germany",
+          "toPar": "+21",
+          "rounds": [
+            "79",
+            "86",
+            ""
+          ],
+          "total": "165",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Wöll, Timo",
+          "affiliation": "Austria",
+          "toPar": "+21",
+          "rounds": [
+            "77",
+            "88",
+            ""
+          ],
+          "total": "165",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Mrázik, Lukáš",
+          "affiliation": "Czech Republic",
+          "toPar": "+22",
+          "rounds": [
+            "86",
+            "80",
+            ""
+          ],
+          "total": "166",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Godet, Gautier",
+          "affiliation": "France",
+          "toPar": "+22",
+          "rounds": [
+            "82",
+            "84",
+            ""
+          ],
+          "total": "166",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Ottink, Jan",
+          "affiliation": "Netherlands",
+          "toPar": "+23",
+          "rounds": [
+            "92",
+            "75",
+            ""
+          ],
+          "total": "167",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Blackshear, Scott",
+          "affiliation": "United States",
+          "toPar": "+23",
+          "rounds": [
+            "81",
+            "86",
+            ""
+          ],
+          "total": "167",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Gómez Gutiérrez, Manuel",
+          "affiliation": "Spain",
+          "toPar": "+23",
+          "rounds": [
+            "80",
+            "87",
+            ""
+          ],
+          "total": "167",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Rosendo, Bruno",
+          "affiliation": "Portugal",
+          "toPar": "+24",
+          "rounds": [
+            "88",
+            "80",
+            ""
+          ],
+          "total": "168",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Bohren, Noah",
+          "affiliation": "Switzerland",
+          "toPar": "+25",
+          "rounds": [
+            "90",
+            "79",
+            ""
+          ],
+          "total": "169",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Edeling, Oliver",
+          "affiliation": "Germany",
+          "toPar": "+26",
+          "rounds": [
+            "81",
+            "89",
+            ""
+          ],
+          "total": "170",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Bauer-Mitterlehner, Clemens",
+          "affiliation": "Austria",
+          "toPar": "+29",
+          "rounds": [
+            "85",
+            "88",
+            ""
+          ],
+          "total": "173",
+          "status": "MC"
+        },
+        {
+          "position": "MC",
+          "name": "Shmal, Vadim",
+          "affiliation": "Latvia",
+          "toPar": "+32",
+          "rounds": [
+            "86",
+            "90",
+            ""
+          ],
+          "total": "176",
+          "status": "MC"
+        },
+        {
+          "position": "RTD",
+          "name": "Schaffrath, Nikolai",
+          "affiliation": "Germany",
+          "toPar": "+19",
+          "rounds": [
+            "81",
+            "",
+            ""
+          ],
+          "total": "81",
+          "status": "RTD"
+        }
+      ]
+    },
+    {
+      "slug": "the-picard-cup",
+      "roundCount": 3,
+      "scope": "official-final",
+      "complete": true,
+      "rows": [
+        {
+          "position": "T1",
+          "name": "Bobby Wyatt",
+          "players": [
+            "Bobby Wyatt",
+            "Vince Cave"
+          ],
+          "affiliation": "",
+          "toPar": "-16",
+          "rounds": [
+            "65",
+            "71",
+            "64"
+          ],
+          "total": "200",
+          "status": "ranked"
+        },
+        {
+          "position": "T1",
+          "name": "Nick Robillard",
+          "players": [
+            "Nick Robillard",
+            "Paul Vardaman"
+          ],
+          "affiliation": "",
+          "toPar": "-16",
+          "rounds": [
+            "66",
+            "70",
+            "64"
+          ],
+          "total": "200",
+          "status": "ranked"
+        },
+        {
+          "position": "3",
+          "name": "Andrew Bailey",
+          "players": [
+            "Andrew Bailey",
+            "John Ebert"
+          ],
+          "affiliation": "",
+          "toPar": "-15",
+          "rounds": [
+            "65",
+            "69",
+            "67"
+          ],
+          "total": "201",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Jimmy Delp",
+          "players": [
+            "Jimmy Delp",
+            "Justin Young"
+          ],
+          "affiliation": "",
+          "toPar": "-14",
+          "rounds": [
+            "68",
+            "68",
+            "66"
+          ],
+          "total": "202",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Blanton Farmer",
+          "players": [
+            "Blanton Farmer",
+            "Brandon Ramsuer"
+          ],
+          "affiliation": "",
+          "toPar": "-14",
+          "rounds": [
+            "62",
+            "75",
+            "65"
+          ],
+          "total": "202",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Scott Turner",
+          "players": [
+            "Scott Turner",
+            "Will Davenport"
+          ],
+          "affiliation": "",
+          "toPar": "-13",
+          "rounds": [
+            "69",
+            "75",
+            "59"
+          ],
+          "total": "203",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Benjamin Nelson",
+          "players": [
+            "Benjamin Nelson",
+            "Austin Rose"
+          ],
+          "affiliation": "",
+          "toPar": "-12",
+          "rounds": [
+            "63",
+            "74",
+            "67"
+          ],
+          "total": "204",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Jay Chapman",
+          "players": [
+            "Jay Chapman",
+            "Chris Minton"
+          ],
+          "affiliation": "",
+          "toPar": "-12",
+          "rounds": [
+            "67",
+            "71",
+            "66"
+          ],
+          "total": "204",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Hays Moreland",
+          "players": [
+            "Hays Moreland",
+            "Davis Baxter"
+          ],
+          "affiliation": "",
+          "toPar": "-10",
+          "rounds": [
+            "67",
+            "71",
+            "68"
+          ],
+          "total": "206",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Domenic Maricocchi",
+          "players": [
+            "Domenic Maricocchi",
+            "Nick Paxson"
+          ],
+          "affiliation": "",
+          "toPar": "-10",
+          "rounds": [
+            "70",
+            "68",
+            "68"
+          ],
+          "total": "206",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Nick Jallos",
+          "players": [
+            "Nick Jallos",
+            "Chester Vandenberg"
+          ],
+          "affiliation": "",
+          "toPar": "-9",
+          "rounds": [
+            "65",
+            "71",
+            "71"
+          ],
+          "total": "207",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Jackson Beindorf",
+          "players": [
+            "Jackson Beindorf",
+            "Lowery Thomas"
+          ],
+          "affiliation": "",
+          "toPar": "-9",
+          "rounds": [
+            "64",
+            "76",
+            "67"
+          ],
+          "total": "207",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Eric Phipps",
+          "players": [
+            "Eric Phipps",
+            "Jonathan Koss"
+          ],
+          "affiliation": "",
+          "toPar": "-9",
+          "rounds": [
+            "69",
+            "71",
+            "67"
+          ],
+          "total": "207",
+          "status": "ranked"
+        },
+        {
+          "position": "14",
+          "name": "Kyle Maxwell",
+          "players": [
+            "Kyle Maxwell",
+            "Derek Meinhert"
+          ],
+          "affiliation": "",
+          "toPar": "-8",
+          "rounds": [
+            "68",
+            "69",
+            "71"
+          ],
+          "total": "208",
+          "status": "ranked"
+        },
+        {
+          "position": "T15",
+          "name": "Jay Kirchdorfer",
+          "players": [
+            "Jay Kirchdorfer",
+            "Campbell Gibson"
+          ],
+          "affiliation": "",
+          "toPar": "-7",
+          "rounds": [
+            "68",
+            "72",
+            "69"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "T15",
+          "name": "Peyton White",
+          "players": [
+            "Peyton White",
+            "Thomas Nettles"
+          ],
+          "affiliation": "",
+          "toPar": "-7",
+          "rounds": [
+            "65",
+            "76",
+            "68"
+          ],
+          "total": "209",
+          "status": "ranked"
+        },
+        {
+          "position": "17",
+          "name": "Ben Kendrick",
+          "players": [
+            "Ben Kendrick",
+            "Jacob Cook"
+          ],
+          "affiliation": "",
+          "toPar": "-6",
+          "rounds": [
+            "71",
+            "70",
+            "69"
+          ],
+          "total": "210",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Michael Cress",
+          "players": [
+            "Michael Cress",
+            "Tanner Murphy"
+          ],
+          "affiliation": "",
+          "toPar": "-5",
+          "rounds": [
+            "68",
+            "71",
+            "72"
+          ],
+          "total": "211",
+          "status": "ranked"
+        },
+        {
+          "position": "T18",
+          "name": "Brinson Holder",
+          "players": [
+            "Brinson Holder",
+            "Eric Howle"
+          ],
+          "affiliation": "",
+          "toPar": "-5",
+          "rounds": [
+            "68",
+            "73",
+            "70"
+          ],
+          "total": "211",
+          "status": "ranked"
+        },
+        {
+          "position": "T20",
+          "name": "Tyler McKeever",
+          "players": [
+            "Tyler McKeever",
+            "Jeff Bisell"
+          ],
+          "affiliation": "",
+          "toPar": "-4",
+          "rounds": [
+            "68",
+            "74",
+            "70"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "T20",
+          "name": "Kendrick Vinar",
+          "players": [
+            "Kendrick Vinar",
+            "Rohan Ramnath"
+          ],
+          "affiliation": "",
+          "toPar": "-4",
+          "rounds": [
+            "68",
+            "75",
+            "69"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "T20",
+          "name": "Zach Pardoll",
+          "players": [
+            "Zach Pardoll",
+            "Whitten Meares"
+          ],
+          "affiliation": "",
+          "toPar": "-4",
+          "rounds": [
+            "68",
+            "76",
+            "68"
+          ],
+          "total": "212",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Sal Syed",
+          "players": [
+            "Sal Syed",
+            "Danny Oh"
+          ],
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [
+            "70",
+            "74",
+            "69"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Jon Kaplan",
+          "players": [
+            "Jon Kaplan",
+            "Kasey Nafzger"
+          ],
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [
+            "72",
+            "74",
+            "67"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "T23",
+          "name": "Philip Reale",
+          "players": [
+            "Philip Reale",
+            "Sam O'Dell"
+          ],
+          "affiliation": "",
+          "toPar": "-3",
+          "rounds": [
+            "71",
+            "76",
+            "66"
+          ],
+          "total": "213",
+          "status": "ranked"
+        },
+        {
+          "position": "T26",
+          "name": "Justin Kaplan",
+          "players": [
+            "Justin Kaplan",
+            "Eric Lodge"
+          ],
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [
+            "69",
+            "73",
+            "72"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "T26",
+          "name": "Steve Putinski",
+          "players": [
+            "Steve Putinski",
+            "Jim Krivanek"
+          ],
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [
+            "66",
+            "78",
+            "70"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "T26",
+          "name": "Dan Arison",
+          "players": [
+            "Dan Arison",
+            "David Hurly"
+          ],
+          "affiliation": "",
+          "toPar": "-2",
+          "rounds": [
+            "72",
+            "73",
+            "69"
+          ],
+          "total": "214",
+          "status": "ranked"
+        },
+        {
+          "position": "29",
+          "name": "Shane Heise",
+          "players": [
+            "Shane Heise",
+            "John Hunter"
+          ],
+          "affiliation": "",
+          "toPar": "-1",
+          "rounds": [
+            "70",
+            "75",
+            "70"
+          ],
+          "total": "215",
+          "status": "ranked"
+        },
+        {
+          "position": "30",
+          "name": "Nolan Marks",
+          "players": [
+            "Nolan Marks",
+            "Mitchell Moore"
+          ],
+          "affiliation": "",
+          "toPar": "E",
+          "rounds": [
+            "69",
+            "79",
+            "68"
+          ],
+          "total": "216",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Andy Latowski",
+          "players": [
+            "Andy Latowski",
+            "John Brennan"
+          ],
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [
+            "71",
+            "73",
+            "73"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Steven Paramore",
+          "players": [
+            "Steven Paramore",
+            "Cole Smith"
+          ],
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [
+            "69",
+            "76",
+            "72"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Tyler Duke",
+          "players": [
+            "Tyler Duke",
+            "Derek Rende"
+          ],
+          "affiliation": "",
+          "toPar": "+1",
+          "rounds": [
+            "69",
+            "79",
+            "69"
+          ],
+          "total": "217",
+          "status": "ranked"
+        },
+        {
+          "position": "34",
+          "name": "Brian Joseph",
+          "players": [
+            "Brian Joseph",
+            "Nick Fiore"
+          ],
+          "affiliation": "",
+          "toPar": "+3",
+          "rounds": [
+            "68",
+            "77",
+            "74"
+          ],
+          "total": "219",
+          "status": "ranked"
+        },
+        {
+          "position": "35",
+          "name": "Evan Ruhling",
+          "players": [
+            "Evan Ruhling",
+            "Andrew Hodge"
+          ],
+          "affiliation": "",
+          "toPar": "+5",
+          "rounds": [
+            "72",
+            "76",
+            "73"
+          ],
+          "total": "221",
+          "status": "ranked"
+        },
+        {
+          "position": "36",
+          "name": "Kevin Carlin",
+          "players": [
+            "Kevin Carlin",
+            "Will Hall"
+          ],
+          "affiliation": "",
+          "toPar": "+10",
+          "rounds": [
+            "73",
+            "82",
+            "71"
+          ],
+          "total": "226",
+          "status": "ranked"
+        }
+      ]
+    },
+    {
+      "slug": "tree-farm-invitational",
+      "roundCount": 2,
+      "scope": "official-points",
+      "scoring": "stableford-points",
+      "columnOrder": "total-then-rounds",
+      "complete": true,
+      "rows": [
+        {
+          "position": "1",
+          "name": "Davis Weil",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "38",
+            "51"
+          ],
+          "total": "89",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Jesse Bull",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "37",
+            "49"
+          ],
+          "total": "86",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Michael Blackham",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "40",
+            "46"
+          ],
+          "total": "86",
+          "status": "ranked"
+        },
+        {
+          "position": "4",
+          "name": "David Leede",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "38",
+            "45"
+          ],
+          "total": "83",
+          "status": "ranked"
+        },
+        {
+          "position": "5",
+          "name": "Brian Thompson",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "42",
+            "40"
+          ],
+          "total": "82",
+          "status": "ranked"
+        },
+        {
+          "position": "6",
+          "name": "Dan Horner",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "45",
+            "35"
+          ],
+          "total": "80",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Steve White",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "36",
+            "43"
+          ],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Jonathan Keane",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "42",
+            "37"
+          ],
+          "total": "79",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Jack Tyler",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "39",
+            "39"
+          ],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Dan Sullivan",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "43",
+            "35"
+          ],
+          "total": "78",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Alex Warr",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "39",
+            "37"
+          ],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "T11",
+          "name": "Darrin Overson",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "39",
+            "37"
+          ],
+          "total": "76",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Chad Wilfong",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "32",
+            "43"
+          ],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Andy White",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "37",
+            "38"
+          ],
+          "total": "75",
+          "status": "ranked"
+        },
+        {
+          "position": "15",
+          "name": "Ryan Abbate",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "33",
+            "41"
+          ],
+          "total": "74",
+          "status": "ranked"
+        },
+        {
+          "position": "16",
+          "name": "Nick Jallos",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "40",
+            "33"
+          ],
+          "total": "73",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "John Engler",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "36",
+            "36"
+          ],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "T17",
+          "name": "Tony Conniff",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "37",
+            "35"
+          ],
+          "total": "72",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Spencer Cole",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "37",
+            "34"
+          ],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "David Scott",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "40",
+            "31"
+          ],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Tyler Winters",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "39",
+            "32"
+          ],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "T19",
+          "name": "Martin Golobic",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "41",
+            "30"
+          ],
+          "total": "71",
+          "status": "ranked"
+        },
+        {
+          "position": "23",
+          "name": "John Patterson",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "28",
+            "41"
+          ],
+          "total": "69",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Bill Williamson",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "26",
+            "41"
+          ],
+          "total": "67",
+          "status": "ranked"
+        },
+        {
+          "position": "T24",
+          "name": "Jeff Appelbaum",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "37",
+            "30"
+          ],
+          "total": "67",
+          "status": "ranked"
+        },
+        {
+          "position": "26",
+          "name": "Nick Lykins",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "33",
+            "32"
+          ],
+          "total": "65",
+          "status": "ranked"
+        },
+        {
+          "position": "27",
+          "name": "Jacob Hill",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "33",
+            "31"
+          ],
+          "total": "64",
+          "status": "ranked"
+        },
+        {
+          "position": "28",
+          "name": "Seth McWhorter",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "37",
+            "26"
+          ],
+          "total": "63",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "Chris Larbes",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "34",
+            "26"
+          ],
+          "total": "60",
+          "status": "ranked"
+        },
+        {
+          "position": "T29",
+          "name": "Andrew Osofsky",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "34",
+            "26"
+          ],
+          "total": "60",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Brett Williams",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "29",
+            "30"
+          ],
+          "total": "59",
+          "status": "ranked"
+        },
+        {
+          "position": "T31",
+          "name": "Brad Wilder",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "32",
+            "27"
+          ],
+          "total": "59",
+          "status": "ranked"
+        },
+        {
+          "position": "33",
+          "name": "Brian Harris",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "34",
+            "24"
+          ],
+          "total": "58",
+          "status": "ranked"
+        },
+        {
+          "position": "34",
+          "name": "Jeff Reisert",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "29",
+            "27"
+          ],
+          "total": "56",
+          "status": "ranked"
+        },
+        {
+          "position": "35",
+          "name": "Patrick Donnelly",
+          "affiliation": "",
+          "toPar": "",
+          "rounds": [
+            "28",
+            "27"
+          ],
+          "total": "55",
+          "status": "ranked"
+        }
+      ]
+    }
+  ]
+}

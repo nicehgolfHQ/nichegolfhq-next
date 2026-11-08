@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -91,6 +91,13 @@ export const HUB_BATCH_4: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "anderson-memorial-four-ball" },
   { channel: "senior", slug: "anderson-memorial-four-ball-senior-division" },
   { channel: "midam", slug: "the-farrell" },
+];
+
+/** Verified 2026 boards whose published format is not a plain stroke sheet. */
+export const HUB_BATCH_5: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "european-mens-mid-amateur" },
+  { channel: "midam", slug: "the-picard-cup" },
+  { channel: "midam", slug: "tree-farm-invitational" },
 ];
 
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
@@ -164,12 +171,13 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (HUB_BATCH_2.some((item) => item.channel === channel && item.slug === slug)) return "batch-2";
   if (HUB_BATCH_3.some((item) => item.channel === channel && item.slug === slug)) return "batch-3";
   if (HUB_BATCH_4.some((item) => item.channel === channel && item.slug === slug)) return "batch-4";
+  if (HUB_BATCH_5.some((item) => item.channel === channel && item.slug === slug)) return "batch-5";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5") return "format-hub";
   return "legacy";
 }
 
