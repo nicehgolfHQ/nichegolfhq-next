@@ -2,7 +2,11 @@
   "european-mens-mid-amateur": {
     "source": "https://www.ega-golf.ch/sites/ega/files/ckeditor/EMAC%202026%20-%20RESULTS.pdf",
     "mounted": "Men result list, 104 rows",
-    "withheld": ["Ladies result list", "Men +40", "Ladies +40"],
+    "withheld": [
+      "Ladies result list",
+      "Men +40",
+      "Ladies +40"
+    ],
     "rtd": "Schaffrath, Nikolai is printed RTD, +19, 81, blank, 81. The 81 was not changed to match +19."
   },
   "the-picard-cup": {
@@ -15,7 +19,10 @@
     "source": "/results/tree-farm-invitational-2026-final.html",
     "mounted": "35 published rows. Columns are place, player, total, R1, R2. Every total is R1 plus R2.",
     "preview": "The preview said 37 players and did not publish the roster.",
-    "absentWithoutAStatus": ["Matt Crenshaw", "Ben Greve"],
+    "absentWithoutAStatus": [
+      "Matt Crenshaw",
+      "Ben Greve"
+    ],
     "name": "The final board prints Bill Williamson. The round-1 board and the recap print Billy Williamson for the same 26-point first round."
   },
   "walter-j-travis-invitational": {
@@ -34,5 +41,24 @@
   },
   "usga": {
     "notMounted": "Both stored scoring URLs returned HTTP 403 from Akamai. The existing recaps stay in place."
+  },
+  "giles-invitational-senior-division": {
+    "source": "https://www.golfgenius.com/pages/11897323629429417778",
+    "storedUrl": "https://www.golfgenius.com/pages/11897323631677564724",
+    "mounted": "Senior division, 30 rows. Rick Stimmel 73, 66, 73, 212. Five CUT cards and Eoghan O'Connell DQ. No name is also on the mid-am board."
+  },
+  "jupiter-invitational-senior-division": {
+    "source": "https://www.golfgenius.com/pages/11637199273677834597",
+    "mounted": "Senior division, 17 rows. Michael McCoy 70, 68, 66, 204. The stored champion line says Mike McCoy. That line was not changed."
+  },
+  "huddleston-cup-senior-division": {
+    "source": "https://www.golfgenius.com/pages/12245787651055057396",
+    "mounted": "Senior Amateur, 27 rows. Bob Royak 70, 73, 73, 216. Sherill Britt WD, Mike Lohner WD, Eric Joseph NC. Official tee sheets: Round 1 Thu May 28, Round 2 Fri May 29, final Sat May 30. Mid-am and senior are both on those sheets. Hub dates are May 28-30."
+  },
+  "junior-opened-not-mounted": {
+    "us-junior-amateur": "Stored scoring URL returned HTTP 403. Not fetched by another client.",
+    "us-womens-amateur": "Stored scoring URL returned HTTP 403. Not fetched by another client.",
+    "boys-junior-pga": "Stored embed URL returned HTTP 403. Not fetched by another client.",
+    "elite-invitational": "The stored Golfstat page is the boys leaderboard. No girls board was on that page, so it was not mounted as the event result."
   }
 }

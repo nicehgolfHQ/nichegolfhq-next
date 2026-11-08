@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "batch-7" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -108,6 +108,13 @@ export const HUB_BATCH_6: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "the-stocker-cup" },
 ];
 
+/** Senior divisions whose 2026 boards were checked on the public results page. */
+export const HUB_BATCH_7: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "senior", slug: "huddleston-cup-senior-division" },
+  { channel: "senior", slug: "giles-invitational-senior-division" },
+  { channel: "senior", slug: "jupiter-invitational-senior-division" },
+];
+
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "ewing-cup-four-ball" },
   { channel: "senior", slug: "ewing-cup-four-ball" },
@@ -181,12 +188,13 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (HUB_BATCH_4.some((item) => item.channel === channel && item.slug === slug)) return "batch-4";
   if (HUB_BATCH_5.some((item) => item.channel === channel && item.slug === slug)) return "batch-5";
   if (HUB_BATCH_6.some((item) => item.channel === channel && item.slug === slug)) return "batch-6";
+  if (HUB_BATCH_7.some((item) => item.channel === channel && item.slug === slug)) return "batch-7";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6" || batch === "batch-7") return "format-hub";
   return "legacy";
 }
 
