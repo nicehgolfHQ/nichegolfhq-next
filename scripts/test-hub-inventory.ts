@@ -12,6 +12,7 @@ import { officialFormatSnapshot } from "../src/data/hubs/official-formats";
 import { officialRemainingSnapshot, womensWesternSnapshot } from "../src/data/hubs/official-remaining";
 import remainingAudit from "../src/data/hubs/official/remaining-2026.provenance.json";
 import remainingBoards from "../src/data/hubs/official/remaining-2026.public.json";
+import juniorBatch from "../src/data/hubs/official/junior-batch-2026.json";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -26,6 +27,7 @@ import {
   HUB_BATCH_7,
   HUB_BATCH_8,
   HUB_BATCH_9,
+  HUB_BATCH_10,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -44,7 +46,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -644,10 +646,12 @@ if (szmidt?.hometown !== "Poland" || vanBiljon?.hometown !== "Netherlands") {
   throw new Error("A PDF page header stayed in a country cell");
 }
 const pageHeader = /Pos\s+Name|\bTo par\b|\bR1\b|\bR2\b|\bR3\b|\bTotal\b|RESULT LIST|\bPrinted\b|Page\s+\d|June\s+2026|European Golf/i;
-const publishedRows = remainingBoards.boards.flatMap((board) => board.rows.map((row) => ({ slug: board.slug, row })));
-if (publishedRows.length !== 461) throw new Error("The published checked boards are no longer 461 rows");
+const boardRows = (board: { rows?: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[]; divisions?: { rows: { position: string; name: string; affiliation: string; toPar: string; total: string; rounds: string[]; players?: string[] }[] }[] }) =>
+  board.divisions?.flatMap((division) => division.rows) ?? board.rows ?? [];
+const publishedRows = [...remainingBoards.boards, ...juniorBatch.boards].flatMap((board) => boardRows(board).map((row) => ({ slug: board.slug, row })));
+if (publishedRows.length !== 839) throw new Error("The published checked boards are no longer 839 rows");
 for (const { slug, row } of publishedRows) {
-  const players = "players" in row ? row.players : [];
+  const players = "players" in row ? row.players ?? [] : [];
   const tokens = [row.position, row.name, row.affiliation, row.toPar, row.total, ...row.rounds, ...players];
   for (const token of tokens) {
     if (pageHeader.test(token)) throw new Error(`${slug} ${row.name} kept a page header in ${token}`);
@@ -915,6 +919,66 @@ if (renderedField.some((name) => abbreviated.includes(name))) {
 }
 if (!wwHtml.includes("I. Lee def. G. Lee, 2 and 1") || !wwHtml.includes("Guthrie def. Carter, 4 and 3") || !wwHtml.includes("Lee def. Singh, 1 up")) {
   throw new Error("Women's Western match lines were rewritten");
+}
+const southern = officialRemainingSnapshot("southern-junior-championship");
+const jolly = southern?.kind === "stroke" ? southern.rows[0] : null;
+const graves = southern?.kind === "stroke" ? southern.rows.find((row) => row.name === "Jaxon Graves") : null;
+if (!southern || southern.kind !== "stroke" || southern.complete || southern.scope !== "official-partial" || southern.stageLabel !== "Through 36 holes" || southern.roundCount !== 2 || southern.rows.length !== 156 || jolly?.rounds.join(",") !== "62,69" || jolly.total !== 131 || jolly.toPar !== "-9" || graves?.rounds.join(",") !== "NS,NS" || graves.total !== "NS") {
+  throw new Error("Southern Junior 36-hole board changed");
+}
+const southernEvent = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "southern-junior-championship");
+if (southernEvent?.course !== "University Golf Course" || southernEvent.location !== "Athens, GA" || southernEvent.coursePar != null || southernEvent.format?.includes("54")) {
+  throw new Error("Southern Junior metadata still describes the 54-hole Cotton Dike setup");
+}
+const southernHtml = renderHub({ slug: "southern-junior-championship", name: "Southern Junior Championship", channel: "junior", month: 6, format: southernEvent?.format, course: southernEvent?.course, location: southernEvent?.location }, "junior");
+if (!southernHtml.includes("Through 36 holes") || southernHtml.includes("Final results") || southernHtml.includes(">R3<")) {
+  throw new Error("Southern Junior was labeled as a 54-hole final");
+}
+const rolex = officialRemainingSnapshot("rolex-girls-junior");
+const ding = rolex?.kind === "stroke" ? rolex.rows.find((row) => row.name === "Clara Ding") : null;
+if (!rolex || rolex.kind !== "stroke" || !rolex.complete || rolex.divisions?.[0]?.label !== "Girls" || rolex.rows.length !== 72 || rolex.rows[0]?.rounds.join(",") !== "69,70,73" || rolex.rows[0].total !== 212 || ding?.rounds.join(",") !== "74,WD,") {
+  throw new Error("Rolex Girls board changed");
+}
+const rolexNames = rolex.kind === "stroke" ? snapshotNames(rolex) : [];
+if (rolexNames.length !== 72 || new Set(rolexNames).size !== 72 || !rolexNames.includes("Inseoul Jiamanukoonkit")) {
+  throw new Error("Rolex Girls field is not the 72 leaderboard names");
+}
+const playersBoard = officialRemainingSnapshot("junior-players-championship");
+const mason = playersBoard?.kind === "stroke" ? playersBoard.rows.find((row) => row.name === "Mason An") : null;
+if (!playersBoard || playersBoard.kind !== "stroke" || playersBoard.divisions?.[0]?.label !== "Boys" || playersBoard.rows.length !== 78 || playersBoard.rows[0]?.name !== "JP Lynch" || playersBoard.rows[0].total !== 208 || mason?.rounds.join(",") !== "77,WD,") {
+  throw new Error("Junior Players board changed");
+}
+const annika = officialRemainingSnapshot("annika-invitational");
+const annikaEvent = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "annika-invitational");
+if (!annika || annika.kind !== "stroke" || annika.divisions?.[0]?.label !== "Girls" || annika.rows.length !== 72 || annika.rows[0]?.rounds.join(",") !== "66,69,67" || annika.rows[0].total !== 202 || annika.rows[0].toPar !== "-14" || annikaEvent?.coursePar != null) {
+  throw new Error("Annika board or par changed");
+}
+const rlx = resultSnapshot("rlx-ralph-lauren-junior-classic");
+if (!rlx || rlx.kind !== "match" || rlx.complete || rlx.matches.map((match) => match.result).join("|") !== "Rory Asselta def. Joseph Corcell (Fla.), 5&4|Eliana Saga def. Clairey Lin (Canada), 2&1") {
+  throw new Error("RLX finals changed");
+}
+const solheim = resultSnapshot("junior-solheim-cup");
+if (!solheim || solheim.kind !== "match" || solheim.matches.length !== 12 || !solheim.matches.some((match) => match.result.includes("2up")) || !solheim.matches.some((match) => match.result === "Anna Fang (U.S. Team) and Marta Muñoz (Europe), Tie")) {
+  throw new Error("Junior Solheim singles changed");
+}
+const solheimHtml = renderHub({ slug: "junior-solheim-cup", name: "Junior Solheim Cup", channel: "junior", month: 9, format: "Two-day team match play" }, "junior");
+if (!solheimHtml.includes("2up") || solheimHtml.includes("13-11") || solheimHtml.includes("13–11")) {
+  throw new Error("Junior Solheim total was added or the 2up token was rewritten");
+}
+const wyndhamHtml = renderHub({ slug: "wyndham-cup", name: "Wyndham Cup", channel: "junior", month: 7, format: "Team match play", pastResults: [{ year: 2026, champion: "East (retained Cup)", score: "25.0 to 25.0" }] }, "junior");
+if (!wyndhamHtml.includes("25.0 to 25.0") || !wyndhamHtml.includes("Full results unavailable here.")) {
+  throw new Error("Wyndham Cup score or note changed");
+}
+const presidentsHtml = renderHub({ slug: "junior-presidents-cup", name: "Junior Presidents Cup", channel: "junior", month: 9, format: "Two-day team match play", pastResults: [{ year: 2026, champion: "United States", score: "17.5 - 6.5" }] }, "junior");
+if (!presidentsHtml.includes("17.5 - 6.5") || !presidentsHtml.includes("Full results unavailable here.")) {
+  throw new Error("Junior Presidents Cup score or note changed");
+}
+for (const slug of ["ajga-ping-invitational", "rolex-tournament-of-champions", "junior-jones-cup", "north-south-junior", "us-amateur"]) {
+  if (isFormatHub("junior", slug)) throw new Error(`${slug} was moved onto the shared layout`);
+}
+const seniorLuptonStill = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
+if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13") {
+  throw new Error("Senior Lupton dates were changed without an official source");
 }
 
 console.log(JSON.stringify(summary, null, 2));

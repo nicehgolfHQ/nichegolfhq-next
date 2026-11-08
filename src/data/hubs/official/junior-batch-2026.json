@@ -1,0 +1,4810 @@
+{
+  "boards": [
+    {
+      "slug": "southern-junior-championship",
+      "roundCount": 2,
+      "scope": "official-partial",
+      "complete": false,
+      "stageLabel": "Through 36 holes",
+      "rows": [
+        {
+          "position": "1",
+          "name": "Neil Jolly",
+          "affiliation": "India, 2028",
+          "toPar": "-9",
+          "rounds": [
+            "62",
+            "69"
+          ],
+          "total": "131",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Charlie Haney",
+          "affiliation": "Manhattan, Kan., 2028",
+          "toPar": "-7",
+          "rounds": [
+            "67",
+            "66"
+          ],
+          "total": "133",
+          "status": "ranked"
+        },
+        {
+          "position": "T2",
+          "name": "Sam Terry",
+          "affiliation": "Thomasville, N.C., 2026",
+          "toPar": "-7",
+          "rounds": [
+            "66",
+            "67"
+          ],
+          "total": "133",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Tommy Evans",
+          "affiliation": "Charlestown, W.Va., 2027",
+          "toPar": "-5",
+          "rounds": [
+            "64",
+            "71"
+          ],
+          "total": "135",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Caden Petersen",
+          "affiliation": "Naperville, Ill., 2026",
+          "toPar": "-5",
+          "rounds": [
+            "68",
+            "67"
+          ],
+          "total": "135",
+          "status": "ranked"
+        },
+        {
+          "position": "T4",
+          "name": "Carter Gaede",
+          "affiliation": "Manhattan Beach, Calif., 2026",
+          "toPar": "-5",
+          "rounds": [
+            "68",
+            "67"
+          ],
+          "total": "135",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Charles David Beeson",
+          "affiliation": "Roswell, Ga., 2026",
+          "toPar": "-4",
+          "rounds": [
+            "67",
+            "69"
+          ],
+          "total": "136",
+          "status": "ranked"
+        },
+        {
+          "position": "T7",
+          "name": "Brantley Moore",
+          "affiliation": "Memphis, Tenn., 2027",
+          "toPar": "-4",
+          "rounds": [
+            "66",
+            "70"
+          ],
+          "total": "136",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Ryder Huish",
+          "affiliation": "Alpine, Utah, 2028",
+          "toPar": "-3",
+          "rounds": [
+            "67",
+            "70"
+          ],
+          "total": "137",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Mikey Pagnotto",
+          "affiliation": "Columbus, Ohio, 2026",
+          "toPar": "-3",
+          "rounds": [
+            "69",
+            "68"
+          ],
+          "total": "137",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Drew Mercer",
+          "affiliation": "Cramerton, N.C., 2027",
+          "toPar": "-3",
+          "rounds": [
+            "66",
+            "71"
+          ],
+          "total": "137",
+          "status": "ranked"
+        },
+        {
+          "position": "T9",
+          "name": "Jack Lowery",
+          "affiliation": "Birmingham, Ala., 2026",
+          "toPar": "-3",
+          "rounds": [
+            "70",
+            "67"
+          ],
+          "total": "137",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Jake Mason",
+          "affiliation": "Ponte Vedra Beach, Fla., 2027",
+          "toPar": "-2",
+          "rounds": [
+            "69",
+            "69"
+          ],
+          "total": "138",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "James Nagle",
+          "affiliation": "Ponte Vedra Beach, Fla., 2027",
+          "toPar": "-2",
+          "rounds": [
+            "69",
+            "69"
+          ],
+          "total": "138",
+          "status": "ranked"
+        },
+        {
+          "position": "T13",
+          "name": "Owen Love",
+          "affiliation": "Alexandria, Va., 2027",
+          "toPar": "-2",
+          "rounds": [
+            "70",
+            "68"
+          ],
+          "total": "138",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Jack Bachman",
+          "affiliation": "Beaufort, N.C., 2027",
+          "toPar": "-1",
+          "rounds": [
+            "68",
+            "71"
+          ],
+          "total": "139",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Hughes McCarthy",
+          "affiliation": "Fayetteville, N.C., 2028",
+          "toPar": "-1",
+          "rounds": [
+            "69",
+            "70"
+          ],
+          "total": "139",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Axel Monssoh",
+          "affiliation": "Miami, Fla., 2030",
+          "toPar": "-1",
+          "rounds": [
+            "72",
+            "67"
+          ],
+          "total": "139",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Jack Palmer",
+          "affiliation": "Donalsonville, Ga., 2028",
+          "toPar": "-1",
+          "rounds": [
+            "69",
+            "70"
+          ],
+          "total": "139",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "JP Groat",
+          "affiliation": "Mentone, Ala., 2026",
+          "toPar": "-1",
+          "rounds": [
+            "72",
+            "67"
+          ],
+          "total": "139",
+          "status": "ranked"
+        },
+        {
+          "position": "T16",
+          "name": "Michael Shivers",
+          "affiliation": "Palm Beach Gardens, Fla., 2026",
+          "toPar": "-1",
+          "rounds": [
+            "70",
+            "69"
+          ],
+          "total": "139",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Colten Lewis",
+          "affiliation": "Swainsboro, Ga., 2027",
+          "toPar": "E",
+          "rounds": [
+            "69",
+            "71"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Knox Barnard",
+          "affiliation": "Waxahachie, Texas, 2028",
+          "toPar": "E",
+          "rounds": [
+            "72",
+            "68"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Zac McGrath",
+          "affiliation": "Blue Ash, Ohio, 2029",
+          "toPar": "E",
+          "rounds": [
+            "70",
+            "70"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Billy Verstraate",
+          "affiliation": "Lone Tree, Colo., 2026",
+          "toPar": "E",
+          "rounds": [
+            "73",
+            "67"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Maxwell Morgan",
+          "affiliation": "Ponte Vedra Beach, Fla., 2028",
+          "toPar": "E",
+          "rounds": [
+            "69",
+            "71"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Slater  Meade",
+          "affiliation": "North Wilkesboro, N.C., 2027",
+          "toPar": "E",
+          "rounds": [
+            "72",
+            "68"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Grant DeLorenzo",
+          "affiliation": "Houston, Texas, 2027",
+          "toPar": "E",
+          "rounds": [
+            "67",
+            "73"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Ethan Hoffmann",
+          "affiliation": "San Deigo, Calif., 2029",
+          "toPar": "E",
+          "rounds": [
+            "71",
+            "69"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Jackson Whaley",
+          "affiliation": "Collierville, Tenn., 2026",
+          "toPar": "E",
+          "rounds": [
+            "71",
+            "69"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T22",
+          "name": "Thomas McGugin",
+          "affiliation": "Nashville, Tenn., 2029",
+          "toPar": "E",
+          "rounds": [
+            "69",
+            "71"
+          ],
+          "total": "140",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Leo Froio",
+          "affiliation": "Franklin, Tenn., 2026",
+          "toPar": "+1",
+          "rounds": [
+            "70",
+            "71"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Graham Patton",
+          "affiliation": "Tuscaloosa, Ala., 2027",
+          "toPar": "+1",
+          "rounds": [
+            "72",
+            "69"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Andy Lieu",
+          "affiliation": "Dallas, Texas, 2027",
+          "toPar": "+1",
+          "rounds": [
+            "71",
+            "70"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Hao Wang",
+          "affiliation": "China, 2027",
+          "toPar": "+1",
+          "rounds": [
+            "68",
+            "73"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Rupert Toomey",
+          "affiliation": "Australia, 2026",
+          "toPar": "+1",
+          "rounds": [
+            "69",
+            "72"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Aidan Wilson",
+          "affiliation": "Winston Salem, N.C., 2026",
+          "toPar": "+1",
+          "rounds": [
+            "67",
+            "74"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Taft Courie",
+          "affiliation": "Fayetteville, N.C., 2027",
+          "toPar": "+1",
+          "rounds": [
+            "69",
+            "72"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T32",
+          "name": "Collin Bradford",
+          "affiliation": "Bogart, Ga., 2028",
+          "toPar": "+1",
+          "rounds": [
+            "71",
+            "70"
+          ],
+          "total": "141",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Carson Andreoni",
+          "affiliation": "Jackson, Tenn., 2027",
+          "toPar": "+2",
+          "rounds": [
+            "73",
+            "69"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Spencer Mills",
+          "affiliation": "Wilmington, N.C., 2027",
+          "toPar": "+2",
+          "rounds": [
+            "70",
+            "72"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Henry Jackson",
+          "affiliation": "Lantana, Texas, 2027",
+          "toPar": "+2",
+          "rounds": [
+            "67",
+            "75"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Hogan O’Keefe",
+          "affiliation": "Little Rock, Ark., 2027",
+          "toPar": "+2",
+          "rounds": [
+            "70",
+            "72"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Dylan Knox",
+          "affiliation": "Austin, Texas, 2028",
+          "toPar": "+2",
+          "rounds": [
+            "71",
+            "71"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Kieran Low",
+          "affiliation": "Evanston, Ill., 2026",
+          "toPar": "+2",
+          "rounds": [
+            "71",
+            "71"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Ves Butler",
+          "affiliation": "Athens, Ga., 2027",
+          "toPar": "+2",
+          "rounds": [
+            "73",
+            "69"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Parker Brown",
+          "affiliation": "Fort Worth, Texas, 2028",
+          "toPar": "+2",
+          "rounds": [
+            "74",
+            "68"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Caedmon Albertyn",
+          "affiliation": "Monroe, N.C., 2026",
+          "toPar": "+2",
+          "rounds": [
+            "74",
+            "68"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Austin Anderson",
+          "affiliation": "Gunter, Texas, 2029",
+          "toPar": "+2",
+          "rounds": [
+            "73",
+            "69"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Zach Berger",
+          "affiliation": "Remsenburg, N.Y., 2026",
+          "toPar": "+2",
+          "rounds": [
+            "71",
+            "71"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Spencer Ives",
+          "affiliation": "Naples, Fla., 2026",
+          "toPar": "+2",
+          "rounds": [
+            "73",
+            "69"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "AJ Salierno",
+          "affiliation": "Newnan, Ga., 2026",
+          "toPar": "+2",
+          "rounds": [
+            "71",
+            "71"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T40",
+          "name": "Fletcher Finch",
+          "affiliation": "Birmingham, Ala., 2028",
+          "toPar": "+2",
+          "rounds": [
+            "70",
+            "72"
+          ],
+          "total": "142",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Whitty Richardson",
+          "affiliation": "Atlanta, Ga., 2026",
+          "toPar": "+3",
+          "rounds": [
+            "76",
+            "67"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Griffin Huckabee",
+          "affiliation": "Winston Salem, N.C., 2027",
+          "toPar": "+3",
+          "rounds": [
+            "71",
+            "72"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "John Paul Spivey",
+          "affiliation": "Douglas, Ga., 2028",
+          "toPar": "+3",
+          "rounds": [
+            "70",
+            "73"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Cameron Wei",
+          "affiliation": "Valencia, Calif., 2027",
+          "toPar": "+3",
+          "rounds": [
+            "71",
+            "72"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Tristan Li",
+          "affiliation": "China, 2027",
+          "toPar": "+3",
+          "rounds": [
+            "73",
+            "70"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Cooper Franklin",
+          "affiliation": "Ponte Vedra Beach, Fla., 2026",
+          "toPar": "+3",
+          "rounds": [
+            "74",
+            "69"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Hudson Greene",
+          "affiliation": "Bossier City, La., 2028",
+          "toPar": "+3",
+          "rounds": [
+            "71",
+            "72"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T54",
+          "name": "Haishu Cao",
+          "affiliation": "China, 2027",
+          "toPar": "+3",
+          "rounds": [
+            "71",
+            "72"
+          ],
+          "total": "143",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Grey Anderson",
+          "affiliation": "Thompson's Station, Tenn., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "73",
+            "71"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "AJ Colonna",
+          "affiliation": "Jupiter, Fla., 2026",
+          "toPar": "+4",
+          "rounds": [
+            "74",
+            "70"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Stiles Hunter",
+          "affiliation": "Rogers, Ark., 2026",
+          "toPar": "+4",
+          "rounds": [
+            "70",
+            "74"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Jack Raabe",
+          "affiliation": "Marietta, Ga., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "71",
+            "73"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Estanislao Maradei Vaudagna",
+          "affiliation": "Argentina, 2027",
+          "toPar": "+4",
+          "rounds": [
+            "73",
+            "71"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Jake Sheffield",
+          "affiliation": "Knoxville, Tenn., 2026",
+          "toPar": "+4",
+          "rounds": [
+            "73",
+            "71"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Stone Fancher",
+          "affiliation": "Dallas, Texas, 2026",
+          "toPar": "+4",
+          "rounds": [
+            "78",
+            "66"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Belt Owens",
+          "affiliation": "Madison, Miss., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "68",
+            "76"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Andrew Tsar",
+          "affiliation": "Palm Beach Gardens, Fla., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "72",
+            "72"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Maddox Mowad",
+          "affiliation": "Monroe, La., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "71",
+            "73"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Hogan Blais",
+          "affiliation": "Canada, 2026",
+          "toPar": "+4",
+          "rounds": [
+            "72",
+            "72"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Hudson  Hatch",
+          "affiliation": "Charleston, S.C., 2028",
+          "toPar": "+4",
+          "rounds": [
+            "70",
+            "74"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Ziyao Lyu",
+          "affiliation": "China, 2028",
+          "toPar": "+4",
+          "rounds": [
+            "75",
+            "69"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Ivan Popp",
+          "affiliation": "Lafayette, La., 2028",
+          "toPar": "+4",
+          "rounds": [
+            "74",
+            "70"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Austin Baker",
+          "affiliation": "Moultrie, Ga., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "68",
+            "76"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Charles Snider",
+          "affiliation": "Memphis, Tenn., 2027",
+          "toPar": "+4",
+          "rounds": [
+            "76",
+            "68"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Max Bradshaw",
+          "affiliation": "Virginia Beach, Va., 2028",
+          "toPar": "+4",
+          "rounds": [
+            "75",
+            "69"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T62",
+          "name": "Kaden Latreille",
+          "affiliation": "Naples, Fla., 2028",
+          "toPar": "+4",
+          "rounds": [
+            "75",
+            "69"
+          ],
+          "total": "144",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "John Markow",
+          "affiliation": "Ridgeland, Miss., 2026",
+          "toPar": "+5",
+          "rounds": [
+            "76",
+            "69"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Spencer Carter",
+          "affiliation": "Dallas, Texas, 2026",
+          "toPar": "+5",
+          "rounds": [
+            "70",
+            "75"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Eric Li",
+          "affiliation": "Larchmont, N.Y., 2029",
+          "toPar": "+5",
+          "rounds": [
+            "74",
+            "71"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Andre Saldivar",
+          "affiliation": "Mexico, 2027",
+          "toPar": "+5",
+          "rounds": [
+            "73",
+            "72"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Jeffrey Rubenstein",
+          "affiliation": "Dallas, Texas, 2026",
+          "toPar": "+5",
+          "rounds": [
+            "75",
+            "70"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Andres Prieto",
+          "affiliation": "Baton Rouge, La., 2026",
+          "toPar": "+5",
+          "rounds": [
+            "70",
+            "75"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Brady Ray",
+          "affiliation": "Franklin, Tenn., 2026",
+          "toPar": "+5",
+          "rounds": [
+            "73",
+            "72"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Ben Fauver",
+          "affiliation": "Hudson, Ohio, 2027",
+          "toPar": "+5",
+          "rounds": [
+            "71",
+            "74"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Jonathan Ward",
+          "affiliation": "Waukee, Iowa, 2028",
+          "toPar": "+5",
+          "rounds": [
+            "72",
+            "73"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T80",
+          "name": "Luca Rinaldi",
+          "affiliation": "Midlothian, Va., 2027",
+          "toPar": "+5",
+          "rounds": [
+            "74",
+            "71"
+          ],
+          "total": "145",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Nate Horne",
+          "affiliation": "Fayetteville, N.C., 2029",
+          "toPar": "+6",
+          "rounds": [
+            "71",
+            "75"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Haoting Zhou",
+          "affiliation": "Boca Raton, Fla., 2028",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "73"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Patrick Mahaffey",
+          "affiliation": "Richmond Hill, Ga., 2026",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "73"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Mehdi Ben Youssef",
+          "affiliation": "Tunisia, 2027",
+          "toPar": "+6",
+          "rounds": [
+            "76",
+            "70"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Griffin Williams",
+          "affiliation": "Greensboro, N.C., 2027",
+          "toPar": "+6",
+          "rounds": [
+            "76",
+            "70"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Cameron Rockett",
+          "affiliation": "Hoover, Ala., 2026",
+          "toPar": "+6",
+          "rounds": [
+            "74",
+            "72"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Aston Lee",
+          "affiliation": "Charlotte, N.C., 2026",
+          "toPar": "+6",
+          "rounds": [
+            "72",
+            "74"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Blake Brown",
+          "affiliation": "Alpine, Utah, 2028",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "73"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Jake Lopes",
+          "affiliation": "Vienna, Va., 2027",
+          "toPar": "+6",
+          "rounds": [
+            "75",
+            "71"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T90",
+          "name": "Jackson Bryce",
+          "affiliation": "Cary, N.C., 2026",
+          "toPar": "+6",
+          "rounds": [
+            "73",
+            "73"
+          ],
+          "total": "146",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Charlie Horne",
+          "affiliation": "Fayetteville, N.C., 2026",
+          "toPar": "+7",
+          "rounds": [
+            "70",
+            "77"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Jack Cook",
+          "affiliation": "Inlet Beach, Fla., 2026",
+          "toPar": "+7",
+          "rounds": [
+            "74",
+            "73"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "John John Santospago",
+          "affiliation": "Charlotte, N.C., 2027",
+          "toPar": "+7",
+          "rounds": [
+            "77",
+            "70"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Hudson Burkey",
+          "affiliation": "Pickerington, Ohio, 2027",
+          "toPar": "+7",
+          "rounds": [
+            "76",
+            "71"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Ian McGee",
+          "affiliation": "Cary, N.C., 2027",
+          "toPar": "+7",
+          "rounds": [
+            "71",
+            "76"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Grant Clapp",
+          "affiliation": "Prosper, Texas, 2027",
+          "toPar": "+7",
+          "rounds": [
+            "72",
+            "75"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Logan Skaggs",
+          "affiliation": "Sandy Springs, Ga., 2028",
+          "toPar": "+7",
+          "rounds": [
+            "73",
+            "74"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Ken Fernandes",
+          "affiliation": "Chappaqua, N.Y., 2027",
+          "toPar": "+7",
+          "rounds": [
+            "75",
+            "72"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Landon Helms",
+          "affiliation": "Monroe, N.C., 2027",
+          "toPar": "+7",
+          "rounds": [
+            "74",
+            "73"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Easton Oliva",
+          "affiliation": "Ponte Vedra Beach, Fla., 2026",
+          "toPar": "+7",
+          "rounds": [
+            "74",
+            "73"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Geoffrey Laklak",
+          "affiliation": "Lebanon, 2026",
+          "toPar": "+7",
+          "rounds": [
+            "76",
+            "71"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T100",
+          "name": "Grady Emerson",
+          "affiliation": "Riverside, Calif., 2028",
+          "toPar": "+7",
+          "rounds": [
+            "73",
+            "74"
+          ],
+          "total": "147",
+          "status": "ranked"
+        },
+        {
+          "position": "T112",
+          "name": "Sam Uutala",
+          "affiliation": "Barrington, Ill., 2026",
+          "toPar": "+8",
+          "rounds": [
+            "71",
+            "77"
+          ],
+          "total": "148",
+          "status": "ranked"
+        },
+        {
+          "position": "T112",
+          "name": "Jordan Brown",
+          "affiliation": "Lakewood Ranch, Fla., 2026",
+          "toPar": "+8",
+          "rounds": [
+            "74",
+            "74"
+          ],
+          "total": "148",
+          "status": "ranked"
+        },
+        {
+          "position": "T112",
+          "name": "Manolo Peña",
+          "affiliation": "Argentina, 2027",
+          "toPar": "+8",
+          "rounds": [
+            "73",
+            "75"
+          ],
+          "total": "148",
+          "status": "ranked"
+        },
+        {
+          "position": "T112",
+          "name": "Edward Lehner",
+          "affiliation": "Dallas, Texas, 2028",
+          "toPar": "+8",
+          "rounds": [
+            "77",
+            "71"
+          ],
+          "total": "148",
+          "status": "ranked"
+        },
+        {
+          "position": "T112",
+          "name": "Talen Beane",
+          "affiliation": "California, Ky., 2027",
+          "toPar": "+8",
+          "rounds": [
+            "75",
+            "73"
+          ],
+          "total": "148",
+          "status": "ranked"
+        },
+        {
+          "position": "T112",
+          "name": "Ryan Hedgecoe",
+          "affiliation": "Fayetteville, N.C., 2029",
+          "toPar": "+8",
+          "rounds": [
+            "77",
+            "71"
+          ],
+          "total": "148",
+          "status": "ranked"
+        },
+        {
+          "position": "T118",
+          "name": "Will Burgwyn",
+          "affiliation": "Cary, N.C., 2027",
+          "toPar": "+9",
+          "rounds": [
+            "75",
+            "74"
+          ],
+          "total": "149",
+          "status": "ranked"
+        },
+        {
+          "position": "T118",
+          "name": "Joseph LaNasa",
+          "affiliation": "Palm Beach, Fla., 2027",
+          "toPar": "+9",
+          "rounds": [
+            "74",
+            "75"
+          ],
+          "total": "149",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Finn Johnson",
+          "affiliation": "Louisville, Ky., 2028",
+          "toPar": "+10",
+          "rounds": [
+            "76",
+            "74"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "George Bryan III",
+          "affiliation": "West Point, Miss., 2027",
+          "toPar": "+10",
+          "rounds": [
+            "75",
+            "75"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Andrea Birolini",
+          "affiliation": "Southlake, Texas, 2026",
+          "toPar": "+10",
+          "rounds": [
+            "74",
+            "76"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Shim Wang",
+          "affiliation": "Winter Garden, Fla., 2028",
+          "toPar": "+10",
+          "rounds": [
+            "74",
+            "76"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Michael Asselta",
+          "affiliation": "Ramsey, N.J., 2026",
+          "toPar": "+10",
+          "rounds": [
+            "76",
+            "74"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Jack Kelley",
+          "affiliation": "Omaha, Neb., 2028",
+          "toPar": "+10",
+          "rounds": [
+            "73",
+            "77"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Lukas da Silva",
+          "affiliation": "El Segundo, Calif., 2027",
+          "toPar": "+10",
+          "rounds": [
+            "73",
+            "77"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T120",
+          "name": "Justo Rosales",
+          "affiliation": "Argentina, 2027",
+          "toPar": "+10",
+          "rounds": [
+            "75",
+            "75"
+          ],
+          "total": "150",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Eli Wade",
+          "affiliation": "Bowling Green, Ky., 2028",
+          "toPar": "+11",
+          "rounds": [
+            "74",
+            "77"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Caden Lee",
+          "affiliation": "Milton, Ga., 2026",
+          "toPar": "+11",
+          "rounds": [
+            "79",
+            "72"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Hugh Hollingsworth",
+          "affiliation": "Milton, Ga., 2026",
+          "toPar": "+11",
+          "rounds": [
+            "77",
+            "74"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Ricardo Fu",
+          "affiliation": "Hong Kong, China, 2027",
+          "toPar": "+11",
+          "rounds": [
+            "72",
+            "79"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Blake Goodroe",
+          "affiliation": "Hull, Ga., 2026",
+          "toPar": "+11",
+          "rounds": [
+            "78",
+            "73"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Holden Schipper",
+          "affiliation": "Lebanon, N.J., 2026",
+          "toPar": "+11",
+          "rounds": [
+            "73",
+            "78"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T128",
+          "name": "Dan McGugin",
+          "affiliation": "Nashville, Tenn., 2027",
+          "toPar": "+11",
+          "rounds": [
+            "78",
+            "73"
+          ],
+          "total": "151",
+          "status": "ranked"
+        },
+        {
+          "position": "T135",
+          "name": "Brian Li",
+          "affiliation": "Waban, Mass., 2027",
+          "toPar": "+12",
+          "rounds": [
+            "75",
+            "77"
+          ],
+          "total": "152",
+          "status": "ranked"
+        },
+        {
+          "position": "T135",
+          "name": "Haoxuan Shi",
+          "affiliation": "China, 2029",
+          "toPar": "+12",
+          "rounds": [
+            "80",
+            "72"
+          ],
+          "total": "152",
+          "status": "ranked"
+        },
+        {
+          "position": "T135",
+          "name": "David Pyle",
+          "affiliation": "McKinney, Texas, 2028",
+          "toPar": "+12",
+          "rounds": [
+            "77",
+            "75"
+          ],
+          "total": "152",
+          "status": "ranked"
+        },
+        {
+          "position": "T135",
+          "name": "Luke Frey",
+          "affiliation": "Austin, Texas, 2026",
+          "toPar": "+12",
+          "rounds": [
+            "79",
+            "73"
+          ],
+          "total": "152",
+          "status": "ranked"
+        },
+        {
+          "position": "T135",
+          "name": "Hugo Stenstrom",
+          "affiliation": "Miami, Fla., 2026",
+          "toPar": "+12",
+          "rounds": [
+            "76",
+            "76"
+          ],
+          "total": "152",
+          "status": "ranked"
+        },
+        {
+          "position": "T140",
+          "name": "Reda Safa",
+          "affiliation": "Mexico, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "74",
+            "79"
+          ],
+          "total": "153",
+          "status": "ranked"
+        },
+        {
+          "position": "T140",
+          "name": "Zachary Morales",
+          "affiliation": "McKinney, Texas, 2027",
+          "toPar": "+13",
+          "rounds": [
+            "82",
+            "71"
+          ],
+          "total": "153",
+          "status": "ranked"
+        },
+        {
+          "position": "T140",
+          "name": "Kaiden Drum",
+          "affiliation": "Marietta, Ga., 2026",
+          "toPar": "+13",
+          "rounds": [
+            "77",
+            "76"
+          ],
+          "total": "153",
+          "status": "ranked"
+        },
+        {
+          "position": "T143",
+          "name": "Ziqi Lang",
+          "affiliation": "China, 2027",
+          "toPar": "+14",
+          "rounds": [
+            "79",
+            "75"
+          ],
+          "total": "154",
+          "status": "ranked"
+        },
+        {
+          "position": "T143",
+          "name": "Mihir Roperia",
+          "affiliation": "Cranbury, N.J., 2026",
+          "toPar": "+14",
+          "rounds": [
+            "79",
+            "75"
+          ],
+          "total": "154",
+          "status": "ranked"
+        },
+        {
+          "position": "T145",
+          "name": "Lawson  Ford",
+          "affiliation": "West Palm Beach, Fla., 2027",
+          "toPar": "+15",
+          "rounds": [
+            "82",
+            "73"
+          ],
+          "total": "155",
+          "status": "ranked"
+        },
+        {
+          "position": "T145",
+          "name": "Kohki Maeda",
+          "affiliation": "Japan, 2028",
+          "toPar": "+15",
+          "rounds": [
+            "82",
+            "73"
+          ],
+          "total": "155",
+          "status": "ranked"
+        },
+        {
+          "position": "T147",
+          "name": "Ryan Pugh",
+          "affiliation": "Birmingham, Ala., 2027",
+          "toPar": "+16",
+          "rounds": [
+            "77",
+            "79"
+          ],
+          "total": "156",
+          "status": "ranked"
+        },
+        {
+          "position": "T147",
+          "name": "Henry Sellers",
+          "affiliation": "Fort Worth, Texas, 2027",
+          "toPar": "+16",
+          "rounds": [
+            "76",
+            "80"
+          ],
+          "total": "156",
+          "status": "ranked"
+        },
+        {
+          "position": "149",
+          "name": "Bautista Gabioud",
+          "affiliation": "Villa María, Argentina, 2028",
+          "toPar": "+18",
+          "rounds": [
+            "85",
+            "73"
+          ],
+          "total": "158",
+          "status": "ranked"
+        },
+        {
+          "position": "150",
+          "name": "Santiago Carrasco Mejía ",
+          "affiliation": "Mexico, 2027",
+          "toPar": "+19",
+          "rounds": [
+            "84",
+            "75"
+          ],
+          "total": "159",
+          "status": "ranked"
+        },
+        {
+          "position": "151",
+          "name": "Wade Eddy",
+          "affiliation": "Johns Creek, Ga., 2028",
+          "toPar": "+20",
+          "rounds": [
+            "81",
+            "79"
+          ],
+          "total": "160",
+          "status": "ranked"
+        },
+        {
+          "position": "152",
+          "name": "Noah Chauvin",
+          "affiliation": "Broussard, La., 2027",
+          "toPar": "+25",
+          "rounds": [
+            "84",
+            "81"
+          ],
+          "total": "165",
+          "status": "ranked"
+        },
+        {
+          "position": "DQ",
+          "name": "Zonghan Liu",
+          "affiliation": "China, 2027",
+          "toPar": "-",
+          "rounds": [
+            "70",
+            "DQ"
+          ],
+          "total": "DQ",
+          "status": "DQ"
+        },
+        {
+          "position": "WD",
+          "name": "Michael Vivone",
+          "affiliation": "Canada, 2026",
+          "toPar": "-",
+          "rounds": [
+            "WD",
+            "WD"
+          ],
+          "total": "WD",
+          "status": "WD"
+        },
+        {
+          "position": "WD",
+          "name": "Cole Rosich",
+          "affiliation": "Bogart, Ga., 2027",
+          "toPar": "-",
+          "rounds": [
+            "WD",
+            "WD"
+          ],
+          "total": "WD",
+          "status": "WD"
+        },
+        {
+          "position": "NS",
+          "name": "Jaxon Graves",
+          "affiliation": "Magnolia, Texas, 2026",
+          "toPar": "-",
+          "rounds": [
+            "NS",
+            "NS"
+          ],
+          "total": "NS",
+          "status": "NS"
+        }
+      ]
+    },
+    {
+      "slug": "rolex-girls-junior",
+      "roundCount": 3,
+      "scope": "official-final",
+      "complete": true,
+      "divisions": [
+        {
+          "label": "Girls",
+          "rows": [
+            {
+              "position": "1",
+              "name": "Inseoul Jiamanukoonkit",
+              "affiliation": "(Thailand) San Diego, Calif. (2026)",
+              "toPar": "-4",
+              "rounds": [
+                "69",
+                "70",
+                "73"
+              ],
+              "total": "212",
+              "status": "ranked"
+            },
+            {
+              "position": "2",
+              "name": "Kaili Xiao",
+              "affiliation": "(China) Chino Hills, Calif. (2027)",
+              "toPar": "-3",
+              "rounds": [
+                "67",
+                "74",
+                "72"
+              ],
+              "total": "213",
+              "status": "ranked"
+            },
+            {
+              "position": "T3",
+              "name": "Madeleine Conser",
+              "affiliation": "Portland, Ore. (2027)",
+              "toPar": "-2",
+              "rounds": [
+                "73",
+                "73",
+                "68"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "T3",
+              "name": "Emily Song",
+              "affiliation": "Irvine, Calif. (2027)",
+              "toPar": "-2",
+              "rounds": [
+                "70",
+                "71",
+                "73"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "T3",
+              "name": "Amber Lee",
+              "affiliation": "San Diego, Calif. (2029)",
+              "toPar": "-2",
+              "rounds": [
+                "69",
+                "70",
+                "75"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "6",
+              "name": "Ashley Shaw",
+              "affiliation": "Litchfield Park, Ariz. (2027)",
+              "toPar": "-1",
+              "rounds": [
+                "72",
+                "72",
+                "71"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T7",
+              "name": "Aubrey Hilgers",
+              "affiliation": "Surprise, Ariz. (2028)",
+              "toPar": "+1",
+              "rounds": [
+                "77",
+                "67",
+                "73"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T7",
+              "name": "Courtney Grace",
+              "affiliation": "Birmingham, Ala. (2030)",
+              "toPar": "+1",
+              "rounds": [
+                "71",
+                "71",
+                "75"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T7",
+              "name": "Ava Zhang",
+              "affiliation": "Lake Mary, Fla. (2028)",
+              "toPar": "+1",
+              "rounds": [
+                "73",
+                "70",
+                "74"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T7",
+              "name": "Rina Kawasaki",
+              "affiliation": "(Japan) Palos Verdes Estates, Calif. (2028)",
+              "toPar": "+1",
+              "rounds": [
+                "71",
+                "69",
+                "77"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Nicole Tang",
+              "affiliation": "Bellevue, Wash. (2027)",
+              "toPar": "+2",
+              "rounds": [
+                "73",
+                "73",
+                "72"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Alexandra Snyder",
+              "affiliation": "Orlando, Fla. (2028)",
+              "toPar": "+2",
+              "rounds": [
+                "72",
+                "69",
+                "77"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "T13",
+              "name": "Alexa Takai",
+              "affiliation": "Honolulu, Hawaii (2028)",
+              "toPar": "+3",
+              "rounds": [
+                "79",
+                "70",
+                "70"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T13",
+              "name": "Elin Wang",
+              "affiliation": "(Hong Kong) Beijing, China (2028)",
+              "toPar": "+3",
+              "rounds": [
+                "75",
+                "67",
+                "77"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "15",
+              "name": "Hailey Kim",
+              "affiliation": "Simi Valley, Calif. (2029)",
+              "toPar": "+4",
+              "rounds": [
+                "72",
+                "77",
+                "71"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "16",
+              "name": "Xingtong Chen",
+              "affiliation": "(Singapore) Grafton, Mass. (2028)",
+              "toPar": "+5",
+              "rounds": [
+                "70",
+                "72",
+                "79"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T17",
+              "name": "Zilin (Grace) Xu",
+              "affiliation": "(China) Howey-in-the-Hills, Fla. (2027)",
+              "toPar": "+6",
+              "rounds": [
+                "71",
+                "73",
+                "78"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T17",
+              "name": "Alisa Davidova",
+              "affiliation": "Roanoke, Va. (2027)",
+              "toPar": "+6",
+              "rounds": [
+                "70",
+                "70",
+                "82"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Macie Rasmussen",
+              "affiliation": "Chesapeake, Va. (2027)",
+              "toPar": "+7",
+              "rounds": [
+                "75",
+                "74",
+                "74"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Kara An",
+              "affiliation": "Valencia, Calif. (2027)",
+              "toPar": "+7",
+              "rounds": [
+                "73",
+                "74",
+                "76"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T21",
+              "name": "Annika Raja",
+              "affiliation": "Irvine, Calif. (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "74",
+                "77",
+                "73"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T21",
+              "name": "Victoria Cui",
+              "affiliation": "Atherton, Calif. (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "74",
+                "74",
+                "76"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T21",
+              "name": "Nina Choe",
+              "affiliation": "New York, N.Y. (2026)",
+              "toPar": "+8",
+              "rounds": [
+                "73",
+                "75",
+                "76"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T21",
+              "name": "Evyn Cannon",
+              "affiliation": "Venice, Fla. (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "72",
+                "74",
+                "78"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "25",
+              "name": "Taylor Snively",
+              "affiliation": "Zionsville, Ind. (2028)",
+              "toPar": "+9",
+              "rounds": [
+                "73",
+                "74",
+                "78"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "26",
+              "name": "Donina Zhou",
+              "affiliation": "Coto de Caza, Calif. (2027)",
+              "toPar": "+10",
+              "rounds": [
+                "74",
+                "76",
+                "76"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Elizabeth Guthrie",
+              "affiliation": "Charlotte, N.C. (2028)",
+              "toPar": "+11",
+              "rounds": [
+                "76",
+                "74",
+                "77"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Julia Herzberg",
+              "affiliation": "Gilbert, Ariz. (2026)",
+              "toPar": "+11",
+              "rounds": [
+                "79",
+                "73",
+                "75"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Alli Wiertel",
+              "affiliation": "Oswego, Ill. (2028)",
+              "toPar": "+11",
+              "rounds": [
+                "78",
+                "71",
+                "78"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Hayley Fong",
+              "affiliation": "Hayward, Calif. (2028)",
+              "toPar": "+11",
+              "rounds": [
+                "73",
+                "73",
+                "81"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Destiny McNeil",
+              "affiliation": "Castroville, Texas (2027)",
+              "toPar": "+11",
+              "rounds": [
+                "73",
+                "72",
+                "82"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T32",
+              "name": "Anna Bell",
+              "affiliation": "Poplar Bluff, Mo. (2029)",
+              "toPar": "+12",
+              "rounds": [
+                "74",
+                "77",
+                "77"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T32",
+              "name": "Keira Shavitranuruk",
+              "affiliation": "Orlando, Fla. (2030)",
+              "toPar": "+12",
+              "rounds": [
+                "77",
+                "75",
+                "76"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T32",
+              "name": "Ein Kim",
+              "affiliation": "Irvine, Calif. (2028)",
+              "toPar": "+12",
+              "rounds": [
+                "73",
+                "76",
+                "79"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T32",
+              "name": "Ava Bunker",
+              "affiliation": "Edinburgh, Ind. (2026)",
+              "toPar": "+12",
+              "rounds": [
+                "79",
+                "74",
+                "75"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T32",
+              "name": "Hana McGarry",
+              "affiliation": "San Diego, Calif. (2029)",
+              "toPar": "+12",
+              "rounds": [
+                "76",
+                "78",
+                "74"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T32",
+              "name": "Alexandra Phung",
+              "affiliation": "Forest Hills, N.Y. (2029)",
+              "toPar": "+12",
+              "rounds": [
+                "72",
+                "76",
+                "80"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Iris Lee",
+              "affiliation": "Orlando, Fla. (2031)",
+              "toPar": "+13",
+              "rounds": [
+                "74",
+                "78",
+                "77"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Grace Carter",
+              "affiliation": "Jupiter, Fla. (2029)",
+              "toPar": "+13",
+              "rounds": [
+                "77",
+                "77",
+                "75"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "40",
+              "name": "Niuniu Zhao",
+              "affiliation": "Woodinville, Wash. (2028)",
+              "toPar": "+14",
+              "rounds": [
+                "78",
+                "73",
+                "79"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "T41",
+              "name": "Zoey Kim",
+              "affiliation": "Los Angeles, Calif. (2027)",
+              "toPar": "+16",
+              "rounds": [
+                "77",
+                "75",
+                "80"
+              ],
+              "total": "232",
+              "status": "ranked"
+            },
+            {
+              "position": "T41",
+              "name": "Honorine Ferry",
+              "affiliation": "Flower Mound, Texas (2028)",
+              "toPar": "+16",
+              "rounds": [
+                "81",
+                "78",
+                "73"
+              ],
+              "total": "232",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Megan Lee",
+              "affiliation": "Frisco, Texas (2027)",
+              "toPar": "+17",
+              "rounds": [
+                "71",
+                "80",
+                "82"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Cienna Lee",
+              "affiliation": "Lacey, Wash. (2028)",
+              "toPar": "+17",
+              "rounds": [
+                "72",
+                "78",
+                "83"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Ira Joshi",
+              "affiliation": "Pinehurst, N.C. (2029)",
+              "toPar": "+17",
+              "rounds": [
+                "75",
+                "75",
+                "83"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Athena Singh",
+              "affiliation": "Morehead, Ky. (2026)",
+              "toPar": "+17",
+              "rounds": [
+                "80",
+                "74",
+                "79"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Vera Dongah Lee",
+              "affiliation": "Irvine, Calif. (2026)",
+              "toPar": "+17",
+              "rounds": [
+                "75",
+                "79",
+                "79"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Anna Norris",
+              "affiliation": "Johns Creek, Ga. (2030)",
+              "toPar": "+17",
+              "rounds": [
+                "82",
+                "73",
+                "78"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Shiho Im",
+              "affiliation": "Dunwoody, Ga. (2029)",
+              "toPar": "+17",
+              "rounds": [
+                "78",
+                "77",
+                "78"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Alyssa Rigby",
+              "affiliation": "Vancouver, Wash. (2028)",
+              "toPar": "+17",
+              "rounds": [
+                "78",
+                "78",
+                "77"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "T51",
+              "name": "Mia Carles",
+              "affiliation": "Clinton, S.C. (2027)",
+              "toPar": "+18",
+              "rounds": [
+                "80",
+                "74",
+                "80"
+              ],
+              "total": "234",
+              "status": "ranked"
+            },
+            {
+              "position": "T51",
+              "name": "Angela Liang",
+              "affiliation": "Bridgewater, N.J. (2027)",
+              "toPar": "+18",
+              "rounds": [
+                "79",
+                "75",
+                "80"
+              ],
+              "total": "234",
+              "status": "ranked"
+            },
+            {
+              "position": "T51",
+              "name": "Riley Grimm",
+              "affiliation": "Pinehurst, N.C. (2028)",
+              "toPar": "+18",
+              "rounds": [
+                "82",
+                "73",
+                "79"
+              ],
+              "total": "234",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Bella Ransi",
+              "affiliation": "El Dorado Hills, Calif. (2027)",
+              "toPar": "+19",
+              "rounds": [
+                "76",
+                "75",
+                "84"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Alice Ziyi Zhao",
+              "affiliation": "(China) Irvine, Calif. (2027)",
+              "toPar": "+19",
+              "rounds": [
+                "76",
+                "78",
+                "81"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Krishny Elwin",
+              "affiliation": "(Puerto Rico) Orlando, Fla. (2027)",
+              "toPar": "+19",
+              "rounds": [
+                "77",
+                "79",
+                "79"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Madison Koshko",
+              "affiliation": "State College, Pa. (2026)",
+              "toPar": "+19",
+              "rounds": [
+                "81",
+                "77",
+                "77"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Ryan Donaldson",
+              "affiliation": "Mulberry, Fla. (2026)",
+              "toPar": "+20",
+              "rounds": [
+                "76",
+                "77",
+                "83"
+              ],
+              "total": "236",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Fay Jia",
+              "affiliation": "Murrieta, Calif. (2028)",
+              "toPar": "+20",
+              "rounds": [
+                "78",
+                "80",
+                "78"
+              ],
+              "total": "236",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Taylor Larkins",
+              "affiliation": "Fort Wayne, Ind. (2026)",
+              "toPar": "+20",
+              "rounds": [
+                "85",
+                "73",
+                "78"
+              ],
+              "total": "236",
+              "status": "ranked"
+            },
+            {
+              "position": "61",
+              "name": "Isabella (Jinmei) Sun",
+              "affiliation": "(China) Beijing, China (2028)",
+              "toPar": "+21",
+              "rounds": [
+                "76",
+                "79",
+                "82"
+              ],
+              "total": "237",
+              "status": "ranked"
+            },
+            {
+              "position": "T62",
+              "name": "Ana Boone",
+              "affiliation": "Champions Gate, Fla. (2026)",
+              "toPar": "+22",
+              "rounds": [
+                "81",
+                "73",
+                "84"
+              ],
+              "total": "238",
+              "status": "ranked"
+            },
+            {
+              "position": "T62",
+              "name": "Regina Jiménez Jardón",
+              "affiliation": "(Mexico) Torreón, Mexico (2027)",
+              "toPar": "+22",
+              "rounds": [
+                "79",
+                "78",
+                "81"
+              ],
+              "total": "238",
+              "status": "ranked"
+            },
+            {
+              "position": "T62",
+              "name": "Avery Schartz",
+              "affiliation": "Wichita, Kan. (2028)",
+              "toPar": "+22",
+              "rounds": [
+                "85",
+                "75",
+                "78"
+              ],
+              "total": "238",
+              "status": "ranked"
+            },
+            {
+              "position": "T65",
+              "name": "Emerie Schartz",
+              "affiliation": "Wichita, Kan. (2026)",
+              "toPar": "+26",
+              "rounds": [
+                "75",
+                "80",
+                "87"
+              ],
+              "total": "242",
+              "status": "ranked"
+            },
+            {
+              "position": "T65",
+              "name": "Mingyang (Sabrina) Sun",
+              "affiliation": "Carlsbad, Calif. (2028)",
+              "toPar": "+26",
+              "rounds": [
+                "80",
+                "81",
+                "81"
+              ],
+              "total": "242",
+              "status": "ranked"
+            },
+            {
+              "position": "T67",
+              "name": "Reese McMillan",
+              "affiliation": "Jupiter, Fla. (2029)",
+              "toPar": "+29",
+              "rounds": [
+                "80",
+                "78",
+                "87"
+              ],
+              "total": "245",
+              "status": "ranked"
+            },
+            {
+              "position": "T67",
+              "name": "Marley Pedrique",
+              "affiliation": "Palm Beach Gardens, Fla. (2028)",
+              "toPar": "+29",
+              "rounds": [
+                "80",
+                "83",
+                "82"
+              ],
+              "total": "245",
+              "status": "ranked"
+            },
+            {
+              "position": "69",
+              "name": "Maria Paula Navarrete",
+              "affiliation": "(Mexico) Merida, Mexico (2027)",
+              "toPar": "+34",
+              "rounds": [
+                "84",
+                "81",
+                "85"
+              ],
+              "total": "250",
+              "status": "ranked"
+            },
+            {
+              "position": "70",
+              "name": "Aubrey Lee",
+              "affiliation": "Stevenson Ranch, Calif. (2030)",
+              "toPar": "+37",
+              "rounds": [
+                "86",
+                "85",
+                "82"
+              ],
+              "total": "253",
+              "status": "ranked"
+            },
+            {
+              "position": "WD",
+              "name": "Clara Ding",
+              "affiliation": "(Canada) White Rock, British Columbia, Canada (2028)",
+              "toPar": "-",
+              "rounds": [
+                "74",
+                "WD",
+                ""
+              ],
+              "total": "WD",
+              "status": "WD"
+            },
+            {
+              "position": "WD",
+              "name": "Dresden Bounds",
+              "affiliation": "San Antonio, Texas (2027)",
+              "toPar": "-",
+              "rounds": [
+                "77",
+                "WD",
+                ""
+              ],
+              "total": "WD",
+              "status": "WD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "junior-players-championship",
+      "roundCount": 3,
+      "scope": "official-final",
+      "complete": true,
+      "divisions": [
+        {
+          "label": "Boys",
+          "rows": [
+            {
+              "position": "1",
+              "name": "JP Lynch",
+              "affiliation": "Austin, Texas (2028)",
+              "toPar": "-8",
+              "rounds": [
+                "71",
+                "71",
+                "66"
+              ],
+              "total": "208",
+              "status": "ranked"
+            },
+            {
+              "position": "2",
+              "name": "Brady Barnum",
+              "affiliation": "Dublin, Ohio (2027)",
+              "toPar": "-7",
+              "rounds": [
+                "71",
+                "70",
+                "68"
+              ],
+              "total": "209",
+              "status": "ranked"
+            },
+            {
+              "position": "T3",
+              "name": "Ronin Banerjee",
+              "affiliation": "Irvine, Calif. (2027)",
+              "toPar": "-4",
+              "rounds": [
+                "69",
+                "74",
+                "69"
+              ],
+              "total": "212",
+              "status": "ranked"
+            },
+            {
+              "position": "T3",
+              "name": "Alexis Rouleau",
+              "affiliation": "(Canada) Montreal, Quebec, Canada (2029)",
+              "toPar": "-4",
+              "rounds": [
+                "72",
+                "70",
+                "70"
+              ],
+              "total": "212",
+              "status": "ranked"
+            },
+            {
+              "position": "5",
+              "name": "Sam Carraher",
+              "affiliation": "Crown Point, Ind. (2027)",
+              "toPar": "-3",
+              "rounds": [
+                "70",
+                "70",
+                "73"
+              ],
+              "total": "213",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Chase Bauer",
+              "affiliation": "Gotha, Fla. (2028)",
+              "toPar": "-2",
+              "rounds": [
+                "67",
+                "74",
+                "73"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "T6",
+              "name": "Dawson Lew",
+              "affiliation": "(Canada) Toronto, Ontario, Canada (2027)",
+              "toPar": "-2",
+              "rounds": [
+                "71",
+                "69",
+                "74"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "T8",
+              "name": "Charlie Woods",
+              "affiliation": "Palm Beach Gardens, Fla. (2027)",
+              "toPar": "-1",
+              "rounds": [
+                "71",
+                "73",
+                "71"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T8",
+              "name": "David Kim",
+              "affiliation": "Marriottsville, Md. (2029)",
+              "toPar": "-1",
+              "rounds": [
+                "68",
+                "75",
+                "72"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T8",
+              "name": "William Lisle",
+              "affiliation": "(United Kingdom) Bradenton, Fla. (2027)",
+              "toPar": "-1",
+              "rounds": [
+                "70",
+                "72",
+                "73"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Charlie Haney",
+              "affiliation": "Manhattan, Kan. (2028)",
+              "toPar": "+1",
+              "rounds": [
+                "77",
+                "69",
+                "71"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Brayden Jones",
+              "affiliation": "Seal Beach, Calif. (2027)",
+              "toPar": "+1",
+              "rounds": [
+                "74",
+                "72",
+                "71"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Owen Greenough",
+              "affiliation": "Chandler, Ariz. (2027)",
+              "toPar": "+1",
+              "rounds": [
+                "73",
+                "71",
+                "73"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Kaden Leivian",
+              "affiliation": "Wichita, Kan. (2029)",
+              "toPar": "+1",
+              "rounds": [
+                "76",
+                "67",
+                "74"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Giuseppe Puebla",
+              "affiliation": "Royal Palm Beach, Fla. (2027)",
+              "toPar": "+1",
+              "rounds": [
+                "68",
+                "72",
+                "77"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T16",
+              "name": "Jessy Huebner",
+              "affiliation": "Port St. Lucie, Fla. (2027)",
+              "toPar": "+2",
+              "rounds": [
+                "73",
+                "72",
+                "73"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "T16",
+              "name": "Brooks Urquhart",
+              "affiliation": "Columbus, Ga. (2027)",
+              "toPar": "+2",
+              "rounds": [
+                "75",
+                "70",
+                "73"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "T16",
+              "name": "Matthew Marigliano",
+              "affiliation": "Palm Beach Gardens, Fla. (2029)",
+              "toPar": "+2",
+              "rounds": [
+                "71",
+                "72",
+                "75"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Evan Liu",
+              "affiliation": "Rancho Santa Fe, Calif. (2027)",
+              "toPar": "+3",
+              "rounds": [
+                "74",
+                "73",
+                "72"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Jake Eickhoff",
+              "affiliation": "Arrington, Tenn. (2027)",
+              "toPar": "+3",
+              "rounds": [
+                "72",
+                "74",
+                "73"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Arthur Haghedooren",
+              "affiliation": "(Belgium) Brussels, Belgium (2027)",
+              "toPar": "+3",
+              "rounds": [
+                "72",
+                "73",
+                "74"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Zude Xu",
+              "affiliation": "Rancho Palos Verdes, Calif. (2028)",
+              "toPar": "+3",
+              "rounds": [
+                "72",
+                "73",
+                "74"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Andy Dai",
+              "affiliation": "(Canada) Bradenton, Fla. (2027)",
+              "toPar": "+4",
+              "rounds": [
+                "72",
+                "72",
+                "76"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Jack Mokris",
+              "affiliation": "Winter Park, FL (2028)",
+              "toPar": "+4",
+              "rounds": [
+                "79",
+                "66",
+                "75"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Esteban Llorente",
+              "affiliation": "(Colombia) Bogotá, Colombia (2028)",
+              "toPar": "+4",
+              "rounds": [
+                "68",
+                "76",
+                "76"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T26",
+              "name": "Bodie Brumlow",
+              "affiliation": "Cartersville, Ga. (2027)",
+              "toPar": "+5",
+              "rounds": [
+                "72",
+                "77",
+                "72"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T26",
+              "name": "Hudson Justus",
+              "affiliation": "Gainesville, Ga. (2030)",
+              "toPar": "+5",
+              "rounds": [
+                "73",
+                "75",
+                "73"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T26",
+              "name": "Aadi Parmar",
+              "affiliation": "Selma, Texas (2027)",
+              "toPar": "+5",
+              "rounds": [
+                "75",
+                "75",
+                "71"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T26",
+              "name": "Emilio Velez",
+              "affiliation": "(Colombia) Medellín, Colombia (2028)",
+              "toPar": "+5",
+              "rounds": [
+                "76",
+                "75",
+                "70"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T26",
+              "name": "Rory Asselta",
+              "affiliation": "Ramsey, N.J. (2028)",
+              "toPar": "+5",
+              "rounds": [
+                "69",
+                "73",
+                "79"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T31",
+              "name": "Joseph Corcell",
+              "affiliation": "Tampa, Fla. (2027)",
+              "toPar": "+6",
+              "rounds": [
+                "74",
+                "76",
+                "72"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T31",
+              "name": "Rayhao Feng",
+              "affiliation": "Short Hills, N.J. (2028)",
+              "toPar": "+6",
+              "rounds": [
+                "77",
+                "75",
+                "70"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T31",
+              "name": "SJ Thomas",
+              "affiliation": "Birmingham, Ala. (2029)",
+              "toPar": "+6",
+              "rounds": [
+                "77",
+                "75",
+                "70"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T34",
+              "name": "Slater Meade",
+              "affiliation": "North Wilkesboro, N.C. (2027)",
+              "toPar": "+7",
+              "rounds": [
+                "76",
+                "73",
+                "74"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T34",
+              "name": "Grayson Baucom",
+              "affiliation": "Hickory, N.C. (2028)",
+              "toPar": "+7",
+              "rounds": [
+                "75",
+                "73",
+                "75"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T34",
+              "name": "Connor Wolfe",
+              "affiliation": "Blythewood, S.C. (2029)",
+              "toPar": "+7",
+              "rounds": [
+                "73",
+                "75",
+                "75"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T34",
+              "name": "Ryan Nana Tanke",
+              "affiliation": "Palm Beach Gardens, Fla. (2028)",
+              "toPar": "+7",
+              "rounds": [
+                "77",
+                "69",
+                "77"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Zhengda Li",
+              "affiliation": "(China) Melbourne, Australia (2029)",
+              "toPar": "+8",
+              "rounds": [
+                "75",
+                "74",
+                "75"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Sohan Patel",
+              "affiliation": "Weston, Fla. (2027)",
+              "toPar": "+8",
+              "rounds": [
+                "75",
+                "75",
+                "74"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Easton Reischl",
+              "affiliation": "Scottsdale, Ariz. (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "76",
+                "75",
+                "73"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Lunden Esterline",
+              "affiliation": "Andover, Kan. (2027)",
+              "toPar": "+8",
+              "rounds": [
+                "74",
+                "72",
+                "78"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Filip Grave",
+              "affiliation": "(Sweden) Bunkeflostrand, Sweden (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "77",
+                "75",
+                "72"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Tripp Depoy",
+              "affiliation": "The Woodlands, Texas (2027)",
+              "toPar": "+9",
+              "rounds": [
+                "74",
+                "75",
+                "76"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Grant DeLorenzo",
+              "affiliation": "Houston, Texas (2027)",
+              "toPar": "+9",
+              "rounds": [
+                "73",
+                "75",
+                "77"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Jeremy (Hung-Wei) Hsu",
+              "affiliation": "(Taiwan) Port St. Lucie, Fla. (2027)",
+              "toPar": "+9",
+              "rounds": [
+                "79",
+                "71",
+                "75"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Jaden Soong",
+              "affiliation": "Los Angeles, Calif. (2028)",
+              "toPar": "+9",
+              "rounds": [
+                "76",
+                "75",
+                "74"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Hill Wang",
+              "affiliation": "Hacienda Heights, Calif. (2027)",
+              "toPar": "+9",
+              "rounds": [
+                "74",
+                "78",
+                "73"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Keane Taino",
+              "affiliation": "Pinehurst, N.C. (2028)",
+              "toPar": "+9",
+              "rounds": [
+                "76",
+                "76",
+                "73"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T43",
+              "name": "Jin Han",
+              "affiliation": "(China) Beijing, China (2028)",
+              "toPar": "+9",
+              "rounds": [
+                "78",
+                "75",
+                "72"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Chase Hughes",
+              "affiliation": "Oklahoma City, Okla. (2028)",
+              "toPar": "+10",
+              "rounds": [
+                "75",
+                "72",
+                "79"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Richard Ding",
+              "affiliation": "Pleasanton, Calif. (2029)",
+              "toPar": "+10",
+              "rounds": [
+                "73",
+                "75",
+                "78"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Walker Webb",
+              "affiliation": "Brentwood, Tenn. (2027)",
+              "toPar": "+10",
+              "rounds": [
+                "77",
+                "75",
+                "74"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Shi-Chi Kuo",
+              "affiliation": "(Taiwan) New Taipei City, Taiwan (2027)",
+              "toPar": "+10",
+              "rounds": [
+                "76",
+                "78",
+                "72"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Carlos Moreno Podolski",
+              "affiliation": "(Mexico) Mexico City, Mexico (2027)",
+              "toPar": "+11",
+              "rounds": [
+                "73",
+                "76",
+                "78"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Alan Yoda",
+              "affiliation": "Temecula, Calif. (2030)",
+              "toPar": "+11",
+              "rounds": [
+                "78",
+                "70",
+                "79"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Neil Jolly",
+              "affiliation": "(India) Chandigarh, India (2028)",
+              "toPar": "+11",
+              "rounds": [
+                "78",
+                "75",
+                "74"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T54",
+              "name": "Ambrose Kinnare",
+              "affiliation": "St. Augustine, Fla. (2028)",
+              "toPar": "+11",
+              "rounds": [
+                "82",
+                "74",
+                "71"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Brayden Verret",
+              "affiliation": "Farmers Branch, Texas (2029)",
+              "toPar": "+12",
+              "rounds": [
+                "73",
+                "76",
+                "79"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Heath Harvey",
+              "affiliation": "Las Vegas, Nev. (2029)",
+              "toPar": "+12",
+              "rounds": [
+                "77",
+                "75",
+                "76"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Tomas Del Grosso",
+              "affiliation": "(Argentina) Costa Sur, Panama (2029)",
+              "toPar": "+12",
+              "rounds": [
+                "81",
+                "72",
+                "75"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T58",
+              "name": "Edwin Sjödin",
+              "affiliation": "(Sweden) Lidingö, Sweden (2028)",
+              "toPar": "+12",
+              "rounds": [
+                "77",
+                "76",
+                "75"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T62",
+              "name": "Kaden James",
+              "affiliation": "St. Augustine, Fla. (2028)",
+              "toPar": "+13",
+              "rounds": [
+                "74",
+                "77",
+                "78"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T62",
+              "name": "Fernando Saravia",
+              "affiliation": "(Guatemala) Guatemala, Guatemala (2029)",
+              "toPar": "+13",
+              "rounds": [
+                "76",
+                "79",
+                "74"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T64",
+              "name": "Ainslie Stanford",
+              "affiliation": "Edmond, Okla. (2028)",
+              "toPar": "+15",
+              "rounds": [
+                "79",
+                "78",
+                "74"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "T64",
+              "name": "Kipp Madison",
+              "affiliation": "Evans, GA (2028)",
+              "toPar": "+15",
+              "rounds": [
+                "78",
+                "80",
+                "73"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "T66",
+              "name": "Félix Gael Aceves Muñoz",
+              "affiliation": "(Mexico) Guadalajara, Mexico (2027)",
+              "toPar": "+16",
+              "rounds": [
+                "79",
+                "73",
+                "80"
+              ],
+              "total": "232",
+              "status": "ranked"
+            },
+            {
+              "position": "T66",
+              "name": "Hiroto Ozawa",
+              "affiliation": "(Japan) Fuchu, Tokyo, Japan (2030)",
+              "toPar": "+16",
+              "rounds": [
+                "81",
+                "78",
+                "73"
+              ],
+              "total": "232",
+              "status": "ranked"
+            },
+            {
+              "position": "68",
+              "name": "Franco Fernandez Alberti",
+              "affiliation": "(Argentina) Buenos Aires, Argentina (2029)",
+              "toPar": "+17",
+              "rounds": [
+                "73",
+                "85",
+                "75"
+              ],
+              "total": "233",
+              "status": "ranked"
+            },
+            {
+              "position": "69",
+              "name": "Jacob Watney",
+              "affiliation": "Clovis, Calif. (2027)",
+              "toPar": "+18",
+              "rounds": [
+                "79",
+                "70",
+                "85"
+              ],
+              "total": "234",
+              "status": "ranked"
+            },
+            {
+              "position": "70",
+              "name": "Anthony Wu",
+              "affiliation": "Mission Viejo, Calif. (2028)",
+              "toPar": "+19",
+              "rounds": [
+                "76",
+                "79",
+                "80"
+              ],
+              "total": "235",
+              "status": "ranked"
+            },
+            {
+              "position": "71",
+              "name": "Vaclav Svub",
+              "affiliation": "(Czech Republic) Kácov, Czech Republic (2027)",
+              "toPar": "+20",
+              "rounds": [
+                "85",
+                "80",
+                "71"
+              ],
+              "total": "236",
+              "status": "ranked"
+            },
+            {
+              "position": "72",
+              "name": "Bennett Kuhns",
+              "affiliation": "Austin, Texas (2027)",
+              "toPar": "+22",
+              "rounds": [
+                "82",
+                "75",
+                "81"
+              ],
+              "total": "238",
+              "status": "ranked"
+            },
+            {
+              "position": "73",
+              "name": "Ash Edwards",
+              "affiliation": "Boulder, Colo. (2028)",
+              "toPar": "+23",
+              "rounds": [
+                "76",
+                "83",
+                "80"
+              ],
+              "total": "239",
+              "status": "ranked"
+            },
+            {
+              "position": "74",
+              "name": "Ryan Hooker",
+              "affiliation": "Oakton, Va. (2030)",
+              "toPar": "+25",
+              "rounds": [
+                "75",
+                "81",
+                "85"
+              ],
+              "total": "241",
+              "status": "ranked"
+            },
+            {
+              "position": "75",
+              "name": "Parker Rodgers",
+              "affiliation": "Nevada, Iowa (2027)",
+              "toPar": "+26",
+              "rounds": [
+                "82",
+                "82",
+                "78"
+              ],
+              "total": "242",
+              "status": "ranked"
+            },
+            {
+              "position": "76",
+              "name": "Alexander Zhang",
+              "affiliation": "Plano, Texas (2027)",
+              "toPar": "+27",
+              "rounds": [
+                "83",
+                "78",
+                "82"
+              ],
+              "total": "243",
+              "status": "ranked"
+            },
+            {
+              "position": "77",
+              "name": "Itchaphat Bunditmahakul",
+              "affiliation": "(Thailand) Bangkok, Thailand (2028)",
+              "toPar": "+28",
+              "rounds": [
+                "82",
+                "78",
+                "84"
+              ],
+              "total": "244",
+              "status": "ranked"
+            },
+            {
+              "position": "WD",
+              "name": "Mason An",
+              "affiliation": "Houston, Texas (2028)",
+              "toPar": "-",
+              "rounds": [
+                "77",
+                "WD",
+                ""
+              ],
+              "total": "WD",
+              "status": "WD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "annika-invitational",
+      "roundCount": 3,
+      "scope": "official-final",
+      "complete": true,
+      "divisions": [
+        {
+          "label": "Girls",
+          "rows": [
+            {
+              "position": "1",
+              "name": "Asterisk Talley",
+              "affiliation": "Chowchilla, Calif. (2027)",
+              "toPar": "-14",
+              "rounds": [
+                "66",
+                "69",
+                "67"
+              ],
+              "total": "202",
+              "status": "ranked"
+            },
+            {
+              "position": "2",
+              "name": "Grace Carter",
+              "affiliation": "Jupiter, Fla. (2029)",
+              "toPar": "-10",
+              "rounds": [
+                "72",
+                "66",
+                "68"
+              ],
+              "total": "206",
+              "status": "ranked"
+            },
+            {
+              "position": "3",
+              "name": "Courtney Grace",
+              "affiliation": "Birmingham, Ala. (2030)",
+              "toPar": "-7",
+              "rounds": [
+                "66",
+                "72",
+                "71"
+              ],
+              "total": "209",
+              "status": "ranked"
+            },
+            {
+              "position": "4",
+              "name": "Nicole Tang",
+              "affiliation": "Bellevue, Wash. (2027)",
+              "toPar": "-6",
+              "rounds": [
+                "70",
+                "70",
+                "70"
+              ],
+              "total": "210",
+              "status": "ranked"
+            },
+            {
+              "position": "T5",
+              "name": "Honorine Ferry",
+              "affiliation": "Mckinny, Texas (2028)",
+              "toPar": "-4",
+              "rounds": [
+                "69",
+                "73",
+                "70"
+              ],
+              "total": "212",
+              "status": "ranked"
+            },
+            {
+              "position": "T5",
+              "name": "Emily Song",
+              "affiliation": "Irvine, Calif. (2027)",
+              "toPar": "-4",
+              "rounds": [
+                "71",
+                "73",
+                "68"
+              ],
+              "total": "212",
+              "status": "ranked"
+            },
+            {
+              "position": "T7",
+              "name": "Marisa Tojai",
+              "affiliation": "Lum Luk Ka, Thailand (2028)",
+              "toPar": "-3",
+              "rounds": [
+                "69",
+                "74",
+                "70"
+              ],
+              "total": "213",
+              "status": "ranked"
+            },
+            {
+              "position": "T7",
+              "name": "Ava Zhang",
+              "affiliation": "Lake Mary, Fla. (2028)",
+              "toPar": "-3",
+              "rounds": [
+                "72",
+                "71",
+                "70"
+              ],
+              "total": "213",
+              "status": "ranked"
+            },
+            {
+              "position": "T9",
+              "name": "Alexandra Snyder",
+              "affiliation": "Orlando, Fla. (2028)",
+              "toPar": "-2",
+              "rounds": [
+                "67",
+                "75",
+                "72"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "T9",
+              "name": "Xueyan Zhu",
+              "affiliation": "(China) Howey in the Hills, Fla. (2027)",
+              "toPar": "-2",
+              "rounds": [
+                "71",
+                "75",
+                "68"
+              ],
+              "total": "214",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Rinka Nakayama",
+              "affiliation": "Nagoya, Japan (2027)",
+              "toPar": "-1",
+              "rounds": [
+                "74",
+                "71",
+                "70"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Sofia Rivera",
+              "affiliation": "(Puerto Rico) St. Augustine, Fla. (2027)",
+              "toPar": "-1",
+              "rounds": [
+                "74",
+                "71",
+                "70"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Mia Clausen",
+              "affiliation": "Carlsbad, Calif. (2028)",
+              "toPar": "-1",
+              "rounds": [
+                "74",
+                "74",
+                "67"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T11",
+              "name": "Alisa Davidova",
+              "affiliation": "Roanoke, Va. (2027)",
+              "toPar": "-1",
+              "rounds": [
+                "72",
+                "76",
+                "67"
+              ],
+              "total": "215",
+              "status": "ranked"
+            },
+            {
+              "position": "T15",
+              "name": "Macie Rasmussen",
+              "affiliation": "Chesapeake, Va. (2027)",
+              "toPar": "E",
+              "rounds": [
+                "69",
+                "72",
+                "75"
+              ],
+              "total": "216",
+              "status": "ranked"
+            },
+            {
+              "position": "T15",
+              "name": "Ella June Hannant",
+              "affiliation": "Pikeville, N.C. (2027)",
+              "toPar": "E",
+              "rounds": [
+                "74",
+                "68",
+                "74"
+              ],
+              "total": "216",
+              "status": "ranked"
+            },
+            {
+              "position": "T15",
+              "name": "Lily Peng",
+              "affiliation": "San Ramon, Calif. (2027)",
+              "toPar": "E",
+              "rounds": [
+                "71",
+                "72",
+                "73"
+              ],
+              "total": "216",
+              "status": "ranked"
+            },
+            {
+              "position": "T15",
+              "name": "Annika Raja",
+              "affiliation": "Irvine, Calif. (2028)",
+              "toPar": "E",
+              "rounds": [
+                "71",
+                "73",
+                "72"
+              ],
+              "total": "216",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Grace Lee",
+              "affiliation": "Suwanee, Ga. (2028)",
+              "toPar": "+1",
+              "rounds": [
+                "72",
+                "71",
+                "74"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Teresa Wang",
+              "affiliation": "Auckland, New Zealand (2029)",
+              "toPar": "+1",
+              "rounds": [
+                "75",
+                "72",
+                "70"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "T19",
+              "name": "Anna Norris",
+              "affiliation": "Johns Creek, Ga. (2030)",
+              "toPar": "+1",
+              "rounds": [
+                "76",
+                "71",
+                "70"
+              ],
+              "total": "217",
+              "status": "ranked"
+            },
+            {
+              "position": "22",
+              "name": "Pinyaphat Kamolborvorn",
+              "affiliation": "Bangkok, Thailand (2029)",
+              "toPar": "+2",
+              "rounds": [
+                "77",
+                "69",
+                "72"
+              ],
+              "total": "218",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Minami Suzuki",
+              "affiliation": "Tsuru city Yamanashi-ken, Japan (2027)",
+              "toPar": "+3",
+              "rounds": [
+                "70",
+                "75",
+                "74"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Maria Isabella Errichetto",
+              "affiliation": "Southern Pines, N.C. (2027)",
+              "toPar": "+3",
+              "rounds": [
+                "75",
+                "72",
+                "72"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Carolyn Liu",
+              "affiliation": "Katy, Texas (2028)",
+              "toPar": "+3",
+              "rounds": [
+                "76",
+                "73",
+                "70"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T23",
+              "name": "Alexandra Phung",
+              "affiliation": "Forest Hills, N.Y. (2029)",
+              "toPar": "+3",
+              "rounds": [
+                "78",
+                "72",
+                "69"
+              ],
+              "total": "219",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Avery McGrath",
+              "affiliation": "Falls Church, Va. (2030)",
+              "toPar": "+4",
+              "rounds": [
+                "73",
+                "71",
+                "76"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Anna Bell",
+              "affiliation": "Poplar Bluff, Mo. (2029)",
+              "toPar": "+4",
+              "rounds": [
+                "72",
+                "72",
+                "76"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Iris Lee",
+              "affiliation": "Orlando, Fla. (2031)",
+              "toPar": "+4",
+              "rounds": [
+                "73",
+                "72",
+                "75"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Zilin (Grace) Xu",
+              "affiliation": "(China) Howey-in-the-Hills, Fla. (2027)",
+              "toPar": "+4",
+              "rounds": [
+                "71",
+                "77",
+                "72"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Alyssa Rigby",
+              "affiliation": "Vancouver, Wash. (2028)",
+              "toPar": "+4",
+              "rounds": [
+                "76",
+                "74",
+                "70"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T27",
+              "name": "Emma McKoan",
+              "affiliation": "Naples, Fla. (2028)",
+              "toPar": "+4",
+              "rounds": [
+                "74",
+                "75",
+                "71"
+              ],
+              "total": "220",
+              "status": "ranked"
+            },
+            {
+              "position": "T33",
+              "name": "Ana Giuliano",
+              "affiliation": "Rio Cuarto, Argentina (2028)",
+              "toPar": "+5",
+              "rounds": [
+                "76",
+                "70",
+                "75"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T33",
+              "name": "Sofía Maier-Borst",
+              "affiliation": "Dossenheim, Germany (2027)",
+              "toPar": "+5",
+              "rounds": [
+                "75",
+                "72",
+                "74"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T33",
+              "name": "Evelyn Ma",
+              "affiliation": "Markham, Ont., Canada (2028)",
+              "toPar": "+5",
+              "rounds": [
+                "76",
+                "71",
+                "74"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T33",
+              "name": "Rina Kawasaki",
+              "affiliation": "(Japan) Palos Verdes Estates, Calif. (2028)",
+              "toPar": "+5",
+              "rounds": [
+                "78",
+                "70",
+                "73"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T33",
+              "name": "Zoey Kim",
+              "affiliation": "Los Angeles, Calif. (2027)",
+              "toPar": "+5",
+              "rounds": [
+                "75",
+                "75",
+                "71"
+              ],
+              "total": "221",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Jessica Dyreskov",
+              "affiliation": "Vallensbaek, Denmark (2028)",
+              "toPar": "+6",
+              "rounds": [
+                "72",
+                "72",
+                "78"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Yuxi Liu",
+              "affiliation": "Shunyi, China (2029)",
+              "toPar": "+6",
+              "rounds": [
+                "75",
+                "71",
+                "76"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T38",
+              "name": "Alexa Takai",
+              "affiliation": "Honolulu, Hawaii (2028)",
+              "toPar": "+6",
+              "rounds": [
+                "72",
+                "78",
+                "72"
+              ],
+              "total": "222",
+              "status": "ranked"
+            },
+            {
+              "position": "T41",
+              "name": "Betsy Mitchell",
+              "affiliation": "Kansas City, Mo. (2029)",
+              "toPar": "+7",
+              "rounds": [
+                "71",
+                "75",
+                "77"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T41",
+              "name": "Ira Joshi",
+              "affiliation": "Pinehurst, N.C. (2029)",
+              "toPar": "+7",
+              "rounds": [
+                "77",
+                "73",
+                "73"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T41",
+              "name": "Gabriella Gu",
+              "affiliation": "Irvine, Calif. (2028)",
+              "toPar": "+7",
+              "rounds": [
+                "78",
+                "74",
+                "71"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T41",
+              "name": "Romina Palmeros",
+              "affiliation": "Xalapa, Mexico (2027)",
+              "toPar": "+7",
+              "rounds": [
+                "73",
+                "79",
+                "71"
+              ],
+              "total": "223",
+              "status": "ranked"
+            },
+            {
+              "position": "T45",
+              "name": "Lisa Coetzer",
+              "affiliation": "Benoni, South Africa (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "76",
+                "72",
+                "76"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T45",
+              "name": "Niuniu Zhao",
+              "affiliation": "Woodinville, Wash. (2028)",
+              "toPar": "+8",
+              "rounds": [
+                "73",
+                "78",
+                "73"
+              ],
+              "total": "224",
+              "status": "ranked"
+            },
+            {
+              "position": "T47",
+              "name": "Zimo Liu",
+              "affiliation": "Beijing, China (2028)",
+              "toPar": "+9",
+              "rounds": [
+                "76",
+                "74",
+                "75"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T47",
+              "name": "Asia Young",
+              "affiliation": "Bend, Ore. (2027)",
+              "toPar": "+9",
+              "rounds": [
+                "78",
+                "74",
+                "73"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T47",
+              "name": "Elizabeth Guthrie",
+              "affiliation": "Charlotte, N.C. (2028)",
+              "toPar": "+9",
+              "rounds": [
+                "74",
+                "79",
+                "72"
+              ],
+              "total": "225",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Rose Callewaert",
+              "affiliation": "Hermosa Beach, Calif. (2028)",
+              "toPar": "+10",
+              "rounds": [
+                "74",
+                "73",
+                "79"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Ashley Kim",
+              "affiliation": "Cerritos, Calif. (2031)",
+              "toPar": "+10",
+              "rounds": [
+                "71",
+                "77",
+                "78"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T50",
+              "name": "Gabriella Collelo",
+              "affiliation": "Venice, Fla. (2029)",
+              "toPar": "+10",
+              "rounds": [
+                "77",
+                "73",
+                "76"
+              ],
+              "total": "226",
+              "status": "ranked"
+            },
+            {
+              "position": "T53",
+              "name": "Hana McGarry",
+              "affiliation": "San Diego, Calif. (2029)",
+              "toPar": "+11",
+              "rounds": [
+                "77",
+                "73",
+                "77"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T53",
+              "name": "Natalia Henderson",
+              "affiliation": "Southern Pines, N.C. (2029)",
+              "toPar": "+11",
+              "rounds": [
+                "74",
+                "77",
+                "76"
+              ],
+              "total": "227",
+              "status": "ranked"
+            },
+            {
+              "position": "T55",
+              "name": "Jayleen Sito",
+              "affiliation": "Dublin, Calif. (2028)",
+              "toPar": "+12",
+              "rounds": [
+                "73",
+                "76",
+                "79"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T55",
+              "name": "Aubrey Lee",
+              "affiliation": "Stevenson Ranch, Calif. (2030)",
+              "toPar": "+12",
+              "rounds": [
+                "76",
+                "77",
+                "75"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T55",
+              "name": "Ein Kim",
+              "affiliation": "Irvine, Calif. (2028)",
+              "toPar": "+12",
+              "rounds": [
+                "80",
+                "73",
+                "75"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "T55",
+              "name": "Aubrey Hilgers",
+              "affiliation": "Surprise, Ariz. (2028)",
+              "toPar": "+12",
+              "rounds": [
+                "73",
+                "79",
+                "76"
+              ],
+              "total": "228",
+              "status": "ranked"
+            },
+            {
+              "position": "59",
+              "name": "Alejandra Botaya",
+              "affiliation": "Querétaro, Mexico (2027)",
+              "toPar": "+13",
+              "rounds": [
+                "78",
+                "76",
+                "75"
+              ],
+              "total": "229",
+              "status": "ranked"
+            },
+            {
+              "position": "T60",
+              "name": "Krishny Elwin",
+              "affiliation": "(Puerto Rico) Orlando, Fla. (2027)",
+              "toPar": "+14",
+              "rounds": [
+                "78",
+                "72",
+                "80"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "T60",
+              "name": "Claire Brooks",
+              "affiliation": "Scottsdale, Ariz. (2030)",
+              "toPar": "+14",
+              "rounds": [
+                "76",
+                "79",
+                "75"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "T60",
+              "name": "Ava Osborne",
+              "affiliation": "Austin, Texas (2027)",
+              "toPar": "+14",
+              "rounds": [
+                "79",
+                "78",
+                "73"
+              ],
+              "total": "230",
+              "status": "ranked"
+            },
+            {
+              "position": "T63",
+              "name": "Jiahang Li",
+              "affiliation": "Beijing, China (2030)",
+              "toPar": "+15",
+              "rounds": [
+                "77",
+                "75",
+                "79"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "T63",
+              "name": "Luna Isabella Valencia Mejía",
+              "affiliation": "Murcia, Spain (2028)",
+              "toPar": "+15",
+              "rounds": [
+                "74",
+                "79",
+                "78"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "T63",
+              "name": "Hailey Jung",
+              "affiliation": "Johns Creek, Ga. (2029)",
+              "toPar": "+15",
+              "rounds": [
+                "75",
+                "79",
+                "77"
+              ],
+              "total": "231",
+              "status": "ranked"
+            },
+            {
+              "position": "66",
+              "name": "Gia Ahlowalia",
+              "affiliation": "Southlake, Texas (2027)",
+              "toPar": "+16",
+              "rounds": [
+                "78",
+                "78",
+                "76"
+              ],
+              "total": "232",
+              "status": "ranked"
+            },
+            {
+              "position": "67",
+              "name": "Hayden Knapp",
+              "affiliation": "Gansevoort, N.Y. (2028)",
+              "toPar": "+18",
+              "rounds": [
+                "79",
+                "76",
+                "79"
+              ],
+              "total": "234",
+              "status": "ranked"
+            },
+            {
+              "position": "68",
+              "name": "Yaoyun Zheng",
+              "affiliation": "Suzhou, China (2028)",
+              "toPar": "+20",
+              "rounds": [
+                "76",
+                "79",
+                "81"
+              ],
+              "total": "236",
+              "status": "ranked"
+            },
+            {
+              "position": "69",
+              "name": "Carly McDonald",
+              "affiliation": "St Andrews, United Kingdom (2029)",
+              "toPar": "+21",
+              "rounds": [
+                "83",
+                "78",
+                "76"
+              ],
+              "total": "237",
+              "status": "ranked"
+            },
+            {
+              "position": "70",
+              "name": "Ana Hilda Castillo Cravioto",
+              "affiliation": "Lerma, Mexico (2028)",
+              "toPar": "+28",
+              "rounds": [
+                "86",
+                "79",
+                "79"
+              ],
+              "total": "244",
+              "status": "ranked"
+            },
+            {
+              "position": "WD",
+              "name": "Kylie Chung",
+              "affiliation": "Cumming, Ga. (2030)",
+              "toPar": "-",
+              "rounds": [
+                "79",
+                "WD",
+                ""
+              ],
+              "total": "WD",
+              "status": "WD"
+            },
+            {
+              "position": "WD",
+              "name": "Ariel Collins",
+              "affiliation": "Locust Grove, Ga. (2028)",
+              "toPar": "-",
+              "rounds": [
+                "83",
+                "WD",
+                ""
+              ],
+              "total": "WD",
+              "status": "WD"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
