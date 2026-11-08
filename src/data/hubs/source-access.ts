@@ -179,7 +179,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "the-farrell",
     access: "public-page",
     completeness: "partial",
-    note: "Men's and women's published matches are 8, 4, 2, and 1. David Kitt def. John Lazor, 4 and 3. Senior matches stay off this page because there is no senior hub. One-round qualifying tables were not mixed into the matches. This is not a complete event.",
+    note: "Men's and women's published matches are 8, 4, 2, and 1. David Kitt def. John Lazor is shown without a margin. The match sheet says 4 & 3 and the recap says 3 and 1. Senior matches stay off this page. Qualifying was not mixed in. This is not a complete event.",
   },
   {
     channel: "midam",

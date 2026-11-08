@@ -407,7 +407,7 @@ function StrokeTable({ snapshot, rows, highlight }: { snapshot: StrokeSnapshot; 
         : snapshot.scope === "official-award"
           ? "Low Senior award"
           : snapshot.scope === "official-totals"
-            ? "Totals"
+            ? "Qualifying totals"
             : "Published finishers. Blank rounds were not in the source.";
   return (
     <div tabIndex={0} aria-label={caption} className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">

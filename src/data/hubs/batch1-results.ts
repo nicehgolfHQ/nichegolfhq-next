@@ -192,7 +192,7 @@ export function scopeLabel(snapshot: ResultSnapshot): string {
   if (snapshot.kind === "stroke" && snapshot.scope === "official-overall") return "Overall results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-final") return "Final results";
   if (snapshot.kind === "stroke" && snapshot.scope === "official-award") return "Low Senior award";
-  if (snapshot.kind === "stroke" && snapshot.scope === "official-totals") return "Totals";
+  if (snapshot.kind === "stroke" && snapshot.scope === "official-totals") return "Qualifying totals";
   return snapshot.kind === "stroke" ? "Selected results" : "Selected matches";
 }
 

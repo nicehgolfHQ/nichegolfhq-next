@@ -7,6 +7,7 @@ import { FormatHub } from "../src/components/hubs/FormatHub";
 import { resultSnapshot, snapshotNames } from "../src/data/hubs/batch1-results";
 import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/data/hubs/gasparilla-2026";
 import { SOURCE_ACCESS } from "../src/data/hubs/source-access";
+import dispute from "../src/data/hubs/official/farrell-final-dispute.json";
 import { officialFormatSnapshot } from "../src/data/hubs/official-formats";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
@@ -563,12 +564,31 @@ if (!anderson || anderson.kind !== "match" || anderson.complete || anderson.matc
 }
 const farrell = officialFormatSnapshot("the-farrell");
 const farrellFinal = farrell?.kind === "match" ? farrell.matches.find((match) => match.flight === "Men's Mid-Amateur" && match.round === "Finals") : null;
-if (!farrell || farrell.kind !== "match" || farrell.complete || farrell.matches.length !== 30 || farrellFinal?.result !== "David Kitt def. John Lazor, 4 & 3") {
-  throw new Error("Farrell published matches were marked complete or the final changed");
+if (!farrell || farrell.kind !== "match" || farrell.complete || farrell.matches.length !== 30 || farrellFinal?.result !== "David Kitt def. John Lazor") {
+  throw new Error("Farrell final did not keep the winner without a margin");
+}
+if (farrellFinal.result.includes("4 & 3") || farrellFinal.result.includes("3 and 1")) {
+  throw new Error("Farrell final published a disputed margin");
+}
+if (dispute.publicResult !== farrellFinal.result || dispute.claims.map((claim) => claim.margin).join("|") !== "4 & 3|3 and 1") {
+  throw new Error("Farrell margin claims were not both preserved");
+}
+const farrellRecap = MIDAM_TOURNAMENTS.find((event) => event.slug === "the-farrell")?.news?.find((article) => article.slug === "2026-the-farrell-final-recap");
+if (!farrellRecap?.content.some((paragraph) => paragraph.includes("3 and 1 victory over John Lazor"))) {
+  throw new Error("Farrell recap was rewritten");
+}
+const farrellHtml = renderHub({ slug: "the-farrell", name: "The Farrell", channel: "midam", month: 10, format: "18 holes stroke play qualifying, match play" }, "midam");
+if (!farrellHtml.includes("David Kitt def. John Lazor") || farrellHtml.includes("David Kitt def. John Lazor, 4") || farrellHtml.includes("David Kitt def. John Lazor, 3")) {
+  throw new Error("Farrell page showed a disputed final margin");
 }
 if (farrell.matches.some((match) => match.flight.startsWith("Senior"))) throw new Error("Farrell senior matches were placed on the mid-am hub");
 const macHtml = renderHub({ slug: "cb-macdonald-invitational-tournament", name: "C.B. Macdonald", channel: "midam", month: 6, format: "Match play" }, "midam");
-if (!macHtml.includes("Totals") || macHtml.includes(">R1<") || macHtml.includes("Final results")) throw new Error("Macdonald totals were presented as a full round board");
+const macSeniorHtml = renderHub({ slug: "cb-macdonald-invitational-senior-division", name: "C.B. Macdonald Senior", channel: "senior", month: 6, format: "Match play" }, "senior");
+for (const html of [macHtml, macSeniorHtml]) {
+  if (!html.includes("Qualifying totals") || html.includes(">Totals<") || html.includes(">R1<") || html.includes("Final results")) {
+    throw new Error("Macdonald qualifying totals were mislabeled or given invented rounds");
+  }
+}
 
 for (const html of [canadaHtml, transHtml, berkeleyHtml, gctHtml]) {
   if (html.includes("Updated Nov 8, 2026") || html.includes("Round buttons highlight")) {
