@@ -987,9 +987,41 @@ const pingHtml = renderHub({ slug: "ajga-ping-invitational", name: "AJGA Ping In
 if (pingHtml.includes("Tripp Depoy") || pingHtml.includes("2026 champion") || !pingHtml.includes("Full results unavailable here.") || !pingHtml.includes("Defending champion")) {
   throw new Error("PING in-progress board was frozen or a 2026 champion was added");
 }
+if (classifyCalendar({ startDate: "2026-11-21", endDate: "2026-11-25" }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("Rolex Tournament of Champions dates were not classified as upcoming");
+}
+if (classifyCalendar({ startDate: "2026-12-18", endDate: "2026-12-21" }, "2026-11-08") !== "scheduled-2026") {
+  throw new Error("Jones Cup dates were not classified as upcoming");
+}
+if (classifyCalendar({ startDate: "2026-11-05", endDate: "2026-11-08", liveStatus: "live" }, "2026-11-08") !== "in-progress-2026") {
+  throw new Error("PING was not classified as in progress");
+}
 const tocHtml = renderHub({ slug: "rolex-tournament-of-champions", name: "Rolex Tournament of Champions", channel: "junior", month: 11, format: "72-hole stroke play", startDate: "2026-11-21", endDate: "2026-11-25", pastResults: [{ year: 2025, champion: "Boys: Luke Ringkamp / Girls: Nikki Oh" }] }, "junior");
-if (tocHtml.includes("2026 champion") || !tocHtml.includes("Defending champion") || !tocHtml.includes("Luke Ringkamp")) {
-  throw new Error("Rolex Tournament of Champions was given a 2026 champion");
+if (tocHtml.includes("2026 champion") || !tocHtml.includes("Defending champion") || !tocHtml.includes("Luke Ringkamp") || !tocHtml.includes("Not started") || tocHtml.includes("Full results unavailable here.")) {
+  throw new Error("Rolex Tournament of Champions was given a 2026 champion or a missing-results claim");
+}
+const jonesHtml = renderHub({ slug: "junior-jones-cup", name: "Junior Jones Cup", channel: "junior", month: 12, format: "54-hole stroke play", startDate: "2026-12-18", endDate: "2026-12-21", pastResults: [{ year: 2025, champion: "Ayden Fynaut" }] }, "junior");
+if (!jonesHtml.includes("Not started") || jonesHtml.includes("Full results unavailable here.") || jonesHtml.includes("2026 champion")) {
+  throw new Error("Jones Cup was described as a missing published result");
+}
+if (pingHtml.includes("Not started")) throw new Error("PING in progress was labeled as not started");
+const daleMorey = officialRemainingSnapshot("society-of-seniors-dale-morey");
+const desertBoard = officialRemainingSnapshot("golfweek-senior-desert-showdown");
+const oDonnell = daleMorey?.kind === "stroke" ? daleMorey.divisions?.flatMap((division) => division.rows).find((row) => row.name.includes("Donnell")) : null;
+const desertNames = desertBoard?.kind === "stroke" ? desertBoard.divisions?.flatMap((division) => division.rows) ?? [] : [];
+const oMalley = desertNames.find((row) => row.name.includes("Malley"));
+if (oDonnell?.name !== "Michael O'Donnell" || oMalley?.name !== "O'Malley, Sean") {
+  throw new Error("An official apostrophe was left encoded or rewritten");
+}
+const daleHtml = renderHub({ slug: "society-of-seniors-dale-morey", name: "Dale Morey", channel: "senior", month: 9, format: "54-hole stroke play" }, "senior");
+const desertHtml = renderHub({ slug: "golfweek-senior-desert-showdown", name: "Desert Showdown", channel: "senior", month: 11, format: "54-hole stroke play" }, "senior");
+for (const html of [daleHtml, desertHtml]) {
+  if (html.includes("&#39;") || html.includes("O’Donnell") || html.includes("O’Malley")) {
+    throw new Error("A rendered senior board kept the source entity or a curly apostrophe");
+  }
+}
+if (!daleHtml.includes("Michael O&#x27;Donnell") || daleHtml.split("Michael O&#x27;Donnell").length < 3 || !desertHtml.includes("O&#x27;Malley, Sean") || desertHtml.split("O&#x27;Malley, Sean").length < 3) {
+  throw new Error("Rendered Field or Scoring dropped an official apostrophe name");
 }
 const northSouth = JUNIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "north-south-junior");
 if (northSouth?.startDate !== "2026-06-29" || northSouth.endDate !== "2026-07-01") {

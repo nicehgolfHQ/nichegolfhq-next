@@ -42,8 +42,6 @@ const RESULTS_NOTE: Record<string, string> = {
   "north-south-junior": "Full results unavailable here.",
   "us-amateur": "Full results unavailable here.",
   "ajga-ping-invitational": "Full results unavailable here.",
-  "rolex-tournament-of-champions": "Full results unavailable here.",
-  "junior-jones-cup": "Full results unavailable here.",
   "dustin-johnson-world-junior": "Full results unavailable here. See Coverage.",
 };
 
@@ -125,6 +123,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
             channel={channel}
             division={division}
             setDivision={setDivision}
+            standing={standing}
           />
         </div>
         <div hidden={tab !== "Field"}>
@@ -287,6 +286,7 @@ function ResultsPanel({
   channel,
   division,
   setDivision,
+  standing,
 }: {
   tournament: Tournament;
   snapshot: ResultSnapshot | null;
@@ -296,9 +296,11 @@ function ResultsPanel({
   channel: HubChannel;
   division: number;
   setDivision: (division: number) => void;
+  standing: ReturnType<typeof classifyCalendar>;
 }) {
   const stroke = snapshot?.kind === "stroke" ? snapshot : null;
-  const resultsNote = RESULTS_NOTE[tournament.slug];
+  const notStarted = standing === "scheduled-2026" && !snapshot && !editionResult(tournament);
+  const resultsNote = notStarted ? "Not started" : RESULTS_NOTE[tournament.slug];
   const divisions = stroke?.divisions && stroke.divisions.length > 0 ? stroke.divisions : null;
   const activeRows = divisions ? divisions[division]?.rows ?? divisions[0].rows : stroke?.rows ?? [];
   const roundScores = activeRows.some((row) => row.rounds.some((score) => score != null));
