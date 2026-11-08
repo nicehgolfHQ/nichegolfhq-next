@@ -74,7 +74,7 @@ export const SOURCE_ACCESS: SourceAccess[] = [
     slug: "john-t-lupton-memorial",
     access: "not-yet-published",
     completeness: "none",
-    note: "Dates are stored as rescheduled to 2027. No 2026 scoring URL is stored.",
+    note: "Dates are stored as rescheduled to 2027. No 2026 scoring URL is stored. The senior division is still stored as May 11-13, 2026. Do not change either year until that conflict is verified.",
   },
   {
     channel: "midam",

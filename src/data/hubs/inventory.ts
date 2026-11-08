@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "batch-5" | "batch-6" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -98,6 +98,14 @@ export const HUB_BATCH_5: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "european-mens-mid-amateur" },
   { channel: "midam", slug: "the-picard-cup" },
   { channel: "midam", slug: "tree-farm-invitational" },
+];
+
+/** 2026 hubs with published coverage and no official board. Lupton and Ewing stay off this list. */
+export const HUB_BATCH_6: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "usga-womens-mid-am" },
+  { channel: "midam", slug: "usga-mens-mid-am" },
+  { channel: "midam", slug: "the-crump-cup" },
+  { channel: "midam", slug: "the-stocker-cup" },
 ];
 
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
@@ -172,12 +180,13 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (HUB_BATCH_3.some((item) => item.channel === channel && item.slug === slug)) return "batch-3";
   if (HUB_BATCH_4.some((item) => item.channel === channel && item.slug === slug)) return "batch-4";
   if (HUB_BATCH_5.some((item) => item.channel === channel && item.slug === slug)) return "batch-5";
+  if (HUB_BATCH_6.some((item) => item.channel === channel && item.slug === slug)) return "batch-6";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4" || batch === "batch-5" || batch === "batch-6") return "format-hub";
   return "legacy";
 }
 

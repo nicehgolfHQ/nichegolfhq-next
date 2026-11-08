@@ -22,6 +22,7 @@ import {
   HUB_BATCH_3,
   HUB_BATCH_4,
   HUB_BATCH_5,
+  HUB_BATCH_6,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -40,7 +41,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -300,7 +301,7 @@ const sangerHtml = renderHub(
   },
   "midam",
 );
-if (!sangerHtml.includes("Results unavailable here")) throw new Error("Sanger results tab is blank");
+if (!sangerHtml.includes("Full results unavailable here.")) throw new Error("Sanger results tab is blank");
 if (!sangerHtml.includes("Field unavailable here")) throw new Error("Sanger field tab is blank");
 if (sangerHtml.includes("No scores yet") || sangerHtml.includes("No players posted") || sangerHtml.includes("golfgenius.com")) {
   throw new Error("Sanger implies an official empty board or a made-up link");
@@ -697,6 +698,58 @@ if (travisStill?.kind !== "match" || travisStill.complete || travisStill.matches
 }
 if (!MIDAM_TOURNAMENTS.find((event) => event.slug === "walter-j-travis-invitational")?.golfGeniusUrl?.includes("116thwalterjtravisinvitational.golfgenius.com")) {
   throw new Error("Travis official page was not stored");
+}
+
+const midamLegacy = items.filter((item) => item.channel === "midam" && item.template === "legacy").map((item) => item.slug);
+if (midamLegacy.join("|") !== "john-t-lupton-memorial") throw new Error(`Mid-am legacy pages drifted: ${midamLegacy.join("|")}`);
+for (const slug of ["usga-womens-mid-am", "usga-mens-mid-am", "the-crump-cup", "the-stocker-cup"]) {
+  if (!isFormatHub("midam", slug)) throw new Error(`${slug} stayed on the legacy layout`);
+}
+const auditCounts = { full: 0, partial: 0, selected: 0, none: 0 };
+for (const entry of SOURCE_ACCESS.filter((item) => item.channel === "midam")) {
+  if (entry.completeness === "full" || entry.completeness === "partial" || entry.completeness === "selected" || entry.completeness === "none") {
+    auditCounts[entry.completeness] += 1;
+  }
+}
+if (SOURCE_ACCESS.filter((item) => item.channel === "midam").length !== 29 || auditCounts.full !== 16 || auditCounts.partial !== 3 || auditCounts.selected !== 5 || auditCounts.none !== 5) {
+  throw new Error(`Mid-am source audit drifted: ${JSON.stringify(auditCounts)}`);
+}
+const crump = MIDAM_TOURNAMENTS.find((event) => event.slug === "the-crump-cup");
+if (crump?.golfGeniusUrlLabel !== "Pairings and tee times" || resultSnapshot("the-crump-cup")) {
+  throw new Error("Crump tee sheet was labeled as results or turned into a board");
+}
+const crumpHtml = renderHub({ slug: "the-crump-cup", name: "The Crump Cup", channel: "midam", month: 9, format: "Match play", pastResults: [{ year: 2026, champion: "Stewart Hagestad" }] }, "midam");
+if (!crumpHtml.includes("The posted sheet is pairings and tee times, not match results.") || crumpHtml.includes(" def. ") || !crumpHtml.includes("IBT Golf Travel")) {
+  throw new Error("Crump page invented a match or dropped the tee-time label");
+}
+const stockerHtml = renderHub({ slug: "the-stocker-cup", name: "Stocker", channel: "midam", month: 10, format: "54 holes stroke play" }, "midam");
+if (!sangerHtml.includes("Full results unavailable here.") || sangerHtml.includes("See Coverage.") || sangerHtml.includes("was found")) {
+  throw new Error("Sanger results copy is not hub-scoped");
+}
+if (!stockerHtml.includes("Full results unavailable here. See Coverage.") || stockerHtml.includes("was found")) {
+  throw new Error("Stocker results copy is not hub-scoped");
+}
+const usgaHtml = renderHub({ slug: "usga-mens-mid-am", name: "USGA Men’s Mid-Am", channel: "midam", month: 10, format: "Match play" }, "midam");
+const usgaWomenHtml = renderHub({ slug: "usga-womens-mid-am", name: "USGA Women’s Mid-Am", channel: "midam", month: 9, format: "Match play" }, "midam");
+for (const html of [usgaHtml, usgaWomenHtml]) {
+  if (!html.includes("Full results unavailable here. See Coverage.") || html.includes("Official scoring was not available")) {
+    throw new Error("USGA results copy describes the retrieval instead of the hub");
+  }
+}
+if (!usgaHtml.includes("PuttView Books")) throw new Error("USGA page dropped the sponsor");
+const seniorLupton = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
+const midamLupton = MIDAM_TOURNAMENTS.find((event) => event.slug === "john-t-lupton-memorial");
+if (seniorLupton?.startDate !== "2026-05-11" || seniorLupton.endDate !== "2026-05-13" || midamLupton?.dates2026 !== "Rescheduled – 2027") {
+  throw new Error("A Lupton year was changed from the other division");
+}
+if (!SOURCE_ACCESS.find((entry) => entry.slug === "john-t-lupton-memorial")?.note.includes("May 11-13, 2026")) {
+  throw new Error("The Lupton date conflict was not flagged");
+}
+if (!renderHub({ slug: "the-farrell", name: "The Farrell", channel: "midam", month: 10, format: "Match play" }, "midam").includes("PuttView Books")) {
+  throw new Error("Farrell sponsor was dropped");
+}
+if (resultSnapshot("east-vs-west-matches")?.kind !== "team-match" || resultSnapshot("national-invitational-tournament")?.kind !== "stroke") {
+  throw new Error("In-progress coverage was replaced");
 }
 
 console.log(JSON.stringify(summary, null, 2));
