@@ -1,0 +1,17 @@
+{
+  "flight": "Men's Mid-Amateur",
+  "round": "Finals",
+  "winner": "David Kitt",
+  "opponent": "John Lazor",
+  "publicResult": "David Kitt def. John Lazor",
+  "claims": [
+    {
+      "source": "golf-genius-match-sheet",
+      "margin": "4 & 3"
+    },
+    {
+      "source": "2026-the-farrell-final-recap",
+      "margin": "3 and 1"
+    }
+  ]
+}

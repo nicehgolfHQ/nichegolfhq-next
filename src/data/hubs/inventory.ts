@@ -27,7 +27,7 @@ export type HubInventoryItem = {
   scoringUrl: string | null;
   newsSlugs: string[];
   template: HubTemplate;
-  batch: "batch-1" | "batch-2" | "batch-3" | "ewing" | null;
+  batch: "batch-1" | "batch-2" | "batch-3" | "batch-4" | "ewing" | null;
   calendar: CalendarStanding;
 };
 
@@ -77,6 +77,20 @@ export const HUB_BATCH_3: Array<{ channel: HubChannel; slug: string }> = [
   { channel: "midam", slug: "the-berkeley-cup" },
   { channel: "midam", slug: "carlton-woods-invitational" },
   { channel: "senior", slug: "carlton-woods-senior-invitational" },
+];
+
+/** Format-specific 2026 boards. Partial match sheets stay incomplete. */
+export const HUB_BATCH_4: Array<{ channel: HubChannel; slug: string }> = [
+  { channel: "midam", slug: "champions-cup-four-ball" },
+  { channel: "midam", slug: "john-r-williams-four-ball" },
+  { channel: "senior", slug: "john-r-williams-four-ball-senior-division" },
+  { channel: "midam", slug: "the-valentine-invitational" },
+  { channel: "senior", slug: "valentine-invitational" },
+  { channel: "midam", slug: "cb-macdonald-invitational-tournament" },
+  { channel: "senior", slug: "cb-macdonald-invitational-senior-division" },
+  { channel: "midam", slug: "anderson-memorial-four-ball" },
+  { channel: "senior", slug: "anderson-memorial-four-ball-senior-division" },
+  { channel: "midam", slug: "the-farrell" },
 ];
 
 const EWING_DEDICATED: Array<{ channel: HubChannel; slug: string }> = [
@@ -149,12 +163,13 @@ function batchFor(channel: HubChannel, slug: string): HubInventoryItem["batch"] 
   if (HUB_BATCH_1.some((item) => item.channel === channel && item.slug === slug)) return "batch-1";
   if (HUB_BATCH_2.some((item) => item.channel === channel && item.slug === slug)) return "batch-2";
   if (HUB_BATCH_3.some((item) => item.channel === channel && item.slug === slug)) return "batch-3";
+  if (HUB_BATCH_4.some((item) => item.channel === channel && item.slug === slug)) return "batch-4";
   return null;
 }
 
 function templateFor(batch: HubInventoryItem["batch"]): HubTemplate {
   if (batch === "ewing") return "ewing-dedicated";
-  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3") return "format-hub";
+  if (batch === "batch-1" || batch === "batch-2" || batch === "batch-3" || batch === "batch-4") return "format-hub";
   return "legacy";
 }
 

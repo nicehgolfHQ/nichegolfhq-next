@@ -7,6 +7,8 @@ import { FormatHub } from "../src/components/hubs/FormatHub";
 import { resultSnapshot, snapshotNames } from "../src/data/hubs/batch1-results";
 import { assertGasparillaBoard, GASPARILLA_OFFICIAL_RESULTS_URL } from "../src/data/hubs/gasparilla-2026";
 import { SOURCE_ACCESS } from "../src/data/hubs/source-access";
+import dispute from "../src/data/hubs/official/farrell-final-dispute.json";
+import { officialFormatSnapshot } from "../src/data/hubs/official-formats";
 import { officialStrokeSnapshot } from "../src/data/hubs/official-stroke";
 import provenance from "../src/data/hubs/official/stroke-batch.provenance.json";
 import provenance3 from "../src/data/hubs/official/stroke-batch-3.provenance.json";
@@ -15,6 +17,7 @@ import {
   HUB_BATCH_1,
   HUB_BATCH_2,
   HUB_BATCH_3,
+  HUB_BATCH_4,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -33,7 +36,9 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length) throw new Error("Format hub count drifted");
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length) {
+  throw new Error("Format hub count drifted");
+}
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
 if (summary.ewingDedicated !== 2) throw new Error("Ewing dedicated hubs drifted");
 if (summary.legacy !== summary.total - summary.formatHub - summary.ewingDedicated) throw new Error("Legacy remainder drifted");
@@ -384,6 +389,9 @@ const mounted = [
   "canadian-mens-mid-amateur",
   "the-berkeley-cup",
   "carlton-woods-invitational",
+  "champions-cup-four-ball",
+  "john-r-williams-four-ball",
+  "the-valentine-invitational",
 ];
 for (const item of SOURCE_ACCESS.filter((entry) => entry.channel === "midam")) {
   const expectsFull = mounted.includes(item.slug);
@@ -527,6 +535,61 @@ if (berkeleyHtml.includes("Low Senior") || !berkeleyHtml.includes("Overall resul
 if (gctHtml.includes("Hoops, Bryan") || !gctHtml.includes("Price, Andrew") || !gctHtml.includes("+3")) {
   throw new Error("George Thomas mid-am board includes the senior division or lost the source to-par");
 }
+const champions = officialFormatSnapshot("champions-cup-four-ball");
+const championsLead = champions?.kind === "stroke" ? champions.rows[0] : null;
+if (!champions || champions.kind !== "stroke" || !champions.complete || champions.rows.length !== 54 || championsLead?.players?.join("|") !== "Gibbons, Josh|Stewart, Kade" || championsLead.total !== 263) {
+  throw new Error("Champions Cup pairs were not stored as two players");
+}
+const jrw = officialFormatSnapshot("john-r-williams-four-ball");
+const jrwSenior = officialFormatSnapshot("john-r-williams-four-ball-senior-division");
+if (!jrw || jrw.kind !== "stroke" || jrw.rows.length !== 50 || !jrwSenior || jrwSenior.kind !== "stroke" || jrwSenior.rows.length !== 18) {
+  throw new Error("John R. Williams team boards changed");
+}
+if (jrw.rows.some((row) => row.name.includes(" + ") || (row.players || []).some((player) => /\band\b/i.test(player)))) {
+  throw new Error("A John R. Williams pairing was stored as one player");
+}
+const valentine = officialFormatSnapshot("the-valentine-invitational");
+const collins = valentine?.kind === "stroke" ? valentine.rows[0] : null;
+if (!valentine || valentine.kind !== "stroke" || valentine.rows.length !== 84 || collins?.rounds.join("|") !== "65 VSab|68 VMan|70 VSab" || collins.total !== 203) {
+  throw new Error("Valentine course codes were rewritten");
+}
+const macdonald = officialFormatSnapshot("cb-macdonald-invitational-tournament");
+if (!macdonald || macdonald.kind !== "stroke" || macdonald.complete || macdonald.scope !== "official-totals" || macdonald.rows.length !== 80 || macdonald.rows.some((row) => row.rounds.some((score) => score != null))) {
+  throw new Error("Macdonald totals invented a round");
+}
+const anderson = officialFormatSnapshot("anderson-memorial-four-ball");
+const andersonFinal = anderson?.kind === "match" ? anderson.matches.find((match) => match.round === "Finals") : null;
+if (!anderson || anderson.kind !== "match" || anderson.complete || anderson.matches.length !== 15 || !andersonFinal?.result.includes("Costanza, Mark / Esteve , Jeronimo def.") || !andersonFinal.result.includes("3 & 2")) {
+  throw new Error("Anderson final was marked complete or the winner changed");
+}
+const farrell = officialFormatSnapshot("the-farrell");
+const farrellFinal = farrell?.kind === "match" ? farrell.matches.find((match) => match.flight === "Men's Mid-Amateur" && match.round === "Finals") : null;
+if (!farrell || farrell.kind !== "match" || farrell.complete || farrell.matches.length !== 30 || farrellFinal?.result !== "David Kitt def. John Lazor") {
+  throw new Error("Farrell final did not keep the winner without a margin");
+}
+if (farrellFinal.result.includes("4 & 3") || farrellFinal.result.includes("3 and 1")) {
+  throw new Error("Farrell final published a disputed margin");
+}
+if (dispute.publicResult !== farrellFinal.result || dispute.claims.map((claim) => claim.margin).join("|") !== "4 & 3|3 and 1") {
+  throw new Error("Farrell margin claims were not both preserved");
+}
+const farrellRecap = MIDAM_TOURNAMENTS.find((event) => event.slug === "the-farrell")?.news?.find((article) => article.slug === "2026-the-farrell-final-recap");
+if (!farrellRecap?.content.some((paragraph) => paragraph.includes("3 and 1 victory over John Lazor"))) {
+  throw new Error("Farrell recap was rewritten");
+}
+const farrellHtml = renderHub({ slug: "the-farrell", name: "The Farrell", channel: "midam", month: 10, format: "18 holes stroke play qualifying, match play" }, "midam");
+if (!farrellHtml.includes("David Kitt def. John Lazor") || farrellHtml.includes("David Kitt def. John Lazor, 4") || farrellHtml.includes("David Kitt def. John Lazor, 3")) {
+  throw new Error("Farrell page showed a disputed final margin");
+}
+if (farrell.matches.some((match) => match.flight.startsWith("Senior"))) throw new Error("Farrell senior matches were placed on the mid-am hub");
+const macHtml = renderHub({ slug: "cb-macdonald-invitational-tournament", name: "C.B. Macdonald", channel: "midam", month: 6, format: "Match play" }, "midam");
+const macSeniorHtml = renderHub({ slug: "cb-macdonald-invitational-senior-division", name: "C.B. Macdonald Senior", channel: "senior", month: 6, format: "Match play" }, "senior");
+for (const html of [macHtml, macSeniorHtml]) {
+  if (!html.includes("Qualifying totals") || html.includes(">Totals<") || html.includes(">R1<") || html.includes("Final results")) {
+    throw new Error("Macdonald qualifying totals were mislabeled or given invented rounds");
+  }
+}
+
 for (const html of [canadaHtml, transHtml, berkeleyHtml, gctHtml]) {
   if (html.includes("Updated Nov 8, 2026") || html.includes("Round buttons highlight")) {
     throw new Error("A public retrieval note was rendered");
