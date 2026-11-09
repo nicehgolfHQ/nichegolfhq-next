@@ -1185,6 +1185,7 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
     slug: "california-senior-amateur",
     name: "California Senior Amateur Championship",
     logo: "/brand/calamlogo.png",
+    liveStatus: "live",
     month: "November 2026",
     startDate: "2026-11-09",
     endDate: "2026-11-11",
