@@ -40,6 +40,7 @@ import {
   HUB_BATCH_13,
   HUB_BATCH_14,
   HUB_BATCH_15,
+  HUB_BATCH_16,
   championLabel,
   classifyCalendar,
   classifyFormat,
@@ -58,7 +59,7 @@ if (summary.total !== MIDAM_TOURNAMENTS.length + JUNIOR_MAJOR_EVENTS_2026.length
 if (summary.byChannel.midam !== MIDAM_TOURNAMENTS.length) throw new Error("Mid-am count drifted");
 if (summary.byChannel.junior !== JUNIOR_MAJOR_EVENTS_2026.length) throw new Error("Junior count drifted");
 if (summary.byChannel.senior !== SENIOR_MAJOR_EVENTS_2026.length) throw new Error("Senior count drifted");
-if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length + HUB_BATCH_15.length) {
+if (summary.formatHub !== HUB_BATCH_1.length + HUB_BATCH_2.length + HUB_BATCH_3.length + HUB_BATCH_4.length + HUB_BATCH_5.length + HUB_BATCH_6.length + HUB_BATCH_7.length + HUB_BATCH_8.length + HUB_BATCH_9.length + HUB_BATCH_10.length + HUB_BATCH_11.length + HUB_BATCH_12.length + HUB_BATCH_13.length + HUB_BATCH_14.length + HUB_BATCH_15.length + HUB_BATCH_16.length) {
   throw new Error("Format hub count drifted");
 }
 if (HUB_BATCH_2.length !== 18) throw new Error("Batch 2 size drifted");
@@ -95,7 +96,9 @@ for (const item of [...HUB_BATCH_1, ...HUB_BATCH_2]) {
 if (isFormatHub("midam", "ewing-cup-four-ball") || isFormatHub("senior", "ewing-cup-four-ball")) {
   throw new Error("Ewing was pulled onto the generic format hub");
 }
-if (isFormatHub("midam", "john-t-lupton-memorial")) throw new Error("Rescheduled Lupton was migrated as stroke");
+if (!isFormatHub("midam", "john-t-lupton-memorial") || !isFormatHub("senior", "john-t-lupton-memorial-senior-division")) {
+  throw new Error("Lupton hubs are not on the shared layout");
+}
 for (const item of HUB_BATCH_2) {
   const row = items.find((entry) => entry.channel === item.channel && entry.slug === item.slug);
   if (row?.formatKind !== "stroke") throw new Error(`${item.slug} is not straightforward stroke`);
@@ -742,7 +745,7 @@ if (!MIDAM_TOURNAMENTS.find((event) => event.slug === "walter-j-travis-invitatio
 }
 
 const midamLegacy = items.filter((item) => item.channel === "midam" && item.template === "legacy").map((item) => item.slug);
-if (midamLegacy.join("|") !== "john-t-lupton-memorial") throw new Error(`Mid-am legacy pages drifted: ${midamLegacy.join("|")}`);
+if (midamLegacy.length !== 0) throw new Error(`Mid-am legacy pages drifted: ${midamLegacy.join("|")}`);
 for (const slug of ["usga-womens-mid-am", "usga-mens-mid-am", "the-crump-cup", "the-stocker-cup"]) {
   if (!isFormatHub("midam", slug)) throw new Error(`${slug} stayed on the legacy layout`);
 }
@@ -782,6 +785,10 @@ const seniorLupton = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "jo
 const midamLupton = MIDAM_TOURNAMENTS.find((event) => event.slug === "john-t-lupton-memorial");
 if (seniorLupton?.startDate !== "2026-05-11" || seniorLupton.endDate !== "2026-05-13" || midamLupton?.dates2026 !== "Rescheduled – 2027") {
   throw new Error("A Lupton year was changed from the other division");
+}
+const midamLuptonHtml = midamLupton ? renderHub(midamLupton, "midam") : "";
+if (!midamLuptonHtml.includes("Rescheduled") || !midamLuptonHtml.includes(">Format</p>") || !midamLuptonHtml.includes("Ben Reeves") || midamLuptonHtml.includes(">How to play</button>")) {
+  throw new Error("Mid-am Lupton did not keep its reschedule on the shared layout");
 }
 if (!SOURCE_ACCESS.find((entry) => entry.slug === "john-t-lupton-memorial")?.note.includes("May 11-13, 2026")) {
   throw new Error("The Lupton date conflict was not flagged");
@@ -1077,8 +1084,8 @@ if (!morey || morey.kind !== "stroke" || morey.divisions?.length !== 2 || morey.
 if (!desert || desert.kind !== "stroke" || desert.divisions?.map((division) => division.label).join("|") !== "Senior|Super Senior|Legend|Super Legend" || desert.rows[0]?.rounds.join(",") !== "67,65,68" || desert.rows[0].total !== 200) {
   throw new Error("Desert Showdown board changed");
 }
-if (isFormatHub("senior", "john-t-lupton-memorial-senior-division") || isFormatHub("midam", "john-t-lupton-memorial") || isFormatHub("midam", "ewing-cup-four-ball")) {
-  throw new Error("Lupton or Ewing was moved");
+if (isFormatHub("midam", "ewing-cup-four-ball") || isFormatHub("senior", "ewing-cup-four-ball")) {
+  throw new Error("Ewing was moved onto the generic format hub");
 }
 const reynolds = officialRemainingSnapshot("reynolds-senior-invitational");
 if (!reynolds || reynolds.kind !== "stroke" || reynolds.divisions?.map((division) => division.label).join("|") !== "Senior|Super Senior|Legends|Grand Master" || reynolds.rows[0]?.rounds.join(",") !== "70,73,68" || reynolds.rows[0].total !== 211) {
@@ -1114,7 +1121,7 @@ if (!tutHtml.includes("Stephen Fox") || !tutHtml.includes("Dean Channell") || tu
   throw new Error("Tutwiler field combined a team into one name");
 }
 const seniorLuptonStill = SENIOR_MAJOR_EVENTS_2026.find((event) => event.slug === "john-t-lupton-memorial-senior-division");
-if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13" || isFormatHub("senior", "john-t-lupton-memorial-senior-division")) {
+if (seniorLuptonStill?.startDate !== "2026-05-11" || seniorLuptonStill.endDate !== "2026-05-13") {
   throw new Error("Senior Lupton dates were changed without an official source");
 }
 const national = officialRemainingSnapshot("golfweek-senior-national-championship");
@@ -1419,8 +1426,8 @@ const ewingHtml = renderToStaticMarkup(createElement(EwingCupHub, {
   entrants: [],
   articles: [{ href: "/midamgolfhq/ewing-cup-four-ball/sample", title: "Ewing preview", date: "2026-11-01", summary: "Existing preview." }],
 }));
-if (ewingHtml.includes(">Coverage</button>") || !ewingHtml.includes('href="/midamgolfhq/ewing-cup-four-ball/sample"') || !ewingHtml.includes("Ewing preview") || !ewingHtml.includes("54-hole better ball, mid-amateur division.")) {
-  throw new Error("Ewing coverage is still behind a tab or the division line changed");
+if (ewingHtml.includes(">Coverage</button>") || !ewingHtml.includes('href="/midamgolfhq/ewing-cup-four-ball/sample"') || !ewingHtml.includes("Ewing preview") || !ewingHtml.includes(">How to play</button>") || !ewingHtml.includes("https://www.ewingcup.com/apply") || ewingHtml.includes("requires a password") || !ewingHtml.includes(">Format</p>") || !ewingHtml.includes("54-hole better ball, mid-amateur division.")) {
+  throw new Error("Ewing coverage, format card, or application tab changed");
 }
 
 console.log(JSON.stringify(summary, null, 2));

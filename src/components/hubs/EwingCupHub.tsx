@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Player, PlayerAppearance } from "@/data/players/types";
-import { roundHasScores, standings } from "@/data/hubs/four-ball";
+import { standings } from "@/data/hubs/four-ball";
 import { EWING_OFFICIAL, EWING_SNAPSHOT } from "@/data/hubs/ewing-cup-four-ball";
 import { FourBallBoard } from "./FourBallBoard";
 
@@ -12,7 +12,7 @@ export type ChampionRow = { year: number; champion: string };
 
 export type HubArticle = { href: string; title: string; date: string; summary: string };
 
-type Tab = "Overview" | "Scoring" | "Field" | "Event";
+type Tab = "Overview" | "Scoring" | "Field" | "Event" | "How to play";
 
 function initials(name: string) {
   const parts = name.split(" ").filter(Boolean);
@@ -32,7 +32,9 @@ export function EwingCupHub({
   entrants: Array<Player & { appearances: PlayerAppearance[] }>;
   articles: HubArticle[];
 }) {
-  const tabs: Tab[] = ["Overview", "Scoring", "Field", "Event"];
+  const tabs: Tab[] = ["Overview", "Scoring", "Field", "Event", "How to play"];
+  const latestChampion = [...pastChampions].sort((a, b) => b.year - a.year)[0];
+  const formatLine = division === "mid-am" ? "54-hole better ball, mid-amateur division." : "54-hole better ball, senior division.";
   const [tab, setTab] = useState<Tab>("Overview");
   const [roundId, setRoundId] = useState<(typeof EWING_SNAPSHOT.rounds)[number]["id"]>("round-1");
   const [query, setQuery] = useState("");
@@ -58,26 +60,30 @@ export function EwingCupHub({
   );
 
   return (
-    <div className="ewing-cup-hub bg-zinc-50 text-zinc-950">
-      <section className="mx-auto w-full max-w-6xl px-5 py-8 text-center md:py-10">
+    <div className="ewing-cup-hub overflow-x-clip bg-zinc-50 text-zinc-950">
+      <section className="mx-auto w-full max-w-6xl px-5 py-6 text-center md:py-8">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">{channelLabel}</p>
-        <Image src="/brand/midamgolfhq/Ewing Cup.jpeg" alt="" width={72} height={72} className="mx-auto mt-3 h-16 w-16 rounded-xl object-cover" />
-        <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-serif text-4xl font-semibold tracking-tight md:text-6xl">
+        <Image src="/brand/midamgolfhq/Ewing Cup.jpeg" alt="" width={72} height={72} className="mx-auto mt-2 h-16 w-16 rounded-xl object-cover" />
+        <h1 className="mx-auto mt-2 w-full max-w-3xl text-balance text-center font-serif font-semibold leading-tight tracking-tight [overflow-wrap:break-word] [font-size:clamp(1.75rem,4.5vw+0.8rem,3.5rem)]">
           Ewing Cup Four-Ball
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-zinc-600 md:text-lg">
-          Dallas Athletic Club, Dallas, Texas. Nov. 13-15, 2026.
-        </p>
-        <div className="mt-4 flex justify-center">
+        <p className="mx-auto mt-2 max-w-2xl text-balance text-base text-zinc-600">Dallas Athletic Club · Dallas, Texas</p>
+        <p className="mt-1 text-base font-semibold text-zinc-900">Nov. 13-15, 2026</p>
+        <div className="mt-3 flex flex-wrap justify-center gap-2">
           <LiveScoringButton url={EWING_SNAPSHOT.scoringUrl} />
+          <a
+            href={EWING_OFFICIAL.home}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
+          >
+            Tournament website
+          </a>
         </div>
-        <p className="mx-auto mt-3 max-w-2xl text-balance text-sm leading-6 text-zinc-600">
-          {division === "mid-am" ? "54-hole better ball, mid-amateur division." : "54-hole better ball, senior division."}
-        </p>
       </section>
 
       <div className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-2 px-5 py-3" role="tablist" aria-label="Ewing Cup sections">
+        <div className="mx-auto flex w-full max-w-6xl justify-center gap-1 overflow-x-auto px-4 py-3 [scrollbar-width:none] sm:gap-2 sm:px-5 [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Ewing Cup sections">
           {tabs.map((item) => (
             <button
               key={item}
@@ -85,7 +91,7 @@ export function EwingCupHub({
               role="tab"
               aria-selected={tab === item}
               onClick={() => setTab(item)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 sm:px-4 sm:text-sm ${
                 tab === item ? "bg-zinc-950 text-white" : "text-zinc-700 hover:bg-zinc-100"
               }`}
             >
@@ -98,39 +104,18 @@ export function EwingCupHub({
       <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         {tab === "Overview" && (
           <>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {EWING_SNAPSHOT.rounds.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  setRoundId(item.id);
-                  setTab("Scoring");
-                }}
-                className="rounded-2xl border border-zinc-200 bg-white p-5 text-center hover:border-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{item.label}</p>
-                <p className="mt-2 font-serif text-2xl font-semibold">{item.course}</p>
-                <p className="mt-2 text-sm text-emerald-800">
-                  {roundHasScores(divisionTeams, EWING_SNAPSHOT.rounds.findIndex((round) => round.id === item.id) as 0 | 1 | 2)
-                    ? "Scores posted"
-                    : "No scores yet"}
-                </p>
-              </button>
-            ))}
+          <div className="mx-auto flex w-full max-w-xl flex-col gap-3">
+            {latestChampion ? (
+              <div className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-center">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{latestChampion.year === 2026 ? "2026 champion" : "Defending champion"}</p>
+                <p className="mt-1 text-sm font-semibold">{latestChampion.champion}</p>
+              </div>
+            ) : null}
+            <div className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-center">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Format</p>
+              <p className="mt-1 text-sm font-semibold">{formatLine}</p>
+            </div>
           </div>
-          <section className="mx-auto mt-8 max-w-xl text-center">
-            <h2 className="font-serif text-2xl font-semibold">How to play</h2>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">The official Apply page requires a password.</p>
-            <a
-              href={EWING_OFFICIAL.apply}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
-            >
-              Application information
-            </a>
-          </section>
           {articles.length > 0 ? (
             <div className="mt-8 grid gap-4">
               {articles.map((article) => (
@@ -221,6 +206,20 @@ export function EwingCupHub({
             </ul>
           </div>
         )}
+
+        <div hidden={tab !== "How to play"}>
+          <div className="mx-auto max-w-xl py-10 text-center">
+            <h2 className="font-serif text-3xl font-semibold">How to play</h2>
+            <a
+              href={EWING_OFFICIAL.apply}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+            >
+              Application information
+            </a>
+          </div>
+        </div>
 
         {tab === "Event" && (
           <div className="grid gap-4 md:grid-cols-2">
