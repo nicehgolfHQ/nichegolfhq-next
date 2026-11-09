@@ -300,15 +300,13 @@ const nitHtml = renderHub(
 );
 if (!nitHtml.includes("Live scoring · NIT2026")) throw new Error("Golf Genius code was dropped");
 if (!nitHtml.includes("idp.golfgenius.com")) throw new Error("Login-bound scoring URL was dropped");
-if (!nitHtml.includes("Sam Jackson") || !nitHtml.includes(">138<")) throw new Error("NIT 36-hole leader did not render");
-if (!nitHtml.includes("Hunter Hamrick") || !nitHtml.includes(">140<")) throw new Error("Hamrick total missing");
-if (!nitHtml.includes("Jackson King") || !nitHtml.includes(">141<")) throw new Error("King total missing");
-if (!nitHtml.includes("Alan Coshatt") || !nitHtml.includes("Ethan Hagood") || !nitHtml.includes("Hunter Hawkins")) {
-  throw new Error("Tied fourth was dropped");
+if (!nitHtml.includes("Final results") || !nitHtml.includes(">R3<") || !nitHtml.includes(">208<") || !nitHtml.includes("-5")) {
+  throw new Error("NIT final board did not render");
 }
-if (!nitHtml.includes("Through 36 holes") || !nitHtml.includes("Selected results")) throw new Error("NIT board looks final");
-if (!nitHtml.includes("Round 2 recap")) throw new Error("Round 2 recap is not linked from scoring");
-if (nitHtml.includes("2026 champion")) throw new Error("NIT leader was labeled the 2026 champion");
+if (nitHtml.includes("Through 36 holes") || nitHtml.includes("Selected results") || nitHtml.includes("Round 2 recap")) {
+  throw new Error("NIT board still looks like the 36-hole selection");
+}
+if (nitHtml.includes("2026 champion")) throw new Error("A stub without the stored champion was labeled the 2026 champion");
 
 const nitWithDefending = renderHub(
   {
@@ -1263,18 +1261,39 @@ for (const slug of ["2026-national-invitational-tournament-round-2-recap", "2026
   if (!nit.news?.some((article) => article.slug === slug)) throw new Error(`${slug} was dropped`);
 }
 const nitSnapshot = resultSnapshot("national-invitational-tournament");
-if (!nitSnapshot || nitSnapshot.kind !== "stroke" || nitSnapshot.rows.some((row) => row.name === "Keith Guest") || !nitSnapshot.rows.some((row) => row.name === "Hunter Hawkins")) {
-  throw new Error("The NIT scoreboard was replaced or Keith Guest was given a score");
+const hawkins = nitSnapshot?.kind === "stroke" ? nitSnapshot.rows.find((row) => row.name === "Hunter Hawkins") : undefined;
+const guest = nitSnapshot?.kind === "stroke" ? nitSnapshot.rows.find((row) => row.name === "Keith Guest") : undefined;
+const stamberger = nitSnapshot?.kind === "stroke" ? nitSnapshot.rows.find((row) => row.name === "Michael Stamberger") : undefined;
+const gourgeot = nitSnapshot?.kind === "stroke" ? nitSnapshot.rows.find((row) => row.name === "Matthew Gourgeot") : undefined;
+const hugghins = nitSnapshot?.kind === "stroke" ? nitSnapshot.rows.find((row) => row.name === "Thomas Hugghins") : undefined;
+const nitNamesOnBoard = nitSnapshot?.kind === "stroke" ? nitSnapshot.rows.map((row) => row.name) : [];
+if (!nitSnapshot || nitSnapshot.kind !== "stroke" || !nitSnapshot.complete || nitSnapshot.scope !== "official-final" || nitSnapshot.roundCount !== 3 || nitSnapshot.stageLabel || nitSnapshot.fieldNames || nitSnapshot.rows.length !== 84 || new Set(nitNamesOnBoard).size !== 84) {
+  throw new Error("The NIT final board is not the complete 84-name finish");
+}
+if (hawkins?.place !== "T32" || hawkins.rounds.join(",") !== "70,73,79" || hawkins.total !== 222 || hawkins.toPar !== "+9") {
+  throw new Error("Hunter Hawkins was dropped from the final board");
+}
+if (guest?.place !== "T23" || guest.rounds.join(",") !== "69,78,73" || guest.total !== 220 || guest.toPar !== "+7") {
+  throw new Error("Keith Guest final scores changed");
+}
+if (stamberger?.rounds.join(",") !== "81,73,WD" || stamberger.total !== 154 || gourgeot?.rounds.join(",") !== "77,WD," || gourgeot.total !== 77) {
+  throw new Error("A withdrawal row was rewritten");
+}
+if (!hugghins || hugghins.place !== "WD" || hugghins.rounds.some((score) => score != null) || hugghins.total != null || hugghins.toPar) {
+  throw new Error("Thomas Hugghins was given a score");
 }
 const nitHubHtml = renderHub({ ...nit, news: nit.news?.map((article) => ({ ...article, photos: undefined })) }, "midam");
 const nitNames = [
   "Sam Jackson", "Sean Rowen", "Jackson King", "Will McCurdy", "Ethan Hagood", "Jeff Reuter", "Bo Hayes", "JP Cave", "Charlie Hoyle", "John Quigley", "Alan Coshatt", "Blake Watts", "Lawrence Allan", "Andy Sajevic", "Hunter Hamrick", "Cam Roam", "Patrick Christovich", "John Hunter", "Ryan Terry", "Daniel Connolly", "Austin Coggin", "TJ Shuart", "Taylor Eyster", "Logan Blondell", "Blair Hamm", "Keith Guest", "Hunter Hawkins",
 ];
 for (const name of nitNames) {
-  if (!nitHubHtml.includes(`>${name}</li>`)) throw new Error(`${name} is missing from the NIT field`);
+  if (!nitHubHtml.includes(`>${name}</span>`)) throw new Error(`${name} is missing from the NIT field`);
 }
-if (nitHubHtml.includes("Patrick Christovich,") || nitHubHtml.includes("Tournament field, listed alphabetically.")) {
-  throw new Error("The NIT field has a bad name or claims to be the full field");
+if (nitHubHtml.includes("Patrick Christovich,") || !nitHubHtml.includes("Tournament field, listed alphabetically.") || !nitHubHtml.includes("Final results")) {
+  throw new Error("The NIT field name or final heading changed");
+}
+if (nitNamesOnBoard.filter((name) => nitHubHtml.includes(`>${name}</span>`)).length !== 84) {
+  throw new Error("The NIT field is not the 84 board names");
 }
 const nitChampion = nitHubHtml.slice(nitHubHtml.indexOf("2026 champion"), nitHubHtml.indexOf("2026 champion") + 180);
 if (!nitChampion.includes("Sam Jackson (208 -5)") || !nitHubHtml.includes("Ryan Terry")) {
