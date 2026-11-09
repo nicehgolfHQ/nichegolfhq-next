@@ -23,7 +23,7 @@ const CHANNEL_PATH: Record<HubChannel, string> = {
   senior: "seniorgolfhq",
 };
 
-type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event";
+type Panel = "Overview" | "Scoring" | "Matches" | "Field" | "Event" | "How to play";
 
 /** Public scope lines. These do not add scores. */
 const RESULTS_NOTE: Record<string, string> = {
@@ -56,7 +56,8 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   const standing = classifyCalendar(tournament);
   const snapshot = resultSnapshot(tournament.slug);
   const rounds = snapshot?.kind === "stroke" ? snapshot.roundCount : strokeRoundCount(tournament.format, kind);
-  const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event"];
+  const applicationLinks = (tournament.howToPlay ?? []).filter((entry) => entry.href);
+  const tabs: Panel[] = ["Overview", resultsLabel, "Field", "Event", ...(applicationLinks.length ? (["How to play"] as Panel[]) : [])];
   const [tab, setTab] = useState<Panel>("Overview");
   const [round, setRound] = useState(() =>
     snapshot?.kind === "stroke" && snapshot.scope !== "published-finishers" ? snapshot.roundCount : 1,
@@ -69,18 +70,18 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
   const names = snapshot ? snapshotNames(snapshot) : [];
 
   return (
-    <div className="bg-zinc-50 text-zinc-950">
-      <section className="mx-auto w-full max-w-6xl px-5 py-8 text-center md:py-10">
+    <div className="overflow-x-clip bg-zinc-50 text-zinc-950">
+      <section className="mx-auto w-full max-w-6xl px-5 py-6 text-center md:py-8">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">{CHANNEL_LABEL[channel]}</p>
         {tournament.logo ? (
-          <Image src={tournament.logo} alt="" width={72} height={72} className="mx-auto mt-3 h-16 w-auto rounded-xl object-cover" />
+          <Image src={tournament.logo} alt="" width={72} height={72} className="mx-auto mt-2 h-16 w-auto rounded-xl object-cover" />
         ) : null}
-        <h1 className="mx-auto mt-3 max-w-4xl text-balance text-center font-serif text-4xl font-semibold tracking-tight md:text-6xl">
+        <h1 className="mx-auto mt-2 w-full max-w-3xl text-balance text-center font-serif font-semibold leading-tight tracking-tight [overflow-wrap:break-word] [font-size:clamp(1.75rem,4.5vw+0.8rem,3.5rem)]">
           {tournament.name}
         </h1>
-        {place ? <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-zinc-600 md:text-lg">{place}</p> : null}
-        {dates ? <p className="mt-2 text-base font-semibold text-zinc-900">{dates}</p> : null}
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
+        {place ? <p className="mx-auto mt-2 max-w-2xl text-balance text-base text-zinc-600">{place}</p> : null}
+        {dates ? <p className="mt-1 text-base font-semibold text-zinc-900">{dates}</p> : null}
+        <div className="mt-3 flex flex-wrap justify-center gap-2">
           <ScoringAccess tournament={tournament} />
           {tournament.golfGeniusUrl && tournament.tournamentWebsite ? (
             <a
@@ -93,11 +94,10 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
             </a>
           ) : null}
         </div>
-        {tournament.format ? <p className="mx-auto mt-3 max-w-2xl text-balance text-sm leading-6 text-zinc-600">{tournament.format}</p> : null}
       </section>
 
       <div className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-2 px-5 py-3" role="tablist" aria-label={`${tournament.name} sections`}>
+        <div className="mx-auto flex w-full max-w-6xl justify-center gap-1 overflow-x-auto px-4 py-3 [scrollbar-width:none] sm:gap-2 sm:px-5 [&::-webkit-scrollbar]:hidden" role="tablist" aria-label={`${tournament.name} sections`}>
           {tabs.map((item) => (
             <button
               key={item}
@@ -105,7 +105,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
               role="tab"
               aria-selected={tab === item}
               onClick={() => setTab(item)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 sm:px-4 sm:text-sm ${
                 tab === item ? "bg-zinc-950 text-white" : "text-zinc-700 hover:bg-zinc-100"
               }`}
             >
@@ -117,7 +117,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
 
       <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
         <div hidden={tab !== "Overview"}>
-          <OverviewPanel tournament={tournament} rounds={rounds} standing={standing} channel={channel} />
+          <OverviewPanel tournament={tournament} standing={standing} channel={channel} />
         </div>
         <div hidden={tab !== resultsLabel}>
           <ResultsPanel
@@ -138,6 +138,11 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
         <div hidden={tab !== "Event"}>
           <EventPanel tournament={tournament} standing={standing} snapshot={snapshot} />
         </div>
+        {applicationLinks.length ? (
+          <div hidden={tab !== "How to play"}>
+            <HowToPlayPanel links={applicationLinks} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -183,50 +188,53 @@ function ScoringAccess({ tournament }: { tournament: Tournament }) {
   return null;
 }
 
+function HowToPlayPanel({ links }: { links: Array<{ label: string; href?: string }> }) {
+  return (
+    <div className="mx-auto max-w-xl py-10 text-center">
+      <h2 className="font-serif text-3xl font-semibold">How to play</h2>
+      <ul className="mt-6 flex flex-col items-center gap-3">
+        {links.map((entry) => (
+          <li key={entry.href}>
+            <a
+              href={entry.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+            >
+              {entry.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function OverviewPanel({
   tournament,
-  rounds,
   standing,
   channel,
 }: {
   tournament: Tournament;
-  rounds: number;
   standing: ReturnType<typeof classifyCalendar>;
   channel: HubChannel;
 }) {
-  const facts = [
-    tournament.fieldSize ? { label: "Field", value: tournament.fieldSize } : null,
-    tournament.eligibility ? { label: "Eligibility", value: tournament.eligibility } : null,
-    tournament.founded ? { label: "Founded", value: String(tournament.founded) } : null,
-  ].filter((item): item is { label: string; value: string } => Boolean(item));
   const latest = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];
 
   return (
     <div>
-      {rounds > 0 && standing === "scheduled-2026" ? (
-        <div className={`grid grid-cols-1 gap-4 ${rounds >= 4 ? "md:grid-cols-2 xl:grid-cols-4" : rounds === 3 ? "md:grid-cols-3" : rounds === 2 ? "md:grid-cols-2" : ""}`}>
-          {Array.from({ length: rounds }, (_, index) => (
-            <div key={index} className="rounded-2xl border border-zinc-200 bg-white p-5 text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Round {index + 1}</p>
-              {tournament.course ? <p className="mt-2 font-serif text-2xl font-semibold">{tournament.course}</p> : null}
-            </div>
-          ))}
-        </div>
-      ) : null}
-
-      {facts.length > 0 || latest ? (
-        <div className="mt-4 flex flex-wrap justify-center gap-3">
-          {facts.map((fact) => (
-            <div key={fact.label} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{fact.label}</p>
-              <p className="mt-1 max-w-md text-sm font-semibold">{fact.value}</p>
-            </div>
-          ))}
+      {latest || tournament.format ? (
+        <div className="mx-auto flex w-full max-w-xl flex-col gap-3">
           {latest ? (
-            <div className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center">
+            <div className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{championLabel(latest.year, 2026, standing)}</p>
               <p className="mt-1 text-sm font-semibold">{latest.champion}</p>
-              <p className="mt-1 text-xs text-zinc-500">{latest.year}</p>
+            </div>
+          ) : null}
+          {tournament.format ? (
+            <div className="w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-center">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Format</p>
+              <p className="mt-1 text-sm font-semibold">{tournament.format}</p>
             </div>
           ) : null}
         </div>
@@ -245,31 +253,6 @@ function OverviewPanel({
         <div className="mx-auto mt-8 max-w-xl">
           <SponsorStrip sponsorName="PuttView Books" sponsorUrl="https://puttviewbooks.com/" attribution="Supported by" />
         </div>
-      ) : null}
-
-      {(tournament.howToPlay ?? []).length > 0 ? (
-        <section className="mx-auto mt-8 max-w-xl text-center">
-          <h2 className="font-serif text-2xl font-semibold">How to play</h2>
-          <ul className="mt-4 space-y-3">
-            {tournament.howToPlay!.map((entry) => (
-              <li key={entry.label}>
-                {entry.href ? (
-                  <a
-                    href={entry.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
-                  >
-                    {entry.label}
-                  </a>
-                ) : (
-                  <p className="text-sm font-semibold text-zinc-800">{entry.label}</p>
-                )}
-                {entry.note ? <p className="mx-auto mt-1 max-w-md text-sm leading-6 text-zinc-600">{entry.note}</p> : null}
-              </li>
-            ))}
-          </ul>
-        </section>
       ) : null}
 
       <TournamentNews news={tournament.news} articleHrefPrefix={`/${CHANNEL_PATH[channel]}/${tournament.slug}`} />
@@ -777,6 +760,8 @@ function EventPanel({
     venueUnconfirmed ? null : tournament.courseSlope ? { label: "Slope", value: String(tournament.courseSlope) } : null,
     venueUnconfirmed ? null : tournament.courseDesigner ? { label: "Designer", value: tournament.courseDesigner } : null,
     tournament.courseYear ? { label: "Opened", value: String(tournament.courseYear) } : null,
+    tournament.fieldSize ? { label: "Field", value: tournament.fieldSize } : null,
+    tournament.eligibility ? { label: "Eligibility", value: tournament.eligibility } : null,
     ...divisionFacts,
   ].filter((item): item is { label: string; value: string } => Boolean(item));
   const latest = [...(tournament.pastResults ?? [])].sort((a, b) => b.year - a.year)[0];

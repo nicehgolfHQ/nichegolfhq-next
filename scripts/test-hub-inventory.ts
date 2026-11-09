@@ -1296,8 +1296,11 @@ if (nitNamesOnBoard.filter((name) => nitHubHtml.includes(`>${name}</span>`)).len
   throw new Error("The NIT field is not the 84 board names");
 }
 const nitChampion = nitHubHtml.slice(nitHubHtml.indexOf("2026 champion"), nitHubHtml.indexOf("2026 champion") + 180);
-if (!nitChampion.includes("Sam Jackson (208 -5)") || !nitHubHtml.includes("Ryan Terry")) {
+if (!nitChampion.includes("Sam Jackson (208 -5)") || nitChampion.includes('text-zinc-500">2026</p>') || !nitHubHtml.includes("Ryan Terry")) {
   throw new Error("The NIT champion box did not show Sam Jackson or dropped Ryan Terry");
+}
+if (!nitHubHtml.includes("clamp(1.75rem,4.5vw+0.8rem,3.5rem)")) {
+  throw new Error("Hub titles do not scale and wrap");
 }
 const eastWestHtml = renderHub(toTournament(eastWestEvent), "senior");
 const eastChampion = eastWestHtml.slice(eastWestHtml.indexOf("2026 champion"), eastWestHtml.indexOf("2026 champion") + 160);
@@ -1333,10 +1336,9 @@ function heroAndOverview(html: string) {
 
 function assertSingleFormat(html: string, format: string, label: string) {
   const { hero, overview } = heroAndOverview(html);
-  const shown = hero.split(format).length - 1;
-  if (shown !== 1) throw new Error(`${label} format appeared ${shown} times above the tabs`);
-  if (overview.includes(">Format</p>") || overview.includes(`>${format}<`)) {
-    throw new Error(`${label} repeated its format under Overview`);
+  if (hero.includes(format)) throw new Error(`${label} format is still above the tabs`);
+  if (overview.split(">Format</p>").length - 1 !== 1 || !overview.includes(`>${format}</p>`)) {
+    throw new Error(`${label} format is not in one Overview card`);
   }
 }
 
@@ -1375,8 +1377,15 @@ assertSingleFormat(travisPage, travisEvent.format, "Travis");
 assertSingleFormat(andersonPage, andersonEvent.format, "Anderson");
 assertSingleFormat(orangePage, orangeBowl.format, "Junior Orange Bowl");
 assertSingleFormat(bogartHtml, "54-hole stroke play", "Ralph Bogart");
-if (!gasparillaPage.includes("2026 Results") || !gasparillaPage.includes("Hayes Brown") || !gasparillaPage.includes("Monday qualifier") || !gasparillaPage.includes(">Par<") || !gasparillaPage.includes(">70<")) {
-  throw new Error("Gasparilla scoring label, board, qualifier, or par was dropped");
+if (!gasparillaPage.includes("2026 Results") || !gasparillaPage.includes("Hayes Brown") || !gasparillaPage.includes(">Par<") || !gasparillaPage.includes(">70<")) {
+  throw new Error("Gasparilla scoring label, board, or par was dropped");
+}
+if (!gasparillaPage.includes(">How to play</button>") || !gasparillaPage.includes('href="https://gasparillainvitational.com/"') || !gasparillaPage.includes("Apply for invite here") || gasparillaPage.includes("Qualifying held the Monday before the event")) {
+  throw new Error("Gasparilla application tab was dropped or added extra text");
+}
+const noApplyHtml = renderHub({ slug: "overview-card-no-apply", name: "No application", channel: "midam", month: 1, format: "Match play", howToPlay: [{ label: "Invite only" }] }, "midam");
+if (noApplyHtml.includes(">How to play</button>") || heroAndOverview(noApplyHtml).hero.includes("Match play")) {
+  throw new Error("A hub without an application link rendered How to play, or the format stayed above the tabs");
 }
 if (!championsPage.includes(">Team<") || !championsPage.includes("Gibbons, Josh") || !championsPage.includes("Stewart, Kade") || !championsPage.includes(">263<") || !championsPage.includes(">Par<")) {
   throw new Error("Champions Cup pairs or scoring facts were dropped");
@@ -1390,8 +1399,8 @@ if (!andersonPage.includes("Recorded format: Match play") || !andersonPage.inclu
 if (!orangePage.includes(orangeBowl.fieldSize) || !orangePage.includes(orangeBowl.eligibility) || !orangePage.includes(">Par<") || !orangePage.includes(">71<")) {
   throw new Error("Junior Orange Bowl field, eligibility, or par was dropped");
 }
-if (!bogartHtml.includes(">Round 1<") || !bogartHtml.includes(">Round 3<") || !bogartHtml.includes("Defending champion") || !bogartHtml.includes("Rick Stimmel")) {
-  throw new Error("Upcoming stroke rounds or the defending champion were dropped");
+if (!bogartHtml.includes("Defending champion") || !bogartHtml.includes("Rick Stimmel") || !bogartHtml.includes(">Format</p>")) {
+  throw new Error("Upcoming defending champion or format card was dropped");
 }
 const gasparillaOverview = heroAndOverview(gasparillaPage).overview;
 if (gasparillaPage.includes(">Coverage</button>") || !gasparillaOverview.includes("/midamgolfhq/gasparilla-invitational/2026-gasparilla-invitational-recap") || !gasparillaOverview.includes("Brown Birdies 18 to Edge White by One")) {
