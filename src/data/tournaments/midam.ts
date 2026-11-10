@@ -3094,7 +3094,22 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     howToPlay: [
       { label: "Application information", href: "https://www.ewingcup.com/apply", note: "Password required on the official page." },
     ],
-    news: [],
+    news: [
+      {
+        slug: "2026-ewing-cup-four-ball-preview",
+        title: "Ewing Cup Four-Ball Preview: Holland and Minahan Defend at Dallas Athletic Club With 32 Mid-Am Teams",
+        date: "2026-11-10",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Defending champions Charlie Holland and James Minahan lead a 32-team mid-am field at Dallas Athletic Club in Dallas, Texas, Nov. 13-15, joined by 2018 and 2019 winners Clark Collier and Kyle Hudelson.",
+        content: [
+          "The Ewing Cup Four-Ball tees off Friday at Dallas Athletic Club in Dallas, Texas, with 32 mid-amateur teams set for 54 holes of better-ball Nov. 13-15. The field plays the Blue Course on Friday, the Gold Course on Saturday and returns to the Blue Course on Sunday for a full-field start at 8:30 AM. Defending champions Charlie Holland and James Minahan return after winning the mid-am title last year. The club has conducted the event for more than 30 years, and midamgolfHQ's mid-am champions list dates to 1992. Live scoring and full tournament coverage can be found on the [Ewing Cup Four-Ball tournament hub here](/midamgolfhq/ewing-cup-four-ball).",
+          "Holland, of Dallas, won the 2007 Texas Amateur at Whispering Pines Golf Club in Trinity and was runner-up at the 2024 Texas Mid-Amateur, closing 72-68-68 to finish at 208, four shots behind Kendrick Vinar. Also in the field are Clark Collier and Kyle Hudelson, the last team to go back-to-back at the Ewing Cup, winning in 2018 and 2019. The pair were runners-up at the 2017 U.S. Amateur Four-Ball, falling 2 and 1 to Frankie Capan and Shuai Ming (Ben) Wong at Pinehurst No. 2, and Hudelson is a three-time Oklahoma Mid-Amateur champion, with titles in 2019, 2020 and 2023.",
+          "Past mid-am champions in the field include 2022 winner Michael Randle, who is paired with Zac Verses, and 2021 winner Ryder Epson, who is teamed with Patrick Murphy. Jordan Woolf, who won this title in 2024 and also claimed it in 2012 with Jay Danzi, is back as well. Kolton Crawford of Azle, who tied for second at the 2025 Texas Mid-Amateur at Champions Golf Club before Kade Stewart won a three-man playoff, plays with Sean Heidrick. Zach Atkinson, the 2016 Texas Mid-Amateur Match Play champion and a three-time North Mid-Amateur winner (2013, 2015 and 2018), is paired with Brian Hatter.",
+          "The mid-am field also includes Andrew Grice and Jonathan Keane, Steven Holtgrieve and Tyler Palmer, Kyle Dickerson and Rory Smith, and Jordan Russell and John Stollenwerck Jr. midamgolfHQ will be tracking the action all week from Dallas Athletic Club. Live scoring is available on the [Ewing Cup Four-Ball tournament hub](/midamgolfhq/ewing-cup-four-ball).",
+        ],
+      },
+    ],
     pastResults: [
       { year: 2025, champion: "Charlie Holland & James Minahan" },
       { year: 2024, champion: "Travis Woolf & Jordan Woolf" },
