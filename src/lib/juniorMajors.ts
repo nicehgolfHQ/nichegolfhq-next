@@ -868,7 +868,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     name: "AJGA Ping Invitational",
     // Rescheduled after the October cancellation. Confirmed on the AJGA
     // tournament page (2026844): November 5-8, 2026 at Seminole Legacy.
-    liveStatus: "live",
+    liveStatus: "completed",
     month: "November 2026",
     dates2026: "November 5-8, 2026",
     startDate: "2026-11-05",
@@ -900,7 +900,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
     // course pages) and Golfstat: November 5-7, 2026 at The King & Bear Golf Club.
     // Overlaps the rescheduled PING Invitational (Nov 5-8); both are flagged
     // "next" and the juniorgolfHQ widget renders a card for each.
-    liveStatus: "live",
+    liveStatus: "completed",
     month: "November 2026",
     dates2026: "November 5-7, 2026",
     startDate: "2026-11-05",
@@ -925,6 +925,7 @@ export const JUNIOR_MAJOR_EVENTS_2026: JuniorMajorEvent[] = [
   {
     slug: "rolex-tournament-of-champions",
     name: "Rolex Tournament of Champions",
+    liveStatus: "next",
     month: "November 2026",
     startDate: "2026-11-21",
     endDate: "2026-11-25",
