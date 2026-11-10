@@ -43,7 +43,7 @@ export const EWING_SNAPSHOT = {
   fieldStatus: "posted" as const,
   leaderboardStatus: "source_pending" as "source_pending" | "verified" | "source_unavailable",
   /** Public scoring page. Null until a verified URL is recorded. */
-  scoringUrl: null as string | null,
+  scoringUrl: "https://www.golfgenius.com/pages/12440584370501201186" as string | null,
   competitionStart: "2026-11-13",
   competitionEnd: "2026-11-15",
   sources: [
