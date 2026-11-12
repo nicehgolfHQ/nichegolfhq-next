@@ -330,7 +330,7 @@ npm run indexnow -- /briefs/2026-10-19
 npm run indexnow -- https://www.nichegolfhq.com/midamgolfhq/the-berkeley-cup
 ```
 
-A path is expanded to `https://www.nichegolfhq.com`. The script refuses any other host. It calls `https://api.indexnow.org/indexnow` with the public key in `public/ec120083fab42ae247b1f28b18a8807c.txt`. Run it after the production deploy that contains the new page, not before the URL returns 200.
+A path is expanded to `https://www.nichegolfhq.com`. The script refuses any other host. In Git Bash on Windows, pass full URLs (or set `MSYS_NO_PATHCONV=1`): Git Bash rewrites a leading-slash path like `/briefs/...` into `C:/Program Files/Git/briefs/...` before the script sees it. It calls `https://api.indexnow.org/indexnow` with the public key in `public/ec120083fab42ae247b1f28b18a8807c.txt`. Run it after the production deploy that contains the new page, not before the URL returns 200.
 
 `POST /api/indexnow` accepts `{ "urls": ["https://www.nichegolfhq.com/..."] }` only when `INDEXNOW_SECRET` is set. Send that value in the `x-indexnow-secret` header. If the env var is missing, the route returns 404. The npm script does not use this route.
 
