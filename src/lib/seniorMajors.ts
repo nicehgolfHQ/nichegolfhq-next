@@ -1235,6 +1235,20 @@ export const SENIOR_MAJOR_EVENTS_2026: SeniorMajorEvent[] = [
       { year: 1992, champion: "Chuck Weil", venue: "Ojai Valley Inn", score: "142" },
     ],
     howToPlay: [{ label: "Register here", href: "https://calam-2026californiasenioramateur.golfgenius.com/pages/12206054641741353670" }],
+    news: [
+      {
+        slug: "2026-california-senior-amateur-final-recap",
+        title: "Ron Ewing Holds Off Steve Sear to Win California Senior Amateur at Serrano",
+        date: "2026-11-12",
+        author: "seniorgolfHQ Staff",
+        summary:
+          "Ron Ewing birdies 14 and 17 down the stretch to win the 35th California Senior Amateur at 11-under 205, one ahead of Steve Sear's closing 65 and matching the championship record.",
+        content: [
+          "Ron Ewing of Atwater won the 35th California Senior Amateur Championship at Serrano Country Club in El Dorado Hills, closing with a 3-under 69 to finish at 11-under 205 and hold off Steve Sear by one. Ewing, 58, took a three-shot lead into the final round after a second-round 66, but Sear erased it by going 7-under through his first 13 holes. Playing two groups behind, Ewing checked the leaderboard on the par-5 14th and made birdie to pull level, then nearly holed his tee shot on the par-3 17th and converted from about five feet for the winning birdie before two-putting from 50 feet on the last. Full results can be found on the [California Senior Amateur tournament hub here](/seniorgolfhq/california-senior-amateur).",
+          "Sear, the 2025 NCGA Senior Player of the Year from Washoe Valley, Nevada, posted a closing 7-under 65, one of the lowest rounds in championship history, and climbed seven spots to finish alone in second at 10-under 206. Goran Hagegard of La Canada Flintridge closed with a 67 to take third at 9-under 207, defending champion Bob Niger finished fourth at 7-under 209, and Terry Foreman, Mark Strickland and Jeff Heitt tied for fifth at 6-under 210. Ewing's 205 ties the championship record set last year, when Niger won in a playoff at the same total, and the state title joins the 2024 NCGA Mid-Amateur Four-Ball he won with Chris Cuttone. seniorgolfHQ will be back with coverage from the Society of Seniors' Ralph Bogart Tournament at Abacoa Golf Club, November 30-December 2.",
+        ],
+      },
+    ],
   },
   {
     slug: "ewing-cup-four-ball",
