@@ -88,7 +88,7 @@ export function FormatHub({ tournament, channel }: { tournament: Tournament; cha
               href={tournament.tournamentWebsite}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
+              className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
             >
               {tournament.tournamentWebsiteLabel ?? "Tournament website"}
             </a>
@@ -157,7 +157,7 @@ function ScoringAccess({ tournament }: { tournament: Tournament }) {
         target="_blank"
         rel="noreferrer"
         title={tournament.golfGeniusCode ? `Golf Genius ID: ${tournament.golfGeniusCode}` : undefined}
-        className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+        className="inline-flex items-center justify-center rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
       >
         {label}
       </a>
@@ -166,7 +166,7 @@ function ScoringAccess({ tournament }: { tournament: Tournament }) {
   if (tournament.golfGeniusCode) {
     return (
       <span
-        className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white"
+        className="inline-flex items-center justify-center rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white"
         title={`Golf Genius ID: ${tournament.golfGeniusCode}`}
       >
         Live scoring · {tournament.golfGeniusCode}
@@ -179,7 +179,7 @@ function ScoringAccess({ tournament }: { tournament: Tournament }) {
         href={tournament.tournamentWebsite}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
+        className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
       >
         {tournament.tournamentWebsiteLabel ?? "Tournament website"}
       </a>
@@ -199,7 +199,7 @@ function HowToPlayPanel({ links }: { links: Array<{ label: string; href?: string
               href={entry.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
             >
               {entry.label}
             </a>

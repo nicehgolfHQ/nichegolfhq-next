@@ -75,7 +75,7 @@ export function EwingCupHub({
             href={EWING_OFFICIAL.home}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
+            className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800"
           >
             Tournament website
           </a>
@@ -155,7 +155,7 @@ export function EwingCupHub({
             <div className="mt-4 flex justify-center">
               <a
                 href={EWING_OFFICIAL.information}
-                className="inline-flex rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
               >
                 Official schedule
               </a>
@@ -264,7 +264,7 @@ function LiveScoringButton({ url }: { url: string | null }) {
         href={url}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex rounded-full bg-emerald-800 px-3.5 py-1.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+        className="inline-flex items-center justify-center rounded-full bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
       >
         Live scoring
       </a>
@@ -275,7 +275,7 @@ function LiveScoringButton({ url }: { url: string | null }) {
       type="button"
       disabled
       aria-disabled="true"
-      className="inline-flex cursor-not-allowed rounded-full border border-zinc-300 bg-zinc-100 px-3.5 py-1.5 text-sm font-semibold text-zinc-400"
+      className="inline-flex cursor-not-allowed items-center justify-center rounded-full border border-zinc-300 bg-zinc-100 px-4 py-2.5 text-sm font-semibold text-zinc-400"
     >
       Live scoring
     </button>
