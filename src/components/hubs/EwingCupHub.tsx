@@ -117,15 +117,18 @@ export function EwingCupHub({
             </div>
           </div>
           {articles.length > 0 ? (
-            <div className="mt-8 grid gap-4">
+            <section className="mx-auto mt-10 w-full max-w-3xl text-center">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">News</h2>
+            <div className="mt-3 grid gap-4">
               {articles.map((article) => (
-                <Link key={article.href} href={article.href} className="rounded-2xl border border-zinc-200 bg-white p-5 hover:border-emerald-700">
+                <Link key={article.href} href={article.href} className="rounded-2xl border border-zinc-200 bg-white p-5 text-center hover:border-emerald-700">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800">{article.date}</p>
-                  <h2 className="mt-2 font-serif text-2xl font-semibold">{article.title}</h2>
-                  {article.summary ? <p className="mt-2 text-base leading-7 text-zinc-600">{article.summary}</p> : null}
+                  <h3 className="mt-2 text-balance font-serif text-2xl font-semibold">{article.title}</h3>
+                  {article.summary ? <p className="mx-auto mt-2 max-w-2xl text-base leading-7 text-zinc-600">{article.summary}</p> : null}
                 </Link>
               ))}
             </div>
+            </section>
           ) : null}
           </>
         )}
