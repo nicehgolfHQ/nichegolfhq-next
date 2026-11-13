@@ -1,9 +1,11 @@
 import { notPostedRound, type FourBallScore } from "./four-ball";
 
 /**
- * Mid-amateur Ewing Cup scores, keyed by the official last-name pair.
- * Extend a team's `rounds` tuple with Saturday and Sunday totals when those
- * rounds are posted. Leave a missing round as null; never fill it with zero.
+ * Ewing Cup scores, keyed by the official last-name pair.
+ * Mid-amateur rows are in EWING_2026_MIDAM_SCORES; senior rows are in
+ * EWING_2026_SENIOR_SCORES. Extend a team's `rounds` tuple with Saturday and
+ * Sunday totals when those rounds are posted. Leave a missing round as null;
+ * never fill it with zero.
  */
 export type MidAmScoreEntry = {
   pair: string;
@@ -97,4 +99,49 @@ export function unusedMidAmScorePairs(teams: Array<{ division: string; names: [s
       .flatMap((team) => [pairKey(team.names), `${lastName(team.names[1])} + ${lastName(team.names[0])}`]),
   );
   return EWING_2026_MIDAM_SCORES.filter((row) => !used.has(row.pair)).map((row) => row.pair);
+}
+
+export const EWING_2026_SENIOR_SCORES: MidAmScoreEntry[] = [
+  { pair: "Johnson + Tyner", officialPosition: "1", rounds: [65, null, null], total: 65, toPar: -7 },
+  { pair: "Brellenthin + Peterson", officialPosition: "T2", rounds: [66, null, null], total: 66, toPar: -6 },
+  { pair: "Lohner + Vancil", officialPosition: "T2", rounds: [66, null, null], total: 66, toPar: -6 },
+  { pair: "Moore + Coutant", officialPosition: "T2", rounds: [66, null, null], total: 66, toPar: -6 },
+  { pair: "Bruce + Bonneau", officialPosition: "T5", rounds: [67, null, null], total: 67, toPar: -5 },
+  { pair: "Stollenwerck + Barfield", officialPosition: "T5", rounds: [67, null, null], total: 67, toPar: -5 },
+  { pair: "Stephenson + Sandlin", officialPosition: "7", rounds: [68, null, null], total: 68, toPar: -4 },
+  { pair: "Steen + Houston", officialPosition: "T8", rounds: [70, null, null], total: 70, toPar: -2 },
+  { pair: "Motes + Landis", officialPosition: "T8", rounds: [70, null, null], total: 70, toPar: -2 },
+  { pair: "Dean + Jones", officialPosition: "10", rounds: [71, null, null], total: 71, toPar: -1 },
+  { pair: "Schaefer + Pierce", officialPosition: "T11", rounds: [72, null, null], total: 72, toPar: 0 },
+  { pair: "Smith + Brewer", officialPosition: "T11", rounds: [72, null, null], total: 72, toPar: 0 },
+  { pair: "Dortch + Schneider", officialPosition: "T13", rounds: [73, null, null], total: 73, toPar: 1 },
+  { pair: "Aube + Childers", officialPosition: "T13", rounds: [73, null, null], total: 73, toPar: 1 },
+  { pair: "Gafner + Quinn", officialPosition: "T13", rounds: [73, null, null], total: 73, toPar: 1 },
+  { pair: "Allen + Tolliver", officialPosition: "T16", rounds: [74, null, null], total: 74, toPar: 2 },
+  { pair: "Peck + Love", officialPosition: "T16", rounds: [74, null, null], total: 74, toPar: 2 },
+  { pair: "Dandurand + Carter", officialPosition: "T18", rounds: [76, null, null], total: 76, toPar: 4 },
+  { pair: "Dodson + Waldrip", officialPosition: "T18", rounds: [76, null, null], total: 76, toPar: 4 },
+  { pair: "Crisco + Piersall", officialPosition: "20", rounds: [77, null, null], total: 77, toPar: 5 },
+];
+
+export function seniorScoreFor(names: [string, string]): FourBallScore | null {
+  const key = pairKey(names);
+  const reversed = `${lastName(names[1])} + ${lastName(names[0])}`;
+  const entry = EWING_2026_SENIOR_SCORES.find((row) => row.pair === key || row.pair === reversed);
+  return entry ? scoreFromEntry(entry) : null;
+}
+
+export function seniorBoardIndex(names: [string, string]) {
+  const key = pairKey(names);
+  const reversed = `${lastName(names[1])} + ${lastName(names[0])}`;
+  return EWING_2026_SENIOR_SCORES.findIndex((row) => row.pair === key || row.pair === reversed);
+}
+
+export function unusedSeniorScorePairs(teams: Array<{ division: string; names: [string, string] }>) {
+  const used = new Set(
+    teams
+      .filter((team) => team.division === "senior")
+      .flatMap((team) => [pairKey(team.names), `${lastName(team.names[1])} + ${lastName(team.names[0])}`]),
+  );
+  return EWING_2026_SENIOR_SCORES.filter((row) => !used.has(row.pair)).map((row) => row.pair);
 }

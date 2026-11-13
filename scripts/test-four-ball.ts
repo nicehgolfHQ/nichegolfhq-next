@@ -166,6 +166,30 @@ if (midAmBoard.map((row) => row.position).join(",") !== "1,2,T3,T3,5,T6,T6,T6,T9
 if (midAmBoard[5]?.names.join(" + ") !== "Jonathan Keane + Andrew Grice") throw new Error("T6 official order should start with Keane and Grice");
 
 const senior = EWING_SNAPSHOT.teams.filter((team) => team.division === "senior");
-if (senior.some((team) => team.score != null)) throw new Error("Senior scores were added to a mid-am-only update");
+if (senior.length !== 20) throw new Error(`Expected 20 senior teams, got ${senior.length}`);
+for (const team of senior) {
+  const score = team.score;
+  if (!score || score.rounds[0]?.status !== "complete" || score.rounds[0].strokes == null) {
+    throw new Error(`${team.names.join(" + ")} is missing a completed round 1`);
+  }
+  if (score.rounds[1]?.status !== "not_posted" || score.rounds[1].strokes != null) {
+    throw new Error(`${team.names.join(" + ")} has a posted round 2 before that round was played`);
+  }
+  if (score.rounds[2]?.status !== "not_posted" || score.rounds[2].strokes != null) {
+    throw new Error(`${team.names.join(" + ")} has a posted final round before that round was played`);
+  }
+  if (score.total !== score.rounds[0].strokes) throw new Error(`${team.names.join(" + ")} total does not match round 1`);
+}
+const seniorBoard = standings(senior, "senior");
+if (seniorBoard[0]?.names.join(" + ") !== "Kirk Johnson + Tray Tyner") throw new Error("Senior round 1 leader was not first");
+if (seniorBoard[0]?.position !== "1" || seniorBoard[0].rankNote !== "official") throw new Error("Senior round 1 leader place was not official");
+if (seniorBoard.some((row) => row.rankNote !== "official" || !row.position)) throw new Error("A senior team was missing its official place");
+if (seniorBoard.at(-1)?.names.join(" + ") !== "Mark Crisco + Rick Piersall" || seniorBoard.at(-1)?.position !== "20") {
+  throw new Error("Senior round 1 last place was not 20th");
+}
+if (seniorBoard.map((row) => row.position).join(",") !== "1,T2,T2,T2,T5,T5,7,T8,T8,10,T11,T11,T13,T13,T13,T16,T16,T18,T18,20") {
+  throw new Error("Senior round 1 official place order changed");
+}
+if (senior.some((team) => team.names.includes("Mike Felker"))) throw new Error("Mike Felker is still listed after the official substitution");
 
 console.log("four-ball tests ok");

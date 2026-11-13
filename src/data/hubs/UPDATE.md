@@ -21,8 +21,9 @@ For the Ewing Cup the current sources are on `EWING_SNAPSHOT` in `src/data/hubs/
 - https://www.golfgenius.com/pages/12440584370501201186 (public site / tee sheet)
 - https://www.golfgenius.com/pages/12440584375098158373 (tournament results)
 - Mid-amateur stroke-play results: the "Four-Ball Stroke Play - Mid-Amateur Division" board linked from that results page
+- Senior stroke-play results: the "Four-Ball Stroke Play - Senior Division" board linked from that results page
 
-Mid-amateur scores live in `src/data/hubs/ewing-2026-scores.ts`. Add Saturday and Sunday totals to the existing `rounds` tuples. Leave a round as `null` until it is posted. Do not fill a missing round with zero. Senior scores stay off this mid-am list.
+Mid-amateur and senior scores live in `src/data/hubs/ewing-2026-scores.ts`, in `EWING_2026_MIDAM_SCORES` and `EWING_2026_SENIOR_SCORES`. Add Saturday and Sunday totals to the existing `rounds` tuples. Leave a round as `null` until it is posted. Do not fill a missing round with zero. Keep mid-amateur and senior rows on their own lists.
 
 ## Status values
 
