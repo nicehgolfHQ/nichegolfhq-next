@@ -3076,7 +3076,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     slug: "ewing-cup-four-ball",
     name: "Ewing Cup Four-Ball",
     channel: "midam",
-    liveStatus: "next",
+    liveStatus: "live",
     logo: "/brand/midamgolfhq/Ewing Cup.jpeg",
     month: 11,
     dates2026: "November 13-15, 2026",
