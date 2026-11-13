@@ -1,13 +1,13 @@
 import type { FactSource, Player, PlayerAppearance, PlayerId } from "@/data/players/types";
 import { EWING_EVENT_SLUG } from "./ewing-event";
 
-/** When the supplied field PDF was received and entered. Separate from the scoring-page check. */
-export const EWING_FIELD_CHECKED_AT = "2026-11-07T19:14:00-06:00";
+/** When mid-amateur pairings were last confirmed. Separate from the scoring-page check. */
+export const EWING_FIELD_CHECKED_AT = "2026-11-13T15:28:00-06:00";
 
 export const EWING_FIELD_SOURCE: FactSource = {
   title: "2026 Ewing Cup Divisions / Flights / Teams",
   checkedAt: EWING_FIELD_CHECKED_AT,
-  established: "2026 Ewing Cup team sheet supplied to nichegolfHQ. Handicap figures on the sheet are not published.",
+  established: "2026 Ewing Cup mid-amateur pairings confirmed from the public Golf Genius tournament results and tee sheet. Senior pairings remain from the supplied team sheet. Handicap figures are not published.",
   kind: "supplied_document",
 };
 
@@ -23,7 +23,7 @@ export type FieldTeam = {
 
 const MID_AM: Array<[string, string]> = [
   ["Michael Samp", "Scott Kraul"],
-  ["Jordan Woolf", "Travis Woolf"],
+  ["Jordan Woolf", "Kendrick Vinar"],
   ["Ryan Zamorano", "Todd McCarroll"],
   ["Dan DePasquale", "Barrett Sandefur"],
   ["Tyler Palmer", "Steven Holtgrieve"],
@@ -44,13 +44,13 @@ const MID_AM: Array<[string, string]> = [
   ["James Minahan", "Charlie Holland"],
   ["Steve Paterson", "Austin Chung"],
   ["James Pagnam", "Ben Baxter"],
-  ["Ryder Espon", "Patrick Murphy"],
+  ["Ryder Espon", "Matt Kendrick"],
   ["Scott Roudebush", "Alex Gutesha"],
   ["Austen Christiansen", "Chris Minton"],
   ["Tyler Comerford", "Matt Lewis"],
-  ["Preston Fleenor", "Rhett Anderson"],
+  ["Preston Fleenor", "Alec Johnson"],
   ["Cade Govender", "Peter Adams"],
-  ["Andrew Seibert", "Cameron Starr"],
+  ["Ryan Munson", "Daniel Mitchell"],
   ["Marcus Jones", "Tate Oakley"],
   ["JJ Black", "Cameron Kirkpatrick"],
   ["Scott Winslett", "Will McDonald"],

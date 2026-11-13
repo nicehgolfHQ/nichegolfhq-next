@@ -2,10 +2,11 @@ import { PLAYERS, PLAYER_APPEARANCES } from "@/data/players/registry";
 import type { FactSource } from "@/data/players/types";
 import { auditScore, type FourBallScore } from "./four-ball";
 import { EWING_2026_TEAMS, EWING_FIELD_CHECKED_AT } from "./ewing-2026-field";
+import { midAmBoardIndex, midAmScoreFor, unusedMidAmScorePairs } from "./ewing-2026-scores";
 import { EWING_EVENT_SLUG } from "./ewing-event";
 
 /** When the public site was checked for a scoring link. Not the field-sheet time. */
-const SCORING_CHECKED_AT = "2026-11-07T19:04:00-06:00";
+const SCORING_CHECKED_AT = "2026-11-13T15:29:00-06:00";
 
 export { EWING_EVENT_SLUG };
 
@@ -24,7 +25,7 @@ export type PlannedRound = {
   detail: string;
   /** Reader-facing fact. Null when the only note is an internal caveat. */
   publicLine: string | null;
-  /** Course par when this site has it. Blue Course par is not in the verified record. */
+  /** Course par when this site has it. */
   par: number | null;
 };
 
@@ -41,7 +42,7 @@ export const EWING_SNAPSHOT = {
   scoringCheckedAt: SCORING_CHECKED_AT,
   fieldCheckedAt: EWING_FIELD_CHECKED_AT,
   fieldStatus: "posted" as const,
-  leaderboardStatus: "source_pending" as "source_pending" | "verified" | "source_unavailable",
+  leaderboardStatus: "verified" as "source_pending" | "verified" | "source_unavailable",
   /** Public scoring page. Null until a verified URL is recorded. */
   scoringUrl: "https://www.golfgenius.com/pages/12440584370501201186" as string | null,
   competitionStart: "2026-11-13",
@@ -54,19 +55,19 @@ export const EWING_SNAPSHOT = {
     { url: "https://www.ewingcup.com/entries", title: "Guessed entries path", outcome: "not_found" },
     { url: "https://www.ewingcup.com/scoring", title: "Guessed scoring path", outcome: "not_found" },
     { url: "https://www.ewingcup.com/leaderboard", title: "Guessed leaderboard path", outcome: "not_found" },
+    { url: "https://www.golfgenius.com/pages/12440584375098158373", title: "Golf Genius tournament results", outcome: "loaded" },
+    { url: "https://www.golfgenius.com/v2tournaments/12440584571592912099?called_from=widgets%2Ftournament_results&player_stats_for_portal=true&round_index=1", title: "Golf Genius mid-amateur round 1 results", outcome: "loaded" },
   ] satisfies SourceRead[],
-  missingInput: [
-    "No public scoring link was found on the pages checked. A later public leaderboard URL can be added here before any score is copied.",
-  ],
+  missingInput: [],
   rounds: [
     {
       id: "round-1",
       label: "Friday",
       date: "2026-11-13",
       course: "Blue Course",
-      detail: "Round 1. Tee times were still TBD on the official schedule.",
+      detail: "Round 1 on the Blue Course.",
       publicLine: null,
-      par: null,
+      par: 72,
     },
     {
       id: "round-2",
@@ -87,9 +88,14 @@ export const EWING_SNAPSHOT = {
       par: null,
     },
   ] satisfies PlannedRound[],
-  teams: EWING_2026_TEAMS.map((team) => ({
+  teams: [
+    ...EWING_2026_TEAMS.filter((team) => team.division === "mid-am").sort(
+      (left, right) => midAmBoardIndex(left.names) - midAmBoardIndex(right.names),
+    ),
+    ...EWING_2026_TEAMS.filter((team) => team.division === "senior"),
+  ].map((team) => ({
     ...team,
-    score: null as FourBallScore | null,
+    score: (team.division === "mid-am" ? midAmScoreFor(team.names) : null) as FourBallScore | null,
   })),
   officialChampions: [
     { year: 2025, division: "Mid Amateur", players: "Charlie Holland and James Minahan" },
@@ -134,6 +140,9 @@ export function verifyEwingSnapshot() {
     if (EWING_SNAPSHOT.leaderboardStatus !== "verified" && team.score != null) {
       problems.push(`Team ${team.id} has a score while the leaderboard is ${EWING_SNAPSHOT.leaderboardStatus}`);
     }
+    if (EWING_SNAPSHOT.leaderboardStatus === "verified" && team.division === "mid-am" && !team.score) {
+      problems.push(`Mid-am team ${team.id} is missing a verified score`);
+    }
     if (EWING_SNAPSHOT.leaderboardStatus === "verified" && team.score) {
       problems.push(...auditScore(team.score, EWING_SNAPSHOT.rounds.map((round) => round.par)));
     }
@@ -145,6 +154,8 @@ export function verifyEwingSnapshot() {
   const mid = EWING_SNAPSHOT.teams.filter((team) => team.division === "mid-am").length;
   const senior = EWING_SNAPSHOT.teams.filter((team) => team.division === "senior").length;
   if (mid !== 32 || senior !== 20) problems.push(`Team counts ${mid}/${senior}`);
+  const unused = unusedMidAmScorePairs(EWING_SNAPSHOT.teams);
+  if (unused.length) problems.push(`Unmatched mid-am scores: ${unused.join(", ")}`);
   const ewingRows = PLAYER_APPEARANCES.filter((row) => row.eventSlug === EWING_EVENT_SLUG);
   if (ewingRows.length !== EWING_SNAPSHOT.teams.length * 2) problems.push("Appearance count");
   const stollenwerck = PLAYERS.filter((player) => player.name.startsWith("John Stollenwerck"));

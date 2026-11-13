@@ -138,4 +138,34 @@ if (EWING_SNAPSHOT.leaderboardStatus === "source_pending" && EWING_SNAPSHOT.team
 }
 if (EWING_SNAPSHOT.teams.some((team) => team.names.includes("Fixture Alpha"))) throw new Error("Fixture names leaked into the live snapshot");
 
+const midAm = EWING_SNAPSHOT.teams.filter((team) => team.division === "mid-am");
+if (midAm.length !== 32) throw new Error(`Expected 32 mid-am teams, got ${midAm.length}`);
+for (const team of midAm) {
+  const score = team.score;
+  if (!score || score.rounds[0]?.status !== "complete" || score.rounds[0].strokes == null) {
+    throw new Error(`${team.names.join(" + ")} is missing a completed round 1`);
+  }
+  if (score.rounds[1]?.status !== "not_posted" || score.rounds[1].strokes != null) {
+    throw new Error(`${team.names.join(" + ")} has a posted round 2 before that round was played`);
+  }
+  if (score.rounds[2]?.status !== "not_posted" || score.rounds[2].strokes != null) {
+    throw new Error(`${team.names.join(" + ")} has a posted final round before that round was played`);
+  }
+  if (score.total !== score.rounds[0].strokes) throw new Error(`${team.names.join(" + ")} total does not match round 1`);
+}
+const midAmBoard = standings(midAm, "mid-am");
+if (midAmBoard[0]?.names.join(" + ") !== "Robbie Keyes + Michael Sass") throw new Error("Round 1 leader was not first");
+if (midAmBoard[0]?.position !== "1" || midAmBoard[0].rankNote !== "official") throw new Error("Round 1 leader place was not official");
+if (midAmBoard.some((row) => row.rankNote !== "official" || !row.position)) throw new Error("A mid-am team was missing its official place");
+if (midAmBoard.at(-1)?.names.join(" + ") !== "Marcus Jones + Tate Oakley" || midAmBoard.at(-1)?.position !== "32") {
+  throw new Error("Round 1 last place was not 32nd");
+}
+if (midAmBoard.map((row) => row.position).join(",") !== "1,2,T3,T3,5,T6,T6,T6,T9,T9,T9,T9,T9,T14,T14,T14,T14,T18,T18,T18,T18,T18,T23,T23,T23,T26,T26,28,T29,T29,T29,32") {
+  throw new Error("Round 1 official place order changed");
+}
+if (midAmBoard[5]?.names.join(" + ") !== "Jonathan Keane + Andrew Grice") throw new Error("T6 official order should start with Keane and Grice");
+
+const senior = EWING_SNAPSHOT.teams.filter((team) => team.division === "senior");
+if (senior.some((team) => team.score != null)) throw new Error("Senior scores were added to a mid-am-only update");
+
 console.log("four-ball tests ok");
