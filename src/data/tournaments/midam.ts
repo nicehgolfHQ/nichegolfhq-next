@@ -3096,6 +3096,20 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     ],
     news: [
       {
+        slug: "2026-ewing-cup-four-ball-round-1-recap",
+        title: "Keyes and Sass Post 62, Eagle the 8th to Lead the Ewing Cup Four-Ball",
+        date: "2026-11-13",
+        author: "midamgolfHQ Staff",
+        summary:
+          "Keyes and Sass posted a 10-under 62, including an eagle 2 on the 8th, to lead the Ewing Cup Four-Ball by one shot at Dallas Athletic Club.",
+        content: [
+          "Keyes and Sass opened the Ewing Cup Four-Ball with a 10-under 62 on the Blue Course at Dallas Athletic Club on Friday. Their round included an eagle 2 on the 8th, and they take a one-shot lead into the weekend. Beyond the lead, the pair has also qualified for next year's U.S. Amateur Four-Ball.",
+          "Randle and Verses are second after a 9-under 63. Cook and Rowen are tied for third with Dwyer and Jenkins at 7-under 65, and Atkinson and Hatter are alone in fifth after a 66.",
+          "Keane and Grice are tied for sixth with Woolf and Vinar and with Zamorano and McCarroll, each at 5-under 67. Defending champions Minahan and Holland are part of a five-team group at 4-under 68, six shots back. Two-time champions Collier and Hudelson opened with a 1-under 71.",
+          "The field moves to the Gold Course for Saturday's second round, then returns to the Blue Course for Sunday's final 18. Follow live scoring on the [Ewing Cup hub](https://www.nichegolfhq.com/midamgolfhq/ewing-cup-four-ball).",
+        ],
+      },
+      {
         slug: "2026-ewing-cup-four-ball-preview",
         title: "Ewing Cup Four-Ball Preview: Holland and Minahan Defend at Dallas Athletic Club With 32 Mid-Am Teams",
         date: "2026-11-10",
