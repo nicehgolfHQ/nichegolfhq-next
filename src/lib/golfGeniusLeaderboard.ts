@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
 import {
   AJGA_LEADERBOARD_REVALIDATE_SECONDS,
+  progressFromSource,
   type AjgaLeaderboard,
   type AjgaLeaderboardDivision,
   type AjgaLeaderboardRow,
@@ -139,8 +140,7 @@ export function parseGolfGeniusResults(html: string, label: string): AjgaLeaderb
       name,
       hometown: clean(nameCell.find(".affiliation").first().text()) || undefined,
       toPar: clean(cell("score").text()) || "-",
-      thru: clean(cell("past_round_thru").text()),
-      today: clean(cell("past_round_to_par").text()) || "-",
+      ...progressFromSource(clean(cell("past_round_thru").text()), clean(cell("past_round_to_par").text())),
       rounds: roundLabels.map((_, index) => rounds[index] ?? null),
       total: clean(cell("total").text()),
     });
@@ -211,8 +211,7 @@ export function parseGolfGeniusV2Event(event: V2Event, label: string): AjgaLeade
         name,
         hometown: clean(aggregate.affiliation) || undefined,
         toPar: clean(aggregate.score) || "-",
-        thru: current ? clean(current.thru) : "",
-        today: (current && clean(current.score)) || "-",
+        ...progressFromSource(current ? clean(current.thru) : "", current ? clean(current.score) : ""),
         rounds: roundLabels.map((roundLabel) => clean(byName.get(roundLabel)?.total) || null),
         total: clean(aggregate.total),
       });

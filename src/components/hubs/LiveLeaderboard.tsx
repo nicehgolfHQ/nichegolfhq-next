@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { AjgaLeaderboard, AjgaLeaderboardRow } from "@/lib/ajgaLeaderboard";
+import { teeTimeLabel, type AjgaLeaderboard, type AjgaLeaderboardRow } from "@/lib/ajgaLeaderboard";
 
 const PREVIEW_ROWS = 10;
 
@@ -122,8 +122,16 @@ function LeaderboardTable({ rows, roundLabels, caption }: { rows: AjgaLeaderboar
                 {row.hometown ? <span className="mt-1 block text-xs text-zinc-500">{row.hometown}</span> : null}
               </td>
               <td className="px-3 py-3"><ScoreToPar value={row.toPar} strong /></td>
-              <td className="whitespace-nowrap px-3 py-3 tabular-nums text-zinc-600">{row.thru}</td>
-              <td className="px-3 py-3"><ScoreToPar value={row.today} /></td>
+              {row.teeTime ? (
+                <td colSpan={2} className="whitespace-nowrap px-3 py-3 text-center text-zinc-500">
+                  {teeTimeLabel(row.teeTime)}
+                </td>
+              ) : (
+                <>
+                  <td className="whitespace-nowrap px-3 py-3 tabular-nums text-zinc-600">{row.thru}</td>
+                  <td className="px-3 py-3"><ScoreToPar value={row.today} /></td>
+                </>
+              )}
               {row.rounds.map((score, roundIndex) => (
                 <td key={roundIndex} className="px-3 py-3 tabular-nums">{score ?? ""}</td>
               ))}
@@ -232,7 +240,7 @@ export function LiveLeadersCard({
                 <li key={`${row.pos}-${row.name}-${index}`} className="flex items-center gap-3 py-2 text-sm">
                   <span className="w-8 shrink-0 font-semibold tabular-nums text-zinc-500">{row.pos}</span>
                   <span className="min-w-0 flex-1 truncate font-semibold">{row.name}</span>
-                  <span className="shrink-0 text-xs tabular-nums text-zinc-500">{row.thru}</span>
+                  <span className="shrink-0 text-xs tabular-nums text-zinc-500">{row.teeTime ? teeTimeLabel(row.teeTime) : row.thru}</span>
                   <span className="w-9 shrink-0 text-right"><ScoreToPar value={row.toPar} strong /></span>
                 </li>
               ))}

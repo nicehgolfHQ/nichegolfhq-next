@@ -16,10 +16,12 @@ export type AjgaLeaderboardRow = {
   hometown?: string;
   /** Total to par, e.g. "-8", "E", "+3". "-" when the source has none (WD). */
   toPar: string;
-  /** Holes completed today, "F", or the tee time when the round has not started. */
+  /** Holes completed today, or "F" when the round is finished. Empty when teeTime is set. */
   thru: string;
-  /** Today's score to par. "-" before the player tees off. */
+  /** Today's score to par, e.g. "E", "-2", "+1". Empty when teeTime is set. */
   today: string;
+  /** Tee time when the current round has not started, e.g. "10:12 AM". */
+  teeTime?: string;
   /** Gross round scores in round order. null where the source cell is blank. */
   rounds: Array<string | null>;
   total: string;
@@ -50,6 +52,28 @@ export function ajgaLeaderboardUrl(tournamentId: string) {
 
 function clean(text: string | undefined | null) {
   return (text ?? "").replace(/\s+/g, " ").trim();
+}
+
+/** "10:12 AM" or "9:36 AM*" — not hole counts ("1", "1*", "F"). */
+const TEE_TIME_RE = /^(\d{1,2}:\d{2}\s*[AaPp]\.?\s*[Mm]\.?)(\*?)$/;
+
+export function isTeeTime(value: string): boolean {
+  return TEE_TIME_RE.test(value.trim());
+}
+
+/** Display label for a not-yet-started tee time, e.g. "Tee 10:12 AM". */
+export function teeTimeLabel(value: string): string {
+  const match = value.trim().match(TEE_TIME_RE);
+  const time = (match ? match[1] : value).replace(/\s+/g, " ").trim();
+  return time ? `Tee ${time}` : "";
+}
+
+/** Split a source thru/today pair so tee times are not treated as holes completed. */
+export function progressFromSource(thruRaw: string, todayRaw: string): Pick<AjgaLeaderboardRow, "thru" | "today" | "teeTime"> {
+  if (isTeeTime(thruRaw)) {
+    return { thru: "", today: "", teeTime: thruRaw.replace(/\*+$/, "").replace(/\s+/g, " ").trim() };
+  }
+  return { thru: thruRaw, today: todayRaw || "-" };
 }
 
 export function parseAjgaLeaderboard(html: string): AjgaLeaderboardDivision[] {
@@ -89,8 +113,7 @@ export function parseAjgaLeaderboard(html: string): AjgaLeaderboardDivision[] {
         name,
         hometown: clean(nameCell.find(".affiliation").first().text()) || undefined,
         toPar: clean(cell("score").text()) || "-",
-        thru: clean(cell("past_round_thru").text()),
-        today: clean(cell("past_round_to_par").text()) || "-",
+        ...progressFromSource(clean(cell("past_round_thru").text()), clean(cell("past_round_to_par").text())),
         rounds: roundLabels.map((_, index) => rounds[index] ?? null),
         total: clean(cell("total").text()),
       });
