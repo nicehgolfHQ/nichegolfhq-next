@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteShell } from "@/components/SiteShell";
 import { listSeniorMajorsByMonth } from "@/lib/seniorMajors";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
+import { nextEditionLine } from "@/lib/nextEdition";
 
 export const metadata = {
   title: "Senior Majors — 2026 | seniorgolfHQ",
@@ -29,6 +30,7 @@ export default function SeniorMajorsIndexPage() {
               <div className="mt-4 divide-y divide-zinc-200/70">
                 {m.events.map((e) => {
                   const datesLabel = resolveDatesLabel(e.startDate, e.endDate, e.dates2026);
+                  const nextLine = nextEditionLine("senior", e.slug, e.startDate);
                   return (
                     <Link key={e.slug} href={`/seniorgolfhq/${e.slug}`} className="block px-1 transition hover:bg-zinc-50">
                       <div className="py-3">
@@ -43,6 +45,7 @@ export default function SeniorMajorsIndexPage() {
                         {datesLabel ? (
                           <div className="mt-1 text-xs font-semibold text-zinc-700">{datesLabel}</div>
                         ) : null}
+                        {nextLine ? <div className="mt-1 text-xs text-zinc-500">{nextLine}</div> : null}
                         {e.note ? <div className="mt-1 text-xs text-zinc-600">{e.note}</div> : null}
                       </div>
                     </Link>

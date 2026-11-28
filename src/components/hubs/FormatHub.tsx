@@ -11,6 +11,7 @@ import type { AjgaLeaderboard } from "@/lib/ajgaLeaderboard";
 import { resultSnapshot, scopeLabel, snapshotNames, type ResultSnapshot, type StrokeSnapshot } from "@/data/hubs/batch1-results";
 import { championLabel, classifyCalendar, classifyFormat, resultsTabLabel, strokeRoundCount, type HubChannel } from "@/data/hubs/inventory";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
+import { nextEditionLine } from "@/lib/nextEdition";
 import type { Tournament } from "@/lib/tournaments/types";
 
 const CHANNEL_LABEL: Record<HubChannel, string> = {
@@ -89,6 +90,7 @@ export function FormatHub({
   );
   const [division, setDivision] = useState(0);
   const dates = resolveDatesLabel(tournament.startDate, tournament.endDate, tournament.dates2026 ?? tournament.typicalDates);
+  const nextEdition = nextEditionLine(channel, tournament.slug, tournament.startDate);
   const place = tournament.venueStatus === "unconfirmed"
     ? "Venue unconfirmed"
     : [tournament.course, tournament.location].filter(Boolean).join(" · ");
@@ -106,6 +108,7 @@ export function FormatHub({
         </h1>
         {place ? <p className="mx-auto mt-2 max-w-2xl text-balance text-base text-zinc-600">{place}</p> : null}
         {dates ? <p className="mt-1 text-base font-semibold text-zinc-900">{dates}</p> : null}
+        {nextEdition ? <p className="mt-1 text-sm text-zinc-500">{nextEdition}</p> : null}
         <div className="mt-3 flex flex-wrap justify-center gap-2">
           <ScoringAccess tournament={tournament} onShowLive={live && !live.final ? showLiveScoring : undefined} />
           {tournament.golfGeniusUrl && tournament.tournamentWebsite ? (

@@ -142,7 +142,7 @@ export const MIDAM_TOURNAMENTS: Tournament[] = [
     startDate: "2026-03-13",
     endDate: "2026-03-15",
     course: "The Lakewood Club",
-    location: "Fairhope, AL",
+    location: "Point Clear, AL",
     coursePar: 72,
     courseYardage: 7202,
     courseRating: 72.5,

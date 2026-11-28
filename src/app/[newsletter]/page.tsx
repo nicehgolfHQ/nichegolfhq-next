@@ -13,6 +13,7 @@ import { LatestNewsSection } from "@/components/tournaments/LatestNews";
 import { JUNIOR_MAJOR_EVENTS_2026 , listLiveJuniorTournaments} from "@/lib/juniorMajors";
 import { SENIOR_MAJOR_EVENTS_2026 , listLiveSeniorTournaments} from "@/lib/seniorMajors";
 import { resolveDatesLabel } from "@/lib/tournaments/dates";
+import { nextEditionLine, type NextEditionChannel } from "@/lib/nextEdition";
 import type { Metadata } from "next";
 import type { Tournament } from "@/lib/tournaments/types";
 
@@ -266,6 +267,7 @@ export default async function NewsletterPage({
                         <div className="space-y-2">
                           {tournamentsByMonth[month]!.map((t) => {
                             const datesLabel = resolveDatesLabel(t.startDate, t.endDate, t.dates2026);
+                            const nextLine = t.channel ? nextEditionLine(t.channel as NextEditionChannel, t.slug, t.startDate) : null;
                             return (
                               <Link
                                 key={t.slug}
@@ -284,6 +286,7 @@ export default async function NewsletterPage({
                                       {[t.course, t.location].filter(Boolean).join(" \u2022 ")}
                                     </div>
                                   ) : null}
+                                  {nextLine ? <div className="mt-0.5 text-xs text-white/50">{nextLine}</div> : null}
                                 </div>
                                 <div className="shrink-0 text-sm text-white/30 transition group-hover/evt:translate-x-0.5 group-hover/evt:text-white/60" aria-hidden>
                                   &rarr;
